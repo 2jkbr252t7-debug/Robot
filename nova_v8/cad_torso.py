@@ -57,7 +57,7 @@ Internals (internal=True)
        blocks; 4 ears screwed into T01 (the rear shell carries nothing -> removable).
   T08  STS3215 cradle on T04 (3x M2 from below).  T09 hold-down strap.  N03 / N04 1:1 pan gears 20T m1.  M21 6806,
   M22  6805.  M23 4 Ø5 N52 magnets (T02 latch).  E21 STS3215 (spline down), E21H its horn.  E22 arm micro servos +
-  E22H horns.  E23 pan micro servo + E23H.  E24 controller ESP32-C3 SuperMini + DRV8833 (behind T02).  E25 front
+  E22H horns.  E23 pan micro servo + E23H.  E24 controller ESP32-C3 SuperMini + MP1584 5 V + bus driver (spec v8.1 review 2; behind T02).  E25 front
   board: 5x WS2812B-2020 + VL53L0X + ALS behind T05.   (cad_internals.py holds the detailed versions of the bought
   parts E21..E25/M21/M22 -> render with "exclude" = its SUPERSEDED list.)
 """
@@ -792,6 +792,7 @@ def controller_e24():
         bx(xs + 1.0, xs + 21.5, y1 - 0.01, y1 + 2.5, PCB["z0"] + 15.0, PCB["z0"] + 17.5)
     chip = bx(xs + 7.0, xs + 16.0, y1 + 3.49, y1 + 4.3, PCB["z0"] + 5.0, PCB["z0"] + 13.0)
     usb = bx(xs - 0.9, xs + 6.5, y1 + 3.49, y1 + 6.7, PCB["z0"] + 5.5, PCB["z0"] + 14.5)
+    # MP1584 5 V buck module + bus driver (v8.0: DRV8833 - the motors moved to the base node, spec review 2)
     drv = bx(-23.5, -5.5, y1 + 2.5, y1 + 3.5, PCB["z0"] + 1.0, PCB["z0"] + 17.0) + \
         bx(-22.5, -6.5, y1 - 0.01, y1 + 2.5, PCB["z0"] + 1.5, PCB["z0"] + 4.0) + \
         bx(-17.5, -11.5, y1 + 3.49, y1 + 4.5, PCB["z0"] + 6.0, PCB["z0"] + 12.0)
@@ -1052,7 +1053,7 @@ def build():
     add("E23", "Servo otáčania hlavy MG90S", pan, "servo", "torso", "J1", (0, 14, 0), True,
         note="v koľajniciach T07, ozubený prevod 1:1 na krk")
     add("E23H", "Ramienko pan serva", pan_horn_e23h(), "white", "torso", "J1", (0, 14, 6), True)
-    add("E24", "Riadiaca DPS (ESP32-C3 SuperMini + DRV8833)", controller_e24(), "pcb", "torso", "J1", (0, 18, 0),
+    add("E24", "Riadiaca DPS (ESP32-C3 SuperMini + MP1584 5 V + budič zbernice)", controller_e24(), "pcb", "torso", "J1", (0, 18, 0),
         True, note="48×18.5 v drážkach T08, prístup po vysunutí zadného krytu T02")
     add("E25", "Predná DPS (5× WS2812B-2020 + VL53L0X + ALS)", front_board_e25(), "pcb", "torso", "J1",
         (0, -14, 0), True, note="na 2 nálitkoch T01, všetko za jedným dymovým oknom T05")

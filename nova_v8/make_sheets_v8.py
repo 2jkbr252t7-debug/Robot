@@ -232,7 +232,7 @@ def sheet_hero_v8(q, recs):
 
 
 def sheet_kin_v8(q, recs):
-    ISO = {"name": "k", "loc": [420, -600, 330], "target": [0, 0, 100], "lens": 62}
+    ISO = {"name": "k", "loc": [420, -600, 330], "target": [0, 0, 100], "lens": 112}
     SIDE = {"name": "k", "loc": [-700, 0, 105], "target": [0, 0, 105], "ortho": True, "ortho_scale": 245}
     FRONT = {"name": "k", "loc": [0, -700, 110], "target": [0, 0, 110], "ortho": True, "ortho_scale": 270}
     poses = [
