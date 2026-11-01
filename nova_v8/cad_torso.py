@@ -484,6 +484,7 @@ def sts3215_local():
         c = c - ring
     c = c + cyl_z(0, 0, 5.0, -0.01, 1.5)                     # output boss (spline inside the horn)
     c = c + cyl_z(0, 0, 2.95, 1.49, 1.6)
+    c = c - cyl_z(0, 0, 1.5, -6.0, 1.7)                      # M3 centre thread of the output (axial screw IT03)
     c = c + bx(YS_X0 - 2.0, YS_X0 + 0.01, -3.0, 3.0, -YS_H + 2.0, -YS_H + 7.0)   # cable exit (shaft end, top)
     return c
 
@@ -987,7 +988,8 @@ def build():
         note="Ø77×2.5 + puzdro vonkajšieho krúžku 6806 (Ø42, osadenie Ø38.6 len na vonkajší krúžok), 6× M2 "
              "zápustné zospodu (hlavy 0.2 pod povrchom), 7 vetracích štrbín zospodu, 2 magnety západky T02")
     add("T05", "Dymové okno hrude (dead-front)", window_t05(), "glass", "torso", "J1", (0, -25, 0),
-        note="34×5 dymový PC/PMMA zarovno s povrchom, príruba za stenou; za ním LED pás + ToF + senzor svetla")
+        note="34×5 dymový PMMA prepúšťajúci IR (940 nm pre VL53L0X), zarovno s povrchom, príruba za stenou; za ním "
+             "LED pás + ToF + senzor svetla (zhasnuté = čierny lesklý pás)")
     add("T06", "Svit LED pásu cez dymové okno", glow_t06(), "cyan_led", "torso", "J1", (0, -25, 0),
         note="LEN VIZUALIZÁCIA: tyrkysový svetelný pás 24×1.6 svietiaci cez T05 (zhasnutý = neviditeľný)")
     print(f"  torso shells {time.time() - t0:.1f}s")
