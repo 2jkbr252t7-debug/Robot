@@ -1,10 +1,12 @@
 """
 NOVA mini v8.1 - HEAD variant A+ "A s jemne zakriveným sklom" (curved R180 cover), manifest "head_aplus".
-Run from the repo root:   /opt/venv/cad/bin/python -m nova_v8.cad_head_aplus [--check] [--pose] [--quick]
+Run from the repo root:   /opt/venv/cad/bin/python -m nova_v8.cad_head_aplus [--check] [--pose] [--full]
+(--check / --pose test the A+ front against the other v8 modules; --full also re-tests the head A parts)
 Exports STEP (first) + STL + manifest into build_v8_var_aplus/ (never build/ or build_v8/), plus
 build_v8_var_aplus/blank/ : HP04F_prirez.svg (1:1 blank + vinyl mask + mould rib template), HP04F_prirez.dxf
 (laser outline of the flat blank), HP04M_maska.dxf (plotter outline of the inner black mask) and
-HP04_forma_rebro.dxf (laser outline of one MDF mould rib).
+HP04_forma_rebro.dxf (laser outline of one MDF mould rib); the same 4 files are mirrored into nova_v8/sklo/ (the
+versioned copy that nova_v8/export_v8.py packs).
 
 A+ = the CURRENT v8.1 head A (nova_v8/cad_head.py, imported: shell, ears, tilt drive, display bracket, hidden
 retention and the board position follow head A automatically) with ONLY the front bezel + cover replaced:
@@ -30,17 +32,19 @@ Curved cover (local constants of this variant):
   on a FLAT seat (y -36.1) that the bezel forms between the curved cover seat and the board: a wedge, 5 mm thick on
   the top/bottom bands at the centre line.  At the board sides (|x| > 39.5) the wedge would get thinner than 0.6 ->
   it is relieved there and the cover passes the LCD edge with 0.6 clearance; the cover is bonded (VHB 0.2) on the
-  curved seat R177.8 on the top/bottom bands and outside the board pocket (|x| 43.3 .. 46.3).
+  curved seat R177.8 on the top/bottom bands and outside the board pocket (|x| 43.3 .. 45.9).
   This sets the cover position: apex y -43.35, bezel face apex y -43.65 -> the black frame protrudes 10.65 mm from
   the white rim at the centre line and 3.4 mm at the sides.  Air gap cover -> LCD: 5.75 at the centre, 1.9 at the
   active-area edge, 0.6 at the LCD edge -> the board's capacitive touch does NOT work through the A+ cover
   (head A: laminated, touch works) - the face is display-only (voice / app interaction).
+  Tilt group (J3) 181 g, CG 14.7 ahead of / 26.7 above the tilt axis -> max 0.42 kg.cm on the MG90S over +-20 deg
+  (head A 0.40; MG90S stall ~1.8 kg.cm).
 
 Parts (sub "head_aplus"; J3 = head tilt about X through y 0 z 127, J2 = pan stage)
   HP01     Hlavny obal hlavy          white     = head A H01 (one piece, barrel pocket, tilt-servo rails, pivot
                                                 bosses, ear cups, magnet blocks, underside screw pads, hidden vents)
   HP03     Predny ram (zakriveny)     black     101 x 69 R23.5, face = cylinder R180.3, curved cover seat + wedge
-                                                board seat, window 74.9 x 50.5, closed-seam skirt 101.7 x 69.7 into
+                                                board seat, window 75.4 x 51.0, closed-seam skirt 101.7 x 69.7 into
                                                 HP01 (head A), 3 bosses for HP07
   HP04     Kryci sklo (zakrivene)     glass     smoked cast PMMA 2.0, R180/R178, radial edges (= bent laser blank)
   HP04E    Obsah displeja - oci       eye       RENDER-ONLY pills 10.5 x 17.5 on the cover curvature
@@ -95,6 +99,7 @@ from nova_v8 import cad_head as HA  # noqa: E402  (v8.1 head A: shell, ears, til
 from nova_v8 import spec as S  # noqa: E402
 
 OUT_DIR = os.path.join(ROOT, "build_v8_var_aplus")
+SKLO_DIR = os.path.join(ROOT, "nova_v8", "sklo")   # versioned copy packed by nova_v8/export_v8.py (HP04* only)
 SUB = "head_aplus"
 MANIFEST = "head_aplus"
 J = "J3"
@@ -257,7 +262,10 @@ def bezel():
     # board pocket behind the flat seat (board + 0.3), side relief where the wedge would be < 0.6
     pk = (DSP_W + 2 * DSP_CLR, DSP_H + 2 * DSP_CLR, DSP_R + DSP_CLR)
     b = retry(lambda: b - rr_prism_y(*pk, Y_SEAT, SKIRT_END + 1.0, cz=DSP_ZC), "HP03 board pocket")
-    rel = rr_prism_y(*pk, Y_FACE_APEX - 3.0, Y_SEAT + 0.01, cz=DSP_ZC) & \
+    # (only UNDER the cover: radially behind the curved seat and inside the cover outline - at the 4 corners the
+    #  board pocket reaches outside the R16 cover corners, where the black frame face must stay closed)
+    seat_zone = radial_patch(R_SEAT - 10.0, R_SEAT + 0.01, BLANK_W + 2 * CLR, BLANK_H + 2 * CLR, BLANK_R + CLR)
+    rel = rr_prism_y(*pk, Y_FACE_APEX - 3.0, Y_SEAT + 0.01, cz=DSP_ZC) & seat_zone & \
         union([bx(sx * X_REL, sx * (X_PK + 1.0), Y_FACE_APEX - 4.0, Y_SEAT + 1.0, ZC - 40, ZC + 40) for sx in (1, -1)])
     b = retry(lambda: b - rel, "HP03 side relief")
     # window through the wedge (0.5 outside the mask window -> hidden behind the mask)
@@ -424,7 +432,7 @@ def write_blank_files(out_dir):
     a(f'<text x="{mx}" y="{my + mh + 5}" font-size="2.5">rozvinuté na vnútornom povrchu R{R_IN:.0f}: {mw:.1f} × {mh:.1f} R{mr:.1f} '
       f'(o {MASK_INSET} menšie po obvode) – nalepiť až PO ohnutí</text>')
     # --- mould rib template ---
-    fx, fy = 14.0, 118.0
+    fx, fy = 14.0, 124.0
     base = fy + MOULD_SIDE + mould_sag + 6
     a(f'<text x="{fx}" y="{fy - 4}" font-size="3.4" font-weight="bold">3  Šablóna rebra formy 1:1 – MDF {MOULD_T:.0f} mm, '
       f'{MOULD_RIBS} ks zlepiť (blok {MOULD_RIBS * MOULD_T:.0f} mm)</text>')
@@ -511,6 +519,11 @@ def write_blank_files(out_dir):
         dxfs.append(p)
     except Exception as ex:  # pragma: no cover
         print("  (DXF export skipped:", ex, ")")
+    # keep the versioned copy that nova_v8/export_v8.py packs into sklo/ in step (only this variant's HP04* files)
+    if os.path.isdir(SKLO_DIR):
+        import shutil
+        for f in [svg] + dxfs:
+            shutil.copy2(f, os.path.join(SKLO_DIR, os.path.basename(f)))
     return svg, dxfs
 
 
@@ -612,24 +625,31 @@ def others():
     return HA.other_parts(False)
 
 
-def pose_sweep(parts, oth, full_j2=True):
-    """Head-frame check (head A convention): J2 parts rotate by -tilt, J1 parts by -pan then -tilt."""
+NEW_PARTS = ("HP03", "HP04", "HP04E", "HP04C", "HP04F")     # the only geometry that differs from head A
+PAN_STEPS = (-90, -67.5, -45, -22.5, 0, 22.5, 45, 67.5, 90)
+
+
+def pose_sweep(parts, oth, full=True):
+    """Head-frame check (head A convention): J2 parts rotate by -tilt, J1 parts by -pan then -tilt.
+    full=False checks only the A+ front (HP03 / HP04) against the torso / collar / arm rings - the rest is head A."""
     head = [p for p in parts if p.joint == "J3" and p.id not in RENDER_ONLY]
-    head_out = [p for p in parts if p.id in ("HP01", "HP03", "HP04", "HP05-R", "HP05-L", "MP33-R", "MP33-L")]
+    outer = ("HP01", "HP03", "HP04", "HP05-R", "HP05-L", "MP33-R", "MP33-L") if full else ("HP03", "HP04")
+    head_out = [p for p in parts if p.id in outer]
     j2 = [p for p in parts + oth if p.joint == "J2"]
     j1 = [p for p in oth if p.joint == "J1" and not p.internal and p.shape.bounding_box().max.Z > 99.0]
     gear_pair = {("HP11", "HP09"), ("HP09", "HP11")}
     servo_axis = Axis((0, HA.TILT_Y, HA.SERVO_Z), (1, 0, 0))
     res = []
-    for th in ((-20, -10, 0, 10, 20) if full_j2 else (-20, 20)):
-        for q in j2:
-            qs = q.shape.rotate(HA.TILT_AXIS, -th)
-            for h in head:
-                hs = h.shape.rotate(servo_axis, th) if (h.id, q.id) in gear_pair else h.shape
-                v = HA.common_vol(hs, qs)
-                if v > 0.5 or v < 0:
-                    res.append((f"tilt {th}", h.id, q.id, round(v, 2)))
-        for ph in ((-90, -67.5, -45, -22.5, 0, 22.5, 45, 67.5, 90) if abs(th) == 20 else ()):
+    for th in (-20, -10, 0, 10, 20):
+        if full:
+            for q in j2:
+                qs = q.shape.rotate(HA.TILT_AXIS, -th)
+                for h in head:
+                    hs = h.shape.rotate(servo_axis, th) if (h.id, q.id) in gear_pair else h.shape
+                    v = HA.common_vol(hs, qs)
+                    if v > 0.5 or v < 0:
+                        res.append((f"tilt {th}", h.id, q.id, round(v, 2)))
+        for ph in (PAN_STEPS if (abs(th) == 20 or not full) else ()):
             for q in j1:
                 qs = q.shape.rotate(Axis.Z, -ph).rotate(HA.TILT_AXIS, -th)
                 for h in head_out:
@@ -639,23 +659,40 @@ def pose_sweep(parts, oth, full_j2=True):
     return res
 
 
-def min_gaps(parts, oth):
-    """Smallest distances of the curved front (HP03 / HP04) and HP01 to the neck / torso / arms over tilt +-20 /
-    pan 0, +-45, +-90 (head frame)."""
+def bb_gap(a, b):
+    """Lower bound of the distance between two shapes from their axis-aligned boxes."""
+    d = [max(0.0, b.min.X - a.max.X, a.min.X - b.max.X), max(0.0, b.min.Y - a.max.Y, a.min.Y - b.max.Y),
+         max(0.0, b.min.Z - a.max.Z, a.min.Z - b.max.Z)]
+    return math.sqrt(sum(v * v for v in d))
+
+
+def min_gaps(parts, oth, ids=("HP03", "HP04"), far=10.0):
+    """Smallest distances of the curved front (HP03 / HP04; + HP01 with --full) to the collar / torso / arm rings
+    over tilt -20..+20 and pan -90..+90 (head frame).  Exact distance only where the box bound can beat the best so
+    far; pairs that never come closer than `far` are reported as '>far'.  Returns {pair: (gap mm, (tilt, pan))}."""
     out = {}
-    mine = {p.id: p.shape for p in parts if p.id in ("HP01", "HP03", "HP04")}
+    mine = {p.id: p.shape for p in parts if p.id in ids}
     for q in oth:
         if q.internal or q.joint != "J1" or q.shape.bounding_box().max.Z < 95.0:
             continue
+        poses = []
+        for th in (-20, -10, 0, 10, 20):
+            for ph in PAN_STEPS:
+                poses.append(((th, ph), q.shape.rotate(Axis.Z, -ph).rotate(HA.TILT_AXIS, -th)))
         for hid, hs in mine.items():
-            best, at = 1e9, None
-            for th in (-20, 0, 20):
-                for ph in (-90, -45, 0, 45, 90):
-                    qs = q.shape.rotate(Axis.Z, -ph).rotate(HA.TILT_AXIS, -th)
-                    dd = hs.distance_to(qs)
-                    if dd < best:
-                        best, at = dd, (th, ph)
-            out[f"{hid}-{q.id}"] = (round(best, 2), at)
+            hb = hs.bounding_box()
+            cand = sorted(((bb_gap(hb, qs.bounding_box()), at, qs) for at, qs in poses), key=lambda t: t[0])
+            if cand[0][0] > far:
+                out[f"{hid}-{q.id}"] = (f">{far:g}", None)
+                continue
+            best, at_best = 1e9, None
+            for g0, at, qs in cand:
+                if g0 >= best:
+                    break
+                dd = hs.distance_to(qs)
+                if dd < best:
+                    best, at_best = dd, at
+            out[f"{hid}-{q.id}"] = (round(best, 2), at_best)
     return out
 
 
@@ -732,11 +769,15 @@ if __name__ == "__main__":
     svg, dxfs = write_blank_files(OUT_DIR)
     print("  blank files:", svg, dxfs)
     if "--check" in sys.argv or "--pose" in sys.argv:
+        full = "--full" in sys.argv          # HP01/ears/drive = head A parts (checked in nova_v8/cad_head.py)
         oth = others()
         print(f"  loaded {len(oth)} parts of other modules")
         if "--check" in sys.argv:
-            print("  interference (with others):", HA.interference(ps, oth, skip=FITS | DUPES) or "none")
-            print("  min gaps over tilt +-20 / pan +-90:", min_gaps(ps, oth))
+            mine = ps if full else [p for p in ps if p.id in NEW_PARTS]
+            print(f"  interference ({'all' if full else 'A+ front'} with others):",
+                  HA.interference(mine, oth, skip=FITS | DUPES) or "none")
+            print("  min gaps over tilt +-20 / pan +-90:",
+                  min_gaps(ps, oth, ("HP01", "HP03", "HP04") if full else ("HP03", "HP04")))
         if "--pose" in sys.argv:
-            print("  pose sweep:", pose_sweep(ps, oth, full_j2="--quick" not in sys.argv) or "none")
+            print("  pose sweep:", pose_sweep(ps, oth, full=full) or "none")
     print(f"[{MANIFEST}] {len(recs)} parts in {time.time() - t0:.1f}s -> {OUT_DIR}")

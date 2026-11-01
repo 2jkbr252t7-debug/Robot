@@ -34,7 +34,12 @@ v8.1 – "MODERNÝ, NIČ NEVIDNO" (user, 2026-11-01): supersedes v8.0 wherever t
     that lights the desk (very modern, also a status light).  No base front LED, no rear openings.
   * NO VISIBLE SCREWS anywhere; seams only where parts really split, 0.4–0.6 mm, aligned.
   * TORSO: chest = ONE smoked "dead-front" strip (LED + ToF/light sensor behind the same dark window),
-    rear door flush with a hidden magnetic latch, all vents on the underside / hidden in seams.
+    rear = the WHOLE rear half shell T02 as a tool-free service cover (snap tongues + 2 hidden N52 magnet pairs,
+    one y=0 parting line behind the arms – no door seam), all vents on the underside / hidden in seams.
+  * HEAD A: one-piece H01 (no back cover), smoked glass laminated to the LCD with 0.2 mm OCA (touch works),
+    tilt servo beside the barrel pocket driving a 1:1 gear pair, passive M3 pivots on the tilt axis.
+  * Firmware soft limit: arm > 135° while the head is pitched down and panned towards that arm can touch the
+    lower bezel corner -> limit the arm to 135° in that combination.
   * Speaker grille = fine micro-perforation on the base underside rim (invisible from the side).
   * All three head variants are built on this body: A (flat glass), A+ (curved R180), B (frameless visor R100).
   * v8.1 review 2 (internals): BASE NODE – STM32G030 + DRV8833 + 5 V buck on the base board IB09-2, a slave on

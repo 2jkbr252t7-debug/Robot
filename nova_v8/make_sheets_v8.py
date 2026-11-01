@@ -461,7 +461,8 @@ def main():
                                      subtitle=f"N01 golier · N02 kužeľ · N06 valec náklonu · os náklonu z = {S8.NECK['tilt_axis']['z']:.0f}"
                                               " · s ložiskom 6805, servom otáčania IN01 (modré) a ozubením náklonu 1:1"),
                 lambda: MS.sheet_six("11_NOVA_mini_trup", "NOVA mini / TRUP", ext("torso"), q, recs,
-                                     subtitle=f"T01–T05 · {T['w']:.0f} × {T['d']:.0f} × {T['z1'] - T['z0']:.0f} mm · dymový pás hrude · dvierka na magnetoch"),
+                                     subtitle=f"{T['w']:.0f} × {T['d']:.0f} × {T['z1'] - T['z0']:.0f} mm · T01 predná škrupina · T02 zadná škrupina = servisný kryt"
+                                              " na skrytých magnetoch · T04 otočný tanier · T05 dymový pás hrude"),
                 lambda: MS.sheet_matrix("12_NOVA_mini_diely_trupu", "NOVA mini / DIELY TRUPU A KRKU",
                                         auto_rows(recs, ("torso", "neck"), skip=("T06",), attach={"T05": ["T06"]},
                                                   short={"T05": "dymový akrylát 2 mm, LED + ToF za oknom"}),

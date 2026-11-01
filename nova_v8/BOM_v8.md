@@ -78,7 +78,8 @@ riadi servo náklonu priamo ESP32-S3 (1 pin UART), pri MG90S 1 pin PWM.
 |---|---|---|---|
 | Skrutky M2 / M2.5 / M3 (samorezné do PETG + DIN 912; vrátane **M3×20** zospodu do drážkovania STS3215 = IT03), sada | `M2 M2.5 M3 screw kit` | 1 | 4 |
 | Neodýmové magnety N52 **Ø5 × 2** (skrytá západka zadných dvierok trupu, 4 ks) a **Ø6 × 3** (predný modul hlavy, 4 ks) | `N52 magnet 5x2mm` / `N52 magnet 6x3mm` | 8 | 2.5 |
-| Obojstranná páska VHB 0.5 mm (sklo hlavy, dymový pás) | `3M VHB 4910 tape` | 1 | 2 |
+| Optická lepiaca fólia **OCA 0.2 mm** pre 3.5" panel – dymové sklo sa laminuje priamo na displej (funguje dotyk, bez dvojitého odrazu); pri slabom dotyku cez 2 mm PMMA použi sklo 1.5 mm | `OCA optical clear adhesive 3.5 inch` | 1 bal. | 2 |
+| Obojstranná páska VHB 0.5 mm (okraj skla hlavy v ráme, dymový pás na hrudi) | `3M VHB 4910 tape` | 1 | 2 |
 | Dymový akrylát 2 mm (pás na hrudi „dead-front“) + opálový PMMA/PETG pre prstenec podsvietenia | `smoked acrylic sheet 2mm` | 1 | 3 |
 
 ## 6. Súčet (orientačne)
@@ -93,7 +94,9 @@ Revízia 2 zvýšila súčet asi o 15 €: DPS základne sa objednávajú osaden
 a „extended“ diely). Nahrádzajú IP2326/BMS/DRV8833 moduly a hlavne umožňujú, aby cez otočný kĺb J1 išlo len
 6 vodičov (inak sa kábel pri ±150° nedá vedenie urobiť spoľahlivo).
 
-Ceny bez filamentu (PETG biely + čierny ~0.6 kg ≈ 12 €, TPU 85A ~50 g) a bez doku.
+Ceny bez filamentu (PETG biely + čierny ~0.6 kg ≈ 12 €, TPU 85A ~50 g) a bez doku. OCA fólia pridáva ~2 €.
+
+**Firmvér – mäkké limity:** ruka zdvihnutá nad 135° môže zavadiť o spodný roh rámu hlavy, keď je hlava zároveň sklonená dole (−10 až −20°) a natočená 20–50° k tej ruke. Pri takej kombinácii obmedz rameno na 135° (pri natočení hlavy 45° stačí 165°). Trup J1 drž v rozsahu ±150° (valivá slučka kábla).
 
 ## 7. Zapojenie a rozpis pinov (v8.1, revízia 2)
 
