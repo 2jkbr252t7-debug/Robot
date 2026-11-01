@@ -117,7 +117,7 @@ DSP_W, DSP_H, DSP_T = DSP["outline"]                             # 86 x 56 x 6
 # ============================================================================================
 # local construction constants
 # ============================================================================================
-FRONT_GAP = (W - BZ["w"]) / 2 - WALL           # 0.5 gap H03 <-> H01 opening (wall 2.0) = the only visible seam
+FRONT_GAP = (W - BZ["w"]) / 2 - WALL           # 0.5 seam H03 face <-> H01 opening (wall 2.0) = the only visible split
 R_RIM = 1.6                 # round on the outer edge of the white front rim
 
 # --- front stack (along Y) -------------------------------------------------------------------
@@ -126,31 +126,36 @@ BZ_FRONT_FILLET = 2.4
 GLASS_T, GLASS_RECESS, GLASS_CLR, PSA = 2.0, 0.2, 0.15, 0.1    # v8.1: 0.2 under the bezel face (reads flush)
 Y_GL_FRONT = Y_BZ_FRONT + GLASS_RECESS         # -37.8
 Y_GL_BACK = Y_GL_FRONT + GLASS_T               # -35.8
-Y_LEDGE0 = Y_GL_BACK + PSA                     # -35.7
-LEDGE_T = 1.4
-Y_LEDGE1 = Y_LEDGE0 + LEDGE_T                  # -34.3
+Y_LEDGE0 = Y_GL_BACK + PSA                     # -35.7 glass seat (bands outside the LCD only)
 GZ = GL["zc"]                                  # 154
-PRINT_TOP, PRINT_SIDE = GL["print_top"], 4.0   # black mask widths on the glass
-WIN_W = GL["w"] - 2 * PRINT_SIDE               # 84 visible window
-WIN_Z0, WIN_Z1 = GZ - GL["h"] / 2 + PRINT_SIDE, GZ + GL["h"] / 2 - PRINT_TOP   # 128 .. 177
-WIN_ZC = (WIN_Z0 + WIN_Z1) / 2                 # 152.5
-LEDGE_OPEN = (WIN_W + 1.0, WIN_Z1 - WIN_Z0 + 1.0, 10.0)     # 85 x 50 R10 (hidden behind the mask)
-FOAM = 0.5
-Y_DSP0 = Y_LEDGE1 + FOAM                       # -33.8 LCD front
-Y_DSP1 = Y_DSP0 + DSP_T                        # -27.8 board back (components)
+# v8.1 review: the LCD is LAMINATED to the glass (0.2 OCA film) - no ledge / air gap between them:
+#   capacitive touch works through the 2 mm cover, no parallax, no double reflection, the face reads as printed on
+#   the glass.  The bezel seat is a band only where the glass is larger than the board (2.7 sides / 1.7 top+bottom);
+#   at the 4 corners the board corners (outside the R16 glass corners) hide behind the 2.3 mm bezel face.
+OCA = 0.2
+Y_DSP0 = Y_GL_BACK + OCA                       # -35.6 LCD (touch glass) front
+Y_DSP1 = Y_DSP0 + DSP_T                        # -29.6 board back (components)
 DSP_R = 2.0                                    # board corner radius
 DSP_ZC = GZ                                    # board centred on the glass
 DSP_CLR = 0.3
-SKIRT_END = -29.0
-SKIRT_WALL = 1.6
-RIB_H, RIB_Y = 0.35, (-32.0, -29.3)            # 6 guide ribs on the skirt (0.15 to H01, hidden inside)
+AA_W, AA_H = DSP["active"]                     # 73.44 x 48.96
+WIN_W, WIN_H = AA_W + 1.0, AA_H + 1.0          # mask window = active area + 0.5 per side (hides the LCD border)
+PRINT_SIDE = (GL["w"] - WIN_W) / 2             # 8.78 black mask on the glass back, sides
+PRINT_TB = (GL["h"] - WIN_H) / 2               # 5.02 top / bottom (symmetric: no visible camera band)
+# closed-bottom seam: the skirt behind the visible bezel is 0.35 wider per side than the bezel face and runs in the
+# H01 opening with 0.15 clearance -> looking into the 0.5 seam you see the black skirt step, never the interior;
+# the skirt itself centres the module (no guide ribs that would show as dashes in the seam).
+SKIRT_CLR = 0.15
+SK_W, SK_H, SK_R = W - 2 * WALL - 2 * SKIRT_CLR, HH - 2 * WALL - 2 * SKIRT_CLR, R_FV - WALL - SKIRT_CLR  # 101.7 x 69.7
+SKIRT_END = Y_DSP1 - 0.1                       # -29.7 (H07 plate right behind it)
+SKIRT_WALL = 1.6                               # inner outline = bezel face outline - 2 x 1.6
 BZ_BOSSES = [(-45.6, 136.0), (45.6, 136.0), (0.0, 184.9)]   # H07 -> H03 screws (x, z)
 BOSS_R, PILOT_R = 2.3, 0.8                     # M2 thread-forming into PETG (pilot Ø1.6)
 H07_T = 2.0
-Y_H07_1 = Y_DSP1 + H07_T                       # -25.8
+Y_H07_1 = Y_DSP1 + H07_T                       # -27.6
 
 # --- front module retention (v8.1: no back cover -> magnets at the top, 2 screws from the underside) ---------
-SCR_X, SCR_Y = 24.0, -25.0                     # underside screws (flat underside |x| < 27, 8 behind the rim)
+SCR_X, SCR_Y = 24.3, -25.0                     # underside screws (flat underside |x| < 27, 8 behind the rim)
 SCR_CB_R, SCR_CB_D, SCR_HOLE_R = 2.2, 1.7, 1.2  # counterbore Ø4.4 x 1.7 (DIN 7985 M2 head Ø4.0 x 1.6), hole Ø2.4
 PAD_Z1 = Z0 + WALL + 1.5                       # 120.5 floor pad top (floor 3.5 at the screw)
 PAD_X0, PAD_X1, PAD_Y = 20.7, 27.6, (-28.4, -21.0)    # floor pads (beside the collar relief)
@@ -173,6 +178,7 @@ DISC_X0, DISC_X1 = BAR_X, BAR_X + 3.0          # H09/H10 disc on the barrel end 
 PAD_X = DISC_X1 + 0.3                          # 18.3 pocket thrust pads (axial play +-0.3)
 PIVOT_BOSS_R, PIVOT_BOSS_X1 = 4.0, 24.0
 RELIEF_D, RELIEF_Y1, RELIEF_PAD = 2.0, -28.6, 1.3   # underside chamfer ahead of the pocket mouth (collar N01)
+RELIEF_DRAFT = 30.0                            # side-wall draft of that chamfer (deg from vertical)
 M3_PILOT_R = 1.25
 VENT_X, VENT_W, VENT_Y = (-14.0, -10.5, -7.0, 7.0, 10.5), 1.8, (-13.0, 1.0)   # hidden ceiling slots
 
@@ -263,6 +269,12 @@ def prism_x(pts_yz, x0, x1):
     """Polygon in the YZ plane (list of (y, z)) extruded from x0 to x1."""
     wire = Wire.make_polygon([Vector(x0, y, z) for y, z in pts_yz], close=True)
     return Solid.extrude(Face(wire), Vector(x1 - x0, 0, 0))
+
+
+def prism_y(pts_xz, y0, y1):
+    """Polygon in the XZ plane (list of (x, z)) extruded from y0 to y1."""
+    wire = Wire.make_polygon([Vector(x, y0, z) for x, z in pts_xz], close=True)
+    return Solid.extrude(Face(wire), Vector(0, y1 - y0, 0))
 
 
 def union(shapes):
@@ -588,11 +600,17 @@ def shell_h01():
 
     # ---- collar relief: at tilt +20 / pan +-90 the N01 top edge rises to z 117.3 just ahead of the pocket mouth
     #      -> 2.0 chamfer from the pocket front edge, floor thickened inside by a pad (wall stays >= 1.7) ----
+    #      v8.1 review: the side walls of the relief are drafted 30 deg (no vertical "notch" walls in the bottom view)
     yr0, yr1 = -PK_D / 2, RELIEF_Y1
-    pad = bx(-PK_X_OUT, PK_X_OUT, yr1, yr0 - 0.5, Z0 + 1.0, Z0 + WALL + RELIEF_PAD) & body
+    xr = PK_X_OUT + RELIEF_D * math.tan(math.radians(RELIEF_DRAFT))     # relief footprint on the underside
+    pad = bx(-xr - 0.3, xr + 0.3, yr1, yr0 - 0.5, Z0 + 1.0, Z0 + WALL + RELIEF_PAD) & body
     h01 = retry(lambda: h01 + pad, "relief pad")
-    rel = prism_x([(yr0 + 1.0, Z0 - 1.0), (yr0 + 1.0, Z0 + RELIEF_D), (yr0, Z0 + RELIEF_D), (yr1, Z0),
-                   (yr1 - 1.0, Z0 - 1.0)], -PK_X_OUT, PK_X_OUT)
+    ramp = prism_x([(yr0 + 1.0, Z0 - 1.0), (yr0 + 1.0, Z0 + RELIEF_D), (yr0, Z0 + RELIEF_D), (yr1, Z0),
+                    (yr1 - 1.0, Z0 - 1.0)], -xr - 2, xr + 2)
+    k = math.tan(math.radians(RELIEF_DRAFT))
+    trap = prism_y([(-xr - k, Z0 - 1.0), (xr + k, Z0 - 1.0), (PK_X_OUT, Z0 + RELIEF_D),
+                    (-PK_X_OUT, Z0 + RELIEF_D)], yr1 - 2, yr0 + 2)
+    rel = ramp & trap
     h01 = retry(lambda: h01 - rel, "collar relief")
 
     # ---- neck cable hole (4 wires) + hidden vent slots in the pocket ceiling (air: pocket mouth -> head ->
@@ -645,13 +663,14 @@ def shell_h01():
 
 def bezel():
     bw, bh, br = BZ["w"], BZ["h"], BZ["r"]
-    b = rr_prism_y(bw, bh, br, Y_BZ_FRONT, SKIRT_END)
-    b = fillet(b.edges().group_by(Axis.Y)[0], BZ_FRONT_FILLET)
+    face = rr_prism_y(bw, bh, br, Y_BZ_FRONT, Y0)                    # visible part, protrudes 5.0
+    face = fillet(face.edges().group_by(Axis.Y)[0], BZ_FRONT_FILLET)
+    skirt = rr_prism_y(SK_W, SK_H, SK_R, Y0 - 0.01, SKIRT_END)        # 0.35 step = closed seam bottom
+    b = retry(lambda: face + skirt, "H03 face + skirt")
     gw, gh, gr = GL["w"] + 2 * GLASS_CLR, GL["h"] + 2 * GLASS_CLR, GL["r"] + GLASS_CLR
     b = b - rr_prism_y(gw, gh, gr, Y_BZ_FRONT - 1, Y_LEDGE0, cz=GZ)
-    lw, lh, lr = LEDGE_OPEN
-    b = b - rr_prism_y(lw, lh, lr, Y_LEDGE0 - 0.5, Y_LEDGE1 + 0.01, cz=WIN_ZC)
-    b = b - rr_prism_y(DSP_W + 2 * DSP_CLR, DSP_H + 2 * DSP_CLR, DSP_R + DSP_CLR, Y_LEDGE1, SKIRT_END + 1, cz=DSP_ZC)
+    b = b - rr_prism_y(DSP_W + 2 * DSP_CLR, DSP_H + 2 * DSP_CLR, DSP_R + DSP_CLR, Y_LEDGE0 - 0.01, SKIRT_END + 1,
+                       cz=DSP_ZC)
     b = b - rr_prism_y(bw - 2 * SKIRT_WALL, bh - 2 * SKIRT_WALL, br - SKIRT_WALL, Y0, SKIRT_END + 1)
     # bosses for the H07 screws (end faces on the board-back plane)
     for (x, z) in BZ_BOSSES:
@@ -659,13 +678,7 @@ def bezel():
         if x != 0:
             boss = boss + bx(x, math.copysign(bw / 2 - 1.0, x), Y0 - 0.5, SKIRT_END, z - 1.0, z + 1.0)
         b = b + (boss & rr_prism_y(bw - 0.4, bh - 0.4, br - 0.2, Y0 - 1, Y_DSP1 + 1))
-        b = b - cyl_y(PILOT_R, Y_DSP1 + 0.1, Y_LEDGE1 + 0.2, x, z)
-    # 6 guide ribs on the skirt: centre the module in the H01 opening -> even 0.5 seam all round
-    ring = rr_prism_y(bw + 2 * RIB_H, bh + 2 * RIB_H, br + RIB_H, RIB_Y[0], RIB_Y[1]) - \
-        rr_prism_y(bw - 0.4, bh - 0.4, br - 0.2, RIB_Y[0] - 1, RIB_Y[1] + 1)
-    wins = [bx(sx * 19.0, sx * 21.0, -40, -20, ZC + sz * 30, ZC + sz * 40) for sx in (1, -1) for sz in (1, -1)] + \
-        [bx(sx * 45.0, sx * 60.0, -40, -20, ZC - 1.0, ZC + 1.0) for sx in (1, -1)]
-    b = b + (ring & union(wins))
+        b = b - cyl_y(PILOT_R, Y_DSP1 + 0.1, Y_DSP1 - 4.5, x, z)
     e_in = edges_where(b, lambda p: abs(p.Y - Y_BZ_FRONT) < 0.02 and abs(rr_dist(p.X, p.Z, gw, gh, gr, GZ)) < 0.02)
     b = try_fillet(b, e_in, 0.4, "H03 seat edge")
     return check("H03", solid1(b), vmin=3000)

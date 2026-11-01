@@ -410,10 +410,14 @@ DOCK_XY = _g(_B, "DOCK_XY", [(-36.0, 41.0), (36.0, 41.0)])
 SPK = _g(_B, "SPK", dict(x=28.0, z=19.0, y_face=-41.2, d=28.0, h=5.0))   # vertical, fires -Y
 YAW_BRG = BS["yaw_hub"]["bearing"]                  # 6806 30 / 42 x 7
 YAW_Z1 = BS["yaw_hub"]["z_top"]                     # 39 bearing top = hub top = horn bottom
-LOOP_R, LOOP_Z = _g(_B, "LOOP_R", 26.5), _g(_B, "LOOP_Z", 31.6)       # yaw loop in the B15 trough
+LOOP_R, LOOP_Z = _g(_B, "LOOP_R", 26.5), _g(_B, "LOOP_Z", 31.6)       # base's own (single-arc) loop envelope BW1
 FIX_EXIT = _g(_B, "FIX_EXIT", (24.9, -9.06, 4.0))
 RISER_XY = _g(_B, "RISER_XY", (-26.0, 0.0))
-TOWER_ROOF_Z = _g(_B, "TROUGH_Z0", 26.5) - 2.0      # underside of the bridge-tower roof (M3 head seat)
+TROUGH_Z0 = _g(_B, "TROUGH_Z0", 26.5)
+TOWER_ROOF_Z = TROUGH_Z0 - 2.0                      # underside of the bridge-tower roof (M3 head seat)
+TROUGH_FLOOR = TROUGH_Z0 + _g(_B, "TROUGH_T", 2.0)  # 28.5 trough floor top
+TROUGH_RIM_IN = _g(_B, "TROUGH_R", 38.0) - _g(_B, "RIM_T", 1.5)    # 36.5 inner face of the fixed trough rim
+B09_Z0 = _g(_B, "B09_Z0", 35.6)                     # underside of the B09 seat ring (ceiling of the trough, r > 31)
 
 # ---- torso (nova_v8/cad_torso.py) ---------------------------------------------------------
 YS_Z0 = _g(_T, "YS_Z0", TS["yaw_servo"]["z_body"][0])     # 45 output face of the STS3215
@@ -429,6 +433,7 @@ CTRL = dict(_g(_T, "PCB", dict(x=24.0, y0=18.0, t=1.6, z0=44.2, z1=62.7)))   # c
 E25 = dict(_g(_T, "E25", dict(x=23.0, z0=77.0, z1=91.0, y0=-30.8, t=1.6, boss=(21.0, 84.0))))
 CHS = TS["chest_strip"]                                   # 34 x 5 at z 84
 T_WALL = TS["wall"]
+YH_RO = _g(_T, "YH_RO", 22.5)                             # rotating 6806 housing of T04 (OD 45) = inner drum of the loop
 T05_FLANGE = 0.8                                          # T05 flange behind the wall (skin 2.0 .. 2.8)
 TILT_Y, TILT_Z = NK["tilt_axis"]["y"], NK["tilt_axis"]["z"]            # 0, 127
 
@@ -441,6 +446,9 @@ TILT_SERVO_Z = _g(_H, "SERVO_Z", TILT_Z + 20.0)           # 147
 EAR = HD["ear"]
 X_EAR_IN = _g(_H, "X_EAR_IN", 48.8)                       # ear rear face / stop ring (PCB seat)
 CAM = HD["camera"]
+PK_CEIL_TOP = _g(_H, "PK_TOP", HD["barrel_pocket"]["ceiling_z"]) + _g(_H, "PK_WALL", 2.0)   # 146.5 pocket ceiling top
+VENT_X = _g(_H, "VENT_X", (-14.0, -10.5, -7.0, 7.0, 10.5))     # hidden vent slots in the pocket ceiling
+VENT_Y = _g(_H, "VENT_Y", (-13.0, 1.0))
 
 # ---- local layout of the internal components (decisions of this module) --------------------
 CELL_PLUS_GAP = 0.5         # + tip 0.5 inside the bay end face (on the + plate)
@@ -453,7 +461,10 @@ CHEST_LEDS = (-10.0, -5.0, 0.0, 5.0, 10.0)               # 5x WS2812B-2020 light
 TOF_X, ALS_X = 14.5, -14.5
 CAM_Z = 185.6               # proposal: lens through the black bezel top rail (see DEVIATIONS)
 ROOF_IN_Z = HD["z1"] - HD["wall"]                       # 189 flat inner roof of H01 (|x| < 27)
-MIC = dict(x=-14.0, y=-19.5, z0=186.6)                   # INMP441 under the roof behind the top seam (PCB z0)
+# INMP441 (review 2): flat on the barrel-pocket ceiling, bottom port over the -X vent slot x -10.5 -> hears the room
+# through the open pocket mouth around the neck (the v1 spot under the roof was visible through the top bezel seam)
+MIC_PORT = (VENT_X[1] if len(VENT_X) > 1 else -10.5, (VENT_Y[0] + VENT_Y[1]) / 2)     # (-10.5, -6.0)
+MIC = dict(x=MIC_PORT[0] - 1.5, y=MIC_PORT[1], foam=0.5)                             # module centre, VHB 0.5
 # cable way points (x, y, z)
 NECK_PATH_J1 = [(-12.0, 20.3, 68.8), (-12.6, 17.0, 70.5), (-14.6, 11.0, 74.5), (-15.0, 9.0, 79.5),
                 (-9.0, 5.5, 84.5), (-3.0, 1.5, 87.6), (0.0, 0.0, 89.4)]
@@ -464,9 +475,47 @@ NECK_PATH_J3 = [(0.0, 10.4, 137.6), (0.0, 10.0, 142.0), (0.0, 9.0, 146.5), (-3.0
 NECK_T0, NECK_T3 = (0, 0, 1), (0, -1, 0)
 YAW_T1 = (0, 1, 0)
 YAW_LOOP_Z_IN = 21.0
-YAW_RISER_Z1 = 39.6
-YAW_TORSO_PATH = [(-26.0, 0.0, 39.6), (-26.0, 0.0, 44.0), (-26.5, 4.0, 50.0), (-25.0, 8.5, 55.5),
-                  (-21.5, 11.5, 59.0), (-18.7, 13.5, 59.85)]     # -> JST-GH on the front face of IT07
+
+# ---- J1 cable: ROLLING LOOP of a flat 6-wire band (review 2) ------------------------------------------------
+# v1 had an 18-20 wire Ø6 bundle as ONE 200 deg arc (92 mm): at J1 +150 that path needs 162 mm, at -150 there are
+# 69 mm of slack - and a Ø6 bundle cannot fold in the 14 mm wide trough.  Now the base has its own node (IB09-2:
+# STM32G030 + DRV8833 + 5 V), so only VBAT, GND (24 AWG), the 1-wire servo bus, speaker +/- and a spare GND (28 AWG)
+# cross J1.  The band (6 silicone wires side by side, Kapton-taped, standing ON EDGE) runs from the fixed exit CW
+# along the fixed trough rim (outer run), makes a U-turn and runs back CCW wrapped on the rotating T04 bearing
+# housing (inner run) to the riser into the T04 slot.  Turning the torso by dJ1 moves the U-turn by
+# dJ1 * r_i / (r_o + r_i) - constant length, constant bend radius (6 mm = 4.6 x the 24 AWG OD), ±150 deg.
+YB_T, YB_H = 1.3, 6.2                               # band thickness (radial) x height (2 x 1.3 + 4 x 0.9)
+YB_ZC = (TROUGH_FLOOR + min(B09_Z0, TROUGH_FLOOR + 7.0)) / 2 - 0.15     # 31.9 (0.3 above the floor, 0.6 under B09)
+YB_RO = TROUGH_RIM_IN - YB_T / 2 - 0.25             # 35.6 outer run centre (0.25 from the rim)
+YB_RI = YH_RO + YB_T / 2 + 0.35                     # 23.5 inner run centre (0.35 from the rotating housing)
+YB_RB = (YB_RO - YB_RI) / 2                         # 6.05 U-turn bend radius
+YB_F = math.degrees(math.atan2(FIX_EXIT[1], FIX_EXIT[0]))     # -20 fixed exit (base B15 hole)
+YB_DF = 15.0                                        # exit -> outer run transition (bundle fans into the band)
+YB_FO = YB_F - YB_DF                                # -35 outer run starts here (going CW)
+YB_M0 = math.degrees(math.atan2(RISER_XY[1], RISER_XY[0])) % 360.0   # 180 riser angle at J1 = 0 (T04 slot centre)
+J1_RANGE = (-150.0, 150.0)
+YB_MARGIN = 3.0                                     # inner run never shorter than 3 deg at J1 = -150
+
+
+def yaw_loop(j1=0.0):
+    """Rolling-loop state for a torso angle j1 (deg): (outer run deg, inner run deg, U-turn angle abs deg).
+    Angles are CW distances from the outer-run start YB_FO; the moving end M = YB_M0 + j1."""
+    def m_cw(j):      # continuous in j: 145 - j (at J1 +150 the riser is 5 deg past the outer-run start, radially inside)
+        return ((YB_FO - YB_M0) % 360.0) - j
+    m_max = max(m_cw(j) for j in J1_RANGE)
+    lp = YB_RO * math.radians(m_max + YB_MARGIN)                     # band length minus the U-turn
+    m = m_cw(j1)
+    o = math.degrees((lp + YB_RI * math.radians(m)) / (YB_RO + YB_RI))
+    return o, o - m, YB_FO - o
+
+
+def yaw_loop_length():
+    o, i, _ = yaw_loop(0.0)
+    return YB_RO * math.radians(o) + YB_RI * math.radians(i) + math.pi * YB_RB
+
+
+YAW_TORSO_PATH = [(-26.2, 2.5, 45.0), (-26.5, 4.0, 50.0), (-25.0, 8.5, 55.5),
+                  (-21.5, 11.5, 59.0), (-18.7, 13.5, 59.85)]     # -> JST-GH 6p on the front face of IT07
 
 # The shell modules keep simple envelopes of the same bought components (for their own clearance checks).  This
 # module is the detailed set; for x-ray / section renders and the BOM use ONE of them: exclude the shell ids below
@@ -570,20 +619,24 @@ def ih06_camera():
 
 
 def ih08_mic():
-    """INMP441 I2S MEMS microphone module 14 x 13 (review fix).  The INMP441 is BOTTOM-PORTED (sound hole through
-    the module PCB under the mic can), so it must not lie face-down on the H07 plate (port sealed, the board in
-    front of it).  It hangs horizontally under the flat head roof right behind the top bezel seam: mic can UP toward
-    the roof on 2 VHB foam pads, port facing DOWN into the roof cavity that the 0.5 mm top seam feeds (air path
-    ~8 mm, the same path the head vents use) - no hole anywhere on the outside."""
-    x, y, z0 = MIC["x"], MIC["y"], MIC["z0"]
+    """INMP441 I2S MEMS microphone module 14 x 13 (review 2).  The INMP441 is BOTTOM-PORTED (sound hole through the
+    module PCB under the mic can).  v1 hung it under the roof right behind the top bezel seam - it was visible
+    through that seam from the front (id-pass check) and heard only through a 0.5 mm slit behind the front module.
+    Now it lies FLAT ON THE BARREL-POCKET CEILING (H01, z 146.5), held by a 0.5 mm VHB foam ring whose hole seals
+    the port onto the -X hidden vent slot (x -10.5): sound path = open pocket mouth around the neck -> 2.5 mm gap
+    over the barrel -> slot -> port (~6 mm, short, no hole outside, nothing in a sight line; far from the +X tilt
+    servo).  Wires (6) go up to the head board's expansion header."""
+    px, py = MIC_PORT
+    x, y = MIC["x"], MIC["y"]
+    z0 = PK_CEIL_TOP + MIC["foam"]                                            # PCB underside 147.0
     hx, hy = 7.0, 6.5
-    pcb = bx(x - hx, x + hx, y - hy, y + hy, z0, z0 + 1.0) - cyl_z(x + 4.5, y - 4.0, 1.1, z0 - 1, z0 + 2)
-    pcb = pcb - cyl_z(x, y, 0.5, z0 - 1, z0 + 2)                              # acoustic port (through the PCB)
-    can = bx(x - 2.0, x + 2.0, y - 1.5, y + 1.5, z0 + 0.99, z0 + 2.0)         # INMP441 can (port side down)
-    foam = [bx(x + sx * hx - 3.0 * max(sx, 0), x + sx * hx + 3.0 * max(-sx, 0), y - hy, y - hy + 3.0, z0 + 0.99,
-               ROOF_IN_Z - 0.05) for sx in (-1, 1)]                          # VHB foam pads to the roof
-    pads = bx(x - 6.0, x + 6.0, y + hy - 2.5, y + hy - 0.8, z0 - 1.0, z0 + 0.01)   # 6 wire pads (underside)
-    return union([pcb, can, pads] + foam)
+    foam = bx(x - hx + 0.5, x + hx - 0.5, y - hy + 0.5, y + hy - 0.5, PK_CEIL_TOP + 0.01, z0 + 0.01) - \
+        cyl_z(px, py, 0.9, PK_CEIL_TOP - 1, z0 + 1)                          # VHB ring, hole over the port
+    pcb = bx(x - hx, x + hx, y - hy, y + hy, z0, z0 + 1.0) - cyl_z(x + 4.5, y + 4.0, 1.1, z0 - 1, z0 + 2)
+    pcb = pcb - cyl_z(px, py, 0.5, z0 - 1, z0 + 2)                            # acoustic port (through the PCB)
+    can = bx(px - 2.0, px + 2.0, py - 1.5, py + 1.5, z0 + 0.99, z0 + 2.0)     # INMP441 can over the port
+    hdr = bx(x - hx + 0.6, x - hx + 3.1, y - 5.0, y + 5.0, z0 + 0.99, z0 + 2.6)   # 6 wire pads + soldered leads
+    return union([foam, pcb, can, hdr])
 
 
 def tilt_servo_frame():
@@ -709,26 +762,23 @@ def tssop_y(x0, x1, z0, z1, y_face, toward, body_h=1.2, lead_w=None):
 
 
 def it07_controller():
-    """Carrier PCB 48 x 18.5 (vertical in the T08 slots, behind the rear door): DRV8833 + MP1584 5 V + servo /
-    motor / sensor connectors; the ESP32-C3 SuperMini is IT08.
-    GPIO budget (review fix): the SuperMini has only 13 GPIO, the torso needs ~23 signals -> a PCA9685 16-ch PWM
-    (I2C: 3 micro-servo PWM for MG90S, 2 motor DIR lines, cliff-emitter enable) and an ADS1115 4-ch ADC (I2C: the 4
-    TCRT5000 cliff sensors) sit on the front face; battery voltage is read from the STS3215 voltage register."""
+    """Carrier PCB 48 x 18.5 (vertical in the T08 slots, behind the rear door): MP1584 5 V (micro servos, head,
+    chest LEDs), 74LVC1G126 half-duplex driver of the 1 Mbit servo bus, connectors; the ESP32-C3 SuperMini is IT08.
+    Review 2: the motor driver and all base sensors moved to the base node IB09-2 (it is a slave on the same servo
+    bus), so the C3 needs 11 of its 13 GPIO (UART0 head, UART1 bus + DIR, I2C ToF/ALS, chest LED data, 3 PWM for
+    MG90S) - the v1 PCA9685 + ADS1115 work-around and the DRV8833 module are gone; only 6 wires cross J1."""
     C = CTRL
     y0, y1 = C["y0"], C["y0"] + C["t"]
     z0, z1 = C["z0"], C["z1"]
     b = bx(-C["x"], C["x"], y0, y1, z0, z1)
     comps = [
-        tssop_y(7.0, 16.7, z0 + 3.0, z0 + 7.4, y0, -1),                   # PCA9685PW (TSSOP-28 9.7 x 4.4)
-        tssop_y(0.0, 3.0, z0 + 4.0, z0 + 7.0, y0, -1, body_h=1.1, lead_w=4.9),   # ADS1115 (MSOP-10 3 x 3)
-        bx(2.0, 20.0, y1 + 2.5, y1 + 3.5, z0 + 1.0, z0 + 17.0),          # DRV8833 module on headers
-        bx(3.0, 19.0, y1, y1 + 2.5, z0 + 1.5, z0 + 4.0),
-        bx(7.0, 13.0, y1 + 3.49, y1 + 4.4, z0 + 6.0, z0 + 12.0),         # driver IC
         bx(-21.0, -5.0, y0 - 3.4, y0 + 0.01, z0 + 1.0, z0 + 11.5),       # MP1584 5 V module (front side)
         bx(-21.0, -16.0, y0 - 5.2, y0 - 3.39, z0 + 3.0, z0 + 8.0),       # its inductor (clear of the T08 wall)
-        bx(4.0, 10.0, y0 - 1.5, y0 + 0.01, z0 + 13.5, z0 + 17.0),        # 74LVC1G126 (STS half-duplex bus)
-        bx(-22.8, -14.6, y0 - 4.5, y0 + 0.01, z1 - 5.2, z1 - 0.5),       # JST-GH 10p: yaw bundle from the base
-        bx(-23.0, -8.0, y0 - 1.0, y1 + 4.0, z1 - 0.01, z1 + 6.0),        # servo headers (4 x 3-pin + STS bus)
+        tssop_y(4.0, 6.0, z0 + 13.5, z0 + 16.4, y0, -1, body_h=1.0, lead_w=3.0),   # 74LVC1G126 (SOT-23-5)
+        bx(0.5, 3.5, y0 - 0.9, y0 + 0.01, z0 + 9.0, z0 + 12.0),          # bus pull-up + 1k series R / ESD (0603)
+        bx(9.0, 16.0, y0 - 2.0, y0 + 0.01, z0 + 3.0, z0 + 7.0),          # 470 uF/10 V polymer cap (servo 5 V rail)
+        bx(-22.8, -14.6, y0 - 4.5, y0 + 0.01, z1 - 5.2, z1 - 0.5),       # JST-GH 6p: J1 band (VBAT GND BUS SPK+- GND)
+        bx(-23.0, -8.0, y0 - 1.0, y1 + 4.0, z1 - 0.01, z1 + 6.0),        # servo headers (3 x 3-pin + STS bus)
         bx(19.0, 23.5, y0 - 1.0, y1 + 4.0, z1 - 0.01, z1 + 6.0),         # neck / chest JST
     ]
     return union([b] + comps)
@@ -865,8 +915,12 @@ def ib_cliff(x, y):
 
 
 def ib_board(sx):
-    """Rear underside boards (bridging the rear caster): sx=-1 charger (IP2326 2S boost charger + 2S protection +
-    JST; carries the vertical USB-C = base part B10), sx=+1 power-button board (6x6 self-locking switch for B13)."""
+    """Rear underside boards (bridging the rear caster, BLACK solder mask - they lie under the rear B01/B09 seam):
+    sx=-1 charger (IP2326 2S boost charger + 2S protection + AO4407A main switch + JST; carries the vertical USB-C =
+    base part B10), sx=+1 power button + BASE NODE (review 2): 6x6 self-locking switch for B13 underneath; on top an
+    STM32G030K8T6 (servo-bus slave, single-wire half-duplex USART), DRV8833 (both N20, PWM + DIR), 5 V 2 A buck
+    (underglow, encoders, cliff sensors), 3.3 V LDO, JST-GH 6p for the J1 band and JST-SH for the motors; the
+    cliff sensors and the underglow flex are soldered to pads.  Cliff stop is local (motors off in < 1 ms)."""
     z0, z1 = BOARD_Z0, BOARD_Z0 + BOARD_T
     xc = sx * 25.0
     b = rr_z(30.0, 13.8, 2.0, z0, z1, xc, 39.9)
@@ -894,7 +948,16 @@ def ib_board(sx):
         x, y = BTN_XY
         sw = bx(x - 3.0, x + 3.0, y - 3.0, y + 3.0, 6.95, z0 + 0.01)   # 6x6 self-locking switch body
         sw = sw + cyl_z(x, y, 1.75, 6.6, 6.96)                          # plunger on the B13 cap
-        comps += [sw, bx(30.0, 36.0, 34.5, 38.5, z1 - 0.01, z1 + 4.2)]  # JST-SH to the yaw bundle
+        comps += [sw,
+                  bx(13.5, 20.5, 35.2, 42.2, z1 - 0.01, z1 + 1.6),       # STM32G030K8T6 (LQFP-32 7 x 7)
+                  bx(12.5, 21.5, 34.2, 43.2, z1 - 0.01, z1 + 0.25),      # its leads (9 x 9)
+                  bx(23.0, 28.0, 40.8, 45.2, z1 - 0.01, z1 + 1.2),       # DRV8833PWP (HTSSOP-16)
+                  bx(23.3, 27.7, 39.8, 46.2, z1 - 0.01, z1 + 0.25),      # its leads
+                  bx(23.4, 26.4, 34.3, 37.3, z1 - 0.01, z1 + 1.1),       # TPS563201 5 V buck (SOT-23-6)
+                  bx(29.0, 33.0, 39.4, 43.4, z1 - 0.01, z1 + 2.0),       # its 4.7 uH inductor (4 x 4)
+                  bx(26.9, 29.9, 34.3, 37.3, z1 - 0.01, z1 + 1.1),       # AP2112K 3.3 V LDO (SOT-23-5)
+                  bx(30.4, 39.4, 34.0, 38.2, z1 - 0.01, z1 + 4.2),       # JST-GH 6p: J1 band from the torso
+                  bx(32.6, 39.6, 43.2, 46.6, z1 - 0.01, z1 + 2.9)]       # JST-SH 6p: N20 motors + encoders
     return union(comps)
 
 
@@ -955,28 +1018,51 @@ def cable_neck():
             tube(NECK_PATH_J3, r, t0=slot, t1=NECK_T3))
 
 
-def cable_yaw():
-    """Ø6 yaw bundle: fixed exit in the base trough -> ~160 deg loop around the hub -> rises into the T04 slot
-    (IW2, base) -> continues in the torso to the controller connector (IW3, J1)."""
-    r = 3.0
+def _band_sector(r, a0, a1):
+    """Band run on radius r (centre line) between the absolute angles a0 < a1 (deg): exact annular sector."""
+    z0, z1 = YB_ZC - YB_H / 2, YB_ZC + YB_H / 2
+    face = Face(Wire.make_polygon([Vector(r - YB_T / 2, 0, z0), Vector(r + YB_T / 2, 0, z0),
+                                   Vector(r + YB_T / 2, 0, z1), Vector(r - YB_T / 2, 0, z1)], close=True))
+    return Rot(0, 0, a0) * revolve(face, Axis.Z, a1 - a0)
+
+
+def _polar(r, a_deg, z):
+    a = math.radians(a_deg)
+    return (r * math.cos(a), r * math.sin(a), z)
+
+
+def cable_yaw(j1=0.0):
+    """J1 band as a rolling loop (see yaw_loop).  IW2 (base, ""): round Ø4.2 bundle up through the B15 exit hole,
+    fanning into the band; outer run CW along the fixed rim, U-turn, inner run CCW on the rotating housing up to the
+    riser angle.  IW3 (torso J1): the band end gathers into a round Ø4.2 bundle that rises through the T04 slot and
+    runs to the JST-GH on IT07.  Exact revolved / half-annulus solids (a spline would bulge into the 0.25-0.35 mm
+    clearances)."""
+    o, i, u_abs = yaw_loop(j1)
+    m_abs = u_abs + i                                                 # == YB_M0 + j1 (mod 360)
+    outer = _band_sector(YB_RO, u_abs, YB_FO)
+    inner = _band_sector(YB_RI, u_abs, m_abs)
+    # U-turn: half annulus in the horizontal plane, centre on the radial line at u_abs, on its CW side
+    cx_, cy_, _ = _polar((YB_RO + YB_RI) / 2, u_abs, 0.0)
+    ring = ring_z(cx_, cy_, YB_RB - YB_T / 2, YB_RB + YB_T / 2, YB_ZC - YB_H / 2, YB_ZC + YB_H / 2)
+    half = Pos(cx_, cy_, YB_ZC) * Rot(0, 0, u_abs) * bx(-20, 20, -20, 0, -10, 10)
+    uturn = ring & half
+    # fixed exit: round bundle up through the Ø8 hole, then fanning out to the outer-run start (CW tangent)
+    rr = 2.1
     fx, fy = FIX_EXIT[0], FIX_EXIT[1]
-    a_fix = math.degrees(math.atan2(fy, fx))
-    rx, ry = RISER_XY
-    a_rise = math.degrees(math.atan2(ry, rx)) % 360.0
-    # exact geometry (a spline would sag into the B15 trough floor, which is only 0.1 mm under the bundle)
-    c = Edge.make_circle(r, Plane(origin=(LOOP_R, 0, LOOP_Z), z_dir=(0, 1, 0)))
-    arc = Rot(0, 0, a_fix) * revolve(Face(Wire([c])), Axis.Z, a_rise - a_fix)
-    base = arc + cyl_z(fx, fy, r, YAW_LOOP_Z_IN, LOOP_Z) + Pos(fx, fy, LOOP_Z) * Sphere(r)
-    ra = math.radians(a_rise)
-    ex, ey = LOOP_R * math.cos(ra), LOOP_R * math.sin(ra)
-    base = base + Pos(ex, ey, LOOP_Z) * Sphere(r)
-    if math.hypot(ex - rx, ey - ry) > 0.05:
-        d = Vector(rx - ex, ry - ey, 0)
-        pl = Plane(origin=(ex, ey, LOOP_Z), z_dir=d.normalized())
-        base = base + pl.location * Cylinder(r, d.length, align=(Align.CENTER, Align.CENTER, Align.MIN))
-        base = base + Pos(rx, ry, LOOP_Z) * Sphere(r)
-    base = base + cyl_z(rx, ry, r, LOOP_Z, YAW_RISER_Z1)
-    torso = tube(YAW_TORSO_PATH, 2.5, t0=(0, 0, 1), t1=YAW_T1)
+    rm = (LOOP_R + YB_RO) / 2
+    am = (YB_F + YB_FO) / 2 + 2.0
+    fo = math.radians(YB_FO)
+    pm = _polar(rm, am, YB_ZC)
+    fan = tube([(fx, fy, YAW_LOOP_Z_IN), (fx, fy, TROUGH_FLOOR - 1.0),
+                (0.5 * (fx + pm[0]), 0.5 * (fy + pm[1]), YB_ZC - 0.6), pm, _polar(YB_RO, YB_FO, YB_ZC)],
+               rr, t0=(0, 0, 1), t1=(math.sin(fo), -math.cos(fo), 0.0))
+    base = union([outer, uturn, inner, fan])
+    # moving end: band end at m_abs (CCW tangent) -> riser bundle through the T04 slot -> torso path
+    ma = math.radians(m_abs)
+    rs = YB_RI + 2.4                                                  # riser radius 25.9 (T04 slot r 23..29)
+    pts = [_polar(YB_RI, m_abs, YB_ZC), _polar(YB_RI + 0.6, m_abs + 3.5, YB_ZC + 0.8),
+           _polar(rs, m_abs + 6.5, YB_ZC + 3.5), _polar(rs, m_abs + 6.0, 38.0), _polar(rs, m_abs + 3.0, 41.5)]
+    torso = tube(pts + YAW_TORSO_PATH, rr, t0=(-math.sin(ma), math.cos(ma), 0.0), t1=YAW_T1)
     return base, torso
 
 
@@ -1035,8 +1121,8 @@ def build(camera=None):
         add(f"IH07-{side}", f"DPS ucha {'pravá' if side == 'R' else 'ľavá'} (6× WS2812B-2020)", ear_pcb(sx),
             "pcb", "head", "J3", (sx * 16, 0, 0), note="Ø23×1.0, LED na r 10 pod svetlovodom H06")
     add("IH08", "MEMS mikrofón INMP441 (I2S)", ih08_mic(), "pcb", "head", "J3", (0, 0, 14),
-        note="vodorovne pod stropom hlavy za hornou škárou rámu, mikrofón hore na penových páskach VHB, port "
-             "(spodný, cez DPS) smeruje dole do dutiny, ktorú napája škára 0.5 mm – žiadny otvor zvonka")
+        note="naležato na strope kapsy valca, spodný port cez penový krúžok VHB nad skrytou štrbinou x -10.5 – "
+             "počuje cez otvorené ústie kapsy okolo krku; zvonka žiadny otvor, nie je v zornom poli žiadnej škáry")
     print(f"  head {time.time() - t0:.1f}s")
 
     # ---------------- neck ----------------
@@ -1064,10 +1150,10 @@ def build(camera=None):
         add(f"IT06-{side}", f"Adaptér ramienka {'pravý' if side == 'R' else 'ľavý'} (skrátené dvojramenné)",
             it06_arm_horn(sx), "white", "arm_" + side, j, (sx * 20, 0, 0),
             note="13 mm, kľúč v drážke spojky A04, skrutka ramienka M2 axiálne")
-    add("IT07", "Riadiaca DPS trupu (DRV8833 + 5 V MP1584 + PCA9685 + ADS1115 + konektory)", it07_controller(),
+    add("IT07", "Nosná DPS trupu (5 V MP1584 + budič zbernice 74LVC1G126 + konektory)", it07_controller(),
         "pcb", "torso", "J1", (0, 20, 0),
-        note="48×18.5 zvislo v drážkach T08, servis cez zadné dvierka; PCA9685 (PWM serv + smer motorov) a ADS1115 "
-             "(4 senzory pádu) cez I2C – ESP32-C3 má len 13 GPIO")
+        note="48×18.5 zvislo v drážkach T08, servis cez zadné dvierka; motory a senzory základne riadi uzol IB09-2 "
+             "na tej istej zbernici – ESP32-C3 využije 11 z 13 GPIO, cez J1 idú len 4 vodiče + reproduktor")
     add("IT08", "ESP32-C3 SuperMini", it08_supermini(), "pcb", "torso", "J1", (0, 26, 0),
         note="22.5×18 na lištách; USB-C na programovanie za dvierkami")
     add("IT09", "Hrudná DPS (5× WS2812B-2020 + VL53L0X + LTR-303)", it09_chest_pcb(), "pcb", "torso", "J1",
@@ -1102,10 +1188,13 @@ def build(camera=None):
             note="mini DPS 12×6.8, pozerá dole cez IR okienko B08")
     add("IB08", "LED prstenec podsvietenia 360° (24× WS2812B-2020)", ib_underglow(), "pcb", "base", "",
         (0, 0, -10), note="flex 0.3 mm na svetlovode B-UG, LED svietia dole do opálového PMMA")
-    add("IB09-1", "DPS nabíjania 2S (IP2326 + ochrana, USB-C zospodu)", ib_board(-1), "pcb", "base", "",
-        (0, 0, 10), note="nesie vertikálnu USB-C B10, JST-PH batéria, hlavný spínač P-MOSFET AO4407A")
-    add("IB09-2", "DPS tlačidla zapnutia (samoaretačné 6×6)", ib_board(1), "pcb", "base", "", (0, 0, 10),
-        note="tlačidlo pod zapustenou čiapočkou B13 zospodu; spína len hradlo MOSFETu na IB09-1 (nie prúd robota)")
+    add("IB09-1", "DPS nabíjania 2S (IP2326 + ochrana, USB-C zospodu)", ib_board(-1), "black", "base", "",
+        (0, 0, 10), note="čierna maska (leží pod zadnou škárou B01/B09); nesie vertikálnu USB-C B10, JST-PH batéria, "
+                         "hlavný spínač P-MOSFET AO4407A")
+    add("IB09-2", "DPS uzla základne + tlačidlo (STM32G030 + DRV8833 + 5 V)", ib_board(1), "black", "base", "",
+        (0, 0, 10), note="čierna maska; uzol na zbernici serv (1 vodič): 2× N20 s enkodérmi A/B, 4 senzory pádu, "
+                         "podsvietenie, lokálne zastavenie pri okraji stola; zospodu samoaretačné tlačidlo 6×6 pod B13 "
+                         "(spína len hradlo MOSFETu na IB09-1)")
     for k, (x, y) in enumerate(DOCK_XY, 1):
         add(f"IB10-{k}", f"Pružinový kontakt doku #{k}", ib_pogo(float(x), float(y)), "metal", "base", "",
             (0, 0, 8), note="pogo pin z DPS na nit plôšky B12")
@@ -1114,16 +1203,18 @@ def build(camera=None):
     # ---------------- cables ----------------
     c1, c2, c3 = cable_neck()
     add("IW1-1", "Kábel krku – trup (6 vodičov)", c1, "black", "torso", "J1", (0, 0, 0),
-        note="5 V, GND, TX, RX + reproduktor; od riadiacej DPS k osi otáčania hlavy")
+        note="5 V + GND 2× 26 AWG (špičky ~2 A), TX, RX + pár reproduktora 4× 30 AWG; od nosnej DPS k osi hlavy")
     add("IW1-2", "Kábel krku – čap a valec", c2, "black", "neck", "J2", (0, 0, 0),
         note="stredom N03/N02 do valca N06, von štrbinou hore-vzadu")
     add("IW1-3", "Kábel krku – hlava", c3, "black", "head", "J3", (0, 0, 0),
         note="otvorom v strope kapsy k doske ESP32-S3")
     yb, yt = cable_yaw()
-    add("IW2", "Slučka kábla otáčania trupu Ø6", yb, "black", "base", "", (0, 0, 0),
-        note="pevný výstup −20°, slučka ~160° v žľabe B15, ±150° bez zberacieho krúžku")
-    add("IW3", "Zväzok otáčania – trup", yt, "black", "torso", "J1", (0, 0, 0),
-        note="z oblúkovej drážky T04 ku konektoru riadiacej DPS")
+    add("IW2", "Valivá slučka kábla otáčania trupu (plochý pás 6 vodičov)", yb, "black", "base", "", (0, 0, 0),
+        note=f"pás {YB_T}×{YB_H} na hranu: VBAT+GND 24 AWG, zbernica, reproduktor ±, GND 28 AWG; vonkajší beh na "
+             f"pevnom okraji žľabu r {YB_RO:.1f}, oblúk R{YB_RB:.1f}, vnútorný beh na otočnom puzdre T04 r {YB_RI:.1f}; "
+             f"dĺžka {yaw_loop_length():.0f} mm, ±150° bez zberacieho krúžku")
+    add("IW3", "Kábel otáčania – trup", yt, "black", "torso", "J1", (0, 0, 0),
+        note="koniec pásu → zväzok Ø4.2 cez drážku T04 → JST-GH 6p na nosnej DPS IT07")
     print(f"  cables {time.time() - t0:.1f}s")
     return P
 
