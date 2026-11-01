@@ -69,7 +69,7 @@ def shell_b01():
     u = B["usb_c"]
     with BuildSketch(Plane.XZ.offset(-(D / 2 - 6))) as sk:   # plane at y = +D/2-6, normal -Y
         with Locations((u["x"], u["z"])):
-            RectangleRounded(u["w"], u["h"], 1.6)
+            RectangleRounded(u["w"], u["h"], u["h"] / 2 - 0.05)
     shell -= extrude(sk.sketch, -12)
     shell -= Pos(B["button"]["x"], D / 2, B["button"]["z"]) * Rot(90, 0, 0) * Cylinder(B["button"]["d"] / 2, 12)
     return shell
@@ -103,11 +103,37 @@ def plate_b02():
             with Locations((38, y)):
                 SlotCenterToCenter(20, 2.0)
         p -= extrude(sk.sketch, PH + 1)
+    # battery hatch opening (B08 sits in it with a 0.4 mm seam)
+    h = B["battery_hatch"]
+    with BuildSketch(Plane.XY.offset(-1)) as sk:
+        with Locations((h["x"], h["y"])):
+            RectangleRounded(h["w"] + 0.8, h["d"] + 0.8, h["r"] + 0.4)
+    p -= extrude(sk.sketch, PH + 2)
+    # label recess (right half)
     with BuildSketch(Plane.XY) as sk:
-        with Locations((-38, 0)):
-            RectangleRounded(44, 22, 4)
+        with Locations((38, -36)):
+            RectangleRounded(36, 16, 3)
     p -= extrude(sk.sketch, 0.4)
     return p
+
+
+def hatch_b08():
+    """Battery hatch in the bottom plate: captive M3 + 2 hooks (EU 2023/1542 user-replaceable cells)."""
+    h = B["battery_hatch"]
+    with BuildSketch(Plane.XY) as sk:
+        with Locations((h["x"], h["y"])):
+            RectangleRounded(h["w"], h["d"], h["r"])
+    hp = extrude(sk.sketch, PH)
+    hp = fillet(hp.edges().group_by(Axis.Z)[0], 1.0)
+    # captive screw counterbore near the front edge, two hook tongues at the rear edge
+    sx, sy = h["x"], h["y"] - h["d"] / 2 + 7
+    hp -= Pos(sx, sy, 0) * Cylinder(1.7, PH * 3)
+    hp -= Pos(sx, sy, 0) * Solid.make_cone(3.2, 1.7, 1.6)
+    for dx in (-10, 10):
+        hp += Pos(h["x"] + dx, h["y"] + h["d"] / 2 - 1, PH) * Box(8, 3, 1.2, align=(Align.CENTER, Align.MIN, Align.MIN))
+    # finger notch
+    hp -= Pos(sx, h["y"] - h["d"] / 2, 0) * Cylinder(5, 1.6)
+    return hp
 
 
 def feet_b04():
@@ -138,6 +164,8 @@ def build():
         PartRec("B03", "Svetlovod základne", led_b03(), "cyan_led", "base", "", (0, -30, 0),
                 note="PMMA opál, 8× WS2812B-2020"),
         PartRec("B04", "Gumové nožičky (4×)", feet_b04(), "rubber", "base", "", (0, 0, -65)),
+        PartRec("B08", "Poklop batérie", hatch_b08(), "black", "base", "", (0, 0, -70),
+                note="1× M3 neodpadávajúca + 2 háčiky; vymeniteľné články"),
         PartRec("B05", "Otočný tanier", turntable_b05(), "black", "base", "J1", (0, 0, 25),
                 note="spojený s trupom, otáča sa (J1)"),
     ]

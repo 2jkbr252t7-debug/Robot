@@ -655,11 +655,12 @@ def main():
         tasks.append(lambda: sheet_arm_explode(q, recs))
     if want("17") and "base" in have:
         tasks.append(lambda: sheet_six("17_NOVA_zakladna", "NOVA / ZÁKLADŇA", P(lambda r: r["sub"] == "base" and not r.get("internal")), q,
-                                       subtitle=f"B01–B05 · {spec.BASE['w']:.0f} × {spec.BASE['d']:.0f} × {spec.BASE['z1']:.0f} mm · batérie, reproduktor, otáčanie tela"))
+                                       subtitle=f"B01–B08 · {spec.BASE['w']:.0f} × {spec.BASE['d']:.0f} × {spec.BASE['z1']:.0f} mm · batérie, reproduktor, otáčanie tela"))
     if want("18") and "base" in have:
         tasks.append(lambda: sheet_matrix("18_NOVA_kryty_zakladne", "NOVA / DIELY ZÁKLADNE", [
             ("B01 Horný kryt", ["B01"], "biely"), ("B02 Spodná doska", ["B02"], "čierna"),
             ("B03 Svetlovod", ["B03"], "PMMA"), ("B04 Nožičky", ["B04"], "TPU"), ("B05 Otočný tanier", ["B05"], "J1"),
+            ("B08 Poklop batérie", ["B08"], "1× M3 + 2 háčiky"),
         ], q))
     if want("20"):
         tasks.append(lambda: sheet_expressions(q, recs))

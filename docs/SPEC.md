@@ -1,4 +1,4 @@
-# NOVA v7.2 – špecifikácia „najlepšej verzie“
+# NOVA v7.3 – špecifikácia „najlepšej verzie“
 
 Jediný zdroj pravdy pre čísla je `nova/spec.py` (na začiatku súboru je CHANGELOG). Tento dokument
 vysvetľuje dizajn, funkcie, diely a elektroniku. Verzia v7.2 zapracúva 3 nezávislé odborné kontroly
@@ -28,22 +28,23 @@ krk 149–165 · os náklonu z = 181 (valec Ø40 visí 8 mm pod hlavou) · hlava
 ## 2. Diely
 ### Základňa B (z 0–42) – energia, zvuk, otáčanie tela
 * **B01 Horný kryt základne** – biely, 166×128, rohy R24, horná hrana R10, stena 2.5. Na vrchu kruhové lôžko Ø92 hĺbky 2.
-  Vzadu: mriežka reproduktora 3×15 otvorov Ø2.5 (27 % otvorenej plochy), USB-C a vypínač Ø7 (vzadu vpravo).
-* **B02 Spodná doska** – čierna 160×122, hr. 4, 4× M3 zápustné, vetracie štrbiny, lôžka nožičiek.
+  Vzadu: mriežka reproduktora 3×15 otvorov Ø2.5 (27 % otvorenej plochy), otvor USB-C 12.6×6.8 a vypínač Ø7 (vzadu vpravo).
+* **B02 Spodná doska** – čierna 160×122, 4× M3 zápustné, vetracie štrbiny, lôžka nožičiek.
+* **B08 Poklop batérie** – v B02 zospodu, 42×76 R4, 1 skrutka M3 + 2 háčiky (vymeniteľné články podľa EÚ 2023/1542).
 * **B03 Svetlovod** – tyrkysový 44×4, spredu z = 20.
 * **B04 Nožičky** – 4× Ø14 TPU.
 * **B05 Otočný tanier** – čierny disk Ø90, spojený s trupom (otáča sa s J1).
-* Vnútri: 2× 18650 pozdĺž osi Y (x = −42 a −64), BLDC GM3506 mimo osi (x = +48) s remeňom GT2 16T → 72T (4.5 : 1),
+* Vnútri: 2× 18650 pozdĺž osi Y (x = −38 a −58, nad poklopom B08), BLDC GM3506 mimo osi (x = +48) s remeňom GT2 16T → 72T (4.5 : 1),
   ložisko 6808 na osi, zberací krúžok Ø12.5 v osi, plochý reproduktor Ø36 s kanálom k zadnej mriežke,
   doska základne (RP2040/ESP32-C3: SimpleFOC + AS5048A, BMS, USB-C PD, merač batérie, I2S zosilňovač, LED B03).
 
 ### Trup T (z 43–142) – mozog a ramenné servá
 * Tvar bieleho tela: superelipsa n = 3.2, 112×92, spodné zaoblenie R8, horné R22 (plochý vrch pre golier).
-* **T04 Spodná vanička** – čierna superelipsa 100×80, výška 4.5 → viditeľný čierny pás pod telom; 4× M2.5 zdola.
+* **T04 Spodná vanička** – čierna superelipsa 100×80, výška 4.5 → viditeľný čierny pás pod telom; 4× M2.5 ku kostre T07 + 2× M2.5 k pásu.
 * **T01 Stredový pás** – biely pás |x| ≤ 35 spredu, cez vrch až dozadu (švy na x = ±35 bez priečneho švu).
-  Spredu prekrýva vaničku až po z = 43. Nesie T05, T06 a otvor pre krk Ø34.
-* **T02-P / T02-Ľ Bočné kryty** – biele, s ramennými otvormi Ø23 + zapustenie Ø31.4.
-* **T03 Zadné dvierka** – 60×76 R12 v páse, hore 5 výfukových štrbín, dole 4 nasávacie (komínové chladenie Pi 5).
+  Spredu aj zozadu zostupuje rovnou zásterou až po z = 43 (dá sa vystrekovať). Nesie T05, T06 a otvor pre krk Ø34.
+* **T02-R / T02-L Bočné kryty** (pravý/ľavý) – biele, s ramennými otvormi Ø23 + zapustenie Ø31.4.
+* **T03 Zadné dvierka** – 60×84 R12 v páse (z 54–138, prístup k Pi), hore 5 výfukových štrbín, dole 4 nasávacie (komínové chladenie Pi 5).
 * **T05 LED svetlovod** – tyrkysový 34×4 na z = 100.  **T06 Senzorové okienko** – matné 23×4 na z = 83.5.
 * Vnútri: vnútorný rám, Raspberry Pi 5 (zvislo pri dvierkach, ventilátor nasáva dole a fúka hore), 2× servo ramien
   na osi z = 115, servo otáčania hlavy pod vrchom, ložisko 61805 v náboji pod vrchom, napájacia/riadiaca doska
@@ -51,17 +52,17 @@ krk 149–165 · os náklonu z = 181 (valec Ø40 visí 8 mm pod hlavou) · hlava
 
 ### Krk N
 * **N01 Spodný golier** – čierny, elipsa 52×42, tenká skosená príruba (okraj 2 mm), vnútorný nákružok Ø35. Pevne na trupe.
-* **N02 Plast krku** – čierny „trúbkovitý“ kužeľ Ø33 → Ø23, 2 polovice. Otáča sa (J2).
-* **N06 Kryt náklonu** – čierny valec Ø40×36 na osi z = 181, vo vnútri servo náklonu priamo na osi.
-* **N07 Koncové krytky P/Ľ** – Ø39×6, spojené s hlavou (J3). V pasívnej krytke ložisko 6703 na dutom čape
+* **N02 Plast krku** – čierny „trúbkovitý“ kužeľ Ø33 → Ø23, jeden kus. Otáča sa (J2).
+* **N06 Kryt náklonu** – čierny valec Ø42×36 na osi z = 181, vo vnútri servo náklonu priamo na osi.
+* **N07 Koncové krytky R/L** – Ø41×6 s nábojom Ø18, ktorý prechádza do kostry hlavy H11 (J3). V pasívnej krytke ložisko 6703 na dutom čape
   (prechod káblov) a špirálová pružina, ktorá vyrovnáva váhu hlavy (servo drží ≤ 19 % momentu).
 
 ### Hlava H (z 169–265)
 * **H01 Hlavný obal** – biely, 132 × 90 × 96 (bez rámu), roh siluety spredu R32, zadná hrana R28, stena 2.2.
   Zdola vybranie 56×56 R16, hĺbka 34 (voľnosť pre náklon −20/+30°); vetranie zdola vpredu.
 * **H02 Zadný kryt** – biela miska 112×66 R20 (zasahuje do zaoblenia).
-* **H03 Predný rám** – čierny soft-touch 127×91 R30, vystupuje 7 mm, okolo 2.5 mm biely lem; horný pás 7 mm, spodný 5, boky 4.
-* **H04 Sklo** – 119×79 R22 × 1.1, tvrdené, čierna potlač; **H04C** okienko kamery Ø3.2 (z = 250.5) v hornom čiernom páse.
+* **H03 Predný rám** – čierny soft-touch 127×91 R29.5, vystupuje 7 mm, okolo 2.5 mm biely lem; horný pás 7 mm, spodný 5, boky 4.
+* **H04 Sklo** – 119×79 R22 × 1.1, tvrdené, čierna potlač (hore 9 mm, inde 4 mm); nepotlačené okienko kamery Ø3.2 (z = 250.5).
 * **H04E Oči** (obsah displeja) – dve „pilulky“ 13×21.5 R6.5, stredy x = ±12, z = 209.5 (mierne pod stredom).
 * **H05 Uši P/Ľ** – čierne disky Ø36, vystupujú 5.5 mm, stred y = −4, z = 213; dotyk + mikrofón (otvor Ø1).
 * **H06 LED krúžky uší** – tyrkysové Ø30/Ø23.
@@ -75,7 +76,7 @@ krk 149–165 · os náklonu z = 181 (valec Ø40 visí 8 mm pod hlavou) · hlava
 * **A01 Vonkajšia skrupina** – celá biela (prémiový jemný „šošovkový“ panel).
 * **A02 Vnútorná skrupina** – biela, s nábojom Ø26/Ø22.4.
 * **A03 Vložka špičky** – čierne TPU na VNÚTORNEJ strane dole vpredu, zabiehá pod spodok (mäkký nárazník/úchop).
-* **A04 Kryt kĺbu** – čierny Ø26, x 57.5–68.5, čap Ø22 do náboja, otvor Ø14 pre unášač serva.
+* **A04 Kryt kĺbu** – čierny Ø26, x 57.8–68.5, čap Ø22 do náboja, otvor Ø14 pre unášač serva.
 * **A05 Prechodový krúžok** – čierny Ø31/Ø23 × 2.5 v trupe.
 * Nad 125° sa ruka smie zdvihnúť len pri hlave otočenej rovno (|J2| ≤ 2°) – blokovanie vo firmvéri
   (inak by sa pri otočenej hlave dotkla hlavy).
