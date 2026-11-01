@@ -145,10 +145,11 @@ def setup_world(sc, strength=1.0):
     tc = nt.nodes.new("ShaderNodeTexCoord")
     sep = nt.nodes.new("ShaderNodeSeparateXYZ")
     ramp = nt.nodes.new("ShaderNodeValToRGB")
-    ramp.color_ramp.elements[0].position = 0.35
-    ramp.color_ramp.elements[0].color = (0.30, 0.31, 0.33, 1)
-    ramp.color_ramp.elements[1].position = 0.75
-    ramp.color_ramp.elements[1].color = (0.95, 0.96, 0.98, 1)
+    # dark studio below the horizon, soft bright "sky" only near the zenith -> deep black glass/bezel
+    ramp.color_ramp.elements[0].position = 0.55
+    ramp.color_ramp.elements[0].color = (0.035, 0.036, 0.04, 1)
+    ramp.color_ramp.elements[1].position = 0.95
+    ramp.color_ramp.elements[1].color = (1.0, 1.0, 1.0, 1)
     mapr = nt.nodes.new("ShaderNodeMapRange")
     mapr.inputs["From Min"].default_value = -1
     mapr.inputs["From Max"].default_value = 1
@@ -506,7 +507,7 @@ def run(job):
     if job.get("center"):
         center = Vector(job["center"]) * MM
     radius = (mx - mn).length / 2
-    setup_world(sc, job.get("world", 0.16))
+    setup_world(sc, job.get("world", 0.5))
     setup_lights(center, radius, job.get("light", 1.0))
     sc.view_settings.exposure = job.get("exposure", -1.5)
     floor_z = job.get("floor_z")

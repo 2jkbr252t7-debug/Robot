@@ -1,25 +1,28 @@
 """
 NOVA – NECK (N01, N02, N06, N07-R, N07-L).  Run:  /opt/venv/cad/bin/python -m nova.cad.neck
 
-Spec v7.2 (spec.NECK, spec.TILT_AXIS, spec.PAN_AXIS).  Kinematics / function:
+Spec v7.3 (spec.NECK, spec.TILT_AXIS, spec.PAN_AXIS, docs/REVIEW_NOTES.md).  Kinematics / function:
   N01  Spodný golier      – fixed on the torso top (J1).  Elliptical 52 x 42 sloped flange (outer edge 2.0),
                             concave top rising to a groove line and a raised inner lip Ø35 x 1.2, bore Ø32.
                             Underside cored (1.5 wall) with radial ribs; Ø33.7 locating ring into the torso
                             Ø34 neck hole + 2 anti-rotation pins Ø2; bonded (VHB) to the torso top.
-  N02  Plast krku         – cosmetic concave "trumpet", r(z) = r_top + (r_bot - r_top) * ((z1 - z)/(z1 - z0))^2,
-                            wall 2.  Two halves split in the YZ plane (0.5 seam grooves front + back), clipped
-                            on the pan hub by 4 internal tabs.  The top edge is a saddle trimmed 0.3 mm off
-                            the barrel so the cone runs straight into the N06 underside.  Pans (J2).
-  N06  Kryt náklonu       – horizontal barrel Ø40 x 36 // X on the tilt axis, NO visible stem.  Hollow
-                            (wall 2): −X end wall with Ø14 bore for the tilt-servo output; +X end opening Ø32
-                            (servo slid in, closed by the 6703 bearing plug – internal part).  Hidden Ø17.6
-                            spigot under the barrel (inside N02) = mount on the pan hub (2x M2) and the 14 x 8
-                            cable passage from the cone into the barrel.  0.6 grooves 3 mm from each end.
-                            Pans (J2).
-  N07-R/L Koncové krytky  – Ø39 x 6 domed hub caps, 0.6 gap to the barrel, fixed to the head frame (J3).
-                            Ø12 x 0.5 centre recess = seat of the head-pocket boss (H01).  R: Ø12 spigot into
-                            the servo-horn adapter, M2.5 pilot hole.  L: integral hollow pin OD17/ID13 running
-                            in the 6703 bearing, Ø8 cable exit into the hollow head boss + 2x M2 pilots.
+  N02  Plast krku         – ONE-piece cosmetic concave trumpet, r(z) = r_top + (r_bot - r_top) *
+                            ((z1 - z)/(z1 - z0))^2, wall 2.  Slid over the pan hub N03 and resting on its
+                            Ø30 flange (z 149); 2 key tabs into flange notches keep the saddle aligned;
+                            4 crush ribs centre it on the N06 spigot.  The top edge is a saddle trimmed 0.4 mm
+                            (static moulded seam) off the barrel so the cone runs into the N06 underside.  J2.
+  N06  Kryt náklonu       – horizontal barrel Ø42 x 36 // X on the tilt axis, NO visible stem, wall 2.
+                            −X end: window for the SCS0009 tilt servo (top face flush with the barrel end,
+                            spline into the Al insert of N07-R), cradle rib + end-stop rib inside.
+                            +X end: Ø32 opening (servo / N05 plug with the 6703 bearing, 3 key notches).
+                            Hidden Ø18.4 spigot under the barrel (inside N02) down to the N03 hub top (z 149):
+                            2x M2.5 through-holes + 14 x 8 cable passage.  0.6 grooves 3 mm from each end,
+                            labyrinth ring ribs on both end faces (the 0.6 cap gap is not see-through).  J2.
+  N07-R/L Koncové krytky  – Ø41 x 6 domed caps, 0.6 gap to the barrel, Ø18 x 5.8 hub (x 24.6 -> 30.4) through
+                            the Ø18.4 hole of the head recess wall into the H11 cheek (J3).
+                            R: Ø20 pocket for the Al spline insert, hub with 2x M2 + 2x Ø2 pins (PCD 11, = H11).
+                            L: integral hollow pin OD17 in the 6703 bearing, Ø13 cable tunnel straight through
+                            pin + cap + hub, 2 key notches on the hub end (torque), spring slot on the pin.
 Every number comes from spec.NECK / spec.TILT_AXIS unless it is a small local detail constant.
 """
 from __future__ import annotations
@@ -207,16 +210,22 @@ def collar_n01():
     return check("N01", body.clean())
 
 
+
+
 # ---------------------------------------------------------------------------
-# N02  Plast krku – concave trumpet, 2 halves (split YZ), seam grooves front/back
+# N02  Plast krku – one-piece concave trumpet with a saddle top
 # ---------------------------------------------------------------------------
 K_Z0, K_Z1 = CN["z0"], CN["z1"]
 K_RB, K_RT, K_W = CN["r_bottom"], CN["r_top"], CN["wall"]
-R_BAR, L_BAR = TH["barrel_d"] / 2, TH["barrel_len"]        # 20, 36
-TOP_GAP = 0.3                                              # N02 saddle top edge <-> barrel surface
-SKIRT_RO = R_BORE - 0.5                                    # 15.5 labyrinth skirt in the N01 bore (0.5 play)
-SKIRT_RI = 14.3
-SKIRT_L = 2.5                                              # skirt reaches z 146.5 (collar lip top 148.5)
+R_BAR, L_BAR = TH["barrel_d"] / 2, TH["barrel_len"]        # 21, 36
+TOP_GAP = 0.4                # N02 saddle top edge <-> barrel surface (static moulded seam 0.4)
+N03_FLANGE_R = 15.0          # N03 hub flange Ø30 x 1.5 at z 147.5..149 (REVIEW_NOTES) – N02 rests on it
+N03_FLANGE_Z0 = K_Z0 - 1.5
+KEY_W, KEY_R0 = 3.0, 12.9    # 2 key tabs (±X) hanging into notches of the N03 flange
+SKIRT_T, SKIRT_L = 0.6, 1.0  # skirt r 15.05..15.65, z 148..149 (0.35 radial play to the N01 bore Ø32)
+SPIG_R = 9.2                 # N06 hidden spigot radius: must pass the N02 top opening (min inner r 9.67)
+#                              downward during assembly -> 0.47 clearance, taken up by the crush ribs
+CRUSH_T = 0.8                # 4 crush ribs centring N02 on the spigot
 
 
 def cone_r(z):
@@ -237,15 +246,22 @@ def cone_inner_pt(z, wall=K_W):
     return cone_r(z) - wall / s, z + wall * d / s
 
 
+def cone_r_in(z):
+    """Inner wall radius at height z (interpolated from the normal-offset points)."""
+    pts = [cone_inner_pt(K_Z0 + (K_Z1 - K_Z0) * i / 64) for i in range(65)]
+    for (r0, z0), (r1, z1) in zip(pts, pts[1:]):
+        if z0 <= z <= z1:
+            return r0 + (r1 - r0) * (z - z0) / (z1 - z0)
+    return pts[0][0] if z < pts[0][1] else pts[-1][0]
+
+
 def trumpet_n02():
     n = 32
     zs = [K_Z0 + (K_Z1 - K_Z0) * i / n for i in range(n + 1)]
     out_pts = [Vector(PX + cone_r(z), PY, z) for z in zs]
-    # inner wall = normal offset; extended to the same top / bottom planes
     inn = [cone_inner_pt(z) for z in zs]
-    # bottom: intersect the inner offset with z = K_Z0 (extrapolate linearly with the first segment)
     (r0, z0), (r1, z1) = inn[0], inn[1]
-    r_in_bot = r0 + (r1 - r0) * (K_Z0 - z0) / (z1 - z0)
+    r_in_bot = r0 + (r1 - r0) * (K_Z0 - z0) / (z1 - z0)          # inner offset extended to z = K_Z0
     inn = [(r_in_bot, K_Z0)] + [p for p in inn if K_Z0 + 0.05 < p[1] < K_Z1 - 0.05] + [(K_RT - K_W, K_Z1)]
     in_pts = [Vector(PX + r, PY, z) for r, z in reversed(inn)]
     e_out = Edge.make_spline(out_pts)
@@ -254,43 +270,74 @@ def trumpet_n02():
     e_bot = Edge.make_line(in_pts[-1], out_pts[0])
     s = check("N02 rev", revolve_profile([e_out, e_top, e_in, e_bot]))
     s = s.fillet(0.3, edges_where(s, is_circle_at_z(K_RB, K_Z0)))
-    # labyrinth skirt hanging into the N01 bore (hides the 0.5 rotation gap above the lip)
-    sk = ring_z(SKIRT_RI, SKIRT_RO, K_Z0 - SKIRT_L, K_Z0 + 0.5)
-    sk = sk.fillet(0.25, edges_where(sk, lambda e: abs(bb(e).max.Z - (K_Z0 - SKIRT_L)) < 0.02))
-    s = s.fuse(sk).clean()
+    s = s.fillet(0.2, edges_where(s, is_circle_at_z(r_in_bot, K_Z0)))
     # saddle top: trimmed by the barrel cylinder grown by TOP_GAP -> the cone runs into the barrel
-    s = s - cyl_x(R_BAR + TOP_GAP, PX - L_BAR, PX + L_BAR)
-    s = check("N02 saddle", s)
-    # 4 internal clip tabs at the bottom (snap into a groove of the pan hub, r 12.5)
-    for k in range(4):
-        tab = (Pos(PX, PY, K_Z0 + 1.2) * Rot(0, 0, 45 + 90 * k)
-               * Pos((12.8 + r_in_bot + 0.6) / 2, 0, 0) * Box(r_in_bot + 0.6 - 12.8, 4.0, 1.6))
+    s = check("N02 saddle", s - cyl_x(R_BAR + TOP_GAP, PX - L_BAR, PX + L_BAR))
+    try:   # 0.3 break on the outer saddle edge (seam edge chamfer per REVIEW_NOTES)
+        sad = edges_where(s, lambda e: bb(e).max.Z > K_Z0 + 8 and bb(e).size.Z > 1.0
+                          and max(bb(e).size.X, bb(e).size.Y) > 2 * cone_r(K_Z1) - 0.2)
+        s2 = s.fillet(0.3, sad)
+        if s2.is_valid and abs(s2.volume - s.volume) < 5:
+            s = s2
+    except Exception:
+        pass
+    # locating skirt on the N03 flange OD (also closes the line of sight through the 0.5 gap to N01)
+    sk = ring_z(N03_FLANGE_R + 0.05, N03_FLANGE_R + 0.05 + SKIRT_T, K_Z0 - SKIRT_L, K_Z0 + 0.5)
+    sk = sk.fillet(0.2, edges_where(sk, lambda e: abs(bb(e).max.Z - (K_Z0 - SKIRT_L)) < 0.02))
+    s = s.fuse(sk).clean()
+    # 2 key tabs at ±X hanging into notches of the N03 flange (keep the saddle aligned to the barrel)
+    for sx in (1, -1):
+        r_mid = (KEY_R0 + r_in_bot + 0.4) / 2
+        tab = Pos(PX + sx * r_mid, PY, (N03_FLANGE_Z0 + 0.2 + K_Z0 + 0.6) / 2) * \
+            Box(r_in_bot + 0.4 - KEY_R0, KEY_W, K_Z0 + 0.6 - (N03_FLANGE_Z0 + 0.2))
         s = s.fuse(tab)
-    # seam grooves (0.5 wide, 0.5 deep) where the two halves meet: front (−Y) and back (+Y), plane x = 0
-    seam_w, seam_d = 0.5, 0.5
-    zs2 = [K_Z0 - 1 + (K_Z1 + 1 - (K_Z0 - 1)) * i / 36 for i in range(37)]
-    pts = [Vector(PX + cone_r(min(max(z, K_Z0 - 1), K_Z1)) - seam_d, PY, z) for z in zs2]
-    sp = Edge.make_spline(pts)
-    inner = revolve_profile([sp, Edge.make_line(pts[-1], Vector(PX, PY, zs2[-1])),
-                             Edge.make_line(Vector(PX, PY, zs2[-1]), Vector(PX, PY, zs2[0])),
-                             Edge.make_line(Vector(PX, PY, zs2[0]), pts[0])])
-    slab = Pos(PX, PY, (K_Z0 + K_Z1) / 2) * Box(seam_w, 2 * K_RB + 6, K_Z1 - K_Z0 + 6)
-    s = s - (slab - inner)
+    # 4 crush ribs inside (45°, 135°…) touching the N06 spigot (line-to-line + 0.05)
+    zr0, zr1 = K_Z0 + 3.0, K_Z0 + 9.0
+    r_out = cone_r_in(zr1) + 0.6
+    for k in range(4):
+        rib = Pos(PX, PY, (zr0 + zr1) / 2) * Rot(0, 0, 45 + 90 * k) * \
+            Pos((SPIG_R + 0.05 + r_out) / 2, 0, 0) * Box(r_out - SPIG_R - 0.05, CRUSH_T, zr1 - zr0)
+        s = s.fuse(rib & cone_solid_outer())
     return check("N02", s.clean())
 
 
+def cone_solid_outer():
+    """Solid of revolution bounded by the outer trumpet profile (used to clip internal ribs)."""
+    zs = [K_Z0 + (K_Z1 - K_Z0) * i / 32 for i in range(33)]
+    pts = [Vector(PX + cone_r(z), PY, z) for z in zs]
+    return revolve_profile([Edge.make_spline(pts), Edge.make_line(pts[-1], Vector(PX, PY, K_Z1)),
+                            Edge.make_line(Vector(PX, PY, K_Z1), Vector(PX, PY, K_Z0)),
+                            Edge.make_line(Vector(PX, PY, K_Z0), pts[0])])
+
+
 # ---------------------------------------------------------------------------
-# N06  Kryt náklonu – barrel // X, no stem, R2 ends, grooves, hidden spigot + 14x8 cable passage
+# N06  Kryt náklonu – barrel // X, no stem, R2 ends, grooves, servo window, hidden spigot
 # ---------------------------------------------------------------------------
 W_N06 = 2.0
-END_R = 2.0                  # barrel end edge rounds (spec "edges R2")
-GROOVE_X = 3.0               # groove centre distance from each barrel end
-BORE_SERVO = 14.0            # −X end wall bore (servo output spline / horn adapter)
-OPEN_D = 32.0                # +X end opening (servo insertion, 6703 bearing plug seat)
-SPIG_R = 8.8                 # hidden mounting spigot (inside N02: inner wall r >= 9.5)
-SPIG_Z0 = 153.0              # spigot bottom (pan-hub flange, 2x M2)
-RIB_RI, RIB_RO = 16.9, 17.9  # labyrinth ring rib on the barrel end faces
-RIB_H = 0.9                  # protrudes 0.9 beyond the barrel end (0.3 into the cap recess)
+R_IN = R_BAR - W_N06          # 19 (inner Ø38, SCS0009 corner r ~18.5 on the axis)
+END_R = 2.0                   # barrel end edge rounds (spec "edges R2")
+GROOVE_X = 3.0                # groove centre distance from each barrel end
+OPEN_D = 32.0                 # +X end opening (N05 plug spigot Ø32 with the 6703 bearing)
+SPIG_Z0 = K_Z0                # spigot bottom = N03 hub top (flange top z 149)
+RIB_RI, RIB_RO = 18.0, 18.8   # labyrinth ring rib on the barrel end faces
+RIB_H = 0.9                   # protrudes 0.9 beyond the barrel end into the cap recess
+# SCS0009 tilt servo (no ears) – shaft on the tilt axis, body up (+Z), top face flush at x = -L/2
+SV_W, SV_L, SV_H = 12.1, 23.2, 25.25   # body Y x Z x X
+SV_SHAFT = 5.9                # shaft axis distance from the lower body end
+SV_CLR = 0.15
+CRADLE_X = -6.0               # cradle rib (window = body + clearance)
+STOP_X = PX - L_BAR / 2 + SV_H  # end-stop rib face (servo bottom end, x = +7.25)
+RIB_T = 1.5
+SV_RELIEF_DROP, SV_RELIEF_W = 2.0, 3.4   # servo cable strain relief: 2.0 below the body, 3.4 wide (internals)
+SCREW_Y, SCREW_D = 6.4, 2.7   # 2x M2.5 through the spigot into N03
+CABLE_DX = 1.0                # cable passage centre shifted +X: the Ø4 bundle (W1-N) runs at x 5.6 over the
+#                               off-axis N03 channel (x 2.5..9.5) -> 0.4 clearance in the slot end, wall 1.2
+SPOT_D, SPOT_Z = 4.8, 0.4     # flat spot face for the pan heads, 0.4 below r_in at the axis (no break-through)
+
+
+def servo_window(x0, x1, grow=SV_CLR):
+    zlo, zhi = AX_Z - SV_SHAFT - grow, AX_Z + SV_L - SV_SHAFT + grow
+    return Pos((x0 + x1) / 2, AX_Y, (zlo + zhi) / 2) * Box(x1 - x0, SV_W + 2 * grow, zhi - zlo)
 
 
 def tilt_housing_n06():
@@ -302,52 +349,78 @@ def tilt_housing_n06():
     for sx in (-1, 1):
         xc = PX + sx * (L_BAR / 2 - GROOVE_X)
         t = t - ring_x(R_BAR - GROOVE_D, R_BAR + 1, xc - SEAM / 2, xc + SEAM / 2)
-    # hollow: cavity r 18 from the −X end wall to the +X end lip; +X lip opening Ø32
-    t = t - cyl_x(R_BAR - W_N06, x0 + W_N06, x1 - W_N06)
-    t = t - cyl_x(OPEN_D / 2, x1 - W_N06 - 1, x1 + 1)
-    t = t - cyl_x(BORE_SERVO / 2, x0 - 1, x0 + W_N06 + 1)            # −X end: servo output bore
-    # labyrinth ribs on both end faces, entering the cap recess (the 0.6 gap is not see-through)
+    # hollow: cavity r 19 between the −X end wall and the +X end lip
+    t = t - cyl_x(R_IN, x0 + W_N06, x1 - W_N06)
+    # labyrinth ring ribs on both end faces (enter the cap recess)
     for sx in (-1, 1):
         xe = PX + sx * L_BAR / 2
-        rib = ring_x(RIB_RI, RIB_RO, min(xe - sx * 0.3, xe + sx * RIB_H), max(xe - sx * 0.3, xe + sx * RIB_H))
-        t = t.fuse(rib)
-    t = check("N06 hollow", t.clean())
-    # hidden spigot under the barrel (inside N02) + cable passage 14 x 8 (long axis // X)
-    z_in = AX_Z - (R_BAR - W_N06) + 0.5
+        xa, xb = sorted((xe - sx * 0.3, xe + sx * RIB_H))
+        t = t.fuse(ring_x(RIB_RI, RIB_RO, xa, xb))
+    # internal ribs: cradle (window = servo body) and end stop (ring r 9..19) – cable notch at the bottom
+    cradle = cyl_x(R_IN + 0.5, CRADLE_X - RIB_T / 2, CRADLE_X + RIB_T / 2)
+    stop = ring_x(9.0, R_IN + 0.5, STOP_X, STOP_X + RIB_T)
+    notch = Pos(PX, AX_Y, AX_Z - R_IN) * Box(2 * L_BAR, 14.0, 2 * (R_IN - 7.0))
+    t = t.fuse((cradle + stop) - notch)
+    t = check("N06 ribs", t.clean())
+    # −X end: servo window through the end wall, the cradle rib and the −X rib ring, plus a notch at the
+    # bottom for the cable strain relief that hangs 2.0 under the far end of the servo during insertion
+    t = t - servo_window(x0 - 2, CRADLE_X + RIB_T)
+    zr0 = AX_Z - SV_SHAFT - SV_RELIEF_DROP - SV_CLR - 0.15
+    t = t - Pos((x0 - 2 + CRADLE_X + RIB_T) / 2, AX_Y, (zr0 + AX_Z - SV_SHAFT) / 2) * \
+        Box(CRADLE_X + RIB_T - x0 + 2, SV_RELIEF_W + 2 * SV_CLR + 0.3, AX_Z - SV_SHAFT - zr0)
+    # +X end: Ø32 opening + 3 key notches for the N05 plug
+    t = t - cyl_x(OPEN_D / 2, x1 - W_N06 - 1, x1 + 2)
+    for k in range(3):
+        a = math.radians(90 + 120 * k)
+        t = t - Pos(x1 - 0.6, AX_Y + (OPEN_D / 2) * math.cos(a), AX_Z + (OPEN_D / 2) * math.sin(a)) * \
+            Rot(math.degrees(a) - 90, 0, 0) * Box(2.0, 3.0, 1.6)
+    t = check("N06 hollow", t)
+    # hidden spigot under the barrel (inside N02) down to the N03 hub top + cable passage 14 x 8 (long // X)
+    z_in = AX_Z - R_IN + 0.5
     spig = cyl_z(SPIG_R, SPIG_Z0, z_in)
     spig = spig.fillet(0.4, edges_where(spig, is_circle_at_z(SPIG_R, SPIG_Z0)))
     t = t.fuse(spig).clean()
     sw, sh = TH["cable_slot"]
-    with BuildSketch(Plane(origin=(PX, PY, SPIG_Z0 - 1))) as sk:
+    with BuildSketch(Plane(origin=(PX + CABLE_DX, PY, SPIG_Z0 - 1))) as sk:
         SlotOverall(sw, sh)
     t = t - extrude(sk.sketch, z_in - SPIG_Z0 + 3)
-    # 2x M2 pilot holes for the pan-hub screws (in the thick wall along Y)
+    # 2x M2.5 clearance holes through the spigot + spot faces inside the barrel (screws driven from inside)
     for sy in (-1, 1):
-        t = t - cyl_z(0.8, SPIG_Z0 - 1, SPIG_Z0 + 6, y=PY + sy * 6.6)
-    # 2 internal ribs on the −X end wall (servo flange stop) – kept inside the cavity
-    for sz in (-1, 1):
-        t = t.fuse(Pos(x0 + W_N06 + 1.0, AX_Y, AX_Z + sz * 13.0) * Box(2.2, 6.0, 5.0)
-                   & cyl_x(R_BAR - W_N06 + 0.5, x0, x1))
+        t = t - cyl_z(SCREW_D / 2, SPIG_Z0 - 1, AX_Z, y=PY + sy * SCREW_Y)
+        t = t - cyl_z(SPOT_D / 2, AX_Z - R_IN + SPOT_Z, AX_Z, y=PY + sy * SCREW_Y)
     return check("N06", t.clean())
 
 
 # ---------------------------------------------------------------------------
-# N07  Koncové krytky – domed hub caps (tilt with the head)
+# N07  Koncové krytky – domed caps with the Ø18 hub (tilt with the head)
 # ---------------------------------------------------------------------------
 R_CAP, L_CAP, DOME, GAP = CP["d"] / 2, CP["len"], CP["dome"], CP["gap"]
+HUB_R, HUB_L = CP["hub_d"] / 2, CP["hub_len"]
 X_CAP0 = L_BAR / 2 + GAP                        # 18.6 inner face
 CAP_EDGE_R = 2.5
-RECESS_D, RECESS_T = 12.0, 0.5
-SPIG_D, SPIG_L = 12.0, 2.4                      # R: spigot into the servo-horn adapter (barrel bore Ø14)
-PIN_OD, PIN_ID, PIN_LEN = 17.0, 13.0, 6.0       # L: hollow pin in the 6703 bearing (ID 17)
-CABLE_D = 8.0
-CAP_REC_R, CAP_REC_T = RIB_RO + 0.3, 1.2        # inner-face recess (0.3 radial / 0.9 axial play to the rib)
-CAP_CORE_R, CAP_CORE_Z = 16.7, 3.0              # deep core under the dome (walls 1.5..1.9)
-CAP_HUB_R = PIN_OD / 2 + 1.6                    # 10.1 solid hub around the spigot / hollow pin
+CAP_REC_R, CAP_REC_T = RIB_RO + 0.5, 1.2        # inner-face recess for the barrel rib (0.5 radial / 0.9 axial)
+CAP_CORE_R, CAP_CORE_Z = 18.0, 3.0              # deep core under the dome (walls >= 1.5)
+CAP_HUB_IN = 12.0                               # solid centre (Al insert pocket / hollow pin) inside the core
+INSERT_D, INSERT_DEPTH = 20.0, 5.0              # R: Al spline insert (25T, servo spline engages 2.9)
+PCD_R = 5.5                                     # R hub: 2x M2 + 2x Ø2 pins on PCD 11 (matches the H11 cheek)
+# hole angles a in the YZ plane around the tilt axis: dy = r sin a, dz = r cos a (same convention as H11)
+HUB_M2_ANG = (90.0, 330.0)                      # M2 pilots Ø1.6 x 5 (screws from the H11 cheek side)
+HUB_PIN_ANG = (30.0, 210.0)                     # Ø2 x 3 pin holes (H11 pins Ø1.9 x 2.6)
+M2_PILOT_D, M2_PILOT_L = 1.6, 5.0
+HUB_PIN_D, HUB_PIN_L = 2.0, 3.0
+PIN_OD, PIN_ID = 17.0, 13.0                     # L: hollow pin in the 6703 bearing (ID 17)
+PIN_X_END = 9.0                                 # L: pin reaches x = +9 (spring seat x 9.5 .. 12.5)
+
+
+def yz_to_local(side: int, dy: float, dz: float):
+    """Global offset (dy, dz) from the tilt axis -> (x, y) in the cap_local frame.
+    cap_n07 places the local frame with Rot(0, side*90, 0): side -1 maps local x -> +Z, side +1 maps
+    local x -> -Z; local y stays global Y."""
+    return (dz, dy) if side < 0 else (-dz, dy)
 
 
 def cap_local(side: int):
-    """Cap in a local frame: axis = +Z, inner face at z=0, dome apex at z=L_CAP."""
+    """Cap in a local frame: axis = +Z (outward), inner face at z=0, dome apex at z=L_CAP."""
     zc = L_CAP - DOME
     c = Solid.make_cylinder(R_CAP, zc)
     rs = (R_CAP ** 2 + DOME ** 2) / (2 * DOME)
@@ -356,30 +429,41 @@ def cap_local(side: int):
     c = c.fuse(dome).clean()
     c = c.fillet(CAP_EDGE_R, edges_where(c, is_circle_at_z(R_CAP, zc)))
     c = c.fillet(0.5, edges_where(c, is_circle_at_z(R_CAP, 0.0)))
-    # centre recess Ø12 x 0.5 (depth measured at the recess rim on the dome)
-    sag = (RECESS_D / 2) ** 2 / (2 * rs)
-    c = c - Solid.make_cylinder(RECESS_D / 2, 2, Plane(origin=(0, 0, L_CAP - sag - RECESS_T)))
-    # inner-face recess (cores the cap + receives the barrel labyrinth rib), centre boss left
+    # Ø18 hub through the head-recess wall to the H11 cheek (end face at L_CAP + HUB_L)
+    hub = Solid.make_cylinder(HUB_R, HUB_L + 1.0, Plane(origin=(0, 0, L_CAP - 1.0)))
+    hub = hub.fillet(0.5, edges_where(hub, is_circle_at_z(HUB_R, L_CAP + HUB_L)))
+    c = c.fuse(hub).clean()
+    sag = HUB_R ** 2 / (2 * rs)
+    try:
+        c2 = c.fillet(0.8, edges_where(c, lambda e: abs(bb(e).size.X - 2 * HUB_R) < 0.1
+                                       and abs(bb(e).min.Z - (L_CAP - sag)) < 0.1))
+        if c2.is_valid:
+            c = c2
+    except Exception:
+        pass
+    # inner face: rib recess + deep core with 6 radial ribs, solid centre
     core = Solid.make_cylinder(CAP_REC_R, CAP_REC_T + 1, Plane(origin=(0, 0, -1)))
-    # deep core (uniform ~1.5-1.9 wall under the dome) with 6 radial ribs to the hub
     core = core.fuse(Solid.make_cylinder(CAP_CORE_R, CAP_CORE_Z + 1, Plane(origin=(0, 0, -1))))
-    core = core - Solid.make_cylinder(CAP_HUB_R, 10, Plane(origin=(0, 0, -2)))
+    core = core - Solid.make_cylinder(CAP_HUB_IN, 10, Plane(origin=(0, 0, -2)))
     for k in range(6):
-        core = core - Rot(0, 0, 30 + 60 * k) * Pos(R_CAP / 2 + 2, 0, 0) * Box(R_CAP, 1.2, 12)
+        core = core - Rot(0, 0, 30 + 60 * k) * Pos(R_CAP / 2 + 3, 0, CAP_REC_T + 6) * Box(R_CAP, 1.2, 12)
     c = c - core
-    if side < 0:      # R: spigot + M2.5 pilot (screw from the head boss)
-        sp = Solid.make_cylinder(SPIG_D / 2, SPIG_L + 0.5, Plane(origin=(0, 0, -SPIG_L)))
-        sp = sp.fillet(0.4, edges_where(sp, is_circle_at_z(SPIG_D / 2, -SPIG_L)))
-        c = c.fuse(sp).clean()
-        c = c - Solid.make_cylinder(1.05, 5.0, Plane(origin=(0, 0, L_CAP - 4.5)))
-    else:             # L: hollow pin OD17/ID13 + Ø8 cable exit + 2x M2 pilots
-        pin = Solid.make_cylinder(PIN_OD / 2, PIN_LEN + 0.5, Plane(origin=(0, 0, -PIN_LEN)))
-        pin = pin.fillet(0.5, edges_where(pin, is_circle_at_z(PIN_OD / 2, -PIN_LEN)))
+    z_end = L_CAP + HUB_L
+    if side < 0:      # R: Al spline insert pocket, hub with 2x M2 pilots + 2x Ø2 pin holes (H11 pattern)
+        c = c - Solid.make_cylinder(INSERT_D / 2, INSERT_DEPTH + 1, Plane(origin=(0, 0, -1)))
+        for angs, d, ln in ((HUB_M2_ANG, M2_PILOT_D, M2_PILOT_L), (HUB_PIN_ANG, HUB_PIN_D, HUB_PIN_L)):
+            for a in angs:
+                lx, ly = yz_to_local(side, PCD_R * math.sin(math.radians(a)), PCD_R * math.cos(math.radians(a)))
+                c = c - Solid.make_cylinder(d / 2, ln + 0.01, Plane(origin=(lx, ly, z_end - ln)))
+    else:             # L: hollow pin OD17 into the 6703, Ø13 cable tunnel, 2 key notches, spring slot
+        pin_len = X_CAP0 - PIN_X_END
+        pin = Solid.make_cylinder(PIN_OD / 2, pin_len + 0.5, Plane(origin=(0, 0, -pin_len)))
+        pin = pin.fillet(0.5, edges_where(pin, is_circle_at_z(PIN_OD / 2, -pin_len)))
         c = c.fuse(pin).clean()
-        c = c - Solid.make_cylinder(PIN_ID / 2, PIN_LEN + 2.5, Plane(origin=(0, 0, -PIN_LEN - 1)))
-        c = c - Solid.make_cylinder(CABLE_D / 2, L_CAP + 2, Plane(origin=(0, 0, -1)))
+        c = c - Solid.make_cylinder(PIN_ID / 2, pin_len + z_end + 2, Plane(origin=(0, 0, -pin_len - 1)))
+        c = c - Pos(0, PIN_OD / 2 - 1.0, -pin_len + 1.5) * Box(0.6, 3.0, 3.2)       # spring inner-end slot
         for sy in (-1, 1):
-            c = c - Solid.make_cylinder(0.8, 4.0, Plane(origin=(0, sy * 5.0, L_CAP - 3.5)))
+            c = c - Pos(0, sy * (HUB_R + PIN_ID / 2) / 2, z_end) * Box(3.0, HUB_R - PIN_ID / 2 + 1, 3.0)
     return check("N07", c)
 
 
@@ -396,15 +480,18 @@ def build():
                 note="pevne na trupe; elipsa 52×42, okraj 2.0, nákružok Ø35×1.2, otvor Ø32, "
                      "stredovací krúžok Ø33.7 + 2 kolíky Ø2, lepené VHB"),
         PartRec("N02", "Plast krku", trumpet_n02(), "black", "neck", "J2", (0, 0, 45),
-                note="konkávna trúbka r16.5→11.5, stena 2, 2 polovice (delenie YZ), škára 0.5 vpredu/vzadu, "
-                     "4 západky na náboj otáčania; otáča sa s hlavou (J2)"),
+                note="jeden kus, konkávna trúbka r16.5→11.5, stena 2, sedí na prírube N03 (2 kľúče), "
+                     "sedlový horný okraj 0.4 od valca; otáča sa s hlavou (J2)"),
         PartRec("N06", "Kryt náklonu", tilt_housing_n06(), "black", "neck", "J2", (0, 0, 80),
-                note="valec Ø40×36, servo náklonu vnútri (vkladá sa z +X, zátka s ložiskom 6703), "
-                     "skrytý čap Ø17.6 na náboj (2× M2), prechod káblov 14×8"),
+                note="valec Ø42×36 (vnútri Ø38), servo SCS0009 na osi (okno na −X, čelo zarovno), "
+                     "otvor Ø32 na +X pre zátku N05 s ložiskom 6703, skrytý čap Ø18.4 na N03 (2× M2.5), "
+                     "prechod káblov 14×8"),
         PartRec("N07-R", "Koncová krytka pravá", cap_n07(-1), "black", "neck", "J3", (-35, 0, 80),
-                note="Ø39×6 klenutá, čap Ø12 do unášača serva, lôžko nálitku hlavy Ø12, skrutka M2.5"),
+                note="Ø41×6 klenutá, náboj Ø18×5.8 do H11 (2× M2 + 2 kolíky Ø2, PCD 11), "
+                     "lôžko Al vložky Ø20 s drážkovaním serva"),
         PartRec("N07-L", "Koncová krytka ľavá", cap_n07(+1), "black", "neck", "J3", (35, 0, 80),
-                note="Ø39×6 klenutá, dutý čap Ø17/13 v ložisku 6703, výstup káblov Ø8 do hlavy"),
+                note="Ø41×6 klenutá, náboj Ø18×5.8 do H11 (2 drážky na kľúč), dutý čap Ø17 v ložisku 6703, "
+                     "kanál káblov Ø13 skrz"),
     ]
 
 

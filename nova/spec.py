@@ -67,6 +67,9 @@ CHANGELOG v7.3  (after the manufacturing/assembly review – details in docs/REV
   * Base: cells at x=-38/-58, NEW B08 battery hatch in B02 (42x76 R4 at x=-48), B02 screws at
     (±75,0), feet at (±62,±48), USB-C opening 12.6 x 6.8 R3.4 (plug overmold fits).
   * A04 starts at |x|=57.8 (0.8 mm rotating gap to A05).
+  * v7.3b (R01 matched-camera comparison): torso plan exponent n 3.2 -> 2.7 (rounder corners);
+    arm paddle longer & wider (top 130, widest 86, bottom 49, half_w 17.5) – R01 arms reach down
+    almost to the torso bottom.
   * IDs: ASCII -R/-L suffixes everywhere.  H04C (camera window) and H04E (eyes) are RENDER-ONLY
     objects, not parts.  Internal part numbers: see docs/REVIEW_NOTES.md §Internal part numbers.
 =====================================================================================
@@ -94,12 +97,12 @@ OVERALL = dict(w=166.0, d=128.0, h=HEAD_Z1 - FLOOR_Z)   # ~266 mm tall; width ov
 # ---------------------------------------------------------------------------
 MATERIALS = {
     "white":      dict(desc="biely lesklo-satén PC/ABS (RAL 9003)", rgb=(0.93, 0.93, 0.92), rough=0.28, clearcoat=0.35),
-    "black":      dict(desc="čierny soft-touch (RAL 9005 mat)",     rgb=(0.018, 0.018, 0.02), rough=0.5, spec=0.35),
+    "black":      dict(desc="čierny soft-touch (RAL 9005 mat)",     rgb=(0.008, 0.008, 0.009), rough=0.30, spec=0.30),
     "black_gloss":dict(desc="čierny lesklý plast",                   rgb=(0.02, 0.02, 0.022), rough=0.15),
     "rubber":     dict(desc="čierne TPU 85A / guma",                 rgb=(0.022, 0.022, 0.024), rough=0.75, spec=0.3),
-    "glass":      dict(desc="tvrdené sklo 1.1 mm, čierna potlač",    rgb=(0.01, 0.01, 0.012), rough=0.02),
-    "cyan_led":   dict(desc="svetlovod PMMA opál – tyrkysová LED",   rgb=(0.20, 0.90, 1.0), emit=16.0),
-    "eye":        dict(desc="obsah displeja – oči (teplá biela)",    rgb=(1.0, 0.86, 0.66), emit=12.0),
+    "glass":      dict(desc="tvrdené sklo 1.1 mm, čierna potlač",    rgb=(0.004, 0.004, 0.005), rough=0.015),
+    "cyan_led":   dict(desc="svetlovod PMMA opál – tyrkysová LED",   rgb=(0.05, 0.80, 1.0), emit=3.0),
+    "eye":        dict(desc="obsah displeja – oči (teplá biela)",    rgb=(1.0, 0.76, 0.46), emit=1.3),
     "frost":      dict(desc="matný svetlosivý PMMA (okienko senzora)", rgb=(0.80, 0.81, 0.82), rough=0.6),
     "grey":       dict(desc="sivý technický plast (vnútorná kostra)", rgb=(0.35, 0.36, 0.38), rough=0.5),
     "pcb":        dict(desc="DPS zelená/čierna",                     rgb=(0.03, 0.18, 0.08), rough=0.4),
@@ -139,7 +142,7 @@ BASE = dict(
 TORSO = dict(
     z0=TORSO_Z0, z1=TORSO_Z1,             # z0 = underside of the black tray T04
     shell_z0=47.5,                        # white shell starts above the 4.5 mm tray band
-    w=112.0, d=92.0, n=3.2,               # main section (between the roundings)
+    w=112.0, d=92.0, n=2.7,               # main section (between the roundings); n 2.7 = softer "pillow" corners (R01)
     r_bottom=8.0, r_top=22.0,             # vertical roundings of the WHITE shell (bottom at shell_z0)
     wall=2.4,
     # T01 centre band |x|<=35, front + top + back, seams at x=±35 full depth; at the front it
@@ -217,7 +220,7 @@ HEAD = dict(
 ARM = dict(
     axis=dict(y=0.0, z=115.0),               # shoulder pitch axis // X
     abduction_deg=8.0,                       # paddle splayed outward at the bottom (R01)
-    egg=dict(top_z=127.0, widest_z=87.0, bottom_z=53.0, half_w=16.0, half_t=8.5),   # default pose, before splay
+    egg=dict(top_z=130.0, widest_z=86.0, bottom_z=49.0, half_w=17.5, half_t=8.5),   # default pose, before splay
     mid_x=73.9,                              # |x| of the split plane (A01/A02) at the joint
     joint_cover=dict(od=26.0, x0=57.8, x1=68.5, spigot_od=22.0, spigot_len=3.0, bore_d=14.0),  # A04
     ring=dict(od=31.0, id=23.0, t=2.5, x_out=57.0),                                           # A05 (torso |x|=56)
