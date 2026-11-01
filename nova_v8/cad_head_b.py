@@ -587,11 +587,12 @@ def build_shell(sk: Skin):
     groove = retry(lambda: sk.band(0, RING_DEPTH + 0.1) & ear_annulus(RING_OD / 2 + RING_GAP, RING_ID / 2 - RING_GAP),
                    "ear groove")
     h01 = retry(lambda: h01 - groove, "ear grooves")
-    win = ear_annulus(WIN_RO, WIN_RI)
-    for a in (90, 210, 330):
-        win = win - Pos(0, EAR_Y, EAR_Z) * Rot(a, 0, 0) * bx(-75, 75, -0.8, 0.8, 0, WIN_RO + 1)   # 3 bridges
-    win = retry(lambda: sk.band(RING_DEPTH, WALL + 0.6) & win, "light windows")
-    h01 = retry(lambda: h01 - win, "ear light windows")
+    for sx in (1, -1):        # windows only near the side walls (|x| > 47): from the groove bottom inward
+        win = cyl_x(WIN_RO, sx * 47.0, sx * 70.0, EAR_Y, EAR_Z) - cyl_x(WIN_RI, sx * 46.0, sx * 71.0, EAR_Y, EAR_Z)
+        for a in (90, 210, 330):
+            win = win - Pos(0, EAR_Y, EAR_Z) * Rot(a, 0, 0) * bx(-75, 75, -0.8, 0.8, 0, WIN_RO + 1)   # 3 bridges
+        win = retry(lambda: sk.inner(RING_DEPTH) & win, "light windows")
+        h01 = retry(lambda: h01 - win, "ear light windows")
     for sx in (1, -1):
         cup = (cyl_x(CUP_RO, sx * CUP_X0, sx * (W / 2 + 1), EAR_Y, EAR_Z)
                - cyl_x(CUP_RI, sx * (CUP_X0 - 1), sx * (W / 2 + 2), EAR_Y, EAR_Z)) & body
