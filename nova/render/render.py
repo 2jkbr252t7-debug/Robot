@@ -557,7 +557,18 @@ def srgb_to_linear(v):
     return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
 
 
-def render_id_pass(sc, objs, path):
+def render_id_pass(sc, objs, path, xray=False):
+    """Flat-colour ID render for callout anchors.  With xray=True the (semi transparent) shells are hidden so
+    the anchors land on the internal parts that the x-ray image actually shows."""
+    if xray:
+        ghost = [o for o in objs if not (o.get("internal") or o.get("sub") == "internal")]
+        for o in ghost:
+            o.hide_render = True
+        try:
+            return render_id_pass(sc, [o for o in objs if o not in ghost], path)
+        finally:
+            for o in ghost:
+                o.hide_render = False
     saved = {o.name: [ms for ms in o.data.materials] for o in objs}
     vt, look, expo = sc.view_settings.view_transform, sc.view_settings.look, sc.view_settings.exposure
     samples, den = sc.cycles.samples, sc.cycles.use_denoising
@@ -743,7 +754,7 @@ def run(job):
         bpy.ops.render.render(write_still=True)
         id_map = None
         if job.get("id_pass"):
-            id_map = render_id_pass(sc, objs, os.path.join(out, f"{name}_id.png"))
+            id_map = render_id_pass(sc, objs, os.path.join(out, f"{name}_id.png"), xray=bool(job.get("xray")))
         # metadata for overlays: world->pixel mapping
         meta[name] = dict(type=cam_data.type, ortho_scale_mm=cam_data.ortho_scale / MM,
                           lens=cam_data.lens, sensor=cam_data.sensor_width,
