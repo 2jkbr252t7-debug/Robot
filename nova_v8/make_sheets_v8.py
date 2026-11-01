@@ -463,8 +463,9 @@ def main():
                                                   short={"T05": "dymový akrylát 2 mm, LED + ToF za oknom"}),
                                         q, recs, subtitle="všetky riadky v rovnakej mierke"),
                 lambda: MS.sheet_six("13_NOVA_mini_ruky", "NOVA mini / RUKY",
-                                     [r["id"] for r in recs if r["sub"] in ("arm_R", "arm_L") and not r.get("internal")], q, recs,
-                                     subtitle=f"A01–A05 · os ramien z = {A['axis']['z']:.0f} · rozpaženie {A['abduction_deg']:g}°"),
+                                     ext("arm_R"), q, recs,
+                                     subtitle=f"pravá ruka (−X), ľavá zrkadlovo · A01–A05 · os ramena z = {A['axis']['z']:.0f}"
+                                              f" · rozpaženie {A['abduction_deg']:g}° · servo IT05 v trupe"),
                 lambda: MS.sheet_matrix("15_NOVA_mini_diely_ruky", "NOVA mini / DIELY RUKY", [
                     ("A01 Vonkajšia škrupina", ["A01-R"], "biela"), ("A02 Vnútorná škrupina", ["A02-R"], "biela"),
                     ("A03 Špička", ["A03-R"], "čierne TPU"), ("A04 Spojka kĺbu", ["A04-R"], "čierna"),
