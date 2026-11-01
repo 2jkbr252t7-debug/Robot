@@ -104,6 +104,34 @@ def render_v8(job, name):
     return _render7(job, name)
 
 
+_matrix7 = MS.sheet_matrix
+
+
+def sheet_matrix_v8(name, title, rows, q, recs, subtitle=None):
+    """v7 matrix sheet, but rows whose parts are not in the current manifest are dropped (modules evolve)."""
+    have = {r["id"] for r in recs}
+    ok = []
+    for lab, ids, note in rows:
+        ids2 = [i for i in ids if i in have]
+        if ids2:
+            ok.append((lab, ids2, note))
+        else:
+            print("  matrix row dropped (parts missing):", lab, ids)
+    return _matrix7(name, title, ok, q, recs, subtitle=subtitle)
+
+
+def auto_rows(recs, subs, skip=(), attach=None, short=None):
+    """One matrix row per visible part of the given subassemblies (left side parts '-L' skipped)."""
+    attach, short = attach or {}, short or {}
+    rows = []
+    for r in recs:
+        if r["sub"] not in subs or r.get("internal") or r["id"] in skip or r["id"].endswith("-L"):
+            continue
+        desc = S7.MATERIALS.get(r["mat"], {}).get("desc", r["mat"]).split("(")[0].strip()
+        rows.append((f"{r['id']} {r['name']}"[:34], [r["id"]] + attach.get(r["id"], []), short.get(r["id"], desc)))
+    return rows
+
+
 _group7 = MS.group_explode
 _new_sheet7 = MS.new_sheet
 _dim_v7 = MS.dim_v
@@ -178,6 +206,7 @@ def install(variant, quality_tmp):
     MS.group_explode = lambda recs, lift=55.0: _group7(recs, lift)
     MS.HERO_CAM = HERO_CAM
     MS.new_sheet = new_sheet_v8
+    MS.sheet_matrix = sheet_matrix_v8
     MS.dim_v = dim_v_v8
     MS.EXPR_OVERRIDE = expr_v8
     MS.RENDER_ONLY = tuple(sorted(RENDER_ONLY))
@@ -429,11 +458,10 @@ def main():
                                               " · s ložiskom 6805, servom otáčania IN01 (modré) a ozubením náklonu 1:1"),
                 lambda: MS.sheet_six("11_NOVA_mini_trup", "NOVA mini / TRUP", ext("torso"), q, recs,
                                      subtitle=f"T01–T05 · {T['w']:.0f} × {T['d']:.0f} × {T['z1'] - T['z0']:.0f} mm · dymový pás hrude · dvierka na magnetoch"),
-                lambda: MS.sheet_matrix("12_NOVA_mini_diely_trupu", "NOVA mini / DIELY TRUPU", [
-                    ("T01 Predná škrupina", ["T01"], "biela"), ("T02 Zadná škrupina", ["T02"], "biela"),
-                    ("T03 Servisné dvierka", ["T03"], "na magnetoch"), ("T04 Otočný tanier", ["T04"], "čierny, ložisko 6806"),
-                    ("T05 Dymové okno hrude", ["T05"], "LED + ToF za jedným oknom"),
-                    ("N01–N06 Krk", ["N01", "N02", "N06"], "golier, kužeľ, valec")], q, recs, subtitle="všetky riadky v rovnakej mierke"),
+                lambda: MS.sheet_matrix("12_NOVA_mini_diely_trupu", "NOVA mini / DIELY TRUPU A KRKU",
+                                        auto_rows(recs, ("torso", "neck"), skip=("T06",), attach={"T05": ["T06"]},
+                                                  short={"T05": "dymový akrylát 2 mm, LED + ToF za oknom"}),
+                                        q, recs, subtitle="všetky riadky v rovnakej mierke"),
                 lambda: MS.sheet_six("13_NOVA_mini_ruky", "NOVA mini / RUKY",
                                      [r["id"] for r in recs if r["sub"] in ("arm_R", "arm_L") and not r.get("internal")], q, recs,
                                      subtitle=f"A01–A05 · os ramien z = {A['axis']['z']:.0f} · rozpaženie {A['abduction_deg']:g}°"),
