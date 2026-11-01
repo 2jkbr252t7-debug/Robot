@@ -163,6 +163,7 @@ BAND_SCREWS = [(0.0, -30.5), (0.0, 30.5)]
 T04_SCREWS = [(sx * x, y) for sx in (1, -1) for (x, y) in SIDE_TABS] + BAND_SCREWS + \
     [(POST_A[0], POST_A[1]), (POST_B[0], POST_B[1])]
 T08_Z1 = Z_SH + 1.5                                        # 44.0 cradle plate top
+T08_HOLE_R = 12.0                                          # horn hub r 4.5 / output boss r 5 clearance
 CRADLE_Z1 = 60.0
 CR_T = 1.6
 PCB = dict(x=24.0, y0=18.0, t=1.6, z0=44.2, z1=62.7)
@@ -196,6 +197,7 @@ A04_R, A04_X0, A04_X1 = 7.3, ARM_SPL_X, 54.5
 A05_RI, A05_RO, A05_X0 = SH["bore_d"] / 2, 11.0, 40.0
 A05_X1 = TA + 0.7                            # 44.7
 HORN_ARM = (13.0, 5.6, 1.6)                  # trimmed micro-servo horn (length, width, thickness)
+PANEL_INSET, PANEL_GROOVE, PANEL_GROOVE_D = 3.0, 0.45, 0.4   # concept lens-panel shadow groove on A01 (R01 detail)
 
 
 # ============================================================================================
@@ -582,24 +584,25 @@ def cradle_t08():
     p = bx(-20.5, 34.0, -(YS_HW + 0.2 + CR_T + 0.6), YS_HW + 0.2 + CR_T + 0.6, z0, z1) + \
         bx(-27.5, 27.5, YS_HW + 0.2 + CR_T + 0.6, 21.8, z0, z1)
     p = p + cyl_z(POST_B[0], POST_B[1], POST_B[2] + 0.4, z0, z1)
-    p = p - cyl_z(0, 0, YH_SHOULDER_R, z0 - 1, z1 + 1)
+    p = p - cyl_z(0, 0, T08_HOLE_R, z0 - 1, z1 + 1)      # only horn hub / output boss clearance: the plate
+    # carries the horn-end pads over the T04 opening (r 18)
     # cradle walls (torque reaction), open toward +X
     yi = YS_HW + 0.2
     for sy in (1, -1):
-        p = p + bx(YS_X0 - 0.2 - CR_T, 24.0, sy * yi, sy * (yi + CR_T), z1, CRADLE_Z1)
-    p = p + bx(YS_X0 - 0.2 - CR_T, YS_X0 - 0.2, -(yi + CR_T), yi + CR_T, z1, CRADLE_Z1)
+        p = p + bx(YS_X0 - 0.2 - CR_T, 24.0, sy * yi, sy * (yi + CR_T), z1 - 0.3, CRADLE_Z1)
+    p = p + bx(YS_X0 - 0.2 - CR_T, YS_X0 - 0.2, -(yi + CR_T), yi + CR_T, z1 - 0.3, CRADLE_Z1)
     p = p - bx(YS_X0 - 3, YS_X0 + 1, -5, 5, CRADLE_Z1 - 7, CRADLE_Z1 + 1)       # cable notch
     # servo pads at the case corners
     for (xa, xb) in ((YS_X0, YS_X0 + 5), (YS_X1 - 5, YS_X1)):
         for sy in (1, -1):
-            p = p + bx(xa, xb, sy * (YS_HW - 5), sy * YS_HW, z1 - 0.01, YS_Z0)
+            p = p + bx(xa, xb, sy * (YS_HW - 5), sy * YS_HW, z1 - 0.3, YS_Z0)
     # strap posts
     for (x, y, r) in (POST_A, POST_B):
-        p = p + cyl_z(x, y, r, z1 - 0.01, STRAP_Z[0])
+        p = p + cyl_z(x, y, r, z1 - 0.3, STRAP_Z[0])
         p = p - cyl_z(x, y, 0.8, z0 - 1, z0 + 7) - cyl_z(x, y, 0.8, STRAP_Z[0] - 7, STRAP_Z[0] + 1)
     # PCB slot posts
     for sx in (1, -1):
-        post = bx(sx * 23.0, sx * 27.0, PCB["y0"] - 1.2, PCB["y0"] + PCB["t"] + 2.2, z1 - 0.01, PCB["z1"] - 0.2)
+        post = bx(sx * 23.0, sx * 27.0, PCB["y0"] - 1.2, PCB["y0"] + PCB["t"] + 2.2, z1 - 0.3, PCB["z1"] - 0.2)
         groove = bx(sx * 22.0, sx * (PCB["x"] + 0.6), PCB["y0"] - 0.15, PCB["y0"] + PCB["t"] + 0.15,
                     PCB["z0"] - 0.2, PCB["z1"] + 1)
         p = p + post - groove
@@ -793,6 +796,25 @@ def egg_local(d=0.0):
     return Pos(0, 0, ZC) * top.fuse(bot).clean()
 
 
+def silhouette_prism(inset, x0, x1, n=120):
+    """Prism along local +x of the egg side silhouette (YZ) offset inward by `inset` (concept body.py)."""
+    pts = []
+    for i in range(n):
+        t = 2 * math.pi * i / n
+        c = C_TOP if math.cos(t) >= 0 else C_BOT
+        y, z = HW_ * math.sin(t), c * math.cos(t)
+        ny, nz = c * math.sin(t), HW_ * math.cos(t)
+        L = math.hypot(ny, nz)
+        pts.append(Vector(x0, y - inset * ny / L, ZC + z - inset * nz / L))
+    f = Face(Wire([Edge.make_spline(pts, periodic=True)]))
+    return extrude(f, x1 - x0, dir=(1, 0, 0))
+
+
+def panel_groove():
+    ring = silhouette_prism(PANEL_INSET, 0.8, 12.0) - silhouette_prism(PANEL_INSET + PANEL_GROOVE, 0.0, 13.0)
+    return ring & (egg_local() - egg_local(PANEL_GROOVE_D))
+
+
 def halfspace(p: Vector, n: Vector, size=300.0):
     pl = Plane(origin=p, z_dir=n)
     return pl.location * Pos(0, 0, size / 2) * Box(size, size, size)
@@ -831,8 +853,19 @@ def arm_left():
     lip = lip - halfspace(A - n * 2.8, n)
     a02 = a02 + lip
     # A03 tip + captive plug
-    plug =egg_local(ARM_WALL + 0.05) & (halfspace(A - n * 2.5, n) - halfspace(A + n * (HS + 0.4), n))
+    plug = egg_local(ARM_WALL + 0.05) & (halfspace(A - n * 2.5, n) - halfspace(A + n * (HS + 0.4), n))
     tip = (E0 & hs_tip_out) + plug
+    try:                                   # outer lens-panel groove (0.45 x 0.4) like the approved concept
+        g = panel_groove()
+        a01g, tipg = a01 - g, tip - g
+        if a01g.is_valid and len(a01g.solids()) == 1 and abs(a01.volume - a01g.volume) < 60:
+            a01 = a01g
+            if tipg.is_valid and len(tipg.solids()) == 1:
+                tip = tipg
+        else:
+            print("   [panel groove skipped: result check]")
+    except Exception as ex:  # noqa: BLE001
+        print("   [panel groove skipped]", str(ex)[:80])
     a01w, a02w, tipw = loc * a01, loc * a02, loc * tip
     # hub on the shoulder axis (global X), added to A02 before the socket is cut
     split_x = MID - HS                                  # approx split at the axis
@@ -872,6 +905,9 @@ def build():
     P = []
 
     def add(pid, name, shp, mat, sub, joint, expl, internal=False, note=""):
+        n = len(shp.solids())
+        if n != 1 and not pid.startswith("E"):
+            print(f"   [WARN] {pid}: {n} solids (printed part should be one piece)")
         P.append(PartRec(pid, name, check(pid, shp), mat, sub, joint, expl, internal, note))
 
     # ---- torso shells ----
@@ -1001,6 +1037,7 @@ def motion_check(parts, others=(), tol=0.5):
         return 0.0 if i is None else i.volume
 
     fixed_t = [p for p in byid.values() if p.joint == "J1"]
+    upper = [p for p in byid.values() if p.joint in ("J2", "J3")]      # pan stage + head in the default pose
     base = [p for p in byid.values() if p.joint == "" and p.id != "E21H"]
     # arms (positive = forward / up, i.e. -rot about X like the renderer convention)
     for side, j in (("L", "J5"), ("R", "J4")):
@@ -1009,7 +1046,7 @@ def motion_check(parts, others=(), tol=0.5):
         for ang in (-30, 45, 90, 135, 180):
             for m in mov:
                 sh = m.shape.rotate(ax, -ang)
-                for f in fixed_t + base:
+                for f in fixed_t + base + upper:
                     v = hit(sh, f.shape)
                     if v > tol:
                         out.append((f"{j}={ang}", m.id, f.id, round(v, 1)))

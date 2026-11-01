@@ -23,11 +23,26 @@ v8.0 architecture
     Neck bundle: 5V, GND, TX, RX (4 thin silicone wires).  Yaw loop: battery + motor + sensor wires (Ø6 bundle).
   * Servos: arms + head pan + head tilt = 4x micro servo in the common 23x12.2 mm envelope with 32 mm tabs:
     MG90S (cheapest, PWM) or Feetech SCS0009 (quieter, feedback) are drop-in alternatives.
+
+=====================================================================================
+v8.1 – "MODERNÝ, NIČ NEVIDNO" (user, 2026-11-01): supersedes v8.0 wherever they differ
+  * WHEELS FULLY HIDDEN: no wheel arches, no visible tyres. The base is a closed monolithic white shell whose
+    skirt comes down to z=3 all round; the wheels (inside the footprint) protrude only ~3 mm below the skirt
+    edge. From any side/top view you see a clean body with a thin dark shadow line at the floor.
+    Casters, cliff sensors, dock pads, USB-C (underside rear) and a recessed power button are on the UNDERSIDE.
+  * UNDERGLOW instead of the front LED strip: a 360° cyan light ring in the shadow gap under the skirt
+    that lights the desk (very modern, also a status light).  No base front LED, no rear openings.
+  * NO VISIBLE SCREWS anywhere; seams only where parts really split, 0.4–0.6 mm, aligned.
+  * TORSO: chest = ONE smoked "dead-front" strip (LED + ToF/light sensor behind the same dark window),
+    rear door flush with a hidden magnetic latch, all vents on the underside / hidden in seams.
+  * Speaker grille = fine micro-perforation on the base underside rim (invisible from the side).
+  * All three head variants are built on this body: A (flat glass), A+ (curved R180), B (frameless visor R100).
+=====================================================================================
 """
 from math import sqrt
 
 NAME = "NOVA mini"
-VERSION = "v8.0"
+VERSION = "v8.1"
 FLOOR_Z = 0.0
 
 MATERIALS_FROM = "nova.spec.MATERIALS"   # same material keys as v7 (white, black, glass, cyan_led, eye, rubber, ...)
@@ -35,13 +50,13 @@ MATERIALS_FROM = "nova.spec.MATERIALS"   # same material keys as v7 (white, blac
 # ---------------------------------------------------------------------------
 BASE = dict(
     w=130.0, d=108.0, z0=0.0, z1=39.0, plan_r=26.0, top_fillet=8.0, wall=2.2,
-    bumper=dict(z0=4.0, z1=11.5, proud=0.8),                     # black skirt/bumper band (also wheel arches)
+    skirt_z0=3.0,                                                 # v8.1: closed skirt down to z=3, no wheel arches
+    underglow=dict(z=2.0, inset=3.0, note="360° tyrkysový svetelný prstenec pod okrajom – svieti na stôl"),
     wheel=dict(d=34.0, w=10.0, x=52.0, y=4.0, axle_z=17.0),      # tyre top z=34 -> 2.8 mm under the top wall
     motor=dict(type="N20 6V s enkodérom (1:100 – 1:150)", body=(12.0, 10.0, 24.0), gearbox_len=9.0),
     caster=dict(d=12.0, y=(-40.0, 44.0)),
     cliff_sensors=dict(xy=[(52, -44), (-52, -44), (52, 44), (-52, 44)], window=(7.0, 4.0), type="TCRT5000 alebo VL53L0X"),
-    led=dict(w=40.0, h=3.5, z=21.0),
-    usb_c=dict(w=9.4, h=3.6, x=-30.0, z=20.0), switch=dict(w=8.0, h=4.0, x=-16.0, z=20.0),
+    usb_c=dict(where="underside rear", x=-20.0, y=46.0), button=dict(where="underside, recessed", x=20.0, y=46.0),
     dock_pads=dict(xy=[(-8, 50), (8, 50)], d=6.0),                # spring-pin pads under the rear (future dock)
     batteries=dict(count=2, d=18.5, len=65.0, axis="X", y=(-28.0, 28.0), z=6.0),   # front and back of the hub
     speaker=dict(d=28.0, h=5.0, x=0.0, y=-28.0),
@@ -51,7 +66,7 @@ BASE = dict(
 TORSO = dict(
     z0=40.0, z1=105.0, w=88.0, d=72.0, n=2.7, r_top=16.0, r_bottom=8.0, wall=2.0,
     band=dict(half_w=27.0, seam=0.6),                             # centre band front->top->back like v7.3
-    led=dict(w=28.0, h=3.5, z=86.0), sensor=dict(w=18.0, h=3.5, z=76.0),
+    chest_strip=dict(w=34.0, h=5.0, z=84.0, note="jeden dymový pás: LED + ToF/svetlo za tým istým oknom"),
     shoulder=dict(z=89.0, y=0.0, bore_d=16.0),
     bottom_plate=dict(h=2.5, ring_od=77.0),                       # black turntable ring visible under the torso
     yaw_servo=dict(type="Feetech STS3215", body=(45.2, 24.7, 35.0), spline_down=True, z_body=(45.0, 80.0)),
