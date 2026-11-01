@@ -71,7 +71,10 @@ def draw_scale_bar(d, x, y, mm_per_px, length_mm=50, label=None):
     d.line([(x, y), (x + px, y)], fill=INK, width=3)
     for xx in (x, x + px):
         d.line([(xx, y - 7), (xx, y + 7)], fill=INK, width=3)
-    d.text((x + px / 2, y + 12), label or f"{length_mm} mm", fill=INK, font=font(22, "Medium"), anchor="mt")
+    if label and len(label) > 12:
+        d.text((x + px + 16, y), label, fill=INK, font=font(22, "Medium"), anchor="lm")
+    else:
+        d.text((x + px / 2, y + 12), label or f"{length_mm} mm", fill=INK, font=font(22, "Medium"), anchor="mt")
 
 
 def title_block(d, W, title, subtitle=None, right_note=None, y=34, size=78):

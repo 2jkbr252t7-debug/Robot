@@ -55,8 +55,14 @@ def manifest():
     return recs
 
 
+REUSE = False
+
+
 def render(job, name):
     out = os.path.join(TMP, name)
+    if REUSE and os.path.exists(os.path.join(out, "views.json")):
+        print(f"  reuse {name}", flush=True)
+        return out
     job = {k: v for k, v in job.items() if v is not None}
     job["out"] = out
     t = time.time()
@@ -908,7 +914,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", default="")
     ap.add_argument("--quality", default="draft")
+    ap.add_argument("--reuse", action="store_true", help="reuse existing renders in TMP (recompose only)")
     a = ap.parse_args()
+    global REUSE
+    REUSE = a.reuse
     q = Q[a.quality]
     only = set(x for x in a.only.split(",") if x)
     recs = manifest()
