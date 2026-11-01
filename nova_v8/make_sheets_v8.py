@@ -181,8 +181,8 @@ def dim_v_v8(d, *a, **k):
 def expr_v8(g, ey, disp, Hd, zc):
     px = 480 / disp["active"][0]
     lines = [
-        ("Sklo", f"{g['w']:g} × {g['h']:g} mm, R{g['r']:g}, dymový PMMA 2 mm (A ploché · A+ R180 · B vizor R100), mŕtvy predok"),
-        ("Displej", f"3.5\" IPS 480×320 s dotykom, doska ESP32-S3 (Guition JC3248W535 / Waveshare), stred z={disp['zc']:g}"),
+        ("Sklo", f"{g['w']:g} × {g['h']:g} mm, R{g['r']:g}, dymový PMMA 2 mm · A ploché, A+ R180, B R100"),
+        ("Displej", "3.5\" IPS 480×320, dotyk, ESP32-S3 (Guition JC3248W535 / Waveshare)"),
         ("Kamera", f"voliteľná OV2640 za maskou v hornom páse (z={Hd['camera']['z']:g}) – zvonku nevidno"),
         ("Oči", f"{ey['w']:g}×{ey['h']:g} mm R{ey['r']:g}, stredy x=±{ey['x']:g}, z={ey['z']:g} ({zc - ey['z']:g} mm pod stredom skla)"),
         ("Farba očí", "teplá biela #FFDEAC; animácie 30–60 fps (LVGL), žmurknutie každých 3–8 s"),
@@ -328,21 +328,25 @@ def sheet_internals_v8(q, recs):
               ("RUKY", ("arm_R", "arm_L")), ("ZÁKLADŇA", ("base",))]
     cols = [(2620, 210), (3420, 210)]
     col, (tx, ty) = 0, cols[0]
+    n_rows = sum(1 for r in ints if any(r["sub"] in g_[1] for g_ in groups)) + 2 * len(groups)
+    ymax_half = 260 + (n_rows // 2 + 2) * 26
     d.text((tx, ty), "KUSOVNÍK – VNÚTRO", fill=S.ACCENT, font=S.font(28, "Bold"))
     ty += 50
     f = S.font(19, "Medium")
-    ymax = H - 110
+    ymax = min(H - 110, max(ymax_half, 900))
     for lab, subs in groups:
         rows = [r for r in ints if r["sub"] in subs]
         if not rows:
             continue
         if ty + 32 + 26 > ymax and col == 0:
             col, (tx, ty) = 1, (cols[1][0], cols[1][1] + 50)
+            ymax = H - 110
         d.text((tx, ty), lab, fill=S.INK, font=S.font(22, "Bold"))
         ty += 32
         for r in rows:
             if ty + 26 > ymax and col == 0:
                 col, (tx, ty) = 1, (cols[1][0], cols[1][1] + 50)
+                ymax = H - 110
                 d.text((tx, ty), lab + " (pokr.)", fill=S.INK, font=S.font(22, "Bold"))
                 ty += 32
             d.text((tx + 10, ty), r["id"], fill=S.INK, font=S.font(19, "SemiBold"))
