@@ -133,9 +133,10 @@ def export_parts(parts: list[PartRec], sub_name: str, step: bool = True, out_dir
             raise ValueError(f"{p.id}: shape is None")
         fid = p.id
         stl = os.path.join(out_dir, "stl", f"{fid}.stl")
-        export_stl(shp, stl, tolerance=0.02, angular_tolerance=0.1)
+        # STEP FIRST: meshing for STL attaches triangulations/healing that corrupted some STEP files
         if step:
             export_step(shp, os.path.join(out_dir, "step", f"{fid}.step"))
+        export_stl(shp, stl, tolerance=0.02, angular_tolerance=0.1)
         try:
             vol = float(shp.volume)
         except Exception:
