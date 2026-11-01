@@ -43,7 +43,7 @@ CUR = {"v": "A"}
 def compat_spec():
     """v7-shaped namespace with v8 numbers so the generic v7 sheet functions draw the right values."""
     H = dict(S8.HEAD)
-    H["display"] = dict(S8.DISPLAY, zc=S8.HEAD["zc"])
+    H["display"] = dict(S8.DISPLAY, zc=S8.HEAD["zc"], label='3.5" 480×320, SPI/QSPI')
     H["camera"] = dict(S8.HEAD["camera"], hole_d=S8.HEAD["camera"]["d"])
     H["glass"] = dict(S8.HEAD["glass"], print_border=4.0, t=2.0)
     H["d"] = S8.HEAD["y1"] - S8.HEAD["y0"]
@@ -56,6 +56,16 @@ def compat_spec():
 def head_a_ids():
     with open(os.path.join(BUILD, "manifest", "head.json")) as f:
         return [r["id"] for r in json.load(f)]
+
+
+def superseded():
+    """Simple bought-part envelopes in the shell modules that cad_internals replaces with detailed parts,
+    plus the flat glass blanks (drawn only on the glass sheet)."""
+    try:
+        from nova_v8.cad_internals import SUPERSEDED
+    except Exception:  # noqa: BLE001
+        SUPERSEDED = []
+    return set(SUPERSEDED) | {"HP04F", "HB03F"}
 
 
 def manifest_v8():
@@ -73,7 +83,8 @@ def manifest_v8():
             for fn in os.listdir(ex["manifest_dir"]):
                 with open(os.path.join(ex["manifest_dir"], fn)) as f:
                     recs.extend(json.load(f))
-    return recs
+    drop = superseded()
+    return [r for r in recs if r["id"] not in drop]
 
 
 _render7 = MS.render
@@ -87,11 +98,76 @@ def render_v8(job, name):
     if v["extra"]:
         job["extra"] = v["extra"]
         job["exclude"] = list(job.get("exclude", [])) + head_a_ids()
+    if not job.get("parts"):
+        job["exclude"] = list(job.get("exclude", [])) + sorted(superseded())
     job["joint_axes"] = AXES
     return _render7(job, name)
 
 
 _group7 = MS.group_explode
+_new_sheet7 = MS.new_sheet
+_dim_v7 = MS.dim_v
+TXT = {
+    " (+1.2 nožičky)": " základňa",
+    "čísla dielov podľa docs/REVIEW_NOTES.md · E = elektronika, M = ložiská a kovové diely, W = káble":
+        "čísla dielov podľa nova_v8/BOM_v8.md · I = kupované diely (IH hlava · IN krk · IT trup · IB základňa · IW káble)",
+}
+
+
+def _t(s):
+    if isinstance(s, str):
+        for a, b in TXT.items():
+            s = s.replace(a, b)
+    return s
+
+
+class _Draw:
+    """ImageDraw proxy that rewrites v7-only strings drawn by the shared sheet functions."""
+    def __init__(self, d):
+        self._d = d
+
+    def text(self, xy, text, *a, **k):
+        return self._d.text(xy, _t(text), *a, **k)
+
+    def textlength(self, text, *a, **k):
+        return self._d.textlength(_t(text), *a, **k)
+
+    def __getattr__(self, n):
+        return getattr(self._d, n)
+
+
+def new_sheet_v8(W, H, title, subtitle=None, note=None):
+    if title.startswith("NOVA /"):
+        title = "NOVA mini /" + title[len("NOVA /"):]
+    sh, d = _new_sheet7(W, H, title, _t(subtitle), _t(note))
+    return sh, _Draw(d)
+
+
+def dim_v_v8(d, *a, **k):
+    a = list(a)
+    if len(a) >= 6:
+        a[5] = _t(a[5])
+    return _dim_v7(getattr(d, "_d", d), *a, **k)
+
+
+def expr_v8(g, ey, disp, Hd, zc):
+    px = 480 / disp["active"][0]
+    lines = [
+        ("Sklo", f"{g['w']:g} × {g['h']:g} mm, R{g['r']:g}, dymový PMMA 2 mm (A ploché · A+ R180 · B vizor R100), mŕtvy predok"),
+        ("Displej", f"3.5\" IPS 480×320 s dotykom, doska ESP32-S3 (Guition JC3248W535 / Waveshare), stred z={disp['zc']:g}"),
+        ("Kamera", f"voliteľná OV2640 za maskou v hornom páse (z={Hd['camera']['z']:g}) – zvonku nevidno"),
+        ("Oči", f"{ey['w']:g}×{ey['h']:g} mm R{ey['r']:g}, stredy x=±{ey['x']:g}, z={ey['z']:g} ({zc - ey['z']:g} mm pod stredom skla)"),
+        ("Farba očí", "teplá biela #FFDEAC; animácie 30–60 fps (LVGL), žmurknutie každých 3–8 s"),
+        ("Rozlíšenie", f"{px:.1f} px/mm → oko ≈ {ey['w'] * px:.0f}×{ey['h'] * px:.0f} px"),
+    ]
+    leds = [((60, 230, 250), "tyrkysová svieti", "pokoj / pripravený"),
+            ((60, 140, 255), "modrá pulzuje", "počúva (hlas)"),
+            ((170, 90, 255), "fialová beží dookola", "premýšľa / AI"),
+            ((60, 220, 120), "zelená dýcha", "nabíja sa (dok / USB-C)"),
+            ((255, 160, 40), "oranžová bliká", "slabá batéria < 15 %"),
+            ((255, 60, 60), "červená bliká", "okraj stola / chyba"),
+            ((245, 245, 245), "biela – krátky záblesk", "dotyk displeja / temena")]
+    return lines, "LED SIGNALIZÁCIA (uši · pás na hrudi · podsvietenie 360° pod základňou)", leds
 
 
 def install(variant, quality_tmp):
@@ -101,6 +177,10 @@ def install(variant, quality_tmp):
     MS.render = render_v8
     MS.group_explode = lambda recs, lift=55.0: _group7(recs, lift)
     MS.HERO_CAM = HERO_CAM
+    MS.new_sheet = new_sheet_v8
+    MS.dim_v = dim_v_v8
+    MS.EXPR_OVERRIDE = expr_v8
+    MS.RENDER_ONLY = tuple(sorted(RENDER_ONLY))
     MS.TMP = os.path.join(quality_tmp, variant)
     MS.FOOT = f"NOVA mini {S8.VERSION} · hlava {VAR[variant]['label']} · render z CAD modelu (build123d → Blender Cycles) · mm"
 
@@ -132,11 +212,11 @@ def sheet_hero_v8(q, recs):
         ("Rozmery", f"výška {S8.HEAD['z1']:.0f} mm · základňa {S8.BASE['w']:.0f} × {S8.BASE['d']:.0f} mm"),
         ("Pohyb", "jazda na 2 skrytých kolesách · trup ±150° · hlava ±90° / ±20° · 2 ruky"),
         ("Tvár", "3.5\" IPS 480×320 s ESP32-S3 · dymové krycie sklo (mŕtvy predok)"),
-        ("Zmysly", "mikrofón, dotyk, IMU, ToF + svetlo v hrudi, 4 senzory proti pádu"),
+        ("Zmysly", "mikrofón, dotykový displej, ToF + svetlo za pásom na hrudi, 4 senzory proti pádu"),
         ("Svetlo", "LED krúžky v ušiach · pás v hrudi · podsvietenie stola 360°"),
-        ("Mozog", "ESP32-S3 (hlava) + ESP32-C3 (trup), AI cez Wi-Fi"),
+        ("Mozog", "ESP32-S3 (hlava) + ESP32-C3 (trup) + uzol základne, AI cez Wi-Fi"),
         ("Napájanie", "2× 18650, USB-C a kontakty dokovania zospodu"),
-        ("Cena dielov", "~65–105 € (MG90S) · ~90–140 € (SCS0009) z AliExpressu"),
+        ("Cena dielov", "≈ 140 € najlacnejšia · ≈ 160 € odporúčaná (AliExpress, s DPH, bez filamentu)"),
     ]
     for k, (a, b) in enumerate(facts):
         d.text((1820, 230 + k * 120), a.upper(), fill=S.ACCENT, font=S.font(26, "Bold"))
@@ -188,6 +268,60 @@ def sheet_kin_v8(q, recs):
         d.text((x0 + 24, y0 + 24), lab, fill=S.INK, font=S.font(27, "SemiBold"))
     MS.footer(d, W, H)
     sh.save(os.path.join(MS.OUT, "06_NOVA_mini_kinematika.png"), optimize=True)
+
+
+RENDER_ONLY = {"H04C", "H04E", "HP04C", "HP04E", "HB03C", "HB03E"}
+
+
+def sheet_internals_v8(q, recs):
+    """Bought parts / electronics without the shells + callouts + a two-column part table (v8 has ~70 parts)."""
+    ints = [r for r in recs if r.get("internal") and r["id"] not in RENDER_ONLY]
+    by = {r["id"]: r for r in recs}
+    rd = MS.render(dict(parts=[r["id"] for r in ints], internal=True, res=list(q["tall"]), samples=q["samples"],
+                        views=["iso"], lens=70, margin=0.04, shadow=False, id_pass=True), "19_internals")
+    W, H = 4200, 2300
+    sh, d = MS.new_sheet(W, H, "NOVA mini / VNÚTORNÁ MECHANIKA A ELEKTRONIKA",
+                         "bez krytov · I = kupované diely podľa nova_v8/BOM_v8.md (IH hlava · IN krk · IT trup · IB základňa · IW káble)"
+                         " · T/N/H/B = tlačené nosiče a mechanika")
+    im = MS.load(rd, "iso", fade=None)
+    bx = MS.alpha_bbox(im, 10)
+    bx = (max(0, bx[0] - 30), max(0, bx[1] - 30), min(im.width, bx[2] + 30), min(im.height, bx[3] + 30))
+    imc = im.crop(bx)
+    s_, ox, oy = MS.paste_fit(sh, imc, (700, 190, 1900, 2200))
+    anc = MS.anchors(rd, "iso", min_px=120)
+    pts = [(pid, ox + (x - bx[0]) * s_, oy + (y - bx[1]) * s_) for pid, (x, y, n) in anc.items() if pid in by]
+    MS.callouts(d, pts, (40, 210, 2560, H - 120), lambda pid: f"{pid}  {by[pid]['name'][:34]}",
+                split_x=ox + imc.width * s_ / 2, fs=22, gap=46)
+    groups = [("HLAVA", ("head", "head_aplus", "head_b")), ("KRK", ("neck",)), ("TRUP", ("torso",)),
+              ("RUKY", ("arm_R", "arm_L")), ("ZÁKLADŇA", ("base",))]
+    cols = [(2620, 210), (3420, 210)]
+    col, (tx, ty) = 0, cols[0]
+    d.text((tx, ty), "KUSOVNÍK – VNÚTRO", fill=S.ACCENT, font=S.font(28, "Bold"))
+    ty += 50
+    f = S.font(19, "Medium")
+    ymax = H - 110
+    for lab, subs in groups:
+        rows = [r for r in ints if r["sub"] in subs]
+        if not rows:
+            continue
+        if ty + 32 + 26 > ymax and col == 0:
+            col, (tx, ty) = 1, (cols[1][0], cols[1][1] + 50)
+        d.text((tx, ty), lab, fill=S.INK, font=S.font(22, "Bold"))
+        ty += 32
+        for r in rows:
+            if ty + 26 > ymax and col == 0:
+                col, (tx, ty) = 1, (cols[1][0], cols[1][1] + 50)
+                d.text((tx, ty), lab + " (pokr.)", fill=S.INK, font=S.font(22, "Bold"))
+                ty += 32
+            d.text((tx + 10, ty), r["id"], fill=S.INK, font=S.font(19, "SemiBold"))
+            nm = r["name"] if len(r["name"]) <= 40 else r["name"][:39] + "…"
+            d.text((tx + 110, ty), nm, fill=(60, 62, 68), font=f)
+            ty += 26
+        ty += 8
+    MS.footer(d, W, H)
+    out = os.path.join(MS.OUT, "19_NOVA_mini_vnutorna_elektronika.png")
+    sh.save(out, optimize=True)
+    return out
 
 
 def head_rows(v):
@@ -308,7 +442,7 @@ def main():
                     ("B-UG Podsvietenie 360°", ["B-UG"], "opálový svetlovod"),
                     ("B04/B05 Koleso", ["B04-R", "B05-R"], "Ø34, N20"), ("B11 Poklopy batérie", ["B11-1", "B11-2"], "bez náradia"),
                     ("B06/B07 Guľové kolieska", ["B06", "B07"], "Ø12")], q, recs, subtitle="rovnaká mierka"),
-                lambda: MS.sheet_internals(q, recs),
+                lambda: sheet_internals_v8(q, recs),
                 lambda: MS.sheet_expressions(q, recs),
             ]
             for st in steps:

@@ -692,6 +692,8 @@ def bezel():
             boss = boss + bx(x, math.copysign(bw / 2 - 1.0, x), Y0 - 0.5, SKIRT_END, z - 1.0, z + 1.0)
         b = b + (boss & rr_prism_y(bw - 0.4, bh - 0.4, br - 0.2, Y0 - 1, Y_DSP1 + 1))
         b = b - cyl_y(PILOT_R, Y_DSP1 + 0.1, Y_DSP1 - 4.5, x, z)
+    e_sk = edges_where(b, lambda p: abs(p.Y - SKIRT_END) < 0.02 and abs(rr_dist(p.X, p.Z, SK_W, SK_H, SK_R)) < 0.02)
+    b = try_chamfer(b, e_sk, 0.4, "H03 skirt lead-in")
     e_in = edges_where(b, lambda p: abs(p.Y - Y_BZ_FRONT) < 0.02 and abs(rr_dist(p.X, p.Z, gw, gh, gr, GZ)) < 0.02)
     b = try_fillet(b, e_in, 0.4, "H03 seat edge")
     return check("H03", solid1(b), vmin=3000)

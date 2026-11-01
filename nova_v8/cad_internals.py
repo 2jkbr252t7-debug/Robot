@@ -22,24 +22,29 @@ each detailed part here to the envelope it replaces; render with "exclude": SUPE
 
 HEAD (J3)    IH01 LCD 3.5" · IH02 ESP32-S3 board (JC3248W535 / Waveshare, parts inside the H07 window) · IH03 S3
              module · IH04 tilt micro servo (beside the barrel pocket, shaft z 147, 1:1 gears H11/H09 of the head
-             module) · IH07-R/L ear PCBs Ø23 (6x WS2812B-2020) · IH08 INMP441 mic (bottom port, under the roof
-             behind the top bezel seam)
+             module) · IH07-R/L ear PCBs Ø23 (6x WS2812B-2020) · IH08 INMP441 mic (flat on the barrel-pocket
+             ceiling, bottom port sealed onto a hidden vent slot -> hears through the open pocket mouth)
              · [IH06 optional OV2640 camera, --camera]
 NECK         IN01 pan micro servo (J1, shaft (0, 20), gears N04 -> N03) · IN02 its 18 mm horn in N04 · IN03 6805
 TORSO (J1)   IT01 STS3215 (spline DOWN) · IT02 Ø20 horn on the base hub ("") · IT03 M3x20 + washer from below into
              the spline = axial coupling ("") · IT04 6806 · IT05-R/L arm micro servos · IT06-R/L 13 mm horns =
-             A04 keys (J4/J5) · IT07 carrier PCB (DRV8833, MP1584 5 V, 74LVC1G126 bus, PCA9685 PWM + ADS1115 ADC on
-             I2C because the C3 has only 13 GPIO, connectors) · IT08
+             A04 keys (J4/J5) · IT07 carrier PCB (MP1584 5 V, 74LVC1G126 servo-bus driver, connectors) · IT08
              ESP32-C3 SuperMini · IT09 chest board (5x WS2812B-2020 + VL53L0X + LTR-303) · IT10 black chest frame
              with light baffle (3 windows: LED bar / ToF / ALS behind the one smoked strip)
 BASE ("")    IB01/02/03-R/L N20 + encoder + D-shaft · IB04-kP/kM bay contacts (+ plate, - conical spring) · IB05-1/2
              18650 · IB06 Ø28 speaker (vertical, fires into the sealed front chamber) · IB07-1..4 TCRT5000 cliff
              boards · IB08 underglow flex ring (24x WS2812B-2020 into the opal guide) · IB09-1 charger board
-             (IP2326 + 2S protection + AO4407A main P-MOSFET, carries USB-C B10) · IB09-2 power-button board
-             (6x6 self-locking, switches only the MOSFET gate) · IB10-1/2
-             dock pogo pins
-CABLES       IW1-1/2/3 neck bundle Ø3, 6 wires, split at J1/J2/J3 · IW2 yaw loop Ø6 (base trough, ±150 deg) · IW3
-             yaw bundle in the torso -> JST on IT07
+             (IP2326 + 2S protection + AO4407A main P-MOSFET, carries USB-C B10) · IB09-2 BASE NODE + power button
+             (STM32G030 servo-bus slave, DRV8833, 5 V buck, 3.3 V LDO; 6x6 self-locking switch -> MOSFET gate)
+             · IB10-1/2 dock pogo pins.  Both base boards black solder mask (they lie under the rear B01/B09 seam).
+CABLES       IW1-1/2/3 neck bundle Ø3, 6 wires, split at J1/J2/J3 · IW2 J1 ROLLING LOOP: flat 6-wire band on edge in
+             the B15 trough (outer run on the fixed rim, U-turn R6, inner run on the rotating T04 housing), constant
+             length 209 mm for J1 ±150 deg · IW3 band end -> Ø4.2 riser through the T04 slot -> JST-GH on IT07
+
+ELECTRICAL ARCHITECTURE (review 2)
+  head ESP32-S3 --UART 1 Mbit (neck: 5 V, GND 26 AWG + TX, RX, SPK+-)--> torso ESP32-C3 --1-wire servo bus-->
+  STS3215 (J1) + [SCS0009 option] + BASE NODE STM32G030 (motors, encoders A/B, 4 cliff sensors, underglow, local
+  cliff stop).  Only VBAT, GND, BUS, SPK+, SPK-, GND cross J1 -> the J1 cable can be a real rolling loop.
 """
 from __future__ import annotations
 
@@ -471,7 +476,8 @@ NECK_PATH_J1 = [(-12.0, 20.3, 68.8), (-12.6, 17.0, 70.5), (-14.6, 11.0, 74.5), (
 NECK_PATH_J2 = [(0.0, 0.0, 89.4), (0.0, 0.0, 96.0), (0.0, 0.0, 108.0), (0.0, 0.5, 120.0), (0.0, 4.5, 130.0),
                 (0.0, 9.2, 136.2), (0.0, 10.4, 137.6)]
 NECK_PATH_J3 = [(0.0, 10.4, 137.6), (0.0, 10.0, 142.0), (0.0, 9.0, 146.5), (-3.0, 3.0, 151.0),
-                (-12.0, -12.0, 163.0), (-19.0, -20.0, 171.0), (-19.0, -22.0, 172.0)]
+                (-12.0, -7.0, 159.0), (-24.0, -16.0, 165.0), (-30.0, -21.0, 167.0),
+                (-30.5, -25.0, 167.25)]                  # review 2: ends on the 5 V / UART JST (x -34..-27) of IH02
 NECK_T0, NECK_T3 = (0, 0, 1), (0, -1, 0)
 YAW_T1 = (0, 1, 0)
 YAW_LOOP_Z_IN = 21.0
@@ -492,7 +498,11 @@ YB_RB = (YB_RO - YB_RI) / 2                         # 6.05 U-turn bend radius
 YB_F = math.degrees(math.atan2(FIX_EXIT[1], FIX_EXIT[0]))     # -20 fixed exit (base B15 hole)
 YB_DF = 15.0                                        # exit -> outer run transition (bundle fans into the band)
 YB_FO = YB_F - YB_DF                                # -35 outer run starts here (going CW)
-YB_M0 = math.degrees(math.atan2(RISER_XY[1], RISER_XY[0])) % 360.0   # 180 riser angle at J1 = 0 (T04 slot centre)
+YB_RISER = math.degrees(math.atan2(RISER_XY[1], RISER_XY[0])) % 360.0   # 180 riser angle at J1 = 0 (T04 slot centre)
+YB_SC = 8.0                                         # band S-curve r_i -> riser radius over the last 8 deg
+YB_M0 = YB_RISER - YB_SC                            # 172 inner-run end at J1 = 0
+YB_RS = YB_RI + 2.4                                 # 25.9 riser bundle radius (T04 slot r 23..29, housing 22.5)
+YB_FAN_H = -62.0                                    # heading of the exit fan after the bend (deg)
 J1_RANGE = (-150.0, 150.0)
 YB_MARGIN = 3.0                                     # inner run never shorter than 3 deg at J1 = -150
 
@@ -533,7 +543,8 @@ SUPERSEDES = {
     "IH01": ["E31"], "IH02": ["E31"], "IH03": ["E31"], "IH04": ["E32"], "IH07-R": ["E33-R"], "IH07-L": ["E33-L"],
 }
 SUPERSEDED = sorted({x for v in SUPERSEDES.values() for x in v})
-NEW_ONLY_HERE = ["IT03", "IT10", "IH06 (option)", "IH08", "IW1-1", "IW1-2", "IW1-3", "IW3"]
+NEW_ONLY_HERE = ["IT03", "IT10", "IH06 (option)", "IH08", "IW1-1", "IW1-2", "IW1-3", "IW3",
+                 "IB09-2 base node (STM32G030 + DRV8833 + 5 V)"]
 
 DEVIATIONS = [
     "kábel krku 6 vodičov namiesto 4 (5 V, GND, TX, RX + pár reproduktora): reproduktor je v základni, zosilňovač na "
@@ -547,17 +558,24 @@ DEVIATIONS = [
     "T07/T08 trupu, neduplikuje sa)",
     "tlačidlo zapnutia: samoaretačné 6×6 (push-on/push-off) namiesto momentového spínača BE6 - netreba soft-power obvod; "
     "tlačidlo (~0.1 A) spína len hradlo P-MOSFETu AO4407A (−30 V / 12 A) na IB09-1, prúd robota (špičky ~5 A) ním netečie",
-    "GPIO: ESP32-C3 SuperMini má 13 GPIO, trup potrebuje ~23 signálov -> na IT07 pribudli PCA9685 (I2C, 16× PWM: 3 mikro "
-    "servá MG90S, smer 2 motorov, zapínanie IR LED senzorov pádu) a ADS1115 (I2C, 4× ADC: senzory pádu); enkodéry len "
-    "kanál A (smer z príkazu), napätie batérie číta STS3215; rozpis pinov v BOM_v8.md, kap. 7",
+    "revízia 2 – UZOL ZÁKLADNE: motory N20 (DRV8833), enkodéry A/B, 4 senzory pádu a podsvietenie riadi STM32G030 "
+    "na DPS IB09-2 (slave na 1-vodičovej zbernici serv, ako ďalšie 'servo'); DRV8833 teda nie je v trupe "
+    "(spec TORSO.controller). Dôvod: v1 viedla cez J1 zväzok Ø6 s 18–20 vodičmi ako jeden oblúk 200° (92 mm) – pri "
+    "J1 +150° by chýbalo 70 mm kábla, pri −150° by 69 mm voľného kábla nemalo kam ísť a Ø6 sa v žľabe šírky 14 mm "
+    "neohne. Teraz cez J1 idú 6 vodičov (VBAT, GND 24 AWG, zbernica, reproduktor ±, GND) ako plochý pás vo valivej "
+    "slučke (konštantná dĺžka 209 mm, ohyb R6, ±150°). ESP32-C3 v trupe potom stačí 11 z 13 GPIO – v1 obchádzka "
+    "PCA9685 + ADS1115 odpadá; rozpis pinov v BOM_v8.md, kap. 7",
     "skrutka otáčania M3×20 (nie M3×25 z popisu základne): s podložkou na strope veže B14 (z 24.5) by M3×25 prešla "
     "5 mm za závit v drážkovaní STS3215",
-    "mikrofón INMP441 vodorovne pod stropom hlavy hneď za hornou škárou rámu (port dole do dutiny, ktorú škára "
-    "napája); hlava v8.1 zrušila otvor mikrofónu v uchu a Guition JC3248W535 mikrofón nemá. Pôvodná poloha na "
-    "zadnej strane H07 mala spodný port zaslepený platňou",
+    "mikrofón INMP441 (revízia 2) naležato na strope kapsy valca, spodný port utesnený penovým krúžkom nad skrytou "
+    "vetracou štrbinou x −10.5 – počuje cez otvorené ústie kapsy okolo krku. Hlava v8.1 zrušila otvor mikrofónu v "
+    "uchu a Guition JC3248W535 mikrofón nemá; poloha v1 pod stropom bola spredu vidieť cez hornú škáru rámu",
     "USB-C / tlačidlo / dok podľa základne v8.1: USB (-24, 40), tlačidlo (24, 40), pogo piny (±36, 41) na 2 DPS nad "
     "zadným kolieskom (nie spec (-20, 46) / (20, 46) / (±8, 50))",
     "podsvietenie: 24× WS2812B-2020 na flex prstenci nad opálovým svetlovodom B-UG (návrh základne), svietia dole",
+    "kábel krku: 5 V a GND 26 AWG (špičky ~2 A: doska + podsvietenie LCD + servo náklonu + LED uší + zosilňovač), "
+    "TX, RX a reproduktor 30 AWG; 30 AWG pre napájanie (~0.9 A) by nestačil",
+    "DPS IB09-1/IB09-2 s čiernou maskou: ležia priamo pod zadnou časťou škáry B01/B09 a zhora boli cez ňu vidieť",
 ]
 
 
@@ -1031,12 +1049,27 @@ def _polar(r, a_deg, z):
     return (r * math.cos(a), r * math.sin(a), z)
 
 
+def band_sweep(points, t0, t1):
+    """Flat band ON EDGE (YB_T radial x YB_H vertical) swept along a horizontal spline at z = YB_ZC (fixed binormal
+    Z keeps it upright)."""
+    pts = [Vector(p[0], p[1], YB_ZC) for p in points]
+    path = Wire([Edge.make_spline(pts, tangents=[Vector(*t0).normalized(), Vector(*t1).normalized()])])
+    t = path.tangent_at(0)
+    pl = Plane(origin=pts[0], x_dir=Vector(0, 0, 1).cross(t), z_dir=t)
+    sec = Face.make_rect(YB_T, YB_H, pl)
+    sol = Solid.sweep(sec, path)                       # corrected Frenet: planar path -> stays upright
+    if not sol.is_valid or sol.volume <= 0:
+        raise RuntimeError("band sweep failed")
+    return sol
+
+
 def cable_yaw(j1=0.0):
-    """J1 band as a rolling loop (see yaw_loop).  IW2 (base, ""): round Ø4.2 bundle up through the B15 exit hole,
-    fanning into the band; outer run CW along the fixed rim, U-turn, inner run CCW on the rotating housing up to the
-    riser angle.  IW3 (torso J1): the band end gathers into a round Ø4.2 bundle that rises through the T04 slot and
-    runs to the JST-GH on IT07.  Exact revolved / half-annulus solids (a spline would bulge into the 0.25-0.35 mm
-    clearances)."""
+    """J1 band as a rolling loop (see yaw_loop).
+    IW2 (base, ""): round Ø4.2 bundle up through the Ø8 exit hole of B15, 90 deg bend R3.25 just above the floor,
+    flat fan into the outer run; outer run CW along the fixed rim, U-turn, inner run CCW on the rotating housing,
+    S-curve out to the riser radius.  IW3 (torso J1): the band gathers into a round Ø4.2 bundle that rises through
+    the T04 slot and runs to the JST-GH on IT07.  Exact revolved / half-annulus solids for the runs (a spline would
+    bulge into the 0.25-0.35 mm clearances)."""
     o, i, u_abs = yaw_loop(j1)
     m_abs = u_abs + i                                                 # == YB_M0 + j1 (mod 360)
     outer = _band_sector(YB_RO, u_abs, YB_FO)
@@ -1046,23 +1079,28 @@ def cable_yaw(j1=0.0):
     ring = ring_z(cx_, cy_, YB_RB - YB_T / 2, YB_RB + YB_T / 2, YB_ZC - YB_H / 2, YB_ZC + YB_H / 2)
     half = Pos(cx_, cy_, YB_ZC) * Rot(0, 0, u_abs) * bx(-20, 20, -20, 0, -10, 10)
     uturn = ring & half
-    # fixed exit: round bundle up through the Ø8 hole, then fanning out to the outer-run start (CW tangent)
+    # fixed exit: vertical round bundle in the hole -> 90 deg bend -> flat fan -> outer-run start (CW tangent)
     rr = 2.1
     fx, fy = FIX_EXIT[0], FIX_EXIT[1]
-    rm = (LOOP_R + YB_RO) / 2
-    am = (YB_F + YB_FO) / 2 + 2.0
+    z_a = TROUGH_FLOOR + 0.1
+    R = YB_ZC - z_a
+    d1 = Vector(math.cos(math.radians(YB_FAN_H)), math.sin(math.radians(YB_FAN_H)), 0)
+    disk = Face(Wire([Edge.make_circle(rr, Plane(origin=(fx, fy, z_a), z_dir=(0, 0, 1)))]))
+    bend = revolve(disk, Axis((fx + R * d1.X, fy + R * d1.Y, z_a), tuple(Vector(0, 0, 1).cross(d1))), 90).solids()[0]
+    riser_f = cyl_z(fx, fy, rr, YAW_LOOP_Z_IN, z_a) + bend          # face-to-face (an 0.001 overlap lost the bend)
+    b_pt = (fx + R * d1.X, fy + R * d1.Y)
     fo = math.radians(YB_FO)
-    pm = _polar(rm, am, YB_ZC)
-    fan = tube([(fx, fy, YAW_LOOP_Z_IN), (fx, fy, TROUGH_FLOOR - 1.0),
-                (0.5 * (fx + pm[0]), 0.5 * (fy + pm[1]), YB_ZC - 0.6), pm, _polar(YB_RO, YB_FO, YB_ZC)],
-               rr, t0=(0, 0, 1), t1=(math.sin(fo), -math.cos(fo), 0.0))
-    base = union([outer, uturn, inner, fan])
-    # moving end: band end at m_abs (CCW tangent) -> riser bundle through the T04 slot -> torso path
-    ma = math.radians(m_abs)
-    rs = YB_RI + 2.4                                                  # riser radius 25.9 (T04 slot r 23..29)
-    pts = [_polar(YB_RI, m_abs, YB_ZC), _polar(YB_RI + 0.6, m_abs + 3.5, YB_ZC + 0.8),
-           _polar(rs, m_abs + 6.5, YB_ZC + 3.5), _polar(rs, m_abs + 6.0, 38.0), _polar(rs, m_abs + 3.0, 41.5)]
-    torso = tube(pts + YAW_TORSO_PATH, rr, t0=(-math.sin(ma), math.cos(ma), 0.0), t1=YAW_T1)
+    fan = band_sweep([b_pt, _polar(YB_RO, YB_FO, 0)[:2]], (d1.X, d1.Y, 0), (math.sin(fo), -math.cos(fo), 0))
+    # moving end: S-curve from the inner run (CCW tangent) out to the riser radius
+    ma, mr = math.radians(m_abs), math.radians(m_abs + YB_SC)
+    scurve = band_sweep([_polar(YB_RI, m_abs, 0)[:2], _polar(YB_RS, m_abs + YB_SC, 0)[:2]],
+                        (-math.sin(ma), math.cos(ma), 0), (-math.sin(mr), math.cos(mr), 0))
+    base = union([riser_f, fan, outer, uturn, inner, scurve])
+    # IW3: round bundle from the S-curve end, up through the T04 slot, to the torso path
+    a_r = m_abs + YB_SC                                               # == YB_RISER + j1
+    pts = [_polar(YB_RS, a_r, YB_ZC), _polar(YB_RS, a_r + 3.0, YB_ZC + 1.2), _polar(YB_RS, a_r + 5.0, YB_ZC + 3.6),
+           _polar(YB_RS, a_r + 4.0, 38.0), _polar(YB_RS, a_r + 2.0, 41.5)]
+    torso = tube(pts + YAW_TORSO_PATH, rr, t0=(-math.sin(mr), math.cos(mr), 0.0), t1=YAW_T1)
     return base, torso
 
 
@@ -1318,6 +1356,11 @@ if __name__ == "__main__":
     print("DEVIATIONS:")
     for d in DEVIATIONS:
         print("  -", d)
+    print("J1 rolling loop (band %.1f x %.1f, r_o %.2f, r_i %.2f, bend R%.2f, length %.1f mm):"
+          % (YB_T, YB_H, YB_RO, YB_RI, YB_RB, yaw_loop_length()))
+    for j in (-150, -75, 0, 75, 150):
+        o_, i_, u_ = yaw_loop(j)
+        print(f"   J1 {j:+5d}: outer run {o_:6.1f} deg, inner run {i_:6.1f} deg, U-turn at {u_ % 360:6.1f} deg")
     print("self interference:", self_interference(ps))
     if "--check" in sys.argv:
         print("STEP round trip problems:", step_roundtrip(ps))

@@ -47,6 +47,11 @@ HERO_CAM = {"name": "hero", "loc": [330, -1000, 380], "target": [0, 0, 138], "le
 # helpers
 # ---------------------------------------------------------------------------
 
+RENDER_ONLY = ("H04C", "H04E")      # render-only objects never called out
+DEFAULT_DISP_LABEL = '4.3" 800×480, RGB'
+EXPR_OVERRIDE = None   # optional fn(g, ey, disp, head, zc) -> (lines, led_title, leds) for other robots
+
+
 def manifest():
     recs = []
     for fn in sorted(glob.glob(os.path.join(ROOT, "build", "manifest", "*.json"))):
@@ -492,7 +497,7 @@ def sheet_exploded(q, recs):
     s, ox, oy = paste_fit(sh, imc, (760, 180, W - 760, H - 100))
     by = {r["id"]: r for r in recs}
     anc = anchors(rd, "iso_r", min_px=60)
-    keep = {r["id"] for r in recs if not r.get("internal") and r["id"] not in ("H04C", "H04E")}
+    keep = {r["id"] for r in recs if not r.get("internal") and r["id"] not in RENDER_ONLY}
     keep = {k for k in keep if not (k.endswith("-L") and k[:-2] + "-R" in anc)}
     pts = [(pid, ox + (x - bx[0]) * s, oy + (y - bx[1]) * s) for pid, (x, y, n) in anc.items() if pid in keep]
     callouts(d, pts, (40, 200, W - 40, H - 120), lambda pid: f"{pid}  {by[pid]['name']}", split_x=ox + imc.width * s / 2)
@@ -562,7 +567,7 @@ def sheet_section(q, recs):
         d.text((box[0], 350), lab, fill=S.INK, font=S.font(28, "SemiBold"))
         anc = anchors(rd, v, min_px=250)
         top = sorted(anc.items(), key=lambda kv: -kv[1][2])[:26]
-        pts = [(pid, ox + (x - bx[0]) * s, oy + (y - bx[1]) * s) for pid, (x, y, n) in top if pid not in ("H04C", "H04E")]
+        pts = [(pid, ox + (x - bx[0]) * s, oy + (y - bx[1]) * s) for pid, (x, y, n) in top if pid not in RENDER_ONLY]
         if side == "L":
             callouts(d, pts, (40, 400, box[0] - 20, H - 120), lambda pid: f"{pid} {by[pid]['name'][:32]}", split_x=1e9, fs=21, gap=44)
         else:
@@ -763,7 +768,8 @@ def sheet_expressions(q, recs):
     rows = math.ceil(len(exprs) / cols)
     W, H = 60 * 2 + cols * cw, 260 + int(spec.HEAD["glass"]["h"] * 9.0) + 180 + rows * ch + 80
     sh, d = new_sheet(W, H, "NOVA / DISPLEJ A VÝRAZY",
-                      f"sklo {g['w']:g}×{g['h']:g} R{g['r']:g} · aktívna plocha {disp['active'][0]:g}×{disp['active'][1]:g} (4.3\" 800×480, RGB) · oči {ey['w']:g}×{ey['h']:g} R{ey['r']:g}")
+                      f"sklo {g['w']:g}×{g['h']:g} R{g['r']:g} · aktívna plocha {disp['active'][0]:g}×{disp['active'][1]:g} "
+                      f"({disp.get('label', DEFAULT_DISP_LABEL)}) · oči {ey['w']:g}×{ey['h']:g} R{ey['r']:g}")
     eye_col = (255, 222, 172)
     zc = g.get("zc", Hd["zc"])            # drawing reference = glass centre
 
@@ -870,13 +876,17 @@ def sheet_expressions(q, recs):
         ("Farba očí", "teplá biela #FFDEAC; animácie 60 fps, žmurknutie každých 3–8 s"),
         ("Rozlíšenie", f"{800 / disp['active'][0]:.1f} px/mm → oko ≈ {ey['w'] * 800 / disp['active'][0]:.0f}×{ey['h'] * 800 / disp['active'][0]:.0f} px"),
     ]
+    led_title = "LED SIGNALIZÁCIA (uši H06 · hruď T05 · základňa B03)"
+    leds = None
+    if EXPR_OVERRIDE is not None:          # robot-specific texts (e.g. NOVA mini v8)
+        lines, led_title, leds = EXPR_OVERRIDE(g, ey, disp, Hd, zc)
     for i, (a_, b_) in enumerate(lines):
         d.text((tx, 280 + i * 118), a_.upper(), fill=S.ACCENT, font=S.font(28, "Bold"))
         d.text((tx, 280 + i * 118 + 38), b_, fill=S.INK, font=S.font(34, "Medium"))
     # LED signalling palette
     lx0 = tx + 1500
-    d.text((lx0, 280), "LED SIGNALIZÁCIA (uši H06 · hruď T05 · základňa B03)", fill=S.ACCENT, font=S.font(24, "Bold"))
-    leds = [((60, 230, 250), "tyrkysová svieti", "pokoj / pripravený"),
+    d.text((lx0, 280), led_title, fill=S.ACCENT, font=S.font(24, "Bold"))
+    leds = leds or [((60, 230, 250), "tyrkysová svieti", "pokoj / pripravený"),
             ((60, 140, 255), "modrá pulzuje", "počúva (hlas)"),
             ((170, 90, 255), "fialová beží dookola", "premýšľa / AI"),
             ((60, 220, 120), "zelená dýcha", "nabíja sa"),

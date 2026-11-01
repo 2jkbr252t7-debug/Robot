@@ -37,6 +37,11 @@ v8.1 – "MODERNÝ, NIČ NEVIDNO" (user, 2026-11-01): supersedes v8.0 wherever t
     rear door flush with a hidden magnetic latch, all vents on the underside / hidden in seams.
   * Speaker grille = fine micro-perforation on the base underside rim (invisible from the side).
   * All three head variants are built on this body: A (flat glass), A+ (curved R180), B (frameless visor R100).
+  * v8.1 review 2 (internals): BASE NODE – STM32G030 + DRV8833 + 5 V buck on the base board IB09-2, a slave on
+    the 1-wire servo bus: drives both N20 (encoders), the 4 cliff sensors and the underglow, stops at a table edge
+    locally.  Only 6 wires cross J1 (VBAT, GND, bus, speaker ±, GND) as a flat band in a ROLLING LOOP
+    (constant 209 mm, ±150°) – replaces the Ø6 bundle.  Neck bundle = 6 wires (5 V/GND 26 AWG + TX, RX, speaker ±).
+    Torso ESP32-C3 uses 11 of 13 GPIO (pin map in BOM_v8.md kap. 7).
 =====================================================================================
 """
 from math import sqrt
@@ -70,7 +75,7 @@ TORSO = dict(
     shoulder=dict(z=89.0, y=0.0, bore_d=16.0),
     bottom_plate=dict(h=2.5, ring_od=77.0),                       # black turntable ring visible under the torso
     yaw_servo=dict(type="Feetech STS3215", body=(45.2, 24.7, 35.0), spline_down=True, z_body=(45.0, 80.0)),
-    controller="ESP32-C3 SuperMini + DRV8833 + nabíjanie/boost na jednej malej DPS",
+    controller="ESP32-C3 SuperMini + MP1584 5 V + budič zbernice 74LVC1G126 (motory riadi uzol základne STM32G030)",
 )
 
 
