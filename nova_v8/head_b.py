@@ -12,22 +12,27 @@ Concept level: clean outer surfaces, real walls and seams, no bosses / snaps / s
 
 Body construction: front silhouette prism 110 x 76 R34 (along Y, back loop R26)  INTERSECT  plan prism
 (front arc R95 + R20 plan corners, along Z), then the whole front loop is rounded R9 -> one smooth
-capsule.  The visor region is the band z 127..181 of the skin in front of y = -13 (side view: rounded
-rear end R18), i.e. its top / bottom edges are straight in the front view and follow the R95 arc in
+capsule (y -40..+30: 40 in front of the tilt axis so the flat display clears both the barrel pocket and
+the R34/R9 front corners).  The visor region is the band z 127..181 of the skin in front of y = -15
+(side view: rounded rear end R18), i.e. its top / bottom edges are straight in the front view and follow the R95 arc in
 the top view.
 
 Parts (sub "head_b", joint "J3" = head tilt about X through NECK.tilt_axis y=0 z=126)
-  HB01     Predny obal hlavy    white        front shell (y < 19.7): wall 2.0, flush visor opening + 2.4 mm
-                                             visor ledge, ear grooves, underside pocket for the Ø30 tilt barrel,
-                                             1.2 mm lip behind the parting seam
-  HB02     Zadny obal hlavy     white        rear cap (y > 20.3), 0.6 mm vertical parting seam behind the ears
-  HB03     Vizor                glass        smoked PC / glass visor 1.6 mm, band 54 high, wraps onto the sides
+  HB01     Predny obal hlavy    white        front shell (y < 18.2): wall 2.0, flush visor opening (0.35 edge
+                                             break) + 2.4 mm visor ledge, ear grooves + Ø1 mic ports, underside
+                                             pocket R15.6 for the Ø30 tilt barrel, 1.2 mm lip under the seam
+  HB02     Zadny obal hlavy     white        rear cap (y > 18.8), 0.6 mm vertical parting seam behind the ears
+  HB03     Vizor                glass        smoked PC visor 1.6 mm (pure R95 cylinder in the middle, moulded
+                                             wrap at the cheeks), band 54 high, wraps onto the sides to y -15
   HB03C    Okienko kamery       black_gloss  RENDER-ONLY camera dot in the upper visor band (x 0, z 176)
   HB03E    Obsah displeja - oci eye          RENDER-ONLY two warm pill eyes 11 x 18 on the visor curvature
-  HB05-R/L LED kruzok ucha      cyan_led     flush light-guide rings OD24 / ID18 on the sides (y +4, z 154)
+  HB05-R/L LED kruzok ucha      cyan_led     light-guide rings OD24 / ID18, 0.25 below the skin (y +2, z 154)
 
-Display check: the flat 3.5" module 86 x 56 x 6 (corner R3 assumed) at y -25.2 .. -19.2 is verified
+Display check: the flat 3.5" module 86 x 56 x 6 (corner R3 assumed) at y -24.2 .. -18.2 is verified
 against HB01 / HB03 (clearances printed by __main__).
+
+Deviations from concept.py: ear rings at y +2 (concept +4) because the head sits 5 mm forward of a
+centred position; head top z 192 (= z0 116 + h 76; HEAD.z1 says 190).
 """
 from __future__ import annotations
 
@@ -63,8 +68,8 @@ DISP_W, DISP_H, DISP_T = C.DISPLAY["outline"]              # 86 x 56 x 6
 assert abs(ZC - VIS["zc"]) < 1e-9 and abs(ZC - EAR["z"]) < 1e-9
 
 # ---- local concept constants (construction values, not shared dimensions) ------------------
-Y_FRONT = -38.0            # visor apex at x = 0 (head reaches 38 in front of / 32 behind the tilt axis:
-                           # the flat display must clear the barrel pocket AND the curved visor)
+Y_FRONT = -40.0            # visor apex at x = 0 (head reaches 40 in front of / 30 behind the tilt axis:
+                           # the flat display must clear the barrel pocket AND the R34/R9 front corners)
 Y_BACK = Y_FRONT + D       # +32
 R_PLAN = VIS["r_plan"]     # 95  plan radius of the visor cylinder
 Y_AXIS = Y_FRONT + R_PLAN  # +57 plan-arc centre
@@ -75,20 +80,23 @@ WALL = 2.0
 VIS_T = 1.6                # visor thickness
 GAP = 0.6                  # shadow gap visor <-> shell, and parting seam width
 VZ0, VZ1 = ZC - VIS["h"] / 2, ZC + VIS["h"] / 2            # 127 .. 181
-Y_VIS_REAR = -13.0         # rear end of the visor on the sides (ear ring starts at y -8)
+Y_VIS_REAR = -15.0         # rear end of the visor on the sides (~14 mm behind the end of the R95 arc)
 R_VIS_END = 18.0           # side view: rounded rear corners of the visor band
 LEDGE_D0, LEDGE_D1, LEDGE_W = VIS_T + 0.1, 3.0, 2.4        # visor ledge behind the shadow gap (depth from skin)
-Y_SEAM = 20.0              # vertical parting plane front shell / rear cap (behind the ear rings)
+Y_SEAM = 18.5              # vertical parting plane front shell / rear cap (behind the ear rings)
 LIP_D0, LIP_D1, LIP_OUT = WALL + 0.05, WALL + 1.2, 3.0     # backing lip under the parting seam
 RING_OD, RING_ID = EAR["ring_od"], EAR["ring_id"]          # 24 / 18
 RING_DEPTH, RING_GAP = 1.4, 0.15
-EAR_Y, EAR_Z = EAR["y"], EAR["z"]                          # +4, 154
-P_RIN = BARREL_R + 1.0     # barrel pocket: R16 about the tilt axis
-P_XIN = BARREL_LEN / 2 + 1.2                                # |x| <= 16.2
-P_WALL = 1.6
+MIC_D = 1.0                # microphone port in the centre of each ear ring
+RING_RECESS = 0.25         # light ring sits 0.25 below the skin -> crisp shadow lines on the white side
+EDGE_BREAK = 0.35          # round on the visible edges of the visor opening and of the visor
+EAR_Y, EAR_Z = EAR["y"] - 2.0, EAR["z"]                    # +2 (concept +4: head B sits 5 mm forward), 154
+P_RIN = BARREL_R + 0.6     # barrel pocket: R15.6 about the tilt axis
+P_XIN = BARREL_LEN / 2 + 1.0                                # |x| <= 16
+P_WALL = 1.5
 CAM_Z, CAM_D = 176.0, 2.8  # camera dot (sits in the wedge between curved visor and flat display)
 DISP_CR = 3.0              # assumed corner radius of the display module outline
-Y_DISP_FRONT = -25.2       # display front face (flat, behind the visor)
+Y_DISP_FRONT = -24.2       # display front face (flat, behind the visor)
 
 
 # ===========================================================================================
@@ -230,6 +238,11 @@ class Skin:
             self._off[d] = o
         return self._off[d]
 
+    def skin_faces(self):
+        if not hasattr(self, "_skin"):
+            self._skin = Compound(self.body.faces())
+        return self._skin
+
     def band(self, d0, d1):
         """Layer between depth d0 and d1 below the skin (d0 = 0 -> the skin itself)."""
         outer = self.body if d0 == 0 else self.inner(d0)
@@ -245,6 +258,22 @@ def visor_cutter(grow=0.0):
     return rr_prism_x(Y_FRONT - 30 - grow, Y_VIS_REAR + grow, VZ0 - grow, VZ1 + grow, R_VIS_END + grow)
 
 
+def rr_dist_yz(y, z, grow):
+    """Signed distance (side view) to the visor cutter outline grown by `grow`."""
+    y0, y1 = Y_FRONT - 30 - grow, Y_VIS_REAR + grow
+    z0, z1, r = VZ0 - grow, VZ1 + grow, R_VIS_END + grow
+    qy = abs(y - (y0 + y1) / 2) - ((y1 - y0) / 2 - r)
+    qz = abs(z - (z0 + z1) / 2) - ((z1 - z0) / 2 - r)
+    return math.hypot(max(qy, 0.0), max(qz, 0.0)) + min(max(qy, qz), 0.0) - r
+
+
+def cutter_edges(shape, sk, grow):
+    """Edges of `shape` on the outer skin that run along the visor cutter outline."""
+    skin = sk.skin_faces()
+    return edges_where(shape, lambda p: abs(rr_dist_yz(p.Y, p.Z, grow)) < 0.03
+                       and skin.distance_to(Vector(p.X, p.Y, p.Z)) < 0.03)
+
+
 def ear_annulus(ro, ri):
     return cyl_x(ro, -70, 70, EAR_Y, EAR_Z) - cyl_x(ri, -71, 71, EAR_Y, EAR_Z)
 
@@ -256,9 +285,11 @@ def build_shells(sk: Skin):
     # ---- flush visor: the visor is the skin layer inside the cutter, the shell gets a 0.6 larger opening
     visor = retry(lambda: sk.band(0, VIS_T) & visor_cutter(), "visor")
     visor = single(visor, "HB03")
+    visor = try_fillet(visor, cutter_edges(visor, sk, 0.0), EDGE_BREAK, "HB03 edge break")
     shell = retry(lambda: shell - visor_cutter(GAP), "visor opening")
     ledge = retry(lambda: (sk.band(LEDGE_D0, LEDGE_D1) & visor_cutter(GAP + 0.6)) - visor_cutter(-LEDGE_W),
                   "visor ledge")
+    ledge = retry(lambda: ledge - display_dummy(grow=0.6), "ledge relief for the display")
 
     # ---- parting seam (vertical plane behind the ears) ----
     h02 = retry(lambda: shell & slab_y(Y_SEAM + GAP / 2, Y_BACK + 5), "HB02")
@@ -268,7 +299,7 @@ def build_shells(sk: Skin):
     h01 = retry(lambda: h01 + ledge, "ledge")
     h01 = retry(lambda: h01 + lip, "lip")
 
-    # ---- underside pocket for the Ø30 tilt barrel (R16 about the tilt axis, open downwards) ----
+    # ---- underside pocket for the Ø30 tilt barrel (R15.6 about the tilt axis, open downwards) ----
     p_in = cyl_x(P_RIN, -P_XIN, P_XIN, TILT_Y, TILT_Z) + \
         Pos(0, TILT_Y, (Z0 - 6 + TILT_Z) / 2) * Box(2 * P_XIN, 2 * P_RIN, TILT_Z - Z0 + 6)
     xo, ro = P_XIN + P_WALL, P_RIN + P_WALL
@@ -284,11 +315,13 @@ def build_shells(sk: Skin):
     groove = retry(lambda: sk.band(0, RING_DEPTH + 0.1) & ear_annulus(RING_OD / 2 + RING_GAP, RING_ID / 2 - RING_GAP),
                    "ear groove")
     h01 = retry(lambda: h01 - groove, "ear grooves")
-    rings = retry(lambda: sk.band(0, RING_DEPTH) & ear_annulus(RING_OD / 2, RING_ID / 2), "rings")
+    h01 = retry(lambda: h01 - cyl_x(MIC_D / 2, -70, 70, EAR_Y, EAR_Z), "mic ports")
+    rings = retry(lambda: sk.band(RING_RECESS, RING_DEPTH) & ear_annulus(RING_OD / 2, RING_ID / 2), "rings")
     ring_l = single(rings & slab_x(0, 80), "HB05-L")
     ring_r = single(rings & slab_x(-80, 0), "HB05-R")
 
     h01 = single(h01, "HB01")
+    h01 = try_fillet(h01, cutter_edges(h01, sk, GAP), EDGE_BREAK, "HB01 opening edge break")
     h02 = single(h02, "HB02")
     return (check("HB01", h01, 20000), check("HB02", h02, 3000), check("HB03", visor, 3000),
             check("HB05-R", ring_r, 50), check("HB05-L", ring_l, 50))
@@ -319,9 +352,10 @@ def eyes():
     return check("HB03E", out)
 
 
-def display_dummy():
+def display_dummy(grow=0.0):
     """Flat 3.5" module (outline incl. PCB + ESP32) - used only for the fit check, not exported."""
-    return rr_prism_y(DISP_W, DISP_H, DISP_CR, Y_DISP_FRONT, Y_DISP_FRONT + DISP_T)
+    g = grow
+    return rr_prism_y(DISP_W + 2 * g, DISP_H + 2 * g, DISP_CR + g, Y_DISP_FRONT - g, Y_DISP_FRONT + DISP_T + g)
 
 
 # ===========================================================================================
@@ -336,7 +370,7 @@ def build():
                 note="koncept: biela kapsula 110×76×70, rohy spredu R34, čelo R95, stena 2.0, "
                      "lícujúci otvor vizora, vybranie zdola pre valec náklonu Ø30"),
         PartRec("HB02", "Zadný obal hlavy", h02, "white", SUB, J, (0, fy, up),
-                note="zadná kapsula za deliacou škárou 0.6 (rovina y = +20, za ušami), zadné zaoblenie R26"),
+                note="zadná kapsula za deliacou škárou 0.6 (rovina y = +18.5, za ušami), zadné zaoblenie R26"),
         PartRec("HB03", "Vizor", h03, "glass", SUB, J, (0, -fy, up),
                 note="čierny dymový vizor 1.6 mm, valec R95, pás 54 mm, zahnutý 14 mm do bokov, tieňová škára 0.6"),
         PartRec("HB03C", "Okienko kamery", camera_dot(), "black_gloss", SUB, J, (0, -fy - 8, up),
@@ -344,9 +378,9 @@ def build():
         PartRec("HB03E", "Obsah displeja – oči", eyes(), "eye", SUB, J, (0, -fy - 8, up),
                 note="len objekt pre render: dve teplé pilulky 11×18 na zakrivení vizora"),
         PartRec("HB05-R", "LED krúžok ucha pravý", ring_r, "cyan_led", SUB, J, (-ex, 0, up),
-                note="lícujúci svetlovod Ø24/Ø18 v boku hlavy, tyrkysová LED"),
+                note="lícujúci svetlovod Ø24/Ø18 v boku hlavy, tyrkysová LED, v strede mikrofón Ø1"),
         PartRec("HB05-L", "LED krúžok ucha ľavý", ring_l, "cyan_led", SUB, J, (ex, 0, up),
-                note="lícujúci svetlovod Ø24/Ø18 v boku hlavy, tyrkysová LED"),
+                note="lícujúci svetlovod Ø24/Ø18 v boku hlavy, tyrkysová LED, v strede mikrofón Ø1"),
     ]
 
 
