@@ -316,7 +316,7 @@ def joint_chain(joint):
     return chains.get(joint, [])
 
 
-def apply_pose(objs, pose):
+def apply_pose(objs, pose, joint_axes=None):
     if not pose:
         return
     ax = spec.ARM["axis"]
@@ -328,6 +328,9 @@ def apply_pose(objs, pose):
         "J4": ((1, 0, 0), (0, ax["y"], ax["z"])),
         "J5": ((1, 0, 0), (0, ax["y"], ax["z"])),
     }
+    # other robots (e.g. NOVA mini v8) pass their own axes: {"J3": [[1,0,0], [0, y, z]], ...}
+    for j, (a, o) in (joint_axes or {}).items():
+        defs[j] = (tuple(a), tuple(o))
     # sign convention (user-facing degrees):
     #   J1 +  = body turns to robot's left (CCW from top)     -> +rot about Z
     #   J2 +  = head turns to robot's left                    -> +rot about Z
@@ -636,7 +639,7 @@ def run(job):
         raise SystemExit("no parts selected")
     recs_by_id = {r["id"]: r for r in sel}
     objs = [import_part(r, build_root) for r in sel]
-    apply_pose(objs, job.get("pose"))
+    apply_pose(objs, job.get("pose"), job.get("joint_axes"))
     apply_explode(objs, recs_by_id, job.get("explode", 0), job.get("explode_override"))
     if job.get("section"):
         objs = apply_section(objs, job["section"])
