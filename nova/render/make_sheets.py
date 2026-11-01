@@ -131,9 +131,20 @@ def anchors(rd, view, min_px=40):
         return {}
     a = np.array(Image.open(p).convert("RGBA")).astype(int)
     rgb, al = a[..., :3], a[..., 3]
+    keys = list(idm.keys())
+    cols = np.array([idm[k] for k in keys])                       # (K,3)
+    flat = rgb.reshape(-1, 3)
+    # nearest id colour per pixel (robust to tone-mapping rounding), reject far matches / background
+    best = np.full(flat.shape[0], -1)
+    bestd = np.full(flat.shape[0], 1e9)
+    for j, c in enumerate(cols):
+        dd = np.abs(flat - c).sum(-1)
+        better = dd < bestd
+        best[better], bestd[better] = j, dd[better]
+    lab = np.where((bestd <= 9) & (al.reshape(-1) > 200), best, -1).reshape(rgb.shape[:2])
     out = {}
-    for pid, c in idm.items():
-        msk = (np.abs(rgb - np.array(c)).sum(-1) <= 6) & (al > 200)
+    for j, pid in enumerate(keys):
+        msk = lab == j
         n = int(msk.sum())
         if n < min_px:
             continue
@@ -278,7 +289,8 @@ def sheet_matrix(name, title, rows, q, recs, subtitle=None):
     for _, pids, _ in rows:
         mn, mx = union_bbox(recs, pids)
         sizes.append([mx[i] - mn[i] for i in range(3)])
-    osc = max(max(s) for s in sizes) * 1.10
+    cr = q["cell_res"]
+    osc = max(max(s) for s in sizes) * 1.12 * max(cr) / min(cr)   # ortho_scale spans the larger image side
 
     def one(i_row):
         i, (label, pids, note) = i_row
@@ -306,7 +318,11 @@ def sheet_hero(q, recs):
                      views=[HERO_CAM, "iso_back", "iso_r"], margin=0.12, floor_z=spec.FLOOR_Z), "00_hero")
     W, H = 3000, 2000
     sh, d = new_sheet(W, H, "NOVA", f"stolový robot-spoločník · {spec.VERSION}")
-    paste_fit(sh, load(rd, "hero"), (40, 190, 1760, 1960))
+    hero = load(rd, "hero", fade=None)
+    bx = alpha_bbox(hero, 220)
+    pw, ph = int(0.30 * (bx[2] - bx[0])), int(0.12 * (bx[3] - bx[1]))
+    hero = hero.crop((max(0, bx[0] - pw), max(0, bx[1] - ph), min(hero.width, bx[2] + pw), min(hero.height, bx[3] + ph)))
+    paste_fit(sh, radial_fade(hero, inner=0.70), (40, 190, 1760, 1960))
     paste_fit(sh, load(rd, "iso_back"), (1790, 1250, 2380, 1930))
     paste_fit(sh, load(rd, "iso_r"), (2400, 1250, 2980, 1930))
     x0, y = 1820, 230

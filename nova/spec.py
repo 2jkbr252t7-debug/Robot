@@ -101,7 +101,7 @@ MATERIALS = {
     "black_gloss":dict(desc="čierny lesklý plast",                   rgb=(0.02, 0.02, 0.022), rough=0.15),
     "rubber":     dict(desc="čierne TPU 85A / guma",                 rgb=(0.022, 0.022, 0.024), rough=0.75, spec=0.3),
     "glass":      dict(desc="tvrdené sklo 1.1 mm, čierna potlač",    rgb=(0.004, 0.004, 0.005), rough=0.015),
-    "cyan_led":   dict(desc="svetlovod PMMA opál – tyrkysová LED",   rgb=(0.05, 0.80, 1.0), emit=3.0),
+    "cyan_led":   dict(desc="svetlovod PMMA opál – tyrkysová LED",   rgb=(0.0, 0.62, 1.0), emit=1.8),
     "eye":        dict(desc="obsah displeja – oči (teplá biela)",    rgb=(1.0, 0.76, 0.46), emit=1.3),
     "frost":      dict(desc="matný svetlosivý PMMA (okienko senzora)", rgb=(0.80, 0.81, 0.82), rough=0.6),
     "grey":       dict(desc="sivý technický plast (vnútorná kostra)", rgb=(0.35, 0.36, 0.38), rough=0.5),

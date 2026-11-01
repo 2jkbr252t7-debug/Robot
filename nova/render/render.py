@@ -525,6 +525,13 @@ def cam_axes(d, up):
     return fwd, right, true_up
 
 
+def ortho_need(w_extent, h_extent, aspect):
+    """Blender's ortho_scale spans the LARGER image dimension (sensor fit AUTO)."""
+    if aspect >= 1.0:
+        return max(w_extent, h_extent * aspect)
+    return max(h_extent, w_extent / aspect)
+
+
 def make_shadow_catcher(z):
     bpy.ops.mesh.primitive_plane_add(size=4, location=(0, 0, z))
     pl = bpy.context.object
@@ -539,7 +546,12 @@ def make_shadow_catcher(z):
 
 def id_color(i):
     """8-bit sRGB colour for part index i (1-based), unique for i < 1000."""
-    return (20 + (i % 10) * 23, 20 + ((i // 10) % 10) * 23, 20 + ((i // 100) % 10) * 23)
+    return (40 + (i % 10) * 21, 40 + ((i // 10) % 10) * 21, 40 + ((i // 100) % 10) * 21)
+
+
+def srgb_to_linear(v):
+    c = v / 255.0
+    return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
 
 
 def render_id_pass(sc, objs, path):
@@ -567,7 +579,7 @@ def render_id_pass(sc, objs, path):
         nt = m.node_tree
         nt.nodes.clear()
         em = nt.nodes.new("ShaderNodeEmission")
-        lin = [((v / 255.0) ** 2.2) for v in c]
+        lin = [srgb_to_linear(v) for v in c]
         em.inputs["Color"].default_value = (*lin, 1)
         em.inputs["Strength"].default_value = 1.0
         outn = nt.nodes.new("ShaderNodeOutputMaterial")
@@ -667,7 +679,7 @@ def run(job):
             d, up = VIEW_DIRS[v]
             fwd, right, tup = cam_axes(d, up)
             r0, r1, u0, u1 = projected_extent(objs, right, tup)
-            need = max(need, (r1 - r0), (u1 - u0) * aspect)
+            need = max(need, ortho_need(r1 - r0, u1 - u0, aspect))
         shared = need * (1 + 2 * margin)
 
     meta = {}
@@ -698,7 +710,7 @@ def run(job):
                 if shared:
                     cam_data.ortho_scale = shared
                 else:
-                    cam_data.ortho_scale = max(r1 - r0, (u1 - u0) * aspect) * (1 + 2 * margin)
+                    cam_data.ortho_scale = ortho_need(r1 - r0, u1 - u0, aspect) * (1 + 2 * margin)
                 loc = tgt - fwd * (radius * 6 + 0.5)
                 look_at(cam, loc, tgt, tup)
                 if job.get("cam_lights", True):
@@ -726,7 +738,7 @@ def run(job):
         meta[name] = dict(type=cam_data.type, ortho_scale_mm=cam_data.ortho_scale / MM,
                           lens=cam_data.lens, sensor=cam_data.sensor_width,
                           matrix_world=[list(r) for r in cam.matrix_world], res=res,
-                          mm_per_px=(cam_data.ortho_scale / MM) / res[0] if cam_data.type == "ORTHO" else None,
+                          mm_per_px=(cam_data.ortho_scale / MM) / max(res) if cam_data.type == "ORTHO" else None,
                           id_map=id_map)
         print(f"rendered {name} ({time.time() - t0:.1f}s)")
     if job.get("write_meta", True):
