@@ -185,8 +185,11 @@ def install(variant, quality_tmp):
     MS.FOOT = f"NOVA mini {S8.VERSION} · hlava {VAR[variant]['label']} · render z CAD modelu (build123d → Blender Cycles) · mm"
 
 
+OUT_ROOT = {"dir": os.path.join(ROOT, "obrazky", "v8")}   # draft runs write to /tmp (see main)
+
+
 def out_dir(sub):
-    p = os.path.join(ROOT, "obrazky", "v8", sub)
+    p = os.path.join(OUT_ROOT["dir"], sub)
     os.makedirs(p, exist_ok=True)
     MS.OUT = p
     return p
@@ -405,6 +408,8 @@ def main():
     MS.REUSE = a.reuse
     q = MS.Q[a.quality]
     tmp = f"/tmp/claude-0/v8_renders_{a.quality}"
+    if a.quality != "final":
+        OUT_ROOT["dir"] = f"/tmp/claude-0/v8_sheets_{a.quality}"
     todo = a.only.split(",")
     jobs = []
     if "spol" in todo:
