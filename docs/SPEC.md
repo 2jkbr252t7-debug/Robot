@@ -17,7 +17,7 @@ vysvetľuje dizajn, funkcie, diely a elektroniku. Verzia v7.2 zapracúva 3 nezá
 |---|---|
 | Výška | ~266 mm (vrch hlavy z = 265) |
 | Základňa | 166 × 128 mm, výška 42 mm |
-| Šírka cez ruky | ~173 mm (ruky presahujú základňu o ~3 mm, ako na fotke) |
+| Šírka cez ruky | ~176 mm (ruky presahujú základňu o ~5 mm, ako na fotke) |
 | Hmotnosť (odhad) | ~1.1 kg, ťažisko z ≈ 94 mm; preklopenie až pri náklone 29° (dopredu/dozadu) a 37° (do boku) |
 | Stupne voľnosti | 5: J1 telo 360°, J2 hlava ±90°, J3 náklon −20/+30°, J4/J5 ruky −30/+180° |
 | Výdrž | ~3 h (25.9 Wh pri ~8 W) |

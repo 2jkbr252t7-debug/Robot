@@ -16,7 +16,7 @@ import os
 from PIL import Image, ImageDraw, ImageFont
 
 BG = (243, 243, 241)
-CELL = (248, 248, 246)
+CELL = (234, 235, 236)
 LINE = (214, 214, 210)
 INK = (22, 24, 28)
 MUTED = (110, 112, 118)
@@ -38,8 +38,8 @@ VIEW_LABELS = {
     "back": "ZOZADU",
     "right": "PRAVÝ BOK  (−X)",
     "left": "ĽAVÝ BOK  (+X)",
-    "top": "ZHORA",
-    "bottom": "ZDOLA",
+    "top": "ZHORA  (predok dole)",
+    "bottom": "ZDOLA  (zrkadlovo, predok dole)",
     "iso": "IZOMETRIA",
     "iso_r": "IZOMETRIA",
     "iso_back": "IZOMETRIA ZOZADU",
@@ -124,41 +124,52 @@ def six_view_sheet(render_dir, title, out, views=("front", "back", "right", "lef
 
 
 def matrix_sheet(rows, title, out, views=("front", "back", "right", "left", "top", "bottom"), labels=None,
-                 cell=(300, 270), subtitle=None, footer=None, label_w=300):
+                 cell=(300, 270), subtitle=None, footer=None, label_w=300, scale_bar=None):
     """rows: list of (row_label, render_dir[, row_note]).  One row per part, one column per view."""
     labels = labels or {}
     head_h = 150 + (40 if subtitle else 0)
     col_head = 56
     W = 40 + label_w + len(views) * cell[0] + 40
-    H = head_h + col_head + len(rows) * cell[1] + 80
+    H = head_h + col_head + len(rows) * cell[1] + 110
     sheet = Image.new("RGB", (W, H), BG)
     d = ImageDraw.Draw(sheet)
     title_block(d, W, title, subtitle, size=64)
     x_start = 40 + label_w
+    mm_per_px = None
+    if scale_bar and rows:
+        m0 = load_meta(rows[0][1])
+        if m0 and views[0] in m0["views"] and m0["views"][views[0]].get("mm_per_px"):
+            im0 = Image.open(os.path.join(rows[0][1], f"{views[0]}.png"))
+            _, s0 = fit(im0, cell[0] - 24, cell[1] - 24)
+            mm_per_px = m0["views"][views[0]]["mm_per_px"] / s0
     for j, v in enumerate(views):
         x0 = x_start + j * cell[0]
         d.rectangle([x0, head_h, x0 + cell[0], head_h + col_head], fill=(232, 232, 229), outline=LINE, width=2)
-        d.text((x0 + cell[0] / 2, head_h + col_head / 2), labels.get(v, VIEW_LABELS.get(v, v)).split("  ")[0],
-               fill=INK, font=font(24, "SemiBold"), anchor="mm")
+        hdr = labels.get(v, VIEW_LABELS.get(v, v)).replace("  ", " ")
+        hdr = {"ZHORA (predok dole)": "ZHORA", "ZDOLA (zrkadlovo, predok dole)": "ZDOLA (zrkadl.)"}.get(hdr, hdr)
+        d.text((x0 + cell[0] / 2, head_h + col_head / 2), hdr, fill=INK, font=font(21, "SemiBold"), anchor="mm")
     for i, row in enumerate(rows):
         lab, rdir = row[0], row[1]
         note = row[2] if len(row) > 2 else None
         y0 = head_h + col_head + i * cell[1]
         d.rectangle([40, y0, W - 40, y0 + cell[1]], fill=CELL, outline=LINE, width=2)
-        # wrap label
+        # wrap label by pixel width
         words = lab.split(" ")
         lines, cur = [], ""
+        lf = font(27, "Bold")
         for w in words:
-            if len(cur + " " + w) > 18 and cur:
+            cand = (cur + " " + w).strip()
+            if d.textlength(cand, font=lf) > label_w - 40 and cur:
                 lines.append(cur)
                 cur = w
             else:
-                cur = (cur + " " + w).strip()
+                cur = cand
         lines.append(cur)
         for k, ln in enumerate(lines):
             d.text((58, y0 + 22 + k * 32), ln, fill=INK, font=font(25 if k else 27, "Bold" if k == 0 else "SemiBold"))
         if note:
-            d.text((58, y0 + cell[1] - 22), note, fill=MUTED, font=font(19, "Medium"), anchor="ls")
+            for k, nl in enumerate(reversed(note.split("\n"))):
+                d.text((58, y0 + cell[1] - 18 - k * 26), nl, fill=MUTED, font=font(20, "Medium"), anchor="ls")
         for j, v in enumerate(views):
             x0 = x_start + j * cell[0]
             d.line([(x0, y0), (x0, y0 + cell[1])], fill=LINE, width=2)
@@ -168,6 +179,8 @@ def matrix_sheet(rows, title, out, views=("front", "back", "right", "left", "top
             im = Image.open(p).convert("RGBA")
             imf, _ = fit(im, cell[0] - 24, cell[1] - 24)
             sheet.paste(imf, (x0 + (cell[0] - imf.width) // 2, y0 + (cell[1] - imf.height) // 2), imf)
+    if scale_bar and mm_per_px:
+        draw_scale_bar(d, 44, H - 58, mm_per_px, scale_bar, label=f"{scale_bar} mm (spoločná mierka všetkých riadkov)")
     if footer:
         d.text((W - 40, H - 30), footer, fill=MUTED, font=font(22, "Medium"), anchor="rs")
     sheet.save(out, optimize=True)

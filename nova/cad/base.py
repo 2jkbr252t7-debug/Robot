@@ -151,7 +151,14 @@ def turntable_b05():
     d = B["turntable_d"] - 1.6   # disc sits in the Ø92 seat
     t = Pos(0, 0, Z1 - B["turntable_recess"] + 0.2) * Cylinder(d / 2, 1.6, align=(Align.CENTER, Align.CENTER, Align.MIN))
     t = fillet(t.edges().group_by(Axis.Z)[-1], 0.6)
-    t -= Cylinder(10, 40)   # cable / slip-ring passage
+    t -= Pos(0, 0, Z1) * Cylinder(10, 40)   # Ø20 cable / slip-ring passage
+    # J1 clamp: 3x Ø3.4 on PCD 32 (M3x25 from below through B06 into the T04 inserts) + Ø8 spacer seats
+    pcd = spec.TORSO["tray"]["j1_screw_pcd"] / 2
+    for k in range(3):
+        a = math.radians(90 + 120 * k)
+        x, y = pcd * math.cos(a), pcd * math.sin(a)
+        t -= Pos(x, y, Z1) * Cylinder(1.7, 40)
+        t -= Pos(x, y, Z1 - B["turntable_recess"] + 0.2 + 1.6) * Cylinder(4.1, 0.8)
     return t
 
 

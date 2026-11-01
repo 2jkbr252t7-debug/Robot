@@ -158,6 +158,18 @@ def setup_world(sc, strength=1.0):
     nt.links.new(mapr.outputs["Result"], ramp.inputs["Fac"])
     nt.links.new(ramp.outputs["Color"], bg.inputs["Color"])
     bg.inputs["Strength"].default_value = strength
+    # reflections (glossy rays) see a much darker studio -> piano-black glass and bezel like R01
+    lp = nt.nodes.new("ShaderNodeLightPath")
+    mul = nt.nodes.new("ShaderNodeMath")
+    mul.operation = "MULTIPLY_ADD"
+    mul.inputs[1].default_value = -0.85
+    mul.inputs[2].default_value = 1.0
+    nt.links.new(lp.outputs["Is Glossy Ray"], mul.inputs[0])
+    strength_mul = nt.nodes.new("ShaderNodeMath")
+    strength_mul.operation = "MULTIPLY"
+    strength_mul.inputs[1].default_value = strength
+    nt.links.new(mul.outputs[0], strength_mul.inputs[0])
+    nt.links.new(strength_mul.outputs[0], bg.inputs["Strength"])
     nt.links.new(bg.outputs[0], out.inputs[0])
 
 
@@ -388,6 +400,26 @@ def apply_section(objs, sec):
             objs.remove(o)
             bpy.data.objects.remove(o, do_unlink=True)
             continue
+        # recolour the cap faces: covers = orange family, internals = blue-grey family, slight per-part tint
+        try:
+            idx = [i for i, ms in enumerate(o.data.materials) if ms and ms.name == "section_cap"]
+            if idx:
+                import hashlib
+                h = int(hashlib.md5(o.name.encode()).hexdigest()[:4], 16) / 65535.0
+                cm = bpy.data.materials.new("cap_" + o.name)
+                cm.use_nodes = True
+                cb = cm.node_tree.nodes["Principled BSDF"]
+                k = 0.75 + 0.5 * h
+                if o.get("internal"):
+                    col = (0.10 * k, 0.17 * k, 0.26 * k, 1)
+                else:
+                    col = (0.50 * k, 0.10 * k, 0.015 * k, 1)
+                cb.inputs["Base Color"].default_value = col
+                cb.inputs["Roughness"].default_value = 0.7
+                for i in idx:
+                    o.data.materials[i] = cm
+        except Exception as e:
+            print("cap recolour failed", o.name, e)
         # guard: a non-manifold input can make EXACT return the cutter itself -> drop that part
         bpy.context.view_layer.update()
         mn, mx = world_bbox([o])
@@ -411,11 +443,18 @@ def apply_xray(objs, alpha=0.18):
         m.name = "xr_" + base.name
         b = m.node_tree.nodes["Principled BSDF"]
         b.inputs["Alpha"].default_value = alpha
+        for nm in ("Specular IOR Level", "Coat Weight", "Subsurface Weight"):
+            if nm in b.inputs:
+                b.inputs[nm].default_value = 0.0
         try:
             m.surface_render_method = "BLENDED"
         except Exception:
             pass
         o.data.materials[0] = m
+        try:
+            o.visible_shadow = False
+        except Exception:
+            pass
 
 
 # ---------------------------------------------------------------------------
@@ -492,6 +531,74 @@ def make_shadow_catcher(z):
     pl.name = "_floor"
     pl.is_shadow_catcher = True
     return pl
+
+
+# ---------------------------------------------------------------------------
+# ID pass: flat unique colours per part -> visible-pixel anchors for callouts
+# ---------------------------------------------------------------------------
+
+def id_color(i):
+    """8-bit sRGB colour for part index i (1-based), unique for i < 1000."""
+    return (20 + (i % 10) * 23, 20 + ((i // 10) % 10) * 23, 20 + ((i // 100) % 10) * 23)
+
+
+def render_id_pass(sc, objs, path):
+    saved = {o.name: [ms for ms in o.data.materials] for o in objs}
+    vt, look, expo = sc.view_settings.view_transform, sc.view_settings.look, sc.view_settings.exposure
+    samples, den = sc.cycles.samples, sc.cycles.use_denoising
+    fw = sc.cycles.filter_width
+    world = sc.world
+    hidden = []
+    for ob in sc.objects:
+        if ob.type == "LIGHT" or ob.name == "_floor":
+            if not ob.hide_render:
+                ob.hide_render = True
+                hidden.append(ob)
+    black = bpy.data.worlds.get("_id_black") or bpy.data.worlds.new("_id_black")
+    black.use_nodes = True
+    black.node_tree.nodes["Background"].inputs["Strength"].default_value = 0.0
+    sc.world = black
+    id_map = {}
+    for i, o in enumerate(objs, start=1):
+        c = id_color(i)
+        id_map[o.name] = list(c)
+        m = bpy.data.materials.get("_id_%d" % i) or bpy.data.materials.new("_id_%d" % i)
+        m.use_nodes = True
+        nt = m.node_tree
+        nt.nodes.clear()
+        em = nt.nodes.new("ShaderNodeEmission")
+        lin = [((v / 255.0) ** 2.2) for v in c]
+        em.inputs["Color"].default_value = (*lin, 1)
+        em.inputs["Strength"].default_value = 1.0
+        outn = nt.nodes.new("ShaderNodeOutputMaterial")
+        nt.links.new(em.outputs[0], outn.inputs[0])
+        for k in range(len(o.data.materials)):
+            o.data.materials[k] = m
+    sc.view_settings.view_transform = "Standard"
+    try:
+        sc.view_settings.look = "None"
+    except Exception:
+        pass
+    sc.view_settings.exposure = 0.0
+    sc.cycles.samples = 1
+    sc.cycles.use_denoising = False
+    sc.cycles.filter_width = 0.01
+    sc.render.filepath = path
+    bpy.ops.render.render(write_still=True)
+    # restore
+    for o in objs:
+        for k, ms in enumerate(saved[o.name]):
+            o.data.materials[k] = ms
+    for ob in hidden:
+        ob.hide_render = False
+    sc.world = world
+    sc.view_settings.view_transform, sc.view_settings.exposure = vt, expo
+    try:
+        sc.view_settings.look = look
+    except Exception:
+        pass
+    sc.cycles.samples, sc.cycles.use_denoising, sc.cycles.filter_width = samples, den, fw
+    return id_map
 
 
 # ---------------------------------------------------------------------------
@@ -612,11 +719,15 @@ def run(job):
                     floor.hide_render = False
         sc.render.filepath = os.path.join(out, f"{name}.png")
         bpy.ops.render.render(write_still=True)
+        id_map = None
+        if job.get("id_pass"):
+            id_map = render_id_pass(sc, objs, os.path.join(out, f"{name}_id.png"))
         # metadata for overlays: world->pixel mapping
         meta[name] = dict(type=cam_data.type, ortho_scale_mm=cam_data.ortho_scale / MM,
                           lens=cam_data.lens, sensor=cam_data.sensor_width,
                           matrix_world=[list(r) for r in cam.matrix_world], res=res,
-                          mm_per_px=(cam_data.ortho_scale / MM) / res[0] if cam_data.type == "ORTHO" else None)
+                          mm_per_px=(cam_data.ortho_scale / MM) / res[0] if cam_data.type == "ORTHO" else None,
+                          id_map=id_map)
         print(f"rendered {name} ({time.time() - t0:.1f}s)")
     if job.get("write_meta", True):
         bb = dict(min=list(mn / MM), max=list(mx / MM))
