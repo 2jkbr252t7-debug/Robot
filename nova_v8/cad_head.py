@@ -8,13 +8,21 @@ Numbers: nova_v8/spec.py (HEAD, NECK, DISPLAY, MICRO_SERVO).  v8.0 head A review
   * NO BACK COVER: the white shell H01 is one monolithic part - the back, top, sides and underside show no seam,
     screw, port or vent.  The only visible split is the real one: white shell / protruding black bezel, 0.5 mm.
     Everything is assembled and serviced through the FRONT opening (102 x 70) once the front module is out.
-  * Front module (H03 bezel + H04 glass + E31 board + H07 bracket) slides straight in (+Y): 6 hidden guide ribs on
-    the bezel skirt centre it (even 0.5 seam), hard Y stops (H07 top lugs on the H01 roof blocks, H07 bottom lugs
-    on stop ribs of the floor pads) set the 5.0 mm bezel protrusion, 2 pairs of Ø6x3 magnets at the top and
-    2x M2x6 from the UNDERSIDE (flush in counterbores 8 mm behind the front rim, reachable with the head tilted
-    up +20 deg) hold it.  No screw visible from any normal viewing angle.
+  * Front module (H03 bezel + H04 glass + E31 board + H07 bracket) slides straight in (+Y): the bezel skirt is 0.35
+    wider per side than the visible bezel face and runs in the H01 opening with 0.15 clearance - it centres the
+    module (even 0.5 seam) AND closes the bottom of the seam (you look onto the black skirt step, never into the
+    head; v8.1 review: the former 6 guide ribs showed as black dashes in the seam - removed).  Hard Y stops (H07
+    top lugs on the H01 roof blocks, H07 bottom lugs on stop ribs of the floor pads) set the 5.0 mm bezel
+    protrusion; 2 pairs of Ø6x3 magnets at the top and 2x M2x6 from the UNDERSIDE (flush in counterbores 8 mm behind
+    the front rim, reachable with the head tilted up +20 deg) hold it.  No screw visible from any normal viewing
+    angle (the underside of the head faces the neck).
   * Dead front: flat smoked PMMA 2.0 with an inner black mask sits 0.2 mm under the bezel face (reads flush),
     no camera dot (optional camera behind a mask window = internal render-only H04C), glossy-black when off.
+    v8.1 review: the LCD is LAMINATED to the glass with a 0.2 OCA film (v8.0 had a 1.4 bezel ledge + 0.5 foam =
+    1.9 mm air gap: capacitive touch through 2 mm PMMA + air does not work, plus parallax and a double reflection).
+    The glass seat is now only a band where the glass is larger than the board (2.7 sides, 1.7 top/bottom); the board
+    corners (outside the R16 glass corners) hide behind the 2.3 mm bezel face.  Mask window = LCD active area
+    73.4 x 49.0 + 0.5 per side, symmetric (sides 8.8, top/bottom 5.0) - the LCD border never shows.
   * Vents fully hidden: air enters through the barrel-pocket mouth around the neck, passes 5 slots in the pocket
     ceiling (+ the gear slot) and leaves through the bezel seam at the top - nothing on the outside.  The board
     microphone hears through the same seam (no mic hole in the ears any more).
@@ -23,8 +31,10 @@ Barrel interface = nova_v8/cad_torso.py N06 (D30 x 30 on the tilt axis y 0 z 127
 cross-horn recess, D3.2 pivot hole and 2 screw pilots at y +-7.5 on BOTH ends).
 
 Tilt drive (J3) - DEVIATION from spec.HEAD.tilt_servo ("os = os naklonu"; a coaxial servo is geometrically impossible):
-  an MG90S coaxial with the tilt axis (z 127) reaches x 38..43 with its case bottom at z 121.1, but the head's R26
-  front-view corners put the inner floor there at z 122..126.  Therefore:
+  re-checked in the v8.1 review: an MG90S whose spline engages the barrel end (|x| 15) has its case between |x| 22.3
+  and 45; coaxial (shaft at z 127, body up) its case bottom is at z 121.1 and the tabs at z 116.3 (below the head
+  bottom z 117), and the lower outer case corner (x 45, z 121.1) lies 4.3 mm outside the R24 inner surface of the
+  R26 front-view corner (2.3 mm outside the skin) - any other roll of the case about the axis is worse.  Therefore:
     * the head pivots on TWO coaxial M3 x 12 socket screws (M31-R/L) threaded into bosses on the pocket walls,
       running in the barrel's D3.2 pivot holes = passive pivot on the axis y 0 z 127, the head load never sits on
       the servo spline,
@@ -41,18 +51,20 @@ Parts (J3 = head tilt about X through y 0 z 127; J2 = pan stage)
                                               front, 1x M2 stop screw), ear cups with stop rings, 2 roof blocks with
                                               magnets, 2 floor pads with flush counterbores for the module screws,
                                               neck cable hole in the pocket ceiling
-  H03      Predny ram               black     101 x 69 R23.5, protrudes 5 mm, glass seat, 1.4 ledge (window 85 x 50),
-                                              display pocket, skirt 4 mm into H01 with 6 guide ribs, 3 bosses for H07
+  H03      Predny ram               black     101 x 69 R23.5, protrudes 5 mm, glass seat band, display pocket right
+                                              behind the glass, skirt 101.7 x 69.7 3.3 mm into H01 (0.15 clearance,
+                                              closed seam bottom), 3 bosses for H07
   H04      Kryci sklo               glass     92 x 60 R16 x 2.0 smoked cast PMMA (laser cut), black mask inside
-                                              (top band 7 mm, others 4 mm), bonded on the H03 ledge with 0.1 VHB,
-                                              face 0.2 under the bezel face
+                                              (window 74.4 x 50.0 = LCD active area + 0.5), laminated to the LCD
+                                              with 0.2 OCA + 0.1 VHB on the H03 seat band, face 0.2 under the bezel
   H04C     Okienko kamery           black_gloss  RENDER-ONLY, internal: optional camera window in the mask band
   H04E     Obsah displeja - oci     eye       RENDER-ONLY two pill eyes 10.5 x 17.5
   H05-R/L  Ucho prave / lave        black     Ø28 domed discs, 4 mm proud; rear recess for the Ø23 LED module,
                                               ring groove with 3 bridges; pushed into the H01 ear cup + CA glue
   H06-R/L  LED kruzok ucha          cyan_led  Ø23 / Ø17 light-guide rings (clear PETG / PMMA), flush with the dome
 Internal (internal=True)
-  H07      Drziak displeja          grey      PETG frame: clamps the 86 x 56 board on the H03 ledge (3x M2x6 into H03),
+  H07      Drziak displeja          grey      PETG frame: holds the 86 x 56 board (laminated to H04) in H03
+                                              (3x M2x6 into H03),
                                               2 top lugs with magnets, 2 bottom lugs for the underside screws
   H09      Ozubeny segment naklonu  grey      J2: 20T m1 sector (+-63 deg) keyed into the N06 +X horn recess, 2x M2
   H10      Puzdro capu naklonu      grey      J2: same key without teeth on the -X end
@@ -74,8 +86,9 @@ Fasteners: 2x M3x12 DIN 912 (pivots), 3x M2x6 (H07 -> H03), 2x M2x6 DIN 7985 (mo
 Assembly: (1) H09/H10 bolted onto the barrel ends (neck finished).  (2) MG90S + H11 slid into the H01 rails from
 the FRONT opening, 1x M2 stop screw.  (3) H01 lowered vertically over the barrel - H11 meshes radially with H09.
 (4) M31 pins from inside (ball-end key 2.5 through the front opening).  (5) ears + LED modules pushed in from
-outside (wires inside).  (6) front module (H04 bonded in H03, foam 0.5, E31, H07 3x M2) plugged to the harness
-(neck 5V GND TX RX, servo, ear LEDs), pushed in along +Y until the magnets click, (7) head tilted up +20 deg:
+outside (wires inside).  (6) front module (H04 laminated onto the E31 LCD with OCA, set into H03 on VHB, H07
+3x M2) plugged to the harness (neck 5V GND TX RX; the S3 drives the tilt servo and the ear LEDs locally), pushed
+in along +Y until the magnets click, (7) head tilted up +20 deg:
 2x M2x6 from below.  Service = the same in reverse; the board's USB-C is reached with the module out (or OTA).
 """
 from __future__ import annotations
@@ -848,11 +861,12 @@ def build():
                      "2 nálitky čapov M3 na osi náklonu, lišty serva, misky uší, 2 bloky s magnetmi, 2 podložky "
                      "skrutiek zospodu"),
         PartRec("H03", "Predný rám", bezel(), "black", SUB, J, (0, -45, U),
-                note="101×69 R23.5, vystupuje 5 mm, lôžko skla, osadenie 1.4 (okno 85×50), 3 nálitky pre H07, "
-                     "6 vodiacich rebier na lemu (rovnomerná škára 0.5)"),
+                note="101×69 R23.5, vystupuje 5 mm, lôžko skla (pás mimo displeja), kapsa displeja hneď za sklom, "
+                     "lem 101.7×69.7 vedie modul s vôľou 0.15 a zakrýva dno škáry 0.5 (dnu nevidno), 3 nálitky pre H07"),
         PartRec("H04", "Krycie sklo", glass(), "glass", SUB, J, (0, -62, U),
-                note="dymový akrylát PMMA 2.0 rezaný laserom 92×60 R16, čierna maska zvnútra (hore 7, inde 4 mm), "
-                     "VHB 0.1, 0.2 mm pod čelom rámu (dead-front: vypnutý = lesklá čierna)"),
+                note="dymový akrylát PMMA 2.0 rezaný laserom 92×60 R16, čierna maska zvnútra (okno 74.4×50 = aktívna "
+                     "plocha LCD), nalaminovaný na LCD fóliou OCA 0.2 (dotyk funguje, bez paralaxy), VHB 0.1 na "
+                     "lôžku, 0.2 mm pod čelom rámu (dead-front: vypnutý = lesklá čierna)"),
         PartRec("H04C", "Okienko kamery", camera_window(), "black_gloss", SUB, J, (0, -62, U), internal=True,
                 note="len objekt pre render: voliteľná kamera za okienkom v maske (zvonku nevidno)"),
         PartRec("H04E", "Obsah displeja – oči", eyes(), "eye", SUB, J, (0, -62, U),
@@ -866,7 +880,7 @@ def build():
         PartRec("H06-L", "LED krúžok ucha ľavý", ring_l, "cyan_led", SUB, J, (42, 0, U),
                 note="svetlovod Ø23/Ø17 (číry PETG / PMMA), zarovno s kupolou ucha"),
         PartRec("H07", "Držiak displeja", bracket_h07(), "grey", SUB, J, (0, -18, U), internal=True,
-                note="PETG rám: pritlačí dosku 86×56 na osadenie H03 (3× M2×6), 2 horné oká s magnetmi, "
+                note="PETG rám: drží dosku 86×56 (nalaminovanú na sklo) v H03 (3× M2×6), 2 horné oká s magnetmi, "
                      "2 spodné oká pre skrutky M2×6 zospodu"),
         PartRec("H09", "Ozubený segment náklonu", barrel_disc(1, True), "grey", "neck", "J2", (12, 0, 0),
                 internal=True,
@@ -876,7 +890,8 @@ def build():
         PartRec("H11", "Koliesko serva náklonu", servo_gear_h11(), "grey", SUB, J, (12, -10, U + 40), internal=True,
                 note="20z m1 na drážkovaní MG90S (Ø4.4 natlačiť za tepla) + skrutka M2 zo sady serva, prevod 1:1"),
         PartRec("E31", "Displej ESP32-S3 3.5\" (doska)", display_e31(), "display", SUB, J, (0, -30, U),
-                internal=True, note=DSP["board"] + " – obrys 86×56×6, pena 0.5 mm pred LCD; mikrofón počuje škárou rámu"),
+                internal=True, note=DSP["board"] + " – obrys 86×56×6, LCD nalaminovaný na sklo (OCA 0.2); mikrofón počuje škárou "
+                                 "rámu"),
         PartRec("E32", "Servo náklonu MG90S", servo_e32(), "servo", SUB, J, (22, -10, U + 40), internal=True,
                 note="MG90S 22.8×12.2×22.7, uši 32.5, hriadeľ (y 0, z 147) ∥ X, telo hore, vedľa kapsy valca, "
                      "zasunie sa spredu do líšt"),
