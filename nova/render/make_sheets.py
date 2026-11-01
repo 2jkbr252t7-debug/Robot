@@ -342,7 +342,10 @@ def sheet_hero(q, recs):
     footer(d, W, H)
     out = os.path.join(OUT, "00_NOVA_prehlad.png")
     sh.save(out, optimize=True)
-    composite(rd, "hero").save(os.path.join(OUT, "00b_NOVA_hero.png"), optimize=True)
+    hb = radial_fade(hero.copy(), inner=0.70)
+    base = Image.new("RGBA", hb.size, S.BG + (255,))
+    base.alpha_composite(hb)
+    base.convert("RGB").save(os.path.join(OUT, "00b_NOVA_hero.png"), optimize=True)
     return out
 
 
@@ -543,18 +546,21 @@ def sheet_section(q, recs):
                       "oranžové plochy = rez vonkajšími krytmi · modrosivé = rez vnútornými dielmi · čísla dielov podľa kusovníka")
     draw_cut_inset(d, (W - 560, 60, W - 80, 330))
     for k, (rd, v, lab, box, side) in enumerate([
-            (rdA, "left", "REZ A–A  (x = 0, pohľad z ľavého boku, predok vľavo)", (620, 380, 1780, 2140), "L"),
-            (rdB, "front", "REZ B–B  (y = 6, pohľad spredu)", (1920, 380, 3080, 2140), "R")]):
+            (rdA, "left", "REZ A–A  (x = 0, pohľad z ľavého boku, predok vľavo)", (640, 400, 1780, 2150), "L"),
+            (rdB, "front", "REZ B–B  (y = 6, pohľad spredu)", (1900, 400, 3060, 2150), "R")]):
         im = load(rd, v, fade=None)
-        s, ox, oy = paste_fit(sh, im, box)
-        d.text((box[0] if side == "L" else box[0], 350), lab, fill=S.INK, font=S.font(28, "SemiBold"))
+        bx = alpha_bbox(im, 10)
+        bx = (max(0, bx[0] - 20), max(0, bx[1] - 20), min(im.width, bx[2] + 20), min(im.height, bx[3] + 20))
+        imc = im.crop(bx)
+        s, ox, oy = paste_fit(sh, imc, box)
+        d.text((box[0], 350), lab, fill=S.INK, font=S.font(28, "SemiBold"))
         anc = anchors(rd, v, min_px=250)
-        top = sorted(anc.items(), key=lambda kv: -kv[1][2])[:24]
-        pts = [(pid, ox + x * s, oy + y * s) for pid, (x, y, n) in top if pid not in ("H04C", "H04E")]
+        top = sorted(anc.items(), key=lambda kv: -kv[1][2])[:26]
+        pts = [(pid, ox + (x - bx[0]) * s, oy + (y - bx[1]) * s) for pid, (x, y, n) in top if pid not in ("H04C", "H04E")]
         if side == "L":
-            callouts(d, pts, (40, 400, box[0] - 20, H - 120), lambda pid: f"{pid} {by[pid]['name'][:26]}", split_x=1e9, fs=21, gap=44)
+            callouts(d, pts, (40, 400, box[0] - 20, H - 120), lambda pid: f"{pid} {by[pid]['name'][:32]}", split_x=1e9, fs=21, gap=44)
         else:
-            callouts(d, pts, (box[2] + 20, 400, W - 40, H - 120), lambda pid: f"{pid} {by[pid]['name'][:26]}", split_x=-1e9, fs=21, gap=44)
+            callouts(d, pts, (box[2] + 20, 400, W - 40, H - 120), lambda pid: f"{pid} {by[pid]['name'][:32]}", split_x=-1e9, fs=21, gap=44)
     footer(d, W, H)
     out = os.path.join(OUT, "04_NOVA_rezy.png")
     sh.save(out, optimize=True)
@@ -571,11 +577,14 @@ def sheet_xray(q, recs):
     for k, (v, lab, box, side) in enumerate([("iso", "SPREDU ZĽAVA", (640, 260, 1720, 2160), "L"),
                                              ("iso_back", "ZOZADU SPRAVA", (1780, 260, 2860, 2160), "R")]):
         im = load(rd, v, fade=None)
-        s, ox, oy = paste_fit(sh, im, box)
+        bx = alpha_bbox(im, 10)
+        bx = (max(0, bx[0] - 20), max(0, bx[1] - 20), min(im.width, bx[2] + 20), min(im.height, bx[3] + 20))
+        imc = im.crop(bx)
+        s, ox, oy = paste_fit(sh, imc, box)
         d.text(((box[0] + box[2]) / 2, 230), lab, fill=S.INK, font=S.font(30, "SemiBold"), anchor="mm")
         anc = anchors(rd, v, min_px=200)
         top = sorted([kv for kv in anc.items() if kv[0] in ints], key=lambda kv: -kv[1][2])[:22]
-        pts = [(pid, ox + x * s, oy + y * s) for pid, (x, y, n) in top]
+        pts = [(pid, ox + (x - bx[0]) * s, oy + (y - bx[1]) * s) for pid, (x, y, n) in top]
         if side == "L":
             callouts(d, pts, (40, 280, box[0], H - 120), lambda pid: f"{pid} {by[pid]['name'][:28]}", split_x=1e9, fs=21, gap=44)
         else:
