@@ -326,10 +326,15 @@ def callouts(sh, d, rd, view, recs, factor, items, area, label_fn, scale=1.0, of
 
     for side, group in (("L", left), ("R", right)):
         lys = distribute(group)
-        for (pid, px, py), ly in zip(group, lys):
+        if not group:
+            continue
+        tws = [d.textlength(label_fn(pid), font=f) for pid, _, _ in group]
+        col = max(tws) + 30
+        for (pid, px, py), ly, tw in zip(group, lys, tws):
             lx = x0 + 20 if side == "L" else x1 - 20
-            elbow = lx + (330 if side == "L" else -330)
-            d.line([(px, py), (elbow, ly), (lx + (300 if side == "L" else -300), ly)], fill=S.ACCENT, width=2)
+            elbow = lx + (col + 30 if side == "L" else -(col + 30))
+            start = lx + (tw + 12 if side == "L" else -(tw + 12))
+            d.line([(start, ly), (elbow, ly), (px, py)], fill=S.ACCENT, width=2)
             d.ellipse([px - 6, py - 6, px + 6, py + 6], fill=S.ACCENT)
             txt = label_fn(pid)
             if side == "L":
@@ -355,7 +360,7 @@ def sheet_exploded(q, recs):
     factor = 1.0
     ovr = group_explode(recs)
     rd = render(dict(res=list(q["big"]), samples=q["samples"], explode_override=ovr, views=["iso"], lens=60,
-                     margin=0.05, shadow=False), "03_explode")
+                     margin=0.02, dist=0.78, shadow=False), "03_explode")
     W, H = 3000, 2100
     sh, d = new_sheet(W, H, "NOVA / ROZLOŽENÝ POHĽAD", "všetky vonkajšie diely · čísla dielov podľa kusovníka")
     im = Image.open(os.path.join(rd, "iso.png")).convert("RGBA")

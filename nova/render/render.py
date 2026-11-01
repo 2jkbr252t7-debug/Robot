@@ -127,7 +127,7 @@ def cap_material():
     m = bpy.data.materials.new("section_cap")
     m.use_nodes = True
     b = m.node_tree.nodes["Principled BSDF"]
-    b.inputs["Base Color"].default_value = (0.90, 0.22, 0.04, 1)
+    b.inputs["Base Color"].default_value = (0.50, 0.09, 0.012, 1)
     b.inputs["Roughness"].default_value = 0.7
     _MATS["section_cap"] = m
     return m
