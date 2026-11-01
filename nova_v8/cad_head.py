@@ -1,45 +1,59 @@
 """
-NOVA mini v8.0 - HEAD variant A (flat glass), manifest "head".
+NOVA mini v8.1 - HEAD variant A (flat glass), manifest "head".
 Run from the repo root:   /opt/venv/cad/bin/python -m nova_v8.cad_head [--check] [--pose] [--build-others]
 Exports STL + STEP + manifest into build_v8/ (never build/, which holds the finished v7.3).
 
-Numbers: nova_v8/spec.py (HEAD, NECK, DISPLAY, MICRO_SERVO).  Upgraded from the approved concept
-nova_v8/head_a.py (same outer look, lifted +1 mm to the v8 heights, wall 2.2 -> 2.0) to a buildable FDM design.
+Numbers: nova_v8/spec.py (HEAD, NECK, DISPLAY, MICRO_SERVO).  v8.0 head A reviewed and reworked for v8.1
+"MODERNY - NIC NEVIDNO":
+  * NO BACK COVER: the white shell H01 is one monolithic part - the back, top, sides and underside show no seam,
+    screw, port or vent.  The only visible split is the real one: white shell / protruding black bezel, 0.5 mm.
+    Everything is assembled and serviced through the FRONT opening (102 x 70) once the front module is out.
+  * Front module (H03 bezel + H04 glass + E31 board + H07 bracket) slides straight in (+Y): 6 hidden guide ribs on
+    the bezel skirt centre it (even 0.5 seam), hard Y stops (H07 top lugs on the H01 roof blocks, H07 bottom lugs
+    on stop ribs of the floor pads) set the 5.0 mm bezel protrusion, 2 pairs of Ø6x3 magnets at the top and
+    2x M2x6 from the UNDERSIDE (flush in counterbores 8 mm behind the front rim, reachable with the head tilted
+    up +20 deg) hold it.  No screw visible from any normal viewing angle.
+  * Dead front: flat smoked PMMA 2.0 with an inner black mask sits 0.2 mm under the bezel face (reads flush),
+    no camera dot (optional camera behind a mask window = internal render-only H04C), glossy-black when off.
+  * Vents fully hidden: air enters through the barrel-pocket mouth around the neck, passes 5 slots in the pocket
+    ceiling (+ the gear slot) and leaves through the bezel seam at the top - nothing on the outside.  The board
+    microphone hears through the same seam (no mic hole in the ears any more).
+  * Ears: black domes with a FLUSH cyan light-guide ring (no step, no centre hole).
 Barrel interface = nova_v8/cad_torso.py N06 (D30 x 30 on the tilt axis y 0 z 127, end walls 3.5 with a 1.8 mm
 cross-horn recess, D3.2 pivot hole and 2 screw pilots at y +-7.5 on BOTH ends).
 
-Tilt drive (J3) - DEVIATION from spec.HEAD.tilt_servo (coaxial servo is geometrically impossible):
+Tilt drive (J3) - DEVIATION from spec.HEAD.tilt_servo ("os = os naklonu"; a coaxial servo is geometrically impossible):
   an MG90S coaxial with the tilt axis (z 127) reaches x 38..43 with its case bottom at z 121.1, but the head's R26
-  front-view corners put the inner floor there at z 122..125 (max allowed far end x 35.5 even with the case top
-  INSIDE the barrel end).  Therefore:
+  front-view corners put the inner floor there at z 122..126.  Therefore:
     * the head pivots on TWO coaxial M3 x 12 socket screws (M31-R/L) threaded into bosses on the pocket walls,
-      running in the barrel's D3.2 pivot holes -> the head load never sits on the servo spline,
-    * the MG90S (E32) sits in the head on the robot's LEFT (+X), case up, shaft parallel to X at (y 0, z 147)
-      = 20 mm above the tilt axis; a 1:1 spur pair m1 20T/20T (H11 on the servo, H09 sector bolted into the N06
-      +X horn recess with the 2 existing screw pilots) drives the tilt.  Head CG ahead of the axis keeps the
-      flanks loaded (no rattle).  H10 = toothless twin of H09 on the -X end (longer pivot bearing).
+      running in the barrel's D3.2 pivot holes = passive pivot on the axis y 0 z 127, the head load never sits on
+      the servo spline,
+    * the MG90S (E32) sits in the head BESIDE the barrel pocket on the robot's LEFT (+X), case up, shaft parallel
+      to X at (y 0, z 147) = 20 mm above the tilt axis; a 1:1 spur pair m1 20T/20T (H11 on the servo, H09 sector
+      bolted into the N06 +X horn recess with the 2 existing screw pilots) drives the tilt.  Head CG ahead of the
+      axis keeps the flanks loaded (no rattle).  H10 = toothless twin of H09 on the -X end (longer pivot bearing).
 
 Parts (J3 = head tilt about X through y 0 z 127; J2 = pan stage)
-  H01      Hlavny obal hlavy        white     106 x 66 x 74 (R26 front view, R20 back loop), wall 2.0, open front
-                                              (0.5 gap to H03), barrel pocket 37.2 x 40 R12 (ceiling z 144.5) with
-                                              gear slot, 2 pivot bosses (M3 pilots on the tilt axis), 2 tab rails for
-                                              the tilt servo (slides in from the front, 1x M2 stop screw), 2 bosses +
-                                              1 slot for the front module, ear cups with stop rings, back-cover
-                                              ledge + pry notch, neck cable hole in the pocket ceiling
-  H02      Zadny kryt hlavy         white     88 x 50 R15 projected on the back, 0.6 seam, 2 top tongues + 1 bottom
-                                              snap latch, no screws
+  H01      Hlavny obal hlavy        white     106 x 66 x 74 (R26 front view, R20 back loop), wall 2.0, ONE PIECE,
+                                              open front only (0.5 gap to H03); barrel pocket 37.2 x 40 R12 (ceiling
+                                              z 144.5) with gear slot + 5 hidden vent slots, 2 pivot bosses (M3 pilots
+                                              on the tilt axis), 2 tab rails for the tilt servo (slides in from the
+                                              front, 1x M2 stop screw), ear cups with stop rings, 2 roof blocks with
+                                              magnets, 2 floor pads with flush counterbores for the module screws,
+                                              neck cable hole in the pocket ceiling
   H03      Predny ram               black     101 x 69 R23.5, protrudes 5 mm, glass seat, 1.4 ledge (window 85 x 50),
-                                              display pocket, skirt 4 mm into H01, 3 bosses for H07
+                                              display pocket, skirt 4 mm into H01 with 6 guide ribs, 3 bosses for H07
   H04      Kryci sklo               glass     92 x 60 R16 x 2.0 smoked cast PMMA (laser cut), black mask inside
-                                              (top band 7 mm, others 4 mm), bonded on the H03 ledge with 0.1 VHB
-  H04C     Okienko kamery           black_gloss  RENDER-ONLY camera dot in the top band (optional camera)
+                                              (top band 7 mm, others 4 mm), bonded on the H03 ledge with 0.1 VHB,
+                                              face 0.2 under the bezel face
+  H04C     Okienko kamery           black_gloss  RENDER-ONLY, internal: optional camera window in the mask band
   H04E     Obsah displeja - oci     eye       RENDER-ONLY two pill eyes 10.5 x 17.5
   H05-R/L  Ucho prave / lave        black     Ø28 domed discs, 4 mm proud; rear recess for the Ø23 LED module,
                                               ring groove with 3 bridges; pushed into the H01 ear cup + CA glue
-  H06-R/L  LED kruzok ucha          cyan_led  Ø23 / Ø17 light-guide rings (clear PETG / PMMA)
+  H06-R/L  LED kruzok ucha          cyan_led  Ø23 / Ø17 light-guide rings (clear PETG / PMMA), flush with the dome
 Internal (internal=True)
   H07      Drziak displeja          grey      PETG frame: clamps the 86 x 56 board on the H03 ledge (3x M2x6 into H03),
-                                              front module -> H01: 1 bottom tongue + 2x M2x8 (from the back opening)
+                                              2 top lugs with magnets, 2 bottom lugs for the underside screws
   H09      Ozubeny segment naklonu  grey      J2: 20T m1 sector (+-63 deg) keyed into the N06 +X horn recess, 2x M2
   H10      Puzdro capu naklonu      grey      J2: same key without teeth on the -X end
   H11      Koliesko serva naklonu   grey      J3: 20T m1 on the MG90S spline (Ø4.4 press-fit + horn screw M2)
@@ -47,20 +61,22 @@ Internal (internal=True)
   E32      Servo naklonu MG90S      servo     22.8 x 12.2 x 22.7, tabs 32.5, shaft (y 0, z 147) parallel to X
   E33-R/L  DPS ucha                 pcb       Ø23 7x WS2812B-5050 round module (AliExpress), in the ear recess
   M31-R/L  Cap naklonu M3x12        metal     DIN 912 M3 x 12 = pivot pins on the tilt axis
+  M32-1..4 Magnet Ø6x3 N52          metal     2 in the H07 top lugs, 2 in the H01 roof blocks (0.2 face gap)
+  M33-R/L  Skrutka M2x6 DIN 7985    metal     underside screws, heads flush in Ø4.4 x 1.7 counterbores
 
-FDM (PETG, 0.4 nozzle): H01 front rim on the bed (pocket ceiling, rails, roof block, side walls vertical; supports
-only under the back-cover ledge, the pocket front wall (41 mm bridge) and the ear stop rings); H03 face down with
-support under the glass ledge; H02 tree supports on the outer face; H05 face up; H07/H09/H10/H11 flat, no supports.
-Fasteners: 2x M3x12 DIN 912 (pivots), 3x M2x6 (H07 -> H03), 2x M2x8 (module -> H01), 2x M2x6 (H09/H10 -> N06),
-1x M2x6 + washer (servo stop), 1x M2 horn screw (from the MG90S kit).  Mass ~182 g, CG 11.5 ahead / 26 above the
-tilt axis -> max 0.36 kg.cm at +20 deg (MG90S 1.8 kg.cm), the load never changes flank (no backlash rattle).
+FDM (PETG, 0.4 nozzle): H01 front rim on the bed (pocket ceiling, rails, roof blocks, side walls vertical); tree
+supports inside the closed back dome and under the pocket ceiling / ear stop rings, all removed through the
+front opening; outside sanded + primer + satin white paint for the monolithic look.  H03 face down with support
+under the glass ledge; H05 face up; H07/H09/H10/H11 flat, no supports.
+Fasteners: 2x M3x12 DIN 912 (pivots), 3x M2x6 (H07 -> H03), 2x M2x6 DIN 7985 (module, from below),
+2x M2x6 (H09/H10 -> N06), 1x M2x6 + washer (servo stop), 1x M2 horn screw (MG90S kit), 4x magnet Ø6x3 N52 (glued).
 
 Assembly: (1) H09/H10 bolted onto the barrel ends (neck finished).  (2) MG90S + H11 slid into the H01 rails from
 the FRONT opening, 1x M2 stop screw.  (3) H01 lowered vertically over the barrel - H11 meshes radially with H09.
-(4) M31 pins from inside (L-key 2.5 through the back opening).  (5) ears + LED modules pushed in from outside.
-(6) front module (H04 bonded in H03, foam 0.5, E31, H07 3x M2) -> tongue into the pocket-front slot, 2x M2 from
-the back opening.  (7) H02: top tongues in, bottom latch clicks.  Neck bundle 4 wires (5V GND TX RX) through the
-barrel slot and the pocket-ceiling hole; the tilt servo is powered from that 5 V and driven by the head ESP32-S3.
+(4) M31 pins from inside (ball-end key 2.5 through the front opening).  (5) ears + LED modules pushed in from
+outside (wires inside).  (6) front module (H04 bonded in H03, foam 0.5, E31, H07 3x M2) plugged to the harness
+(neck 5V GND TX RX, servo, ear LEDs), pushed in along +Y until the magnets click, (7) head tilted up +20 deg:
+2x M2x6 from below.  Service = the same in reverse; the board's USB-C is reached with the module out (or OTA).
 """
 from __future__ import annotations
 
@@ -92,8 +108,7 @@ W, HH = H["w"], H["h"]                               # 106 x 74
 Y0, Y1 = H["y0"], H["y1"]                            # -33 (front rim plane) .. +33
 Z0, Z1, ZC = H["z0"], H["z1"], H["zc"]               # 117 .. 191, centre 154
 R_FV, R_BACK, WALL = H["r_front_view"], H["r_back"], H["wall"]   # 26, 20, 2.0
-BZ, GL, CAM, EAR, EYE, BC, BP = H["bezel"], H["glass"], H["camera"], H["ear"], H["eyes"], H["back_cover"], \
-    H["barrel_pocket"]
+BZ, GL, CAM, EAR, EYE, BP = H["bezel"], H["glass"], H["camera"], H["ear"], H["eyes"], H["barrel_pocket"]
 TILT_Y, TILT_Z = NK["tilt_axis"]["y"], NK["tilt_axis"]["z"]      # 0, 127
 BAR_R, BAR_L = NK["barrel_d"] / 2, NK["barrel_len"]              # 15, 30
 BAR_X = BAR_L / 2                                                # barrel end faces at |x| 15
@@ -102,22 +117,18 @@ DSP_W, DSP_H, DSP_T = DSP["outline"]                             # 86 x 56 x 6
 # ============================================================================================
 # local construction constants
 # ============================================================================================
-FRONT_GAP = (W - BZ["w"]) / 2 - WALL           # 0.5 gap H03 <-> H01 opening (wall 2.0)
+FRONT_GAP = (W - BZ["w"]) / 2 - WALL           # 0.5 gap H03 <-> H01 opening (wall 2.0) = the only visible seam
 R_RIM = 1.6                 # round on the outer edge of the white front rim
-SEAM = BC["seam"]           # 0.6
-SEAM_BREAK = 0.25           # chamfer on visible seam edges
-LEDGE_BACK_T, LEDGE_BACK_IN, LEDGE_BACK_OUT = 1.2, 2.5, 3.0   # H01 ledge under the back-cover seam
-LATCH_X = (21.5, 28.5)       # H02 bottom snap latches (|x|), beside the pocket back wall
 
 # --- front stack (along Y) -------------------------------------------------------------------
 Y_BZ_FRONT = Y0 - BZ["protrude"]               # -38.0
 BZ_FRONT_FILLET = 2.4
-GLASS_T, GLASS_RECESS, GLASS_CLR, PSA = 2.0, 0.7, 0.15, 0.1
-Y_GL_FRONT = Y_BZ_FRONT + GLASS_RECESS         # -37.3
-Y_GL_BACK = Y_GL_FRONT + GLASS_T               # -35.3
-Y_LEDGE0 = Y_GL_BACK + PSA                     # -35.2
+GLASS_T, GLASS_RECESS, GLASS_CLR, PSA = 2.0, 0.2, 0.15, 0.1    # v8.1: 0.2 under the bezel face (reads flush)
+Y_GL_FRONT = Y_BZ_FRONT + GLASS_RECESS         # -37.8
+Y_GL_BACK = Y_GL_FRONT + GLASS_T               # -35.8
+Y_LEDGE0 = Y_GL_BACK + PSA                     # -35.7
 LEDGE_T = 1.4
-Y_LEDGE1 = Y_LEDGE0 + LEDGE_T                  # -33.8
+Y_LEDGE1 = Y_LEDGE0 + LEDGE_T                  # -34.3
 GZ = GL["zc"]                                  # 154
 PRINT_TOP, PRINT_SIDE = GL["print_top"], 4.0   # black mask widths on the glass
 WIN_W = GL["w"] - 2 * PRINT_SIDE               # 84 visible window
@@ -125,20 +136,32 @@ WIN_Z0, WIN_Z1 = GZ - GL["h"] / 2 + PRINT_SIDE, GZ + GL["h"] / 2 - PRINT_TOP   #
 WIN_ZC = (WIN_Z0 + WIN_Z1) / 2                 # 152.5
 LEDGE_OPEN = (WIN_W + 1.0, WIN_Z1 - WIN_Z0 + 1.0, 10.0)     # 85 x 50 R10 (hidden behind the mask)
 FOAM = 0.5
-Y_DSP0 = Y_LEDGE1 + FOAM                       # -33.3 LCD front
-Y_DSP1 = Y_DSP0 + DSP_T                        # -27.3 board back (components)
+Y_DSP0 = Y_LEDGE1 + FOAM                       # -33.8 LCD front
+Y_DSP1 = Y_DSP0 + DSP_T                        # -27.8 board back (components)
 DSP_R = 2.0                                    # board corner radius
 DSP_ZC = GZ                                    # board centred on the glass
 DSP_CLR = 0.3
 SKIRT_END = -29.0
 SKIRT_WALL = 1.6
+RIB_H, RIB_Y = 0.35, (-32.0, -29.3)            # 6 guide ribs on the skirt (0.15 to H01, hidden inside)
 BZ_BOSSES = [(-45.6, 136.0), (45.6, 136.0), (0.0, 184.9)]   # H07 -> H03 screws (x, z)
 BOSS_R, PILOT_R = 2.3, 0.8                     # M2 thread-forming into PETG (pilot Ø1.6)
 H07_T = 2.0
-Y_H07_1 = Y_DSP1 + H07_T                       # -25.3
-H01_BOSSES = [(-46.5, 172.0), (46.5, 172.0)]   # front module -> H01 (2x M2x8 from the back opening)
-TONGUE = dict(w=11.2, t=1.2, z0=121.8, y1=-22.6)      # H07 bottom tongue
-SLOT_BLOCK = dict(w=14.0, y0=-25.0, z1=125.0)
+Y_H07_1 = Y_DSP1 + H07_T                       # -25.8
+
+# --- front module retention (v8.1: no back cover -> magnets at the top, 2 screws from the underside) ---------
+SCR_X, SCR_Y = 24.0, -25.0                     # underside screws (flat underside |x| < 27, 8 behind the rim)
+SCR_CB_R, SCR_CB_D, SCR_HOLE_R = 2.2, 1.7, 1.2  # counterbore Ø4.4 x 1.7 (DIN 7985 M2 head Ø4.0 x 1.6), hole Ø2.4
+PAD_Z1 = Z0 + WALL + 1.5                       # 120.5 floor pad top (floor 3.5 at the screw)
+PAD_X0, PAD_X1, PAD_Y = 20.7, 27.6, (-28.4, -21.0)    # floor pads (beside the collar relief)
+LUG_Z0 = PAD_Z1 + 0.05                         # H07 bottom lug sits on the pad (nominal contact)
+LUG_Y = (Y_DSP1, -22.2)                        # H07 bottom lug (screw centred), rear face on the pad stop rib
+MAG_X, MAG_Z, MAG_R, MAG_T = 30.0, 184.0, 3.0, 3.0        # Ø6 x 3 N52 disc magnets, axis // Y
+MAG_POCKET_R = 3.08
+Y_STOP = -21.7                                 # top stop plane: H07 lug rear face = H01 block front face
+MAG_RECESS = 0.1                               # each magnet 0.1 under its face -> 0.2 magnet gap
+MAG_LUG_Z = (179.8, 187.6)                     # H07 top lug (H01 inner roof at |x| 34: z 187.96)
+MAG_BLOCK_Y1 = Y_STOP + 5.2                    # H01 roof block back face -16.5
 
 # --- barrel pocket --------------------------------------------------------------------------
 PK_W = BP["w"] + 2 * 0.6                       # 37.2 (spec 36: +0.6 per side for the H09/H10 discs)
@@ -151,6 +174,7 @@ PAD_X = DISC_X1 + 0.3                          # 18.3 pocket thrust pads (axial 
 PIVOT_BOSS_R, PIVOT_BOSS_X1 = 4.0, 24.0
 RELIEF_D, RELIEF_Y1, RELIEF_PAD = 2.0, -28.6, 1.3   # underside chamfer ahead of the pocket mouth (collar N01)
 M3_PILOT_R = 1.25
+VENT_X, VENT_W, VENT_Y = (-14.0, -10.5, -7.0, 7.0, 10.5), 1.8, (-13.0, 1.0)   # hidden ceiling slots
 
 # --- tilt gear pair (1:1, m1, 20T) ----------------------------------------------------------
 G_N, G_M = 20, 1.0
@@ -188,10 +212,9 @@ X_EAR_OUT = X_SIDE + EAR["protrude"]           # 57 dome apex
 X_EAR_IN = 48.8                                # ear rear face = stop ring face
 EAR_HOLE_R = EAR_R + 0.2
 EAR_DOME, EAR_FILLET = 0.6, 1.6
-RING_PROUD = 0.15
+RING_PROUD = 0.0                               # v8.1: light ring flush with the dome
 X_BRIDGE0, X_BRIDGE1 = 52.0, 52.8              # bridge layer under the ring groove (3 windows)
 EAR_REC_R = 11.8                               # rear recess for the Ø23 module
-MIC_R = 0.5
 CUP_RO, CUP_STOP_RI, CUP_STOP_T = 15.5, 12.3, 1.0
 EPCB_D, EPCB_T, ELED = 23.0, 1.6, (5.0, 1.5)   # 7-LED WS2812B-5050 module
 
@@ -378,11 +401,6 @@ def inner(d):
     return cached(("off", round(d, 3)), mk)
 
 
-def band(d0, d1):
-    """Skin layer between offsets d0 and d1 (d0 < d1) of the outer body."""
-    return cached(("band", d0, d1), lambda: (head_body() if d0 <= 0 else inner(d0)) - inner(d1))
-
-
 # ============================================================================================
 # purchased components (catalogue envelopes)
 # ============================================================================================
@@ -515,17 +533,10 @@ def servo_gear_h11():
 
 
 # ============================================================================================
-# H01 / H02 - white shell + back cover
+# H01 - monolithic white shell (v8.1: no back cover)
 # ============================================================================================
 
-def ledge_ring(y0, y1):
-    lo = SEAM + LEDGE_BACK_OUT
-    return (rr_prism_y(BC["w"] + 2 * lo, BC["h"] + 2 * lo, BC["r"] + lo, y0, y1)
-            - rr_prism_y(BC["w"] - 2 * LEDGE_BACK_IN, BC["h"] - 2 * LEDGE_BACK_IN, BC["r"] - LEDGE_BACK_IN,
-                         y0 - 1, y1 + 1))
-
-
-def shells():
+def shell_h01():
     body = head_body()
     front = body.faces().sort_by(Axis.Y)[0]
     shell = offset(body, amount=-WALL, openings=[front])
@@ -539,46 +550,8 @@ def shells():
     iw, ih, ir = W - 2 * WALL, HH - 2 * WALL, R_FV - WALL
     rim_in = edges_where(shell, lambda p: abs(p.Y - Y0) < 0.02 and abs(rr_dist(p.X, p.Z, iw, ih, ir)) < 0.02)
     shell = try_fillet(shell, rim_in, 0.2, "rim inner")
-    shell = check("shell", shell)
-
-    # ---- back cover split (projected rounded rectangle along Y) ----
-    yb = 0.0
-    h02 = solid1(shell & rr_prism_y(BC["w"], BC["h"], BC["r"], yb, Y1 + 5))
-    h01 = solid1(shell - rr_prism_y(BC["w"] + 2 * SEAM, BC["h"] + 2 * SEAM, BC["r"] + SEAM, yb, Y1 + 5))
+    h01 = check("shell", shell)
     skin = Compound(body.faces())
-
-    def seam_edges(shape, w, h, r):
-        return edges_where(shape, lambda p: p.Y > 10 and abs(rr_dist(p.X, p.Z, w, h, r)) < 0.03
-                           and skin.distance_to(Vector(p.X, p.Y, p.Z)) < 0.03)
-
-    h02 = try_chamfer(h02, seam_edges(h02, BC["w"], BC["h"], BC["r"]), SEAM_BREAK, "H02 seam")
-    h01 = try_chamfer(h01, seam_edges(h01, BC["w"] + 2 * SEAM, BC["h"] + 2 * SEAM, BC["r"] + SEAM), SEAM_BREAK,
-                      "H01 seam")
-
-    # ---- seam backing ledge (the cover rests on it, the seam never shows the hollow inside) ----
-    slab = bx(-W, W, yb, Y1 + 5, ZC - HH, ZC + HH)
-    ledge = retry(lambda: band(WALL, WALL + LEDGE_BACK_T) & slab & ledge_ring(yb, Y1 + 5), "ledge")
-    h01 = retry(lambda: h01 + ledge, "ledge fuse")
-    # pry notch at the bottom centre of the seam (on the hidden underside of the back)
-    notch = bx(-4.0, 4.0, 20.0, Y1 + 2, ZC - BC["h"] / 2 - SEAM - 1.0, ZC - BC["h"] / 2 + 0.1) & band(-0.01, 1.0)
-    h01 = retry(lambda: h01 - notch, "pry notch")
-
-    # ---- H02: 2 top tongues behind the ledge + 1 bottom snap latch ----
-    zt, zb = ZC + BC["h"] / 2, ZC - BC["h"] / 2           # 179 / 129
-    for sx in (1, -1):
-        x0, x1 = sorted((sx * 17.0, sx * 27.0))
-        t_root = band(WALL - 0.05, WALL + LEDGE_BACK_T + 1.6) & bx(x0, x1, 10, Y1 + 5, zt - 5.0, zt - LEDGE_BACK_IN - 0.2)
-        t_up = band(WALL + LEDGE_BACK_T + 0.35, WALL + LEDGE_BACK_T + 1.6) & bx(x0, x1, 10, Y1 + 5, zt - 5.0,
-                                                                                 zt + SEAM + LEDGE_BACK_OUT - 0.2)
-        h02 = retry(lambda: h02 + t_root + t_up, "H02 tongue")
-    zl0 = zb - SEAM - LEDGE_BACK_OUT - 1.1                    # latch lip under the ledge end (z 125.4)
-    for sx in (1, -1):                                         # 2 latches beside the pocket back wall
-        x0, x1 = sorted((sx * LATCH_X[0], sx * LATCH_X[1]))
-        l_root = band(WALL - 0.05, WALL + LEDGE_BACK_T + 1.6) & bx(x0, x1, 10, Y1 + 5, zb + LEDGE_BACK_IN + 0.2,
-                                                                    zb + 5.0)
-        l_arm = band(WALL + LEDGE_BACK_T + 0.35, WALL + LEDGE_BACK_T + 1.6) & bx(x0, x1, 10, Y1 + 5, zl0, zb + 5.0)
-        l_lip = band(WALL + 0.3, WALL + LEDGE_BACK_T + 0.4) & bx(x0, x1, 10, Y1 + 5, zl0, zl0 + 0.95)
-        h02 = retry(lambda: h02 + l_root + l_arm + l_lip, "H02 latch")
 
     # ---- barrel pocket: walls, thrust pads, pivot bosses ----
     pw, pd, pr, ptop = PK_W, PK_D, PK_R, PK_TOP
@@ -622,27 +595,31 @@ def shells():
                    (yr1 - 1.0, Z0 - 1.0)], -PK_X_OUT, PK_X_OUT)
     h01 = retry(lambda: h01 - rel, "collar relief")
 
-    # ---- neck cable hole (4 wires) in the pocket ceiling, behind the barrel slot ----
+    # ---- neck cable hole (4 wires) + hidden vent slots in the pocket ceiling (air: pocket mouth -> head ->
+    #      bezel seam; invisible from every angle, the barrel sits under them) ----
     h01 = retry(lambda: h01 - bx(-4.5, 4.5, 3.0, 15.0, ptop - 1, ptop + PK_WALL + 1), "cable hole")
+    vents = union([bx(x - VENT_W / 2, x + VENT_W / 2, VENT_Y[0], VENT_Y[1], ptop - 1, ptop + PK_WALL + 1)
+                   for x in VENT_X])
+    h01 = retry(lambda: h01 - vents, "ceiling vents")
     # ---- M3 pilots on the tilt axis (through pad, wall, boss) ----
     for sx in (1, -1):
         h01 = retry(lambda: h01 - cyl_x(M3_PILOT_R, sx * (PAD_X - 1), sx * (PIVOT_BOSS_X1 + 1), TILT_Y, TILT_Z),
                     "M3 pilot")
 
-    # ---- front module: 2 screw bosses (top sides) + tongue slot block on the pocket front wall ----
+    # ---- front module retention: 2 roof blocks with magnets + 2 floor pads with flush counterbores ----
     feats = []
-    for (x, z) in H01_BOSSES:
-        sx = math.copysign(1, x)
-        feats.append(cyl_y(BOSS_R, Y0 + 0.6, Y_DSP1, x, z))
-        feats.append(bx(x, sx * (X_SIDE - 0.5), Y0 + 0.6, Y_DSP1, z - 1.2, z + 1.2) & body)
-    sb = SLOT_BLOCK
-    feats.append(bx(-sb["w"] / 2, sb["w"] / 2, sb["y0"], -PK_D / 2 - 0.5, Z0 + 0.5, sb["z1"]) & body)
-    h01 = retry(lambda: h01 + union(feats), "front bosses")
-    for (x, z) in H01_BOSSES:
-        h01 = retry(lambda: h01 - cyl_y(PILOT_R, Y_DSP1 + 0.1, Y_DSP1 - 5.5, x, z), "boss pilot")
-    tg = TONGUE
-    h01 = retry(lambda: h01 - bx(-tg["w"] / 2 - 0.2, tg["w"] / 2 + 0.2, sb["y0"] - 0.5, tg["y1"] + 0.2,
-                                 tg["z0"] - 0.2, tg["z0"] + tg["t"] + 0.2), "tongue slot")
+    for sx in (1, -1):
+        x0, x1 = sorted((sx * (MAG_X - 4.0), sx * (MAG_X + 4.0)))
+        feats.append(bx(x0, x1, Y_STOP, MAG_BLOCK_Y1, MAG_LUG_Z[0], Z1 + 1) & body)
+        x0, x1 = sorted((sx * PAD_X0, sx * PAD_X1))
+        feats.append(bx(x0, x1, PAD_Y[0], PAD_Y[1], Z0 + 1.0, PAD_Z1) & body)
+        feats.append(bx(x0, x1, LUG_Y[1], PAD_Y[1], PAD_Z1 - 0.1, PAD_Z1 + 2.0))      # Y stop for the H07 lug
+    h01 = retry(lambda: h01 + union(feats), "retention blocks")
+    for sx in (1, -1):
+        h01 = retry(lambda: h01 - cyl_y(MAG_POCKET_R, Y_STOP - 0.01, Y_STOP + MAG_RECESS + MAG_T + 0.05,
+                                        sx * MAG_X, MAG_Z), "magnet pocket")
+        h01 = retry(lambda: h01 - cyl_z(SCR_CB_R, Z0 - 1, Z0 + SCR_CB_D, sx * SCR_X, SCR_Y)
+                    - cyl_z(SCR_HOLE_R, Z0 - 1, PAD_Z1 + 1, sx * SCR_X, SCR_Y), "underside screw hole")
 
     # ---- ear holes + cups with stop rings (ears pushed in from outside, glued) ----
     ey, ez = EAR["y"], EAR["z"]
@@ -656,8 +633,10 @@ def shells():
                         and abs(math.hypot(p.Y - ey, p.Z - ez) - EAR_HOLE_R) < 0.02
                         and skin.distance_to(Vector(p.X, p.Y, p.Z)) < 0.03)
     h01 = try_fillet(h01, e_ear, 0.3, "ear hole edge")
-    h01 = solid1(h01)
-    return check("H01", h01, vmin=20000), check("H02", solid1(h02), vmin=3000)
+    e_cb = edges_where(h01, lambda p: abs(p.Z - Z0) < 0.02 and
+                       abs(math.hypot(abs(p.X) - SCR_X, p.Y - SCR_Y) - SCR_CB_R) < 0.02)
+    h01 = try_chamfer(h01, e_cb, 0.3, "counterbore edge")
+    return check("H01", solid1(h01), vmin=40000)
 
 
 # ============================================================================================
@@ -674,17 +653,19 @@ def bezel():
     b = b - rr_prism_y(lw, lh, lr, Y_LEDGE0 - 0.5, Y_LEDGE1 + 0.01, cz=WIN_ZC)
     b = b - rr_prism_y(DSP_W + 2 * DSP_CLR, DSP_H + 2 * DSP_CLR, DSP_R + DSP_CLR, Y_LEDGE1, SKIRT_END + 1, cz=DSP_ZC)
     b = b - rr_prism_y(bw - 2 * SKIRT_WALL, bh - 2 * SKIRT_WALL, br - SKIRT_WALL, Y0, SKIRT_END + 1)
-    # bosses for the H07 screws (end faces on the board-back plane y -27.3)
+    # bosses for the H07 screws (end faces on the board-back plane)
     for (x, z) in BZ_BOSSES:
         boss = cyl_y(BOSS_R, Y0 - 0.5, Y_DSP1, x, z)
         if x != 0:
             boss = boss + bx(x, math.copysign(bw / 2 - 1.0, x), Y0 - 0.5, SKIRT_END, z - 1.0, z + 1.0)
         b = b + (boss & rr_prism_y(bw - 0.4, bh - 0.4, br - 0.2, Y0 - 1, Y_DSP1 + 1))
         b = b - cyl_y(PILOT_R, Y_DSP1 + 0.1, Y_LEDGE1 + 0.2, x, z)
-    # skirt notches around the H01 front-module bosses
-    for (x, z) in H01_BOSSES:
-        b = b - cyl_y(BOSS_R + 0.6, Y0 + 0.05, SKIRT_END + 1, x, z) - \
-            bx(x, math.copysign(W, x), Y0 + 0.05, SKIRT_END + 1, z - 1.8, z + 1.8)
+    # 6 guide ribs on the skirt: centre the module in the H01 opening -> even 0.5 seam all round
+    ring = rr_prism_y(bw + 2 * RIB_H, bh + 2 * RIB_H, br + RIB_H, RIB_Y[0], RIB_Y[1]) - \
+        rr_prism_y(bw - 0.4, bh - 0.4, br - 0.2, RIB_Y[0] - 1, RIB_Y[1] + 1)
+    wins = [bx(sx * 19.0, sx * 21.0, -40, -20, ZC + sz * 30, ZC + sz * 40) for sx in (1, -1) for sz in (1, -1)] + \
+        [bx(sx * 45.0, sx * 60.0, -40, -20, ZC - 1.0, ZC + 1.0) for sx in (1, -1)]
+    b = b + (ring & union(wins))
     e_in = edges_where(b, lambda p: abs(p.Y - Y_BZ_FRONT) < 0.02 and abs(rr_dist(p.X, p.Z, gw, gh, gr, GZ)) < 0.02)
     b = try_fillet(b, e_in, 0.4, "H03 seat edge")
     return check("H03", solid1(b), vmin=3000)
@@ -716,18 +697,21 @@ def eyes():
 
 def bracket_h07():
     plate = rr_prism_y(90.0, 60.0, 8.0, Y_DSP1, Y_H07_1, cz=DSP_ZC)
-    lugs = [cyl_y(3.0, Y_DSP1, Y_H07_1, x, z) for (x, z) in BZ_BOSSES] + \
-        [cyl_y(2.7, Y_DSP1, Y_H07_1, x, z) for (x, z) in H01_BOSSES]
-    lugs += [bx(math.copysign(40.0, x), x, Y_DSP1, Y_H07_1, z - 2.7, z + 2.7) for (x, z) in H01_BOSSES]
-    tg = TONGUE
-    lugs.append(bx(-7.0, 7.0, Y_DSP1, Y_H07_1, tg["z0"], DSP_ZC - 25.0))
-    lugs.append(bx(-tg["w"] / 2, tg["w"] / 2, Y_H07_1 - 0.01, tg["y1"], tg["z0"], tg["z0"] + tg["t"]))
+    lugs = [cyl_y(3.0, Y_DSP1, Y_H07_1, x, z) for (x, z) in BZ_BOSSES]
+    for sx in (1, -1):
+        x0, x1 = sorted((sx * (SCR_X - 3.0), sx * (SCR_X + 3.0)))           # bottom lugs (underside screws)
+        lugs.append(bx(x0, x1, LUG_Y[0], LUG_Y[1], LUG_Z0, DSP_ZC - 26.0))
+        x0, x1 = sorted((sx * (MAG_X - 4.0), sx * (MAG_X + 4.0)))           # top lugs (magnets)
+        lugs.append(bx(x0, x1, Y_DSP1, Y_STOP, MAG_LUG_Z[0], MAG_LUG_Z[1]))
     pad = rr_prism_y(DSP_W - 0.6, DSP_H - 0.6, DSP_R, Y_DSP1 - 1.4, Y_DSP1 + 0.01, cz=DSP_ZC) - \
         rr_prism_y(76.0, 44.0, 5.0, Y_DSP1 - 2, Y_DSP1 + 1, cz=DSP_ZC)
     b = plate + union(lugs) + pad
     b = b - rr_prism_y(76.0, 44.0, 5.0, Y_DSP1 - 2, Y_H07_1 + 1, cz=DSP_ZC)
-    for (x, z) in BZ_BOSSES + H01_BOSSES:
+    for (x, z) in BZ_BOSSES:
         b = b - cyl_y(1.2, Y_DSP1 - 1, Y_H07_1 + 1, x, z)
+    for sx in (1, -1):
+        b = b - cyl_z(PILOT_R, LUG_Z0 - 1, LUG_Z0 + 5.0, sx * SCR_X, SCR_Y)
+        b = b - cyl_y(MAG_POCKET_R, Y_STOP - MAG_RECESS - MAG_T - 0.05, Y_STOP + 0.01, sx * MAG_X, MAG_Z)
     return check("H07", solid1(b), vmin=1500)
 
 
@@ -788,8 +772,8 @@ def ear_left():
         ("L", (X_BRIDGE1, g_o)),
         ("L", (X_BRIDGE1, g_i)),
         ("L", dome_pt(g_i)),
-        dome_arc(g_i, MIC_R),
-        ("L", (X_BRIDGE0, MIC_R)),
+        dome_arc(g_i, 0.0),                       # v8.1: closed centre (no mic hole)
+        ("L", (X_BRIDGE0, 0.0)),
         ("L", (X_BRIDGE0, EAR_REC_R)),
     ]
     disc = revolve_x(segs, (X_EAR_IN, EAR_REC_R))
@@ -812,39 +796,65 @@ def ear_left():
 
 
 # ============================================================================================
+# hidden fasteners (purchased)
+# ============================================================================================
+
+def magnet(sx, in_h07):
+    """Ø6 x 3 N52 disc, 0.1 under the H07 lug / H01 block contact face (opposite poles facing, 0.2 gap)."""
+    if in_h07:
+        y0, y1 = Y_STOP - MAG_RECESS - MAG_T, Y_STOP - MAG_RECESS
+    else:
+        y0, y1 = Y_STOP + MAG_RECESS, Y_STOP + MAG_RECESS + MAG_T
+    return cyl_y(MAG_R, y0, y1, sx * MAG_X, MAG_Z)
+
+
+def screw_m33(sx):
+    """DIN 7985 M2 x 6 pan head (Ø4.0 x 1.6), head flush in the H01 underside counterbore."""
+    zh = Z0 + SCR_CB_D - 1.6
+    head = cyl_z(2.0, zh, zh + 1.6, sx * SCR_X, SCR_Y)
+    head = head - bx(sx * SCR_X - 0.3, sx * SCR_X + 0.3, SCR_Y - 1.4, SCR_Y + 1.4, zh - 0.1, zh + 0.8) - \
+        bx(sx * SCR_X - 1.4, sx * SCR_X + 1.4, SCR_Y - 0.3, SCR_Y + 0.3, zh - 0.1, zh + 0.8)       # cross recess
+    shank = cyl_z(1.0, zh + 1.59, zh + 1.6 + 6.0, sx * SCR_X, SCR_Y)
+    return head + shank
+
+
+# ============================================================================================
 
 def build():
     t0 = time.time()
-    h01, h02 = shells()
-    print(f"  shells {time.time() - t0:.1f}s")
+    h01 = shell_h01()
+    print(f"  shell {time.time() - t0:.1f}s")
     ear_l, ring_l = ear_left()
     pcb_l = ear_pcb_left()
     J = "J3"
     U = 40.0          # head lift in exploded views (all J3 parts), local offsets below follow the assembly order
     P = [
         PartRec("H01", "Hlavný obal hlavy", step_safe("H01", h01), "white", SUB, J, (0, 0, U),
-                note="106×66×74, R26/R20, stena 2.0, kapsa valca 37.2×40 R12 so štrbinou kolies, 2 nálitky čapov M3 "
-                     "na osi náklonu, lišty serva, 2 nálitky + drážka predného modulu, misky uší, lišta zadného krytu"),
-        PartRec("H02", "Zadný kryt hlavy", step_safe("H02", h02), "white", SUB, J, (0, 45, U),
-                note="88×50 R15, škára 0.6, 2 horné jazýčky + 1 spodná západka, bez skrutiek"),
+                note="106×66×74, R26/R20, stena 2.0, JEDEN KUS bez zadného krytu (žiadna škára, skrutka ani otvor "
+                     "vzadu), kapsa valca 37.2×40 R12 so štrbinou kolies a skrytými vetracími drážkami v strope, "
+                     "2 nálitky čapov M3 na osi náklonu, lišty serva, misky uší, 2 bloky s magnetmi, 2 podložky "
+                     "skrutiek zospodu"),
         PartRec("H03", "Predný rám", bezel(), "black", SUB, J, (0, -45, U),
-                note="101×69 R23.5, vystupuje 5 mm, lôžko skla, osadenie 1.4 (okno 85×50), 3 nálitky pre H07"),
+                note="101×69 R23.5, vystupuje 5 mm, lôžko skla, osadenie 1.4 (okno 85×50), 3 nálitky pre H07, "
+                     "6 vodiacich rebier na lemu (rovnomerná škára 0.5)"),
         PartRec("H04", "Krycie sklo", glass(), "glass", SUB, J, (0, -62, U),
-                note="dymový akrylát PMMA 2.0 rezaný laserom 92×60 R16, čierna maska zvnútra (hore 7, inde 4 mm), VHB"),
-        PartRec("H04C", "Okienko kamery", camera_window(), "black_gloss", SUB, J, (0, -62, U),
-                note="len objekt pre render: okienko voliteľnej kamery v hornom páse masky"),
+                note="dymový akrylát PMMA 2.0 rezaný laserom 92×60 R16, čierna maska zvnútra (hore 7, inde 4 mm), "
+                     "VHB 0.1, 0.2 mm pod čelom rámu (dead-front: vypnutý = lesklá čierna)"),
+        PartRec("H04C", "Okienko kamery", camera_window(), "black_gloss", SUB, J, (0, -62, U), internal=True,
+                note="len objekt pre render: voliteľná kamera za okienkom v maske (zvonku nevidno)"),
         PartRec("H04E", "Obsah displeja – oči", eyes(), "eye", SUB, J, (0, -62, U),
                 note="len objekt pre render: dve pilulky 10.5×17.5"),
         PartRec("H05-R", "Ucho pravé", mirror(ear_l, Plane.YZ), "black", SUB, J, (-30, 0, U),
-                note="Ø28, vystupuje 4 mm, zadné vybranie pre LED modul Ø23, 3 mostíky, zalisuje sa + CA lepidlo"),
+                note="Ø28, vystupuje 4 mm, zadné vybranie pre LED modul Ø23, 3 mostíky, bez otvoru, zalisuje sa + CA"),
         PartRec("H05-L", "Ucho ľavé", ear_l, "black", SUB, J, (30, 0, U),
-                note="Ø28, vystupuje 4 mm, zadné vybranie pre LED modul Ø23, 3 mostíky, zalisuje sa + CA lepidlo"),
+                note="Ø28, vystupuje 4 mm, zadné vybranie pre LED modul Ø23, 3 mostíky, bez otvoru, zalisuje sa + CA"),
         PartRec("H06-R", "LED krúžok ucha pravý", mirror(ring_l, Plane.YZ), "cyan_led", SUB, J, (-42, 0, U),
-                note="svetlovod Ø23/Ø17 (číry PETG / PMMA)"),
+                note="svetlovod Ø23/Ø17 (číry PETG / PMMA), zarovno s kupolou ucha"),
         PartRec("H06-L", "LED krúžok ucha ľavý", ring_l, "cyan_led", SUB, J, (42, 0, U),
-                note="svetlovod Ø23/Ø17 (číry PETG / PMMA)"),
+                note="svetlovod Ø23/Ø17 (číry PETG / PMMA), zarovno s kupolou ucha"),
         PartRec("H07", "Držiak displeja", bracket_h07(), "grey", SUB, J, (0, -18, U), internal=True,
-                note="PETG rám: pritlačí dosku 86×56 na osadenie H03 (3× M2×6), do H01 1 jazýček + 2× M2×8 zozadu"),
+                note="PETG rám: pritlačí dosku 86×56 na osadenie H03 (3× M2×6), 2 horné oká s magnetmi, "
+                     "2 spodné oká pre skrutky M2×6 zospodu"),
         PartRec("H09", "Ozubený segment náklonu", barrel_disc(1, True), "grey", "neck", "J2", (12, 0, 0),
                 internal=True,
                 note="20z m1, ±63°, kríž do vybrania valca N06 (+X), 2× M2 do pilotov valca, otvor Ø3.2 pre čap"),
@@ -853,9 +863,10 @@ def build():
         PartRec("H11", "Koliesko serva náklonu", servo_gear_h11(), "grey", SUB, J, (12, -10, U + 40), internal=True,
                 note="20z m1 na drážkovaní MG90S (Ø4.4 natlačiť za tepla) + skrutka M2 zo sady serva, prevod 1:1"),
         PartRec("E31", "Displej ESP32-S3 3.5\" (doska)", display_e31(), "display", SUB, J, (0, -30, U),
-                internal=True, note=DSP["board"] + " – obrys 86×56×6, pena 0.5 mm pred LCD"),
+                internal=True, note=DSP["board"] + " – obrys 86×56×6, pena 0.5 mm pred LCD; mikrofón počuje škárou rámu"),
         PartRec("E32", "Servo náklonu MG90S", servo_e32(), "servo", SUB, J, (22, -10, U + 40), internal=True,
-                note="MG90S 22.8×12.2×22.7, uši 32.5, hriadeľ (y 0, z 147) ∥ X, telo hore, zasunie sa spredu do líšt"),
+                note="MG90S 22.8×12.2×22.7, uši 32.5, hriadeľ (y 0, z 147) ∥ X, telo hore, vedľa kapsy valca, "
+                     "zasunie sa spredu do líšt"),
         PartRec("E33-R", "DPS ucha pravá", mirror(pcb_l, Plane.YZ), "pcb", SUB, J, (-20, 0, U),
                 internal=True, note="okrúhly modul 7× WS2812B-5050 Ø23 (AliExpress), vlepený do ucha"),
         PartRec("E33-L", "DPS ucha ľavá", pcb_l, "pcb", SUB, J, (20, 0, U), internal=True,
@@ -865,6 +876,16 @@ def build():
         PartRec("M31-L", "Čap náklonu M3×12 ľavý", pin_m31(1), "metal", SUB, J, (18, 0, U), internal=True,
                 note="DIN 912 M3×12 do pilotu Ø2.5 v H01, beží v otvore Ø3.2 H09 + valca N06"),
     ]
+    for i, (sx, in_h07) in enumerate(((-1, True), (1, True), (-1, False), (1, False))):
+        P.append(PartRec(f"M32-{i + 1}", f"Magnet Ø6×3 N52 ({'H07' if in_h07 else 'H01'}, "
+                                          f"{'pravý' if sx < 0 else 'ľavý'})", magnet(sx, in_h07), "metal", SUB, J,
+                         (0, -18 if in_h07 else 0, U), internal=True,
+                         note="neodýmový disk Ø6×3 N52 vlepený (CA), páry sa priťahujú cez medzeru 0.2 – drží vrch "
+                              "predného modulu"))
+    for sx, side in ((-1, "R"), (1, "L")):
+        P.append(PartRec(f"M33-{side}", f"Skrutka M2×6 zospodu ({'pravá' if sx < 0 else 'ľavá'})", screw_m33(sx),
+                         "metal", SUB, J, (0, 0, U - 15), internal=True,
+                         note="DIN 7985 M2×6, hlava zapustená v H01 zospodu (Ø4.4×1.7), do oka H07 – zvonku nevidno"))
     for p in P:
         check(p.id, p.shape)
     print(f"  build {time.time() - t0:.1f}s")
@@ -933,16 +954,17 @@ def other_parts(build_others=False):
 
 
 TILT_AXIS = Axis((0, TILT_Y, TILT_Z), (1, 0, 0))
-# intended overlaps: M3 screws thread-form into the Ø2.5 pilots, H11 Ø4.4 bore pressed onto the Ø4.8 spline
-FITS = {("H01", "M31-R"), ("H01", "M31-L"), ("H11", "E32")}
+# intended overlaps: M3 screws thread-form into the Ø2.5 pilots, H11 Ø4.4 bore pressed onto the Ø4.8 spline,
+# M2 underside screws thread-form into the H07 pilots
+FITS = {("H01", "M31-R"), ("H01", "M31-L"), ("H11", "E32"), ("H07", "M33-R"), ("H07", "M33-L")}
 
 
 def pose_sweep(parts, others):
     """Head frame check: J2 parts rotate by -tilt, J1 parts by -pan then -tilt.  Returns collisions > 0.5 mm3."""
-    head = [p for p in parts if p.id in ("H01", "H03", "H07", "H11", "E31", "E32", "M31-R", "M31-L")]
-    head_out = [p for p in parts if p.id in ("H01", "H03", "H05-R", "H05-L")]
+    head = [p for p in parts if p.joint == "J3" and p.id not in ("H04C", "H04E")]
+    head_out = [p for p in parts if p.id in ("H01", "H03", "H05-R", "H05-L", "M33-R", "M33-L")]
     j2 = [p for p in parts + others if p.joint == "J2"]
-    j1 = [p for p in others if p.joint == "J1" and p.id in ("N01", "T01")]
+    j1 = [p for p in others if p.joint == "J1" and not p.internal and p.shape.bounding_box().max.Z > 99.0]
     gear_pair = {("H11", "H09"), ("H09", "H11")}
     res = []
     for th in (-20, -10, 0, 10, 20):
@@ -956,7 +978,7 @@ def pose_sweep(parts, others):
                 v = common_vol(hs, qs)
                 if v > 0.5 or v < 0:
                     res.append((f"tilt {th}", h.id, q.id, round(v, 2)))
-        for ph in ((-90, -67.5, -45, 0, 45, 67.5, 90) if abs(th) == 20 else ()):
+        for ph in ((-90, -67.5, -45, -22.5, 0, 22.5, 45, 67.5, 90) if abs(th) == 20 else ()):
             for q in j1:
                 qs = q.shape.rotate(Axis.Z, -ph).rotate(TILT_AXIS, -th)
                 for h in head_out:
@@ -966,12 +988,56 @@ def pose_sweep(parts, others):
     return res
 
 
+def min_gaps(parts, others):
+    """Smallest distances head <-> neck/torso over the tilt/pan range (for the report)."""
+    h01 = next(p for p in parts if p.id == "H01").shape
+    out = {}
+    for q in others + [p for p in parts if p.joint == "J2"]:
+        if q.id not in ("N06", "N02", "N01", "T01", "T02", "T02-R", "T02-L", "H09", "H10"):
+            continue
+        best = 1e9
+        for th in (-20, 0, 20):
+            phs = (0,) if q.joint == "J2" else ((0, 45, 90) if q.id == "N01" else (0, 90))
+            for ph in phs:
+                qs = q.shape.rotate(Axis.Z, -ph) if q.joint == "J1" else q.shape
+                qs = qs.rotate(TILT_AXIS, -th)
+                best = min(best, h01.distance_to(qs))
+        out[q.id] = round(best, 2)
+    return out
+
+
+DENS = {"white": 1.15, "black": 1.15, "grey": 1.0, "glass": 1.19, "cyan_led": 1.19, "black_gloss": 1.19}
+FIXED_G = {"E31": 50.0, "E32": 13.4, "E33-R": 2.5, "E33-L": 2.5}
+
+
+def mass_report(parts):
+    """Mass + CG of the tilting group (J3) relative to the tilt axis, servo load over +-20 deg."""
+    m_tot, my, mz = 0.0, 0.0, 0.0
+    for p in parts:
+        if p.joint != "J3" or p.id in ("H04C", "H04E"):
+            continue
+        c = p.shape.center()
+        if p.id in FIXED_G:
+            m = FIXED_G[p.id]
+        elif p.mat == "metal":
+            m = p.shape.volume / 1000 * (7.5 if p.id.startswith("M32") else 7.85)
+        else:
+            m = p.shape.volume / 1000 * DENS.get(p.mat, 1.2)
+        m_tot += m
+        my += m * (c.Y - TILT_Y)
+        mz += m * (c.Z - TILT_Z)
+    cy, cz = my / m_tot, mz / m_tot
+    lev = max(abs(cy * math.cos(math.radians(t)) - cz * math.sin(math.radians(t))) for t in range(-20, 21, 5))
+    return dict(mass_g=round(m_tot, 1), cg_ahead=round(-cy, 1), cg_above=round(cz, 1),
+                max_kgcm=round(m_tot / 1000 * lev / 10, 3))
+
+
 def verify_step(ids):
     from build123d import import_step
     out = []
     for pid in ids:
         s = import_step(os.path.join(OUT_DIR, "step", f"{pid}.step"))
-        out.append((pid, s.is_valid, round(s.volume, 1)))
+        out.append((pid, s.is_valid, s.volume))
     return out
 
 
@@ -982,13 +1048,18 @@ if __name__ == "__main__":
     for p, r in zip(ps, recs):
         print(f"  {r['id']:6s} {r['mat']:11s} {r['joint']:3s} {'int' if r['internal'] else '   '} "
               f"valid={p.shape.is_valid} size={r['bbox']['size']} min={r['bbox']['min']} vol={r['volume_mm3']}")
-    print("  STEP re-import:", verify_step(["H01", "H02", "H03"]))
+    rt = verify_step([p.id for p in ps])
+    bad = [(pid, ok, round(v, 2), round(p.shape.volume, 2)) for (pid, ok, v), p in zip(rt, ps)
+           if not ok or abs(v - p.shape.volume) > 1e-4 * p.shape.volume + 0.01]
+    print("  STEP re-import:", f"{len(rt)} OK" if not bad else bad)
+    print("  mass:", mass_report(ps))
     print("  interference (own):", interference(ps, skip=FITS) or "none")
     if "--check" in sys.argv or "--pose" in sys.argv:
         oth = other_parts("--build-others" in sys.argv)
         print(f"  loaded {len(oth)} parts of other modules")
         if "--check" in sys.argv:
             print("  interference (with others):", interference(ps, oth, skip=FITS) or "none")
+            print("  min gaps H01 <-> neck/torso over tilt +-20 / pan +-90:", min_gaps(ps, oth))
         if "--pose" in sys.argv:
             print("  pose sweep:", pose_sweep(ps, oth) or "none")
     print(f"[{MANIFEST}] {len(recs)} parts in {time.time() - t0:.1f}s -> {OUT_DIR}")
