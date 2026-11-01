@@ -3,3 +3,5 @@ __pycache__/
 *.pyc
 /tmp/
 build_v8/
+build_v8_var_aplus/
+build_v8_var_b/

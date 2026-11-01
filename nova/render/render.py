@@ -269,7 +269,7 @@ FIX = Matrix.Rotation(math.radians(-90), 4, "X")   # glTF import (X,-Z,Y) -> CAD
 
 def import_part(rec, glb_root):
     """Import the STL export (raw CAD coordinates, mm) -> metres, smooth by angle."""
-    path = os.path.join(glb_root, "stl", rec["id"] + ".stl")
+    path = os.path.join(rec.get("_root", glb_root), "stl", rec["id"] + ".stl")
     before = set(bpy.data.objects)
     bpy.ops.wm.stl_import(filepath=path, global_scale=MM, use_mesh_validate=True)
     new = [o for o in bpy.data.objects if o not in before]
@@ -624,6 +624,13 @@ def run(job):
     os.makedirs(out, exist_ok=True)
     build_root = job.get("glb_dir", os.path.join(ROOT, "build"))
     recs = load_manifest(job.get("manifest_dir", os.path.join(build_root, "manifest")))
+    # extra part sets from other build folders: [{"manifest_dir": ..., "glb_dir": ...}, ...]
+    for ex in job.get("extra", []):
+        more = load_manifest(ex["manifest_dir"])
+        for r in more:
+            r["_root"] = ex["glb_dir"]
+        ids_more = {r["id"] for r in more}
+        recs = [r for r in recs if r["id"] not in ids_more] + more
     sel = select_parts(recs, job)
     if not sel:
         raise SystemExit("no parts selected")
