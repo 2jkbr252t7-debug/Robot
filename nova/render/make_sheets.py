@@ -186,12 +186,12 @@ def sheet_hero(q, recs):
         sh.paste(im, (1760 + k * 610, 1240))
     x0, y = 1800, 210
     facts = [
-        ("Rozmery", f"{spec.BASE['w']:.0f} × {spec.BASE['d']:.0f} × {spec.OVERALL['h']:.0f} mm"),
+        ("Rozmery", f"{spec.BASE['w']:.0f} × {spec.BASE['d']:.0f} × {spec.OVERALL['h']:.0f} mm (základňa × výška)"),
         ("Pohyb", "5 DOF: telo 360°, hlava ±90° / −20…+30°, ruky −30…+180°"),
-        ("Tvár", "4.3\" IPS 800×480, tvrdené sklo, kamera"),
+        ("Tvár", "4.3\" IPS 800×480 (ESP32-S3 v hlave), tvrdené sklo, kamera"),
         ("Zmysly", "2 mikrofóny v ušiach, ToF + svetlo, dotyk, IMU"),
         ("Svetlo", "LED krúžky v ušiach, pásik na hrudi a základni"),
-        ("Mozog", "Raspberry Pi 5 + ESP32-S3"),
+        ("Mozog", "Raspberry Pi 5 + 2× ESP32-S3 + RP2040"),
         ("Napájanie", "2× 18650 (25 Wh), USB-C PD"),
         ("Materiály", "biely PC/ABS satén, čierny soft-touch, TPU"),
     ]
@@ -318,7 +318,7 @@ def sheet_exploded(q, recs):
     ox = (W - im.width) // 2
     sh.paste(im, (ox, 170), im)
     by = {r["id"]: r for r in recs}
-    vis = [r["id"] for r in recs if not r.get("internal") and not r["id"].endswith("-L") and r["id"] != "H04E"]
+    vis = [r["id"] for r in recs if not r.get("internal") and not r["id"].endswith("-L") and r["id"] not in ("H04E", "H04C")]
     callouts(sh, d, rd, "iso", recs, factor, vis, (40, 200, W - 40, H - 120),
              lambda pid: f"{pid}  {by[pid]['name']}", scale=sc, offset=(ox, 170))
     footer(d, W, H)
@@ -611,13 +611,13 @@ def main():
         tasks.append(lambda: sheet_kinematics(q, recs))
     if want("07") and "head" in have:
         tasks.append(lambda: sheet_six("07_NOVA_hlava", "NOVA / HLAVA", P(lambda r: r["sub"] == "head" and not r.get("internal")), q,
-                                       subtitle="H01–H06 · 132 × 100.5 × 96 mm"))
+                                       subtitle=f"H01–H06 · {spec.HEAD['w']:.0f} × {spec.HEAD['y1'] - spec.HEAD['y0'] + spec.HEAD['bezel']['protrude']:.0f} × {spec.HEAD['h']:.0f} mm (š × h × v)"))
     if want("08") and "head" in have:
         tasks.append(lambda: sheet_matrix("08_NOVA_kryty_hlavy", "NOVA / DIELY HLAVY", [
             ("H01 Hlavný obal", ["H01"], "biely PC/ABS"),
             ("H02 Zadný kryt", ["H02"], "biely PC/ABS"),
             ("H03 Predný rám", ["H03"], "čierny soft-touch"),
-            ("H04 Sklo + oči", ["H04", "H04E"], "sklo 1.1 mm"),
+            ("H04 Sklo + oči + okienko kamery", ["H04", "H04E", "H04C"], "sklo 1.1 mm"),
             ("H05 Ucho + H06 LED krúžok", ["H05-R", "H06-R"], "pravé, ľavé zrkadlovo"),
         ], q))
     if want("09") and "neck" in have:
@@ -632,11 +632,11 @@ def main():
         ], q))
     if want("11") and "torso" in have:
         tasks.append(lambda: sheet_six("11_NOVA_trup", "NOVA / TRUP", P(lambda r: (r["sub"] == "torso" or r["id"].startswith("A05")) and not r.get("internal")), q,
-                                       subtitle="T01–T06 · superelipsa 106 × 90 × 102 mm"))
+                                       subtitle=f"T01–T06 · superelipsa {spec.TORSO['w']:.0f} × {spec.TORSO['d']:.0f} × {spec.TORSO['z1'] - spec.TORSO['z0']:.0f} mm"))
     if want("12") and "torso" in have:
         tasks.append(lambda: sheet_matrix("12_NOVA_kryty_trupu", "NOVA / DIELY TRUPU", [
-            ("T01 Predný panel", ["T01"], "biely"), ("T02 Telo (jadro)", ["T02"], "biely"),
-            ("T03 Zadné dvierka", ["T03"], "servisný prístup"), ("T04 Spodná doska", ["T04"], "čierna"),
+            ("T01 Stredový pás", ["T01"], "biely, spredu–cez vrch–dozadu"), ("T02 Bočný kryt", ["T02-R"], "pravý, ľavý zrkadlovo"),
+            ("T03 Zadné dvierka", ["T03"], "servisný prístup"), ("T04 Spodná vanička", ["T04"], "čierna, 4× M2.5"),
             ("T05 LED svetlovod", ["T05"], "PMMA opál"), ("T06 Senzorové okienko", ["T06"], "ToF + svetlo"),
         ], q))
     if want("13") and "arm_R" in have:
@@ -655,7 +655,7 @@ def main():
         tasks.append(lambda: sheet_arm_explode(q, recs))
     if want("17") and "base" in have:
         tasks.append(lambda: sheet_six("17_NOVA_zakladna", "NOVA / ZÁKLADŇA", P(lambda r: r["sub"] == "base" and not r.get("internal")), q,
-                                       subtitle="B01–B05 · 178 × 144 × 36 mm · batérie, reproduktor, otáčanie tela"))
+                                       subtitle=f"B01–B05 · {spec.BASE['w']:.0f} × {spec.BASE['d']:.0f} × {spec.BASE['z1']:.0f} mm · batérie, reproduktor, otáčanie tela"))
     if want("18") and "base" in have:
         tasks.append(lambda: sheet_matrix("18_NOVA_kryty_zakladne", "NOVA / DIELY ZÁKLADNE", [
             ("B01 Horný kryt", ["B01"], "biely"), ("B02 Spodná doska", ["B02"], "čierna"),

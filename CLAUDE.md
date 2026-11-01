@@ -41,8 +41,10 @@ images in Slovak with diacritics).
 * Check `shape.is_valid` and print bounding boxes; compare with spec numbers.
 * Every part must be a valid solid, sit exactly at its spec position, and not overlap neighbours.
 * Do NOT edit `nova/spec.py` from a parallel sub-task; use local constants and report deviations.
-* Joint tags: base parts "" ; torso parts + N01 + A05 "J1"; N02/N06 "J2"; N07 + all head parts "J3";
-  right arm (A01–A04 "-R") "J4"; left arm ("-L") "J5". Internal parts: `internal=True` (same joint tags).
+* Joint tags: base parts "" (B05 turntable "J1"); torso parts + N01 + A05 "J1"; N02/N06 "J2";
+  N07 + all head parts "J3"; right arm (A01–A04 "-R") "J4"; left arm ("-L") "J5".
+  Internal parts: `internal=True` (same joint tags).
+* Spec version: read the CHANGELOG at the top of nova/spec.py – it supersedes numbers in older briefs.
 
 ## Rendering tips
 * 4 CPU cores shared – previews ≤ 700 px and ≤ 24 samples; finals 1200–1800 px, 64–128 samples.

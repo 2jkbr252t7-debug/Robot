@@ -37,7 +37,7 @@ def shell_b01():
 
     # turntable seat: shallow circular recess on the top face + through hole for the rotating hub
     seat_d = B["turntable_d"]
-    seat_depth = 2.0
+    seat_depth = B["turntable_recess"]
     shell -= Pos(0, 0, Z1 - seat_depth) * Cylinder(seat_d / 2, seat_depth + 1, align=(Align.CENTER, Align.CENTER, Align.MIN))
     shell -= Pos(0, 0, Z1 - 10) * Cylinder(44 / 2, 20)
 
@@ -60,18 +60,18 @@ def shell_b01():
 
     # rear speaker grille (2 x 11 holes), USB-C, power button
     g = B["grille"]
-    cols = 11
-    xc = 16.0
+    cols = g["cols"]
+    xc = g["xc"]
     for z in g["z"]:
         for i in range(cols):
             x = xc + (i - (cols - 1) / 2) * g["pitch"]
             shell -= Pos(x, D / 2, z) * Rot(90, 0, 0) * Cylinder(g["hole_d"] / 2, 12)
     u = B["usb_c"]
     with BuildSketch(Plane.XZ.offset(-(D / 2 - 6))) as sk:   # plane at y = +D/2-6, normal -Y
-        with Locations((-36.0, u["z"])):
+        with Locations((u["x"], u["z"])):
             RectangleRounded(u["w"], u["h"], 1.6)
     shell -= extrude(sk.sketch, -12)
-    shell -= Pos(-22.0, D / 2, B["button"]["z"]) * Rot(90, 0, 0) * Cylinder(B["button"]["d"] / 2, 12)
+    shell -= Pos(B["button"]["x"], D / 2, B["button"]["z"]) * Rot(90, 0, 0) * Cylinder(B["button"]["d"] / 2, 12)
     return shell
 
 
@@ -123,7 +123,7 @@ def feet_b04():
 def turntable_b05():
     """Black turntable disc under the torso – rotates with J1 (body yaw)."""
     d = B["turntable_d"] - 1.6   # disc sits in the Ø92 seat
-    t = Pos(0, 0, Z1 - 2.0 + 0.2) * Cylinder(d / 2, 1.6, align=(Align.CENTER, Align.CENTER, Align.MIN))
+    t = Pos(0, 0, Z1 - B["turntable_recess"] + 0.2) * Cylinder(d / 2, 1.6, align=(Align.CENTER, Align.CENTER, Align.MIN))
     t = fillet(t.edges().group_by(Axis.Z)[-1], 0.6)
     t -= Cylinder(10, 40)   # cable / slip-ring passage
     return t
