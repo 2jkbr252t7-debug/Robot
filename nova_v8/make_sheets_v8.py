@@ -425,7 +425,8 @@ def main():
                 lambda: MS.sheet_xray(q, recs),
                 lambda: sheet_kin_v8(q, recs),
                 lambda: MS.sheet_six("09_NOVA_mini_krk", "NOVA mini / KRK", ext("neck"), q, recs,
-                                     subtitle=f"N01 golier · N02 kužeľ · N06 valec náklonu · os náklonu z = {S8.NECK['tilt_axis']['z']:.0f}"),
+                                     subtitle=f"N01 golier · N02 kužeľ · N06 valec náklonu · os náklonu z = {S8.NECK['tilt_axis']['z']:.0f}"
+                                              " · s ložiskom 6805, servom otáčania IN01 (modré) a ozubením náklonu 1:1"),
                 lambda: MS.sheet_six("11_NOVA_mini_trup", "NOVA mini / TRUP", ext("torso"), q, recs,
                                      subtitle=f"T01–T05 · {T['w']:.0f} × {T['d']:.0f} × {T['z1'] - T['z0']:.0f} mm · dymový pás hrude · dvierka na magnetoch"),
                 lambda: MS.sheet_matrix("12_NOVA_mini_diely_trupu", "NOVA mini / DIELY TRUPU", [
