@@ -191,7 +191,7 @@ def sheet_hero(q, recs):
         ("Tvár", "4.3\" IPS 800×480 (ESP32-S3 v hlave), tvrdené sklo, kamera"),
         ("Zmysly", "2 mikrofóny v ušiach, ToF + svetlo, dotyk, IMU"),
         ("Svetlo", "LED krúžky v ušiach, pásik na hrudi a základni"),
-        ("Mozog", "Raspberry Pi 5 + 2× ESP32-S3 + RP2040"),
+        ("Mozog", "Raspberry Pi CM5 + 2× ESP32-S3 + RP2040"),
         ("Napájanie", "2× 18650 (25 Wh), USB-C PD"),
         ("Materiály", "biely PC/ABS satén, čierny soft-touch, TPU"),
     ]
@@ -574,6 +574,53 @@ def sheet_expressions(q, recs):
     return out
 
 
+def sheet_internals(q, recs):
+    """Internal mechanics & electronics without the shells + callouts + BOM table."""
+    ints = [r for r in recs if r.get("internal")]
+    pids = [r["id"] for r in ints]
+    rd = render(dict(parts=pids, internal=True, res=list(q["big"]), samples=q["samples"],
+                     views=["iso", "iso_back"], lens=70, margin=0.04, shadow=False), "19_internals")
+    W, H = 3600, 2300
+    sh, d = new_sheet(W, H, "NOVA / VNÚTORNÁ MECHANIKA A ELEKTRONIKA",
+                      "bez krytov · čísla dielov podľa docs/REVIEW_NOTES.md · E = elektronika, M = ložiská a kovové diely, W = káble")
+    by = {r["id"]: r for r in recs}
+    key = ["E2", "H11", "H13", "E3", "E6-T", "N05", "M5", "N03", "M2", "E6-P", "T07", "E6-R", "A06-R", "E1", "E1-K",
+           "E10", "E12", "T09", "B06", "M1", "E7", "E7-R", "E9", "E8-1", "E8-H", "E11", "E5", "B11"]
+    key = [k for k in key if k in by]
+    im = Image.open(os.path.join(rd, "iso.png")).convert("RGBA")
+    sc = min(1500 / im.width, 1950 / im.height)
+    im = im.resize((int(im.width * sc), int(im.height * sc)), Image.LANCZOS)
+    ox, oy = 520, 200
+    sh.paste(im, (ox, oy), im)
+    callouts(sh, d, rd, "iso", recs, 0.0, key, (40, 230, 2560, H - 140),
+             lambda pid: f"{pid}  {by[pid]['name']}", scale=sc, offset=(ox, oy))
+    # BOM table on the right
+    tx, ty = 2620, 210
+    d.text((tx, ty), "KUSOVNÍK – VNÚTRO", fill=S.ACCENT, font=S.font(28, "Bold"))
+    ty += 50
+    groups = [("hlava", "head"), ("krk", "neck"), ("trup", "torso"), ("ruky", "arm_R"), ("ruky ", "arm_L"), ("základňa", "base")]
+    f = S.font(21, "Medium")
+    seen = set()
+    for lab, sub in groups:
+        rows = [r for r in ints if r["sub"] == sub]
+        if not rows:
+            continue
+        if lab.strip() not in seen:
+            d.text((tx, ty), lab.strip().upper(), fill=S.INK, font=S.font(23, "Bold"))
+            ty += 34
+            seen.add(lab.strip())
+        for r in rows:
+            d.text((tx + 10, ty), f"{r['id']:7s}", fill=S.INK, font=S.font(21, "SemiBold"))
+            name = r["name"] if len(r["name"]) < 34 else r["name"][:33] + "…"
+            d.text((tx + 120, ty), name, fill=(60, 62, 68), font=f)
+            ty += 28
+        ty += 10
+    footer(d, W, H)
+    out = os.path.join(OUT, "19_NOVA_vnutorna_elektronika.png")
+    sh.save(out, optimize=True)
+    return out
+
+
 # ---------------------------------------------------------------------------
 
 def main():
@@ -662,6 +709,8 @@ def main():
             ("B03 Svetlovod", ["B03"], "PMMA"), ("B04 Nožičky", ["B04"], "TPU"), ("B05 Otočný tanier", ["B05"], "J1"),
             ("B08 Poklop batérie", ["B08"], "1× M3 + 2 háčiky"),
         ], q))
+    if want("19") and any(r.get("internal") for r in recs):
+        tasks.append(lambda: sheet_internals(q, recs))
     if want("20"):
         tasks.append(lambda: sheet_expressions(q, recs))
     if want("21"):

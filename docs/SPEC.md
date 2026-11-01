@@ -44,9 +44,9 @@ krk 149–165 · os náklonu z = 181 (valec Ø40 visí 8 mm pod hlavou) · hlava
 * **T01 Stredový pás** – biely pás |x| ≤ 35 spredu, cez vrch až dozadu (švy na x = ±35 bez priečneho švu).
   Spredu aj zozadu zostupuje rovnou zásterou až po z = 43 (dá sa vystrekovať). Nesie T05, T06 a otvor pre krk Ø34.
 * **T02-R / T02-L Bočné kryty** (pravý/ľavý) – biele, s ramennými otvormi Ø23 + zapustenie Ø31.4.
-* **T03 Zadné dvierka** – 60×84 R12 v páse (z 54–138, prístup k Pi), hore 5 výfukových štrbín, dole 4 nasávacie (komínové chladenie Pi 5).
+* **T03 Zadné dvierka** – 60×84 R12 v páse (z 54–138, prístup k Pi), hore 5 výfukových štrbín, dole 4 nasávacie (komínové chladenie CM5).
 * **T05 LED svetlovod** – tyrkysový 34×4 na z = 100.  **T06 Senzorové okienko** – matné 23×4 na z = 83.5.
-* Vnútri: vnútorný rám, Raspberry Pi 5 (zvislo pri dvierkach, ventilátor nasáva dole a fúka hore), 2× servo ramien
+* Vnútri: vnútorný rám, Raspberry Pi CM5 na sánkach T08 pri dvierkach (ventilátor nasáva dole a fúka hore), 2× servo ramien
   na osi z = 115, servo otáčania hlavy pod vrchom, ložisko 61805 v náboji pod vrchom, napájacia/riadiaca doska
   (ESP32-S3, zbernica serv, menič 5.1 V/5 A pre Pi, 6.0 V/3 A pre servá, IMU).
 
@@ -88,7 +88,7 @@ Cez zberací krúžok (6 okruhov) ide: 2× batéria, 2× GND, 2× RS-485.
 
 | # | komponent | umiestnenie |
 |---|---|---|
-| E1 | Raspberry Pi 5 4/8 GB + aktívny chladič (AI, hlas, videnie) | trup, zvislo pri dvierkach |
+| E1 | Raspberry Pi CM5 (8 GB, 32 GB eMMC) na nosnej doske 75×56 + aktívny chladič (AI, hlas, videnie) | trup, na sánkach T08 pri dvierkach |
 | E2 | 4.3" IPS 800×480 RGB displej + ESP32-S3 doska (tvár, LED uší, mikrofóny, dotyk) | hlava |
 | E3 | USB UVC mini kamera 8.5×8.5 | hlava, za okienkom |
 | E4 | 2× MEMS mikrofón I2S | uši (smerovanie hlasu, rozostup ~140 mm) |
