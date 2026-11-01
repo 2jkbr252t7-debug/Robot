@@ -127,8 +127,8 @@ def cap_material():
     m = bpy.data.materials.new("section_cap")
     m.use_nodes = True
     b = m.node_tree.nodes["Principled BSDF"]
-    b.inputs["Base Color"].default_value = (0.95, 0.35, 0.12, 1)
-    b.inputs["Roughness"].default_value = 0.6
+    b.inputs["Base Color"].default_value = (0.90, 0.22, 0.04, 1)
+    b.inputs["Roughness"].default_value = 0.7
     _MATS["section_cap"] = m
     return m
 
@@ -146,7 +146,7 @@ def setup_world(sc, strength=1.0):
     sep = nt.nodes.new("ShaderNodeSeparateXYZ")
     ramp = nt.nodes.new("ShaderNodeValToRGB")
     # dark studio below the horizon, soft bright "sky" only near the zenith -> deep black glass/bezel
-    ramp.color_ramp.elements[0].position = 0.55
+    ramp.color_ramp.elements[0].position = 0.72
     ramp.color_ramp.elements[0].color = (0.035, 0.036, 0.04, 1)
     ramp.color_ramp.elements[1].position = 0.95
     ramp.color_ramp.elements[1].color = (1.0, 1.0, 1.0, 1)
@@ -361,11 +361,18 @@ def apply_section(objs, sec):
     cutter.data.materials.append(cap_material())
     cutter.hide_render = True
     cutter.display_type = "WIRE"
+    orig = {}
     for o in objs:
+        mn, mx = world_bbox([o])
+        orig[o.name] = (mn.copy(), mx.copy())
         m = o.modifiers.new("section", "BOOLEAN")
         m.operation = "DIFFERENCE"
         m.object = cutter
         m.solver = "EXACT"
+        try:
+            m.use_hole_tolerant = True
+        except Exception:
+            pass
         try:
             m.material_mode = "TRANSFER"
         except Exception:
@@ -378,6 +385,15 @@ def apply_section(objs, sec):
         except Exception as e:
             print("section failed", o.name, e)
         if len(o.data.polygons) == 0:
+            objs.remove(o)
+            bpy.data.objects.remove(o, do_unlink=True)
+            continue
+        # guard: a non-manifold input can make EXACT return the cutter itself -> drop that part
+        bpy.context.view_layer.update()
+        mn, mx = world_bbox([o])
+        omn, omx = orig[o.name]
+        if any(mn[i] < omn[i] - 0.001 or mx[i] > omx[i] + 0.001 for i in range(3)):
+            print("section produced garbage for", o.name, "-> removed")
             objs.remove(o)
             bpy.data.objects.remove(o, do_unlink=True)
     return objs

@@ -71,8 +71,20 @@ def meta(rd):
         return json.load(f)
 
 
+def fade_alpha(im, frac=0.07):
+    """Feather the alpha channel towards the image border (hides clipped floor shadows)."""
+    import numpy as np
+    a = np.array(im.split()[-1]).astype(float)
+    h, w = a.shape
+    fx = np.clip(np.minimum(np.arange(w), w - 1 - np.arange(w)) / (frac * w), 0, 1)
+    fy = np.clip(np.minimum(np.arange(h), h - 1 - np.arange(h)) / (frac * h), 0, 1)
+    a *= np.outer(fy, fx)
+    im.putalpha(Image.fromarray(a.astype("uint8")))
+    return im
+
+
 def composite(rd, view, bg=S.BG):
-    im = Image.open(os.path.join(rd, f"{view}.png")).convert("RGBA")
+    im = fade_alpha(Image.open(os.path.join(rd, f"{view}.png")).convert("RGBA"))
     base = Image.new("RGBA", im.size, bg + (255,))
     base.alpha_composite(im)
     return base.convert("RGB")
@@ -178,8 +190,8 @@ def sheet_hero(q, recs):
     W, H = 3000, 2000
     sh, d = new_sheet(W, H, "NOVA", "stolový spoločník – najlepšia verzia (v7)")
     hero = composite(rd, "iso")
-    hero, _ = S.fit(hero, 1700, 1820)
-    sh.paste(hero, (40, 150))
+    hero, _ = S.fit(hero, 1680, 1760)
+    sh.paste(hero, (40, 210))
     for k, v in enumerate(["iso_back", "iso_r"]):
         im = composite(rd, v)
         im, _ = S.fit(im, 640, 700)
@@ -272,7 +284,7 @@ def sheet_dims(q, recs):
     return out
 
 
-def callouts(sh, d, rd, view, recs, factor, items, area, label_fn, scale=1.0, offset=(0, 0)):
+def callouts(sh, d, rd, view, recs, factor, items, area, label_fn, scale=1.0, offset=(0, 0), override=None):
     """Draw numbered leader-line labels for parts in an exploded render."""
     m = meta(rd)["views"][view]
     by = {r["id"]: r for r in recs}
@@ -282,7 +294,8 @@ def callouts(sh, d, rd, view, recs, factor, items, area, label_fn, scale=1.0, of
         if not r:
             continue
         bb = r["bbox"]
-        c = [(bb["min"][i] + bb["max"][i]) / 2 + r["explode"][i] * factor for i in range(3)]
+        ev = override[pid] if override and pid in override else [e * factor for e in r["explode"]]
+        c = [(bb["min"][i] + bb["max"][i]) / 2 + ev[i] for i in range(3)]
         px, py = S.project(m, c)
         pts.append((pid, offset[0] + px * scale, offset[1] + py * scale))
     if not pts:
@@ -291,13 +304,32 @@ def callouts(sh, d, rd, view, recs, factor, items, area, label_fn, scale=1.0, of
     left = sorted([p for p in pts if p[1] < (x0 + x1) / 2], key=lambda p: p[2])
     right = sorted([p for p in pts if p[1] >= (x0 + x1) / 2], key=lambda p: p[2])
     f = S.font(24, "SemiBold")
-    for side, group in (("L", left), ("R", right)):
+
+    def distribute(group):
+        """label y positions close to the part y, at least `gap` apart, inside [y0, y1]."""
         n = len(group)
-        for k, (pid, px, py) in enumerate(group):
-            ly = y0 + (k + 0.5) * (y1 - y0) / max(n, 1)
+        if not n:
+            return []
+        gap = min(56, (y1 - y0) / n)
+        ys = [p[2] for p in group]
+        out = []
+        for i, y in enumerate(ys):
+            y = max(y, (out[-1] + gap) if out else y0)
+            out.append(y)
+        # push back up if we ran past the bottom
+        over = out[-1] - y1
+        if over > 0:
+            out = [y - over for y in out]
+            for i in range(n - 2, -1, -1):
+                out[i] = min(out[i], out[i + 1] - gap)
+        return out
+
+    for side, group in (("L", left), ("R", right)):
+        lys = distribute(group)
+        for (pid, px, py), ly in zip(group, lys):
             lx = x0 + 20 if side == "L" else x1 - 20
-            d.line([(px, py), (lx + (150 if side == "L" else -150), ly), (lx + (140 if side == "L" else -140), ly)],
-                   fill=S.ACCENT, width=2)
+            elbow = lx + (330 if side == "L" else -330)
+            d.line([(px, py), (elbow, ly), (lx + (300 if side == "L" else -300), ly)], fill=S.ACCENT, width=2)
             d.ellipse([px - 6, py - 6, px + 6, py + 6], fill=S.ACCENT)
             txt = label_fn(pid)
             if side == "L":
@@ -306,9 +338,23 @@ def callouts(sh, d, rd, view, recs, factor, items, area, label_fn, scale=1.0, of
                 d.text((lx, ly), txt, fill=S.INK, font=f, anchor="rm")
 
 
+def group_explode(recs, lift=75.0):
+    """Hierarchical explode: everything above the base lifts by `lift`, then each part's own vector."""
+    ov = {}
+    for r in recs:
+        own = list(r.get("explode", [0, 0, 0]))
+        g = 0.0 if r["sub"] == "base" and r.get("joint", "") in ("",) else lift
+        if r["id"] == "B05":
+            g = lift * 0.45
+            own = [0, 0, 0]
+        ov[r["id"]] = [own[0], own[1], own[2] + g]
+    return ov
+
+
 def sheet_exploded(q, recs):
     factor = 1.0
-    rd = render(dict(res=list(q["big"]), samples=q["samples"], explode=factor, views=["iso"], lens=60,
+    ovr = group_explode(recs)
+    rd = render(dict(res=list(q["big"]), samples=q["samples"], explode_override=ovr, views=["iso"], lens=60,
                      margin=0.05, shadow=False), "03_explode")
     W, H = 3000, 2100
     sh, d = new_sheet(W, H, "NOVA / ROZLOŽENÝ POHĽAD", "všetky vonkajšie diely · čísla dielov podľa kusovníka")
@@ -320,7 +366,7 @@ def sheet_exploded(q, recs):
     by = {r["id"]: r for r in recs}
     vis = [r["id"] for r in recs if not r.get("internal") and not r["id"].endswith("-L") and r["id"] not in ("H04E", "H04C")]
     callouts(sh, d, rd, "iso", recs, factor, vis, (40, 200, W - 40, H - 120),
-             lambda pid: f"{pid}  {by[pid]['name']}", scale=sc, offset=(ox, 170))
+             lambda pid: f"{pid}  {by[pid]['name']}", scale=sc, offset=(ox, 170), override=ovr)
     footer(d, W, H)
     out = os.path.join(OUT, "03_NOVA_rozlozeny_pohlad.png")
     sh.save(out, optimize=True)
