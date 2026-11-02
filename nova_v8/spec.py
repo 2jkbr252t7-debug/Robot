@@ -70,41 +70,72 @@ v8.3 – MÄKKÉ TVARY (user: "hrozne hranatá základňa, trup moc kockatý, mo
     the arm axis z 98 is ~ x ±43.4).  Wheels may move inwards (x ±46) because the conical skirt is narrower at
     the bottom (keep >= 0.5 mm tyre clearance).
 =====================================================================================
+=====================================================================================
+v9.0 – "KLASIK" (user's choice 2026-11-02 after rejecting v8.2/v8.3: concept c1 "Klasik R01+",
+  obrazky/v8_koncept/v8_4_navrhy.png column 1, renders obrazky/v8_koncept/navrhy/c1_r01_hero.png).
+  SUPERSEDES the v8.2 / v8.3 body forms.  Outer forms are defined ONLY in nova_v8/klasik.py from KLASIK below.
+  * BASE: white slab 134 x 109 (squircle n 3.6), z 8..33.5, drafted side, elliptical top round 5.5 x 4.5, standing
+    on a recessed BLACK FOOT 118 x 93 (z 1..8.6) with the 360° cyan underglow ring just outside the foot
+    (z 3.4..6.2).  Wheels Ø30 x 9 at x ±44 (axle z 15) inside the foot outline, ball casters Ø10 at y ±40,
+    1 mm ground clearance.  2x 18650 along X in front of / behind the axle.
+  * TORSO: 83 x 69 x 82 (squircle n 3.4, z 35..117), 1.5 mm shadow gap over the flat base top, bottom round 7,
+    2.6 / 1.4 mm taper to the top, 22 mm shoulder dome into a flat Ø42 circle under the collar.  ONE parting
+    line = the outline of a front panel in the plane y = -28 (echoes the display bezel); chest light pill 30 x 3.6
+    at z 82.  Hidden circular turntable (J1) under the torso, STS3215 spline down as in v8.
+  * ARMS: R01 paddles 72 long, 35 wide, 13.6 thick (white outer shell + black inner shell showing as a crescent),
+    yawed 22° (front edge in), splayed 7°, on glossy black bead joints Ø25.6; shoulder axis X at y +1, z 93.
+  * NECK: black collar Ø44 (z 116..119.6), visible column Ø25.6 -> 23.2, the black tilt barrel/yoke shows under the
+    head; HEAD (A, A+, B unchanged in size) moved to z 135.1..209.1, tilt axis inside the head at z 145.1 (head
+    bottom + 10, as v8.1).  Overall height 209 mm.
+  * Everything else of v8.1 stays ("nič nevidno", hidden ports underneath, underglow, base node, J1 rolling loop…).
+=====================================================================================
 """
 from math import sqrt
 
 NAME = "NOVA mini"
-VERSION = "v8.3"
+VERSION = "v9.0"
 FLOOR_Z = 0.0
+
+# v9.0 KLASIK – outer forms (used by nova_v8/klasik.py; numbers from the chosen concept c1)
+KLASIK = dict(
+    base=dict(w=134.0, d=109.0, n=3.6, z0=8.0, z1=33.5, r_bot=1.6, draft=1.6, r_top_h=5.5, r_top_v=4.5),
+    foot=dict(w=118.0, d=93.0, z0=1.0, ring_z=(3.4, 6.2), ring_out=1.2, ring_in=0.6),
+    torso=dict(w=83.0, d=69.0, n=3.4, h=82.0, gap=1.5, r_bot=7.0, dome_v=22.0, top_r=21.0, taper_a=2.6, taper_b=1.4,
+               seam_y=-28.0, chest=dict(z=82.0, w=30.0, h=3.6)),
+    shoulder=dict(y=1.0, z=93.0, hub_r=12.8, recess=1.6),
+    arm=dict(length=72.0, shoulder_u=0.77, half_t=6.8, half_w=17.5, n=2.6, yaw=22.0, splay=7.0, inner_face_x=49.0),
+    neck=dict(collar_d=44.0, collar_z=(116.0, 119.6), column_r=(12.8, 11.6), visible=15.5),
+    head_z0=135.1,
+)
 
 MATERIALS_FROM = "nova.spec.MATERIALS"   # same material keys as v7 (white, black, glass, cyan_led, eye, rubber, ...)
 
 # ---------------------------------------------------------------------------
 BASE = dict(
-    w=124.0, d=104.0, z0=0.0, z1=35.0, plan_r=25.0, top_fillet=8.0, wall=2.2,           # v8.2 (was 130x108x39)
-    skirt_z0=3.0,                                                 # v8.1: closed skirt down to z=3, no wheel arches
+    w=134.0, d=109.0, z0=0.0, z1=33.5, plan_r=25.0, top_fillet=5.0, wall=2.0,           # v9.0 KLASIK slab (forms: klasik.py)
+    skirt_z0=1.0,                                                 # v9.0: black foot down to z 1 (white slab from z 8)
     form=dict(n=2.2, taper=0.90, r_top=7.0, dish_d=2.0, dish_od=80.0),   # v8.3 pebble plate (nova_v8/forms.py)
     underglow=dict(z=2.0, inset=3.0, note="360° tyrkysový svetelný prstenec pod okrajom – svieti na stôl"),
-    wheel=dict(d=30.0, w=10.0, x=48.0, y=4.0, axle_z=15.0),      # v8.2: Ø30, tyre top z=30 -> 2.8 mm under the top wall
+    wheel=dict(d=30.0, w=9.0, x=44.0, y=0.0, axle_z=15.0),       # v9.0: Ø30 x 9 inside the foot outline
     motor=dict(type="N20 6V s enkodérom (1:100 – 1:150)", body=(12.0, 10.0, 24.0), gearbox_len=9.0),
-    caster=dict(d=12.0, y=(-38.0, 42.0)),                         # v8.2 scaled with the footprint
+    caster=dict(d=10.0, y=(-40.0, 40.0)),                         # v9.0 KLASIK
     cliff_sensors=dict(xy=[(47, -39), (-47, -39), (47, 39), (-47, 39)], window=(7.0, 4.0), type="TCRT5000 alebo VL53L0X"),
     # v8.1 CAD positions (base review: the rear caster sits at (0, 44), so the pads/ports moved outwards)
     usb_c=dict(where="underside rear", x=-23.0, y=38.0), button=dict(where="underside, recessed", x=23.0, y=38.0),
     dock_pads=dict(xy=[(-34, 39), (34, 39)], d=6.0),              # spring-pin pads under the rear (future dock)
     batteries=dict(count=2, d=18.5, len=65.0, axis="X", y=(-28.0, 28.0), z=6.0),   # front and back of the hub
     speaker=dict(d=28.0, h=5.0, x=0.0, y=-28.0),
-    yaw_hub=dict(d=24.0, bearing=(30.0, 42.0, 7.0), z_top=35.0),  # hub fixed in the base, 6806 bearing at the top
+    yaw_hub=dict(d=24.0, bearing=(30.0, 42.0, 7.0), z_top=33.5),  # hub fixed in the base, 6806 bearing at the top
 )
 
 TORSO = dict(
-    z0=36.0, z1=118.0, w=94.0, d=76.0, n=2.7, r_top=17.0, r_bottom=8.0, wall=2.0,          # v8.2 (was 88x72x65)
+    z0=35.0, z1=117.0, w=83.0, d=69.0, n=3.4, r_top=22.0, r_bottom=7.0, wall=2.0,          # v9.0 KLASIK (forms: klasik.py)
     band=dict(half_w=27.0, seam=0.6),                             # centre band front->top->back like v7.3
     form=dict(n=2.15, foot_r=36.0, flare=18.0, ka=3.6, kb=2.4, r_top=18.0, gap=1.0),   # v8.3 bulb (nova_v8/forms.py)
-    chest_strip=dict(w=36.0, h=5.0, z=92.0, note="jeden dymový pás: LED + ToF/svetlo za tým istým oknom"),
-    shoulder=dict(z=98.0, y=0.0, bore_d=18.0),
-    bottom_plate=dict(h=2.5, ring_od=82.0),                       # black turntable ring visible under the torso
-    yaw_servo=dict(type="Feetech STS3215", body=(45.2, 24.7, 35.0), spline_down=True, z_body=(41.0, 76.0)),
+    chest_strip=dict(w=30.0, h=3.6, z=82.0, note="svetelná linka hrude: LED + ToF/svetlo za tým istým oknom"),
+    shoulder=dict(z=93.0, y=1.0, bore_d=18.0),
+    bottom_plate=dict(h=2.5, ring_od=50.0),                       # v9.0: hidden turntable plinth Ø50 under the torso
+    yaw_servo=dict(type="Feetech STS3215", body=(45.2, 24.7, 35.0), spline_down=True, z_body=(40.0, 75.0)),
     controller="ESP32-C3 SuperMini + MP1584 5 V + budič zbernice 74LVC1G126 (motory riadi uzol základne STM32G030)",
 )
 
@@ -122,10 +153,10 @@ def torso_section(z):
 
 
 NECK = dict(
-    collar=dict(w=44.0, d=34.0, z0=118.0, z1=123.0),             # v8.3: fits the bulb's flat top
-    cone=dict(z0=123.0, z1=130.0, r_bottom=13.0, r_top=10.0),
+    collar=dict(w=44.0, d=44.0, z0=116.0, z1=119.6),             # v9.0: round black collar Ø44
+    cone=dict(z0=119.1, z1=129.1, r_bottom=12.8, r_top=11.6),      # v9.0: visible column
     pan_bearing=(25.0, 37.0, 7.0),                                # 6805 under the collar
-    tilt_axis=dict(y=0.0, z=140.0), barrel_d=30.0, barrel_len=30.0,
+    tilt_axis=dict(y=0.0, z=145.1), barrel_d=30.0, barrel_len=30.0,   # v9.0: head bottom + 10
     pan_range=(-90, 90), tilt_range=(-20, 20),
 )
 
@@ -133,18 +164,18 @@ DISPLAY = dict(outline=(86.0, 56.0, 6.0), active=(73.44, 48.96),
                board="ESP32-S3 + 3.5\" IPS 480x320 dotyk (Waveshare ESP32-S3-Touch-LCD-3.5 / Guition JC3248W535)")
 
 HEAD = dict(   # variant A ("ako na fotke"), flat glass
-    w=106.0, h=74.0, z0=130.0, z1=204.0, zc=167.0, y0=-33.0, y1=33.0, r_front_view=26.0, r_back=20.0, wall=2.0,  # v8.2 +13
-    bezel=dict(w=101.0, h=69.0, r=23.5, protrude=5.0), glass=dict(w=92.0, h=60.0, r=16.0, zc=167.0, print_top=7.0),
-    camera=dict(d=2.8, z=193.5, note="voliteľná kamera OV2640/OV5640 na FPC"),
-    ear=dict(d=28.0, protrude=4.0, y=-3.0, z=167.0, ring_od=23.0, ring_id=17.0),
-    eyes=dict(w=10.5, h=17.5, r=5.25, x=10.0, z=164.0),
+    w=106.0, h=74.0, z0=135.1, z1=209.1, zc=172.1, y0=-33.0, y1=33.0, r_front_view=26.0, r_back=20.0, wall=2.0,  # v9.0 +18.1
+    bezel=dict(w=101.0, h=69.0, r=23.5, protrude=5.0), glass=dict(w=92.0, h=60.0, r=16.0, zc=172.1, print_top=7.0),
+    camera=dict(d=2.8, z=198.6, note="voliteľná kamera OV2640/OV5640 na FPC"),
+    ear=dict(d=28.0, protrude=4.0, y=-3.0, z=172.1, ring_od=23.0, ring_id=17.0),
+    eyes=dict(w=10.5, h=17.5, r=5.25, x=10.0, z=169.1),
     back_cover=dict(w=88.0, h=50.0, r=15.0, seam=0.6),
-    barrel_pocket=dict(w=36.0, d=40.0, r=12.0, ceiling_z=157.5),
+    barrel_pocket=dict(w=36.0, d=40.0, r=12.0, ceiling_z=162.6),
     tilt_servo=dict(where="v hlave vedľa kapsy valca, os = os náklonu, telo smerom hore", envelope=(25.5, 12.2, 23.2)),
 )
 
-ARM = dict(axis=dict(y=0.0, z=98.0), egg=dict(top_z=110.0, widest_z=76.4, bottom_z=48.8, half_w=15.6, half_t=8.4),
-           mid_x=64.0, abduction_deg=8.0, range=(-30, 180))           # v8.2: +20 % (was axis 89, 51 x 26 x 14)
+ARM = dict(axis=dict(y=1.0, z=93.0), egg=dict(top_z=109.6, widest_z=79.0, bottom_z=37.6, half_w=17.5, half_t=6.8),
+           mid_x=55.0, abduction_deg=7.0, range=(-30, 180))           # v9.0 KLASIK paddles (forms: klasik.py arm_*)
 
 MICRO_SERVO = dict(body=(23.0, 12.2, 22.7), tabs_len=32.5, height_with_spline=28.5,
                    options="MG90S (PWM, najlacnejšie) alebo Feetech SCS0009 (sériová zbernica, tichšie)")
