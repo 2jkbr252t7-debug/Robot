@@ -31,6 +31,19 @@ v8.1 review ("MODERNY - NIC NEVIDNO") of the v8.0 head B.  Defects found and fix
     specular image of the renderer's large FILL light (right of the camera, ~56 deg) in a mirror-gloss R100
     cylinder - it is physics, not faceting (see the report printed by __main__ / open issues).
 
+v8.1 review 2 (independent, against torso / neck / arms / base / cad_internals at pose 0 and over the joint ranges):
+  * neck cable: cad_internals IW1-3 is routed to the HEAD A board (ends at y -25 on the IH02 5 V / UART JST); in B the
+    board sits 5.6 further back, so IW1-3 ran 45.9 mm3 THROUGH the PCB of HB13 -> new HB18 = B head segment of the
+    bundle (same start / tangent as the end of IW1-2 in the barrel slot, same ceiling hole, plugs into the same JST at
+    its B position y -19.4; 2.6 over the mic, 2.4 to HB01).  IW1-3 joins the parts B replaces (DROP_FROM_OTHERS:
+    IH01-IH04, IH06, IH07-R/L, IW1-3 - render / sheet jobs of B must exclude them).
+  * PCB top corners (R2 in cad_internals IH02) poked 0.02 mm into the HB04 wall past the board relief (built for an
+    assumed R3) -> DISP_CR 2.0.
+  * the --check filter dropped every id starting with "IH0" -> the mic IH08 (which stays in B) was never checked;
+    now explicit: head A manifest + DROP_FROM_OTHERS + cad_internals.SUPERSEDED.  IH08 lies on the pocket ceiling
+    0.01 above HB01 (foam), 9.1 from HB13, >17 from HB07, far from HB12 (+X) - OK.
+  * laser data (HB03F_blank.dxf/.svg, HB03_mould_rib.dxf) are now also copied into nova_v8/sklo/ (export pack).
+
 Visor (unchanged, manufacturable): ONE single-curvature piece, smoked PMMA 2 mm (outer R102 / inner R100), laser
 cut flat 99 x 60 (R25 top / R12 bottom, concentric with the R32 / R19 head corners) and heat-bent over a R100 former
 (Ø200 PVC "KG DN200" pipe offcut or MDF ribs), black mask inside outside the display window (77 x 50 R6 developed).
@@ -41,7 +54,7 @@ Body: front-view silhouette 110 x 74 (R32 top / R19 bottom) along Y with a varia
 INTERSECT plan prism (front arc R102 + R18 plan corners), whole front loop R6: one G1 capsule, y -40.5 .. +31.
 
 Parts (sub "head_b"; J3 = head tilt about X through y 0 z 127; J2 = pan stage)
-  HB01     Obal hlavy               white      ONE piece y -22.75 .. +31, wall 2.0: barrel pocket 37.2 x 37.9 R12 (front
+  HB01     Obal hlavy               white      ONE piece y -22.75 .. +31, wall 2.0: barrel pocket 37.2 x 37.9 R7 front / R12 back (front
                                                wall moved back 2.1 for the board connectors), ceiling z 144.5, cable
                                                hole + 5 hidden vent slots, thrust pads, 2 pivot bosses (M3 pilots on
                                                the tilt axis), servo rails (+X, servo slides in from the front),
@@ -66,6 +79,7 @@ Internal (internal=True)
   HB15-R/L Cap naklonu M3x12        metal      = M31 (DIN 912 pivots)
   HB16-1..4 Magnet Ø6x3 N52         metal      2 in the HB07 lugs, 2 in the HB01 roof blocks (0.2 gap)
   HB17-R/L Skrutka M2x6 zospodu     metal      DIN 7985, heads flush in the HB01 underside
+  HB18     Kabel krku - hlava B     black      6-wire Ø3 bundle: barrel slot -> ceiling hole -> HB13 JST (replaces IW1-3)
 
 Assembly: (1) HB09/HB10 on the barrel ends (neck finished).  (2) MG90S + HB11 slid into the HB01 rails from the
 front opening, 1x M2 stop screw; ear PCBs into the cups, rings pressed in from outside.  (3) HB01 lowered over the
@@ -168,6 +182,10 @@ PK_YF, PK_YB = -17.9, 20.0             # pocket inner front / back wall (A: -20 
 PK_D = PK_YB - PK_YF                   # board connectors (USB-C to y -20.3) clear the pocket front wall (-19.9)
 PK_CY = (PK_YB + PK_YF) / 2
 PK_X_IN, PK_X_OUT = HA.PK_X_IN, HA.PK_X_OUT     # 18.6 / 20.6
+# v8.1 review 2: with the front wall moved back, the head-A R12 FRONT corners reached into the tilt kit: the HB09 /
+# HB10 discs (r 9.8 .. 11 teeth, |x| 13.4 .. 18) rubbed the corner at y -9.8 (0.007 .. 0.03 mm3 at every tilt) and the
+# N06 barrel end edge (15, -15) was 0.03 from it.  Front corners R7 -> disc 0.6 (side wall), barrel edge 1.7.
+PK_RF = 7.0                            # pocket inner corner radius at the FRONT (back corners keep PK_R = 12)
 
 # ---- front module retention (magnets top, 2x M2 from the underside) --------------------------
 Y_STOP = -19.7                         # tray top lug rear face = HB01 roof block front face
@@ -257,10 +275,24 @@ def rr_prism_z(w, d, r, z0, z1, cx=0.0, cy=0.0):
     return extrude(s.sketch, z1 - z0)
 
 
+def rr2_prism_z(w, d, r_front, r_back, z0, z1, cy=0.0):
+    """Rounded-rectangle prism along Z with different vertical corner radii at the front (-Y) and back (+Y)."""
+    with BuildSketch(Plane.XY.offset(z0)) as s:
+        with Locations((0, cy)):
+            Rectangle(w, d)
+        fillet(s.vertices().filter_by(lambda v: v.Y < cy), r_front)
+        fillet(s.vertices().filter_by(lambda v: v.Y > cy), r_back)
+    return extrude(s.sketch, z1 - z0)
+
+
 def rr_dist_xy(x, y, w, d, r, cy=0.0):
     qx = abs(x) - (w / 2 - r)
     qy = abs(y - cy) - (d / 2 - r)
     return math.hypot(max(qx, 0.0), max(qy, 0.0)) + min(max(qx, qy), 0.0) - r
+
+
+def rr2_dist_xy(x, y, w, d, r_front, r_back, cy=0.0):
+    return rr_dist_xy(x, y, w, d, r_front if y < cy else r_back, cy)
 
 
 # ===========================================================================================
@@ -572,13 +604,15 @@ def build_shell(sk: Skin):
 
     # ---- barrel pocket: walls, thrust pads, pivot bosses (head A geometry, front wall moved back) ----
     pw, pd, pr, ptop = PK_W, PK_D, PK_R, PK_TOP
-    pocket_out = rr_prism_z(pw + 2 * PK_WALL, pd + 2 * PK_WALL, pr + PK_WALL, Z0 - 1, ptop + PK_WALL, cy=PK_CY)
+    rf = PK_RF
+    pocket_out = rr2_prism_z(pw + 2 * PK_WALL, pd + 2 * PK_WALL, rf + PK_WALL, pr + PK_WALL, Z0 - 1, ptop + PK_WALL,
+                             cy=PK_CY)
     pocket_out = fillet(pocket_out.edges().group_by(Axis.Z)[-1], 4.0)
-    pocket_in = rr_prism_z(pw, pd, pr, Z0 - 5, ptop, cy=PK_CY)
+    pocket_in = rr2_prism_z(pw, pd, rf, pr, Z0 - 5, ptop, cy=PK_CY)
     pocket_in = fillet(pocket_in.edges().group_by(Axis.Z)[-1], 3.0)
     h01 = retry(lambda: h01 + (pocket_out & body), "pocket walls")
     h01 = retry(lambda: h01 - pocket_in, "pocket")
-    e_pk = edges_where(h01, lambda p: abs(p.Z - Z0) < 0.02 and abs(rr_dist_xy(p.X, p.Y, pw, pd, pr, PK_CY)) < 0.02)
+    e_pk = edges_where(h01, lambda p: abs(p.Z - Z0) < 0.02 and abs(rr2_dist_xy(p.X, p.Y, pw, pd, rf, pr, PK_CY)) < 0.02)
     h01 = try_fillet(h01, e_pk, 1.0, "pocket rim")
     feats = []
     for sx in (1, -1):
