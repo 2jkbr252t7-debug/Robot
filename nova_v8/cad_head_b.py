@@ -411,6 +411,15 @@ class Skin(HBC.Skin):
         self.body = capsule_body()
         self._off = {}
 
+    def band_in(self, d0, d1, region, label="band"):
+        """Skin layer between depth d0 and d1 INSIDE region: (outer & region) - (inner & region).  Local booleans:
+        the full-body difference of two offsets fails sporadically in OCC ('Null TopoDS_Shape')."""
+        def mk():
+            a = (self.body if d0 == 0 else self.inner(d0)) & region
+            b = self.inner(d1) & region
+            return a - b
+        return retry(mk, label, tries=6)
+
 
 # ===========================================================================================
 # purchased / bought-in parts
@@ -482,7 +491,7 @@ def build_visor():
 
 def build_face(sk: Skin):
     """HB04: white face part in front of the seam plane, visor opening + rebate, skirt into HB01, tray bosses."""
-    face = retry(lambda: sk.band(0, WALL) & slab_y(Y_FRONT - 5, Y_FS - SEAM / 2), "face wall")
+    face = sk.band_in(0, WALL, slab_y(Y_FRONT - 5, Y_FS - SEAM / 2), "face wall")
     # skirt = straight Y-prism of the HB01 rim opening (-0.15 / -1.75): on the cheeks the skin widens toward the back
     # (R18 plan blend), a skirt that followed the skin could not be pulled out of HB01 along -Y
     # (sections of the 3D inner offsets at the rim plane: B-spline edges, STEP-safe - a 2D offset() gives offset
@@ -499,8 +508,8 @@ def build_face(sk: Skin):
     face = retry(lambda: face + skirt, "face + skirt")
     face = retry(lambda: face - dev_cutter(GAP), "visor opening")
     # rebate (ledge) behind the shadow gap: 1.65 under the visor, merges into the wall outside
-    ledge = retry(lambda: (sk.band(D_LEDGE0, D_LEDGE1) & dev_cutter(GAP + LEDGE_OUT)) - dev_cutter(-LEDGE_W),
-                  "ledge band")
+    ledge = sk.band_in(D_LEDGE0, D_LEDGE1, dev_cutter(GAP + LEDGE_OUT), "ledge band")
+    ledge = retry(lambda: ledge - dev_cutter(-LEDGE_W), "ledge inner edge")
     ledge = retry(lambda: ledge - (ring(R_OUT + 1, R_OUT - (VIS_T + TAPE)) & dev_cutter(GAP)), "ledge seat")
     notch = Pos(0, Y_FRONT + 4, (CAM_Z - 2.2 + 195) / 2) * Box(12, 14, 195 - (CAM_Z - 2.2))
     ledge = retry(lambda: ledge - (notch & dev_cutter(GAP)), "camera notch")     # optional camera behind the mask
@@ -521,7 +530,7 @@ def build_face(sk: Skin):
 def build_shell(sk: Skin):
     """HB01: the monolithic shell behind the seam plane with the head A tilt kit interface."""
     body = sk.body
-    h01 = retry(lambda: sk.band(0, WALL) & slab_y(Y_FS + SEAM / 2, Y_BACK + 5), "HB01 wall")
+    h01 = sk.band_in(0, WALL, slab_y(Y_FS + SEAM / 2, Y_BACK + 5), "HB01 wall")
 
     # ---- barrel pocket: walls, thrust pads, pivot bosses (head A geometry, front wall moved back) ----
     pw, pd, pr, ptop = PK_W, PK_D, PK_R, PK_TOP
@@ -584,8 +593,7 @@ def build_shell(sk: Skin):
                     - cyl_z(SCR_HOLE_R, Z0 - 1, PAD_Z1 + 1, sx * SCR_X, SCR_Y), "underside screw hole")
 
     # ---- flush ear rings: groove 1.5, 3 light windows through the rest of the wall, cup for the LED PCB ----
-    groove = retry(lambda: sk.band(0, RING_DEPTH + 0.1) & ear_annulus(RING_OD / 2 + RING_GAP, RING_ID / 2 - RING_GAP),
-                   "ear groove")
+    groove = sk.band_in(0, RING_DEPTH + 0.1, ear_annulus(RING_OD / 2 + RING_GAP, RING_ID / 2 - RING_GAP), "ear groove")
     h01 = retry(lambda: h01 - groove, "ear grooves")
     for sx in (1, -1):        # windows only near the side walls (|x| > 47): from the groove bottom inward
         win = cyl_x(WIN_RO, sx * 47.0, sx * 70.0, EAR_Y, EAR_Z) - cyl_x(WIN_RI, sx * 46.0, sx * 71.0, EAR_Y, EAR_Z)
@@ -597,9 +605,8 @@ def build_shell(sk: Skin):
         cup = (cyl_x(CUP_RO, sx * CUP_X0, sx * (W / 2 + 1), EAR_Y, EAR_Z)
                - cyl_x(CUP_RI, sx * (CUP_X0 - 1), sx * (W / 2 + 2), EAR_Y, EAR_Z)) & body
         h01 = retry(lambda: h01 + cup, "ear cup")
-    rband = sk.band(RING_RECESS, RING_DEPTH)
-    ring_l = single(retry(lambda: rband & ear_annulus(RING_OD / 2, RING_ID / 2, +1), "HB05-L"), "HB05-L")
-    ring_r = single(retry(lambda: rband & ear_annulus(RING_OD / 2, RING_ID / 2, -1), "HB05-R"), "HB05-R")
+    ring_l = single(sk.band_in(RING_RECESS, RING_DEPTH, ear_annulus(RING_OD / 2, RING_ID / 2, +1), "HB05-L"), "HB05-L")
+    ring_r = single(sk.band_in(RING_RECESS, RING_DEPTH, ear_annulus(RING_OD / 2, RING_ID / 2, -1), "HB05-R"), "HB05-R")
     e_cb = edges_where(h01, lambda p: abs(p.Z - Z0) < 0.02 and
                        abs(math.hypot(abs(p.X) - SCR_X, p.Y - SCR_Y) - SCR_CB_R) < 0.02)
     h01 = HA.try_chamfer(h01, e_cb, 0.3, "counterbore edge")
