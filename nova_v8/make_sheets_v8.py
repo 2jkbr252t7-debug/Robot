@@ -27,9 +27,13 @@ BUILD = os.path.join(ROOT, "build_v8")
 VAR = {
     "A": dict(label="A · ploché sklo", dir="hlava_A", extra=[], sub="head"),
     "Aplus": dict(label="A+ · jemne zakrivené sklo R180", dir="hlava_A_plus", sub="head_aplus",
+                  # A+ keeps the head A board position -> cad_internals IH* stay, the module's own envelopes go
+                  drop=["EP31", "EP32", "EP33-R", "EP33-L"],
                   extra=[dict(manifest_dir=os.path.join(ROOT, "build_v8_var_aplus", "manifest"),
                               glb_dir=os.path.join(ROOT, "build_v8_var_aplus"))]),
     "B": dict(label="B · vizor bez rámu R100", dir="hlava_B", sub="head_b",
+              # B has its own board / tilt servo / ear PCB positions (HB12–HB14) -> the head A ones go
+              drop=["IH01", "IH02", "IH03", "IH04", "IH07-R", "IH07-L", "IH06"],
               extra=[dict(manifest_dir=os.path.join(ROOT, "build_v8_var_b", "manifest"),
                           glb_dir=os.path.join(ROOT, "build_v8_var_b"))]),
 }
@@ -64,12 +68,12 @@ def head_a_ids():
 
 def superseded():
     """Simple bought-part envelopes in the shell modules that cad_internals replaces with detailed parts,
-    plus the flat glass blanks (drawn only on the glass sheet)."""
+    the flat glass blanks (drawn only on the glass sheet) and the per-variant duplicates."""
     try:
         from nova_v8.cad_internals import SUPERSEDED
     except Exception:  # noqa: BLE001
         SUPERSEDED = []
-    return set(SUPERSEDED) | {"HP04F", "HB03F"}
+    return set(SUPERSEDED) | {"HP04F", "HB03F"} | set(VAR[CUR["v"]].get("drop", []))
 
 
 def manifest_v8():
