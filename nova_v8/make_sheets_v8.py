@@ -210,12 +210,22 @@ def expr_v8(g, ey, disp, Hd, zc):
     return lines, "LED SIGNALIZÁCIA (uši · pás na hrudi · podsvietenie 360° pod základňou)", leds
 
 
+def group_explode_v8(recs, lift=95.0):
+    """v8 explode: the base cover stays (its own +70 would push it into the torso), everything above the base
+    lifts by `lift` so torso/arms and base read as separate groups."""
+    ov = _group7(recs, lift)
+    for pid, z in (("B01", 0.0), ("B09", 14.0)):
+        if pid in ov:
+            ov[pid] = [ov[pid][0], ov[pid][1], z]
+    return ov
+
+
 def install(variant, quality_tmp):
     CUR["v"] = variant
     MS.spec = compat_spec()
     MS.manifest = manifest_v8
     MS.render = render_v8
-    MS.group_explode = lambda recs, lift=55.0: _group7(recs, lift)
+    MS.group_explode = group_explode_v8
     MS.HERO_CAM = HERO_CAM
     MS.new_sheet = new_sheet_v8
     MS.sheet_matrix = sheet_matrix_v8
