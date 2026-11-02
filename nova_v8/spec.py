@@ -49,39 +49,48 @@ v8.1 – "MODERNÝ, NIČ NEVIDNO" (user, 2026-11-01): supersedes v8.0 wherever t
     (constant 209 mm, ±150°) – replaces the Ø6 bundle.  Neck bundle = 6 wires (5 V/GND 26 AWG + TX, RX, speaker ±).
     Torso ESP32-C3 uses 11 of 13 GPIO (pin map in BOM_v8.md kap. 7).
 =====================================================================================
+v8.2 – PROPORCIE "B+" (user, 2026-11-02: "taký malý trup? veľký podstavec a hlava?") – supersedes v8.1 numbers
+  The torso was too short (0.88 x head height; R01 has the torso TALLER than the head).  Study:
+  obrazky/v8_koncept/v8_studia_proporcii_Bplus.png.  Changes (everything else of v8.1 stays):
+  * TORSO 88 x 72 x 65  ->  94 x 76 x 82 (z 36..118); shoulder axis z 98; chest strip z 92; turntable ring OD 82.
+  * BASE 130 x 108 x 39 ->  124 x 104 x 35; wheels Ø34 -> Ø30 (axle z 15, x ±48), still fully hidden.
+  * ARMS +20 % (egg 61 long, 31 wide, 17 thick), mid_x 64.
+  * NECK collar 45 x 36 on the torso top (z 118..123), cone z 123..130, tilt axis z 140.
+  * HEAD unchanged in size (3.5" display), moved up 13 mm: z 130..204.  Overall height 204 mm.
+=====================================================================================
 """
 from math import sqrt
 
 NAME = "NOVA mini"
-VERSION = "v8.1"
+VERSION = "v8.2"
 FLOOR_Z = 0.0
 
 MATERIALS_FROM = "nova.spec.MATERIALS"   # same material keys as v7 (white, black, glass, cyan_led, eye, rubber, ...)
 
 # ---------------------------------------------------------------------------
 BASE = dict(
-    w=130.0, d=108.0, z0=0.0, z1=39.0, plan_r=26.0, top_fillet=8.0, wall=2.2,
+    w=124.0, d=104.0, z0=0.0, z1=35.0, plan_r=25.0, top_fillet=8.0, wall=2.2,           # v8.2 (was 130x108x39)
     skirt_z0=3.0,                                                 # v8.1: closed skirt down to z=3, no wheel arches
     underglow=dict(z=2.0, inset=3.0, note="360° tyrkysový svetelný prstenec pod okrajom – svieti na stôl"),
-    wheel=dict(d=34.0, w=10.0, x=52.0, y=4.0, axle_z=17.0),      # tyre top z=34 -> 2.8 mm under the top wall
+    wheel=dict(d=30.0, w=10.0, x=48.0, y=4.0, axle_z=15.0),      # v8.2: Ø30, tyre top z=30 -> 2.8 mm under the top wall
     motor=dict(type="N20 6V s enkodérom (1:100 – 1:150)", body=(12.0, 10.0, 24.0), gearbox_len=9.0),
-    caster=dict(d=12.0, y=(-40.0, 44.0)),
-    cliff_sensors=dict(xy=[(52, -44), (-52, -44), (52, 44), (-52, 44)], window=(7.0, 4.0), type="TCRT5000 alebo VL53L0X"),
+    caster=dict(d=12.0, y=(-38.0, 42.0)),                         # v8.2 scaled with the footprint
+    cliff_sensors=dict(xy=[(47, -39), (-47, -39), (47, 39), (-47, 39)], window=(7.0, 4.0), type="TCRT5000 alebo VL53L0X"),
     # v8.1 CAD positions (base review: the rear caster sits at (0, 44), so the pads/ports moved outwards)
-    usb_c=dict(where="underside rear", x=-24.0, y=40.0), button=dict(where="underside, recessed", x=24.0, y=40.0),
-    dock_pads=dict(xy=[(-36, 41), (36, 41)], d=6.0),              # spring-pin pads under the rear (future dock)
+    usb_c=dict(where="underside rear", x=-23.0, y=38.0), button=dict(where="underside, recessed", x=23.0, y=38.0),
+    dock_pads=dict(xy=[(-34, 39), (34, 39)], d=6.0),              # spring-pin pads under the rear (future dock)
     batteries=dict(count=2, d=18.5, len=65.0, axis="X", y=(-28.0, 28.0), z=6.0),   # front and back of the hub
     speaker=dict(d=28.0, h=5.0, x=0.0, y=-28.0),
-    yaw_hub=dict(d=24.0, bearing=(30.0, 42.0, 7.0), z_top=39.0),  # hub fixed in the base, 6806 bearing at the top
+    yaw_hub=dict(d=24.0, bearing=(30.0, 42.0, 7.0), z_top=35.0),  # hub fixed in the base, 6806 bearing at the top
 )
 
 TORSO = dict(
-    z0=40.0, z1=105.0, w=88.0, d=72.0, n=2.7, r_top=16.0, r_bottom=8.0, wall=2.0,
+    z0=36.0, z1=118.0, w=94.0, d=76.0, n=2.7, r_top=17.0, r_bottom=8.0, wall=2.0,          # v8.2 (was 88x72x65)
     band=dict(half_w=27.0, seam=0.6),                             # centre band front->top->back like v7.3
-    chest_strip=dict(w=34.0, h=5.0, z=84.0, note="jeden dymový pás: LED + ToF/svetlo za tým istým oknom"),
-    shoulder=dict(z=89.0, y=0.0, bore_d=16.0),
-    bottom_plate=dict(h=2.5, ring_od=77.0),                       # black turntable ring visible under the torso
-    yaw_servo=dict(type="Feetech STS3215", body=(45.2, 24.7, 35.0), spline_down=True, z_body=(45.0, 80.0)),
+    chest_strip=dict(w=36.0, h=5.0, z=92.0, note="jeden dymový pás: LED + ToF/svetlo za tým istým oknom"),
+    shoulder=dict(z=98.0, y=0.0, bore_d=18.0),
+    bottom_plate=dict(h=2.5, ring_od=82.0),                       # black turntable ring visible under the torso
+    yaw_servo=dict(type="Feetech STS3215", body=(45.2, 24.7, 35.0), spline_down=True, z_body=(41.0, 76.0)),
     controller="ESP32-C3 SuperMini + MP1584 5 V + budič zbernice 74LVC1G126 (motory riadi uzol základne STM32G030)",
 )
 
@@ -99,10 +108,10 @@ def torso_section(z):
 
 
 NECK = dict(
-    collar=dict(w=42.0, d=34.0, z0=105.0, z1=110.0),
-    cone=dict(z0=110.0, z1=117.0, r_bottom=13.0, r_top=10.0),
+    collar=dict(w=45.0, d=36.0, z0=118.0, z1=123.0),
+    cone=dict(z0=123.0, z1=130.0, r_bottom=13.0, r_top=10.0),
     pan_bearing=(25.0, 37.0, 7.0),                                # 6805 under the collar
-    tilt_axis=dict(y=0.0, z=127.0), barrel_d=30.0, barrel_len=30.0,
+    tilt_axis=dict(y=0.0, z=140.0), barrel_d=30.0, barrel_len=30.0,
     pan_range=(-90, 90), tilt_range=(-20, 20),
 )
 
@@ -110,23 +119,23 @@ DISPLAY = dict(outline=(86.0, 56.0, 6.0), active=(73.44, 48.96),
                board="ESP32-S3 + 3.5\" IPS 480x320 dotyk (Waveshare ESP32-S3-Touch-LCD-3.5 / Guition JC3248W535)")
 
 HEAD = dict(   # variant A ("ako na fotke"), flat glass
-    w=106.0, h=74.0, z0=117.0, z1=191.0, zc=154.0, y0=-33.0, y1=33.0, r_front_view=26.0, r_back=20.0, wall=2.0,
-    bezel=dict(w=101.0, h=69.0, r=23.5, protrude=5.0), glass=dict(w=92.0, h=60.0, r=16.0, zc=154.0, print_top=7.0),
-    camera=dict(d=2.8, z=180.5, note="voliteľná kamera OV2640/OV5640 na FPC"),
-    ear=dict(d=28.0, protrude=4.0, y=-3.0, z=154.0, ring_od=23.0, ring_id=17.0),
-    eyes=dict(w=10.5, h=17.5, r=5.25, x=10.0, z=151.0),
+    w=106.0, h=74.0, z0=130.0, z1=204.0, zc=167.0, y0=-33.0, y1=33.0, r_front_view=26.0, r_back=20.0, wall=2.0,  # v8.2 +13
+    bezel=dict(w=101.0, h=69.0, r=23.5, protrude=5.0), glass=dict(w=92.0, h=60.0, r=16.0, zc=167.0, print_top=7.0),
+    camera=dict(d=2.8, z=193.5, note="voliteľná kamera OV2640/OV5640 na FPC"),
+    ear=dict(d=28.0, protrude=4.0, y=-3.0, z=167.0, ring_od=23.0, ring_id=17.0),
+    eyes=dict(w=10.5, h=17.5, r=5.25, x=10.0, z=164.0),
     back_cover=dict(w=88.0, h=50.0, r=15.0, seam=0.6),
-    barrel_pocket=dict(w=36.0, d=40.0, r=12.0, ceiling_z=144.5),
+    barrel_pocket=dict(w=36.0, d=40.0, r=12.0, ceiling_z=157.5),
     tilt_servo=dict(where="v hlave vedľa kapsy valca, os = os náklonu, telo smerom hore", envelope=(25.5, 12.2, 23.2)),
 )
 
-ARM = dict(axis=dict(y=0.0, z=89.0), egg=dict(top_z=99.0, widest_z=71.0, bottom_z=48.0, half_w=13.0, half_t=7.0),
-           mid_x=58.0, abduction_deg=8.0, range=(-30, 180))
+ARM = dict(axis=dict(y=0.0, z=98.0), egg=dict(top_z=110.0, widest_z=76.4, bottom_z=48.8, half_w=15.6, half_t=8.4),
+           mid_x=64.0, abduction_deg=8.0, range=(-30, 180))           # v8.2: +20 % (was axis 89, 51 x 26 x 14)
 
 MICRO_SERVO = dict(body=(23.0, 12.2, 22.7), tabs_len=32.5, height_with_spline=28.5,
                    options="MG90S (PWM, najlacnejšie) alebo Feetech SCS0009 (sériová zbernica, tichšie)")
 
-OVERALL = dict(h=HEAD["z1"], w_arms=136.0, base=(BASE["w"], BASE["d"]))   # w_arms = CAD A01 bboxes (±68.1)
+OVERALL = dict(h=HEAD["z1"], w_arms=2 * (ARM["mid_x"] + ARM["egg"]["half_t"]) + 6, base=(BASE["w"], BASE["d"]))  # ~151, CAD measures
 
 JOINTS = [
     dict(id="J0", name="Jazda (2 kolesá)", drive="2x N20 s enkodérom, diferenciálny pohon"),
