@@ -112,6 +112,8 @@ from nova_v8 import cad_head as HA  # noqa: E402  (head A v8.1: the shared tilt 
 from nova_v8.head_b import (check, cyl_x, edges_where, retry, single, slab_y, try_fillet)  # noqa: E402
 
 OUT_DIR = os.path.join(ROOT, "build_v8_var_b")
+SKLO_DIR = os.path.join(ROOT, "nova_v8", "sklo")      # versioned copy of the laser data (export_v8.py packs it)
+SKLO_FILES = ("HB03F_blank.dxf", "HB03F_blank.svg", "HB03_mould_rib.dxf")
 SUB = "head_b"
 MANIFEST = "head_b"
 
@@ -143,7 +145,8 @@ LEDGE_W, LEDGE_OUT = 2.4, 1.4          # rebate: 2.4 under the visor edge, 1.4 b
 D_LEDGE0, D_LEDGE1 = 1.5, 3.9          # rebate band depth below the skin (merges into the 2.0 wall)
 
 DISP_Y0 = -28.2                        # LCD front face (board side edge x +-43 -> 0.58 behind the R100 inner face)
-DISP_CR = 3.0                          # assumed corner radius of the board outline
+DISP_CR = 2.0                          # board outline corner radius (= cad_internals IH02 PCB R2; R3 let the PCB
+                                       # top corners poke 0.02 mm into the HB04 wall past the R3.4 relief)
 DISP_SIDE_CLR = 0.5
 DISP_RELIEF = 0.4                      # relief in HB04 around the board (front + sides)
 YC = DISP_Y0 - DISP_SIDE_CLR + math.sqrt(R_IN ** 2 - (DISP_W / 2) ** 2)   # plan centre of the visor cylinder
@@ -202,6 +205,21 @@ SCOOP_R, SCOOP_D, SCOOP_Y = 120.0, 0.75, -23.4
 
 CAM_Z, CAM_D = CAM["z"], CAM["d"]      # 180.5, 2.8
 WINDOW_MARGIN, WINDOW_R = 0.5, 6.0     # mask window = active area + 0.5, corners R6
+
+# ---- neck cable, head segment (HB18 replaces cad_internals IW1-3 in variant B) ----------------
+# IW1-3 is routed to the head A board: it ends at y -25 on the 5 V / UART JST of IH02, which in B (board 5.6 further
+# back, PCB back y -23.6) lies INSIDE the PCB (45.9 mm3 through HB13).  HB18 starts exactly where IW1-2 ends (barrel
+# slot, same tangent), takes the same hole in the pocket ceiling and plugs into the same JST at its B position
+# (x -34..-27, z 165..169.5, rear face y -19.4), passing 2.6 over the mic IH08 and behind the ears/servo JST.
+CABLE_R = 1.5
+CABLE_PATH = [(0.0, 10.4, 137.6), (0.0, 10.0, 142.0), (0.0, 9.0, 146.5), (-3.0, 3.0, 151.0),
+              (-11.0, -5.0, 158.0), (-21.0, -11.0, 163.5), (-28.5, -15.0, 166.6), (-30.5, -19.4, 167.25)]
+CABLE_T0, CABLE_T1 = (0, 1, 1), (0, -1, 0)
+# parts of the other v8 modules that variant B replaces (the sheet / render jobs of B must drop them too):
+# head A (build_v8/manifest/head.json) + these cad_internals head parts
+REPLACES_INTERNALS = {"HB13": ["IH01", "IH02", "IH03"], "HB12": ["IH04"], "HB14-R": ["IH07-R"],
+                      "HB14-L": ["IH07-L"], "HB18": ["IW1-3"], "HB03C": ["IH06"]}
+DROP_FROM_OTHERS = sorted({x for v in REPLACES_INTERNALS.values() for x in v})
 
 
 # ===========================================================================================
@@ -479,6 +497,14 @@ def screw_m2_under(sx):
         bx(x - 1.4, x + 1.4, y - 0.3, y + 0.3, zh - 0.1, zh + 0.8)
     shank = cyl_z(1.0, zh + 1.59, zh + 1.6 + 6.0, x, y)
     return head + shank
+
+
+def neck_cable_hb18():
+    """6-wire neck bundle Ø3, head segment of variant B (same sweep as cad_internals.tube, B path)."""
+    pts = [Vector(*p) for p in CABLE_PATH]
+    path = Wire([Edge.make_spline(pts, tangents=[Vector(*CABLE_T0).normalized(), Vector(*CABLE_T1).normalized()])])
+    sec = Wire([Edge.make_circle(CABLE_R, Plane(origin=pts[0], z_dir=path.tangent_at(0)))])
+    return check("HB18", Solid.sweep(sec, path), 300)
 
 
 # ===========================================================================================
@@ -772,6 +798,10 @@ def build():
         P.append(PartRec(f"HB17-{side}", f"Skrutka M2×6 zospodu {nm}", screw_m2_under(sx), "metal", SUB, J,
                          (0, 0, U - 15), internal=True,
                          note="DIN 7985 M2×6, hlava zapustená v HB01 zospodu (Ø4.4×1.7), do oka HB07 – zvonku nevidno"))
+    P.append(PartRec("HB18", "Kábel krku – hlava B", neck_cable_hb18(), "black", SUB, J, (0, 0, U), internal=True,
+                     note="6 vodičov Ø3 (5 V, GND, TX, RX, reproduktor ±): zo štrbiny valca N06 otvorom v strope kapsy "
+                          "ponad mikrofón do JST 5 V/UART dosky HB13 (nahrádza IW1-3 hlavy A, ktorý by vo variante B "
+                          "prechádzal doskou)"))
     for p in P:
         check(p.id, p.shape)
     print(f"  build {time.time() - t0:.1f}s")
@@ -893,8 +923,22 @@ def interference(parts, others=(), tol=0.5, skip=FITS):
     return bad
 
 
-# head A parts and the head-A-positioned internals are replaced by this variant
-REPLACED_PREFIX = ("H0", "H1", "E3", "M3", "IH0", "IW1-3")
+def replaced_ids():
+    """Ids of the other modules that do not exist with head B: head A (whole manifest), the head-A-positioned
+    internals (DROP_FROM_OTHERS) and the simple envelopes cad_internals supersedes.  (v8.1 review: the old prefix
+    filter "IH0" also dropped the microphone IH08, which DOES stay in head B -> it was never checked.)"""
+    ids = set(DROP_FROM_OTHERS)
+    try:
+        ids |= {r["id"] for r in json.load(open(os.path.join(ROOT, "build_v8", "manifest", "head.json")))}
+    except OSError:
+        ids |= {"H01", "H03", "H04", "H04C", "H04E", "H05-R", "H05-L", "H06-R", "H06-L", "H07", "H09", "H10", "H11",
+                "E31", "E32", "E33-R", "E33-L", "M31-R", "M31-L", "M33-R", "M33-L"} | {f"M32-{i}" for i in range(1, 5)}
+    try:
+        from nova_v8.cad_internals import SUPERSEDED
+        ids |= set(SUPERSEDED)
+    except Exception:  # noqa: BLE001
+        pass
+    return ids
 
 
 def other_parts(build_others=False):
@@ -902,6 +946,7 @@ def other_parts(build_others=False):
     import importlib
     from build123d import import_step
     base = os.path.join(ROOT, "build_v8")
+    drop = replaced_ids()
     out = []
     for fn in sorted(os.listdir(os.path.join(base, "manifest"))):
         name = fn[:-5]
@@ -910,10 +955,10 @@ def other_parts(build_others=False):
         if build_others:
             m = importlib.import_module(f"nova_v8.cad_{name}")
             recs = m.build()
-            out += [r for r in recs if not r.id.startswith(REPLACED_PREFIX)]
+            out += [r for r in recs if r.id not in drop]
             continue
         for r in json.load(open(os.path.join(base, "manifest", fn))):
-            if r["id"].startswith(REPLACED_PREFIX):
+            if r["id"] in drop:
                 continue
             stp = os.path.join(base, "step", f"{r['id']}.step")
             if os.path.exists(stp):
@@ -937,6 +982,8 @@ def pose_sweep(parts, others):
         for q in j2:
             qs = q.shape.rotate(TILT_AXIS, -th)
             for h in head:
+                if h.id == "HB18" and q.id in ("N06", "IW1-2"):
+                    continue                      # flexible bundle: it slides in the barrel slot when tilting
                 hs = h.shape.rotate(Axis((0, TILT_Y, HA.SERVO_Z), (1, 0, 0)), th) if (h.id, q.id) in gear_pair \
                     else h.shape
                 v = common_vol(hs, qs)
@@ -1104,4 +1151,10 @@ if __name__ == "__main__":
             print("  pose sweep:", pose_sweep(parts, oth) or "none")
     nums = export_manufacturing(OUT_DIR)
     print("  visor:", json.dumps(nums, ensure_ascii=False))
+    if os.path.isdir(SKLO_DIR):          # versioned copy of the laser data (packed by nova_v8/export_v8.py)
+        import shutil
+        for fn in SKLO_FILES:
+            shutil.copy2(os.path.join(OUT_DIR, fn), os.path.join(SKLO_DIR, fn))
+        print(f"  laser data copied -> {SKLO_DIR}: {', '.join(SKLO_FILES)}")
+    print("  variant B replaces in the other modules (drop in B render / sheet jobs):", ", ".join(DROP_FROM_OTHERS))
     print(f"[{MANIFEST}] {len(recs)} parts exported in {time.time() - t:.1f}s -> {OUT_DIR}")
