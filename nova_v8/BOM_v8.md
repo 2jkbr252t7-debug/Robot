@@ -96,7 +96,7 @@ a „extended“ diely). Nahrádzajú IP2326/BMS/DRV8833 moduly a hlavne umožň
 
 Ceny bez filamentu (PETG biely + čierny ~0.6 kg ≈ 12 €, TPU 85A ~50 g) a bez doku. OCA fólia pridáva ~2 €.
 
-**Firmvér – mäkké limity:** ruka zdvihnutá nad 135° môže zavadiť o spodný roh rámu hlavy, keď je hlava zároveň sklonená dole (−10 až −20°) a natočená 20–50° k tej ruke. Pri takej kombinácii obmedz rameno na 135° (pri natočení hlavy 45° stačí 165°). Trup J1 drž v rozsahu ±150° (valivá slučka kábla).
+**Firmvér – mäkké limity:** ruka zdvihnutá nad 135° môže zavadiť o spodný roh rámu hlavy, keď je hlava zároveň sklonená dole (−10 až −20°) a natočená 20–50° k tej ruke. Pri takej kombinácii obmedz rameno na 135° (pri natočení hlavy 45° stačí 165°). Hlava B: rameno ≤ 155°, keď hlava pozerá dole (pod −5°) a je natočená k tej ruke; inak do 180°. Trup J1 drž v rozsahu ±150° (valivá slučka kábla).
 
 ## 7. Zapojenie a rozpis pinov (v8.1, revízia 2)
 

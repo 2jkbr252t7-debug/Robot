@@ -50,6 +50,16 @@ v8.1 review 2 (independent, against torso / neck / arms / base / cad_internals a
   * underside screws: head A got flush white cover plugs (counterbore 2.5); B inherits that counterbore from
     cad_head, which left an open Ø4.4 x 0.9 hole under the screw and the M2 x 6 tip 0.5 out of the HB07 lug ->
     pad / lug +0.8 and plugs HB19-R/L (= H12): the underside shows only two hairline circles, no screw.
+  Results after the fixes (STL samples 0.45 mm + exact OCC at the worst pose; tilt + = look up, pan + = to the left):
+  * pose 0 vs base / torso / neck / arms / internals (IH08 + IW1-1/2 kept, superseded envelopes out): no interference.
+  * tilt +-20 vs pan stage: HB01-HB09/HB10 0.30 (thrust-pad play), HB15-disc bores 0.10, HB11-N06 0.30,
+    HB01-N06 1.47, HB01-N02 1.80, HB12-HB09 3.36.
+  * tilt x pan (+-20 x +-90) vs torso / collar: tightest HB04-N01 0.36 (tilt -20, pan +-60..75, in the scoop centre),
+    HB01-N01 0.48, HB04-T01 0.54 (tilt -20 pan +-60), HB04-T02 0.65 (pan +-90), N02-T01/T02 1.4 - no contact.
+  * arms raised (J4 shown, J5 mirrored), worst pan = 15..25 deg TOWARD the arm: head tilt >= -5 -> free up to 180 deg
+    (>= 0.59); tilt -10 -> free to 172 (0.36, touch at 180); tilt -15 -> free to 160 (0.52); tilt -20 -> free to 155
+    (0.40, 145: 1.8, 135: 3.7).  Contact is the HB04 lower front corner with A03.  Firmware soft limit for head B:
+    arm <= 155 deg while the head is pitched down (< -5 deg) and panned toward that arm (head A: 135 deg).
 
 Visor (unchanged, manufacturable): ONE single-curvature piece, smoked PMMA 2 mm (outer R102 / inner R100), laser
 cut flat 99 x 60 (R25 top / R12 bottom, concentric with the R32 / R19 head corners) and heat-bent over a R100 former

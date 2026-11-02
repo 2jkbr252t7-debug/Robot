@@ -40,6 +40,7 @@ v8.1 – "MODERNÝ, NIČ NEVIDNO" (user, 2026-11-01): supersedes v8.0 wherever t
     tilt servo beside the barrel pocket driving a 1:1 gear pair, passive M3 pivots on the tilt axis.
   * Firmware soft limit: arm > 135° while the head is pitched down and panned towards that arm can touch the
     lower bezel corner -> limit the arm to 135° in that combination.
+    Head B: arm <= 155° when the head is pitched below -5° and panned towards that arm (free to 180° otherwise).
   * Speaker grille = fine micro-perforation on the base underside rim (invisible from the side).
   * All three head variants are built on this body: A (flat glass), A+ (curved R180), B (frameless visor R100).
   * v8.1 review 2 (internals): BASE NODE – STM32G030 + DRV8833 + 5 V buck on the base board IB09-2, a slave on

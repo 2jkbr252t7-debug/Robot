@@ -33,7 +33,7 @@ VAR = {
                               glb_dir=os.path.join(ROOT, "build_v8_var_aplus"))]),
     "B": dict(label="B · vizor bez rámu R100", dir="hlava_B", sub="head_b",
               # B has its own board / tilt servo / ear PCB positions (HB12–HB14) -> the head A ones go
-              drop=["IH01", "IH02", "IH03", "IH04", "IH07-R", "IH07-L", "IH06"],
+              drop=["IH01", "IH02", "IH03", "IH04", "IH07-R", "IH07-L", "IH06", "IW1-3"],   # = cad_head_b.DROP_FROM_OTHERS
               extra=[dict(manifest_dir=os.path.join(ROOT, "build_v8_var_b", "manifest"),
                           glb_dir=os.path.join(ROOT, "build_v8_var_b"))]),
 }
