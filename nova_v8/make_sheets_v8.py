@@ -36,6 +36,9 @@ VAR = {
 AXES = {"J2": [[0, 0, 1], [0, 0, 0]], "J3": [[1, 0, 0], [0, S8.NECK["tilt_axis"]["y"], S8.NECK["tilt_axis"]["z"]]],
         "J4": [[1, 0, 0], [0, S8.ARM["axis"]["y"], S8.ARM["axis"]["z"]]],
         "J5": [[1, 0, 0], [0, S8.ARM["axis"]["y"], S8.ARM["axis"]["z"]]]}
+TVAR = {"A": "3.5\" IPS 480×320 s ESP32-S3 · ploché dymové sklo nalepené na displej (dotyk funguje)",
+        "Aplus": "3.5\" IPS 480×320 s ESP32-S3 · zakrivené dymové sklo R180 (bez dotyku cez sklo)",
+        "B": "3.5\" IPS 480×320 s ESP32-S3 · vizor R100 cez celé čelo"}
 HERO_CAM = {"name": "hero", "loc": [245, -735, 290], "target": [0, 0, 98], "lens": 95}
 CUR = {"v": "A"}
 
@@ -244,7 +247,7 @@ def sheet_hero_v8(q, recs):
     facts = [
         ("Rozmery", f"výška {S8.HEAD['z1']:.0f} mm · základňa {S8.BASE['w']:.0f} × {S8.BASE['d']:.0f} mm"),
         ("Pohyb", "jazda na 2 skrytých kolesách · trup ±150° · hlava ±90° / ±20° · 2 ruky"),
-        ("Tvár", "3.5\" IPS 480×320 s ESP32-S3 · dymové krycie sklo (mŕtvy predok)"),
+        ("Tvár", TVAR[CUR["v"]]),
         ("Zmysly", "mikrofón, dotykový displej, ToF + svetlo za pásom na hrudi, 4 senzory proti pádu"),
         ("Svetlo", "LED krúžky v ušiach · pás v hrudi · podsvietenie stola 360°"),
         ("Mozog", "ESP32-S3 (hlava) + ESP32-C3 (trup) + uzol základne, AI cez Wi-Fi"),
@@ -440,7 +443,7 @@ def sheet_compare_v8(q, tmp):
                          " · ESP32-S3 + 3.5\" 480×320 · krycie sklo = dymový akryl (mŕtvy predok)")
     cols = [("A", "A · PLOCHÉ SKLO", "čierny rám, ploché sklo 92×60 · najlacnejšie a najjednoduchšie",
              "laserom vyrezaný dymový akryl 2 mm, nalepený na displej (OCA)"),
-            ("Aplus", "A+ · JEMNE ZAKRIVENÉ R180", "rám ostáva, sklo sa jemne vydúva · moderné, stále jednoduché",
+            ("Aplus", "A+ · JEMNE ZAKRIVENÉ R180", "rám vystupuje 10.7 mm, sklo sa vydúva · dotyk cez sklo nefunguje",
              "prírez 92.5×60 R16, ohyb v rúre 150–160 °C na MDF forme R178"),
             ("B", "B · VIZOR BEZ RÁMU R100", "zapustený vizor cez celé čelo · najmodernejší vzhľad",
              "prírez 99×60, ohyb na PVC rúre KG DN200 alebo MDF rebrách R100")]
