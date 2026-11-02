@@ -76,7 +76,10 @@ def superseded():
         from nova_v8.cad_internals import SUPERSEDED
     except Exception:  # noqa: BLE001
         SUPERSEDED = []
-    return set(SUPERSEDED) | {"HP04F", "HB03F"} | set(VAR[CUR["v"]].get("drop", []))
+    # camera dots (H04C/HP04C/HB03C) are render-only placeholders of the OPTIONAL camera that sits behind the
+    # mask in v8.1 – invisible from outside, so they are never drawn
+    return (set(SUPERSEDED) | {"HP04F", "HB03F", "H04C", "HP04C", "HB03C"}
+            | set(VAR[CUR["v"]].get("drop", [])))
 
 
 def manifest_v8():
