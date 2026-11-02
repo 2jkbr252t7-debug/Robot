@@ -158,6 +158,11 @@ def matrix_sheet(rows, title, out, views=("front", "back", "right", "left", "top
         d.rectangle([40, y0, W - 40, y0 + cell[1]], fill=CELL, outline=LINE, width=2)
         # wrap label by pixel width
         words = lab.split(" ")
+        j_ = 0
+        while j_ < len(words) - 1:                      # Slovak typography: no one-letter word at a line end
+            if len(words[j_]) == 1 and words[j_].lower() in "szvkouai":
+                words[j_:j_ + 2] = [words[j_] + "\u00a0" + words[j_ + 1]]
+            j_ += 1
         lines, cur = [], ""
         lf = font(27, "Bold")
         for w in words:

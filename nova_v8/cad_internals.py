@@ -1190,10 +1190,10 @@ def build(camera=None):
             note="13 mm, kľúč v drážke spojky A04, skrutka ramienka M2 axiálne")
     add("IT07", "Nosná DPS trupu (5 V MP1584 + budič zbernice 74LVC1G126 + konektory)", it07_controller(),
         "pcb", "torso", "J1", (0, 20, 0),
-        note="48×18.5 zvislo v drážkach T08, servis cez zadné dvierka; motory a senzory základne riadi uzol IB09-2 "
+        note="48×18.5 zvislo v drážkach T08, servis po zložení zadného krytu T02; motory a senzory základne riadi uzol IB09-2 "
              "na tej istej zbernici – ESP32-C3 využije 11 z 13 GPIO, cez J1 idú len 4 vodiče + reproduktor")
     add("IT08", "ESP32-C3 SuperMini", it08_supermini(), "pcb", "torso", "J1", (0, 26, 0),
-        note="22.5×18 na lištách; USB-C na programovanie za dvierkami")
+        note="22.5×18 na lištách; USB-C na programovanie pod zadným krytom T02")
     add("IT09", "Hrudná DPS (5× WS2812B-2020 + VL53L0X + LTR-303)", it09_chest_pcb(), "pcb", "torso", "J1",
         (0, -22, 0), note="za dymovým pásom T05; svetelný pás v strede, senzory na krajoch, 2× M2 do T01")
     add("IT10", "Rámik hrudnej DPS so svetelnou clonou", it10_chest_frame(), "black", "torso", "J1",

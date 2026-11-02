@@ -56,7 +56,7 @@ def compat_spec():
     H["display"] = dict(S8.DISPLAY, zc=S8.HEAD["zc"], label='3.5" 480×320, SPI/QSPI')
     H["camera"] = dict(S8.HEAD["camera"], hole_d=S8.HEAD["camera"]["d"], hidden=True)
     # v8.1 head A mask (cad_head review): window = LCD active area + 0.5 mm/side -> 5.0 top/bottom, 8.8 sides
-    H["glass"] = dict(S8.HEAD["glass"], print_border=5.0, print_top=5.0, print_side=8.8, t=2.0)
+    H["glass"] = dict(S8.HEAD["glass"], print_border=5.0, print_top=5.0, print_side=8.8, t=2.0, print_dim=False)
     H["d"] = S8.HEAD["y1"] - S8.HEAD["y0"]
     return types.SimpleNamespace(
         VERSION=S8.VERSION, FLOOR_Z=0.0, BASE=dict(S8.BASE), TORSO=dict(S8.TORSO), HEAD=H, ARM=S8.ARM, NECK=S8.NECK,
@@ -134,6 +134,10 @@ def sheet_matrix_v8(name, title, rows, q, recs, subtitle=None):
     return _matrix7(name, title, ok, q, recs, subtitle=subtitle)
 
 
+MAT_V8 = {"white": "biely PETG (3D tlač), satén", "black": "čierny PETG (3D tlač)", "rubber": "čierne TPU 85A",
+          "glass": "dymový PMMA 2 mm", "cyan_led": "opálový svetlovod PMMA", "black_gloss": "čierny lesklý PETG"}
+
+
 def auto_rows(recs, subs, skip=(), attach=None, short=None):
     """One matrix row per visible part of the given subassemblies (left side parts '-L' skipped)."""
     attach, short = attach or {}, short or {}
@@ -141,7 +145,7 @@ def auto_rows(recs, subs, skip=(), attach=None, short=None):
     for r in recs:
         if r["sub"] not in subs or r.get("internal") or r["id"] in skip or r["id"].endswith("-L"):
             continue
-        desc = S7.MATERIALS.get(r["mat"], {}).get("desc", r["mat"]).split("(")[0].strip()
+        desc = MAT_V8.get(r["mat"]) or S7.MATERIALS.get(r["mat"], {}).get("desc", r["mat"]).split("(")[0].strip()
         nm = r["name"].split(" = ")[0].split(" (")[0].strip()
         rows.append((f"{r['id']} {nm}", [r["id"]] + attach.get(r["id"], []), short.get(r["id"], desc)))
     return rows
@@ -196,7 +200,8 @@ def dim_v_v8(d, *a, **k):
 def expr_v8(g, ey, disp, Hd, zc):
     px = 480 / disp["active"][0]
     lines = [
-        ("Sklo", f"{g['w']:g} × {g['h']:g} mm, R{g['r']:g}, dymový PMMA 2 mm · A ploché, A+ R180, B R100"),
+        ("Sklo", "dymový PMMA 2 mm · A 92×60 ploché · A+ 92.5×60 ohnuté R180 · B vizor 99×60 R100"),
+        ("Maska", f"zvnútra čierna, okno = aktívna plocha + 0.5 mm: hore/dole {g['print_top']:g} mm, po stranách {g['print_side']:g} mm"),
         ("Displej", "3.5\" IPS 480×320, dotyk, ESP32-S3 (Guition JC3248W535 / Waveshare)"),
         ("Kamera", "voliteľná OV2640 za čiernym horným pásom rámu – zvonku nevidno"),
         ("Oči", f"{ey['w']:g}×{ey['h']:g} mm R{ey['r']:g}, stredy x=±{ey['x']:g}, z={ey['z']:g} ({zc - ey['z']:g} mm pod stredom skla)"),
@@ -209,7 +214,7 @@ def expr_v8(g, ey, disp, Hd, zc):
             ((60, 220, 120), "zelená dýcha", "nabíja sa (dok / USB-C)"),
             ((255, 160, 40), "oranžová bliká", "slabá batéria < 15 %"),
             ((255, 60, 60), "červená bliká", "okraj stola / chyba"),
-            ((245, 245, 245), "biela – krátky záblesk", "dotyk displeja / temena")]
+            ((245, 245, 245), "biela – krátky záblesk", "potvrdenie povelu / dotyk (hlava A)")]
     return lines, "LED SIGNALIZÁCIA (uši · pás na hrudi · podsvietenie 360° pod základňou)", leds
 
 
@@ -217,7 +222,7 @@ def group_explode_v8(recs, lift=95.0):
     """v8 explode: the base cover stays (its own +70 would push it into the torso), everything above the base
     lifts by `lift` so torso/arms and base read as separate groups."""
     ov = _group7(recs, lift)
-    for pid, z in (("B01", 0.0), ("B09", 14.0)):
+    for pid, z in (("B01", 0.0), ("B09", 14.0), ("B-UG", -14.0), ("B02", -55.0)):
         if pid in ov:
             ov[pid] = [ov[pid][0], ov[pid][1], z]
     return ov
@@ -235,6 +240,7 @@ def install(variant, quality_tmp):
     MS.dim_v = dim_v_v8
     MS.EXPR_OVERRIDE = expr_v8
     MS.RENDER_ONLY = tuple(sorted(RENDER_ONLY))
+    MS.SECTION_X = 0.4
     MS.TMP = os.path.join(quality_tmp, variant)
     MS.FOOT = f"NOVA mini {S8.VERSION} · hlava {VAR[variant]['label']} · render z CAD modelu (build123d → Blender Cycles) · mm"
 
@@ -330,6 +336,15 @@ def sheet_kin_v8(q, recs):
 RENDER_ONLY = {"H04C", "H04E", "HP04C", "HP04E", "HB03C", "HB03E"}
 
 
+def sheet_six_v8(name, title, parts, q, recs, subtitle=None, drop=()):
+    """v7 six-view sheet with an explicit part list (internal parts of the same subs, minus `drop`)."""
+    ids = [i for i in MS.with_internals(recs, parts) if i not in set(drop)]
+    job = dict(res=list(q["res6"]), samples=q["samples"], views=MS.SIX, internal=True, exposure=MS.EXPO6, parts=ids)
+    rd = MS.render(job, name)
+    return S.six_view_sheet(rd, title, os.path.join(MS.OUT, f"{name}.png"), views=tuple(MS.SIX), cols=3,
+                            cell=(q["res6"][0], q["res6"][1] + 60), subtitle=subtitle, footer=MS.FOOT)
+
+
 def sheet_internals_v8(q, recs):
     """Bought parts / electronics without the shells + callouts + a two-column part table (v8 has ~70 parts)."""
     ints = [r for r in recs if r.get("internal") and r["id"] not in RENDER_ONLY]
@@ -339,7 +354,7 @@ def sheet_internals_v8(q, recs):
     W, H = 4200, 2300
     sh, d = MS.new_sheet(W, H, "NOVA mini / VNÚTORNÁ MECHANIKA A ELEKTRONIKA",
                          "bez krytov · I = kupované diely podľa nova_v8/BOM_v8.md (IH hlava · IN krk · IT trup · IB základňa · IW káble)"
-                         " · T/N/H/B = tlačené nosiče a mechanika")
+                         " · T/N/H/B = tlačené nosiče a mechanika · M = magnety, čapy, skrutky · BM = držiaky motorov")
     im = MS.load(rd, "iso", fade=None)
     bx = MS.alpha_bbox(im, 10)
     bx = (max(0, bx[0] - 30), max(0, bx[1] - 30), min(im.width, bx[2] + 30), min(im.height, bx[3] + 30))
@@ -347,7 +362,7 @@ def sheet_internals_v8(q, recs):
     s_, ox, oy = MS.paste_fit(sh, imc, (700, 190, 1900, 2200))
     anc = MS.anchors(rd, "iso", min_px=120)
     pts = [(pid, ox + (x - bx[0]) * s_, oy + (y - bx[1]) * s_) for pid, (x, y, n) in anc.items() if pid in by]
-    MS.callouts(d, pts, (40, 210, 2560, H - 120), lambda pid: f"{pid}  {by[pid]['name'][:34]}",
+    MS.callouts(d, pts, (40, 210, 2560, H - 120), lambda pid: f"{pid}  {MS.short_name(by[pid]['name'], 36)}",
                 split_x=ox + imc.width * s_ / 2, fs=22, gap=46)
     groups = [("HLAVA", ("head", "head_aplus", "head_b")), ("KRK", ("neck",)), ("TRUP", ("torso",)),
               ("RUKY", ("arm_R", "arm_L")), ("ZÁKLADŇA", ("base",))]
@@ -383,6 +398,17 @@ def sheet_internals_v8(q, recs):
     out = os.path.join(MS.OUT, "19_NOVA_mini_vnutorna_elektronika.png")
     sh.save(out, optimize=True)
     return out
+
+
+def head_subtitle(v, recs):
+    ids = [r for r in recs if r["sub"] == VAR[v]["sub"] and not r.get("internal")]
+    mn = [min(r["bbox"]["min"][i] for r in ids) for i in range(3)]
+    mx = [max(r["bbox"]["max"][i] for r in ids) for i in range(3)]
+    parts = {"A": "H01 obal (jeden kus) · H03 rám · H04 ploché sklo · H05/H06 uši · H12 krytky skrutiek",
+             "Aplus": "HP01 obal · HP03 rám R180 · HP04 zakrivené sklo · HP05/HP06 uši · HP12 krytky skrutiek",
+             "B": "HB01 obal (jeden kus) · HB04 čelný diel · HB03 vizor R100 · HB05 LED krúžky uší"}[v]
+    return (f"{VAR[v]['label']} · {parts} · {mx[0] - mn[0]:.0f} × {mx[1] - mn[1]:.0f} × {mx[2] - mn[2]:.0f} mm "
+            f"(š × h × v, s ušami) · z {mn[2]:.0f}–{mx[2]:.0f}")
 
 
 def head_rows(v):
@@ -532,8 +558,9 @@ def main():
                 lambda: sheet_kin_v8(q, recs),
                 lambda: MS.sheet_six("09_NOVA_mini_krk", "NOVA mini / KRK", ext("neck"), q, recs,
                                      subtitle=f"N01 golier · N02 kužeľ · N06 valec náklonu · os náklonu z = {S8.NECK['tilt_axis']['z']:.0f}"
-                                              " · s ložiskom 6805, servom otáčania IN01 (modré) a ozubením náklonu 1:1"),
-                lambda: MS.sheet_six("11_NOVA_mini_trup", "NOVA mini / TRUP", ext("torso"), q, recs,
+                                              " · ložisko 6805, servo otáčania IN01 (modré) s ozubením 20z:20z (N03/N04) · segment náklonu H09"),
+                lambda: sheet_six_v8("11_NOVA_mini_trup", "NOVA mini / TRUP", ext("torso"), q, recs,
+                                     drop=("IW3", "IT02", "IT03", "E21H"),
                                      subtitle=f"{T['w']:.0f} × {T['d']:.0f} × {T['z1'] - T['z0']:.0f} mm · T01 predná škrupina · T02 zadná škrupina = servisný kryt"
                                               " na skrytých magnetoch · T04 otočný tanier · T05 dymový pás hrude"),
                 lambda: MS.sheet_matrix("12_NOVA_mini_diely_trupu", "NOVA mini / DIELY TRUPU A KRKU",
@@ -582,7 +609,7 @@ def main():
                                      subtitle=f"výška {S8.HEAD['z1']:.0f} mm · základňa {S8.BASE['w']:.0f}×{S8.BASE['d']:.0f} mm · kolesá skryté · hlava {VAR[v]['label']}"),
                 lambda: MS.sheet_exploded(q, recs),
                 lambda: MS.sheet_six("07_NOVA_mini_hlava", f"NOVA mini / HLAVA {v.replace('plus', '+')}", head_ext, q, recs,
-                                     subtitle=VAR[v]["label"]),
+                                     subtitle=head_subtitle(v, recs)),
                 lambda: MS.sheet_matrix("08_NOVA_mini_diely_hlavy", f"NOVA mini / DIELY HLAVY {v.replace('plus', '+')}",
                                         head_rows(v), q, recs, subtitle="rovnaká mierka"),
             ]

@@ -66,8 +66,9 @@ BASE = dict(
     motor=dict(type="N20 6V s enkodérom (1:100 – 1:150)", body=(12.0, 10.0, 24.0), gearbox_len=9.0),
     caster=dict(d=12.0, y=(-40.0, 44.0)),
     cliff_sensors=dict(xy=[(52, -44), (-52, -44), (52, 44), (-52, 44)], window=(7.0, 4.0), type="TCRT5000 alebo VL53L0X"),
-    usb_c=dict(where="underside rear", x=-20.0, y=46.0), button=dict(where="underside, recessed", x=20.0, y=46.0),
-    dock_pads=dict(xy=[(-8, 50), (8, 50)], d=6.0),                # spring-pin pads under the rear (future dock)
+    # v8.1 CAD positions (base review: the rear caster sits at (0, 44), so the pads/ports moved outwards)
+    usb_c=dict(where="underside rear", x=-24.0, y=40.0), button=dict(where="underside, recessed", x=24.0, y=40.0),
+    dock_pads=dict(xy=[(-36, 41), (36, 41)], d=6.0),              # spring-pin pads under the rear (future dock)
     batteries=dict(count=2, d=18.5, len=65.0, axis="X", y=(-28.0, 28.0), z=6.0),   # front and back of the hub
     speaker=dict(d=28.0, h=5.0, x=0.0, y=-28.0),
     yaw_hub=dict(d=24.0, bearing=(30.0, 42.0, 7.0), z_top=39.0),  # hub fixed in the base, 6806 bearing at the top
@@ -124,7 +125,7 @@ ARM = dict(axis=dict(y=0.0, z=89.0), egg=dict(top_z=99.0, widest_z=71.0, bottom_
 MICRO_SERVO = dict(body=(23.0, 12.2, 22.7), tabs_len=32.5, height_with_spline=28.5,
                    options="MG90S (PWM, najlacnejšie) alebo Feetech SCS0009 (sériová zbernica, tichšie)")
 
-OVERALL = dict(h=HEAD["z1"], w_arms=2 * (ARM["mid_x"] + ARM["egg"]["half_t"]) + 8, base=(BASE["w"], BASE["d"]))
+OVERALL = dict(h=HEAD["z1"], w_arms=136.0, base=(BASE["w"], BASE["d"]))   # w_arms = CAD A01 bboxes (±68.1)
 
 JOINTS = [
     dict(id="J0", name="Jazda (2 kolesá)", drive="2x N20 s enkodérom, diferenciálny pohon"),

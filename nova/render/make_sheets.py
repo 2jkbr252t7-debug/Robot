@@ -47,6 +47,7 @@ HERO_CAM = {"name": "hero", "loc": [330, -1000, 380], "target": [0, 0, 138], "le
 # helpers
 # ---------------------------------------------------------------------------
 
+SECTION_X = 0.0                     # A–A cut plane (x); v8 uses 0.4 to miss the caster-ball poles
 RENDER_ONLY = ("H04C", "H04E")      # render-only objects never called out
 DEFAULT_DISP_LABEL = '4.3" 800×480, RGB'
 EXPR_OVERRIDE = None   # optional fn(g, ey, disp, head, zc) -> (lines, led_title, leds) for other robots
@@ -161,9 +162,26 @@ def anchors(rd, view, min_px=40):
             continue
         ys, xs = np.nonzero(msk)
         cx, cy = xs.mean(), ys.mean()
-        k = int(np.argmin((xs - cx) ** 2 + (ys - cy) ** 2))
+        try:                       # deepest visible pixel (max distance to the mask edge), biased to the centroid
+            from scipy.ndimage import distance_transform_edt
+            dt = distance_transform_edt(msk)[ys, xs]
+            score = dt - 0.02 * np.sqrt((xs - cx) ** 2 + (ys - cy) ** 2)
+            k = int(np.argmax(score))
+        except Exception:  # noqa: BLE001
+            k = int(np.argmin((xs - cx) ** 2 + (ys - cy) ** 2))
         out[pid] = (float(xs[k]), float(ys[k]), n)
     return out
+
+
+def short_name(name, n=40):
+    """Callout text: drop parenthesised details / '= …' and cut on a word boundary with an ellipsis."""
+    s = name.split(" (")[0].split(" = ")[0].strip()
+    if len(s) <= n:
+        return s
+    words = s[:n - 1].rsplit(" ", 1)[0].split(" ")
+    while len(words) > 1 and (len(words[-1]) <= 1 or words[-1] in ("–", "-", "+", "/")):
+        words.pop()                                   # never end on a dangling preposition or dash
+    return " ".join(words) + "…"
 
 
 def new_sheet(W, H, title, subtitle=None, note=None):
@@ -429,7 +447,8 @@ def sheet_dims(q, recs):
     xe_bot = edge("front", zf + 1, -1)[0]
     rot.append(dim_v(d, top[1], bot[1], xe_top, xe_bot, xl, f"{spec.OVERALL['h']:.0f} celková výška"))
     # level marks on the right (dashed from the silhouette edge to the label column)
-    xr_lab = panels["front"][0] + 1100 * sc - 20
+    cols_ = np.nonzero(alphas["front"].max(axis=0) > 40)[0]
+    xr_lab = max(panels["front"][0] + 1100 * sc - 20, panels["front"][0] + (cols_.max() if len(cols_) else 0) + 235)
     for z, lab in [(Hd["z1"], f"z {Hd['z1']:.0f} vrch hlavy"), (spec.TILT_AXIS["z"], f"z {spec.TILT_AXIS['z']:.0f} os náklonu"),
                    (Hd["z0"], f"z {Hd['z0']:.0f} spodok hlavy"), (T["z1"], f"z {T['z1']:.0f} vrch trupu"),
                    (spec.ARM["axis"]["z"], f"z {spec.ARM['axis']['z']:.0f} os ramien"), (B["z1"], f"z {B['z1']:.0f} vrch základne")]:
@@ -547,7 +566,7 @@ def draw_cut_inset(d, box):
 def sheet_section(q, recs):
     by = {r["id"]: r for r in recs}
     rdA = render(dict(res=list(q["sec"]), samples=q["samples"], internal=True, views=["left"], id_pass=True,
-                      section=dict(axis="x", offset=0.0, keep="neg"), margin=0.06, shadow=False, exposure=EXPO6),
+                      section=dict(axis="x", offset=SECTION_X, keep="neg"), margin=0.06, shadow=False, exposure=EXPO6),
                  "04_sec_x")
     rdB = render(dict(res=list(q["sec"]), samples=q["samples"], internal=True, views=["front"], id_pass=True,
                       section=dict(axis="y", offset=6.0, keep="pos"), margin=0.06, shadow=False, exposure=EXPO6),
@@ -567,11 +586,12 @@ def sheet_section(q, recs):
         d.text((box[0], 350), lab, fill=S.INK, font=S.font(28, "SemiBold"))
         anc = anchors(rd, v, min_px=250)
         top = sorted(anc.items(), key=lambda kv: -kv[1][2])[:26]
+        top = [kv for kv in top if not (kv[0].endswith("-R") and kv[0][:-2] + "-L" in anc)] if side == "R" else top
         pts = [(pid, ox + (x - bx[0]) * s, oy + (y - bx[1]) * s) for pid, (x, y, n) in top if pid not in RENDER_ONLY]
         if side == "L":
-            callouts(d, pts, (40, 400, box[0] - 20, H - 120), lambda pid: f"{pid} {by[pid]['name'][:32]}", split_x=1e9, fs=21, gap=44)
+            callouts(d, pts, (40, 400, box[0] - 20, H - 120), lambda pid: f"{pid} {short_name(by[pid]['name'], 34)}", split_x=1e9, fs=21, gap=44)
         else:
-            callouts(d, pts, (box[2] + 20, 400, W - 40, H - 120), lambda pid: f"{pid} {by[pid]['name'][:32]}", split_x=-1e9, fs=21, gap=44)
+            callouts(d, pts, (box[2] + 20, 400, W - 40, H - 120), lambda pid: f"{pid} {short_name(by[pid]['name'], 34)}", split_x=-1e9, fs=21, gap=44)
     footer(d, W, H)
     out = os.path.join(OUT, "04_NOVA_rezy.png")
     sh.save(out, optimize=True)
@@ -597,9 +617,9 @@ def sheet_xray(q, recs):
         top = sorted([kv for kv in anc.items() if kv[0] in ints], key=lambda kv: -kv[1][2])[:22]
         pts = [(pid, ox + (x - bx[0]) * s, oy + (y - bx[1]) * s) for pid, (x, y, n) in top]
         if side == "L":
-            callouts(d, pts, (40, 280, box[0], H - 120), lambda pid: f"{pid} {by[pid]['name'][:28]}", split_x=1e9, fs=21, gap=44)
+            callouts(d, pts, (40, 280, box[0], H - 120), lambda pid: f"{pid} {short_name(by[pid]['name'], 34)}", split_x=1e9, fs=21, gap=44)
         else:
-            callouts(d, pts, (box[2], 280, W - 40, H - 120), lambda pid: f"{pid} {by[pid]['name'][:28]}", split_x=-1e9, fs=21, gap=44)
+            callouts(d, pts, (box[2], 280, W - 40, H - 120), lambda pid: f"{pid} {short_name(by[pid]['name'], 34)}", split_x=-1e9, fs=21, gap=44)
     footer(d, W, H)
     out = os.path.join(OUT, "05_NOVA_vnutro.png")
     sh.save(out, optimize=True)
@@ -762,7 +782,7 @@ def sheet_expressions(q, recs):
     g, ey, disp = Hd["glass"], Hd["eyes"], Hd["display"]
     k = 7.0                      # px per mm
     cw, ch = int(g["w"] * k) + 60, int(g["h"] * k) + 120
-    exprs = ["Neutrálny", "Šťastný", "Žmurk", "Prekvapený", "Ospalý", "Zvedavý", "Smutný", "Nahnevaný",
+    exprs = ["Neutrálny", "Šťastný", "Žmurknutie", "Prekvapený", "Ospalý", "Zvedavý", "Smutný", "Nahnevaný",
              "Počúvam", "Láska"]
     cols = 5
     rows = math.ceil(len(exprs) / cols)
@@ -809,7 +829,7 @@ def sheet_expressions(q, recs):
             elif name == "Šťastný":
                 d.arc([cx - w * kk * 0.7, cy - h * kk * 0.25, cx + w * kk * 0.7, cy + h * kk * 0.55], 200, 340,
                       fill=eye_col, width=int(3.2 * kk))
-            elif name == "Žmurk":
+            elif name == "Žmurknutie":
                 if sgn < 0:
                     pill(cx, cy, w, h, kk)
                 else:
@@ -867,8 +887,10 @@ def sheet_expressions(q, recs):
     arrow(d, (acx - exx, yl), (-1, 0)); arrow(d, (acx + exx, yl), (1, 0))
     d.text((acx, yl - 22), f"rozostup očí {2 * ey['x']:g}", fill=DIM, font=S.font(26, "SemiBold"), anchor="mm")
     # vertical dims: glass height, top print band, eye height
-    for img_, pos_ in [dim_v(d, gy, gy + gh, gx, gx, gx - 60, f"sklo {g['h']:g}"),
-                       dim_v(d, gy, gy + g.get("print_top", 4) * kk, gx + gw, gx + gw, gx + gw + 50, f"potlač {g.get('print_top', 4):g}")]:
+    dims_ = [dim_v(d, gy, gy + gh, gx, gx, gx - 60, f"sklo {g['h']:g}")]
+    if g.get("print_dim", True):
+        dims_.append(dim_v(d, gy, gy + g.get("print_top", 4) * kk, gx + gw, gx + gw, gx + gw + 50, f"potlač {g.get('print_top', 4):g}"))
+    for img_, pos_ in dims_:
         sh.paste(img_, pos_)
     tx = gx + gw + 120
     lines = [

@@ -77,7 +77,7 @@ riadi servo náklonu priamo ESP32-S3 (1 pin UART), pri MG90S 1 pin PWM.
 | Komponent | Hľadaj na AliExpresse | ks | ~€ spolu |
 |---|---|---|---|
 | Skrutky M2 / M2.5 / M3 (samorezné do PETG + DIN 912; vrátane **M3×20** zospodu do drážkovania STS3215 = IT03), sada | `M2 M2.5 M3 screw kit` | 1 | 4 |
-| Neodýmové magnety N52 **Ø5 × 2** (skrytá západka zadných dvierok trupu, 4 ks) a **Ø6 × 3** (predný modul hlavy, 4 ks) | `N52 magnet 5x2mm` / `N52 magnet 6x3mm` | 8 | 2.5 |
+| Neodýmové magnety N52 **Ø5 × 2** (skrytá západka zadného servisného krytu T02, 4 ks) a **Ø6 × 3** (predný modul hlavy, 4 ks) | `N52 magnet 5x2mm` / `N52 magnet 6x3mm` | 8 | 2.5 |
 | Optická lepiaca fólia **OCA 0.2 mm** pre 3.5" panel – dymové sklo sa laminuje priamo na displej (funguje dotyk, bez dvojitého odrazu); pri slabom dotyku cez 2 mm PMMA použi sklo 1.5 mm | `OCA optical clear adhesive 3.5 inch` | 1 bal. | 2 |
 | Obojstranná páska VHB 0.5 mm (okraj skla hlavy v ráme, dymový pás na hrudi) | `3M VHB 4910 tape` | 1 | 2 |
 | Dymový akrylát 2 mm (pás na hrudi „dead-front“) + opálový PMMA/PETG pre prstenec podsvietenia | `smoked acrylic sheet 2mm` | 1 | 3 |
@@ -129,7 +129,7 @@ uzol základne ──► DRV8833 → 2× N20 · enkodéry A/B · 4× TCRT5000 ·
 | 8 / 9 | I2C SDA / SCL – VL53L0X + LTR-303 na hrudnej DPS (oba strapping piny majú aj tak pull-up 4.7 k) |
 | 2 | dáta WS2812B – svetelný pás na hrudi (5 LED) |
 | 3 / 4 / 5 | PWM mikro serv J4 / J5 / J2, ak sú MG90S (pri SCS0009 voľné – servá sú na zbernici) |
-| 0 / 1 | voľné (napr. Hallov snímač zatvorenia dvierok, rezerva) |
+| 0 / 1 | voľné (napr. Hallov snímač zatvorenia zadného krytu, rezerva) |
 
 * **STM32G030K8T6 (základňa):** USART1 v jednovodičovom polo-duplexe = zbernica; TIM1 a TIM3 v režime enkodéra
   (A/B oboch motorov); TIM14 / TIM16 PWM + 2 GPIO smer → DRV8833; ADC: 4 senzory pádu + napätie batérie (delič);

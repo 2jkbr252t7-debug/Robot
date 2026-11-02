@@ -1038,7 +1038,7 @@ def build():
         "metal", "torso", "J1", (0, 0, -12), True, note="30×42×7, vonkajší krúžok v T04, vnútorný na náboji základne")
     add("M22", "Ložisko 6805-2RS", bearing(PB_RI, PB_RO, PB_Z0, PB_Z1), "metal", "torso", "J1", (0, 0, 14), True,
         note="25×37×7 v T07, nesie hlavu")
-    add("M23", "Magnety západky dvierok", magnets_m23(), "metal", "torso", "J1", (0, 22, -6), True,
+    add("M23", "Magnety západky servisného krytu T02", magnets_m23(), "metal", "torso", "J1", (0, 22, -6), True,
         note="4× Ø5 N52: 2× 5×2 v T02, 2× 5×1.5 v T04 (opačná polarita) = skrytá západka zadného krytu")
     yaw = place(sts3215_local(), (0, 0, YS_Z0), (0, 0, -1), (1, 0, 0))
     add("E21", "Servo trupu Feetech STS3215", yaw, "servo", "torso", "J1", (0, 0, -4), True,
