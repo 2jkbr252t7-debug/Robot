@@ -430,6 +430,54 @@ def sheet_glass(q, recs):
     sh.save(os.path.join(MS.OUT, f"22_NOVA_mini_vyroba_skla_{v}.png"), optimize=True)
 
 
+def sheet_compare_v8(q, tmp):
+    """A / A+ / B side by side on the same body (uses the per-variant hero + six-view renders, renders them if missing)."""
+    W, H = 3600, 2400
+    out_dir("")
+    sh, d = MS.new_sheet(W, H, "NOVA mini / TRI VARIANTY HLAVY",
+                         f"rovnaké telo {S8.VERSION}: skryté kolesá, otočný trup, podsvietenie 360° · výška {S8.HEAD['z1']:.0f} mm"
+                         " · ESP32-S3 + 3.5\" 480×320 · krycie sklo = dymový akryl (mŕtvy predok)")
+    cols = [("A", "A · PLOCHÉ SKLO", "čierny rám, ploché sklo 92×60 · najlacnejšie a najjednoduchšie",
+             "laserom vyrezaný dymový akryl 2 mm, nalepený na displej (OCA)"),
+            ("Aplus", "A+ · JEMNE ZAKRIVENÉ R180", "rám ostáva, sklo sa jemne vydúva · moderné, stále jednoduché",
+             "prírez 92.5×60 R16, ohyb v rúre 150–160 °C na MDF forme R178"),
+            ("B", "B · VIZOR BEZ RÁMU R100", "zapustený vizor cez celé čelo · najmodernejší vzhľad",
+             "prírez 99×60, ohyb na PVC rúre KG DN200 alebo MDF rebrách R100")]
+    cw = (W - 120) // 3
+    reuse0, MS.REUSE = MS.REUSE, True       # the per-variant runs already rendered these views
+    for i, (v, lab, desc, mfg) in enumerate(cols):
+        install(v, tmp)
+        x0 = 60 + i * cw
+        rd_h = MS.render(dict(res=list(q["resp"]), samples=q["samples"] + 16, lens=70,
+                              views=[HERO_CAM, "iso_back", "iso_r"], margin=0.12, floor_z=0.0), "00_hero")
+        rd_6 = MS.render(dict(res=list(q["res6"]), samples=q["samples"], views=MS.SIX, internal=True, exposure=MS.EXPO6),
+                         "01_NOVA_mini_celok_6_pohladov")
+        d.text((x0 + 10, 200), lab, fill=S.INK, font=S.font(44, "Bold"))
+        d.text((x0 + 10, 260), desc, fill=S.MUTED, font=S.font(24, "Medium"))
+        d.text((x0 + 10, 296), mfg, fill=S.ACCENT, font=S.font(23, "SemiBold"))
+        hero = MS.load(rd_h, "hero", fade=None)
+        bx = MS.alpha_bbox(hero, 220)
+        pw, ph = int(0.18 * (bx[2] - bx[0])), int(0.06 * (bx[3] - bx[1]))
+        hero = hero.crop((max(0, bx[0] - pw), max(0, bx[1] - ph), min(hero.width, bx[2] + pw), min(hero.height, bx[3] + ph)))
+        MS.paste_fit(sh, MS.radial_fade(hero, inner=0.74), (x0, 350, x0 + cw - 20, 1600))
+        for k, vv in enumerate(["front", "right"]):
+            im = MS.load(rd_6, vv, fade=None)
+            b2 = MS.alpha_bbox(im, 60)
+            im = im.crop((max(0, b2[0] - 15), max(0, b2[1] - 15), min(im.width, b2[2] + 15), min(im.height, b2[3] + 15)))
+            bxx = (x0 + 20 + k * (cw // 2), 1680, x0 + (k + 1) * (cw // 2) - 20, 2280)
+            MS.paste_fit(sh, im, bxx)
+            d.text(((bxx[0] + bxx[2]) / 2, 1660), "SPREDU" if vv == "front" else "BOK (−X)", fill=S.MUTED,
+                   font=S.font(22, "SemiBold"), anchor="mb")
+        if i:
+            d.line([(x0 - 10, 200), (x0 - 10, 2290)], fill=S.LINE, width=3)
+    d.text((W - 60, H - 36), f"NOVA mini {S8.VERSION} · render z CAD modelu (build123d → Blender Cycles) · varianty hlavy na porovnanie",
+           fill=S.MUTED, font=S.font(22, "Medium"), anchor="rs")
+    MS.REUSE = reuse0
+    out = os.path.join(OUT_ROOT["dir"], "00_NOVA_mini_porovnanie_hlav.png")
+    sh.save(out, optimize=True)
+    return out
+
+
 # ---------------------------------------------------------------------------
 
 def main():
@@ -523,6 +571,8 @@ def main():
                     traceback.print_exc()
                     print("FAILED", e, flush=True)
         jobs.append(per_variant)
+    if "cmp" in todo:
+        jobs.append(lambda: print("->", sheet_compare_v8(q, tmp), flush=True))
     for j in jobs:
         j()
     print("done")
