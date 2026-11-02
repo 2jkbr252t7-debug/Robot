@@ -30,9 +30,9 @@ C_STEP = 0.9                       # fine step line around the outer edge
 N_TOP = (13.75, 8.6)               # half axes at the top (X, Y)
 N_BOT = (17.5, 14.0)               # half axes at the bottom
 N_BOT_DY = -5.0                    # bottom centre forward: back edge +9 (near vertical), front edge -19 (long front sweep)
-N_H = 16.5
+N_H = 14.0
 # N06 barrel
-CAP_R, CAP_L, CAP_GAP, B_R, B_LEN = 9.0, 7.8, 0.6, 8.6, 49.0
+CAP_R, CAP_L, CAP_GAP, B_R, B_LEN = 9.8, 7.8, 0.6, 9.6, 49.0
 B_CORE_L = B_LEN - 2 * (CAP_L + CAP_GAP)
 Z_C0 = ZT                          # collar bottom on the torso top
 Z_N0 = Z_C0 + C_H - 1.0
@@ -68,7 +68,7 @@ def neck():
     secs = []
     for i in range(12):
         t = i / 11                                          # 0 bottom -> 1 top
-        k = (1 - t) ** 2.3                                  # smooth bell/trumpet flare (R04 front view)
+        k = max(0.0, (0.58 - t) / 0.58) ** 2.0              # R04 front view: vertical upper part, bell flare below
         a = N_TOP[0] + (N_BOT[0] - N_TOP[0]) * k
         b = N_TOP[1] + (N_BOT[1] - N_TOP[1]) * k
         cy = N_BOT_DY * k
@@ -83,7 +83,7 @@ def barrel():
         xc = sx * (B_CORE_L / 2 + CAP_GAP + CAP_L / 2)
         cap = Pos(xc, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(CAP_R, CAP_L)
         try:
-            cap = fillet([e for e in cap.edges() if abs(e.center().X - (xc + sx * CAP_L / 2)) < 0.01], 5.0)
+            cap = fillet([e for e in cap.edges() if abs(e.center().X - (xc + sx * CAP_L / 2)) < 0.01], 6.0)
             cap = fillet([e for e in cap.edges() if abs(e.center().X - (xc - sx * CAP_L / 2)) < 0.01], 0.9)
         except Exception:  # noqa: BLE001
             pass
