@@ -46,7 +46,7 @@ TVAR = {"A": "3.5\" IPS 480×320 · ploché dymové sklo, dotyk cez sklo",
 ZMYSLY = {"A": "mikrofón, dotyk, ToF + svetlo za pásom hrude, 4 senzory proti pádu",
           "Aplus": "mikrofón, ToF + svetlo za pásom hrude, 4 senzory proti pádu",
           "B": "mikrofón, ToF + svetlo za pásom hrude, 4 senzory proti pádu"}
-HERO_CAM = {"name": "hero", "loc": [245, -735, 290], "target": [0, 0, 98], "lens": 95}
+HERO_CAM = {"name": "hero", "loc": [255, -770, 305], "target": [0, 0, 104], "lens": 95}   # v8.2: 204 mm tall
 CUR = {"v": "A"}
 
 
@@ -291,9 +291,9 @@ def sheet_hero_v8(q, recs):
 
 
 def sheet_kin_v8(q, recs):
-    ISO = {"name": "k", "loc": [420, -600, 330], "target": [0, 0, 100], "lens": 112}
-    SIDE = {"name": "k", "loc": [-700, 0, 105], "target": [0, 0, 105], "ortho": True, "ortho_scale": 245}
-    FRONT = {"name": "k", "loc": [0, -700, 110], "target": [0, 0, 110], "ortho": True, "ortho_scale": 270}
+    ISO = {"name": "k", "loc": [440, -630, 345], "target": [0, 0, 107], "lens": 112}
+    SIDE = {"name": "k", "loc": [-700, 0, 112], "target": [0, 0, 112], "ortho": True, "ortho_scale": 258}
+    FRONT = {"name": "k", "loc": [0, -700, 117], "target": [0, 0, 117], "ortho": True, "ortho_scale": 284}
     poses = [
         ("J1  otáčanie trupu  +60°  (±150°, základňa stojí)", {"J1": 60}, ISO),
         ("J2  otáčanie hlavy  +60°  (±90°)", {"J2": 60}, ISO),
