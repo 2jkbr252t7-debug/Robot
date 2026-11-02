@@ -14,13 +14,13 @@ B = f"/tmp/claude-0/ctx_{V}"
 
 def build():
     shell = import_step(os.path.join(D, f"NOVA_mini_01_hlava_skrupina_{V}.step"))
-    ball = Pos(0, HS.TILT_Y, HS.TILT_Z) * Solid.make_sphere(HS.BALL_R)
-    col = Pos(0, 0, -11) * Cylinder(HS.COLUMN_D / 2, 26)
-    collar = Pos(0, 0, -25.5) * Cylinder(22, 3.6)
+    from nova_mini import krk as KR
+    neck, ball, _c = KR.build()
+    collar = Pos(0, 0, KR.NECK_Z0 - 1.8) * Cylinder(22, 3.6)
     collar = fillet(collar.edges().group_by(Axis.Z)[-1], 1.2)
     parts = [PartRec("HS", "Škrupina hlavy", shell, "white", "head", "J3"),
              PartRec("NB", "Guľa krku", ball, "black_gloss", "neck", "J2"),
-             PartRec("NC", "Stĺpik krku", col, "black", "neck", "J2"),
+             PartRec("NC", "Krk", neck, "black", "neck", "J2"),
              PartRec("NK", "Golier", collar, "black", "neck", "J1")]
     export_parts(parts, "ctx", step=False, out_dir=B)
 
