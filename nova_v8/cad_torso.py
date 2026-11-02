@@ -1,30 +1,44 @@
 """
-NOVA mini v8.1 - TORSO + NECK + ARMS (manifest "torso").   "MODERNÝ - NIČ NEVIDNO"
+NOVA mini v8.2 - TORSO + NECK + ARMS (manifest "torso").   "MODERNÝ - NIČ NEVIDNO", proportions "B+"
 Run from the repo root:   /opt/venv/cad/bin/python -m nova_v8.cad_torso [--check [--others] [--motion]]
 Exports STEP (first) + STL + manifest into build_v8/ (never build/, which holds the finished v7.3).
 
-Numbers: nova_v8/spec.py (TORSO incl. chest_strip, NECK, ARM, MICRO_SERVO, BASE.yaw_hub).  Outer shape = v8.0
-(superellipse 88 x 72 n2.7, z 40..105, R16 top / R8 bottom); the part split, the openings and the internals are new.
+Numbers: nova_v8/spec.py (TORSO incl. chest_strip, NECK, ARM, MICRO_SERVO, BASE.yaw_hub).  Every dimension that
+follows the body is derived from the spec (no literal z / x / y of the shell, the neck or the arms in this file).
+
+v8.2 "B+" (spec v8.2 block; the v8.1 design below is kept feature-for-feature, only the proportions change)
+  * Torso 88 x 72 x 65 -> 94 x 76 x 82 (superellipse n2.7, z 36..118, R17 top / R8 bottom); shoulder / arm axis
+    z 98 (bore Ø18), chest strip 36 x 5 at z 92, turntable T04 Ø82 on the 6806 seated on the base hub top z 35,
+    STS3215 body z 41..76.
+  * The bottom stack (T04, 6806 housing, T08 cradle, STS3215, controller slot, magnets) follows the base top /
+    TORSO.z0; the top stack (6805, pan gears N03/N04, pan servo + horn, frame T07 housing/plate, collar, cone,
+    barrel) follows TORSO.z1 / NECK; the arm servos, their tab blocks, the frame wings and the shoulder rings
+    follow the shoulder axis; shell-hugging items (front board E25, T02 magnets, T01 bottom screws, nail recess,
+    frame ears) follow TORSO.w / d.
+  * Arms +20 % (spec ARM egg 110 / 76.4 / 48.8, half 15.6 x 8.4, mid_x 64, splay 8 deg): tip, hub and coupler
+    scale with the egg; shoulder ring A05 Ø24/Ø18 (spec bore 18, ring width 3 kept), coupler A04 Ø16.6 (0.7 radial
+    gap in the ring kept).  Neck: collar N01 45 x 36 (z 118..123), cone z 123..130, barrel Ø30 x 30 on y 0 / z 140.
 
 v8.1 design (review of the v8.0 build + v8.1b review of the first v8.1 pass -> DEVIATIONS, printed on every run)
   * ONE PARTING LINE on the plane y = 0 (front/back clamshell) instead of the v8.0 band + 2 side shells: the line
     is aligned with the shoulder axis and the head tilt axis; on the flanks it runs straight through the shoulder,
-    hidden behind the arm (the arm covers y +-6..13 between z 48 and 99), and across the top it disappears under
-    the collar.  THE FRONT HAS NO SEAM AT ALL - only the smoked chest strip.  0.5 seam, outer edges R0.25, closed
-    from behind by a ledge of T01 (no light, no see-through), ledge depth 2.05 -> reads as a fine shadow line.
+    hidden behind the arm, and across the top it disappears under the collar.  THE FRONT HAS NO SEAM AT ALL - only
+    the smoked chest strip.  0.5 seam, outer edges R0.25, closed from behind by a ledge of T01 (no light, no
+    see-through), ledge depth 2.05 -> reads as a fine shadow line.
   * THE BACK HAS NO SEAM EITHER (v8.1b): the whole rear half shell T02 is the tool-free service cover - no separate
     door, no U outline.  Held by 2 top snap tongues under the T01 top wall, a tongue-and-groove along the flank seam
     (T01 ledge running in a T02 channel -> no step, no gap, T02 cannot spring out) and 2 hidden Ø5 N52 magnet pairs
     into T04.  Opening: fingernail into the black T04 recess under the rear bottom edge (black on black, in the
-    shadow line), slide T02 6.5 mm back, lift off -> controller, USB-C, servos all accessible.  No screws.
-  * Chest: ONE smoked dead-front strip 34 x 5 (spec chest_strip) flush with the surface: 5x WS2812B-2020 light bar
+    shadow line), slide T02 back (tongues free after 6.5 mm) 19 mm until its top wall clears the collar, lift off
+    -> controller, USB-C, servos all accessible.  No screws.  (v8.1 said "6.5 mm, lift" - blocked by the collar.)
+  * Chest: ONE smoked dead-front strip (spec chest_strip) flush with the surface: 5x WS2812B-2020 light bar
     + VL53L0X ToF + ambient light sensor behind the same dark window (IR-transmissive smoked PMMA, invisible off).
   * No screws visible anywhere: T01 + T08 -> T04 with countersunk M2 from below (heads 0.2 sunk, T04 underside faces
     the base, 1 mm gap), arm screws inside the arm, neck screws inside the cone bore (covered by the head).
   * No vents on the skin: 7 slots in T04 (torso underside) exchange air with the base cavity (heat < 1 W).
-  * Torso bottom T04 carries the 6806 outer race (housing OD45, bore 42, z 31.5..39, shoulder ID38.6 on the outer
-    ring only) and the STS3215 cradle T08 (3x M2 into T04; servo body z 45..80, spline DOWN on the yaw axis, horn
-    E21H on the base hub; axial retention = M3 from below into the spline, base module).
+  * Torso bottom T04 carries the 6806 outer race (housing OD45, bore 42, 7.5 below the hub top, shoulder ID38.6 on
+    the outer ring only) and the STS3215 cradle T08 (3x M2 into T04; spline DOWN on the yaw axis, horn E21H on the
+    base hub; axial retention = M3 from below into the spline, base module).
 
 Kinematics / joint tags
   J1  torso: T01 T02 T04 T05 T06, N01 collar, A05 rings, all torso internals (T07 T08 T09 E21..E25 M21..M23 N04)
@@ -33,33 +47,32 @@ Kinematics / joint tags
   ""  E21H yaw-servo horn (bolted to the hub fixed in the base)
 
 Visible parts
-  T01  front shell (y <= -0.25): Ø16 shoulder-ring seats (front halves), chest-window opening, inner: seam ledge
+  T01  front shell (y <= -0.25): shoulder-ring seats (front halves), chest-window opening, inner: seam ledge
        (sides + top, reaches 2.5 mm behind T02), 2 tab blocks for the arm-servo FAR tabs, 4 bosses for the frame
        T07 (M2 from below), 3 bottom bosses (M2 from below through T04), 2 bosses for the front board E25,
        2 collar pin holes (y -7, off the seam), 2 grooves for the T02 snap tongues.
   T02  rear shell = service cover (y >= +0.25): shoulder-ring seats (rear halves), 2 top snap tongues under the T01
        top wall, channel for the T01 ledge on the flanks, 2 magnet bosses (Ø5x2 N52) at the bottom.
-  T04  black turntable plate Ø77 x 2.5 + 6806 housing (unchanged interface with the base B15/B09), 6x M2
+  T04  black turntable plate (spec ring_od) x 2.5 + 6806 housing (interface with the base B15/B09), 6x M2
        countersunk from below, cable arc slot, 7 vent slots, 2 magnet pockets + nail recess for T02.
-  T05  smoked dead-front window 33.8 x 4.8 (0.1 gap) flush, 0.8 flange behind the wall (smoked PC / PMMA).
+  T05  smoked dead-front window (chest strip - 0.2) flush, 0.8 flange behind the wall (smoked PC / PMMA).
   T06  RENDER-ONLY: the cyan light bar glowing through T05 (0.15 mm skin in front of the window face).
-  N01  black collar 42 x 34 (z 105..110), drafted 22 deg, bore Ø26.9 (0.45 gap to the cone), 2 pins into T01 +
+  N01  black collar (spec NECK.collar), drafted 22 deg, bore Ø26.9 (0.45 gap to the cone), 2 pins into T01 +
        VHB on T01 only; underside relieved 0.2 over T02 (T02 slides out under it without rubbing).
   N02  black cone r13 -> r10 + spigot in the 6805 (unchanged interface).   N06  black barrel Ø30 x 30 (interface for
        the head modules unchanged: end walls 3.5, cross-horn recess 1.8, Ø3.2 pivot, 2 pilots y +-7.5; the v8.0
        decorative grooves removed - not a real split).
-  A01  white outer arm shell (local x >= +0.25).  A02 white inner shell + snap lip + hub (v8.0 hub stuck 225 mm3 out
-       of the egg surface - now clipped inside the egg).  A03 black TPU tip (inner-front-bottom).  A04 black joint
-       coupler Ø14.6 (trimmed servo horn inside).  A05 black shoulder ring OD22/ID16, 0.7 proud.  The v8.0 painted-on
-       "lens panel" groove on A01 is removed (fake seam).
+  A01  white outer arm shell (local x >= +0.25).  A02 white inner shell + snap lip + hub (clipped inside the egg).
+       A03 black TPU tip (inner-front-bottom).  A04 black joint coupler (trimmed servo horn inside).  A05 black
+       shoulder ring, 0.7 proud.  No painted-on "lens panel" groove on A01 (fake seam).
 Internals (internal=True)
   T07  frame (PETG): 6805 housing + plate, pan-servo rails, side wings over the arm servos with the NEAR-tab
        blocks; 4 ears screwed into T01 (the rear shell carries nothing -> removable).
   T08  STS3215 cradle on T04 (3x M2 from below).  T09 hold-down strap.  N03 / N04 1:1 pan gears 20T m1.  M21 6806,
   M22  6805.  M23 4 Ø5 N52 magnets (T02 latch).  E21 STS3215 (spline down), E21H its horn.  E22 arm micro servos +
-  E22H horns.  E23 pan micro servo + E23H.  E24 controller ESP32-C3 SuperMini + MP1584 5 V + bus driver (spec v8.1 review 2; behind T02).  E25 front
-  board: 5x WS2812B-2020 + VL53L0X + ALS behind T05.   (cad_internals.py holds the detailed versions of the bought
-  parts E21..E25/M21/M22 -> render with "exclude" = its SUPERSEDED list.)
+  E22H horns.  E23 pan micro servo + E23H.  E24 controller ESP32-C3 SuperMini + MP1584 5 V + bus driver (spec v8.1
+  review 2; behind T02).  E25 front board: 5x WS2812B-2020 + VL53L0X + ALS behind T05.   (cad_internals.py holds the
+  detailed versions of the bought parts E21..E25/M21/M22 -> render with "exclude" = its SUPERSEDED list.)
 """
 from __future__ import annotations
 
@@ -83,30 +96,33 @@ MANIFEST = "torso"
 BIG = 400.0
 
 # ============================================================================================
-# shared numbers (spec)
+# shared numbers (spec)            values in the comments: v8.2 (v8.1 in brackets where it changed)
 # ============================================================================================
 TS, NK, AR, MS, BS = S.TORSO, S.NECK, S.ARM, S.MICRO_SERVO, S.BASE
-TA, TB, TN = TS["w"] / 2, TS["d"] / 2, TS["n"]            # 44, 36, 2.7
-T_Z0, T_Z1 = TS["z0"], TS["z1"]                            # 40, 105
-R_TOP, R_BOT = TS["r_top"], TS["r_bottom"]                 # 16, 8
+TA, TB, TN = TS["w"] / 2, TS["d"] / 2, TS["n"]            # 47, 38, 2.7          (44, 36)
+T_Z0, T_Z1 = TS["z0"], TS["z1"]                            # 36, 118              (40, 105)
+R_TOP, R_BOT = TS["r_top"], TS["r_bottom"]                 # 17, 8                (16)
 WALL = TS["wall"]                                          # 2.0
-CH = TS["chest_strip"]                                     # 34 x 5 at z 84
-SH = TS["shoulder"]
-T04_H, RING_OD = TS["bottom_plate"]["h"], TS["bottom_plate"]["ring_od"]
-Z_SH = T_Z0 + T04_H                                        # 42.5 white shells stand on T04
+CH = TS["chest_strip"]                                     # 36 x 5 at z 92       (34 x 5 at z 84)
+SH = TS["shoulder"]                                        # z 98, bore 18        (89, 16)
+T04_H, RING_OD = TS["bottom_plate"]["h"], TS["bottom_plate"]["ring_od"]   # 2.5, 82 (77)
+Z_SH = T_Z0 + T04_H                                        # 38.5 white shells stand on T04 (42.5)
 YS = TS["yaw_servo"]
 YS_L, YS_W, YS_H = YS["body"]                              # 45.2, 24.7, 35
-YS_Z0, YS_Z1 = YS["z_body"]                                # 45, 80
+YS_Z0, YS_Z1 = YS["z_body"]                                # 41, 76               (45, 80)
 YAW_BRG = BS["yaw_hub"]["bearing"]                         # 30/42 x 7
-YAW_BRG_Z1 = BS["yaw_hub"]["z_top"]                        # 39
-CO, CN = NK["collar"], NK["cone"]
+YAW_BRG_Z1 = BS["yaw_hub"]["z_top"]                        # 35 = base top        (39)
+CO, CN = NK["collar"], NK["cone"]                          # collar 45 x 36 z 118..123, cone z 123..130
 PAN_BRG = NK["pan_bearing"]                                # 25/37 x 7
-TLY, TLZ = NK["tilt_axis"]["y"], NK["tilt_axis"]["z"]      # 0, 127
+TLY, TLZ = NK["tilt_axis"]["y"], NK["tilt_axis"]["z"]      # 0, 140               (127)
 BAR_R, BAR_L = NK["barrel_d"] / 2, NK["barrel_len"]        # 15, 30
-EGG = AR["egg"]
-AX_Y, AX_Z = AR["axis"]["y"], AR["axis"]["z"]              # 0, 89
-MID, SPLAY = AR["mid_x"], AR["abduction_deg"]
+EGG = AR["egg"]                                            # 110 / 76.4 / 48.8, 15.6 x 8.4 (99 / 71 / 48, 13 x 7)
+AX_Y, AX_Z = AR["axis"]["y"], AR["axis"]["z"]              # 0, 98                (89)
+MID, SPLAY = AR["mid_x"], AR["abduction_deg"]              # 64, 8                (58)
 assert abs(SH["z"] - AX_Z) < 1e-9
+assert abs(CO["z0"] - T_Z1) < 1e-9 and abs(CN["z0"] - CO["z1"]) < 1e-9
+assert abs(T_Z0 - YAW_BRG_Z1 - 1.0) < 1e-9                 # 1 mm dark gap between T04 and the base top
+assert abs(YS_Z0 - YAW_BRG_Z1 - 6.0) < 1e-9                # horn stack: hub top -> STS3215 output face
 
 # ============================================================================================
 # local design constants
@@ -132,47 +148,63 @@ YS_SHAFT_END = YS_W / 2    # output axis assumed centred in the square end (cata
 YS_X0, YS_X1 = -YS_SHAFT_END, YS_L - YS_SHAFT_END          # -12.35 .. +32.85 (body toward robot LEFT, +X)
 YS_HW = YS_W / 2
 
-# --- arm servo placement -----------------------------------------------------------------------
-ARM_SPL_X = 43.0                                           # spline tip |x| (just inside the shell surface 44)
-ARM_TOP_X = ARM_SPL_X - MS_SPL_H - MS_DOME_H               # case top |x| 37.2
-ARM_BOT_X = ARM_TOP_X - MS_H                               # case bottom |x| 14.5
-ARM_TAB_X0, ARM_TAB_X1 = ARM_BOT_X + MS_TAB_Z[0], ARM_BOT_X + MS_TAB_Z[1]   # 30.4 .. 32.9
+# --- shoulder ring / coupler (spec bore; ring width 3 and the 0.7 radial coupler gap of v8.1 kept) -----------
+A05_RI = SH["bore_d"] / 2                                  # 9      (8)
+A05_RO = A05_RI + 3.0                                      # 12     (11)  ring Ø24 / Ø18
+A05_X0, A05_X1 = TA - 4.0, TA + 0.7                        # 43 .. 47.7 (0.7 proud of the flank)
+A04_R = A05_RI - 0.7                                       # 8.3    (7.3) coupler Ø16.6
+SH_BOSS_R = A05_RO + 2.5                                   # 14.5   (13.5) shell boss around the ring seat
+
+# --- arm servo placement (on the spec shoulder axis, spline tip 1 mm inside the flank) ---------------
+ARM_SPL_X = TA - 1.0                                       # spline tip |x| 46 (43)
+ARM_TOP_X = ARM_SPL_X - MS_SPL_H - MS_DOME_H               # case top |x| 40.2 (37.2)
+ARM_BOT_X = ARM_TOP_X - MS_H                               # case bottom |x| 17.5 (14.5)
+ARM_TAB_X0, ARM_TAB_X1 = ARM_BOT_X + MS_TAB_Z[0], ARM_BOT_X + MS_TAB_Z[1]   # 33.4 .. 35.9
+ARM_CASE_Z1 = AX_Z + MS_W / 2                              # case top face in Z (case width 12.2 lies along Z) 104.1
 TAB_BLK_X = ARM_TAB_X1 + 0.05
+FAR_BLK_X1 = TA - 2.5                                      # T01 far-tab block outer end |x| 44.5 (41.5)
 FAR_BLK_Y = (-(HOLE_FAR + 3.65), -(MS_L - MS_SHAFT_END) - 0.2)    # -23.0 .. -17.1  (T01)
 NEAR_BLK_Y = (MS_SHAFT_END + 0.2, HOLE_NEAR + 4.15)               # 6.1 .. 12.5     (T07)
-NEAR_BLK_X1 = 38.6                                         # 0.4 clear of the shoulder boss (x 39)
+NEAR_BLK_X1 = A05_X0 - 1.0 - 0.4                           # 41.6: 0.4 clear of the shoulder boss (38.6)
 
-# --- pan drive: 1:1 spur gears 20T m1 (centre distance 20) ---------------------------------------
+# --- pan drive: 1:1 spur gears 20T m1 (centre distance 20); the whole stack hangs from the torso top wall ----
 G_Z, G_M = 20, 1.0
 G_CD = G_Z * G_M
-G_Z0, G_Z1 = 90.5, 94.5
-PB_Z0, PB_Z1 = 96.0, 96.0 + PAN_BRG[2]                     # 6805 z 96..103 (top = top-wall underside)
+PB_Z1 = T_Z1 - WALL                                        # 6805 top = top-wall underside 116 (103)
+PB_Z0 = PB_Z1 - PAN_BRG[2]                                 # 109 (96)
 PB_RI, PB_RO = PAN_BRG[0] / 2, PAN_BRG[1] / 2              # 12.5, 18.5
+G_Z1 = PB_Z0 - 1.5                                         # gear faces z 103.5..107.5 (90.5..94.5)
+G_Z0 = G_Z1 - 4.0
 PAN_SERVO_Y = G_CD
-PAN_HORN_Z0, PAN_HORN_Z1 = 89.0, 92.1
-PAN_SPL_TOP = 91.6
-PAN_TOP_Z = PAN_SPL_TOP - MS_SPL_H - MS_DOME_H             # case top 85.8
-PAN_BOT_Z = PAN_TOP_Z - MS_H                               # 63.1
-PAN_TAB_Z0, PAN_TAB_Z1 = PAN_BOT_Z + MS_TAB_Z[0], PAN_BOT_Z + MS_TAB_Z[1]   # 79.0 .. 81.5
-assert abs(PB_Z1 - (T_Z1 - WALL)) < 1e-9
+PAN_HORN_Z0, PAN_HORN_Z1 = G_Z0 - 1.5, G_Z0 + 1.6          # 102.0 .. 105.1 (89.0 .. 92.1)
+PAN_SPL_TOP = G_Z0 + 1.1                                   # 104.6 (91.6)
+PAN_TOP_Z = PAN_SPL_TOP - MS_SPL_H - MS_DOME_H             # case top 98.8 (85.8)
+PAN_BOT_Z = PAN_TOP_Z - MS_H                               # 76.1 (63.1)
+PAN_TAB_Z0, PAN_TAB_Z1 = PAN_BOT_Z + MS_TAB_Z[0], PAN_BOT_Z + MS_TAB_Z[1]   # 92.0 .. 94.5
 
 # --- T07 frame -----------------------------------------------------------------------------------
-T07_HOUSE_Z0 = 95.3        # underside of housing / wings (0.2 above the arm-servo cases, z 95.1)
+T07_HOUSE_Z0 = G_Z1 + 0.8  # underside of the 6805 housing / rear plate, 0.8 over the gears 108.3 (95.3)
+WING_Z0 = ARM_CASE_Z1 + 0.2   # underside of the wings, 0.2 over the arm-servo cases 104.3 (v8.1: = 95.3 as well)
 T07_LIP_RI = 17.0
 T07_HOUSE_RO = 20.5
-T07_EARS = [(-20.0, -21.0), (20.0, -21.0), (-34.0, -8.0), (34.0, -8.0)]     # all into T01
-T07_PLATE_Z = (96.0, 99.0)
+T07_EARS = [(-20.0, -21.0), (20.0, -21.0), (-(TA - 10.0), -8.0), (TA - 10.0, -8.0)]   # all into T01 (side +-37)
+T07_PLATE_Z = (PB_Z0, PB_Z0 + 3.0)                         # 109 .. 112 (96 .. 99)
 RAIL_Y = (13.0, 28.5)
 RAIL_L, RAIL_R = (-13.5, -6.2), (17.2, 24.0)
 
 # --- T04 / T08 ----------------------------------------------------------------------------------
-YH_RO, YH_Z0 = 22.5, 31.5                                  # 6806 housing OD45 down to z 31.5
+YH_RO = 22.5                                               # 6806 housing OD45
+YH_Z0 = YAW_BRG_Z1 - YAW_BRG[2] - 0.5                      # housing bottom 27.5 (31.5)
 YH_BORE_R = YAW_BRG[1] / 2                                 # 21
 YH_SHOULDER_R = 19.3       # v8.1b: ID 38.6 bears on the 6806 OUTER ring only (v8.0 ID 36 rubbed on the 2RS seals)
 CABLE_SLOT = dict(r0=23.0, r1=29.0, a0=155.0, a1=205.0)
 POST_A, POST_B = (-17.5, 0.0, 2.5), (35.2, 0.0, 2.2)       # strap posts (x, y, r)
-T01_SCREWS = [(0.0, -30.5), (31.0, -18.0), (-31.0, -18.0)]
-# T08 -> T04 screws: only where T04 is a flat 2.5 plate (r 24.7 .. 36: outside the housing OD45, inside the disc).
+# T01 -> T04 screws: front one 5.5 inside the shell front, the two side ones on a circle 2.7 inside the T04 rim
+# (same margin as v8.1: r 35.8 on the Ø77 disc) at the v8.1 angle -30 deg
+T01_SCREW_R = RING_OD / 2 - 2.7                            # 38.3
+T01_SCREWS = [(0.0, -(TB - 5.5))] + [(sx * T01_SCREW_R * math.cos(math.radians(30.0)),
+                                      -T01_SCREW_R * math.sin(math.radians(30.0))) for sx in (1, -1)]
+# T08 -> T04 screws: only where T04 is a flat 2.5 plate (r 24.7 .. 38.3: outside the housing OD45, inside the disc).
 # v8.0 screwed POST_A (-17.5, 0) "from below" - that point lies in the T04 centre hole -> the screw held nothing.
 T08_SCREWS = [(POST_B[0], POST_B[1]), (-19.0, -16.5), (-25.0, 21.0)]
 T04_SCREWS = T01_SCREWS + T08_SCREWS                       # 6x M2 countersunk from below (T02 has none any more)
@@ -182,28 +214,36 @@ VENT_R = (25.5, 30.0)
 VENT_W = 1.8
 T08_Z1 = Z_SH + 1.5
 T08_HOLE_R = 12.0
-CRADLE_Z1 = 60.0
+CRADLE_Z1 = YS_Z0 + 15.0                                   # anti-torque walls up to 56 (60)
 CR_T = 1.6
-PCB = dict(x=24.0, y0=18.0, t=1.6, z0=44.2, z1=62.7)
+PCB = dict(x=24.0, y0=18.0, t=1.6, z0=Z_SH + 1.7, z1=Z_SH + 1.7 + 18.5)   # z 40.2 .. 58.7 (44.2 .. 62.7)
 STRAP_Z = (YS_Z1, YS_Z1 + 2.5)
 
 # --- rear cover T02 = the service door (v8.1b) --------------------------------------------------------
 # The whole rear half shell is the tool-free service cover: 2 top snap tongues under the T01 top wall, a tongue-
 # and-groove along the flank seam (T01 ledge in a T02 channel), 2 magnet pairs into T04 at the bottom.  Opening:
-# fingernail into the black T04 recess under the rear bottom edge, slide T02 6.5 mm back, lift off.
-MAG_XY = [(-12.0, 29.9), (12.0, 29.9)]                     # T02 latch magnets (clear of the controller IT08/E24)
+# fingernail into the black T04 recess under the rear bottom edge, slide T02 19 mm back, lift off (see SLIDE).
+MAG_XY = [(-12.0, TB - 6.1), (12.0, TB - 6.1)]             # T02 latch magnets y 31.9 (29.9), clear of E24 / IT08
 MAG_D, MAG_T_T02, MAG_T_T04 = 5.0, 2.0, 1.5                # Ø5x2 N52 in T02, Ø5x1.5 N52 in T04
 MAG_BOSS_R = 3.3
 NAIL_W, NAIL_D = 12.0, 1.0                                 # recess in T04 under the T02 bottom edge (black, hidden)
-TONGUE_X = (-26.0, 26.0)                                   # T02 snap tongues under the T01 top wall
-SLIDE = 6.5                                                # T02 removal stroke (+Y)
+NAIL_Y = (TB - 5.0, TB + 9.0)                              # 33 .. 47 (31 .. 45)
+TONGUE_X = (-(TA - 18.0), TA - 18.0)                       # T02 snap tongues under the T01 top wall +-29 (+-26)
+TOP_ZONE_Z = T_Z1 - 15.0                                   # tongues / grooves live above this z 103 (90)
+TONGUE_RELEASE = 6.5                                       # the snap tongues leave the T01 top wall after 6.5
+# v8.2 review: T02 removal stroke.  After only 6.5 mm (v8.1 text) the T02 top wall is still under the collar N01
+# (to y 18) and its shoulder seats still wrap the A05 rings (to y 12) -> lifting collided (CAD).  The pure +Y slide
+# is free (the shell widens towards the front, so its flanks move away from the internals), so T02 slides back
+# until the top wall clears the collar, then lifts off.
+SLIDE = max(TONGUE_RELEASE, A05_RO + 0.5, CO["d"] / 2 + 1.0)   # 19 (collar rear edge 18 + 1)
 CHAN_RIB = (3.5, 4.3)                                      # T02 channel rib offsets (T01 ledge 2.05..3.4)
 CHAN_VOID = (1.95, 3.5)
 CHAN_Y1 = 3.6                                              # channel closed at y 2.65..3.6 (ledge ends at 2.5)
-CHAN_Z0 = 48.5                                             # vertical wall only (no offset-4.3 bottom artefacts)
+CHAN_Z0 = T_Z0 + R_BOT + 0.5                               # vertical wall only (above the R8 bottom fillet) 44.5
 
 # --- front board ----------------------------------------------------------------------------------
-E25 = dict(x=23.0, z0=77.0, z1=91.0, y0=-30.8, t=1.6, boss=(21.0, CH["z"]))
+E25 = dict(x=CH["w"] / 2 + 6.0, z0=CH["z"] - 7.0, z1=CH["z"] + 7.0, y0=-(TB - 5.2), t=1.6,
+           boss=(CH["w"] / 2 + 4.0, CH["z"]))              # 48 x 14 at y -32.8, z 85..99 (46 x 14, y -30.8, z 77..91)
 GLOW = dict(w=24.0, h=1.6)                                 # light bar of the 5 LEDs (x +-12: ToF/ALS at +-14.5 stay dark)
 
 # --- neck ----------------------------------------------------------------------------------------
@@ -211,26 +251,40 @@ COLLAR_TAPER = 22.0
 COLLAR_BORE_R = 13.45      # v8.1b: 0.45 radial gap to the cone r13 (v8.0: 1.0 - the torso interior showed through)
 COLLAR_RELIEF = 0.2        # collar underside lifted 0.2 over the T02 half: sits on T01 only, T02 slides out freely
 NECK_HOLE_R = 15.0
-COLLAR_PINS = [(-17.0, -7.0), (17.0, -7.0)]                # in T01 (v8.0: on y 0 = the new parting line)
+COLLAR_PINS = [(-(CO["w"] / 2 - 4.5), -7.0), (CO["w"] / 2 - 4.5, -7.0)]   # in T01, x +-18 (+-17)
+NECK_STEP_Z = CN["z0"] + 2.0   # cone bore step r10 -> r8 = seat of the barrel snap hooks 125 (112)
 SPIGOT_SH_R = 13.6
 BAR_END = 3.5
 HORN_RECESS = 1.8
 SADDLE_GAP = 0.3
 
-# --- arms ----------------------------------------------------------------------------------------
-ZC = EGG["widest_z"] - AX_Z                 # -18
-C_TOP = EGG["top_z"] - EGG["widest_z"]      # 28
-C_BOT = EGG["widest_z"] - EGG["bottom_z"]   # 23
-HW_, HT_ = EGG["half_w"], EGG["half_t"]     # 13, 7
+# --- arms (everything scales with the spec egg) ------------------------------------------------------------
+ZC = EGG["widest_z"] - AX_Z                 # -21.6 (-18)
+C_TOP = EGG["top_z"] - EGG["widest_z"]      # 33.6  (28)
+C_BOT = EGG["widest_z"] - EGG["bottom_z"]   # 27.6  (23)
+HW_, HT_ = EGG["half_w"], EGG["half_t"]     # 15.6, 8.4  (13, 7)
+EGG_L = EGG["top_z"] - EGG["bottom_z"]      # 61.2  (51)
 ARM_WALL = 1.8
 ARM_HS = 0.25                               # 0.5 seam A01 / A02 / A03
-TIP_ZTOP = EGG["bottom_z"] + 11.0
-TIP_YB = 1.5
+TIP_ZTOP = EGG["bottom_z"] + 0.2157 * EGG_L  # tip seam height = 21.6 % of the egg (v8.1: 11 of 51)
+TIP_YB = 0.1154 * HW_                       # 1.8 (1.5)
 TIP_TILT = 45.0
-HUB_R, HUB_X0 = 9.0, 51.5
-A04_R, A04_X0, A04_X1 = 7.3, ARM_SPL_X, 54.5
-A05_RI, A05_RO, A05_X0 = SH["bore_d"] / 2, 11.0, 40.0
-A05_X1 = TA + 0.7
+
+
+def _egg_inner_x():
+    """|x| where the shoulder axis (y 0, z AX_Z) enters the splayed egg (inner face of the arm)."""
+    c, s = math.cos(math.radians(SPLAY)), math.sin(math.radians(SPLAY))
+    d = -HT_
+    for _ in range(30):                     # local point of the global axis line x = MID + d: (d c, 0, -d s)
+        zl = -d * s
+        d = -HT_ * math.sqrt(max(0.0, 1 - ((zl - ZC) / C_TOP) ** 2)) / c
+    return MID + d
+
+
+X_EGG_IN = _egg_inner_x()                   # 57.7 (52.75)
+HUB_R, HUB_X0 = A04_R + 1.7, X_EGG_IN - 1.25    # A02 hub r 10.0 (9.0) from x 56.45 (51.5)
+A04_X0, A04_X1 = ARM_SPL_X, X_EGG_IN + 1.75     # coupler 46 .. 59.45 (43 .. 54.5), 1.75 inside the egg
+A04_SCREW_Y = A04_R - 3.3                       # 2x M2 hub -> coupler at y +-5.0 (+-4.5)
 HORN_ARM = (13.0, 5.6, 1.6)
 
 DEVIATIONS = [
@@ -239,17 +293,29 @@ DEVIATIONS = [
     "Seams 0.5 mm (spec band.seam 0.6 is v8.0; v8.1 asks 0.4-0.6).",
     "Arm micro servos: FAR tab on a T01 block, NEAR tab on the T07 frame (v8.0: both on the side shells).",
     "T07 frame screwed to T01 only (4 ears; the v8.0 rear ear would sit in the removable rear shell).",
-    "Collar pins moved from y 0 to y -7 (y 0 is now the parting line).",
+    "Collar pins moved from y 0 to y -7 (y 0 is now the parting line); v8.2 x +-18 (collar 45 wide).",
     "No separate rear door (spec v8.1 'rear door flush, hidden magnetic latch'): the WHOLE rear half shell T02 is "
     "the tool-free service cover - 2 top snap tongues, tongue-and-groove on the flank seam, 2x Ø5 N52 magnet pairs "
     "into T04; removes the U door seam from the back (back view = one clean surface).  Part T03 no longer exists.",
     "Barrel N06 decorative grooves removed (interface for H09/H10 and the head variants unchanged).",
-    "T06 is a render-only glow of the LED bar (renderer has no transmissive smoked glass); 24 x 1.6 over the 5 LEDs.",
+    "T06 is a render-only glow of the LED bar (renderer has no transmissive smoked glass); 24 x 1.6 over the 5 LEDs "
+    "(v8.2: the window grew to 36 x 5, the 5-LED bar stays 24 so ToF / ALS at x +-14.5 stay dark).",
     "6806 housing shoulder ID 38.6 (bears on the outer ring only; v8.0 ID 36 touched the 2RS seals).",
     "Collar bore Ø26.9 (0.45 gap to the cone r13; v8.0 Ø28 showed the torso interior), collar underside relieved "
     "0.2 over T02.",
     "T08 -> T04: 3x M2 from below at (35.2, 0), (-19, -16.5), (-25, 21) - v8.0 'POST_A' screw at (-17.5, 0) was in "
     "the T04 centre hole and held nothing.  T04 screw heads sunk 0.2 (B09 slide rim underneath).",
+    "v8.2: shoulder ring A05 Ø24/Ø18 - spec gives only the bore 18; the v8.1 ring width 3 is kept.  Coupler A04 "
+    "Ø16.6 (v8.1 Ø14.6) keeps the 0.7 radial gap in the ring bore.  Arm wall stays 1.8 (not scaled).",
+    "v8.2: the pan stack (6805, gears, pan servo, frame housing) is 13 mm higher (follows the top wall), the arm "
+    "servos 9 mm (shoulder axis); the frame wings now start 0.2 over the arm-servo cases (z 104.3) while the 6805 "
+    "housing starts 0.8 over the gears (z 108.3) - in v8.1 both were z 95.3.",
+    "v8.2: T01 bottom screws at (0, -32.5) and (+-33.2, -19.2) (v8.1 (0, -30.5), (+-31, -18)); front board E25 "
+    "48 x 14 at y -32.8 / z 85..99; T02 magnets y 31.9; frame side ears x +-37 - all follow the larger shell.",
+    "v8.2 review: T02 removal stroke 6.5 -> 19 mm.  v8.1 'slide 6.5, lift off' was impossible: the T02 top wall is "
+    "still under the collar N01 (CAD: 74 mm3 at +1 mm lift) and its seats wrap the A05 rings; the +Y slide itself is "
+    "free (checked to 20 mm), so T02 slides 19 mm back under the 0.2 collar relief and then lifts off.  No geometry "
+    "change.",
 ]
 
 
@@ -514,30 +580,30 @@ def horn_micro_x(sx):
 # ============================================================================================
 
 def shoulder_boss(sx):
-    return cyl_x(AX_Y, AX_Z, 13.5, sx * (A05_X0 - 1.0), sx * (TA + 2)) & off(0.3)    # never share the outer face
+    return cyl_x(AX_Y, AX_Z, SH_BOSS_R, sx * (A05_X0 - 1.0), sx * (TA + 2)) & off(0.3)    # never share the outer face
 
 
 def shoulder_cut(sx):
     return cyl_x(AX_Y, AX_Z, A05_RO + 0.2, sx * A05_X0, sx * (TA + 5)) + \
-        cyl_x(AX_Y, AX_Z, 8.6, sx * (A05_X0 - 3), sx * (TA + 5))
+        cyl_x(AX_Y, AX_Z, A05_RI + 0.6, sx * (A05_X0 - 3), sx * (TA + 5))
 
 
 def bottom_boss(x, y, h=4.0):
     """Boss standing on T04 (M2 from below through T04), bridged to the wall."""
     if abs(x) > 1:
-        arm = bx(x, math.copysign(46.0, x), y - 3, y + 3, Z_SH, Z_SH + h)
+        arm = bx(x, math.copysign(TA + 2.0, x), y - 3, y + 3, Z_SH, Z_SH + h)
     else:
-        arm = bx(x - 3, x + 3, y, math.copysign(40.0, y), Z_SH, Z_SH + h)
+        arm = bx(x - 3, x + 3, y, math.copysign(TB + 4.0, y), Z_SH, Z_SH + h)
     return (cyl_z(x, y, 3.0, Z_SH, Z_SH + h) + arm) & off(1.0)
 
 
 def ledge_keepout():
     """Zones where the T01 seam ledge must not be (shoulder bosses, bearing housing, T02 snap tongues)."""
-    k = cyl_z(0, 0, T07_HOUSE_RO + 1.0, 80, 120)
+    k = cyl_z(0, 0, T07_HOUSE_RO + 1.0, T_Z1 - 25.0, T_Z1 + 15.0)
     for sx in (1, -1):
-        k = k + cyl_x(AX_Y, AX_Z, 14.5, sx * 30.0, sx * 50.0)
+        k = k + cyl_x(AX_Y, AX_Z, A05_RO + 3.5, sx * (TA - 14.0), sx * (TA + 6.0))
     for x in TONGUE_X:
-        k = k + bx(x - 4.6, x + 4.6, -8.0, 4.0, 85.0, BIG)
+        k = k + bx(x - 4.6, x + 4.6, -8.0, 4.0, TOP_ZONE_Z - 5.0, BIG)
     return k
 
 
@@ -550,9 +616,9 @@ def seam_ledge():
 
 
 def t02_tongue(x):
-    anchor = bx(x - 4, x + 4, HS, 3.0, 90.0, BIG) & skin(1.0, 3.1)
-    tongue = bx(x - 4, x + 4, -6.0, 0.5, 90.0, BIG) & skin(LEDGE_D, 3.2)
-    bump = bx(x - 3, x + 3, -5.3, -4.5, 90.0, BIG) & skin(1.7, 2.4)
+    anchor = bx(x - 4, x + 4, HS, 3.0, TOP_ZONE_Z, BIG) & skin(1.0, 3.1)
+    tongue = bx(x - 4, x + 4, -6.0, 0.5, TOP_ZONE_Z, BIG) & skin(LEDGE_D, 3.2)
+    bump = bx(x - 3, x + 3, -5.3, -4.5, TOP_ZONE_Z, BIG) & skin(1.7, 2.4)
     return anchor + tongue + bump
 
 
@@ -562,13 +628,13 @@ def front_shell_t01():
     s = fuse(s, seam_ledge(), "T01 ledge")
     for sx in (1, -1):
         s = fuse(s, shoulder_boss(sx) & front_zone(), "T01 shoulder boss")
-        b1 = bx(sx * TAB_BLK_X, sx * 41.5, FAR_BLK_Y[0], FAR_BLK_Y[1], AX_Z - 3.5, AX_Z + 3.5) & off(1.0)
+        b1 = bx(sx * TAB_BLK_X, sx * FAR_BLK_X1, FAR_BLK_Y[0], FAR_BLK_Y[1], AX_Z - 3.5, AX_Z + 3.5) & off(1.0)
         s = fuse(s, b1, "T01 far-tab block")
     for sx in (1, -1):
-        s = s - shoulder_cut(sx) - cyl_x(-HOLE_FAR, AX_Z, 0.8, sx * (TAB_BLK_X - 0.5), sx * 38.4)
+        s = s - shoulder_cut(sx) - cyl_x(-HOLE_FAR, AX_Z, 0.8, sx * (TAB_BLK_X - 0.5), sx * (FAR_BLK_X1 - 3.1))
     # bosses for the frame T07 (M2 from below)
     for (x, y) in T07_EARS:
-        s = s + (cyl_z(x, y, 3.0, T07_PLATE_Z[1], 106) & off(1.0))
+        s = s + (cyl_z(x, y, 3.0, T07_PLATE_Z[1], T_Z1 + 1.0) & off(1.0))
         s = s - cyl_z(x, y, 0.8, T07_PLATE_Z[1] - 1, T07_PLATE_Z[1] + 3.5)
     # bottom bosses (M2 from below through T04)
     for (x, y) in T01_SCREWS:
@@ -581,11 +647,11 @@ def front_shell_t01():
     # ONE chest window
     s = s - stadium_y(0, CH["z"], CH["w"], CH["h"], -TB - 5, -TB + 8)
     # neck hole + collar pins + grooves for the T02 snap bumps
-    s = s - cyl_z(0, 0, NECK_HOLE_R, 98, 110)
+    s = s - cyl_z(0, 0, NECK_HOLE_R, T_Z1 - 7.0, T_Z1 + 5.0)
     for (x, y) in COLLAR_PINS:
-        s = s - cyl_z(x, y, 1.35, 100, 110)
+        s = s - cyl_z(x, y, 1.35, T_Z1 - 5.0, T_Z1 + 5.0)
     for x in TONGUE_X:
-        s = s - (bx(x - 3.4, x + 3.4, -5.6, -4.2, 90.0, BIG) & skin(1.6, 2.2))
+        s = s - (bx(x - 3.4, x + 3.4, -5.6, -4.2, TOP_ZONE_Z, BIG) & skin(1.6, 2.2))
     return one(s, "T01")
 
 
@@ -614,7 +680,7 @@ def rear_shell_t02():
         boss = cyl_z(x, y, MAG_BOSS_R, Z_SH, Z_SH + 5.0) & off(1.0)
         s = fuse(s, boss, "T02 magnet boss")
         s = s - cyl_z(x, y, MAG_D / 2 + 0.1, Z_SH - 1, Z_SH + MAG_T_T02 + 0.1)
-    s = s - cyl_z(0, 0, NECK_HOLE_R, 98, 110)
+    s = s - cyl_z(0, 0, NECK_HOLE_R, T_Z1 - 7.0, T_Z1 + 5.0)
     return one(s, "T02")
 
 
@@ -644,7 +710,7 @@ def plate_t04():
         d = d - slot_z(VENT_R[0], VENT_R[1], a, VENT_W, T_Z0 - 1, Z_SH + 1)
     for (x, y) in MAG_XY:
         d = d - cyl_z(x, y, MAG_D / 2 + 0.1, Z_SH - MAG_T_T04 - 0.1, Z_SH + 1)
-    d = d - bx(-NAIL_W / 2, NAIL_W / 2, 31.0, 45.0, Z_SH - NAIL_D, Z_SH + 1)   # black nail recess under T02
+    d = d - bx(-NAIL_W / 2, NAIL_W / 2, NAIL_Y[0], NAIL_Y[1], Z_SH - NAIL_D, Z_SH + 1)   # black nail recess under T02
     return d
 
 
@@ -719,7 +785,7 @@ def frame_t07():
         bx(-24.0, RAIL_R[1], 9.0, RAIL_Y[1], T07_HOUSE_Z0, T07_PLATE_Z[1])
     p = h + plate
     for sx in (1, -1):
-        wing = bx(sx * 17.0, sx * NEAR_BLK_X1, -17.0, NEAR_BLK_Y[1], T07_HOUSE_Z0, T07_PLATE_Z[1])
+        wing = bx(sx * 17.0, sx * NEAR_BLK_X1, -17.0, NEAR_BLK_Y[1], WING_Z0, T07_PLATE_Z[1])
         blk = bx(sx * TAB_BLK_X, sx * NEAR_BLK_X1, NEAR_BLK_Y[0], NEAR_BLK_Y[1], AX_Z - 3.5, T07_PLATE_Z[1])
         p = p + wing + blk
     for (xa, xb) in (RAIL_L, RAIL_R):
@@ -731,7 +797,7 @@ def frame_t07():
     p = p - cyl_z(0, 0, PB_RO, PB_Z0, PB_Z1 + 1) - cyl_z(0, 0, T07_LIP_RI, T07_HOUSE_Z0 - 1, PB_Z1 + 1)
     p = p - cyl_z(0, PAN_SERVO_Y, 11.6, G_Z0 - 2, T07_HOUSE_Z0 + 0.0)
     for (x, y) in T07_EARS:
-        p = p - cyl_z(x, y, 1.15, T07_HOUSE_Z0 - 2, T07_PLATE_Z[1] + 1)
+        p = p - cyl_z(x, y, 1.15, min(WING_Z0, T07_HOUSE_Z0) - 2, T07_PLATE_Z[1] + 1)   # through wings + plate
     for xc in (sum(RAIL_L) / 2, sum(RAIL_R) / 2):
         p = p - cyl_y(xc, PAN_TAB_Z1 + 4.0, 0.8, RAIL_Y[1] - 6, RAIL_Y[1] + 1)
     for sx in (1, -1):        # near-tab pilots (M2 from inside through the servo tab)
@@ -845,7 +911,7 @@ def cone_n02():
     trumpet = revolve(Face(Wire(edges)), Axis.Z, 360)
     c = trumpet + cyl_z(0, 0, rb, CO["z0"], z0 + 0.01) + cyl_z(0, 0, SPIGOT_SH_R, PB_Z1, CO["z0"] + 0.01) + \
         cyl_z(0, 0, PB_RI, PB_Z0, PB_Z1 + 0.01)
-    c = c - cyl_z(0, 0, 10.0, PB_Z0 + 1.5, 112.0) - cyl_z(0, 0, 8.0, 111.99, z1 + 2)
+    c = c - cyl_z(0, 0, 10.0, PB_Z0 + 1.5, NECK_STEP_Z) - cyl_z(0, 0, 8.0, NECK_STEP_Z - 0.01, z1 + 2)
     c = c - cyl_z(0, 0, 4.0, PB_Z0 - 1, PB_Z0 + 2)
     for sx in (1, -1):
         c = c - cyl_z(sx * 7.0, 0, 1.2, PB_Z0 - 1, PB_Z0 + 2)
@@ -857,14 +923,15 @@ def barrel_n06():
     hb = BAR_L / 2
     b = cyl_x(TLY, TLZ, BAR_R, -hb, hb)
     b = try_fillet(b, b.edges(), 1.0, "barrel ends")
-    stem = cyl_z(0, 0, 7.8, 108.5, TLZ - BAR_R + 2.5)
+    zs = NECK_STEP_Z          # snap hooks catch under the r10 -> r8 step of the cone bore
+    stem = cyl_z(0, 0, 7.8, zs - 3.5, TLZ - BAR_R + 2.5)
     b = b + stem
     b = b - cyl_x(TLY, TLZ, BAR_R - WALL, -(hb - BAR_END), hb - BAR_END)
-    b = b - cyl_z(0, 0, 4.5, 107, TLZ)
-    b = b - bx(-1.0, 1.0, -10, 10, 108.0, 112.4)
+    b = b - cyl_z(0, 0, 4.5, zs - 5.0, TLZ)
+    b = b - bx(-1.0, 1.0, -10, 10, zs - 4.0, zs + 0.4)
     for sx in (1, -1):
-        hook = (cyl_z(0, 0, 9.1, 108.9, 111.7) - cyl_z(0, 0, 7.7, 108, 113)) & bx(sx * 3.0, sx * 10, -3.0, 3.0, 100,
-                                                                                   120)
+        hook = (cyl_z(0, 0, 9.1, zs - 3.1, zs - 0.3) - cyl_z(0, 0, 7.7, zs - 4.0, zs + 1.0)) & \
+            bx(sx * 3.0, sx * 10, -3.0, 3.0, zs - 12.0, zs + 8.0)
         b = b + hook
     # both ends: cross-horn recess, pivot hole, 2 screw bosses (interface for H09/H10 of all head variants)
     for sx in (1, -1):
@@ -926,15 +993,19 @@ def arm_left():
     A, n = tip_plane()
     hs_tip_out = halfspace(A + n * ARM_HS, n)
     hs_tip_cut = halfspace(A - n * ARM_HS, n)
-    shell = shell - hs_tip_cut
     pos_x = bx(ARM_HS, 50, -50, 50, -80, 50)
     neg_x = bx(-50, -ARM_HS, -50, 50, -80, 50)
-    a01 = round_split(shell & pos_x, ARM_HS, "A01 seam")
-    a02 = round_split(shell & neg_x, -ARM_HS, "A02 seam")
-    lip = ((egg_local(1.0) - egg_local(2.9)) & bx(-1.5, -ARM_HS + 0.2, -50, 50, -80, 50)) + \
-        ((egg_local(ARM_WALL + 0.05) - egg_local(2.9)) & bx(-ARM_HS - 0.2, 2.5, -50, 50, -80, 50))
+    # v8.2: seam R0.25 on the uncut halves, THEN the tip cut (with the +20 % egg the A01 seam edge ending on the
+    # tip-cut face could not be filleted any more - fillet before booleans)
+    a01 = round_split(shell & pos_x, ARM_HS, "A01 seam") - hs_tip_cut
+    a02 = round_split(shell & neg_x, -ARM_HS, "A02 seam") - hs_tip_cut
+    # snap lip: outer bodies united first, the inner egg subtracted once (v8.2: fusing two pieces that share the
+    # inner egg_local(2.9) face produced an inverted solid)
+    lip = ((egg_local(1.0) & bx(-1.5, -ARM_HS + 0.2, -50, 50, -80, 50)) +
+           (egg_local(ARM_WALL + 0.05) & bx(-ARM_HS - 0.2, 2.5, -50, 50, -80, 50))) - egg_local(2.9)
     lip = lip - halfspace(A - n * 2.8, n)
-    a02 = a02 + lip
+    assert lip.is_valid and lip.volume > 0, "A02 lip"
+    a02 = fuse(a02, lip, "A02 lip")
     plug = egg_local(ARM_WALL + 0.05) & (halfspace(A - n * 2.5, n) - halfspace(A + n * (ARM_HS + 0.4), n))
     tip = (E0 & hs_tip_out) + plug
     a01w, a02w, tipw = loc * a01, loc * a02, loc * tip
@@ -943,8 +1014,8 @@ def arm_left():
     a02w = fuse(a02w, hub, "A02 hub")
     a02w = a02w - cyl_x(AX_Y, AX_Z, A04_R + 0.2, HUB_X0 - 5, A04_X1)
     for sy in (1, -1):
-        a02w = a02w - cyl_x(sy * 4.5, AX_Z, 1.2, A04_X1 - 0.1, MID + 2)
-        a02w = a02w - cyl_x(sy * 4.5, AX_Z, 2.1, A04_X1 + 1.2, MID + 2)
+        a02w = a02w - cyl_x(sy * A04_SCREW_Y, AX_Z, 1.2, A04_X1 - 0.1, MID + 2)
+        a02w = a02w - cyl_x(sy * A04_SCREW_Y, AX_Z, 2.1, A04_X1 + 1.2, MID + 2)
     tipw = tipw - cyl_x(AX_Y, AX_Z, HUB_R + 0.3, HUB_X0 - 5, MID + 2)
     # A04 joint coupler
     c = cyl_x(AX_Y, AX_Z, A04_R, A04_X0, A04_X1)
@@ -956,11 +1027,15 @@ def arm_left():
         cyl_x(AX_Y, AX_Z, 3.7, A04_X0 - 1, A04_X0 + T + 0.1)
     c = c - rec - cyl_x(AX_Y, AX_Z, 1.2, A04_X0, A04_X1 + 1) - cyl_x(AX_Y, AX_Z, 2.3, A04_X0 + T + 1.2, A04_X1 + 1)
     for sy in (1, -1):
-        c = c - cyl_x(sy * 4.5, AX_Z, 0.75, A04_X1 - 5, A04_X1 + 1)
+        c = c - cyl_x(sy * A04_SCREW_Y, AX_Z, 0.75, A04_X1 - 5, A04_X1 + 1)
     # A05 ring
     r = cyl_x(AX_Y, AX_Z, A05_RO, A05_X0, A05_X1) - cyl_x(AX_Y, AX_Z, A05_RI, A05_X0 - 1, A05_X1 + 1)
     r = try_fillet(r, [e for e in r.faces().sort_by(Axis.X)[-1].edges() if e.radius > A05_RO - 0.1], 0.5, "A05")
-    return dict(A01=one(a01w, "A01"), A02=one(a02w, "A02"), A03=one(tipw, "A03"), A04=c, A05=r)
+    out = dict(A01=one(a01w, "A01"), A02=one(a02w, "A02"), A03=one(tipw, "A03"), A04=c, A05=r)
+    for k in ("A01", "A02"):                  # a lost half shell must never pass silently (v8.2 first pass)
+        bb = out[k].bounding_box()
+        assert bb.size.Z > 0.9 * EGG_L and bb.size.Y > 1.8 * HW_ * 0.95, f"{k} lost its shell: {bb.size}"
+    return out
 
 
 # ============================================================================================
@@ -983,25 +1058,28 @@ def build():
              "lišta za škárou, bloky serv rúk, 4 nálitky rámu T07, 3× M2 zospodu")
     add("T02", "Zadná škrupina trupu = servisný kryt", rear_shell_t02(), "white", "torso", "J1", (0, 30, 0),
         note="celý zadný diel je servisný kryt bez náradia: 2 horné jazýčky s poistkou, pero-drážka po škáre, "
-             "skrytá magnetická západka 2× Ø5 N52 do T04; žiadne skrutky, žiadne dvierka, žiadny viditeľný výrez")
+             f"skrytá magnetická západka 2× Ø5 N52 do T04; zloženie: vysunúť {SLIDE:g} mm dozadu (pod golierom), "
+             "potom zdvihnúť; žiadne skrutky, žiadne dvierka, žiadny viditeľný výrez")
     add("T04", "Otočný tanier trupu", plate_t04(), "black", "torso", "J1", (0, 0, -25),
-        note="Ø77×2.5 + puzdro vonkajšieho krúžku 6806 (Ø42, osadenie Ø38.6 len na vonkajší krúžok), 6× M2 "
-             "zápustné zospodu (hlavy 0.2 pod povrchom), 7 vetracích štrbín zospodu, 2 magnety západky T02")
+        note=f"Ø{RING_OD:g}×{T04_H:g} + puzdro vonkajšieho krúžku 6806 (Ø42, osadenie Ø38.6 len na vonkajší krúžok) "
+             f"na sedle základne (vrch z {YAW_BRG_Z1:g}), 6× M2 zápustné zospodu (hlavy 0.2 pod povrchom), 7 vetracích "
+             "štrbín zospodu, 2 magnety západky T02")
     add("T05", "Dymové okno hrude (dead-front)", window_t05(), "glass", "torso", "J1", (0, -25, 0),
-        note="34×5 dymový PMMA prepúšťajúci IR (940 nm pre VL53L0X), zarovno s povrchom, príruba za stenou; za ním "
-             "LED pás + ToF + senzor svetla (zhasnuté = čierny lesklý pás)")
+        note=f"{CH['w']:g}×{CH['h']:g} dymový PMMA prepúšťajúci IR (940 nm pre VL53L0X), zarovno s povrchom, z {CH['z']:g}, "
+             "príruba za stenou; za ním LED pás + ToF + senzor svetla (zhasnuté = čierny lesklý pás)")
     add("T06", "Svit LED pásu cez dymové okno", glow_t06(), "cyan_led", "torso", "J1", (0, -25, 0),
         note="LEN VIZUALIZÁCIA: tyrkysový svetelný pás 24×1.6 svietiaci cez T05 (zhasnutý = neviditeľný)")
     print(f"  torso shells {time.time() - t0:.1f}s")
 
     # ---- neck ----
     add("N01", "Golier krku", collar_n01(), "black", "neck", "J1", (0, 0, 10),
-        note="42×34, úkos 22°, otvor Ø26.9 (škára 0.45 ku kužeľu), 2 kolíky + VHB len na T01; spodok nad T02 "
-             "odľahčený 0.2 (T02 sa vysunie bez trenia)")
+        note=f"{CO['w']:g}×{CO['d']:g} (z {CO['z0']:g}–{CO['z1']:g}), úkos 22°, otvor Ø26.9 (škára 0.45 ku kužeľu), 2 kolíky "
+             "+ VHB len na T01; spodok nad T02 odľahčený 0.2 (T02 sa vysunie bez trenia)")
     add("N02", "Kužeľ krku s čapom", cone_n02(), "black", "neck", "J2", (0, 0, 20),
         note="čap Ø25 v 6805, osadenie na vnútornom krúžku, 2× M2 zhora do N03 (skryté v hlave)")
     add("N06", "Valec náklonu", barrel_n06(), "black", "neck", "J2", (0, 0, 32),
-        note="Ø30×30 na osi y 0 / z 127, rozhranie pre H09/H10 všetkých hláv; hladký (bez ozdobných drážok)")
+        note=f"Ø{2 * BAR_R:g}×{BAR_L:g} na osi y {TLY:g} / z {TLZ:g}, rozhranie pre H09/H10 všetkých hláv; hladký "
+             "(bez ozdobných drážok)")
     print(f"  neck {time.time() - t0:.1f}s")
 
     # ---- arms ----
@@ -1011,15 +1089,16 @@ def build():
         sub = "arm_" + side
         nm = "pravá" if side == "R" else "ľavá"
         add(f"A01-{side}", f"Vonkajšia škrupina ruky {nm}", g["A01"], "white", sub, j, (sx * 30, 0, 0),
-            note="vajce 99/71/48, ½š 13, ½h 7, odklon 8°, stena 1.8, hladká (bez falošnej drážky)")
+            note=f"vajce {EGG['top_z']:g}/{EGG['widest_z']:g}/{EGG['bottom_z']:g}, ½š {HW_:g}, ½h {HT_:g}, os ramena "
+                 f"z {AX_Z:g}, stred x {MID:g}, odklon {SPLAY:g}°, stena {ARM_WALL:g}, hladká (bez falošnej drážky)")
         add(f"A02-{side}", f"Vnútorná škrupina ruky {nm}", g["A02"], "white", sub, j, (sx * 22, 0, 0),
-            note="náboj Ø18 vo vnútri vajca s lôžkom A04, 2× M2 skryté pod A01, zámkový lem")
+            note=f"náboj Ø{2 * HUB_R:g} vo vnútri vajca s lôžkom A04, 2× M2 skryté pod A01, zámkový lem")
         add(f"A03-{side}", f"Špička ruky {nm}", g["A03"], "rubber", sub, j, (sx * 30, -8, -15),
             note="TPU, zátka zachytená medzi A01/A02, škára 0.5")
         add(f"A04-{side}", f"Spojka kĺbu ramena {nm}", g["A04"], "black", sub, j, (sx * 14, 0, 0),
-            note="Ø14.6, skrátené rameno serva v drážke, axiálna skrutka M2")
+            note=f"Ø{2 * A04_R:g}, skrátené rameno serva v drážke, axiálna skrutka M2")
         add(f"A05-{side}", f"Krúžok ramena {nm}", g["A05"], "black", sub, "J1", (sx * 7, 0, 0),
-            note="Ø22/Ø16, 0.7 nad povrchom, vlepený do T01")
+            note=f"Ø{2 * A05_RO:g}/Ø{2 * A05_RI:g}, 0.7 nad povrchom, vlepený do T01")
     print(f"  arms {time.time() - t0:.1f}s")
 
     # ---- internals ----
@@ -1042,7 +1121,7 @@ def build():
         note="4× Ø5 N52: 2× 5×2 v T02, 2× 5×1.5 v T04 (opačná polarita) = skrytá západka zadného krytu")
     yaw = place(sts3215_local(), (0, 0, YS_Z0), (0, 0, -1), (1, 0, 0))
     add("E21", "Servo trupu Feetech STS3215", yaw, "servo", "torso", "J1", (0, 0, -4), True,
-        note="45.2×24.7×35, drážkovanie DOLE na osi J1, telo z 45–80, v kolíske T08 na T04")
+        note=f"45.2×24.7×35, drážkovanie DOLE na osi J1, telo z {YS_Z0:g}–{YS_Z1:g}, v kolíske T08 na T04")
     add("E21H", "Ramienko STS3215 (na náboji základne)", yaw_horn_e21h(), "metal", "torso", "", (0, 0, -16), True,
         note="disk Ø20, priskrutkovaný k náboju základne")
     for side, sx, j in (("R", -1, "J4"), ("L", 1, "J5")):
@@ -1093,83 +1172,164 @@ def interference(parts, others=(), tol=0.5):
     return bad
 
 
-def motion_check(parts, others=(), tol=0.5):
-    """Sweep the joints in CAD and report collisions."""
-    byid = {p.id: p for p in list(parts) + list(others)}
+def _rot_pr(p, shape):
+    return PartRec(p.id, p.name, shape, p.mat, p.sub, p.joint, p.explode, p.internal, p.note)
+
+
+# cad_internals.SUPERSEDED (copy used only when that module cannot be imported)
+_SUPERSEDED_FALLBACK = ["BE1-1", "BE1-2", "BE2", "BE3", "BE4", "BE5", "BE6", "BM2-L", "BM2-R", "BM5", "BW1", "E21",
+                        "E21H", "E22-L", "E22-R", "E22H-L", "E22H-R", "E23", "E23H", "E24", "E25", "E31", "E32",
+                        "E33-L", "E33-R", "M21", "M22"]
+
+
+def superseded():
+    try:
+        from nova_v8 import cad_internals as CI
+        return set(CI.SUPERSEDED)
+    except Exception as ex:  # noqa: BLE001
+        print(f"  [cad_internals not importable ({str(ex)[:60]}) - SUPERSEDED fallback list]")
+        return set(_SUPERSEDED_FALLBACK)
+
+
+def motion_check(parts, others=(), tol=0.5, sup=()):
+    """Sweep the joints in CAD and report collisions (SUPERSEDED envelopes and deforming cables excluded).
+       arms J4/J5 -30..180 vs torso + base + head at pose 0;  pan J2 +-90 (cone, barrel and the whole head of every
+       loaded head variant) vs the torso + the arms at 0;  J1 +-150 (torso + arms + neck + head) vs the base."""
+    sup = set(sup)
+    allp = [p for p in list(parts) + list(others) if p.id not in sup]
+    own = {p.id for p in parts}
     out = []
 
     def hit(a, b):
         if _bb_apart(a.bounding_box(), b.bounding_box()):
             return 0.0
-        i = a & b
-        return 0.0 if i is None else i.volume
+        try:
+            i = a & b
+            return 0.0 if i is None else i.volume
+        except Exception:  # noqa: BLE001
+            return -1.0
 
-    fixed_t = [p for p in byid.values() if p.joint == "J1"]
-    upper = [p for p in byid.values() if p.joint in ("J2", "J3")]
-    base = [p for p in byid.values() if p.joint == "" and p.id != "E21H"]
+    cable = ("IW", "BW")
+    fixed_t = [p for p in allp if p.joint == "J1" and not p.id.startswith(cable)]
+    upper = [p for p in allp if p.joint in ("J2", "J3") and not p.id.startswith(cable)]
+    base = [p for p in allp if p.joint == "" and p.id not in ("E21H", "IT02", "IT03") and not p.id.startswith(cable)]
+    arms = [p for p in allp if p.joint in ("J4", "J5")]
     for side, j in (("L", "J5"), ("R", "J4")):
-        mov = [p for p in parts if p.joint == j]
+        mov = [p for p in allp if p.joint == j]
         ax = Axis((0, AX_Y, AX_Z), (1, 0, 0))
-        for ang in (-30, 45, 90, 135, 150, 180):
+        for ang in (-30, 0, 30, 60, 90, 120, 135, 150, 165, 180):
             for m in mov:
                 sh = m.shape.rotate(ax, -ang)
                 for f in fixed_t + base + upper:
+                    if m.id not in own and f.id not in own:
+                        continue
                     v = hit(sh, f.shape)
-                    if v > tol:
+                    if v > tol or v < 0:
                         out.append((f"{j}={ang}", m.id, f.id, round(v, 1)))
-    mov = [p for p in parts if p.joint == "J2" and p.id != "N03"]
-    for ang in (-90, -45, 45, 90):
+    mov = [p for p in allp if p.joint in ("J2", "J3") and p.id not in ("N03",) and not p.id.startswith(cable)]
+    for ang in (-90, -60, -30, 30, 60, 90):
         for m in mov:
             sh = m.shape.rotate(Axis.Z, ang)
-            for f in fixed_t:
+            for f in fixed_t + arms:
+                if m.id not in own and f.id not in own:
+                    continue
+                if f.id == "N04" or m.id == "N04":
+                    continue                       # 1:1 gear pair turns together with the stage
                 v = hit(sh, f.shape)
-                if v > tol:
+                if v > tol or v < 0:
                     out.append((f"J2={ang}", m.id, f.id, round(v, 1)))
-    for ang in (-150, -90, 90, 150):
-        for m in [p for p in parts if p.joint in ("J1", "J2", "J4", "J5")]:
+    rot = [p for p in allp if p.joint in ("J1", "J2", "J3", "J4", "J5") and not p.id.startswith(cable)]
+    for ang in (-150, -120, -90, -45, 45, 90, 120, 150):
+        for m in rot:
             sh = m.shape.rotate(Axis.Z, ang)
             for f in base:
+                if m.id not in own and f.id not in own:
+                    continue
                 v = hit(sh, f.shape)
-                if v > tol:
+                if v > tol or v < 0:
                     out.append((f"J1={ang}", m.id, f.id, round(v, 1)))
     return out
 
 
-def other_modules(mdir=None, step_dir=None):
-    """Parts of the other v8 modules in build_v8/manifest: their build() if it runs, else their exported STEP."""
-    import importlib
+OTHER_BUILDS = [("build_v8", None), ("build_v8_var_aplus", ("head_aplus",)), ("build_v8_var_b", ("head_b",))]
+OTHER_INFO: dict = {}
+
+
+def other_modules(stand_in=False):
+    """Parts of the other v8 modules = their CURRENT exported builds (manifest + STEP in build_v8 / head-variant
+    dirs).  Stale v8.1 builds are reported; with stand_in=True they are replaced by v8.2 stand-ins where that is an
+    exact move: heads +13 (HEAD.z0 117 -> 130, size unchanged), base yaw seat/hub B09 B14 B15 B17 -4 (base top
+    39 -> 35, interface unchanged in plan; B01/B02 resized -> left out), internals left out."""
     import json
     from build123d import import_step
     out = []
-    mdir = mdir or os.path.join(OUT_DIR, "manifest")
-    step_dir = step_dir or os.path.join(os.path.dirname(mdir), "step")
-    for fn in sorted(os.listdir(mdir)) if os.path.isdir(mdir) else []:
-        name = fn[:-5]
-        if not fn.endswith(".json") or name == MANIFEST:
-            continue
-        recs = json.load(open(os.path.join(mdir, fn)))
-        got = None
-        for mod in (f"nova_v8.cad_{name}", f"nova_v8.{name}"):
-            try:
-                m = importlib.import_module(mod)
-                got = m.build()
-                print(f"  built {mod}: {len(got)} parts")
-                break
-            except ModuleNotFoundError:
+    for d, only in OTHER_BUILDS:
+        mdir = os.path.join(ROOT, d, "manifest")
+        for fn in sorted(os.listdir(mdir)) if os.path.isdir(mdir) else []:
+            name = fn[:-5]
+            if not fn.endswith(".json") or name == MANIFEST or (only and name not in only):
                 continue
-            except Exception as ex:  # noqa: BLE001
-                print(f"  [build of {mod} failed: {str(ex)[:90]}] -> STEP")
-                break
-        if got is None:
+            if name.startswith("concept"):
+                continue
+            recs = json.load(open(os.path.join(mdir, fn)))
+            bb = {r["id"]: r["bbox"] for r in recs}
+            dz, stale, keep = 0.0, False, None
+            if name.startswith("head"):
+                shell = next((r for r in recs if r["joint"] == "J3" and r["id"].endswith("01")), None)
+                z0 = shell["bbox"]["min"][2] if shell else S.HEAD["z0"]
+                stale = abs(z0 - S.HEAD["z0"]) > 0.5
+                dz = S.HEAD["z0"] - z0
+            elif name == "base" and "B01" in bb:
+                ztop = bb["B01"]["min"][2] + bb["B01"]["size"][2]
+                stale = abs(ztop - BS["z1"]) > 0.3
+                dz = BS["z1"] - ztop
+                keep = {"B09", "B14", "B15", "B17"}
+            elif name == "internals" and "IN03" in bb and "IT04" in bb:
+                # its 6805 / 6806 must sit where this module puts M22 / M21
+                stale = abs(bb["IN03"]["min"][2] - PB_Z0) > 0.3 or \
+                    abs(bb["IT04"]["min"][2] - (YAW_BRG_Z1 - YAW_BRG[2])) > 0.3
+                keep = set()
+            mt = time.ctime(os.path.getmtime(os.path.join(mdir, fn)))
+            OTHER_INFO[name] = dict(dir=d, mtime=mt, parts=len(recs), stale=stale, dz=round(dz, 2))
+            if stale and not stand_in:
+                print(f"  [{name}] STALE (v8.1) build {mt} - skipped (use --stand-in for v8.2 stand-ins)")
+                continue
             got = []
             for r in recs:
-                p = os.path.join(step_dir, f"{r['id']}.step")
-                if os.path.exists(p):
-                    got.append(PartRec(r["id"], r["name"], import_step(p), r["mat"], r["sub"], r["joint"],
-                                       tuple(r["explode"]), r["internal"], r["note"]))
-            print(f"  loaded {len(got)} STEP parts of '{name}'")
-        out += got
+                if stale and keep is not None and r["id"] not in keep:
+                    continue
+                p = os.path.join(ROOT, d, "step", f"{r['id']}.step")
+                if not os.path.exists(p):
+                    continue
+                shp = import_step(p)
+                if stale and abs(dz) > 1e-6:
+                    shp = Pos(0, 0, dz) * shp
+                got.append(PartRec(r["id"], r["name"], shp, r["mat"], r["sub"], r["joint"], tuple(r["explode"]),
+                                   r["internal"], r["note"]))
+            tag = f"STAND-IN (v8.1 moved {dz:+.1f} in z)" if stale else "current"
+            print(f"  [{name}] {len(got)} STEP parts, {tag}, {mt}")
+            out += got
     return out
+
+
+def cross_interference(parts, others, sup, tol=0.5):
+    """Own parts vs the other modules, SUPERSEDED envelopes excluded on both sides."""
+    own = [p for p in parts if p.id not in sup]
+    oth = [p for p in others if p.id not in sup]
+    bad = []
+    for a in own:
+        ba = a.shape.bounding_box()
+        for b in oth:
+            if _bb_apart(ba, b.shape.bounding_box()):
+                continue
+            try:
+                ab = a.shape & b.shape
+                v = 0.0 if ab is None else ab.volume
+            except Exception:  # noqa: BLE001
+                v = -1
+            if v > tol or v < 0:
+                bad.append((a.id, b.id, round(v, 2)))
+    return bad
 
 
 def step_roundtrip(ids=None):
@@ -1187,18 +1347,91 @@ def step_roundtrip(ids=None):
     return bad
 
 
+def spec_report(ps):
+    """Key v8.2 numbers measured on the CAD."""
+    by = {p.id: p.shape.bounding_box() for p in ps}
+    t01, t02, t04 = by["T01"], by["T02"], by["T04"]
+    w = max(t01.max.X, t02.max.X) - min(t01.min.X, t02.min.X)
+    d = max(t01.max.Y, t02.max.Y) - min(t01.min.Y, t02.min.Y)
+    a = by["A01-L"].max.X - by["A01-R"].min.X
+    rows = [("torso w x d (shells)", f"{w:.2f} x {d:.2f}", f"{TS['w']:g} x {TS['d']:g}"),
+            ("white shells z / T04 top", f"{min(t01.min.Z, t02.min.Z):.2f} .. {max(t01.max.Z, t02.max.Z):.2f} / "
+             f"{t04.max.Z:.2f}", f"{Z_SH:g} .. {T_Z1:g} / {Z_SH:g} (torso {T_Z0:g}..{T_Z1:g})"),
+            ("T04 disc / housing bottom", f"Ø{t04.max.X - t04.min.X:.2f} / z {t04.min.Z:.2f}", f"Ø{RING_OD:g}"),
+            ("collar N01 w x d, z", f"{by['N01'].max.X - by['N01'].min.X:.2f} x {by['N01'].max.Y - by['N01'].min.Y:.2f}, "
+                                    f"z {by['N01'].min.Z + 1.4:.2f}..{by['N01'].max.Z:.2f}",
+             f"{CO['w']:g} x {CO['d']:g}, {CO['z0']:g}..{CO['z1']:g}"),
+            ("cone N02 top", f"{by['N02'].max.Z:.2f}", f"{CN['z1']:g}"),
+            ("barrel N06 top / x-length", f"{by['N06'].max.Z:.2f} / {by['N06'].max.X - by['N06'].min.X:.2f}",
+             f"{TLZ + BAR_R:g} (axis z {TLZ:g}) / {BAR_L:g}"),
+            ("arm A01-L+A02-L z", f"{min(by['A01-L'].min.Z, by['A02-L'].min.Z):.2f} .. "
+                                  f"{max(by['A01-L'].max.Z, by['A02-L'].max.Z):.2f}",
+             f"{EGG['bottom_z']:g} .. {EGG['top_z']:g} (splay 8 deg)"),
+            ("arm span (A01 outer faces)", f"{a:.2f}", f"OVERALL.w_arms {S.OVERALL['w_arms']:g}"),
+            ("E21 STS3215 z", f"{by['E21'].min.Z:.2f} .. {by['E21'].max.Z:.2f}", f"{YS_Z0:g} .. {YS_Z1:g} (+boss/cable)"),
+            ("M21 6806 z", f"{by['M21'].min.Z:.2f} .. {by['M21'].max.Z:.2f}", f"top {YAW_BRG_Z1:g}"),
+            ("M22 6805 z", f"{by['M22'].min.Z:.2f} .. {by['M22'].max.Z:.2f}", f"under the top wall {T_Z1 - WALL:g}")]
+    for r in rows:
+        print(f"   {r[0]:36s} CAD {r[1]:34s} spec {r[2]}")
+
+
+def load_own_step():
+    """This module's parts from its exported STEP (re-run the checks without rebuilding: --from-step)."""
+    import json
+    from build123d import import_step
+    recs = json.load(open(os.path.join(OUT_DIR, "manifest", f"{MANIFEST}.json")))
+    ps = [PartRec(r["id"], r["name"], import_step(os.path.join(OUT_DIR, "step", f"{r['id']}.step")), r["mat"],
+                  r["sub"], r["joint"], tuple(r["explode"]), r["internal"], r["note"]) for r in recs]
+    return ps, recs
+
+
+def service_check(ps, slides=(SLIDE,), lifts=(0.0, 2.0, 10.0)):
+    """Rear cover T02 removal: slide +Y, then lift +Z - collisions with every other part of this module."""
+    t02 = next(p for p in ps if p.id == "T02").shape
+    rest = [p for p in ps if p.id != "T02"]
+    out = []
+    for sl in slides:
+        for lf in lifts:
+            m = Pos(0, sl, lf) * t02
+            bm = m.bounding_box()
+            for p in rest:
+                if _bb_apart(bm, p.shape.bounding_box()):
+                    continue
+                i = m & p.shape
+                v = 0.0 if i is None else i.volume
+                if v > 0.01:
+                    out.append((f"slide {sl:g} lift {lf:g}", p.id, round(v, 2)))
+    return out
+
+
 if __name__ == "__main__":
     t0 = time.time()
-    ps = build()
-    recs = export_parts(ps, MANIFEST, step=True, out_dir=OUT_DIR)
-    for r in recs:
-        print(f"  {r['id']:7s} {r['mat']:9s} {r['sub']:6s} {r['joint']:3s} {'int' if r['internal'] else '   '} "
-              f"size={r['bbox']['size']} min={r['bbox']['min']} vol={r['volume_mm3']}")
-    print("STEP round-trip problems:", step_roundtrip())
+    if "--from-step" in sys.argv:
+        ps, recs = load_own_step()
+        print(f"  loaded {len(ps)} own parts from STEP ({OUT_DIR})")
+    else:
+        ps = build()
+        recs = export_parts(ps, MANIFEST, step=True, out_dir=OUT_DIR)
+        for r in recs:
+            print(f"  {r['id']:7s} {r['mat']:9s} {r['sub']:6s} {r['joint']:3s} {'int' if r['internal'] else '   '} "
+                  f"size={r['bbox']['size']} min={r['bbox']['min']} vol={r['volume_mm3']}")
+        print("STEP round-trip problems:", step_roundtrip())
+    print("spec check:")
+    spec_report(ps)
     if "--check" in sys.argv:
-        oth = other_modules() if "--others" in sys.argv else []
-        print("interference:", interference(ps, oth))
-        if "--motion" in sys.argv:
-            print("motion:", motion_check(ps, oth))
+        print("interference (own):", interference(ps))
+        print(f"T02 removal (slide +Y to {SLIDE:g}, then lift +Z; M23 = the T02 magnets that travel with it, "
+              "T01 at mid-slide = the snap bump):",
+              service_check(ps, slides=(TONGUE_RELEASE / 2, TONGUE_RELEASE, 12.0, SLIDE), lifts=(0.0,)) +
+              service_check(ps, slides=(SLIDE,), lifts=(1.0, 5.0, 15.0, 40.0)))
+        if "--others" in sys.argv or "--motion" in sys.argv:
+            sup = superseded()
+            oth = other_modules(stand_in="--stand-in" in sys.argv)
+            print("other builds:", OTHER_INFO)
+            print("interference vs other modules (SUPERSEDED excluded):", cross_interference(ps, oth, sup))
+            if "--motion" in sys.argv:
+                print("motion:", motion_check(ps, oth, sup=sup))
+        elif "--motion-own" in sys.argv:
+            print("motion (own parts only):", motion_check(ps, (), sup=()))
     print("deviations:\n  - " + "\n  - ".join(DEVIATIONS))
     print(f"[{MANIFEST}] {len(recs)} parts in {time.time() - t0:.1f}s -> {OUT_DIR}")
