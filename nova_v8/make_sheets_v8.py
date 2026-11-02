@@ -128,7 +128,8 @@ def auto_rows(recs, subs, skip=(), attach=None, short=None):
         if r["sub"] not in subs or r.get("internal") or r["id"] in skip or r["id"].endswith("-L"):
             continue
         desc = S7.MATERIALS.get(r["mat"], {}).get("desc", r["mat"]).split("(")[0].strip()
-        rows.append((f"{r['id']} {r['name']}"[:34], [r["id"]] + attach.get(r["id"], []), short.get(r["id"], desc)))
+        nm = r["name"].split(" = ")[0].split(" (")[0].strip()
+        rows.append((f"{r['id']} {nm}", [r["id"]] + attach.get(r["id"], []), short.get(r["id"], desc)))
     return rows
 
 
@@ -513,7 +514,7 @@ def main():
                                               " na skrytých magnetoch · T04 otočný tanier · T05 dymový pás hrude"),
                 lambda: MS.sheet_matrix("12_NOVA_mini_diely_trupu", "NOVA mini / DIELY TRUPU A KRKU",
                                         auto_rows(recs, ("torso", "neck"), skip=("T06",), attach={"T05": ["T06"]},
-                                                  short={"T05": "dymový akrylát 2 mm, LED + ToF za oknom"}),
+                                                  short={"T05": "dymový akrylát 2 mm", "T02": "servisný kryt, magnety"}),
                                         q, recs, subtitle="všetky riadky v rovnakej mierke"),
                 lambda: MS.sheet_six("13_NOVA_mini_ruky", "NOVA mini / RUKY",
                                      ext("arm_R"), q, recs,
