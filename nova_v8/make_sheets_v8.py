@@ -40,9 +40,12 @@ VAR = {
 AXES = {"J2": [[0, 0, 1], [0, 0, 0]], "J3": [[1, 0, 0], [0, S8.NECK["tilt_axis"]["y"], S8.NECK["tilt_axis"]["z"]]],
         "J4": [[1, 0, 0], [0, S8.ARM["axis"]["y"], S8.ARM["axis"]["z"]]],
         "J5": [[1, 0, 0], [0, S8.ARM["axis"]["y"], S8.ARM["axis"]["z"]]]}
-TVAR = {"A": "3.5\" IPS 480×320 s ESP32-S3 · ploché dymové sklo nalepené na displej (dotyk funguje)",
-        "Aplus": "3.5\" IPS 480×320 s ESP32-S3 · zakrivené dymové sklo R180 (bez dotyku cez sklo)",
-        "B": "3.5\" IPS 480×320 s ESP32-S3 · vizor R100 cez celé čelo"}
+TVAR = {"A": "3.5\" IPS 480×320 · ploché dymové sklo, dotyk cez sklo",
+        "Aplus": "3.5\" IPS 480×320 · zakrivené dymové sklo R180 (bez dotyku)",
+        "B": "3.5\" IPS 480×320 · vizor R100 cez celé čelo (bez dotyku)"}
+ZMYSLY = {"A": "mikrofón, dotyk, ToF + svetlo za pásom hrude, 4 senzory proti pádu",
+          "Aplus": "mikrofón, ToF + svetlo za pásom hrude, 4 senzory proti pádu",
+          "B": "mikrofón, ToF + svetlo za pásom hrude, 4 senzory proti pádu"}
 HERO_CAM = {"name": "hero", "loc": [245, -735, 290], "target": [0, 0, 98], "lens": 95}
 CUR = {"v": "A"}
 
@@ -253,7 +256,7 @@ def sheet_hero_v8(q, recs):
         ("Rozmery", f"výška {S8.HEAD['z1']:.0f} mm · základňa {S8.BASE['w']:.0f} × {S8.BASE['d']:.0f} mm"),
         ("Pohyb", "jazda na 2 skrytých kolesách · trup ±150° · hlava ±90° / ±20° · 2 ruky"),
         ("Tvár", TVAR[CUR["v"]]),
-        ("Zmysly", "mikrofón, dotykový displej, ToF + svetlo za pásom na hrudi, 4 senzory proti pádu"),
+        ("Zmysly", ZMYSLY[CUR["v"]]),
         ("Svetlo", "LED krúžky v ušiach · pás v hrudi · podsvietenie stola 360°"),
         ("Mozog", "ESP32-S3 (hlava) + ESP32-C3 (trup) + uzol základne, AI cez Wi-Fi"),
         ("Napájanie", "2× 18650, USB-C a kontakty dokovania zospodu"),
