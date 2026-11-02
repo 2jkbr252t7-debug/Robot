@@ -202,7 +202,8 @@ POST_R = 2.4
 LOOP_R, LOOP_RB = 26.5, 3.0
 LOOP_Z = TROUGH_Z0 + TROUGH_T + 0.5 + LOOP_RB     # 28.1 BW1 envelope centre       (31.6)
 FIX_EXIT = (LOOP_R * math.cos(math.radians(-20)), LOOP_R * math.sin(math.radians(-20)), 4.0)
-RISER_XY = (-(23.0 + 29.0) / 2, 0.0)                                   # into the T04 slot r 23..29 at 180 deg
+T04_SLOT_R = (23.0, 29.0)          # torso cad_torso.CABLE_SLOT r0/r1 (155..205 deg) - torso-local, not in spec.py
+RISER_XY = (-sum(T04_SLOT_R) / 2, 0.0)                                 # into the T04 slot r 23..29 at 180 deg
 # ---- drive ----
 GB_L = MOT["gearbox_len"]                                  # 9
 CAN_L = MOT["body"][2] - GB_L                              # 15
@@ -235,7 +236,8 @@ BTN_XY = (float(BS["button"]["x"]), float(BS["button"]["y"]))            # (23, 
 BOARD_Z0, BOARD_T = 10.25, 1.6     # charger / button boards (USB-C receptacle 7.35 tall below)
 BOARD_W, BOARD_D, BOARD_XC = 30.0, 13.8, 25.0
 BOARD_YC = TRAY_IN_Y - 0.4 - BOARD_D / 2       # 38.3                                      (39.9)
-BOARD_STANDOFFS = [(-30.5, BOARD_YC + 5.0), (-14.0, BOARD_YC + 4.6), (30.5, BOARD_YC + 5.0), (14.0, BOARD_YC + 4.6)]
+BOARD_STANDOFFS = [(sx * (BOARD_XC + dx), BOARD_YC + dy) for sx in (-1, 1)
+                   for (dx, dy) in ((BOARD_W / 2 - 9.5, 5.0), (-(BOARD_W / 2 - 4.0), 4.6))]   # |x| 30.5 / 14.0
 # ---- speaker (front left, vertical, fires -Y into a sealed front chamber) ----
 SPK_DIP = 0.5                      # frame bottom 0.5 into a floor slot (28 + clearances do not fit z 4.5..32.8)
 CH_T = 1.2
@@ -243,7 +245,8 @@ CH_X0 = CUP_R + CUP_EAR + 0.5                  # 11.0 chamber side wall clear of
 SPK_X = CH_X0 + SPK_D / 2 + 0.5                # 25.5                                       (28)
 CH_YB = -(TRAY_IN_Y - 5.2)                     # -40.4 baffle front face (chamber 5.2 deep)  (-42.4)
 SPK = dict(x=SPK_X, z=FLOOR_TOP + SPK_D / 2 - SPK_DIP, y_face=CH_YB + CH_T, d=SPK_D, h=SPK_H)   # z 18.0 (19.0)
-CH = dict(x0=CH_X0, x1=2 * SPK_X - CH_X0, yb=CH_YB, z1=SPK["z"] + 12.0 + 0.6 + CH_T, t=CH_T)    # x 11..40, z1 31.8
+BAFFLE_R = SPK_D / 2 - 2.0                     # 12 baffle hole (frame ring 2 mm)
+CH = dict(x0=CH_X0, x1=2 * SPK_X - CH_X0, yb=CH_YB, z1=SPK["z"] + BAFFLE_R + 0.6 + CH_T, t=CH_T)    # x 11..40, z1 31.8
 PERF = dict(x0=CH["x0"] + 3.0, x1=CH["x1"] - 3.0, rows=tuple(-TRAY_IN_Y + d for d in (1.3, 2.7, 4.1)),
             pitch=1.6, d=1.0)
 TCRT = (10.4, 5.8, 7.0)
@@ -531,7 +534,7 @@ def speaker_chamber():
     t = c["t"]
     yf = -TRAY_IN_Y                                # tray wall inner face y -45.6
     baffle = bx(c["x0"], c["x1"], c["yb"], c["yb"] + t, FLOOR_TOP - 0.01, c["z1"])
-    baffle = baffle - cy(12.0, c["yb"] - 1, c["yb"] + t + 1, SPK["x"], SPK["z"])
+    baffle = baffle - cy(BAFFLE_R, c["yb"] - 1, c["yb"] + t + 1, SPK["x"], SPK["z"])
     sides = bx(c["x0"], c["x0"] + t, yf - 0.5, c["yb"], FLOOR_TOP - 0.01, c["z1"]) + \
         bx(c["x1"] - t, c["x1"], yf - 0.5, c["yb"], FLOOR_TOP - 0.01, c["z1"])
     roof = bx(c["x0"], c["x1"], yf - 0.5, c["yb"] + t, c["z1"] - t, c["z1"])
