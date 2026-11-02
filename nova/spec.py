@@ -98,6 +98,7 @@ OVERALL = dict(w=166.0, d=128.0, h=HEAD_Z1 - FLOOR_Z)   # ~266 mm tall; width ov
 MATERIALS = {
     "white":      dict(desc="biely lesklo-satén PC/ABS (RAL 9003)", rgb=(0.93, 0.93, 0.92), rough=0.28, clearcoat=0.35),
     "black":      dict(desc="čierny soft-touch (RAL 9005 mat)",     rgb=(0.008, 0.008, 0.009), rough=0.30, spec=0.30),
+    "black_satin":dict(desc="čierny saténový plast (kryty krku)",   rgb=(0.010, 0.010, 0.011), rough=0.45, spec=0.35),
     "black_gloss":dict(desc="čierny lesklý plast",                   rgb=(0.02, 0.02, 0.022), rough=0.15),
     "rubber":     dict(desc="čierne TPU 85A / guma",                 rgb=(0.022, 0.022, 0.024), rough=0.75, spec=0.3),
     "glass":      dict(desc="tvrdené sklo 1.1 mm, čierna potlač",    rgb=(0.004, 0.004, 0.005), rough=0.015),
