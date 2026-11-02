@@ -47,8 +47,9 @@ def compat_spec():
     """v7-shaped namespace with v8 numbers so the generic v7 sheet functions draw the right values."""
     H = dict(S8.HEAD)
     H["display"] = dict(S8.DISPLAY, zc=S8.HEAD["zc"], label='3.5" 480×320, SPI/QSPI')
-    H["camera"] = dict(S8.HEAD["camera"], hole_d=S8.HEAD["camera"]["d"])
-    H["glass"] = dict(S8.HEAD["glass"], print_border=4.0, t=2.0)
+    H["camera"] = dict(S8.HEAD["camera"], hole_d=S8.HEAD["camera"]["d"], hidden=True)
+    # v8.1 head A mask (cad_head review): window = LCD active area + 0.5 mm/side -> 5.0 top/bottom, 8.8 sides
+    H["glass"] = dict(S8.HEAD["glass"], print_border=5.0, print_top=5.0, print_side=8.8, t=2.0)
     H["d"] = S8.HEAD["y1"] - S8.HEAD["y0"]
     return types.SimpleNamespace(
         VERSION=S8.VERSION, FLOOR_Z=0.0, BASE=dict(S8.BASE), TORSO=dict(S8.TORSO), HEAD=H, ARM=S8.ARM, NECK=S8.NECK,
@@ -187,7 +188,7 @@ def expr_v8(g, ey, disp, Hd, zc):
     lines = [
         ("Sklo", f"{g['w']:g} × {g['h']:g} mm, R{g['r']:g}, dymový PMMA 2 mm · A ploché, A+ R180, B R100"),
         ("Displej", "3.5\" IPS 480×320, dotyk, ESP32-S3 (Guition JC3248W535 / Waveshare)"),
-        ("Kamera", f"voliteľná OV2640 za maskou v hornom páse (z={Hd['camera']['z']:g}) – zvonku nevidno"),
+        ("Kamera", "voliteľná OV2640 za čiernym horným pásom rámu – zvonku nevidno"),
         ("Oči", f"{ey['w']:g}×{ey['h']:g} mm R{ey['r']:g}, stredy x=±{ey['x']:g}, z={ey['z']:g} ({zc - ey['z']:g} mm pod stredom skla)"),
         ("Farba očí", "teplá biela #FFDEAC; animácie 30–60 fps (LVGL), žmurknutie každých 3–8 s"),
         ("Rozlíšenie", f"{px:.1f} px/mm → oko ≈ {ey['w'] * px:.0f}×{ey['h'] * px:.0f} px"),

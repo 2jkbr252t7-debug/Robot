@@ -778,7 +778,8 @@ def sheet_expressions(q, recs):
         d.rounded_rectangle([x0, y0, x0 + w, y0 + h], radius=g["r"] * kk, fill=(12, 12, 14))
         # visible (unprinted) window: 4 mm print border, 9 mm at the top
         pb, pt = g["print_border"] * kk, g.get("print_top", g["print_border"]) * kk
-        d.rounded_rectangle([x0 + pb, y0 + pt, x0 + w - pb, y0 + h - pb], radius=max(1, (g["r"] - g["print_border"]) * kk),
+        ps = g.get("print_side", g["print_border"]) * kk
+        d.rounded_rectangle([x0 + ps, y0 + pt, x0 + w - ps, y0 + h - pb], radius=max(1, (g["r"] - g["print_border"]) * kk),
                             outline=(48, 50, 56), width=max(1, int(kk / 4)))
         b = g["print_border"] * kk
         aw, ah = disp["active"][0] * kk, disp["active"][1] * kk
@@ -786,6 +787,8 @@ def sheet_expressions(q, recs):
         return acx, acy
 
     def cam(x0, y0, kk):
+        if Hd["camera"].get("hidden"):       # camera behind the mask (not visible from outside)
+            return
         cx = x0 + g["w"] * kk / 2
         cy = y0 + (g["h"] / 2 - (Hd["camera"]["z"] - zc)) * kk
         r = Hd["camera"]["hole_d"] / 2 * kk
