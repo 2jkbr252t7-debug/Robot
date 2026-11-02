@@ -316,6 +316,23 @@ def joint_chain(joint):
     return chains.get(joint, [])
 
 
+def apply_xforms(objs, xforms):
+    """Design studies: per-group scale about a pivot + translation, e.g.
+    [{"subs": ["torso"], "ids": [], "scale": [1.05, 1.0, 1.2], "pivot": [0, 0, 40], "move": [0, 0, -4]}].
+    A part matches when its sub is in "subs" or its id is in "ids" (first matching entry wins)."""
+    for o in objs:
+        for xf in xforms or []:
+            if o.get("sub") in xf.get("subs", []) or o.name in xf.get("ids", []):
+                sx, sy, sz = xf.get("scale", (1, 1, 1))
+                px, py, pz = xf.get("pivot", (0, 0, 0))
+                mx, my, mz = xf.get("move", (0, 0, 0))
+                S = Matrix.Diagonal((sx, sy, sz, 1.0))
+                T1 = Matrix.Translation((-px * MM, -py * MM, -pz * MM))
+                T2 = Matrix.Translation(((px + mx) * MM, (py + my) * MM, (pz + mz) * MM))
+                o.matrix_world = T2 @ S @ T1 @ o.matrix_world
+                break
+
+
 def apply_pose(objs, pose, joint_axes=None):
     if not pose:
         return
@@ -650,6 +667,7 @@ def run(job):
         raise SystemExit("no parts selected")
     recs_by_id = {r["id"]: r for r in sel}
     objs = [import_part(r, build_root) for r in sel]
+    apply_xforms(objs, job.get("xforms"))
     apply_pose(objs, job.get("pose"), job.get("joint_axes"))
     apply_explode(objs, recs_by_id, job.get("explode", 0), job.get("explode_override"))
     if job.get("section"):
