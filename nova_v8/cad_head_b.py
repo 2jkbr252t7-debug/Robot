@@ -24,6 +24,8 @@ v8.1 review ("MODERNY - NIC NEVIDNO") of the v8.0 head B.  Defects found and fix
   * visible mic holes in the ears removed; ear rings now really lit: 3 light windows behind the groove + a cup for
     the Ø23 LED PCB HB14 inside.  Camera dot is internal (render-only, optional camera behind the mask).
   * display ribs did not meet the board holes -> tray HB07 (board between front lips and a rear frame).
+  * collar N01 touched the underside at tilt +20 / pan >= 60 (0.39 mm) -> shallow spherical scoop R120 x 0.75
+    ahead of the neck pocket (across the face seam, seen only from straight below).
   * visor: re-checked - HB03 is an exact cylinder (OCC Geom_CylindricalSurface R102 / R100, radial laser-cut
     edges), STL facets <= 2.6 deg, normal error < 0.7 deg.  A broad grey band in the front view is the
     specular image of the renderer's large FILL light (right of the camera, ~56 deg) in a mirror-gloss R100
@@ -192,6 +194,11 @@ RING_DEPTH, RING_GAP, RING_RECESS = 1.4, 0.15, 0.25
 WIN_RO, WIN_RI = 10.9, 9.1             # light windows through the 0.5 wall left behind the groove
 CUP_RO, CUP_RI, CUP_X0 = 13.3, 11.75, 49.0
 EPCB_X1, EPCB_T = 51.4, 1.6            # ear PCB outer face |x| (LEDs 0.85 on top, under the windows)
+
+# ---- neck clearance: at tilt +20 (looking down) and pan >= 60 the N01 collar edge rises 0.39 above the head
+#      underside at y -24.5 .. -22.2 (across the face seam) -> shallow spherical scoop R120, 0.75 deep (Ø27 footprint,
+#      edge slope < 7 deg), only visible from straight below; floor >= 1.25 (head A uses a chamfer here)
+SCOOP_R, SCOOP_D, SCOOP_Y = 120.0, 0.75, -23.4
 
 CAM_Z, CAM_D = CAM["z"], CAM["d"]      # 180.5, 2.8
 WINDOW_MARGIN, WINDOW_R = 0.5, 6.0     # mask window = active area + 0.5, corners R6
@@ -478,6 +485,10 @@ def screw_m2_under(sx):
 # visible parts
 # ===========================================================================================
 
+def neck_scoop():
+    return Pos(0, SCOOP_Y, Z0 + SCOOP_D - SCOOP_R) * Sphere(SCOOP_R)
+
+
 def ear_annulus(ro, ri, side=0):
     """Annulus along X through the ear centre; side -1 / +1 keeps only that half (x < 0 / x > 0)."""
     x0, x1 = {0: (-70, 70), -1: (-70, -1), 1: (1, 70)}[side]
@@ -524,6 +535,7 @@ def build_face(sk: Skin):
         face = retry(lambda: face - cyl_y(0.8, PCB_BACK - 5.5, PCB_BACK + 1, x, z), "tray boss pilot")
     # relief around the board (front + sides 0.4)
     face = retry(lambda: face - board_envelope(DISP_RELIEF, PCB_BACK + 0.5), "board relief")
+    face = retry(lambda: face - neck_scoop(), "neck clearance scoop")
     return check("HB04", single(face, "HB04"), 4000)
 
 
@@ -607,6 +619,7 @@ def build_shell(sk: Skin):
         h01 = retry(lambda: h01 + cup, "ear cup")
     ring_l = single(sk.band_in(RING_RECESS, RING_DEPTH, ear_annulus(RING_OD / 2, RING_ID / 2, +1), "HB05-L"), "HB05-L")
     ring_r = single(sk.band_in(RING_RECESS, RING_DEPTH, ear_annulus(RING_OD / 2, RING_ID / 2, -1), "HB05-R"), "HB05-R")
+    h01 = retry(lambda: h01 - neck_scoop(), "neck clearance scoop")
     e_cb = edges_where(h01, lambda p: abs(p.Z - Z0) < 0.02 and
                        abs(math.hypot(abs(p.X) - SCR_X, p.Y - SCR_Y) - SCR_CB_R) < 0.02)
     h01 = HA.try_chamfer(h01, e_cb, 0.3, "counterbore edge")
