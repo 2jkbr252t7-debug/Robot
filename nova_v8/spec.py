@@ -180,7 +180,7 @@ ARM = dict(axis=dict(y=1.0, z=93.0), egg=dict(top_z=109.6, widest_z=79.0, bottom
 MICRO_SERVO = dict(body=(23.0, 12.2, 22.7), tabs_len=32.5, height_with_spline=28.5,
                    options="MG90S (PWM, najlacnejšie) alebo Feetech SCS0009 (sériová zbernica, tichšie)")
 
-OVERALL = dict(h=HEAD["z1"], w_arms=2 * (ARM["mid_x"] + ARM["egg"]["half_t"]) + 6, base=(BASE["w"], BASE["d"]))  # ~151, CAD measures
+OVERALL = dict(h=HEAD["z1"], w_arms=138.0, base=(BASE["w"], BASE["d"]))   # v9.0 KLASIK arm span (concept)
 
 JOINTS = [
     dict(id="J0", name="Jazda (2 kolesá)", drive="2x N20 s enkodérom, diferenciálny pohon"),
