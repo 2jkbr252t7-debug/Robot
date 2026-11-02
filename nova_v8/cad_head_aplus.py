@@ -681,7 +681,9 @@ def min_gaps(parts, oth, ids=("HP03", "HP04"), far=10.0):
                 poses.append(((th, ph), q.shape.rotate(Axis.Z, -ph).rotate(HA.TILT_AXIS, -th)))
         for hid, hs in mine.items():
             hb = hs.bounding_box()
-            cand = sorted(((bb_gap(hb, qs.bounding_box()), at, qs) for at, qs in poses), key=lambda t: t[0])
+            # HP01 (= head A H01, many faces): the coarse pose set of nova_v8/cad_head.py, the sweep covers the rest
+            sel = [t for t in poses if hid != "HP01" or (t[0][0] in (-20, 0, 20) and t[0][1] in (-90, 0, 90))]
+            cand = sorted(((bb_gap(hb, qs.bounding_box()), at, qs) for at, qs in sel), key=lambda t: t[0])
             if cand[0][0] > far:
                 out[f"{hid}-{q.id}"] = (f">{far:g}", None)
                 continue
