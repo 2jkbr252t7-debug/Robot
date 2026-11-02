@@ -1,5 +1,12 @@
 """
-NOVA mini – DIEL 1: škrupina hlavy, návrh 2  (step-by-step design, user review)
+NOVA mini – DIEL 1: škrupina hlavy, návrh 3  (step-by-step design, user review)
+
+návrh 3 (user: "aby ten krk tam sadol, žiadne diery navyše, žiadne medzery navyše, hladko, moderne"):
+  * BALL NECK: the neck ends in a black ball Ø32 whose centre IS the tilt axis (8 mm above the head bottom).
+    The head bottom has one round opening that follows the ball surface (spherical cut, 0.5 mm gap) – when the
+    head tilts ±20° it rolls around the ball, so the gap stays 0.5 mm all the time.  No oval, no extra opening.
+  * inside: two thin pivot walls left/right of the ball with Ø3.2 pin holes on the axis.
+(návrh 2 notes kept below for reference)
 
 User feedback on návrh 1: the underside (big pocket, slanted relief, 2 screws, vent slots) "vyzerá hrozne, je to nutné?"
 -> návrh 2 keeps only what is FUNCTIONALLY needed, nothing else:
@@ -13,7 +20,7 @@ User feedback on návrh 1: the underside (big pocket, slanted relief, 2 screws, 
   * inside: two pivot walls with Ø3.2 pin holes on the tilt axis (the head turns on two pins), nothing else
     (the tilt servo mount comes with the tilt-mechanism part)
 Coordinates of this part: mm, head bottom at z = 0, centre x = y = 0, front = -Y.
-Run:  /opt/venv/cad/bin/python -m nova_mini.hlava_skrupina   -> obrazky/postupne/01_hlava_skrupina/*_navrh2.stl
+Run:  /opt/venv/cad/bin/python -m nova_mini.hlava_skrupina   -> obrazky/postupne/01_hlava_skrupina/*_navrh3.stl
 """
 from __future__ import annotations
 
@@ -33,10 +40,10 @@ R_FRONT = 1.2                        # small round at the front rim (meets the b
 WALL = 2.0
 OPEN_W, OPEN_H, OPEN_R = 102.0, 70.0, 24.0     # front opening (frame 101 x 69 R23.5 + 0.5 clearance)
 EAR_D, EAR_Y, EAR_Z = 24.0, -3.0, 37.0         # ear module holes
-TILT_Y, TILT_Z = 0.0, 16.0                     # tilt axis (inside the head, 16 above the bottom)
-NECK_D, TILT_DEG = 25.6, 20.0                  # neck column diameter, tilt range ±
-SLOT_CLR = 0.8
-PIVOT_X = 17.0                                  # pivot walls inner faces at x = ±17 (barrel Ø30 x 30 between them)
+TILT_Y, TILT_Z = 0.0, 8.0                      # tilt axis = ball centre (8 above the head bottom)
+BALL_R, BALL_GAP = 16.0, 0.5                   # neck ball Ø32, constant gap to the head opening
+COLUMN_D, TILT_DEG = 19.0, 20.0                # neck column below the ball, tilt range ±
+PIVOT_X = BALL_R + 0.8                          # pivot walls inner faces (0.8 mm beside the ball)
 PIVOT_T, PIVOT_PIN_D = 3.0, 3.2
 CATCH_W, CATCH_H, CATCH_T = 10.0, 1.6, 1.2      # snap catch ledges inside the rim (4x)
 
@@ -64,17 +71,14 @@ def build():
     # ear holes
     for sx in (-1, 1):
         shell = shell - Pos(sx * (W / 2), EAR_Y, EAR_Z) * Rot(0, 90, 0) * Cylinder(EAR_D / 2, 10)
-    # underside oval opening for the neck column (sweep of ±TILT_DEG about the axis 16 above the bottom)
-    import math
-    sweep = TILT_Z * math.tan(math.radians(TILT_DEG))
-    slot_len = NECK_D + 2 * sweep + 2 * SLOT_CLR
-    with BuildSketch(Plane.XY.offset(-1)) as sk:
-        SlotOverall(slot_len, NECK_D + 2 * SLOT_CLR, rotation=90)
-    shell = shell - extrude(sk.sketch, amount=WALL + 2)
+    # underside: ONE round opening that follows the neck ball (spherical cut) -> constant 0.5 mm gap while tilting
+    from build123d import Solid as _Solid
+    slot_len = 2 * ((BALL_R + BALL_GAP) ** 2 - TILT_Z ** 2) ** 0.5
+    shell = shell - Pos(0, TILT_Y, TILT_Z) * _Solid.make_sphere(BALL_R + BALL_GAP)
     # pivot walls with pin holes on the tilt axis
     for sx in (-1, 1):
         x0 = sx * (PIVOT_X + PIVOT_T / 2)
-        wall = Pos(x0, TILT_Y, (TILT_Z + 9) / 2 + WALL / 2) * Box(PIVOT_T, 24, TILT_Z + 9 - WALL)
+        wall = Pos(x0, TILT_Y, (TILT_Z + 9) / 2 + WALL / 2) * Box(PIVOT_T, 22, TILT_Z + 9 - WALL)
         wall = fillet(wall.edges().filter_by(Axis.X).group_by(Axis.Z)[-1], 4)
         wall = wall - Pos(x0, TILT_Y, TILT_Z) * Rot(0, 90, 0) * Cylinder(PIVOT_PIN_D / 2, PIVOT_T + 2)
         shell = shell + wall
@@ -98,9 +102,9 @@ if __name__ == "__main__":
     s, slot_len = build()
     bb = s.bounding_box()
     print("valid", s.is_valid, "size", round(bb.size.X, 1), round(bb.size.Y, 1), round(bb.size.Z, 1),
-          "vol", round(s.volume / 1000, 1), "cm3", "slot", round(slot_len, 1), "x", NECK_D + 2 * SLOT_CLR)
+          "vol", round(s.volume / 1000, 1), "cm3", "bottom opening Ø", round(slot_len, 1))
     out = os.path.join(ROOT, "obrazky", "postupne", "01_hlava_skrupina")
     os.makedirs(out, exist_ok=True)
-    export_step(s, os.path.join(out, "NOVA_mini_01_hlava_skrupina_navrh2.step"))
-    export_stl(s, os.path.join(out, "NOVA_mini_01_hlava_skrupina_navrh2.stl"), tolerance=0.03, angular_tolerance=0.15)
+    export_step(s, os.path.join(out, "NOVA_mini_01_hlava_skrupina_navrh3.step"))
+    export_stl(s, os.path.join(out, "NOVA_mini_01_hlava_skrupina_navrh3.stl"), tolerance=0.03, angular_tolerance=0.15)
     print("written")
