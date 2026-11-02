@@ -62,7 +62,8 @@ Internal (internal=True)
   EP33-R/L DPS ucha                   pcb       Ø23 7x WS2812B module
   MP31-R/L Cap naklonu M3x12          metal     pivot pins on the tilt axis
   MP32-1..4 Magnet Ø6x3 N52           metal     front-module latch (2 in HP07, 2 in HP01)
-  MP33-R/L Skrutka M2x6 zospodu       metal     DIN 7985, heads flush in the HP01 underside
+  MP33-R/L Skrutka M2x6 zospodu       metal     DIN 7985, in the HP01 underside counterbores
+  HP12-R/L Krytka skrutky             white     = H12: flush cover plugs over the screw heads
 HP09/HP10 duplicate head A's H09/H10 (same physical parts on the barrel) - when rendering A+ together with the
 "head" manifest exclude one pair (nova_v8/make_sheets_v8.py drops the whole head A manifest for A+).
 
@@ -599,7 +600,10 @@ def build():
     for sx, side in ((-1, "R"), (1, "L")):
         P.append(PartRec(f"MP33-{side}", f"Skrutka M2×6 zospodu ({'pravá' if sx < 0 else 'ľavá'})", HA.screw_m33(sx),
                          "metal", SUB, J, (0, 0, U - 15), internal=True,
-                         note="DIN 7985 M2×6, hlava zapustená zospodu v HP01, do oka HP07 – zvonku nevidno"))
+                         note="DIN 7985 M2×6, hlava zapustená zospodu v HP01, do oka HP07 – zakrytá krytkou HP12"))
+        P.append(PartRec(f"HP12-{side}", f"Krytka skrutky zospodu ({'pravá' if sx < 0 else 'ľavá'})", HA.screw_plug(sx),
+                         "white", SUB, J, (0, 0, U - 25),
+                         note="= H12 hlavy A: biela krytka Ø4.3×0.8 zarovno so spodkom – skrutku nevidno"))
     for p in P:
         check(p.id, p.shape)
     print(f"  build {time.time() - t0:.1f}s")

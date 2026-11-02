@@ -74,7 +74,8 @@ Internal (internal=True)
   E33-R/L  DPS ucha                 pcb       Ø23 7x WS2812B-5050 round module (AliExpress), in the ear recess
   M31-R/L  Cap naklonu M3x12        metal     DIN 912 M3 x 12 = pivot pins on the tilt axis
   M32-1..4 Magnet Ø6x3 N52          metal     2 in the H07 top lugs, 2 in the H01 roof blocks (0.2 face gap)
-  M33-R/L  Skrutka M2x6 DIN 7985    metal     underside screws, heads flush in Ø4.4 x 1.7 counterbores
+  M33-R/L  Skrutka M2x6 DIN 7985    metal     underside screws in Ø4.4 x 2.5 counterbores, covered by H12
+  H12-R/L  Krytka skrutky          white     flush press-fit cover plugs Ø4.3 x 0.8 (no screw head visible)
 
 FDM (PETG, 0.4 nozzle): H01 front rim on the bed (pocket ceiling, rails, roof blocks, side walls vertical); tree
 supports inside the closed back dome and under the pocket ceiling / ear stop rings, all removed through the
@@ -169,8 +170,9 @@ Y_H07_1 = Y_DSP1 + H07_T                       # -27.6
 
 # --- front module retention (v8.1: no back cover -> magnets at the top, 2 screws from the underside) ---------
 SCR_X, SCR_Y = 24.3, -25.0                     # underside screws (flat underside |x| < 27, 8 behind the rim)
-SCR_CB_R, SCR_CB_D, SCR_HOLE_R = 2.2, 1.7, 1.2  # counterbore Ø4.4 x 1.7 (DIN 7985 M2 head Ø4.0 x 1.6), hole Ø2.4
-PAD_Z1 = Z0 + WALL + 1.5                       # 120.5 floor pad top (floor 3.5 at the screw)
+SCR_CB_R, SCR_CB_D, SCR_HOLE_R = 2.2, 2.5, 1.2  # counterbore Ø4.4 x 2.5: DIN 7985 M2 head Ø4.0 x 1.6 + 0.8 white
+PLUG_T, PLUG_CLR = 0.8, 0.05                   # cover plug H12 (press fit, flush) – no screw head visible
+PAD_Z1 = Z0 + WALL + 2.3                       # 121.3 floor pad top (floor 4.3 at the screw: 2.5 counterbore + 1.8)
 PAD_X0, PAD_X1, PAD_Y = 20.7, 27.6, (-28.4, -21.0)    # floor pads (beside the collar relief)
 LUG_Z0 = PAD_Z1 + 0.05                         # H07 bottom lug sits on the pad (nominal contact)
 LUG_Y = (Y_DSP1, -22.2)                        # H07 bottom lug (screw centred), rear face on the pad stop rib
@@ -846,6 +848,12 @@ def screw_m33(sx):
     return head + shank
 
 
+def screw_plug(sx):
+    """Flush white cover plug over the underside screw head (press fit Ø4.3 x 0.8 in the Ø4.4 counterbore;
+    pry out with a pin through the 0.3 chamfer) – the underside shows only a hairline circle, no screw."""
+    return cyl_z(SCR_CB_R - PLUG_CLR, Z0, Z0 + PLUG_T, sx * SCR_X, SCR_Y)
+
+
 # ============================================================================================
 
 def build():
@@ -915,7 +923,10 @@ def build():
     for sx, side in ((-1, "R"), (1, "L")):
         P.append(PartRec(f"M33-{side}", f"Skrutka M2×6 zospodu ({'pravá' if sx < 0 else 'ľavá'})", screw_m33(sx),
                          "metal", SUB, J, (0, 0, U - 15), internal=True,
-                         note="DIN 7985 M2×6, hlava zapustená v H01 zospodu (Ø4.4×1.7), do oka H07 – zvonku nevidno"))
+                         note="DIN 7985 M2×6, hlava zapustená v H01 zospodu (Ø4.4×2.5), do oka H07 – zakrytá krytkou H12"))
+        P.append(PartRec(f"H12-{side}", f"Krytka skrutky zospodu ({'pravá' if sx < 0 else 'ľavá'})", screw_plug(sx),
+                         "white", SUB, J, (0, 0, U - 25),
+                         note="biela krytka Ø4.3×0.8 zatlačená zarovno so spodkom H01 – skrutku nevidno; vypáčiť špendlíkom"))
     for p in P:
         check(p.id, p.shape)
     print(f"  build {time.time() - t0:.1f}s")
