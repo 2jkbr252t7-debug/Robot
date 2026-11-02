@@ -43,6 +43,8 @@ v8.1 review 2 (independent, against torso / neck / arms / base / cad_internals a
     now explicit: head A manifest + DROP_FROM_OTHERS + cad_internals.SUPERSEDED.  IH08 lies on the pocket ceiling
     0.01 above HB01 (foam), 9.1 from HB13, >17 from HB07, far from HB12 (+X) - OK.
   * laser data (HB03F_blank.dxf/.svg, HB03_mould_rib.dxf) are now also copied into nova_v8/sklo/ (export pack).
+  * mask data: the optional camera clear dot (Ø3.5, z 180.5) merged with the top edge of the display window -> Ø2.8
+    at z 180.9 with a 0.5 web (CAM_DOT_Z; HB03C and the HB04 rebate notch follow).
   * barrel pocket: the head-A R12 FRONT corners (pocket front wall moved back 2.1 in B) touched the HB09 / HB10 discs
     (0.007 .. 0.03 mm3 at every tilt) and came within 0.03 of the N06 barrel end edge -> front corners R7 (PK_RF).
   * underside screws: head A got flush white cover plugs (counterbore 2.5); B inherits that counterbore from
@@ -234,6 +236,11 @@ SCOOP_R, SCOOP_D, SCOOP_Y = 120.0, 0.75, -23.4
 
 CAM_Z, CAM_D = CAM["z"], CAM["d"]      # 180.5, 2.8
 WINDOW_MARGIN, WINDOW_R = 0.5, 6.0     # mask window = active area + 0.5, corners R6
+# optional camera clear dot in the mask (v8.1 review 2): the old Ø3.5 dot at the spec z 180.5 cut 0.23 mm into the top
+# edge of the display window (window top z 178.98) -> one merged contour in the mask / laser data.  Now Ø2.8 (= spec
+# camera d, = HB03C) with a 0.5 mask web above the window: z 180.9 (+0.4 vs spec, still in front of the LCD border)
+CAM_DOT_R, CAM_DOT_WEB = CAM_D / 2, 0.5
+CAM_DOT_Z = round(max(CAM_Z, ZC + ACT_H / 2 + WINDOW_MARGIN + CAM_DOT_WEB + CAM_DOT_R) + 0.049, 1)   # 180.9
 
 # ---- neck cable, head segment (HB18 replaces cad_internals IW1-3 in variant B) ----------------
 # IW1-3 is routed to the head A board: it ends at y -25 on the 5 V / UART JST of IH02, which in B (board 5.6 further
@@ -597,7 +604,7 @@ def build_face(sk: Skin):
     ledge = sk.band_in(D_LEDGE0, D_LEDGE1, dev_cutter(GAP + LEDGE_OUT), "ledge band")
     ledge = retry(lambda: ledge - dev_cutter(-LEDGE_W), "ledge inner edge")
     ledge = retry(lambda: ledge - (ring(R_OUT + 1, R_OUT - (VIS_T + TAPE)) & dev_cutter(GAP)), "ledge seat")
-    notch = Pos(0, Y_FRONT + 4, (CAM_Z - 2.2 + 195) / 2) * Box(12, 14, 195 - (CAM_Z - 2.2))
+    notch = Pos(0, Y_FRONT + 4, (CAM_DOT_Z - 2.2 + 195) / 2) * Box(12, 14, 195 - (CAM_DOT_Z - 2.2))
     ledge = retry(lambda: ledge - (notch & dev_cutter(GAP)), "camera notch")     # optional camera behind the mask
     face = retry(lambda: face + ledge, "add ledge")
     # bosses for the 4 tray screws (end faces 0.05 in front of the tray frame)
@@ -748,10 +755,10 @@ def tray_hb07(sk: Skin):
 
 def camera_dot():
     """Render-only lens: very low spherical cap on the visor apex line (x 0 -> visor surface y = Y_FRONT)."""
-    r, sag = CAM_D / 2, 0.2
+    r, sag = CAM_DOT_R, 0.2
     rs = (r * r + sag * sag) / (2 * sag)
-    sph = Pos(0, Y_FRONT - sag + rs, CAM_Z) * Sphere(rs)
-    lens = retry(lambda: sph & HBC.cyl_y(r, Y_FRONT - 1.0, Y_FRONT + 0.05, 0.0, CAM_Z), "lens")
+    sph = Pos(0, Y_FRONT - sag + rs, CAM_DOT_Z) * Sphere(rs)
+    lens = retry(lambda: sph & HBC.cyl_y(r, Y_FRONT - 1.0, Y_FRONT + 0.05, 0.0, CAM_DOT_Z), "lens")
     return check("HB03C", lens)
 
 
@@ -880,7 +887,8 @@ def visor_numbers():
         bend_angle_deg=round(math.degrees(wb / R_MID), 1),
         front_view=dict(w=round(2 * R_OUT * math.sin(th), 2), h=hb, sagitta=round(R_OUT * (1 - math.cos(th)), 2)),
         window=dict(w=round(ww, 2), h=round(wh, 2), r=wr, zc=ZC, note="na príreze: stred okna = stred prírezu"),
-        camera_dot=dict(u=0.0, dz_from_centre=round(CAM_Z - VIS["zc"], 2), d_clear=3.5,
+        camera_dot=dict(u=0.0, dz_from_centre=round(CAM_DOT_Z - VIS["zc"], 2), d_clear=2 * CAM_DOT_R,
+                        web_to_window=round(CAM_DOT_Z - CAM_DOT_R - (VIS["zc"] + window_dims()[1] / 2), 2),
                         note="voliteľné: bez kamery maska bez bodu"),
         mount="lepené páskou VHB 0.25 do drážky 2.4 čelného dielu HB04, tieňová škára 0.6, zalícované s povrchom",
         display_gap_center=round(DISP_Y0 - (Y_FRONT + VIS_T), 2),
@@ -897,7 +905,7 @@ def export_manufacturing(out_dir):
     with BuildSketch() as s:
         RectangleRounded(ww, wh, wr)
     win = s.sketch.faces()[0]
-    cam = Pos(0, CAM_Z - VIS["zc"]) * Circle(1.75).faces()[0]
+    cam = Pos(0, CAM_DOT_Z - VIS["zc"]) * Circle(CAM_DOT_R).faces()[0]
     axis = Edge.make_line((0, -VIS["h"] / 2 - 6), (0, VIS["h"] / 2 + 6))
     hb = VIS["h"]
     # mould rib (MDF 12 mm, 5 pieces at 25 mm pitch) - arc R_IN over a 150 mm chord + 25 mm base

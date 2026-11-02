@@ -205,8 +205,7 @@ def expr_v8(g, ey, disp, Hd, zc):
         ("Displej", "3.5\" IPS 480×320, dotyk, ESP32-S3 (Guition JC3248W535 / Waveshare)"),
         ("Kamera", "voliteľná OV2640 za čiernym horným pásom rámu – zvonku nevidno"),
         ("Oči", f"{ey['w']:g}×{ey['h']:g} mm R{ey['r']:g}, stredy x=±{ey['x']:g}, z={ey['z']:g} ({zc - ey['z']:g} mm pod stredom skla)"),
-        ("Farba očí", "teplá biela #FFDEAC; animácie 30–60 fps (LVGL), žmurknutie každých 3–8 s"),
-        ("Rozlíšenie", f"{px:.1f} px/mm → oko ≈ {ey['w'] * px:.0f}×{ey['h'] * px:.0f} px"),
+        ("Farba a pohyb", f"teplá biela #FFDEAC · {px:.1f} px/mm → oko ≈ {ey['w'] * px:.0f}×{ey['h'] * px:.0f} px · 30–60 fps (LVGL)"),
     ]
     leds = [((60, 230, 250), "tyrkysová svieti", "pokoj / pripravený"),
             ((60, 140, 255), "modrá pulzuje", "počúva (hlas)"),
