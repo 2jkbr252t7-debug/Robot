@@ -43,6 +43,11 @@ v8.1 review 2 (independent, against torso / neck / arms / base / cad_internals a
     now explicit: head A manifest + DROP_FROM_OTHERS + cad_internals.SUPERSEDED.  IH08 lies on the pocket ceiling
     0.01 above HB01 (foam), 9.1 from HB13, >17 from HB07, far from HB12 (+X) - OK.
   * laser data (HB03F_blank.dxf/.svg, HB03_mould_rib.dxf) are now also copied into nova_v8/sklo/ (export pack).
+  * barrel pocket: the head-A R12 FRONT corners (pocket front wall moved back 2.1 in B) touched the HB09 / HB10 discs
+    (0.007 .. 0.03 mm3 at every tilt) and came within 0.03 of the N06 barrel end edge -> front corners R7 (PK_RF).
+  * underside screws: head A got flush white cover plugs (counterbore 2.5); B inherits that counterbore from
+    cad_head, which left an open Ø4.4 x 0.9 hole under the screw and the M2 x 6 tip 0.5 out of the HB07 lug ->
+    pad / lug +0.8 and plugs HB19-R/L (= H12): the underside shows only two hairline circles, no screw.
 
 Visor (unchanged, manufacturable): ONE single-curvature piece, smoked PMMA 2 mm (outer R102 / inner R100), laser
 cut flat 99 x 60 (R25 top / R12 bottom, concentric with the R32 / R19 head corners) and heat-bent over a R100 former
@@ -78,14 +83,16 @@ Internal (internal=True)
   HB14-R/L DPS ucha                 pcb        Ø23 x 1.6, 6x WS2812B-2020 under the light windows
   HB15-R/L Cap naklonu M3x12        metal      = M31 (DIN 912 pivots)
   HB16-1..4 Magnet Ø6x3 N52         metal      2 in the HB07 lugs, 2 in the HB01 roof blocks (0.2 gap)
-  HB17-R/L Skrutka M2x6 zospodu     metal      DIN 7985, heads flush in the HB01 underside
+  HB17-R/L Skrutka M2x6 zospodu     metal      DIN 7985 in Ø4.4 x 2.5 counterbores of the HB01 underside
+  HB19-R/L Krytka skrutky           white      flush press-fit cover plugs Ø4.3 x 0.8 (= H12 of head A): no screw visible
   HB18     Kabel krku - hlava B     black      6-wire Ø3 bundle: barrel slot -> ceiling hole -> HB13 JST (replaces IW1-3)
 
 Assembly: (1) HB09/HB10 on the barrel ends (neck finished).  (2) MG90S + HB11 slid into the HB01 rails from the
 front opening, 1x M2 stop screw; ear PCBs into the cups, rings pressed in from outside.  (3) HB01 lowered over the
 barrel, HB11 meshes radially with HB09.  (4) M3 pivots from inside through the front opening.  (5) Front module on the
 bench: visor bonded into HB04 (VHB), board laid into HB04 face down, HB07 screwed on (4x M2 from behind), harness
-plugged.  (6) module pushed into HB01 (+Y) until the magnets click, head tilted up: 2x M2 from below.
+plugged.  (6) module pushed into HB01 (+Y) until the magnets click, head tilted up: 2x M2 from below, the 2 white
+plugs HB19 pressed in flush (no screw visible).
 FDM (PETG): HB01 front rim on the bed (tree supports under the roof/ceiling, removed through the front), HB04 seam
 face on the bed (supports under the rebate), HB07 flat.  Outside sanded + primer + satin white.
 
@@ -195,8 +202,12 @@ MAG_LUG_Z = (179.5, 186.0)             # skirt inner face at x 30 lies at z ~186
 SCR_X, SCR_Y = 26.0, -17.0             # underside screws beside the pocket (flat underside |x| < 36)
 SCR_CB_R, SCR_CB_D, SCR_HOLE_R, PILOT_R = HA.SCR_CB_R, HA.SCR_CB_D, HA.SCR_HOLE_R, HA.PILOT_R
 PAD_X0, PAD_X1, PAD_Y0, PAD_Y1 = 22.5, 29.5, -20.1, -14.0
-PAD_Z1 = 121.0                         # floor pad top; tray bottom lug z 121.05 .. 125.0
-LUG_Z0, LUG_Z1 = PAD_Z1 + 0.05, 125.0
+# v8.1 review 2: head A now hides its underside screws under flush white plugs (counterbore 2.5 = M2 head 1.6 + 0.9);
+# B inherits SCR_CB_D 2.5 from cad_head, so with the old pad top 121.0 the M2 x 6 tip stood 0.5 out of the lug top and
+# the screw head was an open hole -> pad / lug +0.8 (floor 4.8 at the screw) + plugs HB19 (= H12 of head A)
+PLUG_T, PLUG_CLR = getattr(HA, "PLUG_T", 0.8), getattr(HA, "PLUG_CLR", 0.05)
+PAD_Z1 = 121.8                         # floor pad top; tray bottom lug z 121.85 .. 125.8 (board bottom z 126)
+LUG_Z0, LUG_Z1 = PAD_Z1 + 0.05, 125.8
 
 # ---- tray HB07 (holds the board in the face part) -------------------------------------------
 TR_Y1 = PCB_BACK + 2.0                 # -21.6 rear frame face
@@ -531,6 +542,12 @@ def screw_m2_under(sx):
     return head + shank
 
 
+def screw_plug(sx):
+    """Flush white cover plug over the underside screw head (= H12 of head A): press fit Ø4.3 x 0.8 in the Ø4.4
+    counterbore, pried out with a pin at the 0.3 chamfer - the underside shows only a hairline circle."""
+    return cyl_z(SCR_CB_R - PLUG_CLR, Z0, Z0 + PLUG_T, sx * SCR_X, SCR_Y)
+
+
 def neck_cable_hb18():
     """6-wire neck bundle Ø3, head segment of variant B (same sweep as cad_internals.tube, B path)."""
     pts = [Vector(*p) for p in CABLE_PATH]
@@ -831,7 +848,10 @@ def build():
     for sx, side, nm in ((-1, "R", "pravá"), (1, "L", "ľavá")):
         P.append(PartRec(f"HB17-{side}", f"Skrutka M2×6 zospodu {nm}", screw_m2_under(sx), "metal", SUB, J,
                          (0, 0, U - 15), internal=True,
-                         note="DIN 7985 M2×6, hlava zapustená v HB01 zospodu (Ø4.4×1.7), do oka HB07 – zvonku nevidno"))
+                         note="DIN 7985 M2×6, hlava zapustená v HB01 zospodu (Ø4.4×2.5), do oka HB07 – zakrytá krytkou HB19"))
+        P.append(PartRec(f"HB19-{side}", f"Krytka skrutky zospodu {'pravá' if sx < 0 else 'ľavá'}", screw_plug(sx),
+                         "white", SUB, J, (0, 0, U - 25),
+                         note="biela krytka Ø4.3×0.8 zatlačená zarovno so spodkom HB01 – skrutku nevidno; vypáčiť špendlíkom"))
     P.append(PartRec("HB18", "Kábel krku – hlava B", neck_cable_hb18(), "black", SUB, J, (0, 0, U), internal=True,
                      note="6 vodičov Ø3 (5 V, GND, TX, RX, reproduktor ±): zo štrbiny valca N06 otvorom v strope kapsy "
                           "ponad mikrofón do JST 5 V/UART dosky HB13 (nahrádza IW1-3 hlavy A, ktorý by vo variante B "
@@ -1007,7 +1027,7 @@ TILT_AXIS = Axis((0, TILT_Y, TILT_Z), (1, 0, 0))
 def pose_sweep(parts, others):
     """Head frame: J2 parts rotate by -tilt, J1 parts by -pan then -tilt.  Collisions > 0.5 mm3."""
     head = [p for p in parts if p.joint == "J3" and p.id not in RENDER_ONLY]
-    head_out = [p for p in parts if p.id in ("HB01", "HB04", "HB03", "HB17-R", "HB17-L")]
+    head_out = [p for p in parts if p.id in ("HB01", "HB04", "HB03", "HB19-R", "HB19-L")]
     j2 = [p for p in parts + others if p.joint == "J2"]
     j1 = [p for p in others if p.joint == "J1" and not p.internal and p.shape.bounding_box().max.Z > 95.0]
     gear_pair = {("HB11", "HB09"), ("HB09", "HB11")}
