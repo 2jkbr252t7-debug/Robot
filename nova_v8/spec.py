@@ -57,12 +57,24 @@ v8.2 – PROPORCIE "B+" (user, 2026-11-02: "taký malý trup? veľký podstavec 
   * ARMS +20 % (egg 61 long, 31 wide, 17 thick), mid_x 64.
   * NECK collar 45 x 36 on the torso top (z 118..123), cone z 123..130, tilt axis z 140.
   * HEAD unchanged in size (3.5" display), moved up 13 mm: z 130..204.  Overall height 204 mm.
+v8.3 – MÄKKÉ TVARY (user: "hrozne hranatá základňa, trup moc kockatý, moc veľká medzera… buď moderný, voľná ruka")
+  Same sizes/heights as v8.2, new form language (shared outer surfaces in nova_v8/forms.py, prototype renders
+  obrazky/v8_koncept/v8_makke_tvary.png):
+  * BASE = "pebble plate": plan superellipse n 2.2 (124 x 104 at the top edge), straight conical side shrinking
+    to 90 % at the skirt edge z 3 (the robot seems to float on the underglow), crisp top round R7, flat top with a
+    circular DISH Ø80 x 2 mm in which the torso foot stands -> torso/base gap only 1 mm, turntable hidden.
+  * TORSO = "bulb": round foot Ø72 in the dish flaring (quarter-round, 18 mm) to the belly superellipse n 2.15
+    (94 x 76), convex barrel narrowing 3.6 / 2.4 mm towards the shoulders, round R18 into a small flat top
+    under the neck collar.  No straight walls, no visible turntable ring.
+  * NECK collar 44 x 34 (fits the smaller flat top); arms mid_x follows the narrower shoulder (torso surface at
+    the arm axis z 98 is ~ x ±43.4).  Wheels may move inwards (x ±46) because the conical skirt is narrower at
+    the bottom (keep >= 0.5 mm tyre clearance).
 =====================================================================================
 """
 from math import sqrt
 
 NAME = "NOVA mini"
-VERSION = "v8.2"
+VERSION = "v8.3"
 FLOOR_Z = 0.0
 
 MATERIALS_FROM = "nova.spec.MATERIALS"   # same material keys as v7 (white, black, glass, cyan_led, eye, rubber, ...)
@@ -71,6 +83,7 @@ MATERIALS_FROM = "nova.spec.MATERIALS"   # same material keys as v7 (white, blac
 BASE = dict(
     w=124.0, d=104.0, z0=0.0, z1=35.0, plan_r=25.0, top_fillet=8.0, wall=2.2,           # v8.2 (was 130x108x39)
     skirt_z0=3.0,                                                 # v8.1: closed skirt down to z=3, no wheel arches
+    form=dict(n=2.2, taper=0.90, r_top=7.0, dish_d=2.0, dish_od=80.0),   # v8.3 pebble plate (nova_v8/forms.py)
     underglow=dict(z=2.0, inset=3.0, note="360° tyrkysový svetelný prstenec pod okrajom – svieti na stôl"),
     wheel=dict(d=30.0, w=10.0, x=48.0, y=4.0, axle_z=15.0),      # v8.2: Ø30, tyre top z=30 -> 2.8 mm under the top wall
     motor=dict(type="N20 6V s enkodérom (1:100 – 1:150)", body=(12.0, 10.0, 24.0), gearbox_len=9.0),
@@ -87,6 +100,7 @@ BASE = dict(
 TORSO = dict(
     z0=36.0, z1=118.0, w=94.0, d=76.0, n=2.7, r_top=17.0, r_bottom=8.0, wall=2.0,          # v8.2 (was 88x72x65)
     band=dict(half_w=27.0, seam=0.6),                             # centre band front->top->back like v7.3
+    form=dict(n=2.15, foot_r=36.0, flare=18.0, ka=3.6, kb=2.4, r_top=18.0, gap=1.0),   # v8.3 bulb (nova_v8/forms.py)
     chest_strip=dict(w=36.0, h=5.0, z=92.0, note="jeden dymový pás: LED + ToF/svetlo za tým istým oknom"),
     shoulder=dict(z=98.0, y=0.0, bore_d=18.0),
     bottom_plate=dict(h=2.5, ring_od=82.0),                       # black turntable ring visible under the torso
@@ -108,7 +122,7 @@ def torso_section(z):
 
 
 NECK = dict(
-    collar=dict(w=45.0, d=36.0, z0=118.0, z1=123.0),
+    collar=dict(w=44.0, d=34.0, z0=118.0, z1=123.0),             # v8.3: fits the bulb's flat top
     cone=dict(z0=123.0, z1=130.0, r_bottom=13.0, r_top=10.0),
     pan_bearing=(25.0, 37.0, 7.0),                                # 6805 under the collar
     tilt_axis=dict(y=0.0, z=140.0), barrel_d=30.0, barrel_len=30.0,
