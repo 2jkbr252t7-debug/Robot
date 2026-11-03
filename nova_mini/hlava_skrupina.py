@@ -1,5 +1,11 @@
 """
-NOVA mini – DIEL 1: škrupina hlavy, návrh 3  (step-by-step design, user review)
+NOVA mini – DIEL 1: škrupina hlavy (step-by-step design, user review)
+
+návrh 4 (build_v4, 2026-11-03): bottom adapted to the one-piece neck nova_mini/krk.py – an inner saddle with a groove
+  coaxial with the tilt barrel (0.5 mm gap), two tight pockets for the barrel end caps (screwed to the head 1x M2 each
+  from inside), a window for the tilt servo that stands up into the head, cable window.  No ball, no pivot walls.
+
+návrh 3:
 
 návrh 3 (user: "aby ten krk tam sadol, žiadne diery navyše, žiadne medzery navyše, hladko, moderne"):
   * BALL NECK: the neck ends in a black ball Ø32 whose centre IS the tilt axis (8 mm above the head bottom).
@@ -96,6 +102,38 @@ def build():
         except Exception as ex:  # noqa: BLE001
             print("front rim round skipped:", ex)
     return shell, slot_len
+
+
+def build_common():
+    """Shell + front opening + ear holes + snap catches + front rim round – no neck interface (návrh 4 adds it)."""
+    outer = body(W, H, D, R_FV, R_BACK, Y0)
+    inner = body(W - 2 * WALL, H - 2 * WALL, D - WALL + 1.0, R_FV - WALL, R_BACK - WALL, Y0 - 1.0).moved(Location((0, 0, WALL)))
+    shell = outer - inner
+    with BuildSketch(Plane.XZ.offset(-(Y0 - 1))) as sk:
+        RectangleRounded(OPEN_W, OPEN_H, OPEN_R)
+    shell = shell - extrude(sk.sketch, amount=-(WALL + 3)).moved(Location((0, 0, H / 2)))
+    for sx in (-1, 1):
+        shell = shell - Pos(sx * (W / 2), EAR_Y, EAR_Z) * Rot(0, 90, 0) * Cylinder(EAR_D / 2, 10)
+    for sx in (-1, 1):
+        for zc in (H - WALL - CATCH_T / 2, WALL + CATCH_T / 2):
+            shell = shell + Pos(sx * 28, Y0 + 6.5, zc) * Box(CATCH_W, CATCH_H, CATCH_T)
+    front = [e for e in shell.edges() if abs(e.center().Y - Y0) < 0.01]
+    try:
+        shell = fillet(front, R_FRONT)
+    except Exception:  # noqa: BLE001
+        pass
+    return shell
+
+
+def build_v4():
+    """návrh 4 – head bottom for the one-piece neck (nova_mini/krk.py): a saddle inside the head with a groove coaxial
+    with the tilt barrel (0.5 mm gap) and two tight pockets for the end caps (the caps are screwed to the head from
+    inside, 1x M2 each) + a cable window. Head coordinates: bottom at z = 0."""
+    from nova_mini import krk as K
+    s = build_common()
+    saddle, cut = K.head_saddle_cut()
+    mv = Location((0, 0, -K.HEAD_Z0))
+    return (s + saddle.moved(mv)) - cut.moved(mv)
 
 
 if __name__ == "__main__":
