@@ -74,7 +74,10 @@ CAP_SCREW_X = X_CAP_IN + CAP_L / 2 + 1.4         # 22.0 – head->cap M2 positio
 
 
 def _w(a, b, z, n=2.0, cy=0.0, count=128):
-    return Wire([Edge.make_spline([Vector(x, cy + y, z) for x, y in superellipse_pts(a, b, n, count)], periodic=True)])
+    """periodic spline section; FIXED parameters -> every section shares one knot vector, so lofts stay compact
+    (~130 poles instead of ~2700) and smooth, and the STEP stays small"""
+    pts = [Vector(x, cy + y, z) for x, y in superellipse_pts(a, b, n, count)]
+    return Wire([Edge.make_spline(pts, periodic=True, parameters=[i / len(pts) for i in range(len(pts) + 1)])])
 
 
 def _prof(z):
