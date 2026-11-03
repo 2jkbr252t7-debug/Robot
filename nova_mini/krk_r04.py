@@ -23,19 +23,19 @@ from nova.cad.common import superellipse_pts  # noqa: E402
 
 ZT = 117.0
 # N01 collar
-C_A, C_B, C_H = 25.5, 19.5, 5.0
-C_CY = -2.0                        # collar centre slightly forward (the neck sweeps forward)
+C_A, C_B, C_H = 25.5, 19.5, 4.5
+C_CY = -4.0                        # collar centre forward (the neck bell sweeps forward)
 C_STEP = 0.9                       # fine step line around the outer edge
 # N02 neck (flat oval, front sweep)
 N_TOP = (13.75, 8.6)               # half axes at the top (X, Y)
-N_BOT = (17.5, 14.0)               # half axes at the bottom
-N_BOT_DY = -5.0                    # bottom centre forward: back edge +9 (near vertical), front edge -19 (long front sweep)
+N_BOT = (21.0, 15.0)               # half axes at the bottom = BELL edge on the collar
+N_BOT_DY = -4.0                    # bell centre forward: back edge +11, front edge -19 (long front sweep)
 N_H = 14.0
 # N06 barrel
 CAP_R, CAP_L, CAP_GAP, B_R, B_LEN = 9.8, 7.8, 0.6, 9.6, 49.0
 B_CORE_L = B_LEN - 2 * (CAP_L + CAP_GAP)
 Z_C0 = ZT                          # collar bottom on the torso top
-Z_N0 = Z_C0 + C_H - 1.0
+Z_N0 = Z_C0 + C_H - 0.4
 Z_N1 = Z_N0 + N_H
 AX_Z = Z_N1 + B_R - 2.0            # barrel sits ON the neck (neck top tucks 2 mm under the core)
 HEAD_Z0 = AX_Z + 2.5               # head bottom (barrel top enters the head groove)
@@ -46,33 +46,39 @@ def _w(a, b, z, n=2.0, cy=0.0, count=96):
 
 
 def collar():
-    """Two tiers as in R04/R07: a THIN oval plate with a fine step line + a narrow raised oval ring the neck enters."""
+    """R04: a THIN oval plate under the neck bell, fine step line around the bottom edge, deep recess underneath."""
     cy = C_CY
-    plate = Solid.make_loft([_w(C_A - C_STEP, C_B - C_STEP, Z_C0, cy=cy), _w(C_A - C_STEP, C_B - C_STEP, Z_C0 + 0.9, cy=cy),
-                             _w(C_A, C_B, Z_C0 + 0.95, cy=cy), _w(C_A, C_B, Z_C0 + 1.6, cy=cy)]
-                            + [_w(C_A - 1.6 * (1 - math.cos(t * math.pi / 2)), C_B - 1.6 * (1 - math.cos(t * math.pi / 2)),
-                                  Z_C0 + 1.6 + 1.0 * math.sin(t * math.pi / 2), cy=cy) for t in (0.25, 0.5, 0.75, 1.0)])
-    ra, rb, rcy = N_BOT[0] + 2.2, N_BOT[1] + 2.2, N_BOT_DY
-    ring = Solid.make_loft([_w(ra, rb, Z_C0 + 2.0, cy=rcy), _w(ra, rb, Z_C0 + C_H - 0.8, cy=rcy),
-                            _w(ra - 0.4, rb - 0.4, Z_C0 + C_H - 0.2, cy=rcy), _w(ra - 1.0, rb - 1.0, Z_C0 + C_H, cy=rcy)])
-    c = plate + ring
+    secs = [_w(C_A - C_STEP, C_B - C_STEP, Z_C0, cy=cy), _w(C_A - C_STEP, C_B - C_STEP, Z_C0 + 0.9, cy=cy),
+            _w(C_A, C_B, Z_C0 + 0.95, cy=cy), _w(C_A, C_B, Z_C0 + C_H - 1.3, cy=cy)]
+    for t in (0.3, 0.6, 0.85, 1.0):                        # rounded top edge
+        e = 1.3 * (1 - math.cos(t * math.pi / 2))
+        secs.append(_w(C_A - e, C_B - e, Z_C0 + C_H - 1.3 + 1.3 * math.sin(t * math.pi / 2), cy=cy))
+    c = Solid.make_loft(secs)
     from build123d import BuildSketch, Plane, SlotOverall, extrude
-    rec = Solid.make_loft([_w(C_A - 3.5, C_B - 3.5, Z_C0 - 0.1, cy=cy), _w(C_A - 3.5, C_B - 3.5, Z_C0 + 1.0, cy=cy)])
+    rec = Solid.make_loft([_w(C_A - 3.4, C_B - 3.4, Z_C0 - 0.1, cy=cy), _w(C_A - 3.4, C_B - 3.4, Z_C0 + 2.8, cy=cy)])
     c = c - rec
     with BuildSketch(Plane.XY.offset(Z_C0 - 1)) as sk:
         SlotOverall(15.0, 6.5)
     return c - extrude(sk.sketch, amount=C_H + 4)
 
 
+# separate profiles (R04): left-right = slim column + strong BELL at the bottom (front view);
+# front-back = back edge nearly vertical, FRONT edge a long concave ramp down to the collar front (side view)
+NX_TOP, NX_BOT = 13.8, 21.0
+NYF_TOP, NYF_BOT = -9.8, -22.0       # front edge
+NYB_TOP, NYB_BOT = 9.8, 12.0         # back edge
+
+
 def neck():
     secs = []
-    for i in range(12):
-        t = i / 11                                          # 0 bottom -> 1 top
-        k = max(0.0, (0.58 - t) / 0.58) ** 2.0              # R04 front view: vertical upper part, bell flare below
-        a = N_TOP[0] + (N_BOT[0] - N_TOP[0]) * k
-        b = N_TOP[1] + (N_BOT[1] - N_TOP[1]) * k
-        cy = N_BOT_DY * k
-        secs.append(_w(a, b, Z_N0 + N_H * t, n=2.15, cy=cy))
+    for i in range(18):
+        t = i / 17                                          # 0 bottom -> 1 top
+        kx = (1 - t) ** 3.0                                 # bell (front view)
+        ky = (1 - t) ** 1.35                                # long ramp (side view)
+        a = NX_TOP + (NX_BOT - NX_TOP) * kx
+        yf = NYF_TOP + (NYF_BOT - NYF_TOP) * ky
+        yb = NYB_TOP + (NYB_BOT - NYB_TOP) * kx
+        secs.append(_w(a, (yb - yf) / 2, Z_N0 + N_H * t, n=2.15, cy=(yb + yf) / 2))
     return Solid.make_loft(secs)
 
 
