@@ -6,12 +6,14 @@ NOVA mini – KRK, návrh "jeden celok" (podľa R04), user feedback 2026-11-03:
 Parts (this file, coordinates: mm, torso top z = 0, robot front = -Y, robot right = -X):
   N1   krk – ONE visible piece: level oval collar + bell neck + middle of the tilt barrel, blended with fillets.
        Hollow (wall 1.4 / 1.5).  Barrel core is a tube Ø17 bore, open at both ends (the caps' spigots ride in it =
-       plain bearings).  On top of the barrel there is an assembly opening that is ALWAYS under the head (±40°
-       tilt included): the tilt servo stands in it and the head cables pass through it.
-  N2-P right end cap – rotates; fixed in the head (head pocket + 1x M2 from inside the head); carries the servo horn
-  N2-L left end cap  – rotates; fixed in the head; its spigot is the left bearing
-  N3   drive plate (hidden in the collar underside): pan-servo horn mount + cable hole
-  S1   tilt servo MG90S (mounting ears cut off): held by N1 (guide ribs + 2 support ribs), shaft on the barrel axis,
+       plain bearings).  On top of the barrel there is an assembly opening for the tilt servo that is ALWAYS under
+       the head (hidden up to ±44° tilt); its +X end is the servo's end stop.
+  N2-P right end cap – rotates; fixed in the head (head pocket + 1x M2 from inside the head); carries the servo arm
+       (stock cross arm trimmed to Ø14 in a form-fit cross pocket)
+  N2-L left end cap  – rotates; fixed in the head; its hollow spigot is the left bearing AND the cable passage:
+       head cable -> hole in the head saddle -> radial hole in the cap -> along the tilt axis -> neck (only twists ±40°)
+  N3   drive plate (hidden in the collar underside): pan-servo arm mount + cable hole, 2x M2 countersunk into N1 bosses
+  S1   tilt servo MG90S (mounting ears cut off): held by N1 (4 crush ribs, 2 support ribs, +X end stop), shaft on the axis,
        body standing UP into the head (the head turns around it, its saddle has a window for that); the horn is
        screwed into the right cap, so servo -> horn -> right cap -> head
 Tilt: head + both caps turn together about the barrel axis, ±40°; the head bottom groove is coaxial with the
@@ -25,14 +27,14 @@ import sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, ROOT)
-from build123d import (Axis, Box, Cylinder, Edge, GeomType, Pos, Rot, Solid, Vector, Wire,  # noqa: E402
-                       fillet)
+from build123d import (Axis, Box, Cylinder, Edge, Face, GeomType, Location, Plane, Pos, Rot, Solid, Vector,  # noqa: E402
+                       Wire, extrude, fillet)
 
 from nova.cad.common import superellipse_pts  # noqa: E402
 
 # ---- collar (level, centred on the pan axis) ----------------------------------------------------------------------
 C_A, C_B, C_H = 25.5, 19.0, 4.5
-C_R_TOP, C_R_BOT = 1.6, 0.6
+C_LIP = 2.8                                      # thin flared lip (R04): rim 2.8 high, top slopes up to a level plateau
 # ---- neck (bell: steep sides, long front ramp) ---------------------------------------------------------------------
 N_H = 14.0
 NX_TOP, NX_BOT = 13.8, 20.5
@@ -42,29 +44,30 @@ WALL = 1.4
 # ---- tilt barrel ---------------------------------------------------------------------------------------------------
 B_R, B_LEN = 10.0, 49.0
 CAP_L, CAP_GAP = 7.8, 0.6
-CAP_DOME_R = 4.5                                 # rounded rim of the flat cap end (R04 look)
+CAP_DOME_R = 3.0                                 # rounded rim of the flat cap end (flat face Ø14, R04 look)
 CORE_L = B_LEN - 2 * (CAP_L + CAP_GAP)          # 32.2 – part of N1
 BORE_R = 8.5                                     # core bore (wall 1.5)
-SPIGOT_R, SPIGOT_IN, SPIGOT_L = 8.3, 7.0, 2.0    # cap spigot = plain bearing in the bore
+SPIGOT_R, SPIGOT_IN, SPIGOT_L = 8.35, 7.0, 3.5   # cap spigot = plain bearing in the bore (2.9 mm engaged)
 Z_N0 = C_H - 0.4
 Z_N1 = Z_N0 + N_H
 AX_Z = Z_N1 + B_R - 2.0                          # barrel axis 26.1 above the torso top
 HEAD_GAP = 0.5
-HEAD_Z0 = AX_Z + 1.5                             # head bottom (the head groove hides the barrel top ±81°)
+HEAD_Z0 = AX_Z + 1.0                             # head bottom (the head groove hides the barrel top ±84°)
+POCKET_C = 0.1                                   # head cap pocket = cap envelope + 0.1
 TILT = 40.0
 # ---- assembly opening on the barrel top (always under the head at ±40°) --------------------------------------------
-OPEN_Y = 6.4
-OPEN_X1 = 14.4                                   # from the right core end (-X) to x = 14.4 (cables beside the servo)
+OPEN_Y = 6.3
 # ---- tilt servo MG90S (ears cut off), shaft -X on the axis ---------------------------------------------------------
 SV_CASE = (22.5, 12.2, 22.8)                     # along shaft (x), width (y), length (z)
 SV_SHAFT_FROM_END = 5.9                          # shaft axis from the upper end of the case
 SV_TOWER_R, SV_TOWER_H = 5.9, 3.0
 SV_SPLINE_R, SV_SPLINE_H = 2.4, 2.7
-HORN_R, HORN_T, HORN_HUB_R = 7.0, 1.5, 3.5
+HORN_R, HORN_T, HORN_HUB_R, HORN_ARM_W = 7.0, 1.5, 3.5, 5.2
 X_CAP_IN = CORE_L / 2 + CAP_GAP                  # 16.7 – inner face of a cap
 X_HORN_HUB_END = -(X_CAP_IN - 3.0)               # -13.7 (tower top)
 X_CASE_TOP = X_HORN_HUB_END + SV_TOWER_H         # -10.7
 X_CASE_BOT = X_CASE_TOP + SV_CASE[0]             # 11.8
+OPEN_X1 = X_CASE_BOT + 0.3                       # opening ends 0.3 behind the servo -> +X end stop
 
 
 def _w(a, b, z, n=2.0, cy=0.0, count=128):
@@ -75,7 +78,12 @@ def _prof(z):
     """outer neck section at height z -> (half width x, front y, back y)"""
     t = min(1.0, max(0.0, (z - Z_N0) / N_H))
     kx, ky = (1 - t) ** 3.0, (1 - t) ** 1.6
-    return (NX_TOP + (NX_BOT - NX_TOP) * kx, NYF_TOP + (NYF_BOT - NYF_TOP) * ky, NYB_TOP + (NYB_BOT - NYB_TOP) * kx)
+    a, yf, yb = NX_TOP + (NX_BOT - NX_TOP) * kx, NYF_TOP + (NYF_BOT - NYF_TOP) * ky, NYB_TOP + (NYB_BOT - NYB_TOP) * kx
+    # shoulder: the neck runs into the barrel without a waist (±9 below the barrel), back to ±7.8 where the head
+    # groove lip passes at ±40° tilt
+    u = min(1.0, max(0.0, (z - AX_Z + 10.3) / 3.3))
+    d = NYB_TOP + 1.2 * (1 - (3 * u * u - 2 * u ** 3))
+    return a, min(yf, -d), max(yb, d)
 
 
 def _sec(a, yf, yb, z):
@@ -83,19 +91,26 @@ def _sec(a, yf, yb, z):
 
 
 def collar():
-    secs = [_w(C_A - C_R_BOT, C_B - C_R_BOT, 0.0)]
-    for t in (0.5, 1.0):
-        e = C_R_BOT * (1 - math.sin(t * math.pi / 2))
-        secs.append(_w(C_A - e, C_B - e, C_R_BOT * (1 - math.cos(t * math.pi / 2))))
-    secs.append(_w(C_A, C_B, C_H - C_R_TOP))
-    for t in (0.25, 0.5, 0.75, 1.0):
-        e = C_R_TOP * (1 - math.cos(t * math.pi / 2))
-        secs.append(_w(C_A - e, C_B - e, C_H - C_R_TOP + C_R_TOP * math.sin(t * math.pi / 2)))
-    return Solid.make_loft(secs)
+    """level oval collar, centred; R04 look: thin rounded lip (2.8 mm) whose top slopes up to a level plateau where
+    the neck starts (the plateau reaches inset 3.3, outside the neck foot)"""
+    pts = []
+    for t in (0.0, 0.5, 1.0):                                       # bottom round r 1.0
+        a = t * math.pi / 2
+        pts.append((1.0 * (1 - math.sin(a)), 1.0 * (1 - math.cos(a))))
+    pts.append((0.0, C_LIP - 0.9))
+    al = math.radians(60)
+    for t in (0.33, 0.66, 1.0):                                     # top round r 1.0 turning into a 30° slope
+        a = t * al
+        pts.append((1.0 * (1 - math.cos(a)), C_LIP - 0.9 + 1.0 * math.sin(a)))
+    d0, z0 = pts[-1]
+    for i in range(1, 9):                                           # slope -> level plateau (smoothstep)
+        u = i / 8
+        pts.append((d0 + (3.3 - d0) * u, z0 + (C_H - z0) * (1.5 * u - 0.5 * u ** 3)))
+    return Solid.make_loft([_w(C_A - d, C_B - d, z) for d, z in pts])
 
 
 def neck_outer():
-    zs = [Z_N0 + N_H * i / 17 for i in range(18)] + [Z_N1 + 2.0, Z_N1 + 4.0, Z_N1 + 6.0, AX_Z]
+    zs = [Z_N0 + (AX_Z - Z_N0) * i / 30 for i in range(31)]
     return Solid.make_loft([_sec(*_prof(z), z) for z in zs])
 
 
@@ -144,7 +159,7 @@ def outer_body(verbose=False):
         rc = math.hypot(e.center().Y, e.center().Z - AX_Z)
         return (abs(r0 - B_R) < 0.05 and abs(rc - B_R) < 0.05 and abs(e.center().X) < CORE_L / 2 - 0.5 and e.length > 3
                 and e.geom_type != GeomType.CIRCLE and e.geom_type != GeomType.LINE)
-    b, r2 = _fillet_between(b, on_core, (2.0, 1.5, 1.0))
+    b, r2 = _fillet_between(b, on_core, (3.0, 2.5, 2.0, 1.5))
     if verbose:
         print(f"  collar fillet r={r1}  core fillet r={r2}  faces={len(b.faces())}")
     return b
@@ -156,55 +171,91 @@ def opening_box(shrink=0.0):
 
 
 def body(outer=None):
-    """N1 – one piece: hollow, open bore, assembly opening on top + inner guide ribs and support ribs for the servo."""
+    """N1 – one piece: hollow, open bore, servo opening on top, crush ribs + support ribs + end stop for the servo,
+    2 screw bosses for N3."""
     o = outer if outer is not None else outer_body()
     cav = neck_inner() + Pos(0, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(BORE_R, CORE_L + 4)
     recess = Solid.make_loft([_w(C_A - 3.0, C_B - 3.0, z) for z in (-1.0, 2.0)])
     n1 = o - cav - recess - opening_box()
-    bore_env = Pos(0, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(BORE_R + 0.3, CORE_L - 1.0)
+    try:                                       # soften the opening rim (hidden in the head, still no knife edges)
+        rim = [e for e in n1.edges() if abs(abs(e.center().Y) - OPEN_Y) < 0.05 and e.center().Z > AX_Z + 5.0
+               and math.hypot(e.center().Y, e.center().Z - AX_Z) > B_R - 0.1]
+        n1r = fillet(rim, 0.4)
+        if n1r.is_valid:
+            n1 = n1r
+    except Exception:  # noqa: BLE001
+        pass
+    env = Pos(0, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(B_R - 0.15, CORE_L - 1.0)
     ribs = None
-    for xr in (-8.0, 9.0):
-        for sy in (-1, 1):                       # guide ribs at the servo flanks (torque reaction)
-            r = Pos(xr, sy * 7.6, AX_Z) * Box(2.0, 2.7, 11.0)
+    for xr in (-8.0, 8.0):                     # crush ribs: crest 0.05 into the 12.2 case, from its bottom to the rim
+        for sy in (-1, 1):
+            r = Pos(xr, sy * (SV_CASE[1] / 2 - 0.05 + 0.8), AX_Z + 0.9) * Box(0.8, 1.6, 13.0)
             ribs = r if ribs is None else ribs + r
-    ribs = ribs & bore_env
-    for xr in (-7.0, 7.0):                       # support ribs under the servo (bridge across the neck top)
-        ribs = ribs + (Pos(xr, 0, AX_Z - 7.85) * Box(2.0, 20.0, 3.5) & o)
-    return n1 + ribs
+    ribs = ribs & env
+    for xr in (-7.0, 7.0):                     # support ribs: the case bottom sits on them
+        top = AX_Z - SV_SHAFT_FROM_END
+        ribs = ribs + (Pos(xr, 0, top - 1.85) * Box(2.0, 20.0, 3.7) & o)
+    for sy in (-1, 1):                         # +X end stop pads (lower half of the case end face)
+        ribs = ribs + (Pos(OPEN_X1 + 0.5, sy * 6.25, AX_Z - 4.45) * Box(1.0, 3.5, 2.9) & env)
+    n1 = n1 + ribs
+    for sx in (-1, 1):                         # bosses for the 2x M2 from N3 (fully inside the neck)
+        boss = (Pos(sx * 13.5, 0, 6.0) * Cylinder(2.5, 8.0) + Pos(sx * 16.5, 0, 6.0) * Box(6.0, 2.0, 8.0)) & o
+        n1 = n1 + boss
+        n1 = n1 - Pos(sx * 13.5, 0, 5.5) * Cylinder(0.8, 7.0)
+    return n1
+
+
+def cap_envelope(sx, c=0.0, x_in_extra=0.0):
+    x_in, x_out = sx * (X_CAP_IN - x_in_extra), sx * (X_CAP_IN + CAP_L + c)
+    e = Pos((x_in + x_out) / 2, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(B_R + c, abs(x_out - x_in))
+    return fillet([ed for ed in e.edges() if abs(ed.center().X - x_out) < 0.01], CAP_DOME_R + c)
+
+
+CABLE_X = X_CAP_IN + 1.0                         # radial cable hole in the left cap (inside the head pocket)
+CABLE_ANG = 45.0                                 # from the top towards the back (+Y)
 
 
 def caps():
-    """[N2-P right (-X), N2-L left (+X)] – domed end caps with bearing spigots; fixed to the head."""
+    """[N2-P right (-X), N2-L left (+X)] – end caps with bearing spigots; fixed to the head."""
     out = []
     for sx in (-1, 1):
-        x_in, x_out = sx * X_CAP_IN, sx * (X_CAP_IN + CAP_L)
-        c = Pos((x_in + x_out) / 2, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(B_R, CAP_L)
-        c = fillet([e for e in c.edges() if abs(e.center().X - x_out) < 0.01], CAP_DOME_R)
+        x_in = sx * X_CAP_IN
+        c = cap_envelope(sx)
         c = fillet([e for e in c.edges() if abs(e.center().X - x_in) < 0.01], 0.8)
         sp = Pos(x_in - sx * SPIGOT_L / 2, 0, AX_Z) * Rot(0, 90, 0) * (Cylinder(SPIGOT_R, SPIGOT_L) - Cylinder(SPIGOT_IN, SPIGOT_L))
         c = c + sp
-        # horn recess (right) / weight-saving recess (left) – same on both so they look identical from inside
-        c = c - Pos(x_in + sx * 0.75, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(HORN_R + 0.2, 1.6)
+        if sx < 0:   # right: form-fit cross pocket for the stock cross arm trimmed to Ø14
+            arms = (Box(1.6, 2 * (HORN_R + 0.2), HORN_ARM_W + 0.3) + Box(1.6, HORN_ARM_W + 0.3, 2 * (HORN_R + 0.2)))
+            pocket = Pos(x_in - 0.8, 0, AX_Z) * arms & (Pos(x_in - 0.8, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(HORN_R + 0.2, 1.6))
+            c = c - pocket - Pos(x_in - 0.8, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(HORN_HUB_R + 0.3, 1.6)
+        else:        # left: round recess + radial cable hole (cable along the axis through the hollow spigot)
+            c = c - Pos(x_in + 0.8, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(HORN_R + 0.2, 1.6)
+            a = math.radians(CABLE_ANG)
+            hole = Pos(CABLE_X, 6.0 * math.sin(a), AX_Z + 6.0 * math.cos(a)) * Rot(-CABLE_ANG, 0, 0) * Cylinder(1.75, 12.0)
+            c = c - hole
         # M2 pilot hole from the top (the head screws into the cap from inside the head)
-        c = c - Pos(sx * (X_CAP_IN + CAP_L / 2), 0, AX_Z + 7.5) * Cylinder(0.8, 5.5)
+        c = c - Pos(sx * (X_CAP_IN + CAP_L / 2 + 0.6), 0, AX_Z + 7.5) * Cylinder(0.8, 5.5)
         out.append(c)
     return out
 
 
 def drive_plate():
-    """N3 – in the collar underside recess (hidden on the torso): pan-servo horn mount, 2x M2 into N1, cable hole."""
+    """N3 – in the collar underside recess (hidden on the torso): pan-servo arm mount (centre hole for the arm screw,
+    4 arm screws at r 7), cable hole, 2x M2 countersunk flat-head screws into the N1 bosses."""
     p = Pos(0, 0, 1.0) * Solid.make_loft([_w(C_A - 3.2, C_B - 3.2, z) for z in (-1.0, 1.0)])
     p = p - Pos(0, 9.0, 1.0) * Cylinder(2.5, 4.0)                    # cable hole
-    for xh in (-20.8, 20.8):                                         # 2x M2 into the collar ring
+    p = p - Pos(0, 0, 1.0) * Cylinder(2.75, 4.0)                     # centre: arm screw from above
+    for xh in (-13.5, 13.5):                                         # 2x M2 flat head (countersunk from below)
         p = p - Pos(xh, 0, 1.0) * Cylinder(1.1, 4.0)
-    for k in range(4):                                               # pan-servo horn screws
-        a = k * math.pi / 2 + math.pi / 4
-        p = p - Pos(4.5 * math.cos(a), 4.5 * math.sin(a), 1.0) * Cylinder(0.75, 4.0)
+        p = p - Solid.make_cone(2.1, 1.0, 1.1, Plane.XY.offset(-0.001).move(Location((xh, 0, 0))))
+    for k in range(4):                                               # pan-servo arm screws (cross arm, r 7)
+        a = k * math.pi / 2
+        p = p - Pos(7.0 * math.cos(a), 7.0 * math.sin(a), 1.0) * Cylinder(0.6, 4.0)
     return p
 
 
 def servo():
-    """S1 – MG90S envelope (ears removed) + round horn. Returns (servo, horn)."""
+    """S1 – MG90S envelope (ears removed) + cross arm trimmed to Ø14. Returns (servo, arm)."""
     cx = (X_CASE_TOP + X_CASE_BOT) / 2
     z_bot = AX_Z - SV_SHAFT_FROM_END                                 # body stands UP from the axis into the head
     case = Pos(cx, 0, z_bot + SV_CASE[2] / 2) * Box(*SV_CASE)
@@ -212,41 +263,56 @@ def servo():
     tower = Pos(X_CASE_TOP - SV_TOWER_H / 2, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(SV_TOWER_R, SV_TOWER_H)
     spline = Pos(X_HORN_HUB_END - SV_SPLINE_H / 2, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(SV_SPLINE_R, SV_SPLINE_H)
     s = case + tower + spline
-    horn = Pos(-(X_CAP_IN + HORN_T / 2), 0, AX_Z) * Rot(0, 90, 0) * Cylinder(HORN_R, HORN_T)
-    horn = horn + Pos(-(X_CAP_IN - 1.5), 0, AX_Z) * Rot(0, 90, 0) * Cylinder(HORN_HUB_R, 3.0)
+    xa = -(X_CAP_IN + HORN_T / 2)
+    arms = Pos(xa, 0, AX_Z) * (Box(HORN_T, 2 * HORN_R, HORN_ARM_W) + Box(HORN_T, HORN_ARM_W, 2 * HORN_R))
+    horn = arms & (Pos(xa, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(HORN_R, HORN_T))
+    horn = horn + Pos(-(X_CAP_IN - 1.35), 0, AX_Z) * Rot(0, 90, 0) * Cylinder(HORN_HUB_R, 2.7)   # 0.3 to the tower
     horn = horn - Pos(X_HORN_HUB_END - SV_SPLINE_H / 2, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(SV_SPLINE_R, SV_SPLINE_H)
     return s, horn
 
 
 def head_saddle_cut():
     """What the head bottom needs (head coordinates are the same as here):
-    saddle (solid to ADD inside the head) and cut (groove around the core 0.5 mm + tight cap pockets + cable window
-    + 2x M2 holes into the caps)."""
+    saddle (solid to ADD inside the head) and cut (groove around the core 0.5 mm + cap-shaped pockets (cap + 0.1)
+    + cable hole to the left cap + 2x M2 holes into the caps + the space the servo needs while the head tilts)."""
     saddle = Pos(0, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(B_R + 2.6, 2 * (X_CAP_IN + CAP_L + 0.3 + 2.2))
     saddle = saddle & (Pos(0, 0, HEAD_Z0 + 20) * Box(80, 40, 40))
     groove = Pos(0, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(B_R + HEAD_GAP, CORE_L + 2 * CAP_GAP + 0.2)
     cut = groove
     for sx in (-1, 1):
-        x0, x1 = sx * (X_CAP_IN - 0.1), sx * (X_CAP_IN + CAP_L + 0.3)
-        cut = cut + Pos((x0 + x1) / 2, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(B_R + 0.05, abs(x1 - x0))
-        cut = cut + Pos(sx * (X_CAP_IN + CAP_L / 2), 0, AX_Z + 11.0) * Cylinder(1.1, 4.0)
-    cut = cut + Pos(13.2, 0, AX_Z + 10.0) * Box(3.2, 2 * 8.6, 9.0)   # cable window beside the servo (inside only)
+        cut = cut + cap_envelope(sx, POCKET_C, x_in_extra=0.1)
+        cut = cut + Pos(sx * (X_CAP_IN + CAP_L / 2 + 0.6), 0, AX_Z + 11.0) * Cylinder(1.1, 4.0)
+    a = math.radians(CABLE_ANG)
+    cut = cut + Pos(CABLE_X, 11.0 * math.sin(a), AX_Z + 11.0 * math.cos(a)) * Rot(-CABLE_ANG, 0, 0) * Cylinder(2.0, 5.0)
     cut = cut + servo_sweep()
     return saddle, cut
 
 
-def servo_sweep(clear=0.6, step=4.0):
-    """space the servo needs inside the head while the head tilts ±TILT (head-fixed frame)"""
-    cx = (X_CASE_TOP + X_CASE_BOT) / 2
-    z_bot = AX_Z - SV_SHAFT_FROM_END
-    box = Pos(cx, 0, z_bot + SV_CASE[2] / 2) * Box(SV_CASE[0] + 2 * clear, SV_CASE[1] + 2 * clear, SV_CASE[2] + 2 * clear)
-    ax = Axis((0, 0, AX_Z), (1, 0, 0))
-    n = int(round(2 * (TILT + 2) / step))
-    sw = None
-    for k in range(n + 1):
-        b = box.rotate(ax, -(TILT + 2) + k * step)
-        sw = b if sw is None else sw + b
-    return sw
+def _rect_rho(alpha, y1, z0, z1):
+    """radial distance from the axis to the edge of the rectangle |y|<=y1, z0<=z'<=z1 in direction alpha
+    (alpha from +z' towards +y)"""
+    import numpy as np
+    sa, ca = np.sin(alpha), np.cos(alpha)
+    big = 1e9
+    ty = np.where(np.abs(sa) > 1e-12, y1 / np.maximum(np.abs(sa), 1e-12), big)
+    tz = np.where(ca > 1e-12, z1 / np.maximum(ca, 1e-12), np.where(ca < -1e-12, z0 / np.minimum(ca, -1e-12), big))
+    return np.minimum(ty, tz)
+
+
+def servo_sweep(clear=0.4, tilt=None, n=1440):
+    """EXACT space the servo case needs inside the head while the head tilts ±tilt (head frame): the swept outline
+    of the case cross-section (radial max over the tilt range), extruded along the case length -> smooth surface."""
+    import numpy as np
+    tilt = TILT if tilt is None else tilt
+    y1 = SV_CASE[1] / 2 + clear
+    z0 = -SV_SHAFT_FROM_END - clear
+    z1 = SV_CASE[2] - SV_SHAFT_FROM_END + clear
+    al = np.linspace(-np.pi, np.pi, n, endpoint=False)
+    phis = np.radians(np.linspace(-tilt, tilt, int(4 * tilt) + 1))
+    rho = np.max(np.stack([_rect_rho(al - ph, y1, z0, z1) for ph in phis]), axis=0) + 0.02
+    pts = [Vector(X_CASE_TOP - clear, float(r * np.sin(a)), float(AX_Z + r * np.cos(a))) for a, r in zip(al, rho)]
+    face = Face(Wire.make_polygon(pts, close=True))
+    return extrude(face, amount=(X_CASE_BOT - X_CASE_TOP) + 2 * clear, dir=(1, 0, 0))
 
 
 def head(head_shell_fn=None):
@@ -279,7 +345,8 @@ def build_all(verbose=True):
 if __name__ == "__main__":
     P = build_all()
     # interference checks (should all be ~0)
-    pairs = [("S1", "N1"), ("HORN", "N1"), ("N2P", "N1"), ("N2L", "N1"), ("N3", "N1"), ("S1", "N2P"), ("HORN", "S1")]
+    pairs = [("S1", "N1"), ("HORN", "N1"), ("N2P", "N1"), ("N2L", "N1"), ("N3", "N1"), ("S1", "N2P"), ("HORN", "S1"),
+             ("HORN", "N2P")]
     for a, b in pairs:
         x = P[a] & P[b]
         v = x.volume if x is not None else 0.0
