@@ -1,60 +1,59 @@
-# NOVA mini – krk (návrh „jeden celok“)
+# NOVA mini – krk v3 (jeden diel, guľôčkové ložisko, valec 50/50 v hlave)
 
-Súradnice STL/STEP: mm, z = 0 je vrch trupu, predok robota = −Y, pravá strana robota = −X.
-Hlava (návrh 4) je v `../01_hlava_skrupina/NOVA_mini_01_hlava_skrupina_navrh4.*`. V jej súboroch je z = 0 spodok hlavy,
-v zostave je spodok hlavy 27,1 mm nad trupom.
+Súradnice STL/STEP: mm, z = 0 je stred vrchu trupu, predok robota = −Y, pravá strana robota = −X.
+Hlava (návrh 5) je v `../01_hlava_skrupina/NOVA_mini_01_hlava_skrupina_navrh5.*`. V jej súboroch je z = 0 spodok hlavy
+a y = 0 stred hlavy. V zostave je spodok hlavy 26,1 mm nad trupom a hlava je o 5 mm posunutá dozadu.
 
 | súbor | diel | poznámka |
 |---|---|---|
-| `NOVA_mini_N1_krk_jeden_diel` | N1 krk | golier + krk + stred valca v JEDNOM kuse, dutý (stena 1,4 mm), plynulé prechody (zaoblenia 1,6 a 2,5 mm), tenký zaoblený okraj goliera ako na R04 |
-| `NOVA_mini_N2-P_viecko_prave` | N2-P pravé viečko | k hlave priskrutkované 1× M2 zvnútra hlavy, vnútri má krížovú drážku pre páku serva |
-| `NOVA_mini_N2-L_viecko_lave` | N2-L ľavé viečko | k hlave priskrutkované 1× M2, dutým čapom a šikmým otvorom Ø3,5 vedie kábel do hlavy |
-| `NOVA_mini_N3_unasac_spodny` | N3 spodný unášač | skrytý pod golierom, priskrutkovaný na páku serva otáčania, 2× M2 so zápustnou hlavou do N1, otvor Ø5 pre kábel |
+| `NOVA_mini_N1_krk_jeden_diel` | N1 krk | golier + krk + stred valca v JEDNOM kuse, plynulý prechod bez schodíkov (eliptické prierezy), spodok goliera kopíruje zaoblený vrch trupu (medzera 0,6 mm), dutý |
+| `NOVA_mini_N2-P_viecko_prave` | N2-P pravé viečko | k hlave priskrutkované 1× M2 do vlepenej mosadznej vložky, vnútri krížová drážka pre páku serva, krku sa nedotýka |
+| `NOVA_mini_N2-L_viecko_lave` | N2-L ľavé viečko | k hlave priskrutkované 1× M2 do vložky; vnútri je vlepené guľôčkové ložisko MR128, ktoré sedí na dutom čape krku; kábel do hlavy ide čapom a šikmým otvorom Ø3,5 |
+| `NOVA_mini_N3_unasac_spodny` | N3 spodný unášač | skrytý pod golierom, priskrutkovaný na páku serva otáčania, 2× M2 so zápustnou hlavou do vložiek v N1 |
 
 ## Ako sa hlava nakláňa
 1. N1 sa otáča len doľava a doprava. Servo otáčania je v trupe a drží N1 cez N3.
-2. Hlava je nasadená na dvoch viečkach valca a priskrutkovaná k nim, takže viečka sa točia spolu s hlavou.
-   Čapy oboch viečok sa točia v otvore valca (klzné ložiská Ø17).
-3. Servo náklonu je upevnené v N1 a hriadeľ má presne v osi valca. Horná časť serva vyčnieva cez otvor na valci
-   do hlavy. Hlava má vo vnútri hladký priestor, v ktorom sa okolo serva otáča. Hriadeľ točí pákou serva
-   v pravom viečku, a tým celou hlavou.
-4. Kábel do hlavy ide dutým čapom ľavého viečka, teda v osi náklonu, takže sa pri náklone len mierne skrúti.
-   Kábel serva náklonu vychádza z jeho horného konca, ktorý je v hlave, a zapojí sa rovno do dosky v hlave.
-   Nechaj mu voľnú slučku, lebo hlava sa okolo serva otáča ±40°.
-5. Otvor hore na valci (pre servo) je stále pod hlavou a v celom rozsahu náklonu ±40° je úplne schovaný.
-   Ďalej sa hlava nakloniť nedá: ak ju niekto dotlačí rukou, asi pri 42° narazí na servo, takže otvor nevykukne.
-6. Náklon je 40° dole (zošit) a 40° hore (človek). Medzera medzi hlavou a krkom je 0,5 mm pri každom uhle do ±40°
-   (overené v CAD). Viečka majú v hlave vôľu 0,2 mm a spodok hlavy kopíruje ich zaoblenie.
-   Doraz na dne valca drží hlavu do strán s vôľou ±0,1 mm.
+2. Spodok hlavy ide presne cez os valca, takže polovica valca je v hlave a polovica pod ňou (50/50).
+   Hlava je o 5 mm posunutá dozadu, aby bol kĺb bližšie k stredu jej rovného spodku.
+   Viac to nejde, lebo servo by sa pri náklone dotklo zadnej strany displeja.
+3. Obe viečka valca sú v hlave priskrutkované a otáčajú sa spolu s hlavou.
+4. Servo náklonu (MG90S) je upevnené v N1 a hriadeľ má presne v osi valca. Horná časť serva vyčnieva cez otvor
+   na valci do hlavy a hlava sa okolo nej otáča. Hriadeľ cez páku točí pravým viečkom, a tým celou hlavou.
+5. Diely sú zo živice, preto sa nikde netrie živica o živicu:
+   - pravé viečko nesie samo servo (má vlastné ložisko na hriadeli),
+   - ľavé viečko sa točí na guľôčkovom ložisku MR128-2RS (8 × 12 × 3,5).
+6. Kábel do hlavy ide dutým čapom ľavého viečka, teda v osi náklonu, takže sa pri náklone len mierne skrúti.
+7. Otvor hore na valci (pre servo) je vždy v hlave a ostáva schovaný až do ±50°. Hlava sa o servo zastaví asi pri 42°.
+8. Náklon je 40° dole (zošit) a 40° hore (človek). Medzera medzi hlavou a krkom je 0,5 mm pri každom uhle do ±40°
+   (overené v CAD). Nič sa nedotýka trupu ani displeja (servo má k displeju pri 40° aspoň 1,7 mm).
 
 ## Montáž
-1. N3 priskrutkuj do N1 zdola 2× M2×8 so zápustnou hlavou (DIN 7991). Až potom zdola priskrutkuj na N3 páku
-   serva otáčania, inak by zakryla hlavy skrutiek.
-2. Kábel do hlavy priprav bez konektorov: tenké vodiče, zväzok najviac Ø3 mm, napr. 4× silikónový 26 AWG.
-   Pretiahni ho zdola cez otvor Ø5 v N3, krkom hore a von ľavým koncom valca. Nechaj asi 15 cm navyše.
-3. N1 s N3 nasaď na hriadeľ serva otáčania v trupe. Stredovú skrutku páky zaskrutkuj zhora cez otvor na valci a krk.
-   Urob to teraz, kým ešte nie je vložené servo náklonu, potom sa k nej už nedostaneš.
-4. Servo náklonu (MG90S): odstrihni úchytky a zvyšky zarovnaj nožom a pilníkom do roviny s krabičkou (< 0,2 mm),
-   hlavne na spodnom konci pri hriadeli. Servo položené týmto koncom na stôl sa nesmie kývať.
-   Nastav ho do strednej polohy (1500 µs). Zatlač ho zhora do otvoru valca, hriadeľom k pravému viečku (−X).
-   Štyri drobné rebrá ho pevne zovrú. Spodkom sedí na dvoch rebrách a na konci oproti hriadeľu
-   (strana +X, k ľavému viečku) ho drží doraz. Kábel hlavy drž pri tom dolu pri ľavom konci, aby nebol pod servom.
-5. Krížovú páku serva orež na Ø14. Ak sa ramená zužujú, opiľuj ich na rovnobežných 5,2 mm a vlož ju do krížovej
-   drážky v pravom viečku (+ kvapka sekundového lepidla).
-6. Kábel hlavy prevleč dutým čapom ľavého viečka a von šikmým otvorom Ø3,5 na jeho obvode. Až potom zasuň obe viečka
-   čapmi do valca: ľavé posúvaj po kábli, pravé nasaď pákou na hriadeľ serva tak, aby otvor pre M2 smeroval hore.
-7. Kábel prevleč cez otvor Ø4 v sedle hlavy. Hlavu nasaď zhora a cez predný otvor hlavy, pred zacvaknutím rámika,
-   zaskrutkuj 2× M2×6 imbus (kľúč 1,5) do viečok. Konektory nakrimpuj alebo prispájkuj až teraz.
-   Zostávajúcu odchýlku náklonu (najviac pol zuba drážkovania, asi 9°) dolaď v softvéri.
+1. Ložisko MR128 vlep do ľavého viečka (sekundové lepidlo na vonkajší krúžok, nie do ložiska).
+   Mosadzné vložky M2 (Ø3,2 × 3) vlep epoxidom do oboch viečok (hore) a do dvoch výstupkov v N1.
+2. N3 priskrutkuj do N1 zdola 2× M2×6 so zápustnou hlavou. Až potom priskrutkuj na N3 páku serva otáčania
+   (4× M2 s maticou, páku prevŕtaj na Ø2,2).
+3. Kábel do hlavy priprav bez konektorov: tenké vodiče, zväzok najviac Ø3 mm. Pretiahni ho zdola cez otvor Ø5 v N3,
+   krkom hore a von ľavým koncom valca.
+4. N1 s N3 nasaď na hriadeľ serva otáčania v trupe. Stredovú skrutku páky zaskrutkuj zhora cez otvor na valci a krk.
+   Urob to teraz, kým ešte nie je vložené servo náklonu.
+5. Servo náklonu (MG90S): odstrihni úchytky, zvyšky zarovnaj pilníkom a nastav servo do strednej polohy (1500 µs).
+   Vlož ho zhora do otvoru valca hriadeľom k pravému viečku (−X). Sedí na dvoch rebrách a bočné rebrá ho vedú.
+   Kvapka tavného lepidla ho zaistí a dá sa neskôr odstrániť.
+6. Krížovú páku serva orež na Ø14 a vlož do krížovej drážky pravého viečka. Pravé viečko nasuň pákou na hriadeľ serva.
+7. Kábel prevleč ľavým viečkom (cez čap a šikmý otvor). Ľavé viečko nasuň ložiskom na čap krku a kábel prevleč
+   otvorom Ø4 v hlave.
+8. Hlavu nasaď zhora. Cez predný otvor hlavy, pred zacvaknutím rámika, zaskrutkuj 2× M2×6 imbus (kľúč 1,5) do viečok.
+   Konektory pripoj až teraz. Odchýlku náklonu (pol zuba drážkovania) dolaď v softvéri.
 
-## Tlač
-* N1 tlač golierom na podložku. Podpery daj len od podložky (2 mm zápustok pre N3 a spodky výstupkov pre skrutky).
-  Rebrá vo vnútri krku sú mosty a podpery nepotrebujú.
-* Viečka tlač plochou čelnou stranou na podložku, čapom hore, bez podpier. Okraj zľahka prebrús.
+## Tlač (živica)
+- N1 tlač golierom dole, podpery len pod golierom a výstupkami. Dutiny majú otvory, cez ktoré vytečie živica.
+- Viečka tlač plochou čelnou stranou dole.
+- Po tlači všetko dôkladne vytvrď (UV), inak sú lôžka ložiska a vložiek mäkké.
 
 ## Nakúpiť
-servo MG90S (kovové prevody) · 2× M2×8 DIN 7991 · 2× M2×6 ISO 4762 · kábel do hlavy: tenké vodiče, zväzok najviac Ø3 mm ·
-páky a skrutky k pákam sú v balení serv
+servo MG90S · ložisko MR128-2RS · mosadzné vložky M2 × 3 × Ø3,2 (4 ks) · 2× M2×6 zápustná (DIN 7991) ·
+2× M2×6 imbus (ISO 4762) · 4× M2×6 + 4× matica M2 (páka otáčania) · tenký kábel do hlavy, zväzok najviac Ø3 mm
 
 Rozmery serva a páky sú v modeli z katalógu. Pred tlačou zmeraj svoje servo a páku posuvným meradlom a uprav konštanty
 `SV_*` a `HORN_*` v `nova_mini/krk.py`, lebo klony MG90S sa líšia o ±0,3 mm.
+Vrch trupu pod golierom bude pri návrhu trupu urobený presne guľatý (rotačný), aby medzera ostala rovnaká aj pri otáčaní.

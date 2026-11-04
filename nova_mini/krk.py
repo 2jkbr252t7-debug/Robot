@@ -49,7 +49,7 @@ C_A, C_B = 27.0, 20.5                            # collar rim half sizes (a bit 
 RIM_H, RIM_R = 2.0, 2.0                          # rim height above z = 0 and its round
 FLARE_ANG = 31.0                                 # the bell starts at 31° above horizontal (tangent to the rim round)
 # ---- neck (bell: one smooth curve from the rim to the neck top, long front ramp) -----------------------------------
-NX_TOP, NY_TOP = 12.5, 7.4                       # neck top half sizes (ellipse; 12.5 lets the junction blend r2)
+NX_TOP, NY_TOP = 12.5, 7.0                       # neck top half sizes (ellipse; 12.5 lets the junction blend r2)
 T0_X, T0_F, T0_B, T1_ALL = 10.0, 15.0, 7.0, 9.0  # bell Hermite tangents (front ramp longest, back steepest)
 CN = 2.0                                         # section exponent (pure ellipse -> soft, not boxy)
 Z_N1 = 18.1                                      # neck top (straight above, into the barrel)
