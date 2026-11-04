@@ -1,4 +1,4 @@
-# NOVA mini – krk v5 (jeden diel, golier zapustený v trupe, guľôčkové ložisko, valec 50/50 v hlave)
+# NOVA mini – krk v4 (jeden diel, golier ako na R04, guľôčkové ložisko, valec 50/50 v hlave)
 
 Súradnice STL/STEP: mm, z = 0 je stred vrchu trupu, predok robota = −Y, pravá strana robota = −X.
 Hlava (návrh 5) je v `../01_hlava_skrupina/NOVA_mini_01_hlava_skrupina_navrh5.*`. V jej súboroch je z = 0 spodok hlavy
@@ -6,14 +6,13 @@ a y = 0 stred hlavy. V zostave je spodok hlavy 26,1 mm nad trupom a hlava je o 5
 
 | súbor | diel | poznámka |
 |---|---|---|
-| `NOVA_mini_N1_krk_jeden_diel` | N1 krk | golier + krk + stred valca v JEDNOM kuse: okrúhly golier Ø46 je zapustený zarovno do trupu (jeho vrch pokračuje v zaoblení trupu), štíhly zvonovitý krk z neho plynulo vyrastá a plynulo prechádza do valca; dutý |
+| `NOVA_mini_N1_krk_jeden_diel` | N1 krk | golier + krk + stred valca v JEDNOM kuse: tenký vodorovný oválny golier 52 × 40 s jemným druhým stupňom (ako na R04), z neho štíhly zvonovitý krk plynulo zaoblený do goliera aj do valca; spodok goliera kopíruje zaoblený vrch trupu (medzera 0,6 mm); dutý |
 | `NOVA_mini_N2-P_viecko_prave` | N2-P pravé viečko | k hlave priskrutkované 1× M2 do vlepenej mosadznej vložky, vnútri krížová drážka pre páku serva, krku sa nedotýka |
 | `NOVA_mini_N2-L_viecko_lave` | N2-L ľavé viečko | k hlave priskrutkované 1× M2 do vložky; vnútri je vlepené guľôčkové ložisko MR128, ktoré sedí na dutom čape krku; kábel do hlavy ide čapom a šikmým otvorom Ø3,5 |
 | `NOVA_mini_N3_unasac_spodny` | N3 spodný unášač | skrytý pod golierom, priskrutkovaný na páku serva otáčania, 2× M2 so zápustnou hlavou do vložiek v N1 |
 
 ## Ako sa hlava nakláňa
-1. N1 sa otáča len doľava a doprava. Jeho okrúhly golier sa točí v jamke Ø47 × 4,3 vo vrchu trupu (medzera 0,5 mm),
-   takže krk pôsobí, akoby vyrastal z trupu. Servo otáčania je v trupe a drží N1 cez N3.
+1. N1 sa otáča len doľava a doprava. Servo otáčania je v trupe a drží N1 cez N3.
 2. Spodok hlavy ide presne cez os valca, takže polovica valca je v hlave a polovica pod ňou (50/50).
    Hlava je o 5 mm posunutá dozadu, aby bol kĺb bližšie k stredu jej rovného spodku.
    Viac to nejde, lebo servo by sa pri náklone dotklo zadnej strany displeja.
@@ -57,4 +56,4 @@ servo MG90S · ložisko MR128-2RS · mosadzné vložky M2 × 3 × Ø3,2 (4 ks) �
 
 Rozmery serva a páky sú v modeli z katalógu. Pred tlačou zmeraj svoje servo a páku posuvným meradlom a uprav konštanty
 `SV_*` a `HORN_*` v `nova_mini/krk.py`, lebo klony MG90S sa líšia o ±0,3 mm.
-Pri návrhu trupu dostane jeho vrch okrúhlu jamku Ø47 × 4,3 a okolo nej presne rotačné zaoblenie, aby golier sedel zarovno.
+Vrch trupu pod golierom bude pri návrhu trupu urobený presne guľatý (rotačný), aby medzera ostala rovnaká aj pri otáčaní.
