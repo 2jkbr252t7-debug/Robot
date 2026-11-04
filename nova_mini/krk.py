@@ -1,5 +1,6 @@
 """
-NOVA mini – KRK v3 (2026-11-04, user: "pôvodný krk upravený na ložiská, nie ihlan; valec v hlave 50/50; kĺb na stred
+NOVA mini – KRK v3 (2026-11-04; v4 base: thin R04 collar plate + subtle tier + slim bell,
+user: "táto časť je hrozná, hrubá – urob to moderne ako na R04"; v3 user: "pôvodný krk upravený na ložiská, nie ihlan; valec v hlave 50/50; kĺb na stred
 spodnej steny hlavy"; earlier: "hladko, bez schodíkov, spodok prispôsobený zaoblenému trupu"; parts are RESIN):
   * collar + bell neck = ONE smooth loft (no plateau / no steps), ellipse sections, level & centred; the underside follows
     the domed torso top (0.6 mm gap, surface of revolution -> panning keeps the gap)
@@ -45,12 +46,13 @@ from build123d import (Axis, Box, Cylinder, Edge, Face, GeomType, Location, Plan
 from nova.cad.common import superellipse_pts  # noqa: E402
 
 # ---- collar (level, centred on the pan axis) ----------------------------------------------------------------------
-C_A, C_B = 27.0, 20.5                            # collar rim half sizes (a bit larger: it hugs the torso dome)
-RIM_H, RIM_R = 2.0, 2.0                          # rim height above z = 0 and its round
-FLARE_ANG = 31.0                                 # the bell starts at 31° above horizontal (tangent to the rim round)
+C_A, C_B = 26.0, 20.0                            # collar: thin level oval plate (R04), 52 x 40
+COLLAR_TOP = 3.0                                 # plate top (rim ~2.4 high at front/back, the underside follows the dome)
+PAD_INSET, PAD_TOP = 3.5, 4.0                    # subtle second tier (R04): raised inner oval the neck stands on
 # ---- neck (bell: one smooth curve from the rim to the neck top, long front ramp) -----------------------------------
 NX_TOP, NY_TOP = 12.5, 7.0                       # neck top half sizes (ellipse; 12.5 lets the junction blend r2)
-T0_X, T0_F, T0_B, T1_ALL = 10.0, 15.0, 7.0, 9.0  # bell Hermite tangents (front ramp longest, back steepest)
+BELL_Z0, BELL_X, BELL_YF, BELL_YB = 3.9, 18.5, -13.8, 12.0   # bell base on the pad (front ramp longer than the back)
+BELL_PX, BELL_PF, BELL_PB = 2.6, 1.6, 2.8       # bell curvature (concave flare): x, front (long ramp), back (steep)
 CN = 2.0                                         # section exponent (pure ellipse -> soft, not boxy)
 Z_N1 = 18.1                                      # neck top (straight above, into the barrel)
 WALL = 1.4
@@ -86,6 +88,7 @@ OPEN_X1 = X_CASE_BOT + 0.3                       # opening ends 0.3 behind the s
 CAP_SCREW_X = X_CAP_IN + CAP_L / 2 + 1.0         # 21.6 – head->cap M2 (into a glued insert in the cap top)
 X_ENDW0, X_ENDW1 = 14.6, 15.6                    # left end wall of the core (N1)
 INSERT_D = 3.3                                   # hole for an M2 brass insert (glued)
+N3_SCREW_X = 12.8                                # N3 -> N1 screws (inserts in 2 bosses inside the bell)
 
 
 def _w(a, b, z, n=2.0, cy=0.0, count=128):
@@ -95,85 +98,62 @@ def _w(a, b, z, n=2.0, cy=0.0, count=128):
     return Wire([Edge.make_spline(pts, periodic=True, parameters=[i / len(pts) for i in range(len(pts) + 1)])])
 
 
-def _hermite(p0, p1, t0, t1, n=240):
-    out = []
-    for i in range(n + 1):
-        u = i / n
-        h00, h10, h01, h11 = 2 * u ** 3 - 3 * u ** 2 + 1, u ** 3 - 2 * u ** 2 + u, -2 * u ** 3 + 3 * u ** 2, u ** 3 - u ** 2
-        out.append((h00 * p0[0] + h10 * t0[0] + h01 * p1[0] + h11 * t1[0], h00 * p0[1] + h10 * t0[1] + h01 * p1[1] + h11 * t1[1]))
-    return out
+def _rounded_loft(a, b, z0, z_top, r_top, cy=0.0, step=0.3):
+    """oval with a vertical side from z0 and a quarter round r_top into a flat top at z_top (sections spaced evenly
+    along the profile -> no loft overshoot)"""
+    P = [(0.0, z0), (0.0, z_top - r_top)]
+    P += [(r_top * (1 - math.cos(t)), z_top - r_top + r_top * math.sin(t)) for t in (i / 24 * math.pi / 2 for i in range(1, 25))]
+    L = [0.0]
+    for (a0, b0), (a1, b1) in zip(P, P[1:]):
+        L.append(L[-1] + math.hypot(a1 - a0, b1 - b0))
+    n = max(2, round(L[-1] / step))
+    pts, j = [], 0
+    for k in range(n + 1):
+        sk = L[-1] * k / n
+        while j < len(L) - 2 and L[j + 1] < sk:
+            j += 1
+        t = (sk - L[j]) / max(L[j + 1] - L[j], 1e-12)
+        pts.append((P[j][0] + (P[j + 1][0] - P[j][0]) * t, P[j][1] + (P[j + 1][1] - P[j][1]) * t))
+    secs, last = [], None
+    for d, z in pts:
+        if last is None or z - last > 0.02:
+            secs.append(_w(a - d, b - d, z, n=CN, cy=cy))
+            last = z
+    return Solid.make_loft(secs)
 
 
-_PROF = None
+def collar_plate():
+    """thin level oval plate (R04): vertical rim + soft top round; the underside is cut later to follow the torso dome"""
+    return _rounded_loft(C_A, C_B, -1.5, COLLAR_TOP, 1.0)
 
 
-def _profiles():
-    """(inset, z) curves for the x side, the front and the back: vertical rim -> round -> bell (Hermite) -> neck top"""
-    global _PROF
-    if _PROF is not None:
-        return _PROF
-    beta = math.radians(90.0 - FLARE_ANG)
-    rnd = [(RIM_R * (1 - math.cos(beta * i / 40)), RIM_H + RIM_R * math.sin(beta * i / 40)) for i in range(41)]
-    e1, z1 = rnd[-1]
-    ca, sa = math.cos(math.radians(FLARE_ANG)), math.sin(math.radians(FLARE_ANG))
-    out = {}
-    for key, E, L0 in (("x", C_A - NX_TOP, T0_X), ("f", C_B - NY_TOP, T0_F), ("b", C_B - NY_TOP, T0_B)):
-        fl = _hermite((e1, z1), (E, Z_N1), (L0 * ca, L0 * sa), (0.0, T1_ALL))
-        pts = [(0.0, -3.0), (0.0, RIM_H)] + rnd[1:] + fl[1:] + [(E, AX_Z + 1.0)]
-        zs = [p[1] for p in pts]
-        assert all(b > a for a, b in zip(zs, zs[1:])), key
-        out[key] = pts
-    _PROF = out
-    return out
-
-
-def _inset(key, z):
-    import numpy as np
-    pts = _profiles()[key]
-    return float(np.interp(z, [p[1] for p in pts], [p[0] for p in pts]))
+def collar_pad():
+    """subtle second tier of the collar (R04): raised inner oval the neck stands on"""
+    return _rounded_loft(C_A - PAD_INSET, C_B - PAD_INSET, COLLAR_TOP - 0.1, PAD_TOP, 0.6)
 
 
 def _prof(z):
-    """outer neck section at height z -> (half width x, front y, back y)"""
-    return C_A - _inset("x", z), -(C_B - _inset("f", z)), C_B - _inset("b", z)
+    """bell neck section at height z -> (half width x, front y, back y); constant below the base and above Z_N1"""
+    t = min(1.0, max(0.0, (z - BELL_Z0) / (Z_N1 - BELL_Z0)))
+    kx, kf, kb = (1 - t) ** BELL_PX, (1 - t) ** BELL_PF, (1 - t) ** BELL_PB
+    return (NX_TOP + (BELL_X - NX_TOP) * kx, -(NY_TOP + (-BELL_YF - NY_TOP) * kf), NY_TOP + (BELL_YB - NY_TOP) * kb)
 
 
 def _sec(a, yf, yb, z):
     return _w(a, (yb - yf) / 2, z, n=CN, cy=(yb + yf) / 2)
 
 
-def _zs_by_arclength(z0, z1, step=0.45):
-    """section heights spaced evenly along the x-side profile (no loft overshoot on the round)"""
-    pts = [(p[0], p[1]) for p in _profiles()["x"] if z0 + 1e-9 < p[1] < z1 - 1e-9]
-    pts = [(_inset("x", z0), z0)] + pts + [(_inset("x", z1), z1)]
-    L = [0.0]
-    for (a0, b0), (a1, b1) in zip(pts, pts[1:]):
-        L.append(L[-1] + math.hypot(a1 - a0, b1 - b0))
-    n = max(2, round(L[-1] / step))
-    zs, j = [], 0
-    for k in range(n + 1):
-        sk = L[-1] * k / n
-        while j < len(L) - 2 and L[j + 1] < sk:
-            j += 1
-        t = (sk - L[j]) / max(L[j + 1] - L[j], 1e-12)
-        zs.append(pts[j][1] + (pts[j + 1][1] - pts[j][1]) * t)
-    out = []
-    for z in zs:
-        if not out or z - out[-1] > 0.05:
-            out.append(z)
-    return out
-
-
 def neck_outer():
-    """collar + bell + neck top as ONE loft from below the torso dome up to the barrel axis"""
-    zs = _zs_by_arclength(-2.0, Z_N1) + [Z_N1 + 2.0 * k for k in range(1, 5)]
+    """slim bell neck from inside the collar pad up to the barrel axis"""
+    n = 22
+    zs = [BELL_Z0 - 0.15 + (Z_N1 - BELL_Z0 + 0.15) * i / n for i in range(n + 1)] + [Z_N1 + 2.0 * k for k in range(1, 5)]
     if zs[-1] < AX_Z - 0.05:
         zs.append(AX_Z)
     return Solid.make_loft([_sec(*_prof(z), z) for z in zs])
 
 
 def neck_inner():
-    """cavity: the outer profile shifted 2.5 mm up and inset 1.4 (thicker on the flaring part), from the N3 recess up"""
+    """cavity: the outer profile shifted 2.5 mm up and inset 1.4, from the N3 recess up"""
     zs = [2.6 + (AX_Z - 2.6) * i / 20 for i in range(21)]
     secs = []
     for z in zs:
@@ -219,8 +199,16 @@ def _fillet_between(b, pred, radii):
 
 
 def outer_body(verbose=False):
-    """N1 outer form (solid) – collar/bell loft + barrel core blended; underside follows the torso dome."""
-    b = neck_outer() + core_outer()
+    """N1 outer form: thin oval collar plate + subtle pad + slim bell neck + barrel core; neck blended into the pad and
+    into the core; the underside follows the torso dome."""
+    b = collar_plate() + collar_pad()
+    nk = neck_outer()
+    b = b + nk
+    def on_pad(e):
+        c = e.center()
+        return abs(c.Z - PAD_TOP) < 0.05 and e.bounding_box().size.Z < 0.05 and abs(c.X) < C_A - PAD_INSET - 1.0
+    b, r1 = _fillet_between(b, on_pad, (2.0, 1.5, 1.0))
+    b = b + core_outer()
     def on_core(e):
         if e.center().Z > AX_Z - 1.0 or e.center().Z < AX_Z - B_R - 0.5:
             return False
@@ -232,7 +220,7 @@ def outer_body(verbose=False):
     b, r2 = _fillet_between(b, on_core, (2.0, 1.5, 1.0))
     b = b - dome_cutter()
     r3 = None
-    for r in (0.6, 0.4):                       # soften the rim's bottom edge (where it meets the domed underside)
+    for r in (0.5, 0.3):                       # soften the rim's bottom edge (where it meets the domed underside)
         try:
             es = [e for e in b.edges() if e.center().Z < 1.0 and math.hypot(e.center().X / C_A, e.center().Y / C_B) > 0.9]
             nb = fillet(es, r)
@@ -242,7 +230,7 @@ def outer_body(verbose=False):
         except Exception:  # noqa: BLE001
             continue
     if verbose:
-        print(f"  core fillet r={r2}  rim-bottom round r={r3}  faces={len(b.faces())}")
+        print(f"  neck-pad fillet r={r1}  core fillet r={r2}  rim-bottom round r={r3}  faces={len(b.faces())}")
     return b
 
 
@@ -256,7 +244,7 @@ def body(outer=None):
     servo, left end wall with the hollow bearing stub (cable), 2 insert bosses for N3, recess for N3 underneath."""
     o = outer if outer is not None else outer_body()
     cav = neck_inner() + Pos(0, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(BORE_R, CORE_L + 4)
-    recess = Solid.make_loft([_w(C_A - 4.2, C_B - 4.2, z) for z in (-2.0, 2.6)])
+    recess = Solid.make_loft([_w(C_A - 4.2, C_B - 4.2, z, n=CN) for z in (-2.0, 2.6)])
     n1 = o - cav - recess - opening_box()
     try:                                       # soften the opening rim (hidden in the head)
         rim = [e for e in n1.edges() if abs(abs(e.center().Y) - OPEN_Y) < 0.05 and e.center().Z > AX_Z + 5.0
@@ -286,9 +274,9 @@ def body(outer=None):
     shoulder = Pos((X_ENDW1 + X_CAP_IN - 0.1) / 2, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(BRG_D / 2 + 0.8, X_CAP_IN - 0.1 - X_ENDW1)
     n1 = (n1 + endw + stub + shoulder) - Pos((X_ENDW0 + x_st1) / 2, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(STUB_ID / 2, x_st1 - X_ENDW0 + 2)
     for sx in (-1, 1):                         # bosses for 2x M2 from N3, with glued brass inserts
-        boss = (Pos(sx * 13.5, 0, 6.6) * Cylinder(3.0, 8.0) + Pos(sx * 16.5, 0, 6.6) * Box(6.0, 2.0, 8.0)) & o
+        boss = Pos(sx * N3_SCREW_X, 0, 4.8) * Cylinder(2.8, 4.4)                  # z 2.6 .. 7.0, inside the bell wall
         n1 = n1 + boss
-        n1 = n1 - Pos(sx * 13.5, 0, 2.6 + 2.0) * Cylinder(INSERT_D / 2, 4.0)
+        n1 = n1 - Pos(sx * N3_SCREW_X, 0, 2.6 + 2.0) * Cylinder(INSERT_D / 2, 4.0)
     return n1
 
 
@@ -340,7 +328,7 @@ def drive_plate():
     p = Solid.make_loft([_w(C_A - 4.4, C_B - 4.4, z) for z in (0.6, 2.6)])
     p = p - Pos(9.0 / math.sqrt(2), 9.0 / math.sqrt(2), 1.6) * Cylinder(2.5, 4.0)
     p = p - Pos(0, 0, 1.6) * Cylinder(2.75, 4.0)
-    for xh in (-13.5, 13.5):
+    for xh in (-N3_SCREW_X, N3_SCREW_X):
         p = p - Pos(xh, 0, 1.6) * Cylinder(1.1, 4.0)
         p = p - Solid.make_cone(2.1, 1.0, 1.1, Plane.XY.offset(0.6 - 0.001).move(Location((xh, 0, 0))))
     for k in range(4):

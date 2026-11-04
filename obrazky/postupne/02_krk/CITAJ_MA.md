@@ -1,4 +1,4 @@
-# NOVA mini – krk v3 (jeden diel, guľôčkové ložisko, valec 50/50 v hlave)
+# NOVA mini – krk v4 (jeden diel, golier ako na R04, guľôčkové ložisko, valec 50/50 v hlave)
 
 Súradnice STL/STEP: mm, z = 0 je stred vrchu trupu, predok robota = −Y, pravá strana robota = −X.
 Hlava (návrh 5) je v `../01_hlava_skrupina/NOVA_mini_01_hlava_skrupina_navrh5.*`. V jej súboroch je z = 0 spodok hlavy
@@ -6,7 +6,7 @@ a y = 0 stred hlavy. V zostave je spodok hlavy 26,1 mm nad trupom a hlava je o 5
 
 | súbor | diel | poznámka |
 |---|---|---|
-| `NOVA_mini_N1_krk_jeden_diel` | N1 krk | golier + krk + stred valca v JEDNOM kuse, plynulý prechod bez schodíkov (eliptické prierezy), spodok goliera kopíruje zaoblený vrch trupu (medzera 0,6 mm), dutý |
+| `NOVA_mini_N1_krk_jeden_diel` | N1 krk | golier + krk + stred valca v JEDNOM kuse: tenký vodorovný oválny golier 52 × 40 s jemným druhým stupňom (ako na R04), z neho štíhly zvonovitý krk plynulo zaoblený do goliera aj do valca; spodok goliera kopíruje zaoblený vrch trupu (medzera 0,6 mm); dutý |
 | `NOVA_mini_N2-P_viecko_prave` | N2-P pravé viečko | k hlave priskrutkované 1× M2 do vlepenej mosadznej vložky, vnútri krížová drážka pre páku serva, krku sa nedotýka |
 | `NOVA_mini_N2-L_viecko_lave` | N2-L ľavé viečko | k hlave priskrutkované 1× M2 do vložky; vnútri je vlepené guľôčkové ložisko MR128, ktoré sedí na dutom čape krku; kábel do hlavy ide čapom a šikmým otvorom Ø3,5 |
 | `NOVA_mini_N3_unasac_spodny` | N3 spodný unášač | skrytý pod golierom, priskrutkovaný na páku serva otáčania, 2× M2 so zápustnou hlavou do vložiek v N1 |
