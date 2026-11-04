@@ -1,5 +1,6 @@
 """
-NOVA mini – KRK v3 (2026-11-04; v4 base: thin R04 collar plate + subtle tier + slim bell,
+NOVA mini – KRK v3 (2026-11-04; v5 base: ROUND collar disc sunk flush into the torso (user: "spodok krku zapustený v trupe – jeden
+prechod, nie krk na tele"), bell grows out of it with a large blend; v4 base: thin R04 collar plate + slim bell,
 user: "táto časť je hrozná, hrubá – urob to moderne ako na R04"; v3 user: "pôvodný krk upravený na ložiská, nie ihlan; valec v hlave 50/50; kĺb na stred
 spodnej steny hlavy"; earlier: "hladko, bez schodíkov, spodok prispôsobený zaoblenému trupu"; parts are RESIN):
   * collar + bell neck = ONE smooth loft (no plateau / no steps), ellipse sections, level & centred; the underside follows
@@ -46,12 +47,12 @@ from build123d import (Axis, Box, Cylinder, Edge, Face, GeomType, Location, Plan
 from nova.cad.common import superellipse_pts  # noqa: E402
 
 # ---- collar (level, centred on the pan axis) ----------------------------------------------------------------------
-C_A, C_B = 26.0, 20.0                            # collar: thin level oval plate (R04), 52 x 40
-COLLAR_TOP = 3.0                                 # plate top (rim ~2.4 high at front/back, the underside follows the dome)
-PAD_INSET, PAD_TOP = 3.5, 4.0                    # subtle second tier (R04): raised inner oval the neck stands on
+C_A, C_B = 23.0, 23.0                            # collar: ROUND disc Ø46 sunk flush into the torso top (it pans in a
+DISC_R, DISC_Z0 = 23.0, -4.0                     #   Ø47 pocket); its top continues the torso dome, underside flat at z -4
+POCKET_R, POCKET_DEPTH = 23.5, 4.3               # torso pocket (for the torso part): Ø47 x 4.3
 # ---- neck (bell: one smooth curve from the rim to the neck top, long front ramp) -----------------------------------
 NX_TOP, NY_TOP = 12.5, 7.0                       # neck top half sizes (ellipse; 12.5 lets the junction blend r2)
-BELL_Z0, BELL_X, BELL_YF, BELL_YB = 3.9, 18.5, -13.8, 12.0   # bell base on the pad (front ramp longer than the back)
+BELL_Z0, BELL_X, BELL_YF, BELL_YB = -0.6, 19.0, -15.0, 13.0  # bell base on the flush disc (front ramp longer)
 BELL_PX, BELL_PF, BELL_PB = 2.6, 1.6, 2.8       # bell curvature (concave flare): x, front (long ramp), back (steep)
 CN = 2.0                                         # section exponent (pure ellipse -> soft, not boxy)
 Z_N1 = 18.1                                      # neck top (straight above, into the barrel)
@@ -122,14 +123,27 @@ def _rounded_loft(a, b, z0, z_top, r_top, cy=0.0, step=0.3):
     return Solid.make_loft(secs)
 
 
-def collar_plate():
-    """thin level oval plate (R04): vertical rim + soft top round; the underside is cut later to follow the torso dome"""
-    return _rounded_loft(C_A, C_B, -1.5, COLLAR_TOP, 1.0)
-
-
-def collar_pad():
-    """subtle second tier of the collar (R04): raised inner oval the neck stands on"""
-    return _rounded_loft(C_A - PAD_INSET, C_B - PAD_INSET, COLLAR_TOP - 0.1, PAD_TOP, 0.6)
+def collar_disc():
+    """round disc sunk flush in the torso: flat underside at DISC_Z0, top = the torso dome surface (flat to r 21, then the
+    torus), soft top and bottom edges"""
+    from build123d import Box
+    d = Pos(0, 0, (DISC_Z0 + 2.0) / 2) * Cylinder(DISC_R, 2.0 - DISC_Z0)
+    d = d & dome_cutter(gap=0.0)
+    for r in (0.8, 0.6, 0.4):
+        try:
+            es = [e for e in d.edges() if e.geom_type == GeomType.CIRCLE and abs(e.radius - DISC_R) < 0.05 and e.center().Z > DISC_Z0 + 1]
+            nd = fillet(es, r)
+            if nd.is_valid:
+                d = nd
+                break
+        except Exception:  # noqa: BLE001
+            continue
+    try:
+        es = [e for e in d.edges() if e.geom_type == GeomType.CIRCLE and abs(e.center().Z - DISC_Z0) < 0.05]
+        d = fillet(es, 0.4)
+    except Exception:  # noqa: BLE001
+        pass
+    return d
 
 
 def _prof(z):
@@ -154,7 +168,7 @@ def neck_outer():
 
 def neck_inner():
     """cavity: the outer profile shifted 2.5 mm up and inset 1.4, from the N3 recess up"""
-    zs = [2.6 + (AX_Z - 2.6) * i / 20 for i in range(21)]
+    zs = [-1.6 + (AX_Z + 1.6) * i / 22 for i in range(23)]
     secs = []
     for z in zs:
         a, yf, yb = _prof(z + 2.5)
@@ -199,15 +213,13 @@ def _fillet_between(b, pred, radii):
 
 
 def outer_body(verbose=False):
-    """N1 outer form: thin oval collar plate + subtle pad + slim bell neck + barrel core; neck blended into the pad and
-    into the core; the underside follows the torso dome."""
-    b = collar_plate() + collar_pad()
-    nk = neck_outer()
-    b = b + nk
-    def on_pad(e):
+    """N1 outer form: round collar disc flush with the torso surface + slim bell neck growing out of it (large blend) +
+    barrel core (blend)."""
+    b = collar_disc() + neck_outer()
+    def on_disc(e):
         c = e.center()
-        return abs(c.Z - PAD_TOP) < 0.05 and e.bounding_box().size.Z < 0.05 and abs(c.X) < C_A - PAD_INSET - 1.0
-    b, r1 = _fillet_between(b, on_pad, (2.0, 1.5, 1.0))
+        return abs(c.Z) < 0.05 and e.bounding_box().size.Z < 0.05 and math.hypot(c.X, c.Y) < 20.5
+    b, r1 = _fillet_between(b, on_disc, (3.0, 2.5, 2.0, 1.5))
     b = b + core_outer()
     def on_core(e):
         if e.center().Z > AX_Z - 1.0 or e.center().Z < AX_Z - B_R - 0.5:
@@ -218,20 +230,14 @@ def outer_body(verbose=False):
         return (abs(r0 - B_R) < 0.05 and abs(rc - B_R) < 0.05 and abs(e.center().X) < CORE_L / 2 - 0.5 and e.length > 3
                 and e.geom_type != GeomType.CIRCLE and e.geom_type != GeomType.LINE)
     b, r2 = _fillet_between(b, on_core, (2.0, 1.5, 1.0))
-    b = b - dome_cutter()
-    r3 = None
-    for r in (0.5, 0.3):                       # soften the rim's bottom edge (where it meets the domed underside)
-        try:
-            es = [e for e in b.edges() if e.center().Z < 1.0 and math.hypot(e.center().X / C_A, e.center().Y / C_B) > 0.9]
-            nb = fillet(es, r)
-            if nb.is_valid:
-                b, r3 = nb, r
-                break
-        except Exception:  # noqa: BLE001
-            continue
     if verbose:
-        print(f"  neck-pad fillet r={r1}  core fillet r={r2}  rim-bottom round r={r3}  faces={len(b.faces())}")
+        print(f"  neck-disc blend r={r1}  core fillet r={r2}  faces={len(b.faces())}")
     return b
+
+
+def torso_pocket():
+    """what the torso part must cut (for context renders now): the Ø47 pocket the disc turns in"""
+    return Pos(0, 0, -POCKET_DEPTH / 2 + 1.0) * Cylinder(POCKET_R, POCKET_DEPTH + 2.0)
 
 
 def opening_box(shrink=0.0):
@@ -244,7 +250,7 @@ def body(outer=None):
     servo, left end wall with the hollow bearing stub (cable), 2 insert bosses for N3, recess for N3 underneath."""
     o = outer if outer is not None else outer_body()
     cav = neck_inner() + Pos(0, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(BORE_R, CORE_L + 4)
-    recess = Solid.make_loft([_w(C_A - 4.2, C_B - 4.2, z, n=CN) for z in (-2.0, 2.6)])
+    recess = Pos(0, 0, DISC_Z0 + 0.75) * Cylinder(DISC_R - 2.6, 3.5)               # N3 recess (z -4.5 .. -1.0)
     n1 = o - cav - recess - opening_box()
     try:                                       # soften the opening rim (hidden in the head)
         rim = [e for e in n1.edges() if abs(abs(e.center().Y) - OPEN_Y) < 0.05 and e.center().Z > AX_Z + 5.0
@@ -274,9 +280,9 @@ def body(outer=None):
     shoulder = Pos((X_ENDW1 + X_CAP_IN - 0.1) / 2, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(BRG_D / 2 + 0.8, X_CAP_IN - 0.1 - X_ENDW1)
     n1 = (n1 + endw + stub + shoulder) - Pos((X_ENDW0 + x_st1) / 2, 0, AX_Z) * Rot(0, 90, 0) * Cylinder(STUB_ID / 2, x_st1 - X_ENDW0 + 2)
     for sx in (-1, 1):                         # bosses for 2x M2 from N3, with glued brass inserts
-        boss = Pos(sx * N3_SCREW_X, 0, 4.8) * Cylinder(2.8, 4.4)                  # z 2.6 .. 7.0, inside the bell wall
+        boss = Pos(sx * N3_SCREW_X, 0, 1.2) * Cylinder(2.8, 4.4)                  # z -1.0 .. 3.4, inside the bell wall
         n1 = n1 + boss
-        n1 = n1 - Pos(sx * N3_SCREW_X, 0, 2.6 + 2.0) * Cylinder(INSERT_D / 2, 4.0)
+        n1 = n1 - Pos(sx * N3_SCREW_X, 0, -1.0 + 2.0) * Cylinder(INSERT_D / 2, 4.0)
     return n1
 
 
@@ -323,17 +329,19 @@ def bearing():
 
 
 def drive_plate():
-    """N3 – in the collar underside recess (on the flat torso top, 0.6 mm gap): pan-servo arm (4x M2 + nuts at r 7,
+    """N3 – round plate in the disc underside recess (hidden in the torso pocket): pan-servo arm (4x M2 + nuts at r 7,
     centre hole for the arm screw), cable hole, 2x M2 countersunk into the inserts in N1."""
-    p = Solid.make_loft([_w(C_A - 4.4, C_B - 4.4, z) for z in (0.6, 2.6)])
-    p = p - Pos(9.0 / math.sqrt(2), 9.0 / math.sqrt(2), 1.6) * Cylinder(2.5, 4.0)
-    p = p - Pos(0, 0, 1.6) * Cylinder(2.75, 4.0)
+    z0, z1 = DISC_Z0, DISC_Z0 + 2.0
+    zc = (z0 + z1) / 2
+    p = Pos(0, 0, zc) * Cylinder(DISC_R - 2.8, z1 - z0)
+    p = p - Pos(9.0 / math.sqrt(2), 9.0 / math.sqrt(2), zc) * Cylinder(2.5, 4.0)
+    p = p - Pos(0, 0, zc) * Cylinder(2.75, 4.0)
     for xh in (-N3_SCREW_X, N3_SCREW_X):
-        p = p - Pos(xh, 0, 1.6) * Cylinder(1.1, 4.0)
-        p = p - Solid.make_cone(2.1, 1.0, 1.1, Plane.XY.offset(0.6 - 0.001).move(Location((xh, 0, 0))))
+        p = p - Pos(xh, 0, zc) * Cylinder(1.1, 4.0)
+        p = p - Solid.make_cone(2.1, 1.0, 1.1, Plane.XY.offset(z0 - 0.001).move(Location((xh, 0, 0))))
     for k in range(4):
         a = k * math.pi / 2
-        p = p - Pos(7.0 * math.cos(a), 7.0 * math.sin(a), 1.6) * Cylinder(1.1, 4.0)
+        p = p - Pos(7.0 * math.cos(a), 7.0 * math.sin(a), zc) * Cylinder(1.1, 4.0)
     return p
 
 
