@@ -56,4 +56,6 @@ servo MG90S · ložisko MR128-2RS · mosadzné vložky M2 × 3 × Ø3,2 (4 ks) �
 
 Rozmery serva a páky sú v modeli z katalógu. Pred tlačou zmeraj svoje servo a páku posuvným meradlom a uprav konštanty
 `SV_*` a `HORN_*` v `nova_mini/krk.py`, lebo klony MG90S sa líšia o ±0,3 mm.
-Vrch trupu pod golierom bude pri návrhu trupu urobený presne guľatý (rotačný), aby medzera ostala rovnaká aj pri otáčaní.
+Pri návrhu trupu: doska goliera (celá jej hrúbka) aj N3 budú zapustené v trupe, vrch goliera bude zarovno s povrchom trupu
+a nad trup vyjde len jemný druhý stupeň a krk. Krk sa kvôli tomu nemení. Golier sa otáča (±90°), preto bude vybranie v trupe
+okrúhle (Ø ≈ 53 mm) a jeho dno bude rotačné, aby medzera 0,6 mm ostala rovnaká pri každom natočení.
