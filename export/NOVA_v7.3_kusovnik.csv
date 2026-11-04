@@ -1,0 +1,89 @@
+ID;Názov;Materiál;Podzostava;Kĺb;Vnútorný;Rozmer X;Rozmer Y;Rozmer Z;Objem mm3;Poznámka
+B01;Horný kryt základne;biely lesklo-satén PC/ABS (RAL 9003);base;;nie;166.0;128.0;38.0;89203;biely kryt, mriežka reproduktora, USB-C, vypínač
+B02;Spodná doska základne;čierny soft-touch (RAL 9005 mat);base;;nie;160.0;122.0;4.0;60808;4× M3 zápustné, vetranie, lôžka nožičiek
+B03;Svetlovod základne;svetlovod PMMA opál – tyrkysová LED;base;;nie;43.8;3.2;3.8;523;PMMA opál, 8× WS2812B-2020
+B04;Gumové nožičky (4×);čierne TPU 85A / guma;base;;nie;138.0;110.0;2.0;1208;
+B08;Poklop batérie;čierny soft-touch (RAL 9005 mat);base;;nie;42.0;78.0;5.2;12641;"1× M3 neodpadávajúca + 2 háčiky; vymeniteľné články"
+B05;Otočný tanier;čierny soft-touch (RAL 9005 mat);base;J1;nie;90.4;90.4;1.6;9649;spojený s trupom, otáča sa (J1)
+T01;Stredový pás;biely lesklo-satén PC/ABS (RAL 9003);torso;J1;nie;69.4;92.0;99.0;38135;"biely pás |x|≤35 spredu cez vrch dozadu, škáry 0.6; vpredu aj vzadu rovno dole po z0 (forma bez podrezania); otvor krku Ø34, lôžko ložiska 61805, rám dvierok, nesie T05/T06"
+T02-R;Bočný kryt pravý;biely lesklo-satén PC/ABS (RAL 9003);torso;J1;nie;31.5;80.8;94.4;30695;ramenný otvor Ø23 + zapustenie Ø31.4×1.5, lôžko serva, lišty pod škárou, 2× M2.5
+T02-L;Bočný kryt ľavý;biely lesklo-satén PC/ABS (RAL 9003);torso;J1;nie;31.5;81.1;94.5;30614;ramenný otvor Ø23 + zapustenie Ø31.4×1.5, lôžko serva, lišty pod škárou, 2× M2.5
+T03;Zadné dvierka;biely lesklo-satén PC/ABS (RAL 9003);torso;J1;nie;59.4;14.6;85.7;11041;60×84 R12, 5 výfukových + 4 nasávacie štrbiny 28×2 (chladenie Pi 5), 2 háčiky + magnety, drážka 8×1 na páčenie v spodnej škáre
+T04;Spodná vanička trupu;čierny soft-touch (RAL 9005 mat);torso;J1;nie;100.0;86.6;10.2;23485;viditeľný čierny pás 4.5 mm, 6× M2.5 zápustné, Ø20 káble, jazýčky + rohové zarážky za zásterami, dištančný krúžok + 3× M3 (matice vo vaničke) k B05 (J1)
+T05;LED svetlovod hrude;svetlovod PMMA opál – tyrkysová LED;torso;J1;nie;37.0;3.9;7.0;450;PMMA opál 34×4, zarovno s čelom, poistná príruba
+T06;Senzorové okienko;matný svetlosivý PMMA (okienko senzora);torso;J1;nie;22.8;2.2;3.8;135;"23×4, zarovno s čelom, lepené v osadení; zóna ToF 9×3.2 pri x −6 zoslabená na 0.8 mm, za ňou VL53L1X, pri x +6 VEML7700"
+N01;Spodný golier;čierny soft-touch (RAL 9005 mat);neck;J1;nie;52.0;42.0;7.9;2761;"pevne na trupe; elipsa 52×42, okraj 2.0, nákružok Ø35×1.2, otvor Ø32, stredovací krúžok Ø33.7 + 2 kolíky Ø2, lepené VHB"
+N02;Plast krku;čierny soft-touch (RAL 9005 mat);neck;J2;nie;32.5;32.5;15.1;2152;"jeden kus, konkávna trúbka r16.5→11.5, stena 2, sedí na prírube N03 (2 kľúče), sedlový horný okraj 0.4 od valca; otáča sa s hlavou (J2)"
+N06;Kryt náklonu;čierny soft-touch (RAL 9005 mat);neck;J2;nie;37.8;42.0;53.0;14950;valec Ø42×36 (vnútri Ø38), servo SCS0009 na osi (okno na −X, čelo zarovno), otvor Ø32 na +X pre zátku N05 s ložiskom 6703, skrytý čap Ø18.4 na N03 (2× M2.5), prechod káblov 14×8
+N07-R;Koncová krytka pravá;čierny soft-touch (RAL 9005 mat);neck;J3;nie;11.8;41.0;41.0;4909;Ø41×6 klenutá, náboj Ø18×5.8 do H11 (2× M2 + 2 kolíky Ø2, PCD 11), lôžko Al vložky Ø20 s drážkovaním serva
+N07-L;Koncová krytka ľavá;čierny soft-touch (RAL 9005 mat);neck;J3;nie;21.4;41.0;41.0;5829;Ø41×6 klenutá, náboj Ø18×5.8 do H11 (2 drážky na kľúč), dutý čap Ø17 v ložisku 6703, kanál káblov Ø13 skrz
+H01;Hlavný obal hlavy;biely lesklo-satén PC/ABS (RAL 9003);head;J3;nie;132.0;86.3;96.0;88900;PC/ABS 2.2 mm, biely lem 2.2 + škára 0.3, uzavreté vybranie krku 56×56 R16 hĺ. 35, priechody Ø18.4 pre náboje N07, 2×3 vetracie štrbiny, 4 nálitky M2.5 pre H11 s rebrami k zadnej stene
+H02;Zadný kryt hlavy;biely lesklo-satén PC/ABS (RAL 9003);head;J3;nie;112.0;12.0;66.0;18976;servisný kryt 112×66 R20, škára 0.6, lícovací lem 1.2, 4 háčiky + 1× M2 zdola pri (0, +36)
+H03;Predný rám;čierny soft-touch (RAL 9005 mat);head;J3;nie;127.0;22.5;91.0;22485;čierny soft-touch 127×91 R29.5, vystupuje 7 mm, osadenie skla 3 mm s výrezom 11 mm pre kameru, 2 háčiky + 2× M2 (±40, z 248) do H11
+H04;Sklo displeja;tvrdené sklo 1.1 mm, čierna potlač;head;J3;nie;119.0;1.1;79.0;9877;tvrdené sklo 119×79 R22 × 1.1, čierna potlač hore 9 mm / inde 4 mm, lepené PSA 0.2 mm
+H05-R;Ucho pravé;čierny soft-touch (RAL 9005 mat);head;J3;nie;10.9;36.0;36.0;3804;kapacitný dotyk + MEMS mikrofón (otvor Ø1), zacvaknuté 3 zámkami
+H05-L;Ucho ľavé;čierny soft-touch (RAL 9005 mat);head;J3;nie;10.9;36.0;36.0;3804;kapacitný dotyk + MEMS mikrofón (otvor Ø1), zacvaknuté 3 zámkami
+H06-R;LED krúžok ucha pravý;svetlovod PMMA opál – tyrkysová LED;head;J3;nie;2.4;30.0;30.0;664;PMMA opál Ø30/Ø23, 12× LED
+H06-L;LED krúžok ucha ľavý;svetlovod PMMA opál – tyrkysová LED;head;J3;nie;2.4;30.0;30.0;664;PMMA opál Ø30/Ø23, 12× LED
+A01-R;Vonkajšia skrupina ruky;biely lesklo-satén PC/ABS (RAL 9003);arm_R;J4;nie;15.7;35.0;80.1;5414;biela vonkajšia polovica, šošovkový panel 0.6 mm, jazýček (pero) do A02
+A02-R;Vnútorná skrupina ruky;biely lesklo-satén PC/ABS (RAL 9003);arm_R;J4;nie;14.9;35.0;80.1;3969;biela vnútorná polovica, náboj Ø26/Ø22.4, nosná stena: 2× M2×5 do príruby unášača A06 (PCD 16)
+A03-R;Vložka špičky;čierne TPU 85A / guma;arm_R;J4;nie;10.4;16.8;21.4;787;TPU 85A, vnútorná spodná predná časť (nárazník), príruba zachytená v deliacej rovine A01/A02
+A04-R;Kryt kĺbu;čierny soft-touch (RAL 9005 mat);arm_R;J4;nie;13.7;26.0;26.0;4120;"Ø26, čap Ø22×3 vlepený do náboja A02, otvor Ø14 pre driek A06, lôžko Ø20.4 pre prírubu A06; otáča sa s ramenom"
+A05-R;Prechodový krúžok;čierny soft-touch (RAL 9005 mat);arm_R;J1;nie;2.5;31.0;31.0;839;Ø31/Ø23×2.5 v zápustení trupu, pevný (J1)
+A01-L;Vonkajšia skrupina ruky;biely lesklo-satén PC/ABS (RAL 9003);arm_L;J5;nie;15.7;35.0;80.1;5414;biela vonkajšia polovica, šošovkový panel 0.6 mm, jazýček (pero) do A02
+A02-L;Vnútorná skrupina ruky;biely lesklo-satén PC/ABS (RAL 9003);arm_L;J5;nie;14.9;35.0;80.1;3969;biela vnútorná polovica, náboj Ø26/Ø22.4, nosná stena: 2× M2×5 do príruby unášača A06 (PCD 16)
+A03-L;Vložka špičky;čierne TPU 85A / guma;arm_L;J5;nie;10.4;16.8;21.4;787;TPU 85A, vnútorná spodná predná časť (nárazník), príruba zachytená v deliacej rovine A01/A02
+A04-L;Kryt kĺbu;čierny soft-touch (RAL 9005 mat);arm_L;J5;nie;13.7;26.0;26.0;4120;"Ø26, čap Ø22×3 vlepený do náboja A02, otvor Ø14 pre driek A06, lôžko Ø20.4 pre prírubu A06; otáča sa s ramenom"
+A05-L;Prechodový krúžok;čierny soft-touch (RAL 9005 mat);arm_L;J1;nie;2.5;31.0;31.0;839;Ø31/Ø23×2.5 v zápustení trupu, pevný (J1)
+H11;Vnútorná kostra hlavy;sivý technický plast (vnútorná kostra);head;J3;áno;108.0;61.6;83.0;38057;MJF PA12 2–2.5 mm: predná doska za displejom, 2 lícnice na nábojoch N07 (x ±30.4), horný most, 4 úchyty do H01
+E2;"Displej 4.3"" 800×480 RGB";LCD modul;head;J3;áno;105.5;7.2;69.0;27438;"105.5×67.2×4, zovretý medzi osadením H03 (pena 0.5) a H11; FPC 40 pin zahnutý pod H11 k H13"
+H13;Doska hlavy ESP32-S3;DPS zelená/čierna;head;J3;áno;58.0;7.6;45.0;6090;58×45: ESP32-S3-WROOM-1 + PSRAM, RGB displej, LED uší, I2S mikrofóny, dotyk, USB kamera, konektor W1
+E3;Kamera USB UVC;čierny soft-touch (RAL 9005 mat);head;J3;áno;8.5;16.7;30.6;406;modul 8.5×8.5×5 za okienkom (z 250.5), penový krúžok OD8/ID3.6×0.5 na skle
+H12;Držiak kamery;sivý technický plast (vnútorná kostra);head;J3;áno;19.7;4.4;9.3;189;U-rámik na H11, tlačí kameru na sklo, 2× M1.6
+H07-R;DPS ucha pravá;DPS zelená/čierna;head;J3;áno;5.2;29.0;29.0;796;Ø29: 12× WS2812B-2020, dotyková plôška, MEMS mikrofón s tesnením Ø4×0.3 k otvoru Ø1
+H07-L;DPS ucha ľavá;DPS zelená/čierna;head;J3;áno;5.2;29.0;29.0;796;Ø29: 12× WS2812B-2020, dotyková plôška, MEMS mikrofón s tesnením Ø4×0.3 k otvoru Ø1
+W1-H;Kábelový zväzok – hlava;čierny soft-touch (RAL 9005 mat);head;J3;áno;32.9;35.5;37.3;1095;7 vodičov Ø4 (USB2, 2×5 V, 2×GND, zbernica serv): H13 → okno lícnice → dutý čap N07-L
+E6-T;Servo náklonu SCS0009;servo – telo čierne/modré;neck;J2;áno;28.8;12.1;25.2;7100;na osi náklonu v N06, bez uší, čelo zarovno s koncom valca (x −18), drážkovanie v M6
+M6;Al vložka drážkovania;hliník / oceľ;neck;J3;áno;5.0;19.9;19.7;1452;Al Ø20×5 v N07-R, drážkovanie 25T (záber 2.9)
+N05;Zátka náklonu;sivý technický plast (vnútorná kostra);neck;J2;áno;8.8;31.9;32.9;2080;čap Ø32 v otvore N06 (3 kľúče, 3× M2), nesie vonkajší krúžok ložiska 6703 a kotvu pružiny
+M3;Ložisko 6703-2RS;hliník / oceľ;neck;J2;áno;4.0;23.0;23.0;712;17×23×4 na dutom čape N07-L (prechod káblov Ø13)
+M5;Špirálová pružina náklonu;hliník / oceľ;neck;J2;áno;3.0;25.2;27.4;114;pásik 3.0×0.4, ~1.25 závitu, vnútorný koniec v drážke čapu N07-L, vonkajší na kolíku N05
+N03;Náboj otáčania hlavy;hliník / oceľ;neck;J2;áno;29.8;30.0;24.4;9575;Ø25 h6 v 61805, príruba Ø30×1.5 (z 147.5–149, 2 drážky pre N02), 2× M2.5 pre N06, kanál 7×12 + okno
+N04;Preklzová spojka J2;hliník / oceľ;neck;J2;áno;19.0;19.0;2.8;646;drážkovaný trecí kotúč + vlnová podložka v náboji N03, ~0.15 N·m
+W1-N;Kábelový zväzok – krk;čierny soft-touch (RAL 9005 mat);neck;J2;áno;4.0;17.6;36.7;587;plochý 7-žilový prepoj 7×1.2 pri konci serva (medzera 1.75), potom Ø4 cez N06 a N03
+M2;Ložisko 61805-2RS;hliník / oceľ;torso;J1;áno;37.0;37.0;7.0;3962;25×37×7 v náboji T01 pod vrchom trupu (z 132.6–139.6)
+E6-P;Servo otáčania hlavy SCS0009;servo – telo čierne/modré;torso;J1;áno;12.1;32.3;28.8;7329;zvislo pod ložiskom, výstup na osi otáčania, telo smerom −Y, visí na držiaku T07
+W1-T;Kábelový zväzok – trup;čierny soft-touch (RAL 9005 mat);torso;J1;áno;26.2;40.8;62.2;2929;1.5 závitu okolo serva otáčania (±90°) → konektor na E10
+T07;Vnútorná kostra trupu;sivý technický plast (vnútorná kostra);torso;J1;áno;82.0;52.7;70.6;17859;PA12-GF: 2 veže serv ramien (M2 do nálitkov T02 y ±20), priečna doska pre E10, držiak serva hlavy
+E6-R;Servo pravého ramena SCS0009;servo – telo čierne/modré;torso;J1;áno;28.8;12.1;32.3;7329;visí z osi ramena (y 0, z 115), výstup −X do A06
+E6-L;Servo ľavého ramena SCS0009;servo – telo čierne/modré;torso;J1;áno;28.8;12.1;32.3;7329;visí z osi ramena (y 0, z 115), výstup +X do A06
+M4-R;Ložisko 6702-2RS pravé;hliník / oceľ;torso;J1;áno;5.0;22.8;22.8;985;15×21×4 v puzdre zalisovanom do otvoru Ø23 T02-R
+M4-L;Ložisko 6702-2RS ľavé;hliník / oceľ;torso;J1;áno;5.0;22.8;22.8;985;15×21×4 v puzdre zalisovanom do otvoru Ø23 T02-L
+A06-R;Unášač pravého ramena;hliník / oceľ;arm_R;J4;áno;28.2;19.8;19.8;4646;Al: drážkovaná zásuvka 25T s preklzom, čap Ø15 v 6702, driek Ø13.8 cez A04, príruba Ø20×2 + 2× M2 do A02
+A06-L;Unášač ľavého ramena;hliník / oceľ;arm_L;J5;áno;28.2;19.8;19.8;4646;Al: drážkovaná zásuvka 25T s preklzom, čap Ø15 v 6702, driek Ø13.8 cez A04, príruba Ø20×2 + 2× M2 do A02
+T08;Sánky výpočtového modulu;sivý technický plast (vnútorná kostra);torso;J1;áno;75.0;3.5;53.5;3533;MJF PA12 2 mm na vežiach T07, 4 dištančné stĺpiky
+E1;Raspberry Pi CM5 + nosná doska 75×56;DPS zelená/čierna;torso;J1;áno;75.0;7.6;56.8;10608;"zvislo pri dvierkach (y 16.8), CM5 smerom dozadu; Pi 5 (85+2.5 s USB/ETH 16 mm) sa nezmestí"
+E1-K;Aktívny chladič CM5;hliník / oceľ;torso;J1;áno;54.0;9.5;39.0;8316;zvislé rebrá + ventilátor, nasáva zdola (nasávacie štrbiny T03) a fúka hore (výfuk T03)
+E10;Doska trupu;DPS zelená/čierna;torso;J1;áno;65.8;43.5;9.3;8171;"68×43.5: ESP32-S3, zbernica serv, 5.1 V/5 A, 6.0 V/3 A, IMU BMI270; na priečnej doske T07"
+T09;Nosič LED hrude;sivý technický plast (vnútorná kostra);torso;J1;áno;38.0;8.0;10.0;1713;biely PC 38×10×8 (vnútri 34×5) za T05, ≥ 6 mm na zmiešanie svetla
+E13-T;LED DPS hrude;DPS zelená/čierna;torso;J1;áno;37.0;4.5;9.0;349;4× WS2812B-2020, rozostup 8 mm
+T10;Držiak senzorov;sivý technický plast (vnútorná kostra);torso;J1;áno;33.2;3.7;11.0;743;spona za E12: 2 bočné nálitky lepené na podložku pásu za T06 (z 83.5), 2 priečky tlačia DPS
+T11;Tesnenie ToF;čierny soft-touch (RAL 9005 mat);torso;J1;áno;8.5;1.0;2.8;19;čierne TPU 1.0 v zoslabenom ToF okne T06 (x −6), oddelené otvory vysielača a prijímača
+E12;DPS ToF + ALS;DPS zelená/čierna;torso;J1;áno;26.0;5.2;12.0;422;"VL53L1X (x −6, 1.2 mm za oknom cez otvor T01) + ALS (x +6); DPS na podložke pásu"
+B06;Náboj J1 s remenicou;hliník / oceľ;base;J1;áno;49.1;49.1;16.2;19685;Ø40 k6 v 6808, remenica GT2 72T (PD 45.8), 3× M3 na PCD 32 do vaničky T04, otvor Ø14
+M1;Ložisko 6808-2RS;hliník / oceľ;base;;áno;52.0;52.0;7.0;5879;40×52×7 v nálitku pod vrchom B01
+E7;Motor GM3506;hliník / oceľ;base;;áno;41.0;40.0;20.6;22051;gimbal BLDC Ø40×20 mimo osi (x 48), SimpleFOC + AS5048A
+E7-P;Remenica GT2 16T;hliník / oceľ;base;;áno;14.0;14.0;7.7;492;na rotore motora, príruby
+E7-R;Remeň GT2 6 mm;čierny soft-touch (RAL 9005 mat);base;;áno;77.5;47.3;6.0;1097;16T → 72T (4.5 : 1), osová vzdialenosť 48 (napínanie v drážkach B07)
+B07;Držiak motora GM3506;hliník / oceľ;base;;áno;78.5;48.0;35.4;3564;oceľ 1.1 mm: doska s drážkami ±1.5, 2 nohy k vrchu B01, rameno zberacieho krúžku
+E9;Zberací krúžok 6 okruhov;hliník / oceľ;base;;áno;22.0;22.0;28.1;3145;Ø12.5×20 v osi, statorová príruba na ramene B07, rotor v otvore B06
+E8-1;Článok 18650 č.1;článok 18650 (fólia);base;;áno;18.5;65.6;18.5;17465;3500 mAh, x −38
+E8-2;Článok 18650 č.2;článok 18650 (fólia);base;;áno;18.5;65.6;18.5;17465;3500 mAh, x −58
+E8-H;Držiak článkov 2S;čierny soft-touch (RAL 9005 mat);base;;áno;42.9;75.0;34.9;10127;otvorený zdola (výmena cez B08), pružinové kontakty, 2 stĺpiky k vrchu B01
+E11;Doska základne;DPS zelená/čierna;base;;áno;40.0;66.0;9.3;5609;40×66 nad článkami: ESP32-C3 + RP2040 (SimpleFOC), BMS, USB-C PD, merač, MAX98357A
+E11-IO;Zadná I/O doska;DPS zelená/čierna;base;;áno;32.0;9.8;16.0;1194;USB-C (zapustený 1.2 mm) + tlačidlo s hmatníkom Ø6.4
+B09;Držiak zadnej I/O dosky;sivý technický plast (vnútorná kostra);base;;áno;53.5;11.2;19.2;2434;2 stredovacie kolíky, objímka na nálitku (0, 52)
+E5;Reproduktor Ø36;čierny soft-touch (RAL 9005 mat);base;;áno;36.0;36.0;6.0;2280;plochý Ø36×6 ležiaci (membránou dole) na (26, 40)
+B11;Box a kanál reproduktora;sivý technický plast (vnútorná kostra);base;;áno;64.5;42.0;24.9;10364;uzavretý objem ~16 cm³, predná komôrka + kanál 30×6 k zadnej mriežke
+B10;Nosič LED základne;sivý technický plast (vnútorná kostra);base;;áno;50.0;8.0;10.0;2094;biely PC 50×10×8 (vnútri 46×5) za B03, výrez okolo nálitku B01 (0, −52)
+E13-B;LED DPS základne;DPS zelená/čierna;base;;áno;48.0;4.5;9.0;402;2 polovice okolo nálitku B01 (0, −52): 4× WS2812B-2020 na x ±6.5 / ±15.5, ≥ 6 mm na zmiešanie
