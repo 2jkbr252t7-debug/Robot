@@ -3,7 +3,10 @@ NOVA mini – KRK v3 (2026-11-04; v4 base: thin R04 collar plate + subtle tier +
 user: "táto časť je hrozná, hrubá – urob to moderne ako na R04"; v3 user: "pôvodný krk upravený na ložiská, nie ihlan; valec v hlave 50/50; kĺb na stred
 spodnej steny hlavy"; earlier: "hladko, bez schodíkov, spodok prispôsobený zaoblenému trupu"; parts are RESIN):
   * collar + bell neck = ONE smooth loft (no plateau / no steps), ellipse sections, level & centred; the underside follows
-    the domed torso top (0.6 mm gap, surface of revolution -> panning keeps the gap)
+    the domed torso top (0.6 mm gap)
+  * NO head pan (user 2026-11-04: "hlava sa nebude otáčať doľava doprava, len hore dolu" – the torso turns instead):
+    N1 is fixed in the torso via N3; the collar plate (whole thickness) + N3 will be sunk into an OVAL torso pocket,
+    collar top flush with the torso surface (torso step)
   * head bottom passes through the tilt axis -> barrel 50 % in the head, 50 % below
   * head moved 5 mm back relative to the neck -> the joint sits nearer the middle of the head's flat bottom
     (more is not possible: the tilt servo would touch the back of the display while tilting)
@@ -25,12 +28,14 @@ Parts (this file, coordinates: mm, torso top z = 0, robot front = -Y, robot righ
        (stock cross arm trimmed to Ø14 in a form-fit cross pocket)
   N2-L left end cap  – rotates; fixed in the head; its hollow spigot is the left bearing AND the cable passage:
        head cable -> hole in the head saddle -> radial hole in the cap -> along the tilt axis -> neck (only twists ±40°)
-  N3   drive plate (hidden in the collar underside): pan-servo arm mount + cable hole, 2x M2 countersunk into N1 bosses
+  N3   bottom plate (hidden in the collar underside, sunk in the torso): holds N1 fixed in the torso + cable hole,
+       2x M2 countersunk into N1 bosses (its fixing to the torso is defined in the torso step; the 4 holes at r 7 are
+       left from the dropped pan-servo arm)
   S1   tilt servo MG90S (mounting ears cut off): held by N1 (4 crush ribs, 2 support ribs, +X end stop), shaft on the axis,
        body standing UP into the head (the head turns around it, its saddle has a window for that); the horn is
        screwed into the right cap, so servo -> horn -> right cap -> head
 Tilt: head + both caps turn together about the barrel axis, ±40°; the head bottom groove is coaxial with the
-barrel, so the 0.5 mm gap stays constant.  Pan: N1 turns with N3 on the pan servo in the torso (later part).
+barrel, so the 0.5 mm gap stays constant.  No pan: N1 + N3 are fixed in the torso.
 """
 from __future__ import annotations
 

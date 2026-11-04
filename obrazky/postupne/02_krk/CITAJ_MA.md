@@ -9,10 +9,11 @@ a y = 0 stred hlavy. V zostave je spodok hlavy 26,1 mm nad trupom a hlava je o 5
 | `NOVA_mini_N1_krk_jeden_diel` | N1 krk | golier + krk + stred valca v JEDNOM kuse: tenký vodorovný oválny golier 52 × 40 s jemným druhým stupňom (ako na R04), z neho štíhly zvonovitý krk plynulo zaoblený do goliera aj do valca; spodok goliera kopíruje zaoblený vrch trupu (medzera 0,6 mm); dutý |
 | `NOVA_mini_N2-P_viecko_prave` | N2-P pravé viečko | k hlave priskrutkované 1× M2 do vlepenej mosadznej vložky, vnútri krížová drážka pre páku serva, krku sa nedotýka |
 | `NOVA_mini_N2-L_viecko_lave` | N2-L ľavé viečko | k hlave priskrutkované 1× M2 do vložky; vnútri je vlepené guľôčkové ložisko MR128, ktoré sedí na dutom čape krku; kábel do hlavy ide čapom a šikmým otvorom Ø3,5 |
-| `NOVA_mini_N3_unasac_spodny` | N3 spodný unášač | skrytý pod golierom, priskrutkovaný na páku serva otáčania, 2× M2 so zápustnou hlavou do vložiek v N1 |
+| `NOVA_mini_N3_unasac_spodny` | N3 spodný unášač | skrytý pod golierom v trupe, 2× M2 so zápustnou hlavou do vložiek v N1; drží krk pevne v trupe (presné uchytenie k trupu sa doladí pri návrhu trupu) |
 
 ## Ako sa hlava nakláňa
-1. N1 sa otáča len doľava a doprava. Servo otáčania je v trupe a drží N1 cez N3.
+1. Hlava sa doľava a doprava NEotáča, len sa nakláňa hore a dole. N1 je cez N3 pevne v trupe.
+   Doľava a doprava sa otáča celý trup.
 2. Spodok hlavy ide presne cez os valca, takže polovica valca je v hlave a polovica pod ňou (50/50).
    Hlava je o 5 mm posunutá dozadu, aby bol kĺb bližšie k stredu jej rovného spodku.
    Viac to nejde, lebo servo by sa pri náklone dotklo zadnej strany displeja.
@@ -30,12 +31,10 @@ a y = 0 stred hlavy. V zostave je spodok hlavy 26,1 mm nad trupom a hlava je o 5
 ## Montáž
 1. Ložisko MR128 vlep do ľavého viečka (sekundové lepidlo na vonkajší krúžok, nie do ložiska).
    Mosadzné vložky M2 (Ø3,2 × 3) vlep epoxidom do oboch viečok (hore) a do dvoch výstupkov v N1.
-2. N3 priskrutkuj do N1 zdola 2× M2×6 so zápustnou hlavou. Až potom priskrutkuj na N3 páku serva otáčania
-   (4× M2 s maticou, páku prevŕtaj na Ø2,2).
+2. N3 priskrutkuj do N1 zdola 2× M2×6 so zápustnou hlavou.
 3. Kábel do hlavy priprav bez konektorov: tenké vodiče, zväzok najviac Ø3 mm. Pretiahni ho zdola cez otvor Ø5 v N3,
    krkom hore a von ľavým koncom valca.
-4. N1 s N3 nasaď na hriadeľ serva otáčania v trupe. Stredovú skrutku páky zaskrutkuj zhora cez otvor na valci a krk.
-   Urob to teraz, kým ešte nie je vložené servo náklonu.
+4. N1 s N3 vlož do vybrania vo vrchu trupu a pripevni (spôsob sa doplní pri návrhu trupu).
 5. Servo náklonu (MG90S): odstrihni úchytky, zvyšky zarovnaj pilníkom a nastav servo do strednej polohy (1500 µs).
    Vlož ho zhora do otvoru valca hriadeľom k pravému viečku (−X). Sedí na dvoch rebrách a bočné rebrá ho vedú.
    Kvapka tavného lepidla ho zaistí a dá sa neskôr odstrániť.
@@ -52,10 +51,10 @@ a y = 0 stred hlavy. V zostave je spodok hlavy 26,1 mm nad trupom a hlava je o 5
 
 ## Nakúpiť
 servo MG90S · ložisko MR128-2RS · mosadzné vložky M2 × 3 × Ø3,2 (4 ks) · 2× M2×6 zápustná (DIN 7991) ·
-2× M2×6 imbus (ISO 4762) · 4× M2×6 + 4× matica M2 (páka otáčania) · tenký kábel do hlavy, zväzok najviac Ø3 mm
+2× M2×6 imbus (ISO 4762) · tenký kábel do hlavy, zväzok najviac Ø3 mm
 
 Rozmery serva a páky sú v modeli z katalógu. Pred tlačou zmeraj svoje servo a páku posuvným meradlom a uprav konštanty
 `SV_*` a `HORN_*` v `nova_mini/krk.py`, lebo klony MG90S sa líšia o ±0,3 mm.
 Pri návrhu trupu: doska goliera (celá jej hrúbka) aj N3 budú zapustené v trupe, vrch goliera bude zarovno s povrchom trupu
-a nad trup vyjde len jemný druhý stupeň a krk. Krk sa kvôli tomu nemení. Golier sa otáča (±90°), preto bude vybranie v trupe
-okrúhle (Ø ≈ 53 mm) a jeho dno bude rotačné, aby medzera 0,6 mm ostala rovnaká pri každom natočení.
+a nad trup vyjde len jemný druhý stupeň a krk. Krk sa kvôli tomu nemení. Krk sa neotáča, preto bude vybranie v trupe
+oválne presne podľa goliera, s rovnomernou úzkou škárou dookola.
