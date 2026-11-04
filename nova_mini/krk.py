@@ -52,12 +52,14 @@ from nova.cad.common import superellipse_pts  # noqa: E402
 
 # ---- collar (level, centred on the pan axis) ----------------------------------------------------------------------
 C_A, C_B = 26.0, 20.0                            # collar: thin level oval plate (R04), 52 x 40
-COLLAR_TOP = 3.0                                 # plate top (rim ~2.4 high at front/back, the underside follows the dome)
-PAD_INSET, PAD_TOP = 3.5, 4.0                    # subtle second tier (R04): raised inner oval the neck stands on
+COLLAR_TOP = 4.0                                 # plate top = flush with the torso surface (plate + N3 sunk in the torso);
+                                                 # no second tier any more (user: "ten schodík tam nemusí byť") -> the old
+                                                 # tier height is merged into the plate, the bell is unchanged
 # ---- neck (bell: one smooth curve from the rim to the neck top, long front ramp) -----------------------------------
 NX_TOP, NY_TOP = 12.5, 7.0                       # neck top half sizes (ellipse; 12.5 lets the junction blend r2)
-BELL_Z0, BELL_X, BELL_YF, BELL_YB = 3.9, 18.5, -13.8, 12.0   # bell base on the pad (front ramp longer than the back)
-BELL_PX, BELL_PF, BELL_PB = 2.6, 1.6, 2.8       # bell curvature (concave flare): x, front (long ramp), back (steep)
+# bell turned 180° about Z (user 2026-11-04: "otoč ho o 180°"): long ramp at the BACK, steeper side at the FRONT
+BELL_Z0, BELL_X, BELL_YF, BELL_YB = 3.9, 18.5, -12.0, 13.8   # bell base on the plate top (back ramp longer than the front)
+BELL_PX, BELL_PF, BELL_PB = 2.6, 2.8, 1.6       # bell curvature (concave flare): x, front (steep), back (long ramp)
 CN = 2.0                                         # section exponent (pure ellipse -> soft, not boxy)
 Z_N1 = 18.1                                      # neck top (straight above, into the barrel)
 WALL = 1.4
@@ -132,11 +134,6 @@ def collar_plate():
     return _rounded_loft(C_A, C_B, -1.5, COLLAR_TOP, 1.0)
 
 
-def collar_pad():
-    """subtle second tier of the collar (R04): raised inner oval the neck stands on"""
-    return _rounded_loft(C_A - PAD_INSET, C_B - PAD_INSET, COLLAR_TOP - 0.1, PAD_TOP, 0.6)
-
-
 def _prof(z):
     """bell neck section at height z -> (half width x, front y, back y); constant below the base and above Z_N1"""
     t = min(1.0, max(0.0, (z - BELL_Z0) / (Z_N1 - BELL_Z0)))
@@ -204,15 +201,15 @@ def _fillet_between(b, pred, radii):
 
 
 def outer_body(verbose=False):
-    """N1 outer form: thin oval collar plate + subtle pad + slim bell neck + barrel core; neck blended into the pad and
-    into the core; the underside follows the torso dome."""
-    b = collar_plate() + collar_pad()
+    """N1 outer form: oval collar plate (sunk flush in the torso) + slim bell neck + barrel core; neck blended into the
+    plate and into the core; the underside follows the torso dome."""
+    b = collar_plate()
     nk = neck_outer()
     b = b + nk
-    def on_pad(e):
-        c = e.center()
-        return abs(c.Z - PAD_TOP) < 0.05 and e.bounding_box().size.Z < 0.05 and abs(c.X) < C_A - PAD_INSET - 1.0
-    b, r1 = _fillet_between(b, on_pad, (2.0, 1.5, 1.0))
+    def on_plate(e):                           # bell / plate-top intersection (not the plate's own rim edge)
+        bb = e.bounding_box()
+        return abs(e.center().Z - COLLAR_TOP) < 0.05 and bb.size.Z < 0.05 and bb.size.X < 2 * BELL_X + 3.0
+    b, r1 = _fillet_between(b, on_plate, (2.0, 1.5, 1.0))
     b = b + core_outer()
     def on_core(e):
         if e.center().Z > AX_Z - 1.0 or e.center().Z < AX_Z - B_R - 0.5:
@@ -235,7 +232,7 @@ def outer_body(verbose=False):
         except Exception:  # noqa: BLE001
             continue
     if verbose:
-        print(f"  neck-pad fillet r={r1}  core fillet r={r2}  rim-bottom round r={r3}  faces={len(b.faces())}")
+        print(f"  neck-plate fillet r={r1}  core fillet r={r2}  rim-bottom round r={r3}  faces={len(b.faces())}")
     return b
 
 

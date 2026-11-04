@@ -1,4 +1,4 @@
-# NOVA mini – krk v4 (jeden diel, golier ako na R04, guľôčkové ložisko, valec 50/50 v hlave)
+# NOVA mini – krk v6 (jeden diel, golier zapustený v trupe, krk otočený o 180°, guľôčkové ložisko, valec 50/50 v hlave)
 
 Súradnice STL/STEP: mm, z = 0 je stred vrchu trupu, predok robota = −Y, pravá strana robota = −X.
 Hlava (návrh 5) je v `../01_hlava_skrupina/NOVA_mini_01_hlava_skrupina_navrh5.*`. V jej súboroch je z = 0 spodok hlavy
@@ -6,7 +6,7 @@ a y = 0 stred hlavy. V zostave je spodok hlavy 26,1 mm nad trupom a hlava je o 5
 
 | súbor | diel | poznámka |
 |---|---|---|
-| `NOVA_mini_N1_krk_jeden_diel` | N1 krk | golier + krk + stred valca v JEDNOM kuse: tenký vodorovný oválny golier 52 × 40 s jemným druhým stupňom (ako na R04), z neho štíhly zvonovitý krk plynulo zaoblený do goliera aj do valca; spodok goliera kopíruje zaoblený vrch trupu (medzera 0,6 mm); dutý |
+| `NOVA_mini_N1_krk_jeden_diel` | N1 krk | golier + krk + stred valca v JEDNOM kuse: vodorovný oválny golier 52 × 40 zapustený v trupe (vrch zarovno s trupom, bez schodíka), z neho štíhly zvonovitý krk s dlhším nábehom vzadu a strmšou stranou vpredu, plynulo zaoblený do goliera aj do valca; dutý |
 | `NOVA_mini_N2-P_viecko_prave` | N2-P pravé viečko | k hlave priskrutkované 1× M2 do vlepenej mosadznej vložky, vnútri krížová drážka pre páku serva, krku sa nedotýka |
 | `NOVA_mini_N2-L_viecko_lave` | N2-L ľavé viečko | k hlave priskrutkované 1× M2 do vložky; vnútri je vlepené guľôčkové ložisko MR128, ktoré sedí na dutom čape krku; kábel do hlavy ide čapom a šikmým otvorom Ø3,5 |
 | `NOVA_mini_N3_unasac_spodny` | N3 spodný unášač | skrytý pod golierom v trupe, 2× M2 so zápustnou hlavou do vložiek v N1; drží krk pevne v trupe (presné uchytenie k trupu sa doladí pri návrhu trupu) |
@@ -55,6 +55,6 @@ servo MG90S · ložisko MR128-2RS · mosadzné vložky M2 × 3 × Ø3,2 (4 ks) �
 
 Rozmery serva a páky sú v modeli z katalógu. Pred tlačou zmeraj svoje servo a páku posuvným meradlom a uprav konštanty
 `SV_*` a `HORN_*` v `nova_mini/krk.py`, lebo klony MG90S sa líšia o ±0,3 mm.
-Pri návrhu trupu: doska goliera (celá jej hrúbka) aj N3 budú zapustené v trupe, vrch goliera bude zarovno s povrchom trupu
-a nad trup vyjde len jemný druhý stupeň a krk. Krk sa kvôli tomu nemení. Krk sa neotáča, preto bude vybranie v trupe
-oválne presne podľa goliera, s rovnomernou úzkou škárou dookola.
+Pri návrhu trupu: doska goliera (celá jej hrúbka) aj N3 budú zapustené v trupe, vrch goliera (z = 4 mm) bude zarovno
+s povrchom trupu a nad trup vyjde len krk, bez schodíka. Krk sa neotáča, preto bude vybranie v trupe oválne presne podľa
+goliera, s rovnomernou úzkou škárou dookola (asi 0,4 mm).
