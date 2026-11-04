@@ -12,56 +12,57 @@ from nova.cad.common import PartRec, export_parts
 from nova_mini import krk as K
 from nova_mini import hlava_skrupina as HS
 from nova_v8 import klasik as KL
-B = "/tmp/claude-0/pan14"
+B = "/tmp/claude-0/pan15"
 t0 = time.time()
 def zcyl(r, z0, z1, x=0.0, y=0.0):
     return Pos(x, y, (z0 + z1) / 2) * Cylinder(r, z1 - z0)
 def sstep(t):
     t = min(1.0, max(0.0, t)); return t * t * (3 - 2 * t)
 TOP = 4.0                       # torso top / base top (level part)
-R_N, R_TOP = 18.0, 12.0          # neck = round FRUSTUM with straight sides (user reference photos)
-RING_IN, RING_OUT = 18.5, 26.5  # black collar ring flush on the domed torso top (reference)
-K.NX_TOP, K.NY_TOP = R_TOP, R_TOP
-K.Z_N1 = 22.0                   # frustum top (merges into the barrel)
-K.AX_Z = K.Z_N1 + K.B_R - 2.0   # 30
-K.HEAD_Z0 = K.AX_Z              # barrel half in the head; the head bottom has a notch around the joint (reference)
-K.HEAD_DY = 0.0
+R_N = 14.0                      # narrower neck bottom (user: "o čosi užší"), turns inside the collar ring, gap 0.5
+RING_IN, RING_OUT = 14.5, 20.5  # fixed sunk collar ring, flush with the domed torso top
+K.NX_TOP, K.NY_TOP = 11.0, 6.5
+K.Z_N1 = 13.0                   # head much closer to the torso (user: smaller gap between head and torso)
+K.AX_Z = K.Z_N1 + K.B_R - 2.0
+K.HEAD_Z0 = K.AX_Z - 3.0          # barrel mostly inside the head (user: "valec nemôže až tak vytŕčať")
+K.HEAD_DY = 0.0                 # joint under the middle of the head (user sketch "nejako takto")
+K.NY_TOP = 5.0
 Z_J = TOP                       # neck emerges here
 FOOT_Z0 = -4.0
 # ---------- rotating neck: v6 barrel + bell with a ROUND bottom ----------
 def prof(z):
     t = min(1.0, max(0.0, (z - Z_J) / (K.Z_N1 - Z_J)))
-    r = R_N + (R_TOP - R_N) * t                                   # straight sides
-    return (r, -r, r)
+    return (K.NX_TOP + (R_N - K.NX_TOP) * (1 - t) ** 1.8,      # cone with a soft flare at the bottom (sketch)
+            -(K.NY_TOP + (R_N - K.NY_TOP) * (1 - t) ** 1.9),
+            K.NY_TOP + (R_N - K.NY_TOP) * (1 - t) ** 1.6)
 K._prof = prof
 K.BELL_Z0 = Z_J
 K.collar_plate = lambda: zcyl(R_N, FOOT_Z0, Z_J + 0.05)
 K.COLLAR_TOP = Z_J
 K.dome_cutter = lambda gap=0.6: zcyl(60, -40, FOOT_Z0 - 0.5)
-K.C_A = K.C_B = 4.2 + 14.5
-K.N3_SCREW_X = 10.5
+K.C_A = K.C_B = 4.2 + 10.5
+K.N3_SCREW_X = 8.0
 P = K.build_all(verbose=True)
 N1 = P["N1"]
 print("N1", N1.is_valid, len(N1.solids()), flush=True)
 HS.R_BACK = 25.0
-sys.path.insert(0, "/tmp/claude-0/pan14")
+sys.path.insert(0, "/tmp/claude-0/pan15")
 import softhead as SH
 mv = Location((0, K.HEAD_DY, K.HEAD_Z0))
 saddle, hcut = K.head_saddle_cut()
-head = (SH.outer() - SH.glass_cut()).moved(mv) - hcut      # soft pillow head (user reference), solid for the render
-head = head - Pos(0, 0, K.AX_Z) * Rot(0, 90, 0) * Cylinder(16.5, 36.0)   # notch in the head bottom around the joint (reference)
+head = (SH.outer() - SH.white_cut()).moved(mv) - hcut      # white shell behind the black visor
 eyes = None
 for _sx in (-1, 1):
-    _e = Pos(_sx * 11.0, SH.YF + SH.GLASS_REC + K.HEAD_DY - 0.2, K.HEAD_Z0 + 38.0) * Box(10.0, 0.4, 17.5)
+    _e = Pos(_sx * 11.0, SH.YF + K.HEAD_DY - 0.2, K.HEAD_Z0 + 38.0) * Box(10.0, 0.4, 17.5)
     _e = fillet([ed for ed in _e.edges() if abs(ed.tangent_at(0.5).Y) > 0.9], 4.9)
     eyes = _e if eyes is None else eyes + _e
-frame = SH.glass().moved(mv)
+frame = SH.visor().moved(mv) - hcut      # black glass visor, visible from the side (photo)
 screen = Pos(0, SH.YF + SH.GLASS_REC + K.HEAD_DY - 0.12, K.HEAD_Z0 + 36.0) * Box(80.0, 0.25, 48.0)
 _d, _r = SH.ears()
 ears, leds = _d.moved(mv), _r.moved(mv)
 print("custom head", head.is_valid, "glass", frame.is_valid, flush=True)
-cam_ring = Pos(0, SH.YF + SH.GLASS_REC + K.HEAD_DY - 0.35, K.HEAD_Z0 + 64.0) * Rot(90, 0, 0) * Cylinder(3.0, 0.7)
-cam_lens = Pos(0, SH.YF + SH.GLASS_REC + K.HEAD_DY - 0.75, K.HEAD_Z0 + 64.0) * Rot(90, 0, 0) * Cylinder(1.9, 0.3)
+cam_ring = Pos(0, SH.YF + K.HEAD_DY - 0.35, K.HEAD_Z0 + 62.0) * Rot(90, 0, 0) * Cylinder(3.0, 0.7)
+cam_lens = Pos(0, SH.YF + K.HEAD_DY - 0.75, K.HEAD_Z0 + 62.0) * Rot(90, 0, 0) * Cylinder(1.9, 0.3)
 # ---------- domed torso top (original KLASIK shoulders) + fixed collar ring flush in it ----------
 KL.K["torso"]["w"], KL.K["torso"]["d"] = 108.0, 74.0     # torso about as wide as the head (sketch)
 torso = KL.loft(KL.torso_secs()).moved(Location((0, 0, -117.0 + TOP)))
@@ -87,7 +88,7 @@ cab = zcyl(1.5, -20.0, 3.0, 5.5, 5.5) + Pos(5.5, 5.5 + 7.0, -20.0) * Rot(90, 0, 
 ax = Axis((0, 0, K.AX_Z), (1, 0, 0))
 pan = Axis((0, 0, 0), (0, 0, 1))
 res = {}
-for ang in (-40, 40):
+for ang in (-40, -35, -30, 30, 35, 40):
     hr = head.rotate(ax, ang)
     dr = K.display_envelope().rotate(ax, ang)
     res[ang] = (round(hr.distance_to(base), 2), round(hr.distance_to(N1), 3), round(dr.distance_to(P["S1"]), 2),
@@ -110,7 +111,7 @@ recs = [PartRec("N1", "krk", N1, "black_satin", "neck", "J2", internal=True),
         PartRec("BRACKET", "drziak serva", bracket, "bracket", "torso", "J1", internal=True),
         PartRec("CABLE", "kabel do hlavy", cab, "rubber", "neck", "J2", internal=True),
         PartRec("HEAD", "hlava", head, "white", "head", "J3"),
-        PartRec("FRAME", "predne sklo", frame, "glass", "head", "J3"),
+        PartRec("FRAME", "predne sklo", frame, "black_gloss", "head", "J3"),
         PartRec("EYES", "oci", eyes, "eye", "head", "J3"),
         PartRec("EARS", "usi", ears, "black_satin", "head", "J3"),
         PartRec("LEDS", "led krúžky uší", leds, "cyan_led", "head", "J3"),

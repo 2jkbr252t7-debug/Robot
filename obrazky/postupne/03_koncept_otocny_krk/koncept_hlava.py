@@ -74,3 +74,15 @@ if __name__ == "__main__":
     o = outer(); print("outer", o.is_valid, o.bounding_box().min, o.bounding_box().max, round(time.time() - t, 1))
     g = glass(); c = glass_cut(); print("glass", g.is_valid, c.is_valid)
     w = o - c; print("white", w.is_valid, round(w.volume))
+
+
+VISOR_T, VISOR_IN = 7.0, 2.5
+
+
+def white_cut():
+    """everything in front of the white shell's front face"""
+    return Pos(0, YF + VISOR_T / 2 - 1.0, H / 2) * Box(W + 4, VISOR_T + 2.0, H + 4)
+
+
+def visor():
+    return Solid.make_loft([sec(y, shrink=VISOR_IN) for y in ys(YF, YF + VISOR_T + 0.4, 10)])
