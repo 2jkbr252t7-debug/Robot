@@ -1,0 +1,276 @@
+<title>Hlava NOVA mini</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;650&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* layout: one working screen – 3D stage first, a compact control strip under it (side by side on wide screens) */
+:root {
+  --bg: #eef0ee;
+  --panel: #ffffff;
+  --ink: #1b1e21;
+  --muted: #5d6670;
+  --line: #d5dad8;
+  --accent: #0f8f9e;          /* the ear-LED cyan, darkened for text/controls */
+  --accent-soft: #d6eef1;
+  --stage: #e3e7e5;
+  --f-display: "Sora", "Segoe UI", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141719; --panel: #1c2023; --ink: #e8ecea; --muted: #9aa5ad; --line: #2c3236;
+    --accent: #5fd6e4; --accent-soft: #163a40; --stage: #191d20; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141719; --panel: #1c2023; --ink: #e8ecea; --muted: #9aa5ad; --line: #2c3236;
+  --accent: #5fd6e4; --accent-soft: #163a40; --stage: #191d20; color-scheme: dark;
+}
+[hidden] { display: none !important; }
+html, body { height: 100%; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 18px 24px;
+}
+.wrap { max-width: 1180px; margin: 0 auto; display: grid; gap: 14px; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 18px; }
+h1 { font-family: var(--f-display); font-weight: 650; font-size: clamp(1.35rem, 3.4vw, 1.9rem); margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+.sub { color: var(--muted); margin: 0; max-width: 62ch; }
+.main { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 14px; align-items: start; }
+@media (max-width: 860px) { .main { grid-template-columns: minmax(0, 1fr); } }
+.stage { position: relative; background: var(--stage); border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  aspect-ratio: 4 / 3.4; max-width: 100%; min-height: 340px; }
+.stage canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+.hint { position: absolute; left: 12px; bottom: 10px; font-size: 12.5px; color: var(--muted); pointer-events: none; }
+.loading { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); font-size: 14px; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 16px; display: grid; gap: 16px; min-width: 0; }
+.group { display: grid; gap: 8px; }
+.label { font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.presets { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+button { font: inherit; font-weight: 500; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--ink);
+  padding: 9px 10px; cursor: pointer; text-align: left; }
+button:hover { border-color: var(--accent); }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.primary { background: var(--accent-soft); border-color: transparent; }
+button.wide { grid-column: 1 / -1; }
+.row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 10px; }
+.val { font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-size: 13.5px; color: var(--accent); min-width: 5.5ch; text-align: right; }
+input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--accent); }
+.note { font-size: 12.5px; color: var(--muted); margin: 0; }
+.toggle { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+.toggle input { width: 18px; height: 18px; accent-color: var(--accent); }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; }
+.fact { border-top: 2px solid var(--line); padding-top: 8px; min-width: 0; }
+.fact b { display: block; font-family: var(--f-mono); font-weight: 500; font-variant-numeric: tabular-nums; color: var(--ink); font-size: 15px; }
+.fact span { color: var(--muted); font-size: 13px; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>NOVA mini · hlava s vysúvacím krkom</h1>
+    <p class="sub">Model si otáčaj prstom alebo myšou. Krk sa vysunie, až keď sa hlava nakláňa, v pokoji sedí hlava na tele.</p>
+  </header>
+
+  <div class="main">
+    <div class="stage" id="stage">
+      <div class="loading" id="loading">Načítavam model…</div>
+      <div class="hint">ťahaj = otáčať · dva prsty / koliesko = priblížiť</div>
+    </div>
+
+    <aside class="panel" aria-label="Ovládanie modelu">
+      <div class="group">
+        <div class="label">Pohyby</div>
+        <div class="presets">
+          <button class="primary" id="b-down" type="button">Pozrieť do zošita</button>
+          <button class="primary" id="b-up" type="button">Pozrieť na človeka</button>
+          <button id="b-side" type="button">Otočiť sa doboku</button>
+          <button id="b-home" type="button">Späť do pokoja</button>
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="row"><label for="s-lift">Vysunutie krku</label><span class="val" id="v-lift">0 mm</span>
+          <input id="s-lift" type="range" min="0" max="19" step="0.5" value="0"></div>
+        <div class="row"><label for="s-tilt">Náklon hlavy</label><span class="val" id="v-tilt">0°</span>
+          <input id="s-tilt" type="range" min="-40" max="40" step="1" value="0"></div>
+        <div class="row"><label for="s-pan">Otočenie doľava / doprava</label><span class="val" id="v-pan">0°</span>
+          <input id="s-pan" type="range" min="-80" max="80" step="1" value="0"></div>
+        <p class="note">Náklon ide až po vysunutí krku (od 17 mm), pri návrate sa najprv vyrovná a potom zasunie.</p>
+      </div>
+
+      <div class="group">
+        <label class="toggle" for="t-xray"><input id="t-xray" type="checkbox"> Priehľadne – ukázať servo a pánt</label>
+        <label class="toggle" for="t-torso"><input id="t-torso" type="checkbox" checked> Ukázať trup (zatiaľ ilustračný)</label>
+      </div>
+    </aside>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><b>3 mm</b><span>škára pod hlavou v pokoji</span></div>
+    <div class="fact"><b>19 mm</b><span>vysunutie krku pri náklone</span></div>
+    <div class="fact"><b>±40°</b><span>náklon dole k zošitu aj hore k človeku</span></div>
+    <div class="fact"><b>34 × 16 mm</b><span>dutý krk, kábel ide cez čap pántu</span></div>
+    <div class="fact"><b>2 ložiská</b><span>v pánte, servo náklonu sedí v hlave</span></div>
+  </div>
+</div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+
+const stage = document.getElementById("stage");
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 0.95;
+stage.prepend(renderer.domElement);
+
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+const key = new THREE.DirectionalLight(0xffffff, 1.1); key.position.set(0.3, 0.5, 0.4); scene.add(key);
+scene.add(new THREE.HemisphereLight(0xffffff, 0x8a9096, 0.5));
+
+const camera = new THREE.PerspectiveCamera(32, 1, 0.01, 5);
+camera.position.set(0.2, 0.12, 0.37);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 0.025, 0);
+controls.enableDamping = true; controls.minDistance = 0.14; controls.maxDistance = 0.9;
+controls.update();
+
+function resize() {
+  const r = stage.getBoundingClientRect();
+  renderer.setSize(r.width, r.height, false);
+  camera.aspect = r.width / Math.max(1, r.height); camera.updateProjectionMatrix();
+}
+new ResizeObserver(resize).observe(stage); resize();
+
+// ---- materials --------------------------------------------------------------------------------------------
+const M = {
+  white:   () => new THREE.MeshPhysicalMaterial({ color: 0xf2f3f1, roughness: 0.32, clearcoat: 0.6, clearcoatRoughness: 0.2 }),
+  satin:   () => new THREE.MeshStandardMaterial({ color: 0x1e2124, roughness: 0.55, metalness: 0.0 }),
+  gloss:   () => new THREE.MeshPhysicalMaterial({ color: 0x15171a, roughness: 0.06, clearcoat: 1.0 }),
+  led:     () => new THREE.MeshStandardMaterial({ color: 0x7fe7f2, emissive: 0x5fd6e4, emissiveIntensity: 1.2 }),
+  eye:     () => new THREE.MeshStandardMaterial({ color: 0xf4ece0, emissive: 0xf4e6d2, emissiveIntensity: 0.55 }),
+  metal:   () => new THREE.MeshStandardMaterial({ color: 0xc3c8cd, roughness: 0.28, metalness: 0.9 }),
+  servo:   () => new THREE.MeshStandardMaterial({ color: 0x3d6fe0, roughness: 0.5 }),
+  bracket: () => new THREE.MeshStandardMaterial({ color: 0x9a72e0, roughness: 0.5 }),
+  display: () => new THREE.MeshStandardMaterial({ color: 0x2b2f35, roughness: 0.4 }),
+  cable:   () => new THREE.MeshStandardMaterial({ color: 0x2a2a2a, roughness: 0.7 }),
+};
+const MAT = { T: "white", R: "gloss", C: "satin", N: "satin", K: "satin", H: "white", V: "gloss", E: "satin", L: "led", Y: "eye",
+  pins: "metal", brg: "metal", lever: "metal", cable: "cable", servo: "servo", bracket: "bracket", display: "display", horn: "metal" };
+const SHELLS = ["T", "R", "C", "N", "K", "H", "V", "E", "L", "Y"];
+const INTERNAL = ["pins", "brg", "lever", "cable", "servo", "bracket", "display", "horn", "link"];
+
+// ---- kinematics (CAD frame: mm -> m, Z up, front -Y) --------------------------------------------------------
+const AXZ = 0.0175, YS = 0.006, ZS = AXZ + 0.0245, R_ARM = 0.006, LIFT_MAX = 19;
+const cad = new THREE.Group(); cad.rotation.x = -Math.PI / 2; scene.add(cad);
+const fixed = new THREE.Group(), pan = new THREE.Group(), lift = new THREE.Group();
+const tiltPivot = new THREE.Group(), tiltInner = new THREE.Group();
+cad.add(fixed); cad.add(pan); pan.add(lift); lift.add(tiltPivot); tiltPivot.add(tiltInner);
+tiltPivot.position.set(0, 0, AXZ); tiltInner.position.set(0, 0, -AXZ);
+const where = { T: fixed, R: fixed, C: pan, N: lift, pins: lift, lever: lift, cable: lift, horn: lift };
+const meshes = {};
+
+const linkMesh = new THREE.Mesh(new THREE.BoxGeometry(0.002, 0.0035, 1), M.metal());
+linkMesh.name = "link"; lift.add(linkMesh); meshes.link = linkMesh;
+
+function onModel(g) {
+  const found = [];
+  g.scene.traverse((o) => { if (o.isMesh) found.push(o); });
+  for (const o of found) {
+    const name = o.name.replace(/[._]\d+$/, "");
+    o.material = M[MAT[name] || "satin"]();
+    o.material.userData.baseOpacity = 1;
+    (where[name] || tiltInner).add(o);
+    meshes[name] = o;
+  }
+  document.getElementById("loading").hidden = true;
+  applyXray(); applyTorso(); pose();
+}
+const loadFail = () => { document.getElementById("loading").textContent = "Model sa nepodarilo načítať – skús obnoviť stránku."; };
+fetch("nova_hlava_krk.txt").then((r) => { if (!r.ok) throw new Error(r.status); return r.text(); }).then((b64) => {
+  const bin = atob(b64.trim()); const buf = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+  new GLTFLoader().parse(buf.buffer, "", onModel, loadFail);
+}).catch(loadFail);
+
+// ---- state + sequencing (tilt only when the neck is out) ----------------------------------------------------
+const cur = { lift: 0, tilt: 0, pan: 0 }, tgt = { lift: 0, tilt: 0, pan: 0 };
+const sL = document.getElementById("s-lift"), sT = document.getElementById("s-tilt"), sP = document.getElementById("s-pan");
+const vL = document.getElementById("v-lift"), vT = document.getElementById("v-tilt"), vP = document.getElementById("v-pan");
+sL.addEventListener("input", () => { tgt.lift = +sL.value; if (tgt.lift < 17) { tgt.tilt = 0; sT.value = 0; } });
+sT.addEventListener("input", () => { tgt.tilt = +sT.value; if (tgt.tilt !== 0 && tgt.lift < 17) { tgt.lift = LIFT_MAX; sL.value = LIFT_MAX; } });
+sP.addEventListener("input", () => { tgt.pan = +sP.value; });
+function preset(l, t, p) { tgt.lift = l; tgt.tilt = t; if (p !== undefined) tgt.pan = p; sL.value = tgt.lift; sT.value = tgt.tilt; sP.value = tgt.pan; }
+document.getElementById("b-down").onclick = () => preset(LIFT_MAX, 40);
+document.getElementById("b-up").onclick = () => preset(LIFT_MAX, -40);
+document.getElementById("b-side").onclick = () => preset(cur.lift, cur.tilt, tgt.pan > 40 ? -70 : 70);
+document.getElementById("b-home").onclick = () => preset(0, 0, 0);
+
+const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function step(dt) {
+  const k = reduce ? 1e3 : 1;
+  const mv = (a, b, rate) => { const d = b - a, s = rate * dt * k; return Math.abs(d) <= s ? b : a + Math.sign(d) * s; };
+  // tilt may leave 0 only when lifted >= 17 mm; lift may drop below 17 only when tilt is back at 0
+  let liftGoal = tgt.lift;
+  if (Math.abs(cur.tilt) > 0.2 || tgt.tilt !== 0) liftGoal = Math.max(liftGoal, LIFT_MAX * (tgt.tilt !== 0 ? 1 : 0.9));
+  if (tgt.tilt === 0 && Math.abs(cur.tilt) <= 0.2) liftGoal = tgt.lift;
+  cur.lift = mv(cur.lift, liftGoal, 30);
+  const tiltGoal = cur.lift >= 17 ? tgt.tilt : 0;
+  cur.tilt = mv(cur.tilt, tiltGoal, 70);
+  cur.pan = mv(cur.pan, tgt.pan, 90);
+}
+function pose() {
+  lift.position.z = (cur.lift - LIFT_MAX) / 1000;
+  const t = THREE.MathUtils.degToRad(cur.tilt);
+  tiltPivot.rotation.x = t;
+  pan.rotation.z = THREE.MathUtils.degToRad(cur.pan);
+  // parallelogram link: horn stays parallel to the knuckle lever
+  const c = Math.cos(t), s = Math.sin(t), dz = ZS - AXZ;
+  const sy = YS * c - dz * s, sz = YS * s + dz * c;
+  if (meshes.horn) meshes.horn.position.set(0, sy - YS, AXZ + sz - ZS);
+  const ly = R_ARM, lz = AXZ, hy = sy + R_ARM, hz = AXZ + sz;
+  const L = Math.hypot(hy - ly, hz - lz);
+  linkMesh.scale.set(1, 1, L);
+  linkMesh.position.set(-0.001, (ly + hy) / 2, (lz + hz) / 2);
+  linkMesh.rotation.set(Math.atan2(-(hy - ly), hz - lz), 0, 0);
+  vL.textContent = cur.lift.toFixed(1).replace(".", ",") + " mm";
+  vT.textContent = Math.round(cur.tilt) + "°";
+  vP.textContent = Math.round(cur.pan) + "°";
+}
+
+// ---- x-ray + torso toggles ---------------------------------------------------------------------------------
+const tX = document.getElementById("t-xray"), tTo = document.getElementById("t-torso");
+function applyXray() {
+  const on = tX.checked;
+  for (const n of SHELLS) {
+    const m = meshes[n]; if (!m) continue;
+    m.material.transparent = on; m.material.opacity = on ? 0.14 : 1; m.material.depthWrite = !on; m.material.needsUpdate = true;
+    m.renderOrder = on ? 2 : 0;
+  }
+  for (const n of INTERNAL) { if (meshes[n]) meshes[n].visible = on; }
+}
+function applyTorso() { for (const n of ["T", "R"]) if (meshes[n]) meshes[n].visible = tTo.checked; }
+tX.addEventListener("change", applyXray); tTo.addEventListener("change", applyTorso);
+applyXray();
+
+let last = performance.now();
+renderer.setAnimationLoop((now) => {
+  const dt = Math.min(0.05, (now - last) / 1000); last = now;
+  step(dt); pose(); controls.update(); renderer.render(scene, camera);
+});
+</script>
