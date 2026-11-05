@@ -66,12 +66,16 @@ input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--accent
 .fact b { display: block; font-family: var(--f-mono); font-weight: 500; font-variant-numeric: tabular-nums; color: var(--ink); font-size: 15px; }
 .fact span { color: var(--muted); font-size: 13px; }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+.seg { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.seg button { text-align: center; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--panel); border-color: var(--accent); font-weight: 600; }
+.vnote { font-size: 13px; color: var(--muted); margin: 0; }
 </style>
 
 <div class="wrap">
   <header>
-    <h1>NOVA mini · hlava s vysúvacím krkom</h1>
-    <p class="sub">Model si otáčaj prstom alebo myšou. Krk sa vysunie, až keď sa hlava nakláňa, v pokoji sedí hlava na tele.</p>
+    <h1>NOVA mini · vysúvací krk A / B</h1>
+    <p class="sub">Prepni verziu A alebo B a porovnaj. Model si otáčaj prstom alebo myšou. Krk sa vysunie, až keď sa hlava nakláňa, v pokoji sedí hlava na tele.</p>
   </header>
 
   <div class="main">
@@ -81,6 +85,14 @@ input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--accent
     </div>
 
     <aside class="panel" aria-label="Ovládanie modelu">
+      <div class="group">
+        <div class="label">Verzia</div>
+        <div class="seg" role="group" aria-label="Verzia">
+          <button id="v-a" type="button" aria-pressed="false">A · servo v hlave</button>
+          <button id="v-b" type="button" aria-pressed="true">B · servo v krku</button>
+        </div>
+        <p class="vnote" id="v-note"></p>
+      </div>
       <div class="group">
         <div class="label">Pohyby</div>
         <div class="presets">
@@ -98,23 +110,23 @@ input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--accent
           <input id="s-tilt" type="range" min="-40" max="40" step="1" value="0"></div>
         <div class="row"><label for="s-pan">Otočenie doľava / doprava</label><span class="val" id="v-pan">0°</span>
           <input id="s-pan" type="range" min="-80" max="80" step="1" value="0"></div>
-        <p class="note">Náklon ide až po vysunutí krku (od 17 mm), pri návrate sa najprv vyrovná a potom zasunie.</p>
+        <p class="note">Náklon ide až po vysunutí krku, pri návrate sa hlava najprv vyrovná a potom krk zasunie.</p>
       </div>
 
       <div class="group">
         <label class="toggle" for="t-xray"><input id="t-xray" type="checkbox"> Priehľadne – ukázať servo a pánt</label>
-        <label class="toggle" for="t-torso"><input id="t-torso" type="checkbox" checked> Ukázať trup (zatiaľ ilustračný)</label>
+        <label class="toggle" for="t-torso"><input id="t-torso" type="checkbox" checked> Ukázať trup (ilustračný, 100 mm)</label>
       </div>
     </aside>
   </div>
 
   <div class="facts">
     <div class="fact"><b>3 mm</b><span>škára pod hlavou v pokoji</span></div>
-    <div class="fact"><b>19 mm</b><span>vysunutie krku pri náklone</span></div>
+    <div class="fact"><b id="f-lift">20 mm</b><span>vysunutie krku pri náklone</span></div>
     <div class="fact"><b>±40°</b><span>náklon dole k zošitu aj hore k človeku</span></div>
     <div class="fact"><b>86 × 56 mm</b><span>displej 3,5" sa zmestí, hlava 108 × 77 mm</span></div>
-    <div class="fact"><b>34 × 16 mm</b><span>dutý krk, kábel ide cez čap pántu</span></div>
-    <div class="fact"><b>2 ložiská</b><span>v pánte, servo náklonu je v hlave 10 mm za displejom</span></div>
+    <div class="fact"><b id="f-neck">45 × 20 mm</b><span>plochý dutý krk</span></div>
+    <div class="fact"><b id="f-servo">v krku</b><span id="f-servo-t">servo náklonu točí hlavou priamo</span></div>
   </div>
 </div>
 
@@ -145,10 +157,10 @@ const key = new THREE.DirectionalLight(0xffffff, 1.1); key.position.set(0.3, 0.5
 scene.add(new THREE.HemisphereLight(0xffffff, 0x8a9096, 0.5));
 
 const camera = new THREE.PerspectiveCamera(32, 1, 0.01, 5);
-camera.position.set(0.2, 0.12, 0.37);
+camera.position.set(0.24, 0.1, 0.46);
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.target.set(0, 0.025, 0);
-controls.enableDamping = true; controls.minDistance = 0.14; controls.maxDistance = 0.9;
+controls.target.set(0, 0.002, 0);
+controls.enableDamping = true; controls.minDistance = 0.15; controls.maxDistance = 1.0;
 controls.update();
 
 function resize() {
@@ -173,84 +185,113 @@ const M = {
   comp:    () => new THREE.MeshStandardMaterial({ color: 0x8d949b, roughness: 0.5 }),
   cable:   () => new THREE.MeshStandardMaterial({ color: 0x2a2a2a, roughness: 0.7 }),
 };
-const MAT = { T: "white", R: "gloss", C: "satin", N: "satin", K: "satin", H: "white", V: "gloss", E: "satin", L: "led", Y: "eye",
-  pins: "metal", brg: "metal", spring: "metal", lever: "metal", cable: "cable", servo: "servo", bracket: "bracket", lcd: "display", pcb: "pcb", comp: "comp", horn: "metal" };
+// ---- variants (CAD frame: mm -> m, Z up, front -Y; head + neck exported with the neck EXTENDED) ----------
+const VAR = {
+  a: { file: "nova_a.txt", AXZ: 0.0175, LIFT: 19, link: true, YS: 0.0, ZS: 0.0175 + 0.030, R_ARM: 0.004, XL: 0.00725,
+       lift: ["N", "pins", "lever", "cable", "spring", "horn"], neck: "34 × 16 mm", servo: "v hlave",
+       servoT: "za displejom, hlavou točí cez tiahlo", note: "Štíhly krk. Servo náklonu je v hlave za displejom a hlavu otáča cez malé tiahlo." },
+  b: { file: "nova_b.txt", AXZ: 0.0165, LIFT: 20, link: false,
+       lift: ["N", "servo", "pins", "cable", "scable"], neck: "45 × 20 mm", servo: "v krku",
+       servoT: "servo náklonu točí hlavou priamo", note: "Širší krk. Servo náklonu je v ňom a hlavou točí priamo, bez tiahla. V hlave je len displej." },
+};
+const FIXED = ["T", "R"], PANP = ["C"];
 const SHELLS = ["T", "R", "C", "N", "K", "H", "V", "E", "L", "Y"];
-const INTERNAL = ["pins", "brg", "spring", "lever", "cable", "servo", "bracket", "lcd", "pcb", "comp", "horn", "link"];
+const INTERNAL = ["pins", "brg", "spring", "lever", "cable", "scable", "servo", "bracket", "lcd", "pcb", "comp", "horn", "link"];
+const MAT = { T: "white", R: "gloss", C: "satin", N: "satin", K: "satin", H: "white", V: "gloss", E: "satin", L: "led", Y: "eye",
+  pins: "metal", brg: "metal", spring: "metal", lever: "metal", cable: "cable", scable: "cable", servo: "servo", bracket: "bracket",
+  lcd: "display", pcb: "pcb", comp: "comp", horn: "metal" };
 
-// ---- kinematics (CAD frame: mm -> m, Z up, front -Y) --------------------------------------------------------
-const AXZ = 0.0175, YS = 0.0, ZS = AXZ + 0.030, R_ARM = 0.004, XL = 0.00725, LIFT_MAX = 19;
 const cad = new THREE.Group(); cad.rotation.x = -Math.PI / 2; scene.add(cad);
-const fixed = new THREE.Group(), pan = new THREE.Group(), lift = new THREE.Group();
-const tiltPivot = new THREE.Group(), tiltInner = new THREE.Group();
-cad.add(fixed); cad.add(pan); pan.add(lift); lift.add(tiltPivot); tiltPivot.add(tiltInner);
-tiltPivot.position.set(0, 0, AXZ); tiltInner.position.set(0, 0, -AXZ);
-const where = { T: fixed, R: fixed, C: pan, N: lift, pins: lift, lever: lift, cable: lift, horn: lift };
-const meshes = {};
+let V = null, meshes = {}, grp = null;
+const cache = {};
 
-const linkMesh = new THREE.Mesh(new THREE.BoxGeometry(0.0015, 0.0035, 1), M.metal());
-linkMesh.name = "link"; lift.add(linkMesh); meshes.link = linkMesh;
-
-function onModel(g) {
-  const found = [];
-  g.scene.traverse((o) => { if (o.isMesh) found.push(o); });
+function build(key, gltf) {
+  if (grp) { cad.remove(grp.root); }
+  V = VAR[key]; meshes = {};
+  const root = new THREE.Group(), fixed = new THREE.Group(), pan = new THREE.Group(), lift = new THREE.Group();
+  const tiltPivot = new THREE.Group(), tiltInner = new THREE.Group();
+  root.add(fixed); root.add(pan); pan.add(lift); lift.add(tiltPivot); tiltPivot.add(tiltInner);
+  tiltPivot.position.set(0, 0, V.AXZ); tiltInner.position.set(0, 0, -V.AXZ);
+  const scene0 = gltf.scene.clone(true);
+  const found = []; scene0.traverse((o) => { if (o.isMesh) found.push(o); });
   for (const o of found) {
     const name = o.name.replace(/[._]\d+$/, "");
     o.material = M[MAT[name] || "satin"]();
-    o.material.userData.baseOpacity = 1;
-    (where[name] || tiltInner).add(o);
-    meshes[name] = o;
+    const g = FIXED.includes(name) ? fixed : PANP.includes(name) ? pan : V.lift.includes(name) ? lift : tiltInner;
+    o.position.set(0, 0, 0); o.rotation.set(0, 0, 0); o.scale.set(1, 1, 1);
+    g.add(o); meshes[name] = o;
   }
-  document.getElementById("loading").hidden = true;
+  if (V.link) {
+    const lm = new THREE.Mesh(new THREE.BoxGeometry(0.0015, 0.0035, 1), M.metal()); lift.add(lm); meshes.link = lm;
+  }
+  grp = { root, pan, lift, tiltPivot };
+  cad.add(root);
+  document.getElementById("v-note").textContent = V.note;
+  document.getElementById("f-lift").textContent = V.LIFT + " mm";
+  document.getElementById("f-neck").textContent = V.neck;
+  document.getElementById("f-servo").textContent = V.servo;
+  document.getElementById("f-servo-t").textContent = V.servoT;
+  sL.max = V.LIFT;
+  if (tgt.lift > 0) tgt.lift = V.LIFT;
+  cur.lift = Math.min(cur.lift, V.LIFT);
   applyXray(); applyTorso(); pose();
 }
-const loadFail = () => { document.getElementById("loading").textContent = "Model sa nepodarilo načítať – skús obnoviť stránku."; };
-fetch("nova_hlava_krk.txt").then((r) => { if (!r.ok) throw new Error(r.status); return r.text(); }).then((b64) => {
-  const bin = atob(b64.trim()); const buf = new Uint8Array(bin.length);
-  for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
-  new GLTFLoader().parse(buf.buffer, "", onModel, loadFail);
-}).catch(loadFail);
+
+function loadVariant(key) {
+  document.getElementById("v-a").setAttribute("aria-pressed", key === "a");
+  document.getElementById("v-b").setAttribute("aria-pressed", key === "b");
+  if (cache[key]) { build(key, cache[key]); return; }
+  const ld = document.getElementById("loading"); ld.hidden = false; ld.textContent = "Načítavam model…";
+  fetch(VAR[key].file).then((r) => { if (!r.ok) throw new Error(r.status); return r.text(); }).then((b64) => {
+    const bin = atob(b64.trim()); const buf = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+    new GLTFLoader().parse(buf.buffer, "", (g) => { cache[key] = g; ld.hidden = true; build(key, g); },
+      () => { ld.textContent = "Model sa nepodarilo načítať – skús obnoviť stránku."; });
+  }).catch(() => { ld.textContent = "Model sa nepodarilo načítať – skús obnoviť stránku."; });
+}
 
 // ---- state + sequencing (tilt only when the neck is out) ----------------------------------------------------
 const cur = { lift: 0, tilt: 0, pan: 0 }, tgt = { lift: 0, tilt: 0, pan: 0 };
 const sL = document.getElementById("s-lift"), sT = document.getElementById("s-tilt"), sP = document.getElementById("s-pan");
 const vL = document.getElementById("v-lift"), vT = document.getElementById("v-tilt"), vP = document.getElementById("v-pan");
-sL.addEventListener("input", () => { tgt.lift = +sL.value; if (tgt.lift < 17) { tgt.tilt = 0; sT.value = 0; } });
-sT.addEventListener("input", () => { tgt.tilt = +sT.value; if (tgt.tilt !== 0 && tgt.lift < 17) { tgt.lift = LIFT_MAX; sL.value = LIFT_MAX; } });
+const LMAX = () => (V ? V.LIFT : 20);
+sL.addEventListener("input", () => { tgt.lift = +sL.value; if (tgt.lift < LMAX() - 2) { tgt.tilt = 0; sT.value = 0; } });
+sT.addEventListener("input", () => { tgt.tilt = +sT.value; if (tgt.tilt !== 0 && tgt.lift < LMAX() - 2) { tgt.lift = LMAX(); sL.value = LMAX(); } });
 sP.addEventListener("input", () => { tgt.pan = +sP.value; });
 function preset(l, t, p) { tgt.lift = l; tgt.tilt = t; if (p !== undefined) tgt.pan = p; sL.value = tgt.lift; sT.value = tgt.tilt; sP.value = tgt.pan; }
-document.getElementById("b-down").onclick = () => preset(LIFT_MAX, 40);
-document.getElementById("b-up").onclick = () => preset(LIFT_MAX, -40);
-document.getElementById("b-side").onclick = () => preset(cur.lift, cur.tilt, tgt.pan > 40 ? -70 : 70);
+document.getElementById("b-down").onclick = () => preset(LMAX(), 40);
+document.getElementById("b-up").onclick = () => preset(LMAX(), -40);
+document.getElementById("b-side").onclick = () => preset(tgt.lift, tgt.tilt, tgt.pan > 40 ? -70 : 70);
 document.getElementById("b-home").onclick = () => preset(0, 0, 0);
+document.getElementById("v-a").onclick = () => loadVariant("a");
+document.getElementById("v-b").onclick = () => loadVariant("b");
 
 const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 function step(dt) {
-  const k = reduce ? 1e3 : 1;
+  const k = reduce ? 1e3 : 1, L = LMAX();
   const mv = (a, b, rate) => { const d = b - a, s = rate * dt * k; return Math.abs(d) <= s ? b : a + Math.sign(d) * s; };
-  // tilt may leave 0 only when lifted >= 17 mm; lift may drop below 17 only when tilt is back at 0
   let liftGoal = tgt.lift;
-  if (Math.abs(cur.tilt) > 0.2 || tgt.tilt !== 0) liftGoal = Math.max(liftGoal, LIFT_MAX * (tgt.tilt !== 0 ? 1 : 0.9));
-  if (tgt.tilt === 0 && Math.abs(cur.tilt) <= 0.2) liftGoal = tgt.lift;
+  if (tgt.tilt !== 0 || Math.abs(cur.tilt) > 0.2) liftGoal = Math.max(liftGoal, L);
   cur.lift = mv(cur.lift, liftGoal, 30);
-  const tiltGoal = cur.lift >= 17 ? tgt.tilt : 0;
-  cur.tilt = mv(cur.tilt, tiltGoal, 70);
+  cur.tilt = mv(cur.tilt, cur.lift >= L - 2 ? tgt.tilt : 0, 70);
   cur.pan = mv(cur.pan, tgt.pan, 90);
 }
 function pose() {
-  lift.position.z = (cur.lift - LIFT_MAX) / 1000;
+  if (!V || !grp) return;
+  grp.lift.position.z = (cur.lift - V.LIFT) / 1000;
   const t = THREE.MathUtils.degToRad(cur.tilt);
-  tiltPivot.rotation.x = t;
-  pan.rotation.z = THREE.MathUtils.degToRad(cur.pan);
-  // parallelogram link: horn stays parallel to the knuckle lever
-  const c = Math.cos(t), s = Math.sin(t), dz = ZS - AXZ;
-  const sy = YS * c - dz * s, sz = YS * s + dz * c;
-  if (meshes.horn) meshes.horn.position.set(0, sy - YS, AXZ + sz - ZS);
-  const ly = R_ARM, lz = AXZ, hy = sy + R_ARM, hz = AXZ + sz;
-  const L = Math.hypot(hy - ly, hz - lz);
-  linkMesh.scale.set(1, 1, L);
-  linkMesh.position.set(XL, (ly + hy) / 2, (lz + hz) / 2);
-  linkMesh.rotation.set(Math.atan2(-(hy - ly), hz - lz), 0, 0);
+  grp.tiltPivot.rotation.x = t;
+  grp.pan.rotation.z = THREE.MathUtils.degToRad(cur.pan);
+  if (V.link) {   // parallelogram: horn stays parallel to the knuckle lever
+    const c = Math.cos(t), s = Math.sin(t), dz = V.ZS - V.AXZ;
+    const sy = V.YS * c - dz * s, sz = V.YS * s + dz * c;
+    if (meshes.horn) meshes.horn.position.set(0, sy - V.YS, V.AXZ + sz - V.ZS);
+    const ly = V.R_ARM, lz = V.AXZ, hy = sy + V.R_ARM, hz = V.AXZ + sz;
+    const Ln = Math.hypot(hy - ly, hz - lz);
+    meshes.link.scale.set(1, 1, Ln);
+    meshes.link.position.set(V.XL, (ly + hy) / 2, (lz + hz) / 2);
+    meshes.link.rotation.set(Math.atan2(-(hy - ly), hz - lz), 0, 0);
+  }
   vL.textContent = cur.lift.toFixed(1).replace(".", ",") + " mm";
   vT.textContent = Math.round(cur.tilt) + "°";
   vP.textContent = Math.round(cur.pan) + "°";
@@ -269,7 +310,7 @@ function applyXray() {
 }
 function applyTorso() { for (const n of ["T", "R"]) if (meshes[n]) meshes[n].visible = tTo.checked; }
 tX.addEventListener("change", applyXray); tTo.addEventListener("change", applyTorso);
-applyXray();
+loadVariant("b");
 
 let last = performance.now();
 renderer.setAnimationLoop((now) => {
