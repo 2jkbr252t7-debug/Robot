@@ -112,8 +112,9 @@ input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--accent
     <div class="fact"><b>3 mm</b><span>škára pod hlavou v pokoji</span></div>
     <div class="fact"><b>19 mm</b><span>vysunutie krku pri náklone</span></div>
     <div class="fact"><b>±40°</b><span>náklon dole k zošitu aj hore k človeku</span></div>
+    <div class="fact"><b>86 × 56 mm</b><span>displej 3,5" sa zmestí, hlava 108 × 77 mm</span></div>
     <div class="fact"><b>34 × 16 mm</b><span>dutý krk, kábel ide cez čap pántu</span></div>
-    <div class="fact"><b>2 ložiská</b><span>v pánte, servo náklonu sedí v hlave</span></div>
+    <div class="fact"><b>2 ložiská</b><span>v pánte, servo náklonu je v hlave 10 mm za displejom</span></div>
   </div>
 </div>
 
@@ -168,15 +169,17 @@ const M = {
   servo:   () => new THREE.MeshStandardMaterial({ color: 0x3d6fe0, roughness: 0.5 }),
   bracket: () => new THREE.MeshStandardMaterial({ color: 0x9a72e0, roughness: 0.5 }),
   display: () => new THREE.MeshStandardMaterial({ color: 0x2b2f35, roughness: 0.4 }),
+  pcb:     () => new THREE.MeshStandardMaterial({ color: 0x1f5c3a, roughness: 0.5 }),
+  comp:    () => new THREE.MeshStandardMaterial({ color: 0x8d949b, roughness: 0.5 }),
   cable:   () => new THREE.MeshStandardMaterial({ color: 0x2a2a2a, roughness: 0.7 }),
 };
 const MAT = { T: "white", R: "gloss", C: "satin", N: "satin", K: "satin", H: "white", V: "gloss", E: "satin", L: "led", Y: "eye",
-  pins: "metal", brg: "metal", lever: "metal", cable: "cable", servo: "servo", bracket: "bracket", display: "display", horn: "metal" };
+  pins: "metal", brg: "metal", spring: "metal", lever: "metal", cable: "cable", servo: "servo", bracket: "bracket", lcd: "display", pcb: "pcb", comp: "comp", horn: "metal" };
 const SHELLS = ["T", "R", "C", "N", "K", "H", "V", "E", "L", "Y"];
-const INTERNAL = ["pins", "brg", "lever", "cable", "servo", "bracket", "display", "horn", "link"];
+const INTERNAL = ["pins", "brg", "spring", "lever", "cable", "servo", "bracket", "lcd", "pcb", "comp", "horn", "link"];
 
 // ---- kinematics (CAD frame: mm -> m, Z up, front -Y) --------------------------------------------------------
-const AXZ = 0.0175, YS = 0.0, ZS = AXZ + 0.030, R_ARM = 0.005, LIFT_MAX = 19;
+const AXZ = 0.0175, YS = 0.0, ZS = AXZ + 0.030, R_ARM = 0.004, XL = 0.00725, LIFT_MAX = 19;
 const cad = new THREE.Group(); cad.rotation.x = -Math.PI / 2; scene.add(cad);
 const fixed = new THREE.Group(), pan = new THREE.Group(), lift = new THREE.Group();
 const tiltPivot = new THREE.Group(), tiltInner = new THREE.Group();
@@ -185,7 +188,7 @@ tiltPivot.position.set(0, 0, AXZ); tiltInner.position.set(0, 0, -AXZ);
 const where = { T: fixed, R: fixed, C: pan, N: lift, pins: lift, lever: lift, cable: lift, horn: lift };
 const meshes = {};
 
-const linkMesh = new THREE.Mesh(new THREE.BoxGeometry(0.002, 0.0035, 1), M.metal());
+const linkMesh = new THREE.Mesh(new THREE.BoxGeometry(0.0015, 0.0035, 1), M.metal());
 linkMesh.name = "link"; lift.add(linkMesh); meshes.link = linkMesh;
 
 function onModel(g) {
@@ -246,7 +249,7 @@ function pose() {
   const ly = R_ARM, lz = AXZ, hy = sy + R_ARM, hz = AXZ + sz;
   const L = Math.hypot(hy - ly, hz - lz);
   linkMesh.scale.set(1, 1, L);
-  linkMesh.position.set(-0.001, (ly + hy) / 2, (lz + hz) / 2);
+  linkMesh.position.set(XL, (ly + hy) / 2, (lz + hz) / 2);
   linkMesh.rotation.set(Math.atan2(-(hy - ly), hz - lz), 0, 0);
   vL.textContent = cur.lift.toFixed(1).replace(".", ",") + " mm";
   vT.textContent = Math.round(cur.tilt) + "°";
