@@ -176,7 +176,7 @@ const SHELLS = ["T", "R", "C", "N", "K", "H", "V", "E", "L", "Y"];
 const INTERNAL = ["pins", "brg", "lever", "cable", "servo", "bracket", "display", "horn", "link"];
 
 // ---- kinematics (CAD frame: mm -> m, Z up, front -Y) --------------------------------------------------------
-const AXZ = 0.0175, YS = 0.006, ZS = AXZ + 0.0245, R_ARM = 0.006, LIFT_MAX = 19;
+const AXZ = 0.0175, YS = 0.0, ZS = AXZ + 0.030, R_ARM = 0.005, LIFT_MAX = 19;
 const cad = new THREE.Group(); cad.rotation.x = -Math.PI / 2; scene.add(cad);
 const fixed = new THREE.Group(), pan = new THREE.Group(), lift = new THREE.Group();
 const tiltPivot = new THREE.Group(), tiltInner = new THREE.Group();
