@@ -191,15 +191,15 @@ const VAR = {
        lift: ["N", "pins", "lever", "cable", "spring", "horn"], neck: "34 × 16 mm", servo: "v hlave",
        servoT: "za displejom, hlavou točí cez tiahlo", note: "Štíhly krk. Servo náklonu je v hlave za displejom a hlavu otáča cez malé tiahlo." },
   b: { file: "nova_b.txt", AXZ: 0.0165, LIFT: 20, link: false,
-       lift: ["N", "servo", "pins", "cable", "scable"], neck: "45 × 20 mm", servo: "v krku",
+       lift: ["NF", "NB", "servo", "pins", "cable", "screws", "dowels"], neck: "45 × 20 mm", servo: "v krku",
        servoT: "servo náklonu točí hlavou priamo", note: "Širší krk. Servo náklonu je v ňom a hlavou točí priamo, bez tiahla. V hlave je len displej." },
 };
 const FIXED = ["T", "R"], PANP = ["C"];
-const SHELLS = ["T", "R", "C", "N", "K", "H", "V", "E", "L", "Y"];
-const INTERNAL = ["pins", "brg", "spring", "lever", "cable", "scable", "servo", "bracket", "lcd", "pcb", "comp", "horn", "link"];
-const MAT = { T: "white", R: "gloss", C: "satin", N: "satin", K: "satin", H: "white", V: "gloss", E: "satin", L: "led", Y: "eye",
+const SHELLS = ["T", "R", "C", "N", "NF", "NB", "K", "H", "V", "E", "L", "Y"];
+const INTERNAL = ["pins", "brg", "spring", "lever", "cable", "scable", "servo", "bracket", "lcd", "pcb", "comp", "horn", "link", "screws", "dowels"];
+const MAT = { T: "white", R: "gloss", C: "satin", N: "satin", NF: "satin", NB: "satin", K: "satin", H: "white", V: "gloss", E: "satin", L: "led", Y: "eye",
   pins: "metal", brg: "metal", spring: "metal", lever: "metal", cable: "cable", scable: "cable", servo: "servo", bracket: "bracket",
-  lcd: "display", pcb: "pcb", comp: "comp", horn: "metal" };
+  lcd: "display", pcb: "pcb", comp: "comp", horn: "metal", screws: "metal", dowels: "metal" };
 
 const cad = new THREE.Group(); cad.rotation.x = -Math.PI / 2; scene.add(cad);
 let V = null, meshes = {}, grp = null;
