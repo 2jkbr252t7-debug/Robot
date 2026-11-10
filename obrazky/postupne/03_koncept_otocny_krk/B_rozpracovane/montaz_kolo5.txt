@@ -1,0 +1,186 @@
+NOVA mini – variant B (servo náklonu v krku, priamy pohon) – montážny postup (kolo 5)
+Rozmery v mm. Súradnice: Z hore, predok −Y, pravá strana robota −X. Os pántu z = 16.5 (vysunutý krk).
+
+DIELY NA TLAČ (MSLA živica; steny ≥ 1.2, nosné ≥ 1.5). Živica tlačí otvory menšie – tesné uloženia sú v postupe
+  označené „skús nasucho / prevŕtaj“.
+  Čierna, odolná živica (typ Tough / ABS-like): krk_predna_polovica, krk_zadna_polovica, usko_kryt (−X),
+    usko_lozisko (+X, s puzdrom ložiska, zásterkami a 2 kolíkmi Ø2), golier_kotuc, golier_prstenec (z −2..4).
+  Biela: hlava_skrupina (aj s držiakom displeja). usi (2×) – farba podľa vzhľadu.
+  Číra + dymová: sklo (obe plochy okna vyleštiť). Číra: led_kruzky (2×).
+  STL polovíc krku sú v ZATVORENEJ polohe (predná y −10..0, zadná 0..10) – tlačia sa tak, ako sú.
+
+KUPOVANÉ (kusovník):
+  Mechanika
+  – servo MG90S, 1 ks (šírka puzdra 12.0–12.3, dolné uško 15.3–18.7 nad dnom puzdra – bod 1)
+  – ložisko MR85ZZ 5x8x2.5, 1 ks
+  – dutý čap Ø5/Ø3, dĺžka 5.7, 1 ks: a) kalená lineárna tyč Ø5 h6 – odrež 5.7, na sústruhu vyvŕtaj Ø3 (mäkké
+    jadro), zlapuj na 4.985–4.990; alebo b) presná nerezová rúrka 5.0 x 1.0 (OD ±0.01), zlapuj rovnako.
+    Vždy skús rukou s kúpeným MR85: posuvne, bez lisovania.
+  – oceľový kolík Ø2x6 (m6), 2 ks
+  – originálna 2-ramenná páka + skrutka M2 zo serva
+  Skrutky a vložky
+  – krk: M2x12, 3 ks + M2x14, 1 ks; hlava ISO 7045 (PH0) alebo ISO 14583 (T6), dk ≤ 4.0, k ≤ 1.6.
+    NIE DIN 912 – valcová hlava by trčala z krku a drela o golier.
+  – mosadzná vrúbkovaná vložka M2 na lepenie (OD 3.2 x 3), 8 ks (4 krk + 4 displej)
+  – hlava: M2x8 ISO 7380 (polguľatá hlava dk 3.5, imbus 1.3), 4 ks – závit si vyreže v pilotnom otvore Ø1.6;
+    osi susedných skrutiek sú len 4.0 od seba, preto NIE hlava Ø4 (ISO 7045)
+  – displej (voliteľne, bod 18e): M2x5 ISO 7045, 4 ks
+  Peny a pásky
+  – PORON (alebo EPDM s uzavretými pórmi) hr. 0.5, samolepiaci, 2 pásiky 19.1 x 7.6 (servo)
+  – Kapton páska hr. 0.1, 2 kúsky 19 x 7.5 (len ak je puzdro užšie ako 12.15 – bod 4)
+  – mäkká samolepiaca PU pena s uzavretými pórmi hr. 0.3 aj 0.4: 4 podložky 3 x 3 (príp. 2 x 2 – bod 18)
+  – prenosová lepiaca páska bez nosiča 3M 300LSE: 93010LE (0.10), podľa merania 93015LE (0.15) alebo 93020LE
+    (0.20) – bod 18a; kúsok ~110 x 80 na rámik
+  – 4 pásiky fólie hr. 0.2 (10 x 40) – centrovanie goliera (po vytvrdnutí sa vyberú)
+  Elektro
+  – Waveshare ESP32-S3-Touch-LCD-3.5B, 1 ks
+  – vodič AWG30 PTFE, 4 ks po ~400 mm (krk–hlava; na dĺžku ho strihaj až po vedení – bod 18b)
+  – LED doska Ø21 (4× SK6805-1515), 2 ks + vodič AWG30, 3 ks po ~120 mm na každé ucho (5 V, GND, DIN)
+  Lepidlá a pomôcky
+  – 2-zložkový štrukturálny epoxid (napr. Loctite EA 3430, UHU Plus Endfest 300): vložky, kolíky, čap, ložisko,
+    golier, LED dosky (body epoxidu)
+  – číry epoxid alebo UV živica: svetlovodné krúžky a disky uší
+  – voliteľne Loctite 641 + aktivátor SF 7649 (MR85). Anaeróbne lepidlá (603/641) len kov–kov alebo
+    s aktivátorom – na živici samé nevytvrdnú.
+  – separačný vosk, izopropylalkohol (IPA), brúsny papier P400 / P600 / P1000 / P1500, vrták Ø2.0 a Ø2.05
+  – Plastigauge červený (0.05–0.15) + modrý (0.10–0.23), alebo hĺbkomer s rozlíšením 0.01
+  – magnetický bit PH0 a imbusový bit 1.3, oba s driekom ≤ Ø4, plastová páčka
+LEPENIE DO ŽIVICE: plochy zľahka zdrsni (P400), odmasti IPA, vložky lep epoxidom (NIE tepelne – v živici to nejde).
+
+1.  Servo – kontrola posuvkou (výšky merané od dna puzdra = veko oproti strane s hriadeľom):
+    a) šírka puzdra aj s nálepkou: 12.0–12.3 (zapíš si ju – bod 4). Ak je väčšia, odstráň nálepku, príp. puzdro
+       jemne prebrús.
+    b) HORNÉ úchytné uško (pri hriadeli) odstrihni/odbrús zarovno s puzdrom, bez výstupku (strop kapsy má vôľu 0.15).
+    c) DOLNÉ uško nechaj: jeho spodná plocha musí byť ≥ 15.3 a horná ≤ 18.7 nad dnom puzdra (bežne 15.5–18.0
+       alebo 15.9–18.4). Ak nie, uško zapíľ.
+    d) priechodka kábla (na čele puzdra pod dolným uškom): 0.35–4.3 nad dnom, šírka ≤ 4.3, presah ≤ 2.0; inak zapíľ.
+    e) výška puzdra 22.5–22.7, dĺžka ≤ 22.95. Druhý okrúhly výstupok na vrchnom veku (Ø5.6 x 1.2, stred 5.5–7.5
+       od osi hriadeľa) má v kapse vybranie Ø6.0 x 1.4 – ak je vyšší ako 1.3 alebo širší ako Ø5.8, zbrús ho.
+    f) servo nastav do stredovej polohy (1500 µs).
+2.  Páka: skráť originálnu 2-ramennú páku na 12 mm (špička–špička) a ramená zapíl ROVNOBEŽNE na šírku 5.0 (±0.05),
+    hrúbka 1.6.
+3.  Zadná polovica krku: 4 mosadzné vložky vlep epoxidom do otvorov Ø3.4 a zatlač ich AŽ NA OSADENIE (za ním je
+    len pilotný otvor Ø2.4). Tri otvory sú kolmé na deliacu rovinu, štvrtý (x = −14.2) je ŠIKMÝ (stúpa 28° dozadu)
+    – vložku zasúvaj v osi otvoru. Otvory pre kolíky v ZADNEJ polovici (Ø2.0; x −5 / z −13 a x 19 / z 3)
+    prevŕtaj vrtákom Ø2.0 a kolíky Ø2x6 do nich vlep epoxidom do polovice dĺžky. V PREDNEJ polovici sú otvory
+    Ø2.02 – kolíky v nich len vedú; ak nejdú voľne rukou, prevŕtaj Ø2.05. Epoxid z deliacej roviny zotri.
+4.  Penové pásiky (0.5 x 19.1 x 7.6) nalep do plytkých zahĺbení (hĺbka 0.3) na veľkých bočných stenách kapsy serva
+    v OBOCH polovičkách (zahĺbenie je pri spodnej hrane kapsy, na strane dolného uška). Ak je puzdro užšie ako
+    12.15, podlož každý pásik jednou vrstvou Kaptonu 0.1. Pena je tak stlačená o 25–44 % v celom rozsahu 12.0–12.3.
+5.  Dutý čap Ø5 / Ø3, dĺžka 5.7 – na JEDNOM konci (−X):
+    a) zbrús plôšku hĺbky 0.3 (vo výške +2.2 od osi) v dĺžke 1.6 (dovolené 1.5–1.7; lôžko má plôšku 1.5),
+    b) na opačnej strane ako plôška vypíl OTVORENÚ drážku od čela: šírka 1.8, dĺžka 2.5 (vodiče vchádzajú zdola),
+    c) oba konce vývrtu aj hrany drážky zraz 0.5×45° a odhrotuj (vodiče nesmú drieť o hranu),
+    d) nasuň ložisko MR85 – musí ísť na čap voľne rukou (posuvné uloženie, NElisovať). Ak ide ťažko, čap zľahka
+       prelapuj (P1000 + olej, čap otáčaj vo vŕtačke).
+6.  Vodiče hlavy (4× AWG30, ~400 mm, zatiaľ nestrihaj – bod 18b): koniec zasuň zdola do drážky čapu a vyveď
+    von cez +X koniec čapu, ~150 mm na strane hlavy. Zvyšok ostáva na strane krku (vedie sa dole popri čele serva
+    do trupu).
+7.  Predná polovica krku (deliacou rovinou hore): vlož servo – dolné uško do širokej drážky (vôľa ≥ 0.3 na každú
+    stranu, axiálne servo vystredí páka), priechodku kábla do kanála k spodku krku; čelo puzdra pod dolným uškom
+    dosadne na dno kapsy.
+    Lôžko čapu v ZADNEJ polovici (x 12.7..16.0) natri tenko separačným voskom. Lôžko čapu v PREDNEJ polovici (len
+    x 12.7..16.0, NIE puzdro ložiska) a čap potri tenko epoxidom a vlož čap: plôška hore, drážka dole, koniec
+    s drážkou k čelu serva (osadenie plôšky ho zastaví). Vodiče z drážky čapu veď dole do komory vedľa čela serva
+    (x 12.0..14.6) a ďalej k spodku krku. Epoxid z vývrtu, z +X konca čapu a z deliacej roviny zotri.
+    Lepiaca medzera je 0.05–0.06 na polomer – čap sa do lôžka vkladá voľne (nelisuje sa).
+8.  Prilož zadnú polovicu (kolíky), zaskrutkuj 3× M2x12 kolmo spredu (x −15 / z −10.5, x 5 / z −10.5,
+    x 17.8 / z −2.5) a 1× M2x14 ŠIKMO (x −14.2, ústie pri z ≈ 0.3, skrutkovač 28° nahor). Doťahuj postupne do kríža.
+    Hlavy sú 0.3–0.4 pod povrchom krku a pri vysunutom krku sú skryté v trupe.
+    Uloženie serva: v osi Y ho drží stlačená pena (bez vôle); čelo pod dolným uškom sedí na dne kapsy (doraz → hriadeľ je
+    presne v osi pántu), hore má vôľu 0.15 (tolerancia dĺžky puzdra). Nahor ho drží váha hlavy (~0.9 N), trenie
+    peny (≥ 2 N) a jej šmyková tuhosť (≥ 15 N/mm); v osi X sa servo vystredí pákou (vôľa 0.15 na čelách).
+    Kontrola: škára deliacej roviny je zavretá po celej výške (aj na valci kĺbu). Krk NElep (inak sa servo nedá
+    vymeniť). Po vytvrdnutí epoxidu (24 h) pokračuj.
+9.  Páka: servo nastav na 1500 µs. Páku nasuň cez otvor v −X čele krku na drážkovanie (náboj Ø7 prekryje celé
+    drážkovanie) v polohe NAJBLIŽŠIE ZVISLEJ – drážkovanie má 20 zubov, páka sa dá nasadiť len po 18°, odchýlka od
+    zvislej je teda ≤ ±9°. Dotiahni stredovou skrutkou M2. Kontrola výšky: zmeraj, o koľko čelo ramien páky
+    presahuje čelo prstenca na −X konci kĺbu: 1.1 (dovolené 0.8–1.5, t. j. 9.3–10.0 od vrchu puzdra). Pri > 1.5
+    zbrús čelo ramien aj náboja rovnomerne; pri < 0.8 páka nedosadla – nasaď ju znova. Testerom/firmvérom posuň
+    servo tak, aby ramená boli presne zvislo (≤ ±9°, cca ±100 µs) a túto hodnotu zapíš do firmvéru ako stred
+    náklonu (0°). V tejto polohe servo nechaj (nepootáčaj rukou) až po bod 15.
+10. Krk do trupu: krk (zatiaľ bez uší a hlavy) zasuň ZHORA cez výrez Ø57 v trupe do šachty 47 x 22 – dlhšou stranou
+    v osi X, páka (−X) na pravej strane robota. Vodiče hlavy a kábel serva veď dole do trupu. Spodok krku (z −16.5
+    pri vysunutí) pripoj k unášaču zdvihu zvnútra trupu cez jeho servisný otvor (mechanizmus zdvihu nie je súčasťou
+    modelu). Over celý zdvih 0 až −20: krk ide hladko, nikde neškrtá o šachtu (vôľa 1.0 na stranu).
+11. Golier: zdvih nastav do stredu (krk o 10 nižšie ako vysunutý). Kotúč goliera (golier_kotuc, drážka 45.5 x 20.5)
+    a potom prstenec (golier_prstenec) nasuň na krk zhora (krk aj s pákou prejde drážkou). Do medzery krk–drážka
+    zasuň na každej zo 4 strán pásik fólie 0.2 – fólie vycentrujú kotúč na krk. Epoxid nanes tenko len na dno
+    výrezu (z = −2) pod vonkajšiu časť kotúča (r > 24) a pod prstenec – NIE k drážke a ku krku. Kotúč a prstenec
+    polož na dno: horné plochy zarovno s vrchom trupu (z = 4), medzera prstenec–trup 0.25 dookola. Po vytvrdnutí
+    fólie vytiahni a over zdvih 0 až −20: žiadne trenie o kotúč (vôľa 0.25 dookola).
+12. Ložisko MR85 do +X ucha (usko_lozisko): najprv nasucho – do puzdra Ø8.08 musí ísť rukou (ak ide ťažko, puzdro
+    jemne prebrús P600). Potom ho vlep epoxidom (medzera 0.04 na polomer) alebo Loctite 641 + SF 7649 na živicu,
+    až na doraz o osadenie – z puzdra vyčnieva 0.5. Lepidlo len na vonkajší krúžok, nie do ložiska.
+    Pred bodom 13 nechaj vytvrdnúť (epoxid 24 h, 641 + SF 7649 ~1 h).
+13. Po vytvrdnutí goliera aj ložiska vysuň krk ÚPLNE (z = 0). Body 13–16 rob len vo vysunutej polohe (v strednej
+    polohe by uši narazili do kotúča goliera). Vodiče hlavy prevleč komorou ucha a kanálom Ø1.6 (dole x = 20.5,
+    v čape ucha x = 20.3) von hore cez vrch čapu ucha. Ohyb R 2.0 je celý v otočnej komore ucha – pri náklone
+    sa vodiče v osi čapu len skrúcajú (±40°). Nasuň +X ucho v smere −X (ložisko na čap, puzdro do vybrania kĺbu)
+    až na doraz vnútorného krúžku o nákružok v krku. Ložisko na čap NELEP (posuvné uloženie – kvôli servisu).
+14. −X kryt ucha (usko_kryt) nasuň v smere +X na ramená páky: ramená vojdú cez nábeh medzi 4 lisovacie rebrá
+    (0.1 na stranu po celej hrúbke ramien → prenos momentu bez vôle), prstenec na čele kĺbu vojde do drážky krytu.
+    Čap krytu musí stáť zvislo (ramená zvislo z bodu 9).
+15. Hlava (zatiaľ bez skla): vodiče prevleč cez +X drážku v podlahe hlavy, potom hlavu spusti ZVISLO na oba čapy uší
+    (čapy 4 x 16 vojdú do drážok v podlahe) a súčasne 2 kolíky Ø2 na koncoch zásteriek +X ucha do otvorov Ø2.2
+    v podlahe hlavy (3 lisovacie rebrá, posledné ~2 mm s miernym odporom). Kolíky NElep (hlava sa musí dať zvisle
+    zdvihnúť).
+16. Cez predný otvor hlavy zaskrutkuj 4× M2x8 ISO 7380 (imbus 1.3) v smere +Y (x = ±18.3 a ±22.3, 5.5 nad dnom
+    hlavy). Doťahuj citlivo – závit sa formuje v živici.
+17. Uši: LED dosky prilep bodmi epoxidu za disky uší, prispájkuj 3 vodiče (5 V, GND, DIN, ~120 mm) a veď ich k doske
+    displeja. Disky uší vlep do sediel, svetlovodné krúžky vlep čírym epoxidom alebo UV živicou do drážok diskov.
+18. Sklo a displej:
+    a) Lepiaca škára skla t (ešte BEZ displeja): Plastigauge polož na dno drážky v čele na 4 miestach (hore, dole,
+       vľavo, vpravo), sklo nasucho zatlač, kým príruba nedosadne na čelo okraja, vyber ho a odčítaj; alebo
+       hĺbkomerom zmeraj hĺbku drážky R (čelo okraja → dno drážky, menovite 1.0) a dĺžku čapu skla za prírubou L
+       (menovite 0.9), t = R − L (menovite 0.10). Priemer zo 4 miest: t 0.07–0.10 → páska 93010LE;
+       t 0.12–0.15 → 93015LE; t 0.17–0.20 → 93020LE. Ak je t medzi pásmami alebo < 0.07, zbrús zadnú plochu čapu
+       skla na sklenenej doske (P600 → P1500, potom vylešti) do najbližšieho pásma nad ním; t > 0.20 → sklo vytlač
+       znova. Páska je tak stlačená o 0–0.03 a príruba dosadne.
+    b) 4 vložky M2 vlep epoxidom do rohových podložiek (otvory Ø3.4 x 4). Vodiče hlavy skráť na dĺžku, pripoj ich
+       a dosku polož na podložky medzi vodiace rebrá.
+    c) Medzera pre penu (s konečným L z bodu a): hĺbkomerom od čela okraja škrupiny po sklo LCD = H, g = H − L
+       (menovite 0.2). Hrúbka peny: g 0.15–0.25 → 0.3; g 0.25–0.30 → 0.4; g < 0.15 → zbrús podložky o rozdiel;
+       g > 0.30 → dosku podlož na podložkách fóliou.
+    d) Tlaková skúška peny: kúsok 20 x 20 sa pod závažím ≤ 0.8 kg stlačí o tretinu (≤ 20 kPa) → 4 podložky 3 x 3;
+       ak treba 0.8–1.6 kg (≤ 40 kPa) → 4 podložky 2 x 2; tvrdšiu penu nepoužívaj. Podložky nalep na 4 rohy
+       čierneho okraja LCD, 0.6 od hrán (mimo aktívnej plochy). Prítlak na sklo je tak ≤ 0.72 N (displej ~0.5 N
+       drží na podložkách za doskou a na rebrách).
+    e) Voliteľne: ak sú rohové otvory dosky prístupné spredu (nie pod sklom LCD), priskrutkuj ju 4× M2x5.
+    Skrutky z bodu 16 ostávajú prístupné pod displejom (driek bitu Ø4 má k displeju vôľu 3.0).
+19. Sklo: z pásky vystrihni rámik podľa obrysu čapu skla (šírka 1.0–1.5) a nalep ho na zadnú plochu čapu po obvode
+    (lepí sa na dno drážky, ~200 mm²). Sklo vlož a pritlač (ruka ~50 N, 30 s); príruba dosadne na čelo okraja.
+    Podložky tlačia sklo von silou ≤ 0.72 N → páska je trvalo namáhaná ťahom ≤ 3.6 kPa (rovnomerne, bez odlupovania;
+    v kole 4 to bolo až 27 kPa). Sklo NElep epoxidom – inak sa hlava už nedá servisovať.
+20. Firmvér – stred náklonu = hodnota z bodu 9. Rampa zrýchlenia náklonu ≤ 100 rad/s² (40° najrýchlejšie za 0.2 s)
+    – šetrí rebrá krytu. Obmedz náklon podľa zasunutia krku (z = 0 vysunutý, −20 pokoj; vôľa ≥ 0.25 voči golieru
+    a trupu):
+      zasunutie (z krku)   0 až −1 | pod −1 až −4 | pod −4 až −7.5 | pod −7.5 až −10 | pod −10 až −12.5
+      náklon             ±40°   | −40°..+35°   | −40°..+30°     | −35°..+25°       | −25°..+20°
+      zasunutie (z krku)   pod −12.5 až −15 | pod −15 až −17.5 | pod −17.5 až −20 (pokoj)
+      náklon             ±15°             | ±2.5°            | 0° (náklon zakázaný)
+    PRAVIDLO (bez interpolácie): medzi dvoma bodmi tabuľky platí hodnota HLBŠIEHO (viac zasunutého) bodu.
+    Hlbšie ako −17.5 (až po −20) je povolený len náklon 0° – pred zasúvaním krku vráť hlavu na 0°.
+    (+ = predok hlavy dole.)  Overené aj medzi bodmi (checks.json, 4_tilt_allowed_vs_lift.rule_check_between_points).
+21. Kontrola: hlava sa voľne nakláňa ±40° a nemá vôľu (pena drží servo, páka v rebrách); krk sa zasúva do goliera
+    bez zadrhnutia (vôľa 0.25 dookola); v škárach kĺbu nie je vidieť páku, ložisko ani vodiče; displej nehrká;
+    príruba skla všade dosadá (škára ≤ 0.03).
+
+SERVIS (servo, páka):
+  1) Sklo opatrne vypáč plastovou páčkou (pri spätnej montáži novú pásku podľa bodu 18a a 19).
+  2) Odpoj vodiče hlavy od displeja (displej môže ostať v hlave).
+  3) Skrutky z bodu 16 úplne vyskrutkuj a vyber cez predný otvor pod displejom (magnetický imbusový bit 1.3, driek ≤ Ø4).
+  4) Hlavu zdvihni zvisle (kolíky zásteriek sa vysunú z otvorov).
+  5) Kryt ucha stiahni v −X (rebrá držia len trením), +X ucho stiahni v +X (ložisko je na čape posuvne).
+  6) Povoľ skrutku páky a páku stiahni.
+  7) V trupe odpoj kábel serva a vodiče hlavy a krk odpoj od unášača zdvihu (spoj krk–zdvih je prístupný zvnútra
+     trupu cez servisný otvor). Krk vytiahni hore z goliera.
+  8) Povoľ 4 skrutky krku (3× kolmá, 1× šikmá) a zadnú polovicu zdvihni kolmo na deliacu rovinu: kolíky idú s ňou
+     (sú v nej vlepené, v prednej polovici idú posuvne), čap ostáva prilepený v prednej polovici (zadné lôžko bolo
+     navoskované). Ak sa čap prilepil aj k zadnej polovici, polovice opatrne rozdeľ tenkou čepeľou pri čape, čap
+     vylep (zohrej na ~120 °C) a znova ho prilep podľa bodu 7.
+  9) Penové pásiky serva pri výmene vymeň (bod 4). Montáž späť od bodu 7.
+
+Pozn.: trup je ilustračný: výrez Ø57 do hĺbky z = −2 (kotúč aj prstenec goliera na ňom ležia), šachta pre krk
+  47 x 22 do z = −40, horný okraj trupu r = 29.8 → stena okolo výrezu 1.3 mm. Pod každým uchom končí bočná stena
+  krku skosením 35° (z ≈ 11.5) – hrana je tupá, nad ňou je vidieť čierny valec ucha (žiadny otvor).

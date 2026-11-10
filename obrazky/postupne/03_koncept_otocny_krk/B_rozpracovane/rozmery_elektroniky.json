@@ -1,0 +1,69 @@
+{
+  "_meta": {
+    "date": "2026-11-09", "units": "mm unless noted",
+    "status_codes": {"S": "stated by source", "D": "measured/read from a drawing", "E": "estimated / inferred", "U": "not found"},
+    "network_note": "Only web-search snippets + GitHub clone were reachable; waveshare.com, docs.waveshare.com, manuals.plus, PDFs were blocked (DNS/proxy). Official dimension drawings were NOT read directly.",
+    "sources": "see electronics_dims.md"
+  },
+  "display_ESP32-S3-Touch-LCD-3.5B": {
+    "variant_check": {
+      "3.5":  "SKU 30733; ST7796 (SPI) + FT6336 touch, QMI8658, PCF85063, TF, camera FPC, battery; NO audio codec [S]",
+      "3.5B": "SKU 31137; AXS15231B QSPI LCD + I2C touch, ESP32-S3R8 16MB/8MB, AXP2101 PMIC, ES8311 codec + mic + speaker header, QMI8658, PCF85063, TCA9554, TF, camera FPC, USB-C [S: GitHub README + schematic]",
+      "3.5B-C": "same board + enclosure + OV5640 camera [S]",
+      "3.5C": "no such Waveshare SKU found; '-C' suffix = case+camera version [U]"
+    },
+    "board_outline": {"L": 92.44, "W": 61.00, "status": "S (third-party copy of Waveshare drawing, manuals.plus B0FB2L8V8S, 'board only')",
+      "cross_check": "Waveshare standalone 3.5in cap-touch module 61.00 x 92.44 [S]; Cirkit Designer claims 85.5 x 55.5 [S, contradicts, low trust]"},
+    "pcb_thickness": {"value": 1.6, "status": "E (standard 4-layer; Elecrow 3.5in ESP32-S3 stackup lists PCB 1.60)"},
+    "lcd_touch_module": {"outline_LxW": [92.44, 61.0], "status": "E – glass seems flush with PCB outline (photo: black glass bezel covers whole front)",
+      "cover_glass_thickness": {"range": [0.7, 1.1], "status": "E (lcdwiki 3.5in ESP32-S3 lists TP 1.0)"},
+      "lcd_cell_thickness": {"range": [2.2, 3.2], "status": "E (Elecrow stack LCD 2.20 + glue 0.50; lcdwiki 3.2 D)"}},
+    "active_area": {"W": 48.96, "H": 73.44, "dot_pitch": 0.153, "status": "S for Waveshare 3.5in 320x480 module; E that 3.5B panel is identical (standard 3.5in 320x480 cell; JC3248W535/AXS15231B sheet says 49.0 x 73.4)",
+      "offset_from_outline": {"side_borders_W": "(61.00-48.96)/2 = 6.02 each [E, symmetric]", "end_borders_H": "total 92.44-73.44 = 19.0; split ~8-9 top / ~10-11 FPC end [E]", "status": "E"}},
+    "total_stack_thickness_glass_to_pcb_back": {"range": [5.0, 6.0], "status": "E (glass 0.7-1.1 + cell 2.2-3.2 + adhesive/FPC fold ~0.3-0.5 + PCB 1.6)"},
+    "overall_thickness_incl_components": {"range": [11.0, 12.5], "status": "E; 11.50 stated by a reseller for the non-B 3.5 board; Elecrow comparable board 10.0"},
+    "behind_pcb_components": {
+      "tallest": {"item": "PH1.25-2P battery & speaker headers / USB-C / FPC connectors", "height_range": [3.2, 5.5], "status": "E"},
+      "usb_c": {"type": "USB Type-C 16P, right-angle, edge-mounted [S schematic]", "edge": "U – which edge not confirmed; on the 3.5 (non-B) photos it is on a short edge", "height": 3.2, "status": "E"},
+      "battery_header": {"type": "PH1.25-2P (MX1.25) 3.7V Li-ion [S]", "height": [3.5, 4.0], "status": "E"},
+      "speaker_header": {"type": "PH1.25-2P [S]; kit speaker ~6 ohm 1 W for the related 3.5 board [S]", "status": "S/E"},
+      "sd_slot": {"type": "TF-07F push-push microSD [S schematic]", "height": [1.8, 2.0], "status": "E"},
+      "camera_fpc": {"type": "0.5 mm pitch 24-pin FPC (OV2640/OV5640) [S schematic]", "status": "S"},
+      "lcd_fpc": {"type": "0.5 mm pitch 40-pin flip-lock, 2.0 mm high [S schematic: '0.5-40pin 后翻盖式 2.0H']", "status": "S"},
+      "buttons": {"list": "BOOT, RST, PWR (AXP2101 PWRON) [S schematic]", "placement": "U (edge side-actuated tactile, likely)", "status": "S/U"},
+      "antenna": {"type": "onboard PCB/ceramic antenna + U.FL/IPEX footprint in schematic [S]", "keep_out": "keep >5 mm metal-free around antenna corner [E]", "status": "S/E"}
+    },
+    "mounting_holes": {"status": "U – count/position/diameter not found in any text source; must be read from Waveshare outline drawing or measured. Waveshare boards of this family typically use 4x Ø2.5 near corners under the glass (reachable only from back) [E]"},
+    "weight_g": {"board": [60, 70], "with_case_camera": 70, "status": "S (Cirkit 70 g board; reseller 0.07 kg for -C; package 82 g for the 3.5) – low trust"}
+  },
+  "servo_MG90S": {
+    "user_drawing_interpretation": {"22.4": "case length L [D]", "12": "case width W [D]", "31.8": "tab-to-tab length [D]", "27.7": "mounting hole spacing [D]",
+      "24": "height from case bottom to top of case/mounting-tab plane (dimension line ends at tab top) [D]",
+      "32": "height from case bottom to TOP OF FITTED HORN (line ends at horn top) [D]; not the spline top",
+      "note": "drawing is not to scale vertically (24 mm span measures ~22 mm at the horizontal scale); real case height per datasheets 22.7-22.8"},
+    "case_L": {"min": 22.2, "max": 22.8, "status": "S (TowerPro 22.8; datasheets 22.2/22.4/22.5)"},
+    "case_W": {"min": 11.8, "max": 12.4, "status": "S (TowerPro 12.2; 11.8-12.4 across clones)"},
+    "case_H_bottom_to_case_top": {"min": 22.7, "max": 24.0, "status": "S/D (22.7 SG90 brochure, 22.8 tinytronics sheet, 24 user drawing)"},
+    "H_to_spline_top": {"min": 28.4, "max": 29.0, "status": "S (TowerPro 28.5; HobbyComponents C=28.4; SG90 29)"},
+    "H_to_horn_top": {"min": 31.0, "max": 32.5, "status": "S/D (user drawing 32; HobbyComponents E=32.1; '22.5x12x35.5' listings include long horn)"},
+    "tab_to_tab_L": {"min": 31.8, "max": 32.5, "status": "S/D (31.8 drawing, 32.2 SG90, 32.5 HobbyComponents A)"},
+    "tab_thickness": {"min": 2.0, "max": 2.5, "status": "S (2.5 microservomotor.com) / E"},
+    "tab_top_height_above_bottom": {"min": 18.4, "max": 19.0, "status": "E (HobbyComponents F=18.5 interpreted as tab plane); tab underside 15.9-16.5 [E]"},
+    "hole_spacing": {"min": 27.5, "max": 28.0, "status": "D/E (27.7 drawing; 27.5-28 CAD models)"},
+    "hole_diameter": {"min": 2.0, "max": 2.2, "status": "S (2.0 for M2; SG90 brochure 2x Ø2.2)"},
+    "gear_boss": {"D": [11.8, 12.2], "H_above_case_top": [3.5, 4.2], "axis_from_near_case_end": [5.9, 6.5], "status": "E (boss diameter = case width; axis tangent to end)"},
+    "second_bump": {"D": [5.0, 6.5], "H": [2.5, 3.5], "centre_from_spline_axis": [8.5, 9.5], "status": "E"},
+    "spline": {"D": [4.8, 4.9], "teeth": "21T (some clones measured 20T Ø4.9; DSSERVO clone 25T)", "H_above_boss": [3.0, 3.5], "screw": "M2 (self-tapping; horn hole ~2.5)", "status": "S (spline table 4.80/21T) / E heights"},
+    "shaft_top_above_bottom": {"min": 28.4, "max": 29.0, "status": "S"},
+    "horn": {"hub_OD": [6.5, 7.5], "hub_H": [3.5, 4.5], "single_arm_tip_from_axis": [14, 18], "status": "E ('shoe height 4.0' in parametric horn table)"},
+    "cable": {"exit": "end face on the output-shaft end, lower third of case, centred in width; boot centre ~5-9 mm above bottom [D/E]", "boot_size": [4.5, 3.0, 2.5], "length_mm": [240, 250], "wires": "3x ~28-30 AWG, JR 3-pin female 2.54 mm", "status": "E/S"},
+    "weight_g": {"min": 12.2, "max": 14.0, "status": "S (Waveshare 15024: 12.2; TowerPro 13.4; clones 13-14)"},
+    "stall_torque_kgcm": {"4.8V": [1.8, 2.0], "6.0V": [2.2, 2.8], "status": "S (TowerPro 1.8/2.2; Waveshare 2.0/2.8; some 2.5)"},
+    "speed_s_per_60deg": {"4.8V": [0.10, 0.11], "6.0V": [0.08, 0.09], "status": "S"},
+    "variants": {"TowerPro": "22.8x12.2x28.5, 13.4 g, 1.8/2.2 kg.cm", "Waveshare WS-MG90S (15024)": "22.8x12.2x28.5, 12.2 g, 2.0/2.8 kg.cm, 0.11/0.09 s", "clones": "22.2-22.5 x 11.8-12.4; weights 13-14 g; spline 20/21/25T – measure before designing horn"}
+  },
+  "bearing_MR85ZZ": {"d": 5.0, "D": 8.0, "B": 2.5, "chamfer_min": 0.1, "balls": "9 x Ø0.8", "shields": "2 steel shields (ZZ/2Z), non-contact", "weight_g": 0.34, "Cr_N": [278, 305], "material": "chrome steel SAE52100 (SMR85ZZ = stainless)", "status": "S (NSK table, Misumi, Lily/SKDIN)"},
+  "led_SK6805_1515": {"part": "OPSCO SK6805-EC15 (NeoPixel 1515 = SK6805-E-J)", "L": 1.5, "W": 1.5, "H": [0.65, 0.7], "pins": 4, "pitch_note": "4-pad, pads ~0.6 mm", "V": "3.7-5.5", "status": "S footprint 1.5x1.5; H 0.65 (EC15 SlideShare sheet) / 0.7 (SK9814-EC15 sibling) – datasheet drawing not read",
+    "ring_board_note": "Ø21 ring: 8-12 LEDs at ~Ø16-17 pitch circle fit easily [E]"},
+  "wire_AWG30": {"silicone_OD": 0.8, "PTFE_OD": [0.61, 0.81], "PVC_1007_OD": 1.1, "conductor": "7/0.10 (0.05-0.06 mm2)", "status": "S (Adafruit, Electrokit, Alpha Wire 2841/7 0.61, 5851 0.81, RS PRO 0.81)"}
+}

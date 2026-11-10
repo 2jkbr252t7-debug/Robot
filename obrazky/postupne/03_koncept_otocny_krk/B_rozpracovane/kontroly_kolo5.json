@@ -1,0 +1,2951 @@
+{
+ "units": "mm / mm3",
+ "pose": "extended (head bottom z=27, hinge axis z=16.5) unless stated; rest = -20; neck halves CLOSED as built/exported (front y -10..0, back 0..10)",
+ "round": 5,
+ "reuse_note": "sections 2-4 come from the full round-5 run (checks_run_r5.log, 4568 s) of the same geometry; only the head cross-screw heads changed afterwards (ISO 7380 dk 3.5) and they take no part in 2-4",
+ "validity": {
+  "hlava_skrupina": [
+   [
+    true,
+    1
+   ]
+  ],
+  "sklo": [
+   [
+    true,
+    1
+   ]
+  ],
+  "usi": [
+   [
+    true,
+    2
+   ]
+  ],
+  "led_kruzky": [
+   [
+    true,
+    2
+   ]
+  ],
+  "led_dosky": [
+   [
+    true,
+    2
+   ]
+  ],
+  "displej": [
+   [
+    true,
+    1
+   ],
+   [
+    true,
+    1
+   ],
+   [
+    true,
+    1
+   ],
+   [
+    true,
+    4
+   ]
+  ],
+  "drziak_displeja": [
+   [
+    true,
+    4
+   ],
+   [
+    true,
+    4
+   ]
+  ],
+  "oci_len_vizualizacia": [
+   [
+    true,
+    2
+   ]
+  ],
+  "krk_predna_polovica": [
+   [
+    true,
+    1
+   ]
+  ],
+  "krk_zadna_polovica": [
+   [
+    true,
+    1
+   ]
+  ],
+  "usko_kryt": [
+   [
+    true,
+    1
+   ]
+  ],
+  "usko_lozisko": [
+   [
+    true,
+    1
+   ]
+  ],
+  "paka": [
+   [
+    true,
+    1
+   ]
+  ],
+  "servo_MG90S": [
+   [
+    true,
+    1
+   ]
+  ],
+  "pena_serva": [
+   [
+    true,
+    2
+   ]
+  ],
+  "loziska_MR85": [
+   [
+    true,
+    1
+   ],
+   [
+    true,
+    1
+   ]
+  ],
+  "capy": [
+   [
+    true,
+    1
+   ],
+   [
+    true,
+    2
+   ]
+  ],
+  "skrutky": [
+   [
+    true,
+    8
+   ],
+   [
+    true,
+    1
+   ],
+   [
+    true,
+    4
+   ],
+   [
+    true,
+    4
+   ]
+  ],
+  "kabel": [
+   [
+    true,
+    1
+   ],
+   [
+    true,
+    1
+   ],
+   [
+    true,
+    1
+   ]
+  ],
+  "golier_kotuc": [
+   [
+    true,
+    1
+   ]
+  ],
+  "golier_prstenec": [
+   [
+    true,
+    1
+   ]
+  ]
+ },
+ "1_overlaps_tilt0": {
+  "nonzero_pairs": {
+   "shell x lug_plus": "0.091 (R3: 3 crush ribs (0.05) per apron-peg hole grip the D2 pegs (friction hold, removable))",
+   "cap x horn": "0.177 (4 crush ribs 0.1 on the arm flanks (intended press, zero backlash))"
+  },
+  "worst_unintended_mm3": 0.0,
+  "n_parts": 29
+ },
+ "2_tilt_sweep": {
+  "min_clearance_per_angle": {
+   "-40": 0.2,
+   "-35": 0.2,
+   "-30": 0.2,
+   "-25": 0.2,
+   "-20": 0.2,
+   "-15": 0.2,
+   "-10": 0.2,
+   "-5": 0.2,
+   "0": 0.2,
+   "5": 0.2,
+   "10": 0.2,
+   "15": 0.2,
+   "20": 0.2,
+   "25": 0.2,
+   "30": 0.2,
+   "35": 0.2,
+   "40": 0.2
+  },
+  "min_per_pair_mm_at_deg": {
+   "shell-neck_front": [
+    0.499,
+    5
+   ],
+   "shell-neck_back": [
+    0.499,
+    -40
+   ],
+   "shell-servo": [
+    2.261,
+    -40
+   ],
+   "shell-pin": [
+    8.059,
+    40
+   ],
+   "shell-brg_inner": [
+    7.632,
+    40
+   ],
+   "shell-cable_neck": [
+    9.94,
+    -40
+   ],
+   "cap-neck_front": [
+    0.25,
+    -40
+   ],
+   "cap-neck_back": [
+    0.25,
+    -40
+   ],
+   "cap-servo": [
+    1.25,
+    -40
+   ],
+   "cap-neck_screws": [
+    2.2,
+    -40
+   ],
+   "lug_plus-neck_front": [
+    0.25,
+    30
+   ],
+   "lug_plus-neck_back": [
+    0.25,
+    -40
+   ],
+   "lug_plus-servo": [
+    2.221,
+    10
+   ],
+   "lug_plus-pin": [
+    0.705,
+    40
+   ],
+   "lug_plus-brg_inner": [
+    0.2,
+    40
+   ],
+   "lug_plus-neck_screws": [
+    7.411,
+    40
+   ],
+   "lug_plus-cable_neck": [
+    2.135,
+    -40
+   ],
+   "lug_plus-foam": [
+    7.11,
+    40
+   ],
+   "horn-neck_front": [
+    0.4,
+    35
+   ],
+   "horn-neck_back": [
+    0.4,
+    35
+   ],
+   "brg_outer-neck_front": [
+    0.2,
+    -5
+   ],
+   "brg_outer-neck_back": [
+    0.2,
+    10
+   ],
+   "brg_outer-pin": [
+    1.055,
+    40
+   ],
+   "brg_outer-cable_neck": [
+    1.635,
+    -40
+   ],
+   "cable_head-neck_front": [
+    2.135,
+    0
+   ],
+   "cable_head-neck_back": [
+    2.135,
+    -40
+   ],
+   "cable_head-pin": [
+    0.926,
+    40
+   ],
+   "cable_head-brg_inner": [
+    1.335,
+    -40
+   ],
+   "horn-neck_screws": [
+    3.75,
+    5
+   ],
+   "shell-neck_screws": [
+    14.928,
+    40
+   ],
+   "shell-foam": [
+    12.559,
+    40
+   ]
+  },
+  "overall_min": 0.2,
+  "skipped_pairs": {
+   "horn-servo": "horn is ON the spline (turns with the shaft)",
+   "brg_outer-brg_inner": "same bearing",
+   "cable_head-cable_neck": "same wire bundle, joint ON the hinge axis (pure twist)"
+  }
+ },
+ "3_retraction": {
+  "per_lift": {
+   "0": {
+    "min": 0.25,
+    "at": "neck_front-disc"
+   },
+   "-2.5": {
+    "min": 0.25,
+    "at": "neck_front-disc"
+   },
+   "-5": {
+    "min": 0.25,
+    "at": "neck_front-disc"
+   },
+   "-7.5": {
+    "min": 0.25,
+    "at": "neck_front-disc"
+   },
+   "-10": {
+    "min": 0.25,
+    "at": "neck_front-disc"
+   },
+   "-12.5": {
+    "min": 0.25,
+    "at": "neck_front-disc"
+   },
+   "-15": {
+    "min": 0.25,
+    "at": "neck_front-disc"
+   },
+   "-17.5": {
+    "min": 0.25,
+    "at": "neck_front-disc"
+   },
+   "-20": {
+    "min": 0.25,
+    "at": "cap-disc"
+   }
+  },
+  "head_to_torso_gap_at_rest": 3.096,
+  "head_to_disc_gap_at_rest": 3.0
+ },
+ "4_tilt_allowed_vs_lift": {
+  "max_tilt_deg_keeping_the_0p25_slot_clearance_vs_collar_and_torso": {
+   "0.0": {
+    "nod_down_+": 40,
+    "nod_up_-": 40
+   },
+   "-1.0": {
+    "nod_down_+": 40,
+    "nod_up_-": 40
+   },
+   "-2.0": {
+    "nod_down_+": 35,
+    "nod_up_-": 40
+   },
+   "-3.0": {
+    "nod_down_+": 35,
+    "nod_up_-": 40
+   },
+   "-4.0": {
+    "nod_down_+": 35,
+    "nod_up_-": 40
+   },
+   "-5.0": {
+    "nod_down_+": 30,
+    "nod_up_-": 40
+   },
+   "-7.5": {
+    "nod_down_+": 30,
+    "nod_up_-": 40
+   },
+   "-10.0": {
+    "nod_down_+": 25,
+    "nod_up_-": 35
+   },
+   "-12.5": {
+    "nod_down_+": 20,
+    "nod_up_-": 25
+   },
+   "-15.0": {
+    "nod_down_+": 15,
+    "nod_up_-": 15
+   },
+   "-17.5": {
+    "nod_down_+": 2.5,
+    "nod_up_-": 2.5
+   },
+   "-20.0": {
+    "nod_down_+": 0.0,
+    "nod_up_-": 0.0
+   }
+  },
+  "firmware": "R3 rule: between two listed lifts use the value of the MORE RETRACTED one (step, no interpolation); full +-40 only at full extension; below -17.5 (to rest -20) tilt 0",
+  "rule_check_between_points": {
+   "-0.5": {
+    "nod_down_+": {
+     "tilt": 40,
+     "min_clear": 99.0
+    },
+    "nod_up_-": {
+     "tilt": 40,
+     "min_clear": 99.0
+    }
+   },
+   "-1.5": {
+    "nod_down_+": {
+     "tilt": 35,
+     "min_clear": 1.75
+    },
+    "nod_up_-": {
+     "tilt": 40,
+     "min_clear": 1.75
+    }
+   },
+   "-2.5": {
+    "nod_down_+": {
+     "tilt": 35,
+     "min_clear": 1.01
+    },
+    "nod_up_-": {
+     "tilt": 40,
+     "min_clear": 1.01
+    }
+   },
+   "-3.5": {
+    "nod_down_+": {
+     "tilt": 35,
+     "min_clear": 0.462
+    },
+    "nod_up_-": {
+     "tilt": 40,
+     "min_clear": 0.462
+    }
+   },
+   "-4.5": {
+    "nod_down_+": {
+     "tilt": 30,
+     "min_clear": 0.25
+    },
+    "nod_up_-": {
+     "tilt": 40,
+     "min_clear": 0.25
+    }
+   },
+   "-6.25": {
+    "nod_down_+": {
+     "tilt": 30,
+     "min_clear": 0.25
+    },
+    "nod_up_-": {
+     "tilt": 40,
+     "min_clear": 0.25
+    }
+   },
+   "-8.75": {
+    "nod_down_+": {
+     "tilt": 25,
+     "min_clear": 0.25
+    },
+    "nod_up_-": {
+     "tilt": 35,
+     "min_clear": 0.25
+    }
+   },
+   "-11.25": {
+    "nod_down_+": {
+     "tilt": 20,
+     "min_clear": 0.25
+    },
+    "nod_up_-": {
+     "tilt": 25,
+     "min_clear": 0.25
+    }
+   },
+   "-13.75": {
+    "nod_down_+": {
+     "tilt": 15,
+     "min_clear": 0.25
+    },
+    "nod_up_-": {
+     "tilt": 15,
+     "min_clear": 0.25
+    }
+   },
+   "-16.25": {
+    "nod_down_+": {
+     "tilt": 2.5,
+     "min_clear": 0.25
+    },
+    "nod_up_-": {
+     "tilt": 2.5,
+     "min_clear": 0.25
+    }
+   },
+   "-17.6": {
+    "nod_down_+": {
+     "tilt": 0.0,
+     "min_clear": 0.25
+    },
+    "nod_up_-": {
+     "tilt": 0.0,
+     "min_clear": 0.25
+    }
+   },
+   "-18.75": {
+    "nod_down_+": {
+     "tilt": 0.0,
+     "min_clear": 0.25
+    },
+    "nod_up_-": {
+     "tilt": 0.0,
+     "min_clear": 0.25
+    }
+   },
+   "-19.5": {
+    "nod_down_+": {
+     "tilt": 0.0,
+     "min_clear": 0.25
+    },
+    "nod_up_-": {
+     "tilt": 0.0,
+     "min_clear": 0.25
+    }
+   }
+  },
+  "rule_min_clear": 0.25
+ },
+ "5_containment": {
+  "servo": {
+   "outside_mm3": 6.032,
+   "of_which_inside_hinge_gap_r_le_6_6": 6.032
+  },
+  "foam": {
+   "outside_mm3": 0.0,
+   "of_which_inside_hinge_gap_r_le_6_6": 0.0
+  },
+  "pin": {
+   "outside_mm3": 4.683,
+   "of_which_inside_hinge_gap_r_le_6_6": 4.683
+  },
+  "brg_inner": {
+   "outside_mm3": 3.24,
+   "of_which_inside_hinge_gap_r_le_6_6": 3.24
+  },
+  "brg_outer": {
+   "outside_mm3": 4.003,
+   "of_which_inside_hinge_gap_r_le_6_6": 4.003
+  },
+  "dowels": {
+   "outside_mm3": 0.0,
+   "of_which_inside_hinge_gap_r_le_6_6": 0.0
+  },
+  "neck_screws": {
+   "outside_mm3": 0.0,
+   "of_which_inside_hinge_gap_r_le_6_6": 0.0
+  },
+  "horn": {
+   "outside_mm3": 9.935,
+   "of_which_inside_hinge_gap_r_le_6_6": 9.935
+  },
+  "horn_screw": {
+   "outside_mm3": 0.754,
+   "of_which_inside_hinge_gap_r_le_6_6": 0.754
+  },
+  "cable_neck": {
+   "outside_mm3": 0.521,
+   "of_which_inside_hinge_gap_r_le_6_6": 0.521
+  },
+  "servo_lead": {
+   "outside_mm3": 0.0,
+   "of_which_inside_hinge_gap_r_le_6_6": 0.0
+  },
+  "lcd": {
+   "outside_head_mm3": 0.0
+  },
+  "pcb": {
+   "outside_head_mm3": 0.0
+  },
+  "comp": {
+   "outside_head_mm3": 0.0
+  },
+  "gasket": {
+   "outside_head_mm3": 0.0
+  },
+  "led_boards": {
+   "outside_head_mm3": 0.0
+  },
+  "cross_screws": {
+   "outside_head_mm3": 0.0
+  },
+  "disp_inserts": {
+   "outside_head_mm3": 0.0
+  },
+  "cable_head": {
+   "outside_head_mm3": 0.0
+  }
+ },
+ "6_walls": {
+  "note": "voids clipped off the hinge-mouth slabs 17.3<=|x|<=18.7 (r<=10.6); outside = neck exterior minus the bottom face zone (z<ZB+1.5) and the hinge-gap mouths r<=8.5 (counterbore / hub bore open there by design); screw counterbores + clearance holes are open to the front face by design (always inside the torso)",
+  "neck_void_to_outside": {
+   "case_pocket": 1.3,
+   "lead_channel": 7.8,
+   "head_chamber": 3.15,
+   "pin_seat": 2.5,
+   "counterbore": 1.3,
+   "insert_hole_0": 5.05,
+   "insert_hole_1": 5.05,
+   "insert_hole_2": 3.0,
+   "insert_hole_3": 1.85,
+   "dowel_hole_0": 6.85,
+   "dowel_hole_1": 1.99
+  },
+  "neck_void_to_void_lt4": {
+   "case_pocket-counterbore": 3.05,
+   "case_pocket-screw_cbore_2": 3.934,
+   "case_pocket-insert_hole_2": 3.765,
+   "case_pocket-screw_cbore_3": 2.3,
+   "case_pocket-screw_clear_3": 1.726,
+   "case_pocket-insert_hole_3": 1.2,
+   "lead_channel-screw_clear_1": 2.1,
+   "lead_channel-insert_hole_1": 1.6,
+   "lead_channel-insert_hole_2": 3.85,
+   "head_chamber-counterbore": 1.2,
+   "head_chamber-screw_clear_2": 2.0,
+   "head_chamber-insert_hole_2": 1.5,
+   "head_chamber-dowel_hole_1": 3.39,
+   "screw_clear_2-dowel_hole_1": 3.419,
+   "insert_hole_2-dowel_hole_1": 2.919
+  },
+  "merged_voids_by_design": [
+   "case_pocket+lead_channel",
+   "case_pocket+head_chamber",
+   "case_pocket+pin_seat",
+   "lead_channel+head_chamber",
+   "head_chamber+pin_seat",
+   "pin_seat+counterbore",
+   "screw_cbore_0+screw_clear_0",
+   "screw_clear_0+insert_hole_0",
+   "screw_cbore_1+screw_clear_1",
+   "screw_clear_1+insert_hole_1",
+   "screw_cbore_2+screw_clear_2",
+   "screw_clear_2+insert_hole_2",
+   "screw_cbore_3+screw_clear_3",
+   "screw_clear_3+insert_hole_3"
+  ],
+  "neck_min_wall": 1.2,
+  "lugs": {
+   "cap_voids_to_outer_surface": 1.2,
+   "lug_voids_to_outer_surface": 1.2,
+   "lug_wire_channel_in_tenon_min_wall": 1.2,
+   "lug_wire_channel_to_groove_holes": 1.532,
+   "lug_wire_channel_to_mr85_stop_shoulder": 1.2,
+   "lug_wire_channel_to_lug_outer_face": 1.2,
+   "cap_tenon_core_between_grooves": 2.4,
+   "lug_tenon_core_between_grooves": 2.4,
+   "lug_sleeve_wall_measured": {
+    "r_in": 4.04,
+    "r_out": 5.54,
+    "wall": 1.5
+   },
+   "knuckle_lip_ring_radial": 1.2,
+   "lip_section_area_front_half_mm2": 27.897,
+   "counterbore_wall_to_knuckle_surface": 4.1,
+   "head_chamber_to_counterbore": 1.2,
+   "knuckle_end_wall_minus_x_over_boss": 1.3
+  }
+ },
+ "7_assembly": {
+  "1_horn_pushed_on_spline_from_-X (vs neck halves)": {
+   "3.5": 0.0,
+   "2.0": 0.0,
+   "1.0": 0.0,
+   "0.0": 0.0
+  },
+  "2_plus_lug_with_MR85_slid_-X_over_pin (vs neck+pin)": {
+   "3.0": 0.0,
+   "2.0": 0.0,
+   "1.0": 0.0,
+   "0.5": 0.0,
+   "0.0": 0.0
+  },
+  "3_cap_slid_+X_over_horn_arms (vs neck incl. lip + servo + aprons)": {
+   "3.0": 0.0,
+   "2.0": 0.0,
+   "1.0": 0.0,
+   "0.5": 0.0,
+   "0.0": 0.0
+  },
+  "3b_cap_vs_horn_during_the_slide (only the 4 crush ribs touch the arms)": {
+   "3.0": 0.0,
+   "2.0": 0.0,
+   "1.0": 0.046,
+   "0.5": 0.111,
+   "0.0": 0.177
+  },
+  "4_head_lowered_vertically_onto_both_tenons (vs lugs+neck)": {
+   "12.0": 0.0,
+   "8.0": 0.0,
+   "4.0": 0.0,
+   "2.0": 0.0,
+   "1.0": 0.041,
+   "0.5": 0.066,
+   "0.0": 0.091
+  },
+  "4_note": "values at s<=2.1 include only the intended crush-rib contact on the 2 apron pegs (0.09 mm3 at s=0)",
+  "4b_same_without_the_pegs (must be 0)": {
+   "3.0": 0.0,
+   "2.5": 0.0,
+   "2.0": 0.0,
+   "1.0": 0.0,
+   "0.0": 0.0
+  },
+  "5_cross_screw_driver_path_through_front_opening (vs shell, before display/visor)": {
+   "x=-18.3": 0.0,
+   "x=-22.3": 0.0,
+   "x=+18.3": 0.0,
+   "x=+22.3": 0.0
+  },
+  "5b_driver_path_min_clearance_with_display_installed (service: only the visor comes off)": {
+   "x=-18.3": 3.0,
+   "x=-22.3": 3.0,
+   "x=+18.3": 3.0,
+   "x=+22.3": 3.0
+  },
+  "6_visor_seating": {
+   "flange_on_shell_front_face_gap": 0.0,
+   "spigot_tail_to_shell_gap_for_0p1_tape": 0.1,
+   "spigot_end_y": -27.1
+  }
+ },
+ "8_visibility": {
+  "head_floor_slot_cap_not_covered_by_web_mm3": 0.0,
+  "head_floor_slot_lug_plus_not_covered_by_web_mm3": 0.0,
+  "neck_surface_openings": [
+   {
+    "where": "hinge-gap end face (hidden by the lug, 0.5 gap)",
+    "x": [
+     -17.75,
+     -17.1
+    ],
+    "z": [
+     9.9,
+     20.5
+    ]
+   },
+   {
+    "where": "bottom",
+    "x": [
+     8.3,
+     12.25
+    ],
+    "z": [
+     -16.5,
+     -16.1
+    ]
+   },
+   {
+    "where": "bottom",
+    "x": [
+     12.0,
+     14.6
+    ],
+    "z": [
+     -16.5,
+     -16.1
+    ]
+   },
+   {
+    "where": "hinge-gap end face (hidden by the lug, 0.5 gap)",
+    "x": [
+     17.1,
+     17.75
+    ],
+    "z": [
+     10.6,
+     22.4
+    ]
+   },
+   {
+    "where": "front",
+    "x": [
+     -17.1,
+     -12.9
+    ],
+    "z": [
+     -12.6,
+     -8.4
+    ]
+   },
+   {
+    "where": "front",
+    "x": [
+     -16.2,
+     -13.8
+    ],
+    "z": [
+     -11.7,
+     -9.3
+    ]
+   },
+   {
+    "where": "front",
+    "x": [
+     2.9,
+     7.1
+    ],
+    "z": [
+     -12.6,
+     -8.4
+    ]
+   },
+   {
+    "where": "front",
+    "x": [
+     3.8,
+     6.2
+    ],
+    "z": [
+     -11.7,
+     -9.3
+    ]
+   },
+   {
+    "where": "front",
+    "x": [
+     15.7,
+     19.9
+    ],
+    "z": [
+     -4.6,
+     -0.4
+    ]
+   },
+   {
+    "where": "front",
+    "x": [
+     16.6,
+     19.0
+    ],
+    "z": [
+     -3.7,
+     -1.3
+    ]
+   },
+   {
+    "where": "front",
+    "x": [
+     -16.3,
+     -12.1
+    ],
+    "z": [
+     -2.078,
+     2.891
+    ]
+   }
+  ],
+  "neck_front_back_openings_max_z_extended": 2.891,
+  "collar_top_z": 4.0,
+  "front_back_openings_hidden_in_torso_when_extended": true,
+  "collar_slot_open_strips_at_rest": {
+   "count": 2,
+   "max_mean_width_mm": 0.8,
+   "note": "seams only: 0.25 slot clearance, 0.5 radial apron-knuckle gap, 0.5 lug-knuckle gaps"
+  },
+  "collar_slot_open_area_at_rest_mm2": {
+   "round0_c_hn4": 317.843,
+   "now": 103.626,
+   "slot_area": 930.121
+  },
+  "seam_zbuffer": {
+   "method": "orthographic z-buffer of all parts (0.05 mm/px, window |x|<=25 around the hinge), neck parting gap closed; internal = servo, horn, MR85, pins, screws, cables",
+   "views": [
+    "az0_el-30",
+    "az0_el-15",
+    "az0_el0",
+    "az0_el15",
+    "az0_el30",
+    "az0_el45",
+    "az0_el60",
+    "az180_el-30",
+    "az180_el-15",
+    "az180_el0",
+    "az180_el15",
+    "az180_el30",
+    "az180_el45",
+    "az180_el60",
+    "az-30_el0",
+    "az-30_el20",
+    "az-15_el0",
+    "az-15_el20",
+    "az15_el0",
+    "az15_el20",
+    "az30_el0",
+    "az30_el20",
+    "az150_el0",
+    "az150_el20",
+    "az165_el0",
+    "az165_el20",
+    "az195_el0",
+    "az195_el20",
+    "az210_el0",
+    "az210_el20"
+   ],
+   "result": {
+    "extended_tilt0": {
+     "worst_internal_pixels": 0,
+     "worst_area_mm2": 0.0,
+     "views_with_internal": {}
+    },
+    "extended_tilt+40": {
+     "worst_internal_pixels": 0,
+     "worst_area_mm2": 0.0,
+     "views_with_internal": {}
+    },
+    "extended_tilt-40": {
+     "worst_internal_pixels": 0,
+     "worst_area_mm2": 0.0,
+     "views_with_internal": {}
+    },
+    "rest": {
+     "worst_internal_pixels": 0,
+     "worst_area_mm2": 0.0,
+     "views_with_internal": {}
+    }
+   },
+   "round1_same_method_front_el0": {
+    "loziska_MR85": 1120,
+    "paka": 1120
+   }
+  }
+ },
+ "9_cable": {
+  "route": "neck bottom -> chamber x12.0..14.6 beside the servo end face -> up through the pin's -Z end slot 1.8 x 2.5 -> static bend R1.5 inside the pin bore D3 -> joint ON the axis x18.4 (only twists) -> rotating bend R1.8 inside the lug chamber x18.5..21.3 -> lug channel D1.6 x20.5 (tilted to x20.3 in the tenon) -> tenon top -> display",
+  "bundle_d": 1.33,
+  "static_bend_R": 1.5,
+  "rotating_bend_R": 2.0,
+  "rotating_bend_inner_R": 1.335,
+  "rotating_chamber_axial_room": 2.8,
+  "pin_bore_end_chamfer": "0.5 x 45 both ends",
+  "min_clear_rotating_cable_vs_static": {
+   "cable_head-neck_front": [
+    2.135,
+    0
+   ],
+   "cable_head-neck_back": [
+    2.135,
+    -40
+   ],
+   "cable_head-pin": [
+    0.926,
+    40
+   ],
+   "cable_head-brg_inner": [
+    1.335,
+    -40
+   ]
+  },
+  "min_clear_static_cable_vs_rotating": {
+   "shell-cable_neck": [
+    9.94,
+    -40
+   ],
+   "lug_plus-cable_neck": [
+    2.135,
+    -40
+   ],
+   "brg_outer-cable_neck": [
+    1.635,
+    -40
+   ]
+  },
+  "overlap_with_any_part_tilt0": {}
+ },
+ "10_servo_hold": {
+  "pocket_y_closed_as_built": 6.15,
+  "pocket_y_design_before_closing": 6.2,
+  "servo_overlap_with_closed_halves_mm3": 0.0,
+  "servo_min_clear_closed": 0.01,
+  "foam": {
+   "recess_depth": 0.3,
+   "free_t": 0.5,
+   "recess_floor_y_closed": 6.45,
+   "strip_x": [
+    -8.200000000000001,
+    10.9
+   ],
+   "strip_z": [
+    0.8,
+    8.4
+   ],
+   "area_mm2_per_side": 145.16,
+   "foam_vs_closed_halves_overlap": 0.0,
+   "foam_vs_servo_overlap": 0.0,
+   "est_preload_N_per_side_at_30pct": "~5-15 (PORON 4701-30/-40 CFD 30-100 kPa x 145 mm2)"
+  },
+  "case_width_spread": {
+   "12.0": {
+    "hard_wall_overlap_mm3": 0.0,
+    "foam_gap": 0.45,
+    "foam_compression_pct": 10.0
+   },
+   "12.1": {
+    "hard_wall_overlap_mm3": 0.0,
+    "foam_gap": 0.4,
+    "foam_compression_pct": 20.0
+   },
+   "12.2": {
+    "hard_wall_overlap_mm3": 0.0,
+    "foam_gap": 0.35,
+    "foam_compression_pct": 30.0
+   },
+   "12.3": {
+    "hard_wall_overlap_mm3": 0.0,
+    "foam_gap": 0.3,
+    "foam_compression_pct": 40.0
+   },
+   "12.4": {
+    "hard_wall_overlap_mm3": 34.644,
+    "foam_gap": 0.25,
+    "foam_compression_pct": 50.0
+   }
+  },
+  "servo_overlap_mm3_after_rocking_deg": {
+   "0.05": 0.0,
+   "0.1": 0.0,
+   "0.15": 0.103,
+   "0.2": 0.568,
+   "0.25": 1.325,
+   "0.3": 2.192,
+   "0.4": 4.117
+  },
+  "servo_hard_stop_rock_deg": "<= 0.15 (foam preload takes up the play below)",
+  "horn_rib_preload_overlap_mm3": 0.177,
+  "horn_rib_overlap_after_rotating_deg": {
+   "0.05": 0.179,
+   "0.1": 0.181
+  },
+  "horn_free_rock_deg": "0 (arms pressed between 4 crush ribs, 0.1 per flank)",
+  "round2": "pocket = case -> 51 mm3 interference with the halves closed (rejected); round1 +-1.15 deg"
+ },
+ "11_torso_rim": {
+  "top_face_ring_r": [
+   28.5,
+   29.8
+  ],
+  "rim_width_at_top": 1.3,
+  "min_wall_recess_to_outer_skin": 1.3,
+  "recess_r": 28.5,
+  "ring_od": 28.25,
+  "round1_rim": 0.1
+ },
+ "12_round3": {
+  "neck_clamp": {
+   "screws_z_where_they_cross_the_parting_plane": {
+    "M2x12 (-15.0, -10.5)": -10.5,
+    "M2x12 (5.0, -10.5)": -10.5,
+    "M2x12 (17.8, -2.5)": -2.5,
+    "M2x14 oblique x=-14.2": 5.617
+   },
+   "dowels": [
+    [
+     -5.0,
+     -13.0
+    ],
+    [
+     19.0,
+     3.0
+    ]
+   ],
+   "oblique_screw": {
+    "rise_deg": 28.0,
+    "face_mouth_z": [
+     -2.258,
+     2.652
+    ],
+    "mouth_hidden_below": 3.0,
+    "insert_y": [
+     1.23,
+     5.381
+    ]
+   },
+   "servo_clamp_interference_mm3": 0.0,
+   "pin_seat_interference_mm3": 0.0,
+   "foam_force_centroid_z": 4.6,
+   "note": "no interference left between the closed halves (only the foam preload pushes them apart, centroid z 4.6, between the screw lines z -10.5 .. 5.6)"
+  },
+  "pin_grip": {
+   "pin_od": 4.99,
+   "seat_d_closed": 5.1,
+   "coverage_by_x_0p2_slices": {
+    "12.6": 0.22,
+    "12.8": 0.881,
+    "13.0": 0.881,
+    "13.2": 0.881,
+    "13.4": 0.881,
+    "13.6": 0.881,
+    "13.8": 0.881,
+    "14.0": 0.881,
+    "14.2": 0.885,
+    "14.4": 0.9,
+    "14.6": 1.001,
+    "14.8": 1.001,
+    "15.0": 1.001,
+    "15.2": 1.001,
+    "15.4": 1.001,
+    "15.6": 1.001,
+    "15.8": 1.001,
+    "16.0": 0.0,
+    "16.2": 0.0,
+    "16.4": 0.0,
+    "16.6": 0.0,
+    "16.8": 0.0,
+    "17.0": 0.0,
+    "17.2": 0.0,
+    "17.4": 0.0,
+    "17.6": 0.0,
+    "17.8": 0.0,
+    "18.0": 0.0,
+    "18.2": 0.0,
+    "18.4": 0.0
+   },
+   "grip_len_cov_ge_0p85": 3.2,
+   "grip_x": [
+    12.8,
+    16.0
+   ],
+   "L_over_D": 0.641,
+   "mr85_load_centre_x": 17.25,
+   "bond": "epoxy (or Loctite 603 + SF 7649 activator), radial bond gap 0.05-0.06 (R5 corrected)",
+   "pin_vs_bearing": "OD 4.99 (-0.005) vs MR85 bore 5.000/-0.008 -> slip fit (min 0.002)",
+   "pin_lowered_into_front_half_minus_Y": {
+    "3.0": 0.0,
+    "1.0": 0.0,
+    "0.0": 0.0
+   }
+  },
+  "collar_ring": {
+   "ring_z": [
+    -2.0,
+    4.0
+   ],
+   "ring_r": [
+    26.75,
+    28.25
+   ],
+   "torso_support_under_ring_fraction": 1.0,
+   "ring_to_torso_overlap": 0.0,
+   "ring_to_disc_gap": 0.25,
+   "disc_z": [
+    -2.0,
+    4.0
+   ],
+   "ring_top_flush_with_disc_top": true
+  },
+  "apron_pegs": {
+   "peg": {
+    "x": -15.0,
+    "y_abs": 7.75,
+    "d": 2.0,
+    "h": 2.5
+   },
+   "hole_d": 2.2,
+   "peg_vs_shell_overlap": 0.091,
+   "peg_to_shell_min_gap": 0.0,
+   "apron_top_to_head_gap": "0.1 (not glued: the head must lift off vertically for service)",
+   "note": "apron = beam fixed at the +X lug and held near the -X tip by a D2 peg gripped by 3 crush ribs in the head floor (X/Y located, Z held by friction) -> no free cantilever"
+  }
+ },
+ "design_numbers": {
+  "servo_case_x": [
+   -9.9,
+   12.6
+  ],
+  "boss_x": [
+   -15.9,
+   -9.9
+  ],
+  "spline_x": [
+   -18.9,
+   -15.9
+  ],
+  "horn_hub_x": [
+   -19.5,
+   -16.2
+  ],
+  "horn_spline_engagement_mm": 2.7,
+  "horn_arms_x": [
+   -19.5,
+   -17.9
+  ],
+  "arm_slot": "5.0 wide, bottom x -20.15 (R5 +0.5) + 4 crush ribs r0.35, 0.1 interference over x -18.25..-19.95 (lead-in from the mouth)",
+  "lower_tab_x": [
+   -5.4,
+   -2.9000000000000004
+  ],
+  "lower_tab_slot_x": [
+   -6.2,
+   -2.6
+  ],
+  "pocket_z": {
+   "floor_gap": 0.01,
+   "roof_gap": 0.15,
+   "datum": "floor"
+  },
+  "boss_bore_floor_x": -16.2,
+  "cap_head_bore_bottom_x": -21.3,
+  "upper_tab": "trimmed flush with the case",
+  "servo_pocket_y": "+-6.15 (closed, as built) + foam 0.5 in 0.3 recess",
+  "servo_bump": {
+   "r": 2.8,
+   "h": 1.2,
+   "centre_dist": 7.2
+  },
+  "bump_relief": {
+   "r": 3.0,
+   "depth": 1.4,
+   "centre_dist": [
+    5.5,
+    7.5
+   ]
+  },
+  "oblique_screw": [
+   -14.2,
+   0.3,
+   28.0
+  ],
+  "apron_pegs": [
+   -15.0,
+   7.75,
+   1.0,
+   2.5,
+   1.1,
+   3.0
+  ],
+  "head_pad_abs_x": [
+   11.0,
+   27.5
+  ],
+  "knuckle_end_wall_minus_x": 1.3,
+  "mr85_x": [
+   16.0,
+   18.5
+  ],
+  "lug_sleeve": {
+   "x": [
+    16.5,
+    18.0
+   ],
+   "r": [
+    4.04,
+    5.54
+   ]
+  },
+  "counterbore": {
+   "x0": 15.8,
+   "r": 5.9
+  },
+  "inner_ring_stop_boss": {
+   "r": 3.1,
+   "x": [
+    15.8,
+    16.0
+   ]
+  },
+  "pin_x": [
+   12.8,
+   18.5
+  ],
+  "pin_glued_len": 3.2,
+  "pin_od": 4.99,
+  "pin_flat": {
+   "x": [
+    12.8,
+    14.4
+   ],
+   "len": 1.6,
+   "seat_flat_len": 1.5,
+   "depth": 0.3
+  },
+  "pin_end_slot": {
+   "width": 1.8,
+   "depth": 2.5
+  },
+  "lug_chamber_x": [
+   18.5,
+   21.3
+  ],
+  "lug_channel_x": {
+   "lower": 20.5,
+   "tenon": 20.3,
+   "tilt_z": [
+    21.5,
+    26.5
+   ]
+  },
+  "lip": [
+   6.8,
+   8.0,
+   -18.4
+  ],
+  "cap_groove": [
+   5.9,
+   8.4,
+   -18.8
+  ],
+  "servo_lead_channel": {
+   "x": [
+    8.3,
+    12.25
+   ],
+   "y": 2.25
+  },
+  "neck_screws": [
+   [
+    -15.0,
+    -10.5
+   ],
+   [
+    5.0,
+    -10.5
+   ],
+   [
+    17.8,
+    -2.5
+   ]
+  ],
+  "dowels": [
+   [
+    -5.0,
+    -13.0
+   ],
+   [
+    19.0,
+    3.0
+   ]
+  ],
+  "cross_screws": {
+   "axes_abs_x": [
+    18.3,
+    22.3
+   ],
+   "z": 32.5,
+   "y_from": -11.0,
+   "len": 8,
+   "head": "R5: ISO 7380 M2 dk 3.5 x k 1.1 (axes 4.0 apart -> 0.5 between heads; a dk 4.0 pan head would touch)"
+  },
+  "torque_path": "spline -> horn hub -> 2 arms pressed between crush ribs -> cap -> tenon 4x16 in head slot + 2 cross screws",
+  "visor": "transfer tape 0.10 / 0.15 / 0.20 chosen after measuring the bond-line gap (nominal 0.1, montaz 18e); display preload via 4 foam pads 3 x 3 (<= 0.72 N)",
+  "arm_contact_stress_MPa_at_0p2Nm": 5.208,
+  "rib_contact": "see 16_round5.3_horn_ribs (crushed rib flats 0.49 x 1.2-1.6 mm)"
+ },
+ "13_stl_watertight": {
+  "open_edges_after_weld_1em4": {
+   "CELOK_naklon40.stl": 993,
+   "CELOK_pokoj.stl": 1036,
+   "CELOK_vysunute.stl": 1036,
+   "capy.stl": 0,
+   "displej.stl": 0,
+   "drziak_displeja.stl": 0,
+   "golier_kotuc.stl": 0,
+   "golier_prstenec.stl": 0,
+   "hlava_skrupina.stl": 0,
+   "kabel.stl": 0,
+   "krk_predna_polovica.stl": 0,
+   "krk_zadna_polovica.stl": 0,
+   "led_dosky.stl": 0,
+   "led_kruzky.stl": 0,
+   "loziska_MR85.stl": 0,
+   "oci_len_vizualizacia.stl": 0,
+   "paka.stl": 0,
+   "pena_serva.stl": 0,
+   "servo_MG90S.stl": 0,
+   "sklo.stl": 0,
+   "skrutky.stl": 0,
+   "trup.stl": 0,
+   "usi.stl": 0,
+   "usko_kryt.stl": 0,
+   "usko_lozisko.stl": 0
+  },
+  "per_part_all_closed": true,
+  "note": "CELOK_* = concatenation of the closed per-part meshes; edges shared by touching parts (e.g. insert in its hole) are counted there, each part block itself is closed"
+ },
+ "14_round4": {
+  "1_mg90s_bump": {
+   "model": {
+    "r": 2.8,
+    "h": 1.2,
+    "centre_dist": 7.2,
+    "x": [
+     -11.1,
+     -9.9
+    ],
+    "side": "-Z (toward the case far end)"
+   },
+   "relief": {
+    "r": 3.0,
+    "depth": 1.4,
+    "centre_dist_range": [
+     5.5,
+     7.5
+    ]
+   },
+   "servo_with_bump_vs_closed_halves_mm3": 0.0,
+   "servo_min_clear": 0.01,
+   "sweep_bump_position_height": {
+    "dist5.5_h1.2": {
+     "overlap_closed_halves": 0.0,
+     "min_clear": 0.15
+    },
+    "dist5.5_h1.3": {
+     "overlap_closed_halves": 0.0,
+     "min_clear": 0.1
+    },
+    "dist6.0_h1.2": {
+     "overlap_closed_halves": 0.0,
+     "min_clear": 0.15
+    },
+    "dist6.0_h1.3": {
+     "overlap_closed_halves": 0.0,
+     "min_clear": 0.1
+    },
+    "dist6.5_h1.2": {
+     "overlap_closed_halves": 0.0,
+     "min_clear": 0.15
+    },
+    "dist6.5_h1.3": {
+     "overlap_closed_halves": 0.0,
+     "min_clear": 0.1
+    },
+    "dist7.0_h1.2": {
+     "overlap_closed_halves": 0.0,
+     "min_clear": 0.15
+    },
+    "dist7.0_h1.3": {
+     "overlap_closed_halves": 0.0,
+     "min_clear": 0.1
+    },
+    "dist7.2_h1.2": {
+     "overlap_closed_halves": 0.0,
+     "min_clear": 0.15
+    },
+    "dist7.2_h1.3": {
+     "overlap_closed_halves": 0.0,
+     "min_clear": 0.1
+    },
+    "dist7.5_h1.2": {
+     "overlap_closed_halves": 0.0,
+     "min_clear": 0.15
+    },
+    "dist7.5_h1.3": {
+     "overlap_closed_halves": 0.0,
+     "min_clear": 0.1
+    }
+   },
+   "relief_walls": {
+    "to_oblique_insert_hole": 1.2,
+    "to_oblique_clearance_hole": 1.723,
+    "to_foam_recess": 3.571,
+    "to_neck_outer_surface": 6.45
+   },
+   "pocket_end_wall_axial_clear_to_case_top": 0.15
+  },
+  "2_saddle_land": {
+   "land_start": {
+    "y_abs": 8.645,
+    "z": 10.54,
+    "on_saddle_r": 10.5
+   },
+   "rise_deg": 35.0,
+   "face_top_z": 11.489,
+   "face_top_below_axis": 5.011,
+   "was_face_top_below_axis": 3.2,
+   "wall_at_face": 1.355,
+   "corner_angle_at_face_deg": 55.0,
+   "inner_corner_angle_deg": 159.583,
+   "note": "flat black under the lug barrel (black lug above) - no opening; seen from the front the lug barrel surface fills the 1.8 mm taller strip"
+  },
+  "3_lug_channel": {
+   "lower_x": 20.5,
+   "tenon_x": 20.3,
+   "tilt_z": [
+    21.5,
+    26.5
+   ],
+   "wall_to_mr85_stop_shoulder": 1.2,
+   "wall_to_lug_outer_face_x22p5": 1.2,
+   "tenon_walls": [
+    1.2,
+    1.2
+   ],
+   "rotating_bend_R": 2.0,
+   "head_slot_x_unchanged": [
+    18.2,
+    22.400000000000002
+   ]
+  },
+  "4_cap_slot_ends": {
+   "squared_region": "x -17.99..-18.8, |y|<=2.5, |dz|>=3.7, r<=5.95",
+   "squared_vs_cap_overlap": 0.0,
+   "rib_vs_squared_cut": 0.0
+  },
+  "5_display_preload": {
+   "gap_visor_to_lcd": 0.2,
+   "pcb_to_seats_gap": 0.0,
+   "gasket_frame_area_mm2": 36.0,
+   "tape_area_rabbet_floor_mm2": 198.635,
+   "flange_on_rim_contact_mm2": 163.776,
+   "cases": {
+    "foam_0.3": {
+     "compression_pct": 33.3,
+     "force_N_at_foam_10_20_35kPa": [
+      0.36,
+      0.72,
+      1.26
+     ],
+     "tape_stress_kPa": [
+      1.812,
+      3.625,
+      6.343
+     ]
+    },
+    "foam_0.4": {
+     "compression_pct": 50.0,
+     "force_N_at_foam_10_20_35kPa": [
+      0.36,
+      0.72,
+      1.26
+     ],
+     "tape_stress_kPa": [
+      1.812,
+      3.625,
+      6.343
+     ]
+    }
+   },
+   "r5_note": "R5: the frame was replaced by 4 corner pads 3 x 3 (gasket() -> area above); see 16_round5.1",
+   "spec": "R4: frame 1.0 wide (outer edge of the LCD border), closed-cell PU foam (PORON type, soft grade), free 0.3 mm (gap 0.2 -> 33 %); 0.4 mm only if the measured gap is 0.25-0.3 (-> 33-38 %); foam must compress by >= 1/3 under <= 20 kPa (press test: 0.8 kg on a 20 x 20 mm piece) -> preload <= 5.5 N, display weight ~0.5 N",
+   "load_path": "foam -> visor -> 0.1 tape in uniform tension (flange bears on the rim)",
+   "tape": "R5: 93010LE / 93015LE / 93020LE chosen from the measured bond line (16_round5.1); the 30 kPa figure is the static-shear TEST load, not an allowable - R5 keeps the permanent tension <= 3.6 kPa"
+  },
+  "6_dowels_pin_service": {
+   "dowel_holes": {
+    "front_d": 2.02,
+    "back_d": 2.0
+   },
+   "dowels_vs_front_mm3": 0.0,
+   "dowels_vs_back_mm3": 0.0,
+   "pin_vs_front_mm3": 0.0,
+   "pin_vs_back_mm3": 0.0,
+   "pin_min_clear_to_back_half": 0.05,
+   "pin_spec": "R5: Ø5 h6 hardened linear shaft cut to 5.7, drilled Ø3 on a lathe (soft core), lapped to 4.985-4.990; or precision stainless tube 5.0 x 1.0 (OD +-0.01) lapped the same way; slip test with the actual MR85",
+   "bond": "epoxy on the FRONT-half seat only, back-half seat waxed (release) -> the back half lifts off with both dowels"
+  },
+  "7_model_consistency": {
+   "halves_closed": {
+    "front_y": [
+     -10.0,
+     0.0
+    ],
+    "back_y": [
+     -0.0,
+     10.0
+    ],
+    "gap": 0.0,
+    "overlap": 0.0
+   },
+   "all_neck_fasteners_vs_halves_mm3": {
+    "front": 0.0,
+    "back": 0.0
+   },
+   "spline": "20T -> horn indexes in 18 deg steps: use the spline position nearest vertical, trim the rest (<= +-9 deg) as the firmware centre offset"
+  }
+ },
+ "15_raycast_walls": {
+  "method": "per-part STL (rest pose, reported in the EXTENDED pose: z+20 for neck/head parts), 15000 area-weighted samples, ray along -normal, wall = first hit with opposite normal (dot < -0.7), rays > 3 mm ignored; head shell sampled only in the hinge/pad zone |x|<=32, |y|<=14, z HZ-1.5..HZ+12",
+  "parts": {
+   "krk_predna_polovica": {
+    "samples": 15000,
+    "min": 0.501,
+    "n_lt_1p2": 95,
+    "n_lt_1p0": 5,
+    "n_lt_0p6": 5,
+    "thin_spots": [
+     {
+      "t": 0.501,
+      "at": [
+       15.81,
+       -2.47,
+       17.13
+      ],
+      "n": [
+       -0.0,
+       0.97,
+       -0.25
+      ]
+     },
+     {
+      "t": 0.506,
+      "at": [
+       15.98,
+       -2.68,
+       17.96
+      ],
+      "n": [
+       0.0,
+       -0.88,
+       0.47
+      ]
+     },
+     {
+      "t": 0.522,
+      "at": [
+       15.93,
+       -1.39,
+       14.36
+      ],
+      "n": [
+       -0.0,
+       0.54,
+       0.84
+      ]
+     },
+     {
+      "t": 0.536,
+      "at": [
+       15.95,
+       -0.69,
+       18.95
+      ],
+      "n": [
+       -0.0,
+       0.27,
+       -0.96
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -18.4,
+       -7.97,
+       15.84
+      ],
+      "n": [
+       -0.0,
+       -1.0,
+       -0.1
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -18.39,
+       -5.78,
+       12.93
+      ],
+      "n": [
+       0.0,
+       0.85,
+       0.52
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -18.4,
+       -3.16,
+       22.52
+      ],
+      "n": [
+       0.0,
+       0.46,
+       -0.89
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -18.39,
+       -4.62,
+       21.49
+      ],
+      "n": [
+       0.0,
+       0.66,
+       -0.75
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -18.39,
+       -4.86,
+       10.15
+      ],
+      "n": [
+       -0.0,
+       -0.62,
+       -0.78
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -18.39,
+       -6.87,
+       20.59
+      ],
+      "n": [
+       -0.0,
+       -0.85,
+       0.52
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -18.33,
+       -0.55,
+       8.52
+      ],
+      "n": [
+       -0.0,
+       -0.07,
+       -1.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -18.16,
+       -0.22,
+       9.71
+      ],
+      "n": [
+       0.0,
+       0.02,
+       1.0
+      ]
+     }
+    ],
+    "n_lt_1p19": 5
+   },
+   "krk_zadna_polovica": {
+    "samples": 15000,
+    "min": 0.5,
+    "n_lt_1p2": 105,
+    "n_lt_1p0": 6,
+    "n_lt_0p6": 6,
+    "thin_spots": [
+     {
+      "t": 0.5,
+      "at": [
+       15.92,
+       3.04,
+       16.31
+      ],
+      "n": [
+       0.0,
+       1.0,
+       -0.05
+      ]
+     },
+     {
+      "t": 0.504,
+      "at": [
+       15.97,
+       2.78,
+       17.77
+      ],
+      "n": [
+       0.0,
+       0.9,
+       0.43
+      ]
+     },
+     {
+      "t": 0.535,
+      "at": [
+       15.91,
+       0.87,
+       19.46
+      ],
+      "n": [
+       0.0,
+       0.28,
+       0.96
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -18.39,
+       1.86,
+       9.96
+      ],
+      "n": [
+       0.0,
+       -0.27,
+       0.96
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -18.36,
+       0.48,
+       9.72
+      ],
+      "n": [
+       0.0,
+       -0.07,
+       1.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -18.31,
+       0.4,
+       23.29
+      ],
+      "n": [
+       0.0,
+       -0.07,
+       -1.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -18.28,
+       0.66,
+       8.53
+      ],
+      "n": [
+       -0.0,
+       0.07,
+       -1.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -17.5,
+       7.16,
+       20.07
+      ],
+      "n": [
+       0.0,
+       0.89,
+       0.45
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -18.03,
+       0.12,
+       24.5
+      ],
+      "n": [
+       0.0,
+       0.02,
+       1.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -17.77,
+       1.22,
+       8.59
+      ],
+      "n": [
+       0.0,
+       0.17,
+       -0.99
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -17.52,
+       4.28,
+       23.25
+      ],
+      "n": [
+       0.0,
+       0.53,
+       0.84
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -17.53,
+       2.08,
+       24.22
+      ],
+      "n": [
+       0.0,
+       0.27,
+       0.96
+      ]
+     }
+    ],
+    "n_lt_1p19": 6
+   },
+   "usko_kryt": {
+    "samples": 15000,
+    "min": 1.2,
+    "n_lt_1p2": 350,
+    "n_lt_1p0": 0,
+    "n_lt_0p6": 0,
+    "thin_spots": [
+     {
+      "t": 1.2,
+      "at": [
+       -22.5,
+       0.18,
+       17.8
+      ],
+      "n": [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -22.5,
+       0.16,
+       17.74
+      ],
+      "n": [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -22.5,
+       1.38,
+       14.67
+      ],
+      "n": [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -22.5,
+       -0.87,
+       18.45
+      ],
+      "n": [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -22.5,
+       1.56,
+       16.41
+      ],
+      "n": [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -21.3,
+       -1.65,
+       15.82
+      ],
+      "n": [
+       1.0,
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -21.3,
+       -0.61,
+       14.97
+      ],
+      "n": [
+       1.0,
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -22.5,
+       -1.28,
+       17.35
+      ],
+      "n": [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -21.3,
+       -2.04,
+       16.94
+      ],
+      "n": [
+       1.0,
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -21.3,
+       -0.19,
+       16.97
+      ],
+      "n": [
+       1.0,
+       0.0,
+       -0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -21.3,
+       -0.06,
+       14.53
+      ],
+      "n": [
+       1.0,
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       -21.3,
+       -1.2,
+       17.92
+      ],
+      "n": [
+       1.0,
+       0.0,
+       0.0
+      ]
+     }
+    ],
+    "n_lt_1p19": 0
+   },
+   "usko_lozisko": {
+    "samples": 15000,
+    "min": 1.2,
+    "n_lt_1p2": 352,
+    "n_lt_1p0": 0,
+    "n_lt_0p6": 0,
+    "thin_spots": [
+     {
+      "t": 1.2,
+      "at": [
+       22.5,
+       1.67,
+       18.95
+      ],
+      "n": [
+       1.0,
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       22.5,
+       -2.77,
+       15.31
+      ],
+      "n": [
+       1.0,
+       0.0,
+       -0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       22.5,
+       -1.92,
+       18.59
+      ],
+      "n": [
+       1.0,
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       22.5,
+       -0.5,
+       16.8
+      ],
+      "n": [
+       1.0,
+       0.0,
+       -0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       22.5,
+       -0.7,
+       18.96
+      ],
+      "n": [
+       1.0,
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       22.5,
+       -1.52,
+       15.29
+      ],
+      "n": [
+       1.0,
+       0.0,
+       -0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       22.5,
+       -0.71,
+       16.15
+      ],
+      "n": [
+       1.0,
+       0.0,
+       -0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       22.5,
+       -2.53,
+       17.24
+      ],
+      "n": [
+       1.0,
+       0.0,
+       -0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       22.5,
+       0.6,
+       19.64
+      ],
+      "n": [
+       1.0,
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       22.5,
+       -1.99,
+       16.85
+      ],
+      "n": [
+       1.0,
+       0.0,
+       -0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       21.3,
+       -0.65,
+       18.67
+      ],
+      "n": [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     },
+     {
+      "t": 1.2,
+      "at": [
+       21.3,
+       -1.79,
+       18.31
+      ],
+      "n": [
+       -1.0,
+       0.0,
+       0.0
+      ]
+     }
+    ],
+    "n_lt_1p19": 0
+   },
+   "golier_kotuc": {
+    "samples": 15000,
+    "min": 2.088,
+    "n_lt_1p2": 0,
+    "n_lt_1p0": 0,
+    "n_lt_0p6": 0,
+    "thin_spots": [],
+    "n_lt_1p19": 0
+   },
+   "golier_prstenec": {
+    "samples": 15000,
+    "min": 1.499,
+    "n_lt_1p2": 0,
+    "n_lt_1p0": 0,
+    "n_lt_0p6": 0,
+    "thin_spots": [],
+    "n_lt_1p19": 0
+   },
+   "hlava_skrupina": {
+    "samples": 15000,
+    "min": 1.802,
+    "n_lt_1p2": 0,
+    "n_lt_1p0": 0,
+    "n_lt_0p6": 0,
+    "thin_spots": [],
+    "n_lt_1p19": 0
+   }
+  },
+  "known_below_1p2": {
+   "krk_*_polovica x 15.8..16.0, r 2.55..3.1": "MR85 inner-ring stop step: a 0.2 mm high ring on the solid counterbore floor (its radial width 0.5 is measured, not a wall; it only carries the inner-ring axial contact, 9.8 mm2)",
+   "values 1.199x": "design walls of exactly 1.2 (tessellation)"
+  }
+ },
+ "16_round5": {
+  "1_visor_tape_major": {
+   "pads": {
+    "n": 4,
+    "size": 3.0,
+    "inset_from_lcd_edge": 0.6,
+    "area_mm2": 36.0,
+    "coverage": {
+     "visor_back_face": 1.0,
+     "lcd_front": 1.0
+    },
+    "pads_vs_shell_mm3": 0.0,
+    "inner_edge_abs_x": 39.4,
+    "active_area_half_x": 36.72,
+    "outside_active_area": true,
+    "r4_frame_area_mm2": 276
+   },
+   "tape_area_mm2": 198.635,
+   "preload": {
+    "10kPa": {
+     "force_N": 0.36,
+     "tape_kPa": 1.812
+    },
+    "20kPa": {
+     "force_N": 0.72,
+     "tape_kPa": 3.625
+    },
+    "40kPa": {
+     "force_N": 1.44,
+     "tape_kPa": 7.249
+    },
+    "pads_2x2_at_40kPa": {
+     "force_N": 0.64,
+     "tape_kPa": 3.222
+    }
+   },
+   "dead_load_guideline_kPa": 1.7,
+   "static_shear_test_kPa": 30,
+   "rule": "foam press test: 20 x 20 piece compressed by 1/3 under <= 0.8 kg (<= 20 kPa) -> pads 3 x 3; 0.8-1.6 kg (<= 40 kPa) -> pads 2 x 2; harder foam -> do not use",
+   "bond_line": {
+    "nominal_gap": 0.1,
+    "tolerance": "+-0.1 worst case (rabbet, spigot, warp)",
+    "rule": {
+     "t 0.07-0.10": "3M 93010LE (0.10)",
+     "t 0.12-0.15": "3M 93015LE (0.15)",
+     "t 0.17-0.20": "3M 93020LE (0.20)",
+     "t < 0.07 or between the bands": "sand the spigot back face (glass plate P600 -> P1500, re-polish) into the next band above",
+     "t > 0.20": "reprint the visor"
+    },
+    "tape_compression": "0-0.03 -> wet-out under the 50 N press, the flange still seats",
+    "measure": "Plastigauge red (0.051-0.152) / blue (0.102-0.229) at 4 points, or depth gauge R - L (0.01)"
+   }
+  },
+  "2_mg90s_range_major": {
+   "pocket": {
+    "tab_slot_x": [
+     -6.2,
+     -2.6
+    ],
+    "tab_slot_accepts_above_case_bottom": [
+     15.2,
+     18.8
+    ],
+    "lead_channel_x": [
+     8.3,
+     12.25
+    ],
+    "lead_channel_half_y": 2.25,
+    "boot_accepted_above_case_bottom": [
+     0.35,
+     4.3
+    ],
+    "case_end_walls_x": [
+     -10.05,
+     12.75
+    ],
+    "boss_bore_floor_x": -16.2
+   },
+   "variants_vs_closed_halves": {
+    "nominal (tab 15.5-18.0, model boot)": {
+     "free_axial_float_dx": [
+      -0.15,
+      0.15
+     ],
+     "fits": true,
+     "overlap_at_dx0_mm3": 0.0,
+     "min_clear_at_dx0.00": 0.01
+    },
+    "repo tab 15.9-18.4": {
+     "free_axial_float_dx": [
+      -0.15,
+      0.15
+     ],
+     "fits": true,
+     "overlap_at_dx0_mm3": 0.0,
+     "min_clear_at_dx0.00": 0.01
+    },
+    "tab 15.3-17.8 (range low end)": {
+     "free_axial_float_dx": [
+      -0.15,
+      0.1
+     ],
+     "fits": true,
+     "overlap_at_dx0_mm3": 0.0,
+     "min_clear_at_dx0.00": 0.01
+    },
+    "tab 16.2-18.7 (range high end)": {
+     "free_axial_float_dx": [
+      -0.1,
+      0.15
+     ],
+     "fits": true,
+     "overlap_at_dx0_mm3": 0.0,
+     "min_clear_at_dx0.00": 0.01
+    },
+    "repo boot 0.8-4.0 +-1.6 x1.6": {
+     "free_axial_float_dx": [
+      -0.15,
+      0.15
+     ],
+     "fits": true,
+     "overlap_at_dx0_mm3": 0.0,
+     "min_clear_at_dx0.00": 0.01
+    },
+    "max boot 0.4-4.25 +-2.15 x2.0": {
+     "free_axial_float_dx": [
+      -0.05,
+      0.05
+     ],
+     "fits": true,
+     "overlap_at_dx0_mm3": 0.0,
+     "min_clear_at_dx0.00": 0.01
+    },
+    "case height 22.7 (repo MS_H)": {
+     "free_axial_float_dx": [
+      -0.15,
+      -0.05
+     ],
+     "fits": true,
+     "overlap_at_dx0_mm3": 11.5312,
+     "min_clear_at_dx-0.10": 0.01
+    },
+    "worst stack: h22.7 + boss 6.2 + repo tab + repo boot": {
+     "free_axial_float_dx": [
+      -0.1,
+      -0.05
+     ],
+     "fits": true,
+     "overlap_at_dx0_mm3": 11.5312,
+     "min_clear_at_dx-0.05": 0.0
+    },
+    "width 12.3 + repo tab": {
+     "free_axial_float_dx": [
+      -0.15,
+      0.15
+     ],
+     "fits": true,
+     "overlap_at_dx0_mm3": 0.0,
+     "min_clear_at_dx0.00": 0.0
+    },
+    "width 12.0 + tab 15.3 + bump 5.5": {
+     "free_axial_float_dx": [
+      -0.15,
+      0.1
+     ],
+     "fits": true,
+     "overlap_at_dx0_mm3": 0.0,
+     "min_clear_at_dx0.00": 0.01
+    }
+   },
+   "all_variants_fit": true,
+   "insertion_into_front_half_along_minus_y_overlap_mm3": {
+    "nominal (tab 15.5-18.0, model boot)": {
+     "0.3": 0.0,
+     "1.0": 0.0,
+     "3.0": 0.0,
+     "6.5": 0.0
+    },
+    "repo tab 15.9-18.4": {
+     "0.3": 0.0,
+     "1.0": 0.0,
+     "3.0": 0.0,
+     "6.5": 0.0
+    },
+    "tab 16.2-18.7 (range high end)": {
+     "0.3": 0.0,
+     "1.0": 0.0,
+     "3.0": 0.0,
+     "6.5": 0.0
+    }
+   },
+   "walls": {
+    "lead_channel_to_insert_hole_x5": 1.6,
+    "lead_channel_to_screw_clear_x5": 2.1,
+    "lead_channel_to_head_chamber": "joined (same void, x 12.0-12.25) as in R4",
+    "tab_slot_to_dowel_hole_x_minus5": 6.59,
+    "tab_slot_to_neck_side_face": 3.8,
+    "tab_slot_to_pocket_floor_end": "open into the pocket"
+   },
+   "x_location": "axial (X) position is set ONLY by the case end walls (0.15) and the horn in the cap; the tab slot leaves >= 0.3 on both sides of the nominal tab -> no over-constraint"
+  },
+  "3_horn_ribs": {
+   "ribs": {
+    "r": 0.35,
+    "centre_abs_y": 2.75,
+    "centre_abs_dz": 3.5,
+    "interference": 0.1,
+    "x_leadin": [
+     -17.99,
+     -18.25
+    ],
+    "x_full": [
+     -18.25,
+     -19.95
+    ],
+    "crushed_chord": 0.49,
+    "r4_was": "r0.25 x 0.66 long (0.26 mm2)"
+   },
+   "rib_stress_at_shortest_contact_1p2": {
+    "0.021 N.m": {
+     "force_per_rib_N": 3.0,
+     "stress_MPa": 5.103
+    },
+    "0.072 N.m": {
+     "force_per_rib_N": 10.286,
+     "stress_MPa": 17.496
+    },
+    "0.19 N.m": {
+     "force_per_rib_N": 27.143,
+     "stress_MPa": 46.171
+    }
+   },
+   "torque_cases": "0.021 gravity at 0 deg / 0.072 gravity at +40 deg / 0.19 = +40 deg + fast move (reviewer: 193 g head, I ~6e-4 kg m2, 200 rad/s2)",
+   "horn_positions": {
+    "arm_top_below_case_top_10.0": {
+     "horn_dx": -0.4,
+     "cap_overlap_mm3_ribs_only": 0.209,
+     "rib_contact_lengths": [
+      1.6,
+      1.6,
+      1.6,
+      1.6
+     ],
+     "rib_contact_area_mm2_each": 0.784,
+     "arm_top_to_slot_bottom": 0.25,
+     "screw_head_to_bore_bottom": 0.2,
+     "screw_vs_cap_mm3": 0.0,
+     "arm_inner_face_to_knuckle_end": 0.8,
+     "vs_neck_over_tilt": {
+      "-40": {
+       "overlap_neck": 0.0,
+       "min_clear": 0.45
+      },
+      "-20": {
+       "overlap_neck": 0.0,
+       "min_clear": 0.45
+      },
+      "0": {
+       "overlap_neck": 0.0,
+       "min_clear": 0.45
+      },
+      "20": {
+       "overlap_neck": 0.0,
+       "min_clear": 0.45
+      },
+      "40": {
+       "overlap_neck": 0.0,
+       "min_clear": 0.45
+      }
+     }
+    },
+    "arm_top_below_case_top_9.6": {
+     "horn_dx": 0.0,
+     "cap_overlap_mm3_ribs_only": 0.1767,
+     "rib_contact_lengths": [
+      1.5,
+      1.5,
+      1.5,
+      1.5
+     ],
+     "rib_contact_area_mm2_each": 0.735,
+     "arm_top_to_slot_bottom": 0.65,
+     "screw_head_to_bore_bottom": 0.6,
+     "screw_vs_cap_mm3": 0.0,
+     "arm_inner_face_to_knuckle_end": 0.4,
+     "vs_neck_over_tilt": {
+      "-40": {
+       "overlap_neck": 0.0,
+       "min_clear": 0.4
+      },
+      "-20": {
+       "overlap_neck": 0.0,
+       "min_clear": 0.4
+      },
+      "0": {
+       "overlap_neck": 0.0,
+       "min_clear": 0.4
+      },
+      "20": {
+       "overlap_neck": 0.0,
+       "min_clear": 0.4
+      },
+      "40": {
+       "overlap_neck": 0.0,
+       "min_clear": 0.4
+      }
+     }
+    },
+    "arm_top_below_case_top_9.3": {
+     "horn_dx": 0.3,
+     "cap_overlap_mm3_ribs_only": 0.1373,
+     "rib_contact_lengths": [
+      1.2,
+      1.2,
+      1.2,
+      1.2
+     ],
+     "rib_contact_area_mm2_each": 0.588,
+     "arm_top_to_slot_bottom": 0.95,
+     "screw_head_to_bore_bottom": 0.9,
+     "screw_vs_cap_mm3": 0.0,
+     "arm_inner_face_to_knuckle_end": 0.1,
+     "vs_neck_over_tilt": {
+      "-40": {
+       "overlap_neck": 0.0,
+       "min_clear": 0.1
+      },
+      "-20": {
+       "overlap_neck": 0.0,
+       "min_clear": 0.1
+      },
+      "0": {
+       "overlap_neck": 0.0,
+       "min_clear": 0.1
+      },
+      "20": {
+       "overlap_neck": 0.0,
+       "min_clear": 0.1
+      },
+      "40": {
+       "overlap_neck": 0.0,
+       "min_clear": 0.1
+      }
+     }
+    }
+   },
+   "slot_bottom_x": -20.15,
+   "head_bore_bottom_x": -21.3,
+   "cap_outer_wall_at_head_bore": 1.2,
+   "boss": {
+    "boss_top_x": -15.9,
+    "bore_floor_x": -16.2,
+    "gap_nominal": 0.3,
+    "gap_case_at_minus_x_stop": 0.15,
+    "boss_plus_0p2_case_at_minus_x_stop": -0.05,
+    "end_wall": 1.3,
+    "note": "boss +0.2 AND case pulled fully to -X: the boss top touches the end wall 0.05 before the case top reaches its stop (a contact, the servo floats axially) - no interference"
+   }
+  },
+  "4_servo_z": {
+   "floor_gap_modelled": 0.01,
+   "roof_gap": 0.15,
+   "tab_end_gap": 0.15,
+   "overlap_after_dz_mm3": {
+    "-0.02": 1.9641,
+    "0.0": 0.0,
+    "0.14": 0.0,
+    "0.16": 3.2489
+   },
+   "hold": {
+    "CFD25_14kPa": {
+     "preload_N_per_side": 2.032,
+     "shear_stiffness_N_per_mm": 15.484,
+     "friction_N_mu0p5": 2.032
+    },
+    "CFD25_34kPa": {
+     "preload_N_per_side": 4.935,
+     "shear_stiffness_N_per_mm": 37.603,
+     "friction_N_mu0p5": 4.935
+    }
+   },
+   "gravity_N": "~0.9 (about half of the 1.9 N head weight via the lower arm tip)",
+   "note": "the case far end rests on the pocket floor (Z datum -> spline on the hinge axis); upward it is held elastically by the two Y foam strips in shear (>= 16 N/mm) and by their friction (>= 2 N) plus gravity; the 0.15 at the roof only absorbs case-length tolerance"
+  },
+  "5_fits_screws": {
+   "neck_screws": {
+    "head": "ISO 7045 (PH0) or ISO 14583 (T6) pan head, dk 4.0 / k 1.6 max - NOT DIN 912",
+    "modelled_head": [
+     4.0,
+     1.6
+    ],
+    "head_inset_below_closed_front_face": {
+     "x-15.0": 0.4,
+     "x5.0": 0.4,
+     "x17.8": 0.4,
+     "x-14.2": 0.297
+    },
+    "oblique_counterbore_bearing_face_s": 3.0,
+    "oblique_pilot_end_s": 17.726,
+    "oblique_screw_tip_s": 17.0,
+    "oblique_pilot_wall_to_outside": 2.35,
+    "screws_vs_front_mm3": 0.0,
+    "screws_vs_back_mm3": 0.0
+   },
+   "dowels": {
+    "front_hole_d": 2.02,
+    "back_hole_d": 2.0,
+    "vs_front_mm3": 0.0,
+    "vs_back_mm3": 0.0,
+    "fit": "back half: ream D2.0 (resin prints undersize), dowel bonded with epoxy; front: D2.02 slip"
+   },
+   "lug_sleeve": {
+    "bore_d": 8.08,
+    "mr85_od": 8.0,
+    "radial_epoxy_gap": 0.04,
+    "wall": 1.5,
+    "radial_clear_to_counterbore": 0.36,
+    "outer_ring_shoulder_x": 18.5,
+    "bearing_vs_lug_mm3": 0.0,
+    "fit": "dry-fit by hand first; ream / sand the bore if the ring does not slide in"
+   },
+   "pin_seat": {
+    "seat_r": 2.55,
+    "pin_r": [
+     2.494,
+     2.498
+    ],
+    "radial_glue_gap": [
+     0.052,
+     0.056
+    ],
+    "text": "0.05-0.06"
+   }
+  },
+  "6_foam_shim": {
+   "rule": "case width < 12.15 -> one layer of 0.1 Kapton under each foam strip",
+   "table": {
+    "12.0": {
+     "kapton_shim": 0.1,
+     "foam_gap": 0.35,
+     "compression_pct": 30.0
+    },
+    "12.05": {
+     "kapton_shim": 0.1,
+     "foam_gap": 0.325,
+     "compression_pct": 35.0
+    },
+    "12.1": {
+     "kapton_shim": 0.1,
+     "foam_gap": 0.3,
+     "compression_pct": 40.0
+    },
+    "12.14": {
+     "kapton_shim": 0.1,
+     "foam_gap": 0.28,
+     "compression_pct": 44.0
+    },
+    "12.15": {
+     "kapton_shim": 0.0,
+     "foam_gap": 0.375,
+     "compression_pct": 25.0
+    },
+    "12.2": {
+     "kapton_shim": 0.0,
+     "foam_gap": 0.35,
+     "compression_pct": 30.0
+    },
+    "12.3": {
+     "kapton_shim": 0.0,
+     "foam_gap": 0.3,
+     "compression_pct": 40.0
+    }
+   }
+  },
+  "7_shell_rim_raycast": {
+   "samples": 20000,
+   "min": 0.0,
+   "n_lt_1p2": 21,
+   "n_lt_1p0": 21,
+   "n_lt_0p6": 21,
+   "thin_spots": [
+    {
+     "t": 0.0,
+     "at": [
+      -50.98,
+      -27.0,
+      69.6
+     ],
+     "n": [
+      0.68,
+      0.73,
+      -0.0
+     ]
+    },
+    {
+     "t": 0.001,
+     "at": [
+      -50.98,
+      -27.0,
+      73.24
+     ],
+     "n": [
+      0.0,
+      -1.0,
+      0.0
+     ]
+    },
+    {
+     "t": 0.003,
+     "at": [
+      -50.99,
+      -27.0,
+      66.41
+     ],
+     "n": [
+      0.68,
+      0.73,
+      -0.0
+     ]
+    },
+    {
+     "t": 0.005,
+     "at": [
+      -51.01,
+      -27.0,
+      60.34
+     ],
+     "n": [
+      0.0,
+      -1.0,
+      0.0
+     ]
+    },
+    {
+     "t": 0.006,
+     "at": [
+      -51.0,
+      -27.0,
+      64.54
+     ],
+     "n": [
+      0.0,
+      -1.0,
+      0.0
+     ]
+    },
+    {
+     "t": 0.008,
+     "at": [
+      -50.99,
+      -26.99,
+      68.37
+     ],
+     "n": [
+      0.68,
+      0.73,
+      -0.0
+     ]
+    },
+    {
+     "t": 0.009,
+     "at": [
+      -50.98,
+      -27.0,
+      73.83
+     ],
+     "n": [
+      0.0,
+      -1.0,
+      0.0
+     ]
+    },
+    {
+     "t": 0.009,
+     "at": [
+      -50.99,
+      -26.99,
+      70.27
+     ],
+     "n": [
+      0.68,
+      0.73,
+      -0.0
+     ]
+    },
+    {
+     "t": 0.011,
+     "at": [
+      -51.01,
+      -27.0,
+      59.66
+     ],
+     "n": [
+      0.0,
+      -1.0,
+      0.0
+     ]
+    },
+    {
+     "t": 0.032,
+     "at": [
+      -51.02,
+      -26.98,
+      62.96
+     ],
+     "n": [
+      0.68,
+      0.73,
+      -0.0
+     ]
+    }
+   ],
+   "n_lt_0p5": 21,
+   "samples_in_former_ridge_zone": 340,
+   "min_in_former_ridge_zone": 1.675,
+   "left_side_hits_x_m51": {
+    "sections": {
+     "local_z33": {
+      "corner_deg": 81.926,
+      "rabbet_floor_ring_width": 0.646,
+      "cavity_wall_x_at_y_m27": -51.046
+     },
+     "local_z42": {
+      "corner_deg": 81.928,
+      "rabbet_floor_ring_width": 0.645,
+      "cavity_wall_x_at_y_m27": -51.059
+     },
+     "local_z45": {
+      "corner_deg": 81.924,
+      "rabbet_floor_ring_width": 0.646,
+      "cavity_wall_x_at_y_m27": -51.035
+     }
+    },
+    "verdict": "mesh artifact: a long sliver facet of the cavity loft spans the 0.1 step from the rabbet floor edge (y -27.0) to the side display-rib corner (y -26.9); the B-rep material corner is ~82 deg (sections above) with the rabbet ring + 2 mm of wall behind it - not a thin wall (same hits in the round-4 STL; common head)"
+   }
+  }
+ },
+ "time_s": 301.2
+}
