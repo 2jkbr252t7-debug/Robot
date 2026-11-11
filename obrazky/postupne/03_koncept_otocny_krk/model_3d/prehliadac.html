@@ -183,6 +183,7 @@ const M = {
   pcb:     () => new THREE.MeshStandardMaterial({ color: 0x1d3f8a, roughness: 0.5 }),
   comp:    () => new THREE.MeshStandardMaterial({ color: 0x8d949b, roughness: 0.5 }),
   cable:   () => new THREE.MeshStandardMaterial({ color: 0xa3261c, roughness: 0.7 }),
+  cable2:  () => new THREE.MeshStandardMaterial({ color: 0xd9730f, roughness: 0.7 }),
   brass:   () => new THREE.MeshStandardMaterial({ color: 0xc9a050, roughness: 0.3, metalness: 0.9 }),
   zone:    () => new THREE.MeshStandardMaterial({ color: 0xe08a2a, roughness: 0.6, transparent: true, opacity: 0.25, depthWrite: false }),
 };
@@ -193,7 +194,7 @@ const VAR = {
   a: { file: "nova_a.txt", AXZ: 0.0175, LIFT: 19, link: true, ZS: 0.0475, R_ARM: 0.0045, neck: "34 × 16 mm", servo: "v hlave",
        servoT: "za displejom, hlavou točí cez tiahlo", note: "Štíhly krk. Servo náklonu je v hlave za displejom, prichytené dvomi skrutkami v kolíske, a hlavu otáča cez páku a tiahlo v ľavom uchu." },
   b: { file: "NOVA_mini_B_servo_v_krku.glb", AXZ: 0.0165, LIFT: 20, link: false, neck: "45 × 20 mm", servo: "v krku",
-       servoT: "servo náklonu točí hlavou priamo", note: "Servo náklonu je zovreté medzi dvomi polovicami krku a hlavou točí priamo, bez tiahla. Jeho kábel ide hore cez kĺb do hlavy. Predný modul s displejom drží na magnetoch." },
+       servoT: "servo náklonu točí hlavou priamo", note: "Servo náklonu je zovreté medzi dvomi polovicami krku a hlavou točí priamo, bez tiahla. Jeho vodiče idú dole krkom do trupu (servo sa upraví). Predný modul s displejom drží na magnetoch." },
 };
 const EXTERIOR = ["hlava_skrupina", "ram_displeja", "displej_sklo", "usi", "led_kruzky", "usko_kryt", "usko_lozisko",
   "krk_predna_polovica", "krk_zadna_polovica", "golier_kotuc", "golier_prstenec", "trup"];
@@ -203,7 +204,7 @@ const MAT = { trup: "white", hlava_skrupina: "white", golier_prstenec: "satin", 
   magnety: "metal", magnety_skrupina: "metal", vlozky: "brass", skrutky_drziaka: "metal",
   usi: "satin", led_kruzky: "led", oci_len_vizualizacia: "eye", usko_kryt: "satin", usko_lozisko: "satin",
   krk_predna_polovica: "satin", krk_zadna_polovica: "satin", servo_MG90S: "servo", paka: "comp", klzny_kruzok: "comp",
-  capy: "metal", loziska_MR85: "metal", skrutky: "metal", kabel: "cable", kabel_serva: "satin", zatka_kabla: "satin",
+  capy: "metal", loziska_MR85: "metal", skrutky: "metal", kabel: "cable", kabel_serva: "cable2",
   led_dosky: "pcb", pena_serva: "comp" };
 
 const cad = new THREE.Group(); cad.rotation.x = -Math.PI / 2; scene.add(cad);

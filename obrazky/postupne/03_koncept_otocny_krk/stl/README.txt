@@ -14,7 +14,8 @@ Všetky diely sú v POKOJOVEJ polohe (krk zasunutý) a na správnom mieste – p
 Hlava 110 × 79 × 66 mm. Krk 45 × 20 mm z dvoch polovíc, zdvih 20 mm, náklon hlavy ±40° (len pri vysunutom krku).
 Servo MG90S leží v kapse medzi polovicami krku, os jeho hriadeľa je os kĺbu: páka serva sedí v drážke krytu
 pravého uška (−X) a točí hlavou priamo. Ľavé uško (+X) sa otáča na ložisku MR85 na dutom čape, ktorým idú
-4 vodiče do hlavy. Kábel serva ide hore cez drážku v kĺbe do hlavy a zapája sa do hlavičky displeja.
+4 vodiče do hlavy. Vodiče serva idú DOLE drážkou v prednej polovici krku do trupu (servo sa upraví –
+pôvodný kábel sa odspájkuje a nahradí 3 tenkými vodičmi, pozri montaz.txt, bod 1).
 Tvárou robota je sklo displeja v čiernom lesklom ráme; celý predný modul drží na 6 magnetoch.
 
 Priečinok B_servo_v_krku

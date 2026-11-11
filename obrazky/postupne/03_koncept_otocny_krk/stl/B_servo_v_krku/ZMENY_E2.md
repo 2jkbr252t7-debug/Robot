@@ -1,4 +1,4 @@
-# NOVA mini – variant B – ZMENY v revízii E2 oproti kolu 5
+# NOVA mini – variant B – ZMENY v revízii E2 oproti kolu 5 (+ E2f: kábel serva dole do trupu, pozri časť 10)
 
 Mechanizmus ostáva (výsuvný krk 20 mm, servo náklonu MG90S v krku s hriadeľom v osi pántu, MR85 + dutý čap,
 náklon ±40°). Mení sa všetko, čo nesedelo so SKUTOČNÝMI dielmi, a celý vonkajší povrch. Stav kola 5 je zmrazený
@@ -32,18 +32,19 @@ v `r5/`. Rozmery v mm.
   (plynulý prechod do boku). Prierezy majú body rovnomerne po dĺžke krivky, prierezy každých 1.2 mm → bez vlnenia.
   Dno hlavy pri pánte sa zdvihlo len o 0.0–0.6 mm.
 - Uši: kupolky (valec R13 + guľa R38, R1.5), svetlovodný krúžok v rovine kupoly, hrana otvoru v škrupine R0.8.
-- Mostík na kábel serva na podlahe (strana −X), vrch vo výške 9.1.
+- Mostík na kábel serva na podlahe (strana −X), vrch vo výške 9.1. *(E2f: zrušený – kábel serva do hlavy nejde.)*
 
 ## 4. Servo MG90S – podľa obrázka a fotiek od používateľa
 - Vežička = kľúčová dierka (nákružok r5.9 + lalok r2.9 vo vzdialenosti 5.6, rovnako vysoký) – kolo 5 malo len
   nízky výstupok 1.2.
 - Kábel vychádza z čela PRI HRIADELI (kolo 5 ho malo na opačnom konci) → ide HORE do hlavy, nie dole krkom.
+  *(E2f: nahradené – servo sa upravuje, vodiče idú cez veko DOLE do trupu, pozri časť 10.)*
 - Obe úchytné ušká sa odrežú zarovno → žiadna drážka uška v kapse.
 - Kapsa: doraz = vrch puzdra na stene −X, na strane +X je kapsa o 0.75 dlhšia s 2 penovými podložkami 1.0
   (prijme výšku puzdra 22.4–23.0). **Preč:** drážka uška, vybranie druhého výstupku, kanál kábla dole krkom.
 - Páka: kryt prijme vrch ramien 8.9–10.3 nad puzdrom bez úprav (otvorený vývrt Ø13.3 v čele kĺbu + dve líca krytu).
 
-## 5. Kábel serva do hlavy
+## 5. Kábel serva do hlavy *(E2 – v E2f ZRUŠENÉ, pozri časť 10)*
 - Drážka vo vrchu kĺbu (4.5 × 4.8, v deliacej rovine) + drážka v podlahe hlavy 4.5 × 27.4 (hlava sa okolo
   stojaceho kábla posúva o ±8.8), kábel v čiernom oplete, v hlave priviazaný na mostík 44 mm od kĺbu,
   zapojený do hlavičky displeja (5V, G, jeden GPIO).
@@ -62,7 +63,7 @@ v `r5/`. Rozmery v mm.
 - Vodiče hlavy: 4 × Ø0.85 – štrbina 1.6 × 4.0 v +X uchu, širšia komora pri serve; čap 13.4–18.5 (dĺžka 5.1).
 - Skrutky: M2×8 ISO 7380-1 (dk 3.8) do hlavy; štvrtá skrutka krku je šikmá M2×12 (bola M2×14).
 
-## 7. Čo pribudlo pri spojení krku a hlavy (integrácia)
+## 7. Čo pribudlo pri spojení krku a hlavy (integrácia) *(drážka v podlahe, klenba, zátka, trasa a mostík kábla serva – v E2f zrušené)*
 | zmena | prečo (namerané) |
 |---|---|
 | Drážka kábla v podlahe: koncové steny zvislé (±13.72) do výšky 3.0, až potom skos 40° | skos až po povrch tvoril na stúpajúcej zadnej podlahe novej hlavy ostrú hranu 38° (stena 0.01–1.0) |
@@ -85,6 +86,35 @@ v `r5/`. Rozmery v mm.
 ## 9. Známe odchýlky od zadania E2 (podrobne v checks.json → deviations_from_E2_spec)
 - montážna rovina displeja je na koncoch stĺpikov (11.5 za sklom), nie 7.5; hlavička 12.5;
 - lem okna 1.7 / R0.7; doska modelovaná 78.0 × 54.6; lišty hr. 3.0 so skrutkami M2×5;
-- drážka v podlahe ±13.72 (zadanie ±11.2) + klenba;
+- ~~drážka v podlahe ±13.72 (zadanie ±11.2) + klenba~~ – v E2f zrušené (podlaha hlavy je zatvorená);
 - uši pántu a krk R0.5 (zadanie R3 / R2 – zmenené na želanie používateľa), stojina ±8.25 (zadanie ±8.0);
 - lepená dĺžka čapu 2.6 (kolo 5: 3.2) – kapsa serva je o 0.75 dlhšia.
+
+## 10. E2f – kábel serva DOLE do trupu (voľba používateľa č. 1)
+**Prečo:** používateľ si z ponúknutých možností vybral možnosť 1 – vodiče serva viesť krkom DOLE do trupu namiesto
+hore do hlavy. Trasa hore potrebovala drážku vo vrchu kĺbu, drážku 4.5 × 27 v podlahe hlavy, klenbu nad ňou
+(natieranú načierno), penovú zátku, mostík so sťahovacou páskou, čierny oplet, často aj predlžovací kábel, pod hlavou
+bolo vidno oplet a hlavička displeja niesla prúd serva. Servo sa teraz zapája v trupe (riadiaca doska trupu dáva PWM
+50 Hz; displej jej posiela povely náklonu po 2 signálových vodičoch hlavy).
+
+**Čo sa zmenilo**
+| | E2 | E2f |
+|---|---|---|
+| servo MG90S | pôvodný kábel s priechodkou na čele pri hriadeli | **upravené**: kábel odspájkovaný, 3 × AWG30 silikón (Ø ≤ 0.8) prispájkované na plôšky, von **výrezom 2 × 2 v PREDNEJ dlhej hrane veka**, 12.4 od čela pôvodného kábla (10.4 od protiľahlého); otvor po kábli zalepený; bez výstupku priechodky |
+| trasa vodičov | kĺb → podlaha hlavy → klenba → mostík → hlavička displeja | výrez veka → +X do **drážky v PREDNEJ polovici krku** (x 13.15–14.55, y −6.70 až −3.70 v zatvorenom stave, do z = 11.6; pod dnom kapsy uzavretý tunel ~16 mm) → spodkom krku do trupu; pánt nikdy nekrížia, náklon ich neohýba (skupina N – idú len so zdvihom) |
+| krk | drážka kábla vo vrchu kĺbu + penová zátka | vrch kĺbu zatvorený; nová drážka vodičov serva oddelená od komory vodičov hlavy stenou 1.75 |
+| penové podložky v kapse (+X) | \|y\| 2.4–5.8 (3.4 × 12) | \|y\| 2.3–3.5 (1.2 × 12) – medzi komorou vodičov hlavy a drážkou vodičov serva |
+| hlava | drážka v podlahe, klenba, mostík kábla | **podlaha zatvorená**, bez klenby a mostíka |
+| zapojenie | servo na hlavičke displeja (5V / G / GPIO) | servo v trupe; hlavička displeja nesie len 4 vodiče hlavy a LED uší |
+| nákup | čierny oplet, sťahovacia páska, predlžovací servokábel, čierna zátka | 3 × AWG30 silikón ~300 mm (hnedý/červený/oranžový), bužírka, puzdrá Dupont 1×3, tester serv (odporúčaný), náhradné servo |
+
+**Úprava pri kontrolách (geometria):** drážka vodičov serva rozšírená z 2.45 (y −6.2 až −3.75) na **3.0** (y −6.75 až
+−3.75 v návrhu): 3 vodiče Ø0.8 vedľa seba potrebujú 2.4 + vôľu 0.3 po zmrštení tlače 0.15 na stenu (to isté pravidlo
+ako pri priechodoch vodičov hlavy). Šírka v X 1.4 = jeden rad + 0.3. Stena k prednej ploche krku 3.3, ku komore vodičov
+hlavy 1.75, k zahĺbeniu ložiska 1.23, k skrutke 1.70.
+
+**Kontroly (checks.py):** E10 je nanovo – vodiče serva sú v skupine N, od všetkých dielov hlavy (H) sú v pokoji,
+vysunuté aj pri náklone −40..+40 (krok 5) ≥ 0.5 (namerané 3.35 – k +X uchu), celé sú vo vnútri krku až po jeho spodok; drážka
+pojme 3 × Ø0.8 a jej steny sú ≥ 1.2 (vzdialenosti aj ray cast). E5 – servo bez výstupku priechodky sa zmestí v celom
+rozsahu rozmerov. E9 – žiadna výnimka pre kábel, nevidno nič vnútorné. Vypustené: drážka v podlahe / klenba / tuhý
+kábel (staré E10), steny drážky v kĺbe, trasa kábla v hlave (X2), mostík a klenba (X4), varianty výstupku (E5).

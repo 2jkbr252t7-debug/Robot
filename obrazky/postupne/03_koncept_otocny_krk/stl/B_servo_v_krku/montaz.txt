@@ -1,8 +1,9 @@
-NOVA mini – variant B (výsuvný krk, servo náklonu MG90S v krku, hlava s displejom 3.5") – MONTÁŽNY POSTUP, revízia E2
+NOVA mini – variant B (výsuvný krk, servo náklonu MG90S v krku, hlava s displejom 3.5") – MONTÁŽNY POSTUP, revízia E2f
 Rozmery v mm. Súradnice: Z hore, predok −Y, pravá strana robota −X (pri pohľade spredu je vľavo).
 Polohy na krku sú udané pre VYSUNUTÝ krk: os pántu z = 16.5, spodok hlavy z = 27, vrch trupu z = 4. Pokoj = o 20 nižšie.
 „Lokálne z“ v hlave = výška nad spodkom hlavy. Náklon +: predok hlavy dole.
-Čo sa oproti kolu 5 zmenilo, je v ZMENY_E2.md. Namerané kontroly modelu: checks.json (E1–E10).
+Čo sa oproti kolu 5 zmenilo, je v ZMENY_E2.md (E2f: kábel serva ide DOLE do trupu, nie do hlavy).
+Namerané kontroly modelu: checks.json (E1–E10).
 
 ═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
 A. ČO KÚPIŤ
@@ -11,13 +12,20 @@ Elektronika
   – Waveshare ESP32-S3-Touch-LCD-3.5B, HOLÁ DOSKA (bez krytu; NIE verzia 3.5B-C v plastovom kryte), 1 ks.
     Sklo 92.44 × 61.00 × 1.10 (rohy R6), aktívna plocha 73.44 × 48.96, 4 mosadzné stĺpiky M2 v rozostupe
     72.00 × 48.50, hlavička 2×16 (dutinková) pri spodnej hrane, USB-C na boku.
-  – servo MG90S (kovové prevody), 1 ks, s vlastnou 2-ramennou pákou a skrutkou páky z balenia. Kábel serva musí
-    mať od puzdra ≥ 170 mm (bežne 250; model potrebuje 150 mm po kolíky hlavičky); kratší predĺž servokáblom 100 mm.
+  – servo MG90S (kovové prevody), 1 ks + 1 NÁHRADNÉ (servo sa upravuje spájkovaním – bod 1g; pri chybe ho vymeníš),
+    s vlastnou 2-ramennou pákou a skrutkou páky z balenia. Pôvodný kábel serva sa NEPOUŽIJE (odspájkuje sa).
+  – tester serv (servo tester s potenciometrom, 5 V) – ODPORÚČAM: test po úprave serva a nastavenie stredu
+    (body 1g, 1h, 8)
   – LED doska Ø21 × 1.0 so 4× SK6805-EC15, 2 ks (uši)
   – vodiče: 4× ~400 mm pre hlavu (krk → hlava): 5 V a GND odporúčam AWG28 PTFE, 2 signály AWG30 silikón
     (všetky Ø ≤ 0.85 – priechody sú na 4 × Ø0.85); 2× 3 vodiče AWG30 po ~150 mm pre LED uší
-  – kolíky Dupont 2.54 „samec“ na krimpovanie ~12 ks + puzdrá 1×1 a 1×2 (hlavička displeja je dutinková);
-    zmršťovacia bužírka Ø1.5 a Ø3; voliteľne elektrolyt 470 µF / 10 V (medzi 5V a G pri hlavičke – špičky serva)
+  – vodiče serva: 3× AWG30 SILIKÓNOVÝ (Ø ≤ 0.8, veľmi ohybný) po ~300 mm – hnedý (GND), červený (+5 V),
+    oranžový (signál); idú zo serva drážkou v krku DOLE do trupu (drážka je na 3 × Ø0.8 vedľa seba)
+  – kolíky Dupont 2.54 „samec“ na krimpovanie ~10 ks + puzdrá 1×1 a 1×2 (hlavička displeja je dutinková);
+    pre servo puzdro Dupont 1×3 + kolíky „samica“: 3 sady (1 na test pred montážou, 1 po zatvorení krku, 1 na servis)
+  – zmršťovacia bužírka Ø1.5 a Ø3 (spoje vodičov, uzol 5 V, zväzok 3 vodičov serva pri konektore „SERVO“ –
+    bužírka nesmie byť v drážke krku)
+  – elektrolyt 470 µF / 10 V k napájaniu serva v TRUPE (špičky prúdu serva; navrhne sa s elektronikou trupu)
 Mechanika
   – ložisko MR85ZZ 5 × 8 × 2.5, 1 ks
   – dutý čap Ø4.99 / Ø3, dĺžka 5.1, 1 ks: kalená tyč Ø5 h6 skrátená na 5.1 a prevŕtaná Ø3, alebo presná nerezová
@@ -36,19 +44,19 @@ Skrutky a vložky (všetko M2)
   – skrutka páky: tá, čo je pribalená k servu
 Peny, pásky, drobnosti
   – PORON (alebo EPDM s uzavretými pórmi) hr. 0.5, samolepiaci: 2 pásiky 19.1 × 7.6 (boky serva)
-  – mäkká samolepiaca pena s uzavretými pórmi hr. 1.0: 2 podložky 3.4 × 12 (čelo kapsy serva na strane +X)
+  – mäkká samolepiaca pena s uzavretými pórmi hr. 1.0: 2 podložky 1.2 × 12 (čelo kapsy serva na strane +X)
   – mäkká samolepiaca pena s uzavretými pórmi hr. 0.5: pásik šírky 1.0, spolu ~310 mm (rámik pod sklo displeja)
-  – čierna pena s uzavretými pórmi hr. ~1.5: zátka 4.5 × 4.7 (drážka kábla v kĺbe; vyrež mierne väčšiu)
   – Kapton páska hr. 0.1: 2 kúsky 19 × 7.5 (len ak je puzdro serva užšie ako 12.15)
-  – čierny pletený oplet (PET) Ø3, 30 mm – na kábel serva v medzere kĺb/hlava
-  – sťahovacia páska 2.5 × 100, 1 ks (mostík kábla v hlave)
   – 4 pásiky fólie hr. 0.2 (10 × 40) – centrovanie goliera; prísavka Ø30–40 (vyberanie čelného modulu)
 Lepidlá, farby, pomôcky
-  – 2-zložkový epoxid (napr. Loctite EA 3430, UHU Plus Endfest 300): vložky, kolíky, čap, ložisko, magnety, golier
+  – 2-zložkový epoxid (napr. Loctite EA 3430, UHU Plus Endfest 300): vložky, kolíky, čap, ložisko, magnety, golier,
+    odľahčenie vodičov v servo (alebo tavné lepidlo); čierne lepidlo / epoxid na zaliatie prázdneho otvoru kábla serva
   – číry epoxid alebo UV živica (svetlovodné krúžky), separačný vosk, IPA, brúsny papier P400–P3000
-  – farby: biela 2K saténová (lesk 30–40 %), čierna 2K saténová (lesk 20 %), čierna 2K lesklá (≥ 85 GU),
-    čierna matná (vnútro klenby nad drážkou kábla)
-  – posuvka + hĺbkomer (0.01), vrták Ø2.0 a Ø2.05, bit PH0/T6 a imbus 1.3 s driekom ≤ Ø4, bočné kliešte, pilník
+  – farby: biela 2K saténová (lesk 30–40 %), čierna 2K saténová (lesk 20 %), čierna 2K lesklá (≥ 85 GU)
+  – posuvka + hĺbkomer (0.01), vrták Ø2.0 a Ø2.05, bit PH0/T6 a imbus 1.3 s driekom ≤ Ø4, bočné kliešte, pilník,
+    plochý ihlový pilník (šírka ≤ 2), mikroskrutkovač PH0 / PH00 (skrutky veka serva)
+  – spájkovačka s tenkým hrotom (≤ 1 mm, 300–330 °C), cín s tavidlom Ø0.5, tavidlo, odsávačka alebo knôt,
+    pinzeta, lupa; kúsok tenkého oceľového drôtu Ø0.5 × 60 (vodiaci drôt na pretiahnutie vodičov drážkou krku)
 LEPENIE DO ŽIVICE: plochy zdrsni (P400), odmasti IPA; vložky a magnety lep epoxidom (NIE teplom).
 
 ═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
@@ -56,7 +64,7 @@ B. ČO VYTLAČIŤ (MSLA živica; steny ≥ 1.2). STL v priečinku stl/ sú v pol
 ═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
   diel (STL)             ks  živica / farba / povrch                                   orientácia pri tlači
   hlava_skrupina          1  biela; P400→P1000, plnič, 2K saténová biela.               predným otvorom hore, náklon 20–30°;
-                             Vnútro klenby nad drážkou kábla + steny drážky: čierna mat.  podpery len zvnútra a na zadnej ploche
+                             (E2f: podlaha je zatvorená – bez drážky kábla a klenby)     podpery len zvnútra a na zadnej ploche
   ram_displeja            1  čierna NEPRIEHĽADNÁ; čelo P1000→P3000, 2K lesklá čierna.    čelom hore, náklon 20–25°; podpery len
                              Zadné plochy, čap a vrecká nestriekať (lícovanie).          zo zadnej strany (vrecko, stĺpiky)
   drziak_displeja         2  čierna, bez úpravy (2 lišty v jednom STL)                   naplocho, prednou plochou k platforme
@@ -88,10 +96,36 @@ C. MONTÁŽ
        (bežne 8.1–8.5), šírka laloka 5.2–6.2.
     f) os hriadeľa je 5.7–5.9 od BLIŽŠIEHO čela puzdra; od VZDIALENEJŠIEHO čela najviac 17.05. Ak je to viac
        (dĺžka 22.8 a os 5.7 od bližšieho čela dáva 17.1), zbrús vzdialenejšie čelo o rozdiel.
-    g) kábel vychádza z čela BLIŽŠIE k hriadeľu, dole pri dne puzdra: priechodka musí ležať 0.35–4.3 nad dnom
-       puzdra, šírka ≤ 4.4. Ak je širšia, zapíl ju.
-    h) servo nastav do stredu (1500 µs).
-    Mimo rozsahu b–e servo nepoužívaj (kapsa ho neprijme alebo by malo vôľu).
+    Mimo rozsahu b–f servo nepoužívaj (kapsa ho neprijme alebo by malo vôľu). Až vyhovujúce servo uprav (g).
+    g) ÚPRAVA SERVA – vodiče von cez VEKO (E2f: servo sa zapája v TRUPE, vodiče idú drážkou v krku DOLE, nie do hlavy).
+       POZOR: je to jemné spájkovanie na malej doštičke. Najprv si spájkovanie tenkých vodičov na malé plôšky
+       VYSKÚŠAJ na starej doske plošných spojov a maj pripravené NÁHRADNÉ servo – ak doštičku prehreješ alebo
+       odtrhneš plôšku, servo vymeň (úpravu zopakuj na náhradnom).
+       g1) Servo polož vrchom (hriadeľom) DOLE. Vyskrutkuj 4 skrutky veka (dno puzdra). Stredné puzdro a vrchný kryt
+           drž stále spolu pritlačené k stolu – inak sa uvoľnia prevody.
+       g2) Veko opatrne zdvihni. Doštička elektroniky je pod ním a drží na vývodoch motora a potenciometra – nevyťahuj ju
+           násilím, len ju trochu nadvihni, aby si videl na 3 plôšky kábla.
+       g3) Zapíš si (odfoť) farby vodičov na plôškach: hnedý = GND, červený = +5 V, oranžový = signál.
+       g4) Pôvodný kábel odspájkuj (cín z plôšok odsaj knôtom) a vytiahni ho von otvorom v čele puzdra.
+       g5) Do PREDNEJ dlhej hrany veka vypíl ihlovým pilníkom výrez 2 × 2 (2 pozdĺž hrany, 2 do veka od hrany).
+           STRED výrezu je 12.4 od čela, z ktorého vychádzal pôvodný kábel (= 10.4 od protiľahlého čela pri dĺžke 22.8).
+           PREDNÁ hrana: pri pohľade na veko s čelom, kde bol pôvodný kábel, HORE je to ĽAVÁ dlhá hrana (v krku je
+           potom dole v prednej polovici, oproti drážke vodičov). Hrany výrezu odhrotuj (vodiče sa nesmú prerezať).
+       g6) Nové vodiče AWG30 (hnedý, červený, oranžový, po ~300 mm) odizoluj na 1.5 mm, pocínuj a prispájkuj na plôšky
+           v PÔVODNÝCH farbách. Spoj krátko a rýchlo, bez prebytku cínu; nič nesmie trčať nad doštičku ani k susednej
+           plôške (skontroluj lupou, že nie je mostík cínu).
+       g7) Vodiče veď vo vnútri puzdra popri stene (nie cez ozubené kolesá, nie cez motor ani potenciometer) k výrezu
+           a von výrezom, všetky tri vedľa seba. Vo vnútri pri výreze ich prilep kvapkou epoxidu alebo tavného lepidla
+           (odľahčenie ťahu – za vonkajší koniec sa nesmie dať ťahať za spoje).
+       g8) Doštičku vráť na miesto, veko nasaď (vodiče nesmú byť nikde privreté – sú len vo výreze) a zaskrutkuj 4 skrutky.
+       g9) TEST: na konce vodičov dočasne nakrimpuj puzdro Dupont 1×3 „samica“ (poradie hnedý–červený–oranžový ako
+           pôvodný konektor) a pripoj tester serv (5 V). Servo musí plynulo prejsť celý rozsah oboma smermi, bez trhania;
+           v strede nesmie bzučať ani kmitať. Ak nie, skontroluj spoje (mostík cínu, studený spoj).
+       g10) Prázdny otvor po pôvodnom kábli v čele zalep kvapkou čierneho lepidla. Ak na čele ostal výstupok priechodky
+           kábla (časť puzdra alebo veka), zapíl ho ZAROVNO s čelom – kapsa nad týmto čelom má vôľu len 0.15 a drážku
+           pre kábel už nemá. Vonkajšie rozmery puzdra (b–d) sa úpravou nemenia.
+    h) servo nastav testerom do stredu (1500 µs). Dočasné puzdro Dupont 1×3 potom ODSTRIHNI tesne za kolíkmi –
+       tunel drážky v krku ho neprepustí (bod 6a); nové nakrimpuješ po zatvorení krku (bod 7).
 2.  PÁKA: originálnu 2-ramennú páku skráť na 12 mm (špička–špička) a boky ramien zapíl ROVNOBEŽNE na šírku 5.0 (±0.05);
     hrúbka ramien 1.6. Používaj vždy páku dodanú so servom (drážkovanie 21 zubov Ø4.8, klony 20 zubov Ø4.9).
 3.  POLOVICE KRKU:
@@ -105,9 +139,10 @@ C. MONTÁŽ
     d) Penové pásiky 0.5 × 19.1 × 7.6 nalep do plytkých zahĺbení (hĺbka 0.3) na veľkých bočných stenách kapsy serva
        v OBOCH polovičkách. Ak je puzdro užšie ako 12.15, podlož každý pásik jednou vrstvou Kaptonu 0.1.
        (Pena je potom stlačená o 25–44 % v celom rozsahu 12.0–12.3.)
-    e) Penové podložky 1.0 × 3.4 × 12 nalep na čelnú stenu kapsy na strane +X (stena oproti dnu serva), jednu do
-       každej polovice: 2.4–5.8 od deliacej roviny, 2.9–14.9 nad dnom kapsy (vedľa komory vodičov). Tlačia servo
-       vrchom puzdra na stenu −X (doraz): pri výške puzdra 22.4 / 22.5 / 23.0 sú stlačené o 10 / 20 / 70 %.
+    e) Penové podložky 1.0 × 1.2 × 12 nalep na čelnú stenu kapsy na strane +X (stena oproti dnu serva), jednu do
+       každej polovice: 2.3–3.5 od deliacej roviny, 2.9–14.9 nad dnom kapsy (v prednej polovici medzi komorou
+       vodičov hlavy a drážkou vodičov serva – do drážky nesmú zasahovať). Tlačia servo vrchom puzdra na stenu −X
+       (doraz): pri výške puzdra 22.4 / 22.5 / 23.0 sú stlačené o 10 / 20 / 70 %.
 4.  DUTÝ ČAP Ø4.99 / Ø3, dĺžka 5.1 – na JEDNOM konci (−X):
     a) zbrús plôšku hĺbky 0.3 (2.2 od osi) v dĺžke 1.6 (dovolené 1.5–1.7),
     b) na opačnej strane ako plôška vypíl OTVORENÚ drážku od čela: šírka 2.2, dĺžka 2.2 (vodiče vchádzajú zdola),
@@ -116,32 +151,39 @@ C. MONTÁŽ
 5.  VODIČE HLAVY (4 ks, ~400 mm, zatiaľ nestrihaj): koniec zasuň zdola do drážky čapu a vyveď von cez +X koniec
     čapu, ~200 mm na strane hlavy (vo vývrte Ø3 idú 2 × 2). Zvyšok ostáva na strane krku.
 6.  SERVO A ČAP DO PREDNEJ POLOVICE (deliacou rovinou hore):
-    a) Kábel serva: tri vodiče od priechodky na dĺžke 15 mm od seba oddeľ (ľahšie sa ohýbajú) a navleč čierny oplet
-       Ø3 × 30 mm až k priechodke.
-    b) Servo vlož do kapsy: hriadeľ smeruje do −X (k otvoru v čele kĺbu), čelo s káblom je HORE, priechodka kábla
-       zapadne do drážky vo vrchu kĺbu (x 8.0..12.5, v deliacej rovine) a kábel ide HORE von z kĺbu.
+    a) Vodiče serva: v PREDNEJ polovici je na konci kapsy pri strane +X (oproti veku serva, pri prednej stene) drážka
+       3.0 × 1.4 do výšky z = 11.6; pod dnom kapsy pokračuje ako uzavretý tunel dlhý ~16 mm a ústi v spodku krku
+       (x 13.2–14.6, y −6.7 až −3.7). Od komory vodičov hlavy ju delí stena 1.75 – nepomýľ si ich. Konce 3 vodičov
+       (bez konektora; pocínované a spolu zľahka stočené) prestrč z kapsy do drážky a tunelom von spodkom krku.
+       Ak nejdú, prestrč najprv zdola vodiaci drôt Ø0.5, konce vodičov k nemu prichyť páskou a vytiahni ich ním.
+    b) Servo vlož do kapsy: hriadeľ smeruje do −X (k otvoru v čele kĺbu), čelo, kde bol pôvodný kábel, je HORE, veko
+       je na strane +X a výrez vo veku DOLE (v prednej polovici, oproti drážke). Pri vkladaní vodiče zospodu zľahka
+       doťahuj: z výrezu idú priamo do drážky, ležia v nej VEDĽA SEBA v jednej rade a pokračujú dole von zo spodku krku.
+       Nesmú ostať medzi vekom a penovými podložkami ani vo vrchu kapsy.
        Vzdialenejšie čelo puzdra sedí na dne kapsy (doraz → hriadeľ je v osi pántu), vrch puzdra na stene −X.
     c) Lôžko čapu v ZADNEJ polovici natri tenko separačným voskom. Lôžko čapu v PREDNEJ polovici (x 13.4..16.0) a čap
        potri tenko epoxidom a vlož čap: plôška hore, drážka dole, koniec s drážkou k servu. Vodiče z drážky čapu veď
-       dole do komory vedľa dna serva (šírka 4.0 – štyri vodiče vedľa seba) a ďalej k spodku krku.
+       dole do komory vedľa dna serva (šírka 4.0 – štyri vodiče vedľa seba, pri deliacej rovine) a ďalej k spodku krku.
        Epoxid z vývrtu, z +X konca čapu a z deliacej roviny zotri. Lepená dĺžka čapu je len 2.6 – lep starostlivo.
 7.  ZATVORENIE KRKU: prilož zadnú polovicu (kolíky), zaskrutkuj 3× M2×12 kolmo spredu (x −15 / z −10.5,
     x 5 / z −10.5, x 17.8 / z −2.5) a 1× M2×12 ŠIKMO (x −14.2, ústie pri z ≈ −2.5, skrutkovač 28° nahor).
     Doťahuj postupne do kríža. Hlavy sú 0.35–0.45 pod povrchom a pri vysunutom krku sú skryté v trupe.
-    Kontrola: škára deliacej roviny je zavretá po celej výške (aj na valci kĺbu), kábel serva sa v drážke kĺbu
-    voľne hýbe hore–dole. Krk NElep (inak sa servo nedá vymeniť). Epoxid čapu nechaj vytvrdnúť 24 h.
-    Potom do drážky vo vrchu kĺbu zatlač okolo opletu čiernu penovú zátku 4.5 × 4.7 × ~1.5 (narezanú do stredu),
-    tesne pod povrch valca – zakrýva čelo serva pri naklonenej hlave.
+    Kontrola: škára deliacej roviny je zavretá po celej výške (aj na valci kĺbu); vodiče serva sa dajú zospodu
+    zľahka posúvať (nikde nie sú privreté). Krk NElep (inak sa servo nedá vymeniť). Epoxid čapu nechaj vytvrdnúť 24 h.
+    Potom na konce vodičov serva pod krkom nakrimpuj puzdro Dupont 1×3 „samica“ (hnedý–červený–oranžový ako pôvodný
+    konektor serva) a označ ho „SERVO“.
 8.  PÁKA NA SERVO: servo na 1500 µs. Páku nasuň cez otvor Ø13.3 v −X čele kĺbu na drážkovanie v polohe NAJBLIŽŠIE
     ZVISLEJ (dá sa nasadiť po 17–18°, odchýlka od zvislej teda ≤ ±9°) a dotiahni skrutkou páky.
     KONTROLA VÝŠKY hĺbkomerom: čelo ramien páky má presahovať čelo prstenca na −X konci kĺbu o 1.3
     (dovolené 0.6–2.0, t. j. vrch ramien 8.9–10.3 nad vrchom puzdra – kryt to prijme bez úprav).
       > 2.0: zbrús čelo ramien aj náboja rovnomerne na 1.3–2.0;
       < 0.6: páka nedosadla – nasaď ju znova; ak dosadá, podlož pod náboj podložku Ø5/Ø7 hr. 0.3–0.5.
-    Testerom posuň servo tak, aby ramená stáli presne zvislo (cca ±100 µs) a hodnotu zapíš do firmvéru ako stred
-    náklonu (0°). Servo v tejto polohe nechaj až po bod 13.
+    Testerom (na konektore vodičov serva pod krkom) posuň servo tak, aby ramená stáli presne zvislo (cca ±100 µs)
+    a hodnotu zapíš do firmvéru ako stred náklonu (0°). Servo v tejto polohe nechaj až po bod 13.
 9.  KRK DO TRUPU: krk (bez uší a hlavy) zasuň ZHORA cez výrez Ø56.7 v trupe do šachty 47 × 22 – dlhšou stranou v osi X,
-    páka (−X) na pravej strane robota. Vodiče hlavy veď dole do trupu (kábel serva ide HORE, do trupu nejde).
+    páka (−X) na pravej strane robota. Vodiče hlavy aj 3 vodiče serva (s konektorom „SERVO“) veď dole do trupu –
+    konektor prejde šachtou. Obom zväzkom nechaj v trupe voľnú slučku ≥ 30 mm (krk sa zdvíha o 20 mm) a veď ich
+    mimo mechanizmu zdvihu. Servo sa zapája v trupe (bod 19).
     Spodok krku pripoj k unášaču zdvihu zvnútra trupu (mechanizmus zdvihu nie je súčasťou modelu).
     Over celý zdvih 0 až −20: krk ide hladko, nikde neškrtá o šachtu (vôľa 1.0 na stranu).
 10. GOLIER: zdvih nastav do stredu (krk o 10 nižšie ako vysunutý). Kotúč (golier_kotuc, drážka 45.5 × 20.5, rohy
@@ -159,20 +201,17 @@ C. MONTÁŽ
     zachytený). Kryt nasuň v smere +X: ramená páky vojdú cez nábeh medzi 4 lisovacie rebrá (0.1 na stranu → prenos
     momentu bez vôle), dve líca krytu vojdú do otvoru kĺbu, prstenec kĺbu do drážky krytu. Čap krytu musí stáť zvislo.
     Škára kryt–kĺb 0.3; axiálna vôľa hlavy ≤ 0.05 (PTFE krúžok beží po čele prstenca).
-14. ŠKRUPINA HLAVY – príprava (pred nasadením):
-    a) vnútro klenby (tunela) nad drážkou kábla v podlahe a steny drážky natri čiernou matnou;
-    b) 6 magnetov vlep do vreciek v nákružkoch za predným otvorom – polaritu urči podľa bodu 18c;
-    c) LED dosky a uši podľa bodu 17 môžeš osadiť už teraz.
-15. HLAVA NA KRK: kábel serva (koniec s konektorom) prestrč zdola cez drážku 4.5 × 27 v podlahe hlavy do klenby
-    a vytiahni ho otvoreným koncom klenby (smerom k −X) do hlavy; 4 vodiče hlavy prevleč cez +X drážku čapu.
+14. ŠKRUPINA HLAVY – príprava (pred nasadením; E2f: podlaha hlavy je zatvorená, nič sa nenatiera):
+    a) 6 magnetov vlep do vreciek v nákružkoch za predným otvorom – polaritu urči podľa bodu 18c;
+    b) LED dosky a uši podľa bodu 17 môžeš osadiť už teraz.
+15. HLAVA NA KRK: 4 vodiče hlavy prevleč cez +X drážku čapu (kábel serva do hlavy NEJDE).
     Hlavu spusti ZVISLO na oba čapy uší (čapy 4 × 16 do drážok v podlahe, vôľa 0.1). Cez predný otvor hlavy
     zaskrutkuj 4× M2×8 ISO 7380-1 (imbus 1.3, driek bitu ≤ Ø4) v smere +Y: x = ±18.3 a ±22.3, 5.5 nad spodkom
     hlavy. Doťahuj citlivo – závit sa formuje v živici.
-16. KÁBEL SERVA V HLAVE: z klenby ho veď vodorovne smerom k −X ponad pätku −X ucha na mostík na podlahe
-    (x −37.5..−30.5) a pripevni sťahovacou páskou cez tunel mostíka – 44 mm od výstupu z kĺbu. Medzi kĺbom a mostíkom
-    nechaj kábel VOĽNÝ (nie napnutý, previs ~5 mm): modelová dĺžka kĺb → mostík je 51 mm. Rukou nakloň hlavu
-    ±40°: kábel sa nesmie napnúť ani drieť o drážku (vôľa v drážke ≥ 0.5) a o klenbu (vôľa 0.5 nad káblom).
-    Za mostíkom nechaj slučku ~95 mm ku konektoru (servisná rezerva – modul sa dá vytiahnuť ~60 mm).
+16. KONTROLA NÁKLONU A ZDVIHU (E2f: v hlave nie je kábel serva, mostík, klenba ani drážka v podlahe):
+    rukou POMALY nakloň hlavu ±40°: nič nedrie, vodiče hlavy sa nenapínajú; vodiče serva sa pri náklone vôbec
+    nehýbu (sú v krku pod pántom, ≥ 3.3 od všetkých otočných dielov). Over zdvih 0 až −20: slučky vodičov hlavy
+    aj serva v trupe sa nenapnú ani nezachytia.
 17. UŠI: LED dosky prilep bodmi epoxidu za disky uší, prispájkuj 3 vodiče (5 V, GND, DIN, ~150 mm). Disky uší vlep
     do sediel (škára 0.15 dookola), svetlovodné krúžky vlep čírym epoxidom / UV živicou do drážok – čelo krúžku je
     v rovine kupoly (nesmie vyčnievať).
@@ -182,7 +221,7 @@ C. MONTÁŽ
        (dovolené 11.3–11.7). Sklo musí voľne zapadnúť do vrecka rámu 92.84 × 61.40 (vôľa 0.2 dookola).
     c) MAGNETY A POLARITA: 6 magnetov vlep do vreciek Ø4.2 × 2.1 v zadnej ploche rámu, VŠETKY rovnakým pólom von;
        vonkajšiu plochu označ fixkou. Po vytvrdnutí prilož na každý z nich jeden magnet druhej sady (sám sa otočí
-       správne), označ jeho viditeľnú plochu a túto OZNAČENÚ plochu vlep DNU do vrecka v škrupine (bod 14b).
+       správne), označ jeho viditeľnú plochu a túto OZNAČENÚ plochu vlep DNU do vrecka v škrupine (bod 14a).
        Magnety sú 0.05 pod plochou; medzi magnetmi rámu a škrupiny ostane 0.2. Pred vytvrdnutím skús: rám musí byť
        priťahovaný vo všetkých 6 bodoch (medzi rám a škrupinu vlož PE fóliu, aby sa nezlepili).
     d) Penový rámik: pásiky 1.0 × 0.5 nalep na zadnú plochu lemu okna dookola (vonkajší obrys 92.2 × 60.8,
@@ -198,51 +237,72 @@ C. MONTÁŽ
     Hlavička pri pohľade ZOZADU (USB-C vľavo), zľava doprava:
       horný rad:  5V  G  19  20  11  10  9  17  18  0  RST  PWR  SCL  SDA  G  3V3
       dolný rad:  BAT G  21  38  39  40  41 42  45  46 47   48   TX   RX   G  3V3
-    – SERVO NÁKLONU: červený → 5V, hnedý → G (vedľa 5V), oranžový (signál) → jeden VOĽNÝ GPIO, odporúčam 18
-      (alebo 17). NEPOUŽI 19/20 (USB), 0 (BOOT), 45/46 (zavádzacie piny), TX/RX (konzola). Voľnosť pinu si over
-      v tabuľke pinov na wiki Waveshare pre svoju verziu dosky.
-    – VODIČE HLAVY (4): 5 V → 5V, GND → G (dolný rad, druhý zľava), 2 signály podľa firmvéru (napr. TX/RX).
-    – LED UŠÍ: 5 V → 5V, GND → G (pravý koniec hlavičky), DIN → voľný GPIO (uši zapoj za sebou).
-    Pin 5V je len jeden: 5 V hlavy, červený serva a 5 V oboch uší spoj do jedného uzla (spájka + bužírka)
-    s jedným vývodom do pinu 5V; elektrolyt 470 µF (voliteľne) medzi tento uzol a G.
-    Kábel serva zapoj až PO upevnení na mostík (bod 16). Vodiče hlavy nechaj so slučkou ~60 mm dozadu (modul
-    sa dá vytiahnuť ~40 mm). Konektory si označ. Vodiče veď mimo osí skrutiek z bodu 15 a mimo klenby.
+    – SERVO NÁKLONU sa zapája V TRUPE, NIE do hlavičky displeja (E2f): jeho 3 vodiče vychádzajú zo spodku krku do
+      trupu (konektor „SERVO“). Riadiaca doska v trupe dáva servu signál PWM 50 Hz (impulz 1000–2000 µs, stred
+      z bodu 8; 3.3 V logika stačí) a napájanie 5 V s elektrolytom 470 µF pri konektore serva. Elektronika trupu
+      sa navrhne spolu s trupom. Displej posiela povely náklonu (požadovaný uhol) riadiacej doske v trupe po
+      2 signálových vodičoch hlavy.
+    – VODIČE HLAVY (4): 5 V → 5V, GND → G (dolný rad, druhý zľava), 2 signály = linka k riadiacej doske v trupe
+      (napr. UART: TX/RX hlavičky – konzola displeja potom ide cez USB-C; alebo 2 voľné GPIO).
+    – LED UŠÍ: 5 V → 5V, GND → G (pravý koniec hlavičky), DIN → voľný GPIO, odporúčam 18 (alebo 17); uši zapoj
+      za sebou. NEPOUŽI 19/20 (USB), 0 (BOOT), 45/46 (zavádzacie piny). Voľnosť pinu si over v tabuľke pinov na
+      wiki Waveshare pre svoju verziu dosky.
+    Pin 5V je len jeden: 5 V hlavy a 5 V oboch uší spoj do jedného uzla (spájka + bužírka) s jedným vývodom do
+    pinu 5V. Hlavička displeja už NENESIE prúd serva (servo má napájanie v trupe).
+    Vodiče hlavy nechaj so slučkou ~60 mm dozadu (modul sa dá vytiahnuť ~40 mm). Konektory si označ. Vodiče veď
+    mimo osí skrutiek z bodu 15.
     USB-C, tlačidlá a microSD displeja sú prístupné po vytiahnutí čelného modulu.
 20. ZATVORENIE: čelný modul zasuň rovno v smere +Y – čap rámu vojde 0.9 do drážky škrupiny, magnety ho pritiahnu
     (spolu ~18 N), príruba rámu dosadne na čelo škrupiny. Škára rám–škrupina je V-drážka 0.25 × 0.12, plochy sú
     v jednej rovine. Ak čierny rám niekde vyčnieva, zbrús čelo príruby, nie škrupinu.
     VYBRATIE: prísavku pritlač na sklo a ťahaj rovno v smere −Y; po ~40 mm odpoj konektory.
 21. KONTROLA: hlava sa voľne nakláňa ±40° a nemá vôľu; krk sa zasúva do goliera bez zadrhnutia (0.25 dookola);
-    v škárach pántu (0.3) nevidno páku, ložisko ani vodiče; pod hlavou vidno medzi ušami len čierny oplet kábla;
-    displej nehrká; čelný modul drží a dá sa vybrať prísavkou.
+    v škárach pántu (0.3) nevidno páku, ložisko ani vodiče; pod hlavou medzi ušami nevidno žiadny kábel ani otvor
+    (podlaha hlavy je zatvorená); displej nehrká; čelný modul drží a dá sa vybrať prísavkou.
 
 ═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
 D. FIRMVÉR – LIMITY
 ═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
   – NÁKLON LEN PRI ÚPLNE VYSUNUTOM KRKU. Pred zasúvaním krku vráť hlavu na 0° a počkaj, kým tam je; pri zasunutom
     alebo čiastočne zasunutom krku náklon nepovoľuj (v pokoji je medzi hlavou a trupom len 3.0 mm).
-  – Rozsah ±40° (softvérové dorazy; mechanika, drážka kábla aj klenba sú navrhnuté na ±40°, nie viac).
-    Pri vysunutom krku a +40° ostáva medzi hlavou a trupom 2.8 mm.
+  – Rozsah ±40° (softvérové dorazy; mechanika je navrhnutá na ±40°, nie viac).
+    Pri vysunutom krku ostáva medzi hlavou a trupom v celom rozsahu −40° až +40° najmenej 2.35 mm.
   – Stred náklonu = hodnota z bodu 8 (ramená páky zvislo).
-  – Rampy: zrýchlenie náklonu ≤ 100 rad/s² (40° najrýchlejšie za 0.2 s) – šetrí lisovacie rebrá krytu a kábel.
+  – Rampy: zrýchlenie náklonu ≤ 100 rad/s² (40° najrýchlejšie za 0.2 s) – šetrí lisovacie rebrá krytu a prevody.
   – Po zapnutí: servo najprv na uložený stred, až potom vysúvaj krk; náklon povoľ až po dosiahnutí hornej polohy.
-  – Signál serva 50 Hz z GPIO zvoleného v bode 19 (3.3 V logika stačí).
+  – Signál serva: PWM 50 Hz z riadiacej dosky v TRUPE (3.3 V logika stačí); displej jej po 2 signálových vodičoch
+    hlavy posiela požadovaný uhol. Dorazy ±40°, rampy, stred a pravidlo „náklon len pri vysunutom krku“ musí
+    dodržať riadiaca doska trupu (tá pozná aj polohu zdvihu) – povely displeja mimo limitov ignoruje.
   NEPOVINNÁ tabuľka (ak chceš nakláňať aj pri čiastočne vysunutom krku; vôľa ≥ 0.25 voči golieru a trupu;
   medzi dvoma riadkami platí hodnota HLBŠIEHO, viac zasunutého riadku – bez interpolácie):
-      (tabuľka nebola vypočítaná – platí len základné pravidlo: náklon iba pri úplne vysunutom krku)
+      zdvih (0 = vysunutý)   náklon dole (+) najviac   náklon hore (−) najviac
+      0 až −2                40°                       40°
+      −3 až −4               35°                       40°
+      −5 až −7.5             30°                       40°
+      −10                    25°                       35°
+      −12.5                  20°                       30°
+      −15                    15°                       20°
+      −17.5                  10°                       15°
+      −20 (pokoj)             5°                       10°
+      (vypočítané kontrolou T v checks.json; základné pravidlo – náklon len pri úplne vysunutom krku – je bezpečnejšie)
 
 ═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
 E. SERVIS (servo, páka, displej)
 ═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
   1) Krk vysuň. Čelný modul vyber prísavkou (rovno −Y) a odpoj konektory. Displej: povoľ 8 skrutiek líšt.
-  2) Kábel serva uvoľni z mostíka (prestrihni sťahovaciu pásku); pri dvíhaní hlavy ho vyvleč z klenby dole cez drážku.
+  2) (E2f: kábel serva v hlave nie je – nič sa neodpája.)
   3) 4 skrutky z bodu 15 vyskrutkuj cez predný otvor (magnetický imbus 1.3, driek ≤ Ø4) a hlavu zdvihni zvislo.
   4) Kryt ucha stiahni v −X (rebrá držia trením), +X ucho stiahni v +X (ložisko je na čape posuvne).
   5) Povoľ skrutku páky a páku stiahni.
-  6) V trupe odpoj vodiče hlavy a krk od unášača zdvihu. Krk vytiahni hore z goliera.
+  6) V trupe odpoj vodiče hlavy, konektor „SERVO“ a krk od unášača zdvihu. Krk vytiahni hore z goliera (vodiče
+     serva s konektorom idú s ním).
   7) Povoľ 4 skrutky krku a zadnú polovicu zdvihni kolmo na deliacu rovinu: kolíky idú s ňou, čap ostáva prilepený
-     v prednej polovici (zadné lôžko bolo navoskované). Vyber zátku drážky a servo.
-  8) Pri výmene serva vymeň penové pásiky, podložky aj zátku (body 3d, 3e, 7) a zopakuj merania z bodu 1 a 8.
+     v prednej polovici (zadné lôžko bolo navoskované). Konektor „SERVO“ odstrihni tesne za kolíkmi (vodiče majú
+     rezervu), vodiče vytiahni hore z tunela drážky a servo vyber.
+  8) Pri výmene serva vymeň penové pásiky a podložky (body 3d, 3e); nové servo zmeraj a uprav podľa bodu 1 (a–h),
+     pri spätnej montáži nakrimpuj nový konektor (bod 7) a zopakuj bod 8.
 
 Pozn.: trup je ilustračný: výrez Ø56.7 do hĺbky z = −2 (kotúč aj prstenec goliera na ňom ležia), šachta pre krk
-  47 × 22 s rohmi R1.5 do z = −40, horný okraj trupu r = 29.8.
+  47 × 22 s rohmi R1.5 do z = −40, horný okraj trupu r = 29.8. Zo spodku krku (z = −16.5 vysunutý, −36.5 v pokoji)
+  vychádzajú do trupu 4 vodiče hlavy (x ≈ 13.8, y ≈ 0) a 3 vodiče serva (x 13.2–14.6, y −6.7 až −3.7) –
+  elektronika trupu (riadiaca doska, napájanie serva, zdvih) sa navrhne spolu s trupom.
