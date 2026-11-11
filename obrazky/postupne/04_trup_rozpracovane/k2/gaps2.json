@@ -1,0 +1,56 @@
+{
+ "lift servo + crank + lift wire loop vs static torso internals": {
+  "min_mm": 1.0,
+  "pose": {
+   "pan": -60,
+   "lift": 0
+  },
+  "a": "P_servo_zdvih",
+  "b": "T_kanal_pan"
+ },
+ "neck foot + ear vs static torso internals": {
+  "min_mm": 1.15,
+  "pose": {
+   "pan": 60,
+   "lift": 0
+  },
+  "a": "L_noha",
+  "b": "T_stlpik_R"
+ },
+ "well (corners r 28.1) vs static torso internals except journal ring": {
+  "min_mm": 0.6,
+  "pose": {
+   "pan": -85,
+   "lift": 0
+  },
+  "a": "P_sachta",
+  "b": "T_kanal_pan"
+ },
+ "pan gear vs static torso internals except pinion/pin/PTFE": {
+  "min_mm": 0.4,
+  "pose": {
+   "pan": -30,
+   "lift": 0
+  },
+  "a": "P_koleso_pan",
+  "b": "T_kabel_pan"
+ },
+ "pan stage + lift vs torso shell": {
+  "min_mm": 1.9,
+  "pose": {
+   "pan": -30,
+   "lift": 20
+  },
+  "a": "L_noha",
+  "b": "T_shell"
+ },
+ "neck foot/ear vs pan stage (well, lift servo)": {
+  "min_mm": 1.0,
+  "pose": {
+   "pan": -30,
+   "lift": 0
+  },
+  "a": "L_noha",
+  "b": "P_sachta"
+ }
+}

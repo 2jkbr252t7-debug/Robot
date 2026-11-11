@@ -1,0 +1,18 @@
+0 {} [] 15
+1 {'lift': 20} [] 21
+2 {'lift': 20, 'tilt': 40} [] 27
+3 {'lift': 20, 'tilt': -40} [] 33
+4 {'lift': 12.5, 'tilt': 25} [] 38
+5 {'pan': 85} [] 44
+6 {'pan': -85} [] 50
+7 {'pan': 85, 'lift': 20, 'tilt': 40} [] 56
+8 {'pan': -85, 'lift': 20, 'tilt': -40} [] 62
+9 {'armR': 90, 'armL': 90} [] 68
+10 {'armR': 180, 'armL': 180} [('A_R_ruka', 'B_hlava', 1889.05), ('A_R_ruka', 'B_usi', 662.65), ('A_L_ruka', 'B_hlava', 1889.05), ('A_L_ruka', 'B_usi', 662.65)] 74
+11 {'armR': -45, 'armL': -45} [] 80
+12 {'armR': 135, 'armL': 45} [('A_R_ruka', 'B_hlava', 538.69), ('A_R_ruka', 'B_ram_tvar', 81.73)] 85
+13 {'armR': 180, 'armL': 180, 'pan': 85, 'lift': 20, 'tilt': 40} [('A_L_ruka', 'B_hlava', 1966.0), ('A_L_ruka', 'B_ram_tvar', 307.55)] 92
+14 {'armR': 180, 'armL': 180, 'pan': -85} [] 99
+15 {'j1': 150, 'armR': 90, 'armL': 90} [] 107
+16 {'j1': -150, 'armR': -45, 'armL': 180} [('A_L_ruka', 'B_hlava', 1889.05), ('A_L_ruka', 'B_usi', 662.65)] 115
+17 {'j1': 90, 'pan': 85, 'lift': 20, 'tilt': 40, 'armR': 90, 'armL': 90} [] 122

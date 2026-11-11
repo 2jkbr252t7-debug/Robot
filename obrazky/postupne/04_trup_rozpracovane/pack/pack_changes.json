@@ -1,0 +1,22 @@
+{
+ "base_concept": "K2 (off-axis gears, compact) – winner of the T1 packaging judgement (hodnotenie.md)",
+ "grafts_from_K3": [
+  "Arm servo spline socket gets a friction (slip) collar ≈ 0.25 N·m (K3 §ARMS) in addition to the magnetic pull-off: a child forcing the arm slips the collar instead of stripping the micro-servo gears.",
+  "J1 rolling FPC laid out for ±170° (K3 §2) – loop ≈ 110 mm in the channel instead of 103 – so the ±155° hard stop (K2) is never reached by the cable.",
+  "Run-while-charging policy (K3 §3): dock mode ≤ 3 W; the base node watches VBAT ≥ 8.35 V and puts the robot to sleep so the IP2326 can terminate (no float at 4.2 V/cell).",
+  "Power budget head share raised to K3's 1.5 W estimate and the 5 V rail sequencing rule (no two simultaneous stalls) adopted; 8–10 A BMS."
+ ],
+ "must_fix_applied": [
+  "Arm paddle wall 1.4 -> 2.0 mm (brief: shells >= 2.0); servo moved 0.35 mm inward so the case sits flush with the paddle inner face and is bonded to the 2.0 mm outer wall; paddle outer size unchanged (23 x 30 x 83, face ±69.5).",
+  "J1 hub bridge 60 x 13 x 2 PETG plate -> 60 x 13 x 6 beam (z 23..29): the plate would see ≈ 45 MPa from a 0.4 N·m tipping moment, the beam ≈ 4 MPa.",
+  "Casters at (0, ±34) and cliff sensors at (±14, ±40) sat UNDER the battery bays (contradicting 'battery replaceable from below'): casters are now carried by the bay covers; cliff sensors moved to the corner pockets (±40, ±31) with 9 x 7 windows.",
+  "Pan + lift cable: bonded 2x4 wire ribbon at U-turn R 5.2 (R/D ≈ 6) -> one custom 2-layer polyimide FPC 3.0 x 0.12 mm on edge (bend ratio ≈ 43x at the pan drum, ≈ 29x in the lift loop); lift-loop envelope widened 2.5 -> 3.1 mm (r_max 28.7, still ≥ 1 mm from the front frame columns).",
+  "J1 gears: both brass (sun + pinion, m1 18T, face 3.2) instead of a POM pinion; STS3215 torque limit 15 %, slip clutch on the sun gear and re-homing on the ±155° stop stay mandatory."
+ ],
+ "open_items_for_phase2": [
+  "STS3215 top 80.5 vs deck 81.0 – measure the real servo (35 mm with or without the 2.6 mm boss); cradle with 0.5 mm shims.",
+  "Arm servo travel: verify 180° (500–2500 µs) on the purchased ES9052MD; limits −45…+135 plus the head-dependent table.",
+  "Wheels show as a ≤ 6 mm dark sliver under the base in front/side views (both concepts): black tyres + a recessed dark foot ≥ 6 mm inset keep them in shadow.",
+  "Total height 215 = top of the 205–215 range; no vertical slack in the torso stack."
+ ]
+}

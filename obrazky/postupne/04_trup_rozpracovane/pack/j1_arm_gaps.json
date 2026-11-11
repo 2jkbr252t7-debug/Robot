@@ -1,0 +1,54 @@
+{
+ "J1 torso parts below the floor vs base (excl. the gear mesh)": {
+  "min_mm": 1.0,
+  "pose": {
+   "j1": -155
+  },
+  "a": "T_J1_noha",
+  "b": "Z_J1_kabel",
+  "note": "bearing 6805 inner ring on the hub excluded (intended fit)"
+ },
+ "J1 mesh (pinion tip vs sun gear tip cylinders overlap by design)": {
+  "min_mm": 0.0
+ },
+ "J1 sun gear vs torso floor / skirt": {
+  "min_mm": 1.0,
+  "a": "Z_J1_koleso",
+  "b": "T_shell"
+ },
+ "arm R at 180 deg: clearance to head where the table says 180": {
+  "lift0_tilt0 pan -85": 12.79,
+  "lift0_tilt0 pan -60": 2.94,
+  "lift0_tilt0 pan 60": 4.94,
+  "lift0_tilt0 pan 85": 13.14,
+  "lift12.5_tilt30 pan 60": 19.75,
+  "lift12.5_tilt30 pan 85": 27.95,
+  "lift12.5_tilt-40 pan -85": 28.28,
+  "lift12.5_tilt-40 pan -60": 18.43,
+  "lift20_tilt0 pan -85": 12.79,
+  "lift20_tilt0 pan -60": 2.94,
+  "lift20_tilt0 pan 60": 5.04,
+  "lift20_tilt0 pan 85": 13.21,
+  "lift20_tilt40 pan 30": 6.3,
+  "lift20_tilt40 pan 60": 24.71,
+  "lift20_tilt40 pan 85": 32.05,
+  "lift20_tilt-40 pan -85": 29.06,
+  "lift20_tilt-40 pan -60": 19.46
+ },
+ "well vs pan channel/cable": {
+  "min_mm": 1.0,
+  "pose": {
+   "pan": -85
+  },
+  "a": "P_sachta",
+  "b": "T_kanal_pan"
+ },
+ "lift servo vs pan channel/cable": {
+  "min_mm": 1.4,
+  "pose": {
+   "pan": 0
+  },
+  "a": "P_servo_zdvih",
+  "b": "T_kanal_pan"
+ }
+}

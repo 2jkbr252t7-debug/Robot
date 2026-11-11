@@ -1,0 +1,2795 @@
+{
+ "name": "K3 – J1 v podstavci (STS3215 stojí v osi nad ľavým motorom, sokel)",
+ "Z_TT": 127.8,
+ "SH": [
+  0.0,
+  109.8
+ ],
+ "contacts": [
+  [
+   56.5,
+   0
+  ],
+  [
+   -56.5,
+   0
+  ],
+  [
+   46.0,
+   30.0
+  ],
+  [
+   -46.0,
+   30.0
+  ],
+  [
+   46.0,
+   -30.0
+  ],
+  [
+   -46.0,
+   -30.0
+  ]
+ ],
+ "comps": [
+  {
+   "name": "Z_shell",
+   "kind": "sshell",
+   "a": 74.0,
+   "b": 59.0,
+   "n": 2.4,
+   "h": 34.0,
+   "rf": 10.0,
+   "wall": 2.0,
+   "at": [
+    0,
+    0,
+    23.0
+   ],
+   "group": "B",
+   "mat": "resin",
+   "color": "white",
+   "label": "podstavec – mäkký „kamienok“ 148×118×34 (zástupný tvar n 2.4, R10)",
+   "cuts": [
+    {
+     "kind": "cyl",
+     "r": 38.3,
+     "h": 6,
+     "axis": "z",
+     "at": [
+      0,
+      0,
+      39.0
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      12,
+      30,
+      6
+     ],
+     "at": [
+      56.5,
+      0,
+      7.0
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      12,
+      30,
+      6
+     ],
+     "at": [
+      -56.5,
+      0,
+      7.0
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 7.0,
+     "h": 6,
+     "axis": "z",
+     "at": [
+      46.0,
+      30.0,
+      7.0
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 7.0,
+     "h": 6,
+     "axis": "z",
+     "at": [
+      -46.0,
+      30.0,
+      7.0
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 7.0,
+     "h": 6,
+     "axis": "z",
+     "at": [
+      46.0,
+      -30.0,
+      7.0
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 7.0,
+     "h": 6,
+     "axis": "z",
+     "at": [
+      -46.0,
+      -30.0,
+      7.0
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 2.5,
+     "h": 6,
+     "axis": "z",
+     "at": [
+      44,
+      41,
+      7.0
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 2.5,
+     "h": 6,
+     "axis": "z",
+     "at": [
+      -44,
+      41,
+      7.0
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 2.5,
+     "h": 6,
+     "axis": "z",
+     "at": [
+      44,
+      -41,
+      7.0
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 2.5,
+     "h": 6,
+     "axis": "z",
+     "at": [
+      -44,
+      -41,
+      7.0
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      20,
+      8,
+      15
+     ],
+     "at": [
+      0,
+      -58.0,
+      19.5
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      40,
+      8,
+      3.2
+     ],
+     "at": [
+      0,
+      -58.0,
+      29.75
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      10,
+      8,
+      4.0
+     ],
+     "at": [
+      14,
+      58.0,
+      33.1
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      5,
+      8,
+      2.5
+     ],
+     "at": [
+      -22,
+      58.0,
+      33.5
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Z_koleso_R",
+   "kind": "cyl",
+   "r": 15.0,
+   "h": 9.0,
+   "axis": "x",
+   "at": [
+    -56.5,
+    0,
+    15.0
+   ],
+   "group": "B",
+   "mass": 7,
+   "color": "rubber",
+   "label": "koleso Ø30×9 (náboj PETG + pneumatika TPU) – pravé"
+  },
+  {
+   "name": "Z_motor_R",
+   "kind": "box",
+   "size": [
+    34.0,
+    12,
+    10
+   ],
+   "at": [
+    -33.5,
+    0,
+    15.0
+   ],
+   "group": "B",
+   "mass": 12,
+   "color": "motor",
+   "label": "motor N20 + magnetický enkodér (12×10, telo 34 bez hriadeľa)",
+   "adds": [
+    {
+     "kind": "cyl",
+     "r": 1.5,
+     "h": 1.9,
+     "axis": "x",
+     "at": [
+      -51.25,
+      0,
+      15.0
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      4.5,
+      6,
+      8
+     ],
+     "at": [
+      -14.25,
+      9,
+      15
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Z_drziak_motora_R",
+   "kind": "box",
+   "size": [
+    26,
+    13.0,
+    3.0
+   ],
+   "at": [
+    -34.0,
+    0,
+    9.5
+   ],
+   "group": "B",
+   "mat": "petg",
+   "color": "grey",
+   "label": "kolíska motora N20 (PETG) + strmeň",
+   "adds": [
+    {
+     "kind": "box",
+     "size": [
+      4,
+      13.0,
+      9.5
+     ],
+     "at": [
+      -23,
+      0,
+      12.75
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      4,
+      13.0,
+      9.5
+     ],
+     "at": [
+      -45,
+      0,
+      12.75
+     ]
+    }
+   ],
+   "cuts": [
+    {
+     "kind": "box",
+     "size": [
+      34.4,
+      12.4,
+      10.4
+     ],
+     "at": [
+      -33.5,
+      0,
+      15.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Z_koleso_L",
+   "kind": "cyl",
+   "r": 15.0,
+   "h": 9.0,
+   "axis": "x",
+   "at": [
+    56.5,
+    0,
+    15.0
+   ],
+   "group": "B",
+   "mass": 7,
+   "color": "rubber",
+   "label": "koleso Ø30×9 (náboj PETG + pneumatika TPU) – ľavé"
+  },
+  {
+   "name": "Z_motor_L",
+   "kind": "box",
+   "size": [
+    34.0,
+    12,
+    10
+   ],
+   "at": [
+    33.5,
+    0,
+    15.0
+   ],
+   "group": "B",
+   "mass": 12,
+   "color": "motor",
+   "label": "motor N20 + magnetický enkodér (12×10, telo 34 bez hriadeľa)",
+   "adds": [
+    {
+     "kind": "cyl",
+     "r": 1.5,
+     "h": 1.9,
+     "axis": "x",
+     "at": [
+      51.25,
+      0,
+      15.0
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      4.5,
+      6,
+      8
+     ],
+     "at": [
+      14.25,
+      9,
+      15
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Z_drziak_motora_L",
+   "kind": "box",
+   "size": [
+    26,
+    13.0,
+    3.0
+   ],
+   "at": [
+    34.0,
+    0,
+    9.5
+   ],
+   "group": "B",
+   "mat": "petg",
+   "color": "grey",
+   "label": "kolíska motora N20 (PETG) + strmeň",
+   "adds": [
+    {
+     "kind": "box",
+     "size": [
+      4,
+      13.0,
+      9.5
+     ],
+     "at": [
+      23,
+      0,
+      12.75
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      4,
+      13.0,
+      9.5
+     ],
+     "at": [
+      45,
+      0,
+      12.75
+     ]
+    }
+   ],
+   "cuts": [
+    {
+     "kind": "box",
+     "size": [
+      34.4,
+      12.4,
+      10.4
+     ],
+     "at": [
+      33.5,
+      0,
+      15.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Z_koliesko_1",
+   "kind": "cyl",
+   "r": 6.5,
+   "h": 6.0,
+   "axis": "z",
+   "at": [
+    46.0,
+    30.0,
+    8.0
+   ],
+   "group": "B",
+   "mass": 4,
+   "color": "black",
+   "label": "guľové koliesko Pololu 3/8\" (guľa Ø9.5, 0.5 mm nad podlahou)",
+   "adds": [
+    {
+     "kind": "sphere",
+     "r": 4.75,
+     "at": [
+      46.0,
+      30.0,
+      5.25
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Z_koliesko_2",
+   "kind": "cyl",
+   "r": 6.5,
+   "h": 6.0,
+   "axis": "z",
+   "at": [
+    -46.0,
+    30.0,
+    8.0
+   ],
+   "group": "B",
+   "mass": 4,
+   "color": "black",
+   "label": "guľové koliesko Pololu 3/8\" (guľa Ø9.5, 0.5 mm nad podlahou)",
+   "adds": [
+    {
+     "kind": "sphere",
+     "r": 4.75,
+     "at": [
+      -46.0,
+      30.0,
+      5.25
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Z_koliesko_3",
+   "kind": "cyl",
+   "r": 6.5,
+   "h": 6.0,
+   "axis": "z",
+   "at": [
+    46.0,
+    -30.0,
+    8.0
+   ],
+   "group": "B",
+   "mass": 4,
+   "color": "black",
+   "label": "guľové koliesko Pololu 3/8\" (guľa Ø9.5, 0.5 mm nad podlahou)",
+   "adds": [
+    {
+     "kind": "sphere",
+     "r": 4.75,
+     "at": [
+      46.0,
+      -30.0,
+      5.25
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Z_koliesko_4",
+   "kind": "cyl",
+   "r": 6.5,
+   "h": 6.0,
+   "axis": "z",
+   "at": [
+    -46.0,
+    -30.0,
+    8.0
+   ],
+   "group": "B",
+   "mass": 4,
+   "color": "black",
+   "label": "guľové koliesko Pololu 3/8\" (guľa Ø9.5, 0.5 mm nad podlahou)",
+   "adds": [
+    {
+     "kind": "sphere",
+     "r": 4.75,
+     "at": [
+      -46.0,
+      -30.0,
+      5.25
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Z_baterie_A",
+   "kind": "cyl",
+   "r": 9.7,
+   "h": 66.5,
+   "axis": "x",
+   "at": [
+    0,
+    -23.1,
+    18.0
+   ],
+   "group": "B",
+   "mass": 98,
+   "color": "battery",
+   "adds": [
+    {
+     "kind": "cyl",
+     "r": 9.7,
+     "h": 66.5,
+     "axis": "x",
+     "at": [
+      0,
+      -42.5,
+      18.0
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      66.5,
+      19.4,
+      13.579999999999998
+     ],
+     "at": [
+      0,
+      -32.8,
+      18.0
+     ]
+    }
+   ],
+   "label": "blok batérie A (predný) 1S2P – 2× 18650 bodovo zvarené (2×47 g + 4 g)"
+  },
+  {
+   "name": "Z_vodice_bat_A",
+   "kind": "box",
+   "size": [
+    3.5,
+    24,
+    14
+   ],
+   "at": [
+    -35.3,
+    -31,
+    16.3
+   ],
+   "group": "B",
+   "mass": 3,
+   "color": "cable",
+   "label": "vývody bloku (hlavný + balans) – ohyb 5 mm"
+  },
+  {
+   "name": "Z_baterie_B",
+   "kind": "cyl",
+   "r": 9.7,
+   "h": 66.5,
+   "axis": "x",
+   "at": [
+    0,
+    23.1,
+    18.0
+   ],
+   "group": "B",
+   "mass": 98,
+   "color": "battery",
+   "adds": [
+    {
+     "kind": "cyl",
+     "r": 9.7,
+     "h": 66.5,
+     "axis": "x",
+     "at": [
+      0,
+      42.5,
+      18.0
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      66.5,
+      19.4,
+      13.579999999999998
+     ],
+     "at": [
+      0,
+      32.8,
+      18.0
+     ]
+    }
+   ],
+   "label": "blok batérie B (zadný) 1S2P – 2× 18650 bodovo zvarené (2×47 g + 4 g)"
+  },
+  {
+   "name": "Z_vodice_bat_B",
+   "kind": "box",
+   "size": [
+    3.5,
+    24,
+    14
+   ],
+   "at": [
+    -35.3,
+    31,
+    16.3
+   ],
+   "group": "B",
+   "mass": 3,
+   "color": "cable",
+   "label": "vývody bloku (hlavný + balans) – ohyb 5 mm"
+  },
+  {
+   "name": "Z_J1_servo",
+   "kind": "box",
+   "size": [
+    45.2,
+    24.7,
+    35.0
+   ],
+   "at": [
+    11.1,
+    0,
+    39.4
+   ],
+   "r": 2.0,
+   "group": "B",
+   "mass": 55,
+   "color": "servo_bus",
+   "label": "servo J1 Feetech STS3215 7.4 V (stojí, hriadeľ HORE v osi J1, priamy pohon)",
+   "adds": [
+    {
+     "kind": "cyl",
+     "r": 4.5,
+     "h": 3.0,
+     "axis": "z",
+     "at": [
+      0,
+      0,
+      58.4
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 4.0,
+     "h": 1.5,
+     "axis": "z",
+     "at": [
+      0,
+      0,
+      21.15
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      12,
+      16,
+      10
+     ],
+     "at": [
+      39.7,
+      0,
+      28.9
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Z_J1_koliska",
+   "kind": "box",
+   "size": [
+    46.4,
+    24.0,
+    1.6
+   ],
+   "at": [
+    11.1,
+    0,
+    21.1
+   ],
+   "group": "B",
+   "mat": "petg",
+   "color": "grey",
+   "label": "kolíska serva J1 – most nad ľavým motorom (PETG)",
+   "adds": [
+    {
+     "kind": "box",
+     "size": [
+      20,
+      22,
+      12.299999999999997
+     ],
+     "at": [
+      0,
+      0,
+      14.15
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      6,
+      5.0,
+      12.299999999999997
+     ],
+     "at": [
+      31.0,
+      9.4,
+      14.15
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      6,
+      5.0,
+      12.299999999999997
+     ],
+     "at": [
+      31.0,
+      -9.4,
+      14.15
+     ]
+    }
+   ],
+   "cuts": [
+    {
+     "kind": "cyl",
+     "r": 4.3,
+     "h": 4,
+     "axis": "z",
+     "at": [
+      0,
+      0,
+      20.9
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Z_paluba",
+   "kind": "sblock",
+   "a": 70.0,
+   "b": 50.0,
+   "n": 2.4,
+   "h": 2.0,
+   "at": [
+    0,
+    0,
+    30.0
+   ],
+   "group": "B",
+   "mat": "petg",
+   "color": "grey",
+   "label": "paluba elektroniky v podstavci (PETG, na stĺpikoch)",
+   "cuts": [
+    {
+     "kind": "box",
+     "size": [
+      48.6,
+      27.0,
+      4
+     ],
+     "at": [
+      11.1,
+      0,
+      30
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      15,
+      18,
+      4
+     ],
+     "at": [
+      40.7,
+      0,
+      30
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      18,
+      36,
+      4
+     ],
+     "at": [
+      56.5,
+      0,
+      30
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      18,
+      36,
+      4
+     ],
+     "at": [
+      -56.5,
+      0,
+      30
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 4.0,
+     "h": 4,
+     "axis": "z",
+     "at": [
+      -35.3,
+      31,
+      30
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 4.0,
+     "h": 4,
+     "axis": "z",
+     "at": [
+      -35.3,
+      -31,
+      30
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Z_sokel",
+   "kind": "tube",
+   "r": 37.5,
+   "ri": 36.0,
+   "h": 22.6,
+   "axis": "z",
+   "at": [
+    0,
+    0,
+    45.8
+   ],
+   "group": "B",
+   "mat": "petg",
+   "color": "black",
+   "label": "tmavý sokel J1 (pevný) – obopína vrch serva, nesie ložisko 6806",
+   "adds": [
+    {
+     "kind": "tube",
+     "r": 42.0,
+     "ri": 37.5,
+     "h": 2.0,
+     "axis": "z",
+     "at": [
+      0,
+      0,
+      37.0
+     ]
+    },
+    {
+     "kind": "tube",
+     "r": 37.5,
+     "ri": 23.5,
+     "h": 1.5,
+     "axis": "z",
+     "at": [
+      0,
+      0,
+      57.85
+     ]
+    },
+    {
+     "kind": "tube",
+     "r": 23.5,
+     "ri": 21.0,
+     "h": 7.800000000000004,
+     "axis": "z",
+     "at": [
+      0,
+      0,
+      61.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Z_J1_lozisko",
+   "kind": "tube",
+   "r": 21.0,
+   "ri": 17.4,
+   "h": 7.000000000000007,
+   "axis": "z",
+   "at": [
+    0,
+    0,
+    61.4
+   ],
+   "group": "B",
+   "mass": 14,
+   "color": "metal",
+   "label": "ložisko J1 6806-2RS 30×42×7 – vonkajší krúžok + guľky (pevné, v sokli)"
+  },
+  {
+   "name": "T_J1_lozisko_vnutro",
+   "kind": "tube",
+   "r": 17.3,
+   "ri": 15.0,
+   "h": 7.000000000000007,
+   "axis": "z",
+   "at": [
+    0,
+    0,
+    61.4
+   ],
+   "group": "T",
+   "mass": 8,
+   "color": "metal",
+   "label": "ložisko J1 6806-2RS – vnútorný krúžok (na náboji trupu)"
+  },
+  {
+   "name": "Z_J1_slucka",
+   "kind": "tube",
+   "r": 36.0,
+   "ri": 24.0,
+   "h": 5.0,
+   "axis": "z",
+   "at": [
+    0,
+    0,
+    62.2
+   ],
+   "group": "B",
+   "mass": 3,
+   "color": "cable",
+   "label": "valivá slučka J1: 2-vrstvový FPC 5 mm na hrane (VBAT, GND, zbernica, GND), 140 mm, ohyb R6.3, ±150°"
+  },
+  {
+   "name": "Z_doska_zakladne",
+   "kind": "box",
+   "size": [
+    36,
+    22,
+    5
+   ],
+   "at": [
+    -31.0,
+    0,
+    24.0
+   ],
+   "group": "B",
+   "mass": 7,
+   "color": "pcb",
+   "label": "doska uzla podstavca (STM32G030 + DRV8833 + 5 V/2 A TPS563201 + 3.3 V, JST-GH)"
+  },
+  {
+   "name": "Z_BMS",
+   "kind": "box",
+   "size": [
+    16,
+    30,
+    3.5
+   ],
+   "at": [
+    -46,
+    24,
+    32.75
+   ],
+   "group": "B",
+   "mass": 4,
+   "color": "pcb",
+   "label": "2S BMS 5 A s balansovaním"
+  },
+  {
+   "name": "Z_nabijacka",
+   "kind": "box",
+   "size": [
+    23,
+    17,
+    3.5
+   ],
+   "at": [
+    14,
+    42.5,
+    32.75
+   ],
+   "group": "B",
+   "mass": 5,
+   "color": "pcb",
+   "label": "nabíjačka IP2326 (USB-C 5 V → 2S, 1.5 A) + LED nabíjania",
+   "adds": [
+    {
+     "kind": "box",
+     "size": [
+      9.0,
+      3.2,
+      3.2
+     ],
+     "at": [
+      14,
+      52.6,
+      32.9
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Z_vypinac",
+   "kind": "box",
+   "size": [
+    9,
+    6,
+    4
+   ],
+   "at": [
+    -22,
+    50.5,
+    33.0
+   ],
+   "group": "B",
+   "mass": 1,
+   "color": "black",
+   "label": "posuvný vypínač (spína hradlo P-MOSFET AO4407A)",
+   "adds": [
+    {
+     "kind": "box",
+     "size": [
+      2,
+      4,
+      2
+     ],
+     "at": [
+      -22,
+      54.5,
+      33.5
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Z_ToF",
+   "kind": "box",
+   "size": [
+    18,
+    2.5,
+    13
+   ],
+   "at": [
+    0,
+    -54.45,
+    19.5
+   ],
+   "group": "B",
+   "mass": 1,
+   "color": "pcb",
+   "label": "ToF VL53L1X (doska 13×18) za tmavým okienkom"
+  },
+  {
+   "name": "Z_okno_ToF",
+   "kind": "box",
+   "size": [
+    18,
+    1.6,
+    13
+   ],
+   "at": [
+    0,
+    -57.4,
+    19.5
+   ],
+   "group": "B",
+   "mass": 0.5,
+   "color": "glass",
+   "label": "tmavé (dymové) okienko ToF, PMMA 1.5"
+  },
+  {
+   "name": "Z_svetlo_predne",
+   "kind": "box",
+   "size": [
+    40,
+    1.6,
+    3.5
+   ],
+   "at": [
+    0,
+    -53.6,
+    29.75
+   ],
+   "group": "B",
+   "mass": 1.5,
+   "color": "glow",
+   "label": "predná svetelná lišta – 6× WS2812B-2020 na flexe + svetlovod PMMA",
+   "adds": [
+    {
+     "kind": "box",
+     "size": [
+      38,
+      3.2,
+      3.0
+     ],
+     "at": [
+      0,
+      -55.9,
+      29.75
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Z_IR_1",
+   "kind": "box",
+   "size": [
+    8,
+    6,
+    3.5
+   ],
+   "at": [
+    44,
+    41,
+    13.0
+   ],
+   "group": "B",
+   "mass": 0.5,
+   "color": "pcb",
+   "label": "snímač pádu ITR8307 na mini DPS (pozerá dolu cez otvor Ø5)"
+  },
+  {
+   "name": "Z_IR_2",
+   "kind": "box",
+   "size": [
+    8,
+    6,
+    3.5
+   ],
+   "at": [
+    -44,
+    41,
+    13.0
+   ],
+   "group": "B",
+   "mass": 0.5,
+   "color": "pcb",
+   "label": "snímač pádu ITR8307 na mini DPS (pozerá dolu cez otvor Ø5)"
+  },
+  {
+   "name": "Z_IR_3",
+   "kind": "box",
+   "size": [
+    8,
+    6,
+    3.5
+   ],
+   "at": [
+    44,
+    -41,
+    13.0
+   ],
+   "group": "B",
+   "mass": 0.5,
+   "color": "pcb",
+   "label": "snímač pádu ITR8307 na mini DPS (pozerá dolu cez otvor Ø5)"
+  },
+  {
+   "name": "Z_IR_4",
+   "kind": "box",
+   "size": [
+    8,
+    6,
+    3.5
+   ],
+   "at": [
+    -44,
+    -41,
+    13.0
+   ],
+   "group": "B",
+   "mass": 0.5,
+   "color": "pcb",
+   "label": "snímač pádu ITR8307 na mini DPS (pozerá dolu cez otvor Ø5)"
+  },
+  {
+   "name": "T_shell",
+   "kind": "sshell",
+   "a": 46.0,
+   "b": 42.0,
+   "n": 2.35,
+   "h": 84.3,
+   "rf": 16.0,
+   "wall": 2.2,
+   "at": [
+    0,
+    0,
+    84.15
+   ],
+   "adds": [
+    {
+     "kind": "tube",
+     "r": 29.8,
+     "ri": 27.0,
+     "h": 1.7,
+     "axis": "z",
+     "at": [
+      0,
+      0,
+      126.95
+     ]
+    }
+   ],
+   "group": "T",
+   "mat": "resin",
+   "color": "white",
+   "label": "trup – mäkká škrupina 92×84×90 (zástupný tvar n 2.35, R16), plošina goliera r29.8, otvorené dno nad soklom",
+   "cuts": [
+    {
+     "kind": "cyl",
+     "r": 28.35,
+     "h": 10,
+     "axis": "z",
+     "at": [
+      0,
+      0,
+      127.8
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 38.8,
+     "h": 25.200000000000003,
+     "axis": "z",
+     "at": [
+      0,
+      0,
+      52.6
+     ],
+     "rot": [
+      0,
+      0,
+      7
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 4.0,
+     "h": 6,
+     "axis": "x",
+     "at": [
+      44.5,
+      0.0,
+      109.8
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 4.0,
+     "h": 6,
+     "axis": "x",
+     "at": [
+      -44.5,
+      0.0,
+      109.8
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      34,
+      8,
+      3.2
+     ],
+     "at": [
+      0,
+      -41.0,
+      100.5
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      28,
+      8,
+      2.6
+     ],
+     "at": [
+      0,
+      -41.0,
+      91.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "T_paluba",
+   "kind": "sblock",
+   "a": 43.199999999999996,
+   "b": 39.199999999999996,
+   "n": 2.35,
+   "h": 2.0,
+   "at": [
+    0,
+    0,
+    66.2
+   ],
+   "group": "T",
+   "mat": "petg",
+   "color": "grey",
+   "label": "paluba trupu (PETG) – nosná doska nad soklom",
+   "cuts": [
+    {
+     "kind": "cyl",
+     "r": 2.6,
+     "h": 4,
+     "axis": "z",
+     "at": [
+      0,
+      0,
+      65.85
+     ]
+    },
+    {
+     "kind": "tube",
+     "r": 24.5,
+     "ri": 16.3,
+     "h": 1.6,
+     "axis": "z",
+     "at": [
+      0,
+      0,
+      65.2
+     ]
+    }
+   ]
+  },
+  {
+   "name": "T_J1_naboj",
+   "kind": "tube",
+   "r": 15.0,
+   "ri": 10.5,
+   "h": 7.100000000000001,
+   "axis": "z",
+   "at": [
+    0,
+    0,
+    61.65
+   ],
+   "group": "T",
+   "mat": "petg",
+   "color": "grey",
+   "label": "náboj J1 v ložisku 6806 – 2 kolíky do ramienka (len krútiaci moment, bez axiálnej sily na servo)"
+  },
+  {
+   "name": "T_J1_ramienko",
+   "kind": "cyl",
+   "r": 10.0,
+   "h": 3.0,
+   "axis": "z",
+   "at": [
+    0,
+    0,
+    61.5
+   ],
+   "group": "T",
+   "mass": 3,
+   "color": "metal",
+   "label": "hliníkové ramienko STS3215 Ø20 (25T)"
+  },
+  {
+   "name": "T_J1_sukna",
+   "kind": "tube",
+   "r": 37.6,
+   "ri": 36.5,
+   "h": 5.600000000000001,
+   "axis": "z",
+   "at": [
+    0,
+    0,
+    62.4
+   ],
+   "group": "T",
+   "mat": "petg",
+   "color": "grey",
+   "label": "otočná stena kanála slučky J1 (vonkajšia dráha pásu)"
+  },
+  {
+   "name": "T_puzdro_pan",
+   "kind": "tube",
+   "r": 2.6,
+   "ri": 2.0,
+   "h": 2.0,
+   "axis": "z",
+   "at": [
+    0,
+    0,
+    66.2
+   ],
+   "group": "T",
+   "mass": 0.3,
+   "color": "metal",
+   "label": "bronzové puzdro čapu pan Ø4 (radiálne vedenie dole)"
+  },
+  {
+   "name": "T_pastorok_pan",
+   "kind": "cyl",
+   "r": 8.0,
+   "h": 2.5,
+   "axis": "z",
+   "at": [
+    34.1,
+    5.0,
+    68.75
+   ],
+   "group": "T",
+   "mat": "pom",
+   "color": "black",
+   "label": "pastorok pan m0.8 18z (POM) na drážkovaní STS3032"
+  },
+  {
+   "name": "T_medzikoleso_pan",
+   "kind": "cyl",
+   "r": 8.8,
+   "h": 2.5,
+   "axis": "z",
+   "at": [
+    19.87,
+    10.342,
+    68.75
+   ],
+   "group": "T",
+   "mat": "pom",
+   "color": "black",
+   "label": "medzikoleso pan m0.8 20z na čape Ø3 v palube",
+   "adds": [
+    {
+     "kind": "cyl",
+     "r": 1.5,
+     "h": 3.9,
+     "axis": "z",
+     "at": [
+      19.87,
+      10.342,
+      68.05
+     ]
+    }
+   ]
+  },
+  {
+   "name": "T_servo_pan",
+   "kind": "box",
+   "size": [
+    12.1,
+    23.2,
+    22.7
+   ],
+   "at": [
+    34.1,
+    -0.6,
+    84.65
+   ],
+   "group": "T",
+   "mass": 20,
+   "color": "servo_bus",
+   "label": "servo pan Feetech STS3032 (360° magnetický snímač, zbernica) – obrátené, hriadeľ dole",
+   "adds": [
+    {
+     "kind": "box",
+     "size": [
+      12.1,
+      32.0,
+      2.5
+     ],
+     "at": [
+      34.1,
+      -0.6,
+      78.75
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 6.0,
+     "h": 2.8,
+     "axis": "z",
+     "at": [
+      34.1,
+      5.0,
+      71.9
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 2.4,
+     "h": 3.0,
+     "axis": "z",
+     "at": [
+      34.1,
+      5.0,
+      69.0
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      10,
+      9,
+      6
+     ],
+     "at": [
+      34.1,
+      -1.0,
+      99.0
+     ]
+    }
+   ]
+  },
+  {
+   "name": "T_drziak_serva_pan",
+   "kind": "box",
+   "size": [
+    2.4,
+    26,
+    22
+   ],
+   "at": [
+    41.35,
+    4.4,
+    86.0
+   ],
+   "group": "T",
+   "mat": "petg",
+   "color": "grey",
+   "label": "držiak serva pan (PETG, skrutky do úchytov)"
+  },
+  {
+   "name": "T_slucka_pan",
+   "kind": "box",
+   "size": [
+    11,
+    42,
+    9
+   ],
+   "at": [
+    -33.0,
+    0,
+    77.0
+   ],
+   "group": "T",
+   "mass": 3,
+   "color": "cable",
+   "label": "slučka kábla PAN (10 vodičov: hlava 4, náklon 3, zdvih 3) ±85°, 160 mm, v žľabe na -X strane"
+  },
+  {
+   "name": "T_zlab_pan",
+   "kind": "box",
+   "size": [
+    1.6,
+    44,
+    11
+   ],
+   "at": [
+    -39.3,
+    0,
+    77.0
+   ],
+   "group": "T",
+   "mat": "petg",
+   "color": "grey",
+   "label": "žľab slučky pan (PETG)"
+  },
+  {
+   "name": "T_reproduktor",
+   "kind": "cyl",
+   "r": 14.5,
+   "h": 9.0,
+   "axis": "y",
+   "at": [
+    0,
+    -33.7,
+    82.0
+   ],
+   "group": "T",
+   "mass": 8,
+   "color": "black",
+   "label": "reproduktor Ø28 8 Ω 1–2 W (plochý 5.5) + uzavretá komôrka, za sivou štrbinou"
+  },
+  {
+   "name": "T_svetlo_hrud",
+   "kind": "box",
+   "size": [
+    34,
+    1.6,
+    4.0
+   ],
+   "at": [
+    0,
+    -36.6,
+    100.5
+   ],
+   "group": "T",
+   "mass": 1.5,
+   "color": "glow",
+   "label": "hrudná svetelná lišta 6× WS2812B-2020 + svetlovod",
+   "adds": [
+    {
+     "kind": "box",
+     "size": [
+      32,
+      3.0,
+      3.0
+     ],
+     "at": [
+      0,
+      -39.2,
+      100.5
+     ]
+    }
+   ]
+  },
+  {
+   "name": "T_doska",
+   "kind": "box",
+   "size": [
+    40,
+    1.6,
+    34
+   ],
+   "at": [
+    0,
+    30.3,
+    87.0
+   ],
+   "group": "T",
+   "mass": 4,
+   "color": "pcb",
+   "label": "nosná DPS trupu 40×30 (riadenie, zbernica, konektory serv)"
+  },
+  {
+   "name": "T_ESP32S3",
+   "kind": "box",
+   "size": [
+    18,
+    4.5,
+    25
+   ],
+   "at": [
+    -10.0,
+    33.35,
+    90.5
+   ],
+   "group": "T",
+   "mass": 3,
+   "color": "elec",
+   "label": "ESP32-S3-Zero 25×18 (UART hlava, zbernica, PWM, I2S)"
+  },
+  {
+   "name": "T_menic5V",
+   "kind": "box",
+   "size": [
+    17.8,
+    6.0,
+    17.8
+   ],
+   "at": [
+    10.0,
+    34.1,
+    93.9
+   ],
+   "group": "T",
+   "mass": 2.5,
+   "color": "elec",
+   "label": "menič 5 V Pololu D36V28F5 (3.2 A) – servá, hlava, LED, zosilňovač"
+  },
+  {
+   "name": "T_zosilnovac",
+   "kind": "box",
+   "size": [
+    3.0,
+    19,
+    17.8
+   ],
+   "at": [
+    -31.5,
+    -12.0,
+    91.0
+   ],
+   "group": "T",
+   "mass": 2,
+   "color": "elec",
+   "label": "I2S zosilňovač MAX98357A 17.8×19"
+  },
+  {
+   "name": "T_kondenzator",
+   "kind": "cyl",
+   "r": 4.0,
+   "h": 6.2,
+   "axis": "y",
+   "at": [
+    12.0,
+    34.2,
+    76.0
+   ],
+   "group": "T",
+   "mass": 1.5,
+   "color": "metal",
+   "label": "470 µF / 10 V pri konektoroch serv"
+  },
+  {
+   "name": "T_konektory",
+   "kind": "box",
+   "size": [
+    34,
+    6.5,
+    9
+   ],
+   "at": [
+    0,
+    33.0,
+    108.5
+   ],
+   "group": "T",
+   "mass": 3,
+   "color": "black",
+   "label": "konektory serv / hlavy (JST-PH) + 5 mm na ohyb"
+  },
+  {
+   "name": "T_rameno_R_puzdro",
+   "kind": "cyl",
+   "r": 7.0,
+   "h": 6.2,
+   "axis": "x",
+   "at": [
+    -40.9,
+    0.0,
+    109.8
+   ],
+   "group": "T",
+   "mat": "petg",
+   "color": "black",
+   "label": "náboj ramena v trupe – drží ramienko nano serva (trecia poistka)"
+  },
+  {
+   "name": "T_kabel_ramena_R",
+   "kind": "box",
+   "size": [
+    5,
+    20,
+    12
+   ],
+   "at": [
+    -33.5,
+    0,
+    109.8
+   ],
+   "group": "T",
+   "mass": 1,
+   "color": "cable",
+   "label": "servisná slučka kábla ramena (3 vodiče AWG30)"
+  },
+  {
+   "name": "T_rameno_L_puzdro",
+   "kind": "cyl",
+   "r": 7.0,
+   "h": 6.2,
+   "axis": "x",
+   "at": [
+    40.9,
+    0.0,
+    109.8
+   ],
+   "group": "T",
+   "mat": "petg",
+   "color": "black",
+   "label": "náboj ramena v trupe – drží ramienko nano serva (trecia poistka)"
+  },
+  {
+   "name": "T_kabel_ramena_L",
+   "kind": "box",
+   "size": [
+    5,
+    20,
+    12
+   ],
+   "at": [
+    33.5,
+    0,
+    109.8
+   ],
+   "group": "T",
+   "mass": 1,
+   "color": "cable",
+   "label": "servisná slučka kábla ramena (3 vodiče AWG30)"
+  },
+  {
+   "name": "P_koleso_pan",
+   "kind": "cyl",
+   "r": 15.200000000000001,
+   "h": 2.5,
+   "axis": "z",
+   "at": [
+    0,
+    0,
+    68.75
+   ],
+   "group": "P",
+   "mat": "pom",
+   "color": "black",
+   "label": "ozubené koleso pan m0.8 36z (POM) + PTFE podložka",
+   "adds": [
+    {
+     "kind": "cyl",
+     "r": 2.0,
+     "h": 2.3,
+     "axis": "z",
+     "at": [
+      0,
+      0,
+      66.35
+     ]
+    }
+   ]
+  },
+  {
+   "name": "P_dno",
+   "kind": "cyl",
+   "r": 22.0,
+   "h": 1.2000000000000028,
+   "axis": "z",
+   "at": [
+    0,
+    0,
+    71.6
+   ],
+   "group": "P",
+   "mat": "petg",
+   "color": "grey",
+   "label": "dno otočného kalicha pan (PETG) s výrezom pod kľukou a jazykom",
+   "cuts": [
+    {
+     "kind": "box",
+     "size": [
+      8.0,
+      25.0,
+      3.0
+     ],
+     "at": [
+      -20.5,
+      0,
+      71.6
+     ]
+    }
+   ]
+  },
+  {
+   "name": "P_ram",
+   "kind": "cyl",
+   "r": 1.5,
+   "h": 14.999999999999986,
+   "axis": "z",
+   "at": [
+    19.5,
+    12.9,
+    79.7
+   ],
+   "group": "P",
+   "mat": "petg",
+   "color": "grey",
+   "label": "stĺpiky rámu zdvihu (spájajú dno s šachtou)",
+   "adds": [
+    {
+     "kind": "cyl",
+     "r": 1.5,
+     "h": 14.999999999999986,
+     "axis": "z",
+     "at": [
+      19.5,
+      -12.9,
+      79.7
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 1.5,
+     "h": 14.999999999999986,
+     "axis": "z",
+     "at": [
+      -12.0,
+      19.5,
+      79.7
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 1.5,
+     "h": 14.999999999999986,
+     "axis": "z",
+     "at": [
+      -12.0,
+      -19.5,
+      79.7
+     ]
+    }
+   ]
+  },
+  {
+   "name": "P_sachta",
+   "kind": "box",
+   "size": [
+    50.2,
+    25.2,
+    34.60000000000001
+   ],
+   "at": [
+    0,
+    0,
+    104.5
+   ],
+   "r": 3.0,
+   "group": "P",
+   "mat": "resin",
+   "color": "black",
+   "label": "šachta krku 47×22 (vedenie zdvihu, otáča sa s pan)",
+   "cuts": [
+    {
+     "kind": "box",
+     "size": [
+      47.0,
+      22.0,
+      35.60000000000001
+     ],
+     "at": [
+      0,
+      0,
+      104.5
+     ],
+     "r": 1.5
+    },
+    {
+     "kind": "box",
+     "size": [
+      5.0,
+      24.6,
+      10.5
+     ],
+     "at": [
+      -21.0,
+      0,
+      91.95
+     ]
+    }
+   ],
+   "adds": [
+    {
+     "kind": "box",
+     "size": [
+      5.0,
+      27.2,
+      10.0
+     ],
+     "at": [
+      -21.0,
+      0,
+      92.2
+     ]
+    }
+   ]
+  },
+  {
+   "name": "P_servo_zdvih",
+   "kind": "box",
+   "size": [
+    22.7,
+    22.8,
+    12.2
+   ],
+   "at": [
+    -0.85,
+    -5.4,
+    80.2
+   ],
+   "group": "P",
+   "mass": 13.4,
+   "color": "servo",
+   "label": "servo zdvihu MG90S (hriadeľ v osi X) – kľuka r10, mŕtve body v oboch krajných polohách",
+   "adds": [
+    {
+     "kind": "box",
+     "size": [
+      2.5,
+      32.5,
+      12.2
+     ],
+     "at": [
+      -6.75,
+      -5.4,
+      80.2
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 6.0,
+     "h": 4.0,
+     "axis": "x",
+     "at": [
+      -14.2,
+      0,
+      80.2
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 2.4,
+     "h": 1.2,
+     "axis": "x",
+     "at": [
+      -16.8,
+      0,
+      80.2
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      7.5,
+      4.5,
+      3.0
+     ],
+     "at": [
+      6.75,
+      8.25,
+      78.2
+     ]
+    }
+   ]
+  },
+  {
+   "name": "P_klika",
+   "kind": "box",
+   "size": [
+    1.8,
+    5.0,
+    15.5
+   ],
+   "at": [
+    -18.1,
+    0,
+    75.95
+   ],
+   "group": "P",
+   "mass": 1.5,
+   "color": "metal",
+   "label": "kľuka zdvihu r10 (oceľ) v polohe pokoj (dole) + čap Ø2",
+   "adds": [
+    {
+     "kind": "cyl",
+     "r": 3.5,
+     "h": 1.8,
+     "axis": "x",
+     "at": [
+      -18.1,
+      0,
+      80.2
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 1.0,
+     "h": 3.5,
+     "axis": "x",
+     "at": [
+      -20.75,
+      0,
+      70.2
+     ]
+    }
+   ]
+  },
+  {
+   "name": "P_kabel_zdvih",
+   "kind": "box",
+   "size": [
+    6,
+    12,
+    7.6
+   ],
+   "at": [
+    14.0,
+    -3.0,
+    76.5
+   ],
+   "group": "P",
+   "mass": 1.5,
+   "color": "cable",
+   "label": "U-slučka vodičov krku pre zdvih 20 mm (4+3 vodiče) + kábel serva zdvihu",
+   "adds": [
+    {
+     "kind": "box",
+     "size": [
+      6,
+      13.0,
+      3.0
+     ],
+     "at": [
+      14.0,
+      9.5,
+      74.2
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      33,
+      3.0,
+      3.0
+     ],
+     "at": [
+      0.5,
+      14.5,
+      74.2
+     ]
+    }
+   ]
+  },
+  {
+   "name": "L_jazyk",
+   "kind": "box",
+   "size": [
+    2.9,
+    18.0,
+    19.000000000000014
+   ],
+   "at": [
+    -21.05,
+    0,
+    77.8
+   ],
+   "group": "L",
+   "mat": "petg",
+   "color": "black",
+   "label": "jazyk pod krkom (nový diel, 2× M2 do vložiek v spodku krku) s drážkou 20.2×2.2",
+   "adds": [
+    {
+     "kind": "box",
+     "size": [
+      2.9,
+      22.6,
+      6.0
+     ],
+     "at": [
+      -21.05,
+      0,
+      71.3
+     ]
+    }
+   ],
+   "cuts": [
+    {
+     "kind": "box",
+     "size": [
+      4.0,
+      20.2,
+      2.2
+     ],
+     "at": [
+      -21.05,
+      0,
+      70.2
+     ]
+    }
+   ]
+  },
+  {
+   "name": "A_R_skrupina",
+   "kind": "sshell",
+   "a": 10.5,
+   "b": 15.0,
+   "n": 2.5,
+   "h": 80.0,
+   "rf": 10.0,
+   "wall": 1.8,
+   "at": [
+    -58.0,
+    0.0,
+    83.8
+   ],
+   "group": "AR",
+   "mat": "resin",
+   "color": "white",
+   "label": "rameno pravé – mäkká lopatka 30×21×82 (zástupný tvar)",
+   "cuts": [
+    {
+     "kind": "cyl",
+     "r": 3.6,
+     "h": 4,
+     "axis": "x",
+     "at": [
+      -48.4,
+      0.0,
+      109.8
+     ]
+    }
+   ]
+  },
+  {
+   "name": "A_R_servo",
+   "kind": "box",
+   "size": [
+    15.5,
+    7.6,
+    18.6
+   ],
+   "at": [
+    -57.25,
+    0.0,
+    105.0
+   ],
+   "group": "AR",
+   "mass": 4.5,
+   "color": "servo",
+   "label": "nano servo ramena (Hitec HS-35HD trieda, 18.6×7.6×15.5, 0.8 kg·cm)",
+   "adds": [
+    {
+     "kind": "box",
+     "size": [
+      1.2,
+      7.6,
+      25.0
+     ],
+     "at": [
+      -53.5,
+      0.0,
+      105.0
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 3.0,
+     "h": 2.0,
+     "axis": "x",
+     "at": [
+      -48.5,
+      0.0,
+      109.8
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 2.0,
+     "h": 5.0,
+     "axis": "x",
+     "at": [
+      -45.0,
+      0.0,
+      109.8
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      5.0,
+      3.0,
+      4.0
+     ],
+     "at": [
+      -60.0,
+      0.0,
+      116.3
+     ]
+    }
+   ]
+  },
+  {
+   "name": "A_R_kabel",
+   "kind": "box",
+   "size": [
+    6,
+    3.0,
+    4.0
+   ],
+   "at": [
+    -53.5,
+    4.5,
+    116.8
+   ],
+   "group": "AR",
+   "mass": 0.5,
+   "color": "cable",
+   "label": "kábel serva ramena → oblúková štrbina pod krytkou ramena"
+  },
+  {
+   "name": "A_R_krytka",
+   "kind": "cyl",
+   "r": 12.0,
+   "h": 1.2,
+   "axis": "x",
+   "at": [
+    -47.9,
+    0.0,
+    109.8
+   ],
+   "group": "AR",
+   "mat": "resin",
+   "color": "black",
+   "label": "čierna krytka ramena Ø24"
+  },
+  {
+   "name": "A_L_skrupina",
+   "kind": "sshell",
+   "a": 10.5,
+   "b": 15.0,
+   "n": 2.5,
+   "h": 80.0,
+   "rf": 10.0,
+   "wall": 1.8,
+   "at": [
+    58.0,
+    0.0,
+    83.8
+   ],
+   "group": "AL",
+   "mat": "resin",
+   "color": "white",
+   "label": "rameno ľavé – mäkká lopatka 30×21×82 (zástupný tvar)",
+   "cuts": [
+    {
+     "kind": "cyl",
+     "r": 3.6,
+     "h": 4,
+     "axis": "x",
+     "at": [
+      48.4,
+      0.0,
+      109.8
+     ]
+    }
+   ]
+  },
+  {
+   "name": "A_L_servo",
+   "kind": "box",
+   "size": [
+    15.5,
+    7.6,
+    18.6
+   ],
+   "at": [
+    57.25,
+    0.0,
+    105.0
+   ],
+   "group": "AL",
+   "mass": 4.5,
+   "color": "servo",
+   "label": "nano servo ramena (Hitec HS-35HD trieda, 18.6×7.6×15.5, 0.8 kg·cm)",
+   "adds": [
+    {
+     "kind": "box",
+     "size": [
+      1.2,
+      7.6,
+      25.0
+     ],
+     "at": [
+      53.5,
+      0.0,
+      105.0
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 3.0,
+     "h": 2.0,
+     "axis": "x",
+     "at": [
+      48.5,
+      0.0,
+      109.8
+     ]
+    },
+    {
+     "kind": "cyl",
+     "r": 2.0,
+     "h": 5.0,
+     "axis": "x",
+     "at": [
+      45.0,
+      0.0,
+      109.8
+     ]
+    },
+    {
+     "kind": "box",
+     "size": [
+      5.0,
+      3.0,
+      4.0
+     ],
+     "at": [
+      60.0,
+      0.0,
+      116.3
+     ]
+    }
+   ]
+  },
+  {
+   "name": "A_L_kabel",
+   "kind": "box",
+   "size": [
+    6,
+    3.0,
+    4.0
+   ],
+   "at": [
+    53.5,
+    4.5,
+    116.8
+   ],
+   "group": "AL",
+   "mass": 0.5,
+   "color": "cable",
+   "label": "kábel serva ramena → oblúková štrbina pod krytkou ramena"
+  },
+  {
+   "name": "A_L_krytka",
+   "kind": "cyl",
+   "r": 12.0,
+   "h": 1.2,
+   "axis": "x",
+   "at": [
+    47.9,
+    0.0,
+    109.8
+   ],
+   "group": "AL",
+   "mat": "resin",
+   "color": "black",
+   "label": "čierna krytka ramena Ø24"
+  }
+ ],
+ "allow": [
+  [
+   "Z_koleso_R",
+   "Z_motor_R"
+  ],
+  [
+   "Z_koleso_L",
+   "Z_motor_L"
+  ],
+  [
+   "Z_koliesko_1",
+   "Z_shell"
+  ],
+  [
+   "Z_koliesko_2",
+   "Z_shell"
+  ],
+  [
+   "Z_koliesko_3",
+   "Z_shell"
+  ],
+  [
+   "Z_koliesko_4",
+   "Z_shell"
+  ],
+  [
+   "Z_J1_koliska",
+   "Z_J1_servo"
+  ],
+  [
+   "Z_sokel",
+   "Z_shell"
+  ],
+  [
+   "Z_J1_lozisko",
+   "Z_sokel"
+  ],
+  [
+   "T_J1_lozisko_vnutro",
+   "Z_J1_lozisko"
+  ],
+  [
+   "T_J1_lozisko_vnutro",
+   "T_J1_naboj"
+  ],
+  [
+   "T_J1_lozisko_vnutro",
+   "T_paluba"
+  ],
+  [
+   "Z_J1_slucka",
+   "Z_sokel"
+  ],
+  [
+   "Z_okno_ToF",
+   "Z_shell"
+  ],
+  [
+   "Z_svetlo_predne",
+   "Z_shell"
+  ],
+  [
+   "T_shell",
+   "B_golier_prstenec"
+  ],
+  [
+   "T_paluba",
+   "T_shell"
+  ],
+  [
+   "T_J1_naboj",
+   "T_paluba"
+  ],
+  [
+   "T_J1_naboj",
+   "Z_J1_lozisko"
+  ],
+  [
+   "T_J1_ramienko",
+   "Z_J1_servo"
+  ],
+  [
+   "T_J1_sukna",
+   "T_paluba"
+  ],
+  [
+   "T_J1_sukna",
+   "Z_J1_slucka"
+  ],
+  [
+   "T_puzdro_pan",
+   "T_paluba"
+  ],
+  [
+   "T_medzikoleso_pan",
+   "T_paluba"
+  ],
+  [
+   "T_medzikoleso_pan",
+   "T_pastorok_pan"
+  ],
+  [
+   "T_servo_pan",
+   "T_pastorok_pan"
+  ],
+  [
+   "T_drziak_serva_pan",
+   "T_servo_pan"
+  ],
+  [
+   "T_drziak_serva_pan",
+   "T_paluba"
+  ],
+  [
+   "T_drziak_serva_pan",
+   "T_shell"
+  ],
+  [
+   "T_zlab_pan",
+   "T_slucka_pan"
+  ],
+  [
+   "T_zlab_pan",
+   "T_shell"
+  ],
+  [
+   "T_slucka_pan",
+   "T_shell"
+  ],
+  [
+   "T_svetlo_hrud",
+   "T_shell"
+  ],
+  [
+   "T_ESP32S3",
+   "T_doska"
+  ],
+  [
+   "T_menic5V",
+   "T_doska"
+  ],
+  [
+   "T_kondenzator",
+   "T_doska"
+  ],
+  [
+   "T_konektory",
+   "T_doska"
+  ],
+  [
+   "T_rameno_R_puzdro",
+   "T_shell"
+  ],
+  [
+   "T_rameno_L_puzdro",
+   "T_shell"
+  ],
+  [
+   "P_koleso_pan",
+   "T_medzikoleso_pan"
+  ],
+  [
+   "P_koleso_pan",
+   "T_puzdro_pan"
+  ],
+  [
+   "P_koleso_pan",
+   "T_paluba"
+  ],
+  [
+   "P_dno",
+   "P_koleso_pan"
+  ],
+  [
+   "P_ram",
+   "P_dno"
+  ],
+  [
+   "P_sachta",
+   "B_golier_kotuc"
+  ],
+  [
+   "P_sachta",
+   "P_ram"
+  ],
+  [
+   "P_servo_zdvih",
+   "P_ram"
+  ],
+  [
+   "P_klika",
+   "P_servo_zdvih"
+  ],
+  [
+   "P_kabel_zdvih",
+   "P_dno"
+  ],
+  [
+   "L_jazyk",
+   "B_krk"
+  ],
+  [
+   "L_jazyk",
+   "P_klika"
+  ],
+  [
+   "A_R_servo",
+   "A_R_skrupina"
+  ],
+  [
+   "A_R_servo",
+   "T_rameno_R_puzdro"
+  ],
+  [
+   "A_R_servo",
+   "T_shell"
+  ],
+  [
+   "A_R_krytka",
+   "A_R_skrupina"
+  ],
+  [
+   "A_R_krytka",
+   "A_R_servo"
+  ],
+  [
+   "A_R_kabel",
+   "A_R_servo"
+  ],
+  [
+   "A_L_servo",
+   "A_L_skrupina"
+  ],
+  [
+   "A_L_servo",
+   "T_rameno_L_puzdro"
+  ],
+  [
+   "A_L_servo",
+   "T_shell"
+  ],
+  [
+   "A_L_krytka",
+   "A_L_skrupina"
+  ],
+  [
+   "A_L_krytka",
+   "A_L_servo"
+  ],
+  [
+   "A_L_kabel",
+   "A_L_servo"
+  ]
+ ],
+ "meta": {
+  "ZC_LIFT": 80.19999999999999,
+  "pan_servo_shaft": [
+   34.1,
+   5.0
+  ],
+  "idler": [
+   19.87,
+   10.34
+  ],
+  "notes": "casters 0.5 mm above the wheel contact plane (robot rocks on the wheel axle)"
+ }
+}

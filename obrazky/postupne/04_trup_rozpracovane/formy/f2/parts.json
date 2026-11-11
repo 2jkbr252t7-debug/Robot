@@ -1,0 +1,195 @@
+{
+ "parts": [
+  {
+   "name": "T_trup_predny",
+   "group": "T",
+   "color": "white",
+   "label": "trup – predný diel (magnety)",
+   "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f2/stl/T_trup_predny.stl",
+   "step": "/tmp/claude-0/gapwf/fin/T1/forma/f2/cad/T_trup_predny.step",
+   "volume_mm3": 26347.4,
+   "mass_g_resin": 30.3
+  },
+  {
+   "name": "T_trup_zadny",
+   "group": "T",
+   "color": "white",
+   "label": "trup – zadná škrupina",
+   "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f2/stl/T_trup_zadny.stl",
+   "step": "/tmp/claude-0/gapwf/fin/T1/forma/f2/cad/T_trup_zadny.step",
+   "volume_mm3": 24916.1,
+   "mass_g_resin": 28.7
+  },
+  {
+   "name": "T_lem_goliera",
+   "group": "T",
+   "color": "black",
+   "label": "čierny lem goliera (plošina r 29,8 v z 133)",
+   "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f2/stl/T_lem_goliera.stl",
+   "step": "/tmp/claude-0/gapwf/fin/T1/forma/f2/cad/T_lem_goliera.step",
+   "volume_mm3": 2484.9,
+   "mass_g_resin": 2.9
+  },
+  {
+   "name": "T_sokel",
+   "group": "T",
+   "color": "black_gloss",
+   "label": "tmavý lesklý prstenec pod trupom (otočný, J1)",
+   "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f2/stl/T_sokel.stl",
+   "step": "/tmp/claude-0/gapwf/fin/T1/forma/f2/cad/T_sokel.step",
+   "volume_mm3": 5108.5,
+   "mass_g_resin": 5.9
+  },
+  {
+   "name": "T_svetlovod",
+   "group": "T",
+   "color": "glow",
+   "label": "svetlovod hrude (PMMA)",
+   "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f2/stl/T_svetlovod.stl",
+   "step": "/tmp/claude-0/gapwf/fin/T1/forma/f2/cad/T_svetlovod.step",
+   "volume_mm3": 482.5,
+   "mass_g_resin": 0.6
+  },
+  {
+   "name": "T_mriezka",
+   "group": "T",
+   "color": "grey",
+   "label": "mriežka reproduktora",
+   "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f2/stl/T_mriezka.stl",
+   "step": "/tmp/claude-0/gapwf/fin/T1/forma/f2/cad/T_mriezka.step",
+   "volume_mm3": 177.9,
+   "mass_g_resin": 0.2
+  },
+  {
+   "name": "Z_skrupina",
+   "group": "B",
+   "color": "white",
+   "label": "podstavec – horná škrupina (oblúčik s miskou)",
+   "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f2/stl/Z_skrupina.stl",
+   "step": "/tmp/claude-0/gapwf/fin/T1/forma/f2/cad/Z_skrupina.step",
+   "volume_mm3": 43246.0,
+   "mass_g_resin": 49.7
+  },
+  {
+   "name": "Z_spodok",
+   "group": "B",
+   "color": "black",
+   "label": "tmavá päta / spodný kryt",
+   "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f2/stl/Z_spodok.stl",
+   "step": "/tmp/claude-0/gapwf/fin/T1/forma/f2/cad/Z_spodok.step",
+   "volume_mm3": 11630.7,
+   "mass_g_resin": 13.4
+  },
+  {
+   "name": "Z_kryt_bat_P",
+   "group": "B",
+   "color": "black",
+   "label": "kryt batérie predný (nesie guľôčku)",
+   "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f2/stl/Z_kryt_bat_P.stl",
+   "step": "/tmp/claude-0/gapwf/fin/T1/forma/f2/cad/Z_kryt_bat_P.step",
+   "volume_mm3": 6240.3,
+   "mass_g_resin": 7.2
+  },
+  {
+   "name": "Z_kryt_bat_Z",
+   "group": "B",
+   "color": "black",
+   "label": "kryt batérie zadný (nesie guľôčku)",
+   "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f2/stl/Z_kryt_bat_Z.stl",
+   "step": "/tmp/claude-0/gapwf/fin/T1/forma/f2/cad/Z_kryt_bat_Z.step",
+   "volume_mm3": 6240.3,
+   "mass_g_resin": 7.2
+  },
+  {
+   "name": "Z_okno_ToF",
+   "group": "B",
+   "color": "glass",
+   "label": "okno ToF (tmavé IR)",
+   "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f2/stl/Z_okno_ToF.stl",
+   "step": "/tmp/claude-0/gapwf/fin/T1/forma/f2/cad/Z_okno_ToF.step",
+   "volume_mm3": 156.6,
+   "mass_g_resin": 0.2
+  },
+  {
+   "name": "Z_svetlovod",
+   "group": "B",
+   "color": "glow",
+   "label": "svetlovod podstavca",
+   "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f2/stl/Z_svetlovod.stl",
+   "step": "/tmp/claude-0/gapwf/fin/T1/forma/f2/cad/Z_svetlovod.step",
+   "volume_mm3": 522.2,
+   "mass_g_resin": 0.6
+  },
+  {
+   "name": "Z_led_nabijania",
+   "group": "B",
+   "color": "glow",
+   "label": "LED nabíjania",
+   "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f2/stl/Z_led_nabijania.stl",
+   "step": "/tmp/claude-0/gapwf/fin/T1/forma/f2/cad/Z_led_nabijania.step",
+   "volume_mm3": 12.9,
+   "mass_g_resin": 0.0
+  },
+  {
+   "name": "A_L_vnutorna",
+   "group": "AL",
+   "color": "white",
+   "label": "ľavé krídlo – vnútorná polovica",
+   "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f2/stl/A_L_vnutorna.stl",
+   "step": "/tmp/claude-0/gapwf/fin/T1/forma/f2/cad/A_L_vnutorna.step",
+   "volume_mm3": 3504.1,
+   "mass_g_resin": 4.0
+  },
+  {
+   "name": "A_L_vonkajsia",
+   "group": "AL",
+   "color": "white",
+   "label": "ľavé krídlo – vonkajšia polovica",
+   "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f2/stl/A_L_vonkajsia.stl",
+   "step": "/tmp/claude-0/gapwf/fin/T1/forma/f2/cad/A_L_vonkajsia.step",
+   "volume_mm3": 6115.4,
+   "mass_g_resin": 7.0
+  },
+  {
+   "name": "A_L_kryt",
+   "group": "AL",
+   "color": "black",
+   "label": "ľavá ramenná čiapočka",
+   "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f2/stl/A_L_kryt.stl",
+   "step": "/tmp/claude-0/gapwf/fin/T1/forma/f2/cad/A_L_kryt.step",
+   "volume_mm3": 850.6,
+   "mass_g_resin": 1.0
+  },
+  {
+   "name": "A_R_vnutorna",
+   "group": "AR",
+   "color": "white",
+   "label": "pravé krídlo – vnútorná polovica",
+   "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f2/stl/A_R_vnutorna.stl",
+   "step": "/tmp/claude-0/gapwf/fin/T1/forma/f2/cad/A_R_vnutorna.step",
+   "volume_mm3": 3504.1,
+   "mass_g_resin": 4.0
+  },
+  {
+   "name": "A_R_vonkajsia",
+   "group": "AR",
+   "color": "white",
+   "label": "pravé krídlo – vonkajšia polovica",
+   "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f2/stl/A_R_vonkajsia.stl",
+   "step": "/tmp/claude-0/gapwf/fin/T1/forma/f2/cad/A_R_vonkajsia.step",
+   "volume_mm3": 6115.4,
+   "mass_g_resin": 7.0
+  },
+  {
+   "name": "A_R_kryt",
+   "group": "AR",
+   "color": "black",
+   "label": "pravá ramenná čiapočka",
+   "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f2/stl/A_R_kryt.stl",
+   "step": "/tmp/claude-0/gapwf/fin/T1/forma/f2/cad/A_R_kryt.step",
+   "volume_mm3": 850.6,
+   "mass_g_resin": 1.0
+  }
+ ],
+ "note": "world frame, rest pose; groups as t1lib (T turns with J1, AR/AL swing about the shoulder axis X at y 2, z 112)"
+}

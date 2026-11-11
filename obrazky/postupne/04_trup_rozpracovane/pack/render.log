@@ -1,0 +1,744 @@
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:56: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+Timer 'STL Import' took 4.17 ms
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:66: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.28 ms
+Timer 'STL Import' took 0.31 ms
+Timer 'STL Import' took 0.30 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.17 ms
+Timer 'STL Import' took 0.48 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.14 ms
+Timer 'STL Import' took 0.14 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.29 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.29 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.14 ms
+Timer 'STL Import' took 0.14 ms
+Timer 'STL Import' took 0.18 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.15 ms
+Timer 'STL Import' took 0.39 ms
+Timer 'STL Import' took 0.37 ms
+Timer 'STL Import' took 0.33 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.26 ms
+00:07.087  io.stl           | WARNING Removed 16 degenerate triangles during import
+Timer 'STL Import' took 0.98 ms
+Timer 'STL Import' took 0.29 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.40 ms
+00:07.196  io.stl           | WARNING Removed 16 degenerate triangles during import
+Timer 'STL Import' took 1.27 ms
+Timer 'STL Import' took 0.36 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.32 ms
+Timer 'STL Import' took 2.04 ms
+Timer 'STL Import' took 0.38 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.35 ms
+Timer 'STL Import' took 0.35 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.26 ms
+00:07.928  io.stl           | WARNING Removed 1 degenerate triangles during import
+Timer 'STL Import' took 0.46 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.23 ms
+00:08.015  io.stl           | WARNING Removed 1 degenerate triangles during import
+Timer 'STL Import' took 0.49 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.29 ms
+Timer 'STL Import' took 133.93 ms
+Timer 'STL Import' took 126.60 ms
+Timer 'STL Import' took 3.90 ms
+Timer 'STL Import' took 3.28 ms
+Timer 'STL Import' took 3.77 ms
+Timer 'STL Import' took 1.16 ms
+Timer 'STL Import' took 1.12 ms
+Timer 'STL Import' took 26.17 ms
+Timer 'STL Import' took 3.33 ms
+Timer 'STL Import' took 1.13 ms
+Timer 'STL Import' took 13.70 ms
+Timer 'STL Import' took 14.32 ms
+Timer 'STL Import' took 1.08 ms
+Timer 'STL Import' took 1.46 ms
+Timer 'STL Import' took 17.19 ms
+Timer 'STL Import' took 16.18 ms
+Timer 'STL Import' took 1.57 ms
+Timer 'STL Import' took 1.36 ms
+Timer 'STL Import' took 1.54 ms
+Timer 'STL Import' took 6.63 ms
+Timer 'STL Import' took 10.66 ms
+Timer 'STL Import' took 1.22 ms
+Timer 'STL Import' took 22.67 ms
+Timer 'STL Import' took 9.09 ms
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:130: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  fm = floor.data.materials[0]; fm.use_nodes = True
+00:19.844  render           | Saved: '/tmp/claude-0/gapwf/fin/T1/pack/prev_rest_iso.png'
+00:23.638  render           | Saved: '/tmp/claude-0/gapwf/fin/T1/pack/prev_rest_front.png'
+00:26.994  render           | Saved: '/tmp/claude-0/gapwf/fin/T1/pack/prev_rest_side.png'
+00:32.080  render           | Saved: '/tmp/claude-0/gapwf/fin/T1/pack/prev_rest_cut.png'
+PREVIEW DONE /tmp/claude-0/gapwf/fin/T1/pack/prev_rest
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:56: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+Timer 'STL Import' took 2.06 ms
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:66: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.29 ms
+Timer 'STL Import' took 0.34 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.29 ms
+Timer 'STL Import' took 0.13 ms
+Timer 'STL Import' took 0.41 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.13 ms
+Timer 'STL Import' took 0.13 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.28 ms
+Timer 'STL Import' took 0.15 ms
+Timer 'STL Import' took 0.15 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.15 ms
+Timer 'STL Import' took 0.46 ms
+Timer 'STL Import' took 0.39 ms
+Timer 'STL Import' took 0.32 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.26 ms
+00:01.203  io.stl           | WARNING Removed 16 degenerate triangles during import
+Timer 'STL Import' took 1.07 ms
+Timer 'STL Import' took 0.30 ms
+Timer 'STL Import' took 0.16 ms
+Timer 'STL Import' took 0.32 ms
+00:01.291  io.stl           | WARNING Removed 16 degenerate triangles during import
+Timer 'STL Import' took 1.05 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.30 ms
+Timer 'STL Import' took 2.18 ms
+Timer 'STL Import' took 0.35 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.37 ms
+Timer 'STL Import' took 0.35 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.28 ms
+Timer 'STL Import' took 0.30 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.38 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.32 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.29 ms
+00:02.038  io.stl           | WARNING Removed 1 degenerate triangles during import
+Timer 'STL Import' took 0.48 ms
+Timer 'STL Import' took 0.31 ms
+Timer 'STL Import' took 0.24 ms
+00:02.132  io.stl           | WARNING Removed 1 degenerate triangles during import
+Timer 'STL Import' took 0.65 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 107.67 ms
+Timer 'STL Import' took 121.29 ms
+Timer 'STL Import' took 4.01 ms
+Timer 'STL Import' took 2.61 ms
+Timer 'STL Import' took 2.13 ms
+Timer 'STL Import' took 0.66 ms
+Timer 'STL Import' took 0.69 ms
+Timer 'STL Import' took 21.20 ms
+Timer 'STL Import' took 2.42 ms
+Timer 'STL Import' took 0.80 ms
+Timer 'STL Import' took 10.42 ms
+Timer 'STL Import' took 10.40 ms
+Timer 'STL Import' took 0.65 ms
+Timer 'STL Import' took 0.90 ms
+Timer 'STL Import' took 14.11 ms
+Timer 'STL Import' took 14.42 ms
+Timer 'STL Import' took 1.09 ms
+Timer 'STL Import' took 1.01 ms
+Timer 'STL Import' took 1.20 ms
+Timer 'STL Import' took 3.48 ms
+Timer 'STL Import' took 7.46 ms
+Timer 'STL Import' took 0.99 ms
+Timer 'STL Import' took 20.56 ms
+Timer 'STL Import' took 8.93 ms
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:130: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  fm = floor.data.materials[0]; fm.use_nodes = True
+00:09.121  render           | Saved: '/tmp/claude-0/gapwf/fin/T1/pack/prev_rest_rez_cut_side.png'
+PREVIEW DONE /tmp/claude-0/gapwf/fin/T1/pack/prev_rest_rez
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:56: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+Timer 'STL Import' took 2.31 ms
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:66: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.29 ms
+Timer 'STL Import' took 0.30 ms
+Timer 'STL Import' took 0.29 ms
+Timer 'STL Import' took 0.14 ms
+Timer 'STL Import' took 0.47 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.13 ms
+Timer 'STL Import' took 0.18 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.39 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.30 ms
+Timer 'STL Import' took 0.30 ms
+Timer 'STL Import' took 0.15 ms
+Timer 'STL Import' took 0.14 ms
+Timer 'STL Import' took 0.15 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.18 ms
+Timer 'STL Import' took 0.42 ms
+Timer 'STL Import' took 0.36 ms
+Timer 'STL Import' took 0.34 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.17 ms
+Timer 'STL Import' took 0.26 ms
+00:01.147  io.stl           | WARNING Removed 16 degenerate triangles during import
+Timer 'STL Import' took 0.99 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.17 ms
+Timer 'STL Import' took 0.29 ms
+00:01.232  io.stl           | WARNING Removed 16 degenerate triangles during import
+Timer 'STL Import' took 1.07 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.17 ms
+Timer 'STL Import' took 0.29 ms
+Timer 'STL Import' took 1.93 ms
+Timer 'STL Import' took 0.48 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.45 ms
+Timer 'STL Import' took 0.34 ms
+Timer 'STL Import' took 0.30 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.33 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.18 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.30 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.31 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.29 ms
+00:02.013  io.stl           | WARNING Removed 1 degenerate triangles during import
+Timer 'STL Import' took 0.46 ms
+Timer 'STL Import' took 0.29 ms
+Timer 'STL Import' took 0.23 ms
+00:02.107  io.stl           | WARNING Removed 1 degenerate triangles during import
+Timer 'STL Import' took 0.46 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 135.37 ms
+Timer 'STL Import' took 141.77 ms
+Timer 'STL Import' took 5.49 ms
+Timer 'STL Import' took 3.36 ms
+Timer 'STL Import' took 2.18 ms
+Timer 'STL Import' took 0.80 ms
+Timer 'STL Import' took 0.92 ms
+Timer 'STL Import' took 27.56 ms
+Timer 'STL Import' took 2.83 ms
+Timer 'STL Import' took 0.80 ms
+Timer 'STL Import' took 13.51 ms
+Timer 'STL Import' took 11.33 ms
+Timer 'STL Import' took 0.67 ms
+Timer 'STL Import' took 0.93 ms
+Timer 'STL Import' took 13.88 ms
+Timer 'STL Import' took 13.88 ms
+Timer 'STL Import' took 0.93 ms
+Timer 'STL Import' took 0.93 ms
+Timer 'STL Import' took 1.28 ms
+Timer 'STL Import' took 3.46 ms
+Timer 'STL Import' took 7.88 ms
+Timer 'STL Import' took 0.97 ms
+Timer 'STL Import' took 23.65 ms
+Timer 'STL Import' took 9.37 ms
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:130: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  fm = floor.data.materials[0]; fm.use_nodes = True
+00:10.009  render           | Saved: '/tmp/claude-0/gapwf/fin/T1/pack/prev_rest_rezY_cut_front.png'
+PREVIEW DONE /tmp/claude-0/gapwf/fin/T1/pack/prev_rest_rezY
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:56: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+Timer 'STL Import' took 1.71 ms
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:66: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.28 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.29 ms
+Timer 'STL Import' took 0.13 ms
+Timer 'STL Import' took 0.43 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.29 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.13 ms
+Timer 'STL Import' took 0.13 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.40 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.18 ms
+Timer 'STL Import' took 0.43 ms
+Timer 'STL Import' took 0.33 ms
+Timer 'STL Import' took 0.30 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.16 ms
+Timer 'STL Import' took 0.30 ms
+00:01.183  io.stl           | WARNING Removed 16 degenerate triangles during import
+Timer 'STL Import' took 1.00 ms
+Timer 'STL Import' took 0.30 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.29 ms
+00:01.267  io.stl           | WARNING Removed 16 degenerate triangles during import
+Timer 'STL Import' took 0.99 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.28 ms
+Timer 'STL Import' took 1.97 ms
+Timer 'STL Import' took 0.34 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.34 ms
+Timer 'STL Import' took 0.33 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.18 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.18 ms
+Timer 'STL Import' took 0.18 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.31 ms
+00:01.944  io.stl           | WARNING Removed 1 degenerate triangles during import
+Timer 'STL Import' took 0.42 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.20 ms
+00:02.041  io.stl           | WARNING Removed 1 degenerate triangles during import
+Timer 'STL Import' took 0.53 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 107.94 ms
+Timer 'STL Import' took 101.49 ms
+Timer 'STL Import' took 4.05 ms
+Timer 'STL Import' took 3.24 ms
+Timer 'STL Import' took 1.84 ms
+Timer 'STL Import' took 0.62 ms
+Timer 'STL Import' took 0.66 ms
+Timer 'STL Import' took 19.89 ms
+Timer 'STL Import' took 2.18 ms
+Timer 'STL Import' took 0.64 ms
+Timer 'STL Import' took 10.72 ms
+Timer 'STL Import' took 11.60 ms
+Timer 'STL Import' took 0.66 ms
+Timer 'STL Import' took 0.99 ms
+Timer 'STL Import' took 15.44 ms
+Timer 'STL Import' took 14.40 ms
+Timer 'STL Import' took 0.91 ms
+Timer 'STL Import' took 1.48 ms
+Timer 'STL Import' took 1.25 ms
+Timer 'STL Import' took 3.95 ms
+Timer 'STL Import' took 7.96 ms
+Timer 'STL Import' took 0.98 ms
+Timer 'STL Import' took 22.28 ms
+Timer 'STL Import' took 8.36 ms
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:130: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  fm = floor.data.materials[0]; fm.use_nodes = True
+00:09.131  render           | Saved: '/tmp/claude-0/gapwf/fin/T1/pack/prev_awake_iso.png'
+00:13.148  render           | Saved: '/tmp/claude-0/gapwf/fin/T1/pack/prev_awake_front.png'
+00:16.323  render           | Saved: '/tmp/claude-0/gapwf/fin/T1/pack/prev_awake_side.png'
+00:21.788  render           | Saved: '/tmp/claude-0/gapwf/fin/T1/pack/prev_awake_cut.png'
+PREVIEW DONE /tmp/claude-0/gapwf/fin/T1/pack/prev_awake
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:56: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+Timer 'STL Import' took 2.02 ms
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:66: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.37 ms
+Timer 'STL Import' took 0.38 ms
+Timer 'STL Import' took 0.35 ms
+Timer 'STL Import' took 0.32 ms
+Timer 'STL Import' took 0.16 ms
+Timer 'STL Import' took 0.57 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.17 ms
+Timer 'STL Import' took 0.14 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.29 ms
+Timer 'STL Import' took 0.28 ms
+Timer 'STL Import' took 0.34 ms
+Timer 'STL Import' took 0.45 ms
+Timer 'STL Import' took 0.16 ms
+Timer 'STL Import' took 0.15 ms
+Timer 'STL Import' took 0.17 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.17 ms
+Timer 'STL Import' took 0.46 ms
+Timer 'STL Import' took 0.36 ms
+Timer 'STL Import' took 0.34 ms
+Timer 'STL Import' took 0.34 ms
+Timer 'STL Import' took 0.17 ms
+Timer 'STL Import' took 0.32 ms
+00:01.233  io.stl           | WARNING Removed 16 degenerate triangles during import
+Timer 'STL Import' took 3.18 ms
+Timer 'STL Import' took 0.33 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.45 ms
+00:01.349  io.stl           | WARNING Removed 16 degenerate triangles during import
+Timer 'STL Import' took 1.06 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.18 ms
+Timer 'STL Import' took 0.40 ms
+Timer 'STL Import' took 2.09 ms
+Timer 'STL Import' took 0.34 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.36 ms
+Timer 'STL Import' took 0.31 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.33 ms
+Timer 'STL Import' took 0.28 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.28 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.34 ms
+00:02.082  io.stl           | WARNING Removed 1 degenerate triangles during import
+Timer 'STL Import' took 0.49 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.22 ms
+00:02.167  io.stl           | WARNING Removed 1 degenerate triangles during import
+Timer 'STL Import' took 0.50 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 124.46 ms
+Timer 'STL Import' took 114.28 ms
+Timer 'STL Import' took 5.12 ms
+Timer 'STL Import' took 3.77 ms
+Timer 'STL Import' took 1.86 ms
+Timer 'STL Import' took 0.72 ms
+Timer 'STL Import' took 3.94 ms
+Timer 'STL Import' took 22.16 ms
+Timer 'STL Import' took 2.56 ms
+Timer 'STL Import' took 3.29 ms
+Timer 'STL Import' took 19.30 ms
+Timer 'STL Import' took 24.38 ms
+Timer 'STL Import' took 0.71 ms
+Timer 'STL Import' took 1.00 ms
+Timer 'STL Import' took 16.40 ms
+Timer 'STL Import' took 22.33 ms
+Timer 'STL Import' took 1.40 ms
+Timer 'STL Import' took 1.26 ms
+Timer 'STL Import' took 1.22 ms
+Timer 'STL Import' took 3.59 ms
+Timer 'STL Import' took 7.47 ms
+Timer 'STL Import' took 1.03 ms
+Timer 'STL Import' took 25.46 ms
+Timer 'STL Import' took 8.67 ms
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:130: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  fm = floor.data.materials[0]; fm.use_nodes = True
+00:11.436  render           | Saved: '/tmp/claude-0/gapwf/fin/T1/pack/prev_awake_rez_cut_side.png'
+PREVIEW DONE /tmp/claude-0/gapwf/fin/T1/pack/prev_awake_rez
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:56: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+Timer 'STL Import' took 2.19 ms
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:66: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+Timer 'STL Import' took 0.28 ms
+Timer 'STL Import' took 0.32 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.35 ms
+Timer 'STL Import' took 0.38 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.57 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.28 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.28 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.14 ms
+Timer 'STL Import' took 0.14 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.31 ms
+Timer 'STL Import' took 0.15 ms
+Timer 'STL Import' took 0.17 ms
+Timer 'STL Import' took 0.15 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.16 ms
+Timer 'STL Import' took 0.52 ms
+Timer 'STL Import' took 0.40 ms
+Timer 'STL Import' took 0.35 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.18 ms
+Timer 'STL Import' took 0.27 ms
+00:01.192  io.stl           | WARNING Removed 16 degenerate triangles during import
+Timer 'STL Import' took 1.21 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.18 ms
+Timer 'STL Import' took 0.30 ms
+00:01.281  io.stl           | WARNING Removed 16 degenerate triangles during import
+Timer 'STL Import' took 1.04 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.38 ms
+Timer 'STL Import' took 1.96 ms
+Timer 'STL Import' took 0.37 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.34 ms
+Timer 'STL Import' took 0.33 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.18 ms
+Timer 'STL Import' took 0.18 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.18 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.18 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.29 ms
+00:02.008  io.stl           | WARNING Removed 1 degenerate triangles during import
+Timer 'STL Import' took 0.47 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.21 ms
+00:02.102  io.stl           | WARNING Removed 1 degenerate triangles during import
+Timer 'STL Import' took 0.51 ms
+Timer 'STL Import' took 0.32 ms
+Timer 'STL Import' took 0.32 ms
+Timer 'STL Import' took 140.19 ms
+Timer 'STL Import' took 129.02 ms
+Timer 'STL Import' took 4.90 ms
+Timer 'STL Import' took 3.39 ms
+Timer 'STL Import' took 2.51 ms
+Timer 'STL Import' took 0.63 ms
+Timer 'STL Import' took 0.63 ms
+Timer 'STL Import' took 21.18 ms
+Timer 'STL Import' took 2.13 ms
+Timer 'STL Import' took 0.85 ms
+Timer 'STL Import' took 11.82 ms
+Timer 'STL Import' took 11.04 ms
+Timer 'STL Import' took 0.60 ms
+Timer 'STL Import' took 0.90 ms
+Timer 'STL Import' took 15.45 ms
+Timer 'STL Import' took 13.57 ms
+Timer 'STL Import' took 0.92 ms
+Timer 'STL Import' took 1.31 ms
+Timer 'STL Import' took 1.30 ms
+Timer 'STL Import' took 3.56 ms
+Timer 'STL Import' took 7.41 ms
+Timer 'STL Import' took 1.01 ms
+Timer 'STL Import' took 23.26 ms
+Timer 'STL Import' took 9.08 ms
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:130: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  fm = floor.data.materials[0]; fm.use_nodes = True
+00:10.154  render           | Saved: '/tmp/claude-0/gapwf/fin/T1/pack/prev_awake_rezY_cut_front.png'
+PREVIEW DONE /tmp/claude-0/gapwf/fin/T1/pack/prev_awake_rezY
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:56: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+Timer 'STL Import' took 0.40 ms
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:66: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.34 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.22 ms
+Timer 'STL Import' took 0.18 ms
+Timer 'STL Import' took 0.21 ms
+Timer 'STL Import' took 0.12 ms
+Timer 'STL Import' took 0.15 ms
+Timer 'STL Import' took 0.17 ms
+Timer 'STL Import' took 0.18 ms
+Timer 'STL Import' took 0.13 ms
+Timer 'STL Import' took 0.13 ms
+Timer 'STL Import' took 0.16 ms
+Timer 'STL Import' took 0.14 ms
+Timer 'STL Import' took 0.14 ms
+Timer 'STL Import' took 0.17 ms
+Timer 'STL Import' took 0.15 ms
+Timer 'STL Import' took 0.23 ms
+Timer 'STL Import' took 0.14 ms
+Timer 'STL Import' took 0.15 ms
+Timer 'STL Import' took 0.24 ms
+00:00.836  io.stl           | WARNING Removed 1 degenerate triangles during import
+Timer 'STL Import' took 0.38 ms
+Timer 'STL Import' took 0.18 ms
+Timer 'STL Import' took 0.15 ms
+00:00.896  io.stl           | WARNING Removed 1 degenerate triangles during import
+Timer 'STL Import' took 0.56 ms
+Timer 'STL Import' took 0.25 ms
+Timer 'STL Import' took 0.22 ms
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:130: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  fm = floor.data.materials[0]; fm.use_nodes = True
+00:05.983  render           | Saved: '/tmp/claude-0/gapwf/fin/T1/pack/prev_base_plan_top.png'
+00:10.568  render           | Saved: '/tmp/claude-0/gapwf/fin/T1/pack/prev_base_plan_iso.png'
+PREVIEW DONE /tmp/claude-0/gapwf/fin/T1/pack/prev_base_plan
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:56: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+Timer 'STL Import' took 0.24 ms
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:66: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.28 ms
+Timer 'STL Import' took 0.35 ms
+Timer 'STL Import' took 0.33 ms
+Timer 'STL Import' took 0.19 ms
+Timer 'STL Import' took 0.57 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.36 ms
+Timer 'STL Import' took 0.33 ms
+Timer 'STL Import' took 0.33 ms
+Timer 'STL Import' took 0.29 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.17 ms
+Timer 'STL Import' took 0.24 ms
+Timer 'STL Import' took 0.34 ms
+Timer 'STL Import' took 0.27 ms
+Timer 'STL Import' took 0.36 ms
+Timer 'STL Import' took 0.31 ms
+Timer 'STL Import' took 0.32 ms
+Timer 'STL Import' took 0.37 ms
+Timer 'STL Import' took 0.44 ms
+Timer 'STL Import' took 0.15 ms
+Timer 'STL Import' took 0.15 ms
+Timer 'STL Import' took 0.18 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.20 ms
+Timer 'STL Import' took 0.14 ms
+Timer 'STL Import' took 0.40 ms
+Timer 'STL Import' took 0.32 ms
+Timer 'STL Import' took 0.31 ms
+Timer 'STL Import' took 0.26 ms
+Timer 'STL Import' took 0.17 ms
+Timer 'STL Import' took 0.25 ms
+/tmp/claude-0/gapwf/fin/T1/t1_preview.py:130: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  fm = floor.data.materials[0]; fm.use_nodes = True
+00:06.036  render           | Saved: '/tmp/claude-0/gapwf/fin/T1/pack/prev_torso_plan_top.png'
+00:11.280  render           | Saved: '/tmp/claude-0/gapwf/fin/T1/pack/prev_torso_plan_iso.png'
+PREVIEW DONE /tmp/claude-0/gapwf/fin/T1/pack/prev_torso_plan
+RENDER_DONE

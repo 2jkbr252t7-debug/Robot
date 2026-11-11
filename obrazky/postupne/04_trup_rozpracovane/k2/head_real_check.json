@@ -1,0 +1,35 @@
+{
+ "head_vs_placeholder_torso_top": {
+  "min_clearance_mm": 0.45,
+  "worst": {
+   "lift": 18,
+   "tilt": 40.0,
+   "pan": -80,
+   "point": [
+    -29.3,
+    -5.2,
+    133.45
+   ]
+  },
+  "poses": "B tilt-vs-lift table (all rows, limits + 5 deg steps) x pan -85..85 step 5"
+ },
+ "lugs_vs_well_and_collar_slot": {
+  "min_margin_mm": 0.25,
+  "worst": {
+   "K2 well 47x22 (z<127)": [
+    1.0,
+    {
+     "lift": 0,
+     "tilt": -10.0
+    }
+   ],
+   "B collar slot 45.5x20.5": [
+    0.25,
+    {
+     "lift": 0,
+     "tilt": -10.0
+    }
+   ]
+  }
+ }
+}

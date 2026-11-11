@@ -1,0 +1,22 @@
+{'pan': -85, 'lift': 0, 'tilt_range': [-10, 5], 'armR_max': 180.0, 'armL_max_at_pan': 85} 4
+{'pan': -60, 'lift': 0, 'tilt_range': [-10, 5], 'armR_max': 175, 'armL_max_at_pan': 60} 17
+{'pan': -30, 'lift': 0, 'tilt_range': [-10, 5], 'armR_max': 104, 'armL_max_at_pan': 30} 69
+{'pan': 0, 'lift': 0, 'tilt_range': [-10, 5], 'armR_max': 94, 'armL_max_at_pan': 0} 78
+{'pan': 30, 'lift': 0, 'tilt_range': [-10, 5], 'armR_max': 111, 'armL_max_at_pan': -30} 88
+{'pan': 60, 'lift': 0, 'tilt_range': [-10, 5], 'armR_max': 104, 'armL_max_at_pan': -60} 91
+{'pan': 85, 'lift': 0, 'tilt_range': [-10, 5], 'armR_max': 180.0, 'armL_max_at_pan': -85} 92
+{'pan': -85, 'lift': 12.5, 'tilt_range': [-40, 30], 'armR_max': 125, 'armL_max_at_pan': 85} 118
+{'pan': -60, 'lift': 12.5, 'tilt_range': [-40, 30], 'armR_max': 139, 'armL_max_at_pan': 60} 135
+{'pan': -30, 'lift': 12.5, 'tilt_range': [-40, 30], 'armR_max': 87, 'armL_max_at_pan': 30} 183
+{'pan': 0, 'lift': 12.5, 'tilt_range': [-40, 30], 'armR_max': 90, 'armL_max_at_pan': 0} 200
+{'pan': 30, 'lift': 12.5, 'tilt_range': [-40, 30], 'armR_max': 60, 'armL_max_at_pan': -30} 217
+{'pan': 60, 'lift': 12.5, 'tilt_range': [-40, 30], 'armR_max': 92, 'armL_max_at_pan': -60} 221
+{'pan': 85, 'lift': 12.5, 'tilt_range': [-40, 30], 'armR_max': 106, 'armL_max_at_pan': -85} 224
+{'pan': -85, 'lift': 20, 'tilt_range': [-40, 40], 'armR_max': 119, 'armL_max_at_pan': 85} 247
+{'pan': -60, 'lift': 20, 'tilt_range': [-40, 40], 'armR_max': 132, 'armL_max_at_pan': 60} 282
+{'pan': -30, 'lift': 20, 'tilt_range': [-40, 40], 'armR_max': 101, 'armL_max_at_pan': 30} 341
+{'pan': 0, 'lift': 20, 'tilt_range': [-40, 40], 'armR_max': 93, 'armL_max_at_pan': 0} 370
+{'pan': 30, 'lift': 20, 'tilt_range': [-40, 40], 'armR_max': 135, 'armL_max_at_pan': -30} 388
+{'pan': 60, 'lift': 20, 'tilt_range': [-40, 40], 'armR_max': 108, 'armL_max_at_pan': -60} 398
+{'pan': 85, 'lift': 20, 'tilt_range': [-40, 40], 'armR_max': 114, 'armL_max_at_pan': -85} 403
+done arms 403

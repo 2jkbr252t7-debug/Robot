@@ -1,0 +1,362 @@
+{
+ "T_trup_zadny": {
+  "color": "white",
+  "group": "T",
+  "valid": true,
+  "volume_mm3": 47720.9,
+  "bbox": [
+   [
+    -44.4,
+    -38.05,
+    43.0
+   ],
+   [
+    44.4,
+    40.4,
+    132.0
+   ]
+  ],
+  "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f1/stl/T_trup_zadny.stl",
+  "step": "/tmp/claude-0/gapwf/fin/T1/forma/f1/cad/T_trup_zadny.step"
+ },
+ "T_predny_panel": {
+  "color": "white",
+  "group": "T",
+  "valid": true,
+  "volume_mm3": 8920.5,
+  "bbox": [
+   [
+    -29.08,
+    -40.4,
+    51.0
+   ],
+   [
+    29.09,
+    -30.9,
+    126.5
+   ]
+  ],
+  "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f1/stl/T_predny_panel.stl",
+  "step": "/tmp/claude-0/gapwf/fin/T1/forma/f1/cad/T_predny_panel.step"
+ },
+ "T_dno": {
+  "color": "white",
+  "group": "T",
+  "valid": true,
+  "volume_mm3": 3861.6,
+  "bbox": [
+   [
+    -25.73,
+    -22.1,
+    43.0
+   ],
+   [
+    25.73,
+    22.1,
+    45.2
+   ]
+  ],
+  "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f1/stl/T_dno.stl",
+  "step": "/tmp/claude-0/gapwf/fin/T1/forma/f1/cad/T_dno.step"
+ },
+ "T_svetlovod": {
+  "color": "glow",
+  "group": "T",
+  "valid": true,
+  "volume_mm3": 301.5,
+  "bbox": [
+   [
+    -17.8,
+    -40.15,
+    99.45
+   ],
+   [
+    17.8,
+    -36.09,
+    103.55
+   ]
+  ],
+  "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f1/stl/T_svetlovod.stl",
+  "step": "/tmp/claude-0/gapwf/fin/T1/forma/f1/cad/T_svetlovod.step"
+ },
+ "T_mriezka": {
+  "color": "grey",
+  "group": "T",
+  "valid": true,
+  "volume_mm3": 106.2,
+  "bbox": [
+   [
+    -14.8,
+    -39.59,
+    82.2
+   ],
+   [
+    14.8,
+    -36.99,
+    84.8
+   ]
+  ],
+  "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f1/stl/T_mriezka.stl",
+  "step": "/tmp/claude-0/gapwf/fin/T1/forma/f1/cad/T_mriezka.step"
+ },
+ "Z_skrupina": {
+  "color": "white",
+  "group": "B",
+  "valid": true,
+  "volume_mm3": 44268.2,
+  "bbox": [
+   [
+    -71.0,
+    -55.5,
+    10.49
+   ],
+   [
+    71.0,
+    55.5,
+    40.0
+   ]
+  ],
+  "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f1/stl/Z_skrupina.stl",
+  "step": "/tmp/claude-0/gapwf/fin/T1/forma/f1/cad/Z_skrupina.step"
+ },
+ "Z_plint": {
+  "color": "black",
+  "group": "B",
+  "valid": true,
+  "volume_mm3": 3398.8,
+  "bbox": [
+   [
+    -37.4,
+    -37.4,
+    37.9
+   ],
+   [
+    37.4,
+    37.4,
+    41.2
+   ]
+  ],
+  "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f1/stl/Z_plint.stl",
+  "step": "/tmp/claude-0/gapwf/fin/T1/forma/f1/cad/Z_plint.step"
+ },
+ "Z_noha_stred": {
+  "color": "black",
+  "group": "B",
+  "valid": true,
+  "volume_mm3": 2946.5,
+  "bbox": [
+   [
+    -62.5,
+    -6.28,
+    6.0
+   ],
+   [
+    62.5,
+    6.28,
+    10.5
+   ]
+  ],
+  "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f1/stl/Z_noha_stred.stl",
+  "step": "/tmp/claude-0/gapwf/fin/T1/forma/f1/cad/Z_noha_stred.step"
+ },
+ "Z_kryt_baterie_P": {
+  "color": "black",
+  "group": "B",
+  "valid": true,
+  "volume_mm3": 9596.0,
+  "bbox": [
+   [
+    -62.48,
+    -47.5,
+    6.0
+   ],
+   [
+    62.48,
+    -6.72,
+    10.5
+   ]
+  ],
+  "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f1/stl/Z_kryt_baterie_P.stl",
+  "step": "/tmp/claude-0/gapwf/fin/T1/forma/f1/cad/Z_kryt_baterie_P.step"
+ },
+ "Z_kryt_baterie_Z": {
+  "color": "black",
+  "group": "B",
+  "valid": true,
+  "volume_mm3": 9587.4,
+  "bbox": [
+   [
+    -62.48,
+    6.72,
+    6.0
+   ],
+   [
+    62.48,
+    47.5,
+    10.5
+   ]
+  ],
+  "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f1/stl/Z_kryt_baterie_Z.stl",
+  "step": "/tmp/claude-0/gapwf/fin/T1/forma/f1/cad/Z_kryt_baterie_Z.step"
+ },
+ "Z_svetlovod": {
+  "color": "glow",
+  "group": "B",
+  "valid": true,
+  "volume_mm3": 325.2,
+  "bbox": [
+   [
+    -21.8,
+    -55.37,
+    18.2
+   ],
+   [
+    21.8,
+    -52.6,
+    21.8
+   ]
+  ],
+  "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f1/stl/Z_svetlovod.stl",
+  "step": "/tmp/claude-0/gapwf/fin/T1/forma/f1/cad/Z_svetlovod.step"
+ },
+ "Z_okno_ToF": {
+  "color": "glass",
+  "group": "B",
+  "valid": true,
+  "volume_mm3": 206.7,
+  "bbox": [
+   [
+    -7.8,
+    -55.38,
+    25.2
+   ],
+   [
+    7.8,
+    -51.99,
+    31.8
+   ]
+  ],
+  "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f1/stl/Z_okno_ToF.stl",
+  "step": "/tmp/claude-0/gapwf/fin/T1/forma/f1/cad/Z_okno_ToF.step"
+ },
+ "Z_led_nabijania": {
+  "color": "glow",
+  "group": "B",
+  "valid": true,
+  "volume_mm3": 6.8,
+  "bbox": [
+   [
+    -10.95,
+    50.54,
+    32.25
+   ],
+   [
+    -9.05,
+    54.06,
+    34.15
+   ]
+  ],
+  "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f1/stl/Z_led_nabijania.stl",
+  "step": "/tmp/claude-0/gapwf/fin/T1/forma/f1/cad/Z_led_nabijania.step"
+ },
+ "Z_tlacidlo": {
+  "color": "black",
+  "group": "B",
+  "valid": true,
+  "volume_mm3": 122.6,
+  "bbox": [
+   [
+    14.7,
+    51.1,
+    24.2
+   ],
+   [
+    21.3,
+    54.98,
+    30.8
+   ]
+  ],
+  "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f1/stl/Z_tlacidlo.stl",
+  "step": "/tmp/claude-0/gapwf/fin/T1/forma/f1/cad/Z_tlacidlo.step"
+ },
+ "A_R_ruka": {
+  "color": "white",
+  "group": "AR",
+  "valid": true,
+  "volume_mm3": 12651.1,
+  "bbox": [
+   [
+    -69.5,
+    -13.8,
+    45.05
+   ],
+   [
+    -45.84,
+    17.8,
+    127.45
+   ]
+  ],
+  "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f1/stl/A_R_ruka.stl",
+  "step": "/tmp/claude-0/gapwf/fin/T1/forma/f1/cad/A_R_ruka.step"
+ },
+ "A_R_kryt": {
+  "color": "black",
+  "group": "AR",
+  "valid": true,
+  "volume_mm3": 846.1,
+  "bbox": [
+   [
+    -46.5,
+    -10.5,
+    99.5
+   ],
+   [
+    -44.2,
+    14.5,
+    124.5
+   ]
+  ],
+  "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f1/stl/A_R_kryt.stl",
+  "step": "/tmp/claude-0/gapwf/fin/T1/forma/f1/cad/A_R_kryt.step"
+ },
+ "A_L_ruka": {
+  "color": "white",
+  "group": "AL",
+  "valid": true,
+  "volume_mm3": 12661.7,
+  "bbox": [
+   [
+    45.84,
+    -13.8,
+    45.05
+   ],
+   [
+    69.5,
+    17.8,
+    127.45
+   ]
+  ],
+  "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f1/stl/A_L_ruka.stl",
+  "step": "/tmp/claude-0/gapwf/fin/T1/forma/f1/cad/A_L_ruka.step"
+ },
+ "A_L_kryt": {
+  "color": "black",
+  "group": "AL",
+  "valid": true,
+  "volume_mm3": 846.1,
+  "bbox": [
+   [
+    44.2,
+    -10.5,
+    99.5
+   ],
+   [
+    46.5,
+    14.5,
+    124.5
+   ]
+  ],
+  "stl": "/tmp/claude-0/gapwf/fin/T1/forma/f1/stl/A_L_kryt.stl",
+  "step": "/tmp/claude-0/gapwf/fin/T1/forma/f1/cad/A_L_kryt.step"
+ }
+}

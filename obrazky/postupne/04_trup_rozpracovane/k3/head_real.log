@@ -1,0 +1,2 @@
+real lugs/neck vs K3 well: min clearance 1.0 {'parts': 'lugs/head', 'lift': 0, 'tilt': 5}
+rf 16.0 top_drop 1.5 plateau_r 29.8 -> min clearance real head vs torso top: 0.46 {'lift': 12.5, 'tilt': 30, 'pan': -85, 'point': [-29.8, -2.6, 128.3]}

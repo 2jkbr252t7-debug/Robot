@@ -1,0 +1,210 @@
+{
+ "0": {
+  "pose": {
+   "pan": 85,
+   "lift": 20,
+   "tilt": -40
+  },
+  "clashes": []
+ },
+ "1": {
+  "pose": {
+   "pan": -85,
+   "lift": 20,
+   "tilt": 40
+  },
+  "clashes": []
+ },
+ "2": {
+  "pose": {
+   "pan": 85,
+   "lift": 12.5,
+   "tilt": 30
+  },
+  "clashes": []
+ },
+ "3": {
+  "pose": {
+   "pan": -85,
+   "lift": 12.5,
+   "tilt": -40
+  },
+  "clashes": [
+   [
+    "T_shell",
+    "B_hlava",
+    278.04
+   ]
+  ]
+ },
+ "4": {
+  "pose": {
+   "pan": 85,
+   "lift": 0,
+   "tilt": 5
+  },
+  "clashes": []
+ },
+ "5": {
+  "pose": {
+   "pan": -85,
+   "lift": 0,
+   "tilt": -10
+  },
+  "clashes": [
+   [
+    "T_shell",
+    "B_hlava",
+    19.53
+   ],
+   [
+    "P_sachta",
+    "B_uska",
+    45.06
+   ]
+  ]
+ },
+ "6": {
+  "pose": {
+   "pan": 85,
+   "lift": 5
+  },
+  "clashes": []
+ },
+ "7": {
+  "pose": {
+   "pan": -85,
+   "lift": 10
+  },
+  "clashes": []
+ },
+ "8": {
+  "pose": {
+   "pan": 60,
+   "lift": 15
+  },
+  "clashes": []
+ },
+ "9": {
+  "pose": {
+   "pan": -45,
+   "lift": 20
+  },
+  "clashes": []
+ },
+ "10": {
+  "pose": {
+   "pan": 30,
+   "lift": 2.5
+  },
+  "clashes": []
+ },
+ "11": {
+  "pose": {
+   "pan": -30,
+   "lift": 17.5
+  },
+  "clashes": []
+ },
+ "12": {
+  "pose": {
+   "lift": 12.5,
+   "tilt": 10,
+   "pan": 30,
+   "armR": 60,
+   "armL": -20
+  },
+  "clashes": []
+ },
+ "13": {
+  "pose": {
+   "armR": -45,
+   "armL": -45,
+   "lift": 20,
+   "tilt": 40
+  },
+  "clashes": []
+ },
+ "14": {
+  "pose": {
+   "armR": 100,
+   "armL": 100
+  },
+  "clashes": []
+ },
+ "15": {
+  "pose": {
+   "armR": 100,
+   "armL": 100,
+   "lift": 20,
+   "tilt": 40
+  },
+  "clashes": []
+ },
+ "16": {
+  "pose": {
+   "armR": 180,
+   "armL": 180,
+   "pan": 85,
+   "lift": 20
+  },
+  "clashes": []
+ },
+ "17": {
+  "pose": {
+   "armR": 180,
+   "armL": 180,
+   "pan": -85,
+   "lift": 20
+  },
+  "clashes": []
+ },
+ "18": {
+  "pose": {
+   "armR": 45,
+   "armL": 45,
+   "pan": 85,
+   "lift": 20,
+   "tilt": 40
+  },
+  "clashes": []
+ },
+ "19": {
+  "pose": {
+   "j1": 150,
+   "armR": 100,
+   "armL": 100,
+   "pan": 85,
+   "lift": 20
+  },
+  "clashes": []
+ },
+ "20": {
+  "pose": {
+   "j1": -150,
+   "armR": 180,
+   "armL": 180,
+   "pan": -85
+  },
+  "clashes": []
+ },
+ "21": {
+  "pose": {
+   "j1": 75,
+   "armR": -45,
+   "armL": 90,
+   "pan": -60,
+   "lift": 12.5,
+   "tilt": 30
+  },
+  "clashes": []
+ },
+ "22": {
+  "pose": {
+   "j1": -75,
+   "armR": 0,
+   "armL": 0
+  },
+  "clashes": []
+ }
+}

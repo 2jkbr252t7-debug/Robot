@@ -1,0 +1,1781 @@
+{
+ "note": "lowest point of the real head (shell, display frame, glass, ears) over all (lift, tilt) of the B tilt-vs-lift table, any pan; world z with Z_TT = 133. The torso top surface at radius r must stay below z_min_head - 1.0 (clearance) in every direction.",
+ "profile": [
+  {
+   "r": [
+    0.0,
+    0.5
+   ],
+   "z_min_head": 136.08,
+   "drop_below_top": -3.08,
+   "pose_lift_tilt": [
+    0,
+    -5.0
+   ]
+  },
+  {
+   "r": [
+    0.5,
+    1.0
+   ],
+   "z_min_head": 136.04,
+   "drop_below_top": -3.04,
+   "pose_lift_tilt": [
+    0,
+    0.0
+   ]
+  },
+  {
+   "r": [
+    1.0,
+    1.5
+   ],
+   "z_min_head": 135.98,
+   "drop_below_top": -2.98,
+   "pose_lift_tilt": [
+    0,
+    -5.0
+   ]
+  },
+  {
+   "r": [
+    1.5,
+    2.0
+   ],
+   "z_min_head": 135.9,
+   "drop_below_top": -2.9,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    2.0,
+    2.5
+   ],
+   "z_min_head": 135.85,
+   "drop_below_top": -2.85,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    2.5,
+    3.0
+   ],
+   "z_min_head": 136.02,
+   "drop_below_top": -3.02,
+   "pose_lift_tilt": [
+    0,
+    0.0
+   ]
+  },
+  {
+   "r": [
+    3.0,
+    3.5
+   ],
+   "z_min_head": 135.9,
+   "drop_below_top": -2.9,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    3.5,
+    4.0
+   ],
+   "z_min_head": 135.78,
+   "drop_below_top": -2.78,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    4.0,
+    4.5
+   ],
+   "z_min_head": 135.43,
+   "drop_below_top": -2.43,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    4.5,
+    5.0
+   ],
+   "z_min_head": 135.43,
+   "drop_below_top": -2.43,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    5.0,
+    5.5
+   ],
+   "z_min_head": 135.43,
+   "drop_below_top": -2.43,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    5.5,
+    6.0
+   ],
+   "z_min_head": 135.26,
+   "drop_below_top": -2.26,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    6.0,
+    6.5
+   ],
+   "z_min_head": 135.18,
+   "drop_below_top": -2.18,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    6.5,
+    7.0
+   ],
+   "z_min_head": 135.1,
+   "drop_below_top": -2.1,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    7.0,
+    7.5
+   ],
+   "z_min_head": 135.1,
+   "drop_below_top": -2.1,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    7.5,
+    8.0
+   ],
+   "z_min_head": 135.1,
+   "drop_below_top": -2.1,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    8.0,
+    8.5
+   ],
+   "z_min_head": 134.93,
+   "drop_below_top": -1.93,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    8.5,
+    9.0
+   ],
+   "z_min_head": 134.93,
+   "drop_below_top": -1.93,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    9.0,
+    9.5
+   ],
+   "z_min_head": 134.93,
+   "drop_below_top": -1.93,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    9.5,
+    10.0
+   ],
+   "z_min_head": 134.82,
+   "drop_below_top": -1.82,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    10.0,
+    10.5
+   ],
+   "z_min_head": 134.76,
+   "drop_below_top": -1.76,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    10.5,
+    11.0
+   ],
+   "z_min_head": 134.71,
+   "drop_below_top": -1.71,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    11.0,
+    11.5
+   ],
+   "z_min_head": 134.71,
+   "drop_below_top": -1.71,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    11.5,
+    12.0
+   ],
+   "z_min_head": 134.59,
+   "drop_below_top": -1.59,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    12.0,
+    12.5
+   ],
+   "z_min_head": 134.59,
+   "drop_below_top": -1.59,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    12.5,
+    13.0
+   ],
+   "z_min_head": 134.56,
+   "drop_below_top": -1.56,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    13.0,
+    13.5
+   ],
+   "z_min_head": 134.54,
+   "drop_below_top": -1.54,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    13.5,
+    14.0
+   ],
+   "z_min_head": 134.52,
+   "drop_below_top": -1.52,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    14.0,
+    14.5
+   ],
+   "z_min_head": 134.52,
+   "drop_below_top": -1.52,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    14.5,
+    15.0
+   ],
+   "z_min_head": 134.52,
+   "drop_below_top": -1.52,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    15.0,
+    15.5
+   ],
+   "z_min_head": 134.52,
+   "drop_below_top": -1.52,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    15.5,
+    16.0
+   ],
+   "z_min_head": 134.52,
+   "drop_below_top": -1.52,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    16.0,
+    16.5
+   ],
+   "z_min_head": 134.52,
+   "drop_below_top": -1.52,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    16.5,
+    17.0
+   ],
+   "z_min_head": 134.52,
+   "drop_below_top": -1.52,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    17.0,
+    17.5
+   ],
+   "z_min_head": 134.52,
+   "drop_below_top": -1.52,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    17.5,
+    18.0
+   ],
+   "z_min_head": 134.52,
+   "drop_below_top": -1.52,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    18.0,
+    18.5
+   ],
+   "z_min_head": 134.46,
+   "drop_below_top": -1.46,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    18.5,
+    19.0
+   ],
+   "z_min_head": 134.46,
+   "drop_below_top": -1.46,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    19.0,
+    19.5
+   ],
+   "z_min_head": 134.46,
+   "drop_below_top": -1.46,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    19.5,
+    20.0
+   ],
+   "z_min_head": 134.46,
+   "drop_below_top": -1.46,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    20.0,
+    20.5
+   ],
+   "z_min_head": 134.52,
+   "drop_below_top": -1.52,
+   "pose_lift_tilt": [
+    0,
+    -10.0
+   ]
+  },
+  {
+   "r": [
+    20.5,
+    21.0
+   ],
+   "z_min_head": 134.24,
+   "drop_below_top": -1.24,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    21.0,
+    21.5
+   ],
+   "z_min_head": 134.24,
+   "drop_below_top": -1.24,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    21.5,
+    22.0
+   ],
+   "z_min_head": 134.24,
+   "drop_below_top": -1.24,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    22.0,
+    22.5
+   ],
+   "z_min_head": 134.24,
+   "drop_below_top": -1.24,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    22.5,
+    23.0
+   ],
+   "z_min_head": 134.09,
+   "drop_below_top": -1.09,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    23.0,
+    23.5
+   ],
+   "z_min_head": 134.09,
+   "drop_below_top": -1.09,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    23.5,
+    24.0
+   ],
+   "z_min_head": 134.09,
+   "drop_below_top": -1.09,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    24.0,
+    24.5
+   ],
+   "z_min_head": 134.01,
+   "drop_below_top": -1.01,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    24.5,
+    25.0
+   ],
+   "z_min_head": 133.94,
+   "drop_below_top": -0.94,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    25.0,
+    25.5
+   ],
+   "z_min_head": 134.01,
+   "drop_below_top": -1.01,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    25.5,
+    26.0
+   ],
+   "z_min_head": 134.01,
+   "drop_below_top": -1.01,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    26.0,
+    26.5
+   ],
+   "z_min_head": 134.01,
+   "drop_below_top": -1.01,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    26.5,
+    27.0
+   ],
+   "z_min_head": 133.79,
+   "drop_below_top": -0.79,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    27.0,
+    27.5
+   ],
+   "z_min_head": 133.87,
+   "drop_below_top": -0.87,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    27.5,
+    28.0
+   ],
+   "z_min_head": 133.92,
+   "drop_below_top": -0.92,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    28.0,
+    28.5
+   ],
+   "z_min_head": 133.85,
+   "drop_below_top": -0.85,
+   "pose_lift_tilt": [
+    0,
+    5.0
+   ]
+  },
+  {
+   "r": [
+    28.5,
+    29.0
+   ],
+   "z_min_head": 133.72,
+   "drop_below_top": -0.72,
+   "pose_lift_tilt": [
+    12.5,
+    30.0
+   ]
+  },
+  {
+   "r": [
+    29.0,
+    29.5
+   ],
+   "z_min_head": 133.56,
+   "drop_below_top": -0.56,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    29.5,
+    30.0
+   ],
+   "z_min_head": 133.43,
+   "drop_below_top": -0.43,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    30.0,
+    30.5
+   ],
+   "z_min_head": 133.33,
+   "drop_below_top": -0.33,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    30.5,
+    31.0
+   ],
+   "z_min_head": 133.25,
+   "drop_below_top": -0.25,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    31.0,
+    31.5
+   ],
+   "z_min_head": 133.22,
+   "drop_below_top": -0.22,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    31.5,
+    32.0
+   ],
+   "z_min_head": 133.22,
+   "drop_below_top": -0.22,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    32.0,
+    32.5
+   ],
+   "z_min_head": 133.22,
+   "drop_below_top": -0.22,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    32.5,
+    33.0
+   ],
+   "z_min_head": 133.23,
+   "drop_below_top": -0.23,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    33.0,
+    33.5
+   ],
+   "z_min_head": 133.23,
+   "drop_below_top": -0.23,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    33.5,
+    34.0
+   ],
+   "z_min_head": 133.23,
+   "drop_below_top": -0.23,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    34.0,
+    34.5
+   ],
+   "z_min_head": 133.23,
+   "drop_below_top": -0.23,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    34.5,
+    35.0
+   ],
+   "z_min_head": 133.24,
+   "drop_below_top": -0.24,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    35.0,
+    35.5
+   ],
+   "z_min_head": 133.24,
+   "drop_below_top": -0.24,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    35.5,
+    36.0
+   ],
+   "z_min_head": 133.24,
+   "drop_below_top": -0.24,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    36.0,
+    36.5
+   ],
+   "z_min_head": 133.25,
+   "drop_below_top": -0.25,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    36.5,
+    37.0
+   ],
+   "z_min_head": 133.26,
+   "drop_below_top": -0.26,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    37.0,
+    37.5
+   ],
+   "z_min_head": 133.27,
+   "drop_below_top": -0.27,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    37.5,
+    38.0
+   ],
+   "z_min_head": 133.27,
+   "drop_below_top": -0.27,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    38.0,
+    38.5
+   ],
+   "z_min_head": 133.29,
+   "drop_below_top": -0.29,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    38.5,
+    39.0
+   ],
+   "z_min_head": 133.3,
+   "drop_below_top": -0.3,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    39.0,
+    39.5
+   ],
+   "z_min_head": 133.31,
+   "drop_below_top": -0.31,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    39.5,
+    40.0
+   ],
+   "z_min_head": 133.34,
+   "drop_below_top": -0.34,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    40.0,
+    40.5
+   ],
+   "z_min_head": 133.35,
+   "drop_below_top": -0.35,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    40.5,
+    41.0
+   ],
+   "z_min_head": 133.37,
+   "drop_below_top": -0.37,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    41.0,
+    41.5
+   ],
+   "z_min_head": 133.4,
+   "drop_below_top": -0.4,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    41.5,
+    42.0
+   ],
+   "z_min_head": 133.41,
+   "drop_below_top": -0.41,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    42.0,
+    42.5
+   ],
+   "z_min_head": 133.44,
+   "drop_below_top": -0.44,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    42.5,
+    43.0
+   ],
+   "z_min_head": 133.48,
+   "drop_below_top": -0.48,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    43.0,
+    43.5
+   ],
+   "z_min_head": 133.51,
+   "drop_below_top": -0.51,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    43.5,
+    44.0
+   ],
+   "z_min_head": 133.54,
+   "drop_below_top": -0.54,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    44.0,
+    44.5
+   ],
+   "z_min_head": 133.59,
+   "drop_below_top": -0.59,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    44.5,
+    45.0
+   ],
+   "z_min_head": 133.64,
+   "drop_below_top": -0.64,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    45.0,
+    45.5
+   ],
+   "z_min_head": 133.67,
+   "drop_below_top": -0.67,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    45.5,
+    46.0
+   ],
+   "z_min_head": 133.73,
+   "drop_below_top": -0.73,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    46.0,
+    46.5
+   ],
+   "z_min_head": 133.78,
+   "drop_below_top": -0.78,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    46.5,
+    47.0
+   ],
+   "z_min_head": 133.85,
+   "drop_below_top": -0.85,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    47.0,
+    47.5
+   ],
+   "z_min_head": 133.91,
+   "drop_below_top": -0.91,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    47.5,
+    48.0
+   ],
+   "z_min_head": 133.98,
+   "drop_below_top": -0.98,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    48.0,
+    48.5
+   ],
+   "z_min_head": 134.05,
+   "drop_below_top": -1.05,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    48.5,
+    49.0
+   ],
+   "z_min_head": 134.13,
+   "drop_below_top": -1.13,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    49.0,
+    49.5
+   ],
+   "z_min_head": 134.21,
+   "drop_below_top": -1.21,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    49.5,
+    50.0
+   ],
+   "z_min_head": 134.3,
+   "drop_below_top": -1.3,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    50.0,
+    50.5
+   ],
+   "z_min_head": 134.39,
+   "drop_below_top": -1.39,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    50.5,
+    51.0
+   ],
+   "z_min_head": 134.48,
+   "drop_below_top": -1.48,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    51.0,
+    51.5
+   ],
+   "z_min_head": 134.59,
+   "drop_below_top": -1.59,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    51.5,
+    52.0
+   ],
+   "z_min_head": 134.71,
+   "drop_below_top": -1.71,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    52.0,
+    52.5
+   ],
+   "z_min_head": 134.82,
+   "drop_below_top": -1.82,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    52.5,
+    53.0
+   ],
+   "z_min_head": 134.96,
+   "drop_below_top": -1.96,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    53.0,
+    53.5
+   ],
+   "z_min_head": 135.1,
+   "drop_below_top": -2.1,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    53.5,
+    54.0
+   ],
+   "z_min_head": 135.26,
+   "drop_below_top": -2.26,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    54.0,
+    54.5
+   ],
+   "z_min_head": 135.42,
+   "drop_below_top": -2.42,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    54.5,
+    55.0
+   ],
+   "z_min_head": 135.58,
+   "drop_below_top": -2.58,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    55.0,
+    55.5
+   ],
+   "z_min_head": 135.76,
+   "drop_below_top": -2.76,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    55.5,
+    56.0
+   ],
+   "z_min_head": 135.98,
+   "drop_below_top": -2.98,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    56.0,
+    56.5
+   ],
+   "z_min_head": 136.14,
+   "drop_below_top": -3.14,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    56.5,
+    57.0
+   ],
+   "z_min_head": 136.38,
+   "drop_below_top": -3.38,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    57.0,
+    57.5
+   ],
+   "z_min_head": 136.58,
+   "drop_below_top": -3.58,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    57.5,
+    58.0
+   ],
+   "z_min_head": 136.87,
+   "drop_below_top": -3.87,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    58.0,
+    58.5
+   ],
+   "z_min_head": 137.06,
+   "drop_below_top": -4.06,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    58.5,
+    59.0
+   ],
+   "z_min_head": 137.4,
+   "drop_below_top": -4.4,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    59.0,
+    59.5
+   ],
+   "z_min_head": 137.59,
+   "drop_below_top": -4.59,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    59.5,
+    60.0
+   ],
+   "z_min_head": 137.97,
+   "drop_below_top": -4.97,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    60.0,
+    60.5
+   ],
+   "z_min_head": 138.3,
+   "drop_below_top": -5.3,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    60.5,
+    61.0
+   ],
+   "z_min_head": 138.59,
+   "drop_below_top": -5.59,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    61.0,
+    61.5
+   ],
+   "z_min_head": 139.02,
+   "drop_below_top": -6.02,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    61.5,
+    62.0
+   ],
+   "z_min_head": 139.3,
+   "drop_below_top": -6.3,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    62.0,
+    62.5
+   ],
+   "z_min_head": 139.71,
+   "drop_below_top": -6.71,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    62.5,
+    63.0
+   ],
+   "z_min_head": 140.13,
+   "drop_below_top": -7.13,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    63.0,
+    63.5
+   ],
+   "z_min_head": 140.63,
+   "drop_below_top": -7.63,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    63.5,
+    64.0
+   ],
+   "z_min_head": 141.11,
+   "drop_below_top": -8.11,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    64.0,
+    64.5
+   ],
+   "z_min_head": 141.59,
+   "drop_below_top": -8.59,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    64.5,
+    65.0
+   ],
+   "z_min_head": 142.11,
+   "drop_below_top": -9.11,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    65.0,
+    65.5
+   ],
+   "z_min_head": 142.72,
+   "drop_below_top": -9.72,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    65.5,
+    66.0
+   ],
+   "z_min_head": 143.32,
+   "drop_below_top": -10.32,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    66.0,
+    66.5
+   ],
+   "z_min_head": 143.94,
+   "drop_below_top": -10.94,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    66.5,
+    67.0
+   ],
+   "z_min_head": 144.65,
+   "drop_below_top": -11.65,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    67.0,
+    67.5
+   ],
+   "z_min_head": 145.31,
+   "drop_below_top": -12.31,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    67.5,
+    68.0
+   ],
+   "z_min_head": 146.07,
+   "drop_below_top": -13.07,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    68.0,
+    68.5
+   ],
+   "z_min_head": 146.81,
+   "drop_below_top": -13.81,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    68.5,
+    69.0
+   ],
+   "z_min_head": 147.6,
+   "drop_below_top": -14.6,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    69.0,
+    69.5
+   ],
+   "z_min_head": 148.39,
+   "drop_below_top": -15.39,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    69.5,
+    70.0
+   ],
+   "z_min_head": 149.22,
+   "drop_below_top": -16.22,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    70.0,
+    70.5
+   ],
+   "z_min_head": 150.09,
+   "drop_below_top": -17.09,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    70.5,
+    71.0
+   ],
+   "z_min_head": 150.94,
+   "drop_below_top": -17.94,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    71.0,
+    71.5
+   ],
+   "z_min_head": 151.75,
+   "drop_below_top": -18.75,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    71.5,
+    72.0
+   ],
+   "z_min_head": 152.64,
+   "drop_below_top": -19.64,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    72.0,
+    72.5
+   ],
+   "z_min_head": 153.44,
+   "drop_below_top": -20.44,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    72.5,
+    73.0
+   ],
+   "z_min_head": 154.27,
+   "drop_below_top": -21.27,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    73.0,
+    73.5
+   ],
+   "z_min_head": 155.13,
+   "drop_below_top": -22.13,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  },
+  {
+   "r": [
+    73.5,
+    74.0
+   ],
+   "z_min_head": 155.98,
+   "drop_below_top": -22.98,
+   "pose_lift_tilt": [
+    18,
+    40.0
+   ]
+  }
+ ]
+}

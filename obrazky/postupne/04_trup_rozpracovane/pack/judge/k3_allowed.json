@@ -1,0 +1,962 @@
+{
+ "A_L_kabel x A_L_servo": {
+  "groups": [
+   "AL",
+   "AL"
+  ],
+  "vols": [
+   2.6,
+   2.6,
+   2.6,
+   2.6,
+   2.6,
+   2.6,
+   2.6
+  ]
+ },
+ "A_L_krytka x A_L_servo": {
+  "groups": [
+   "AL",
+   "AL"
+  ],
+  "vols": [
+   30.8,
+   30.8,
+   30.8,
+   30.8,
+   30.8,
+   30.8,
+   30.8
+  ]
+ },
+ "A_L_krytka x A_L_skrupina": {
+  "groups": [
+   "AL",
+   "AL"
+  ],
+  "vols": [
+   199.6,
+   199.6,
+   199.6,
+   199.6,
+   199.6,
+   199.6,
+   199.6
+  ]
+ },
+ "A_L_servo x A_L_skrupina": {
+  "groups": [
+   "AL",
+   "AL"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "A_L_servo x T_rameno_L_puzdro": {
+  "groups": [
+   "AL",
+   "T"
+  ],
+  "vols": [
+   18.8,
+   18.8,
+   18.8,
+   18.8,
+   18.8,
+   18.8,
+   18.8
+  ]
+ },
+ "A_L_servo x T_shell": {
+  "groups": [
+   "AL",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "A_R_kabel x A_R_servo": {
+  "groups": [
+   "AR",
+   "AR"
+  ],
+  "vols": [
+   2.6,
+   2.6,
+   2.6,
+   2.6,
+   2.6,
+   2.6,
+   2.6
+  ]
+ },
+ "A_R_krytka x A_R_servo": {
+  "groups": [
+   "AR",
+   "AR"
+  ],
+  "vols": [
+   30.8,
+   30.8,
+   30.8,
+   30.8,
+   30.8,
+   30.8,
+   30.8
+  ]
+ },
+ "A_R_krytka x A_R_skrupina": {
+  "groups": [
+   "AR",
+   "AR"
+  ],
+  "vols": [
+   199.4,
+   199.4,
+   199.4,
+   199.4,
+   199.4,
+   199.4,
+   199.4
+  ]
+ },
+ "A_R_servo x A_R_skrupina": {
+  "groups": [
+   "AR",
+   "AR"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "A_R_servo x T_rameno_R_puzdro": {
+  "groups": [
+   "AR",
+   "T"
+  ],
+  "vols": [
+   18.8,
+   18.8,
+   18.8,
+   18.8,
+   18.8,
+   18.8,
+   18.8
+  ]
+ },
+ "A_R_servo x T_shell": {
+  "groups": [
+   "AR",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "B_golier_kotuc x P_sachta": {
+  "groups": [
+   "P",
+   "P"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "B_golier_prstenec x T_shell": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "B_krk x B_uska": {
+  "groups": [
+   "L",
+   "H"
+  ],
+  "vols": [
+   17995.7,
+   17995.7,
+   17995.7,
+   17995.7,
+   17995.7,
+   17995.7,
+   17995.7
+  ]
+ },
+ "B_krk x L_jazyk": {
+  "groups": [
+   "L",
+   "L"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "L_jazyk x P_klika": {
+  "groups": [
+   "L",
+   "P"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "P_dno x P_kabel_zdvih": {
+  "groups": [
+   "P",
+   "P"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "P_dno x P_koleso_pan": {
+  "groups": [
+   "P",
+   "P"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "P_dno x P_ram": {
+  "groups": [
+   "P",
+   "P"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "P_klika x P_servo_zdvih": {
+  "groups": [
+   "P",
+   "P"
+  ],
+  "vols": [
+   3.6,
+   3.6,
+   3.6,
+   3.6,
+   3.6,
+   3.6,
+   3.6
+  ]
+ },
+ "P_koleso_pan x T_medzikoleso_pan": {
+  "groups": [
+   "P",
+   "T"
+  ],
+  "vols": [
+   22.2,
+   22.2,
+   22.2,
+   22.2,
+   22.2,
+   22.2,
+   22.2
+  ]
+ },
+ "P_koleso_pan x T_paluba": {
+  "groups": [
+   "P",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "P_koleso_pan x T_puzdro_pan": {
+  "groups": [
+   "P",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "P_ram x P_sachta": {
+  "groups": [
+   "P",
+   "P"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "P_ram x P_servo_zdvih": {
+  "groups": [
+   "P",
+   "P"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_ESP32S3 x T_doska": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_J1_lozisko_vnutro x T_J1_naboj": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_J1_lozisko_vnutro x T_paluba": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_J1_lozisko_vnutro x Z_J1_lozisko": {
+  "groups": [
+   "T",
+   "B"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_J1_naboj x T_paluba": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_J1_naboj x Z_J1_lozisko": {
+  "groups": [
+   "T",
+   "B"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_J1_ramienko x Z_J1_servo": {
+  "groups": [
+   "T",
+   "B"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_J1_sukna x T_paluba": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_J1_sukna x Z_J1_slucka": {
+  "groups": [
+   "T",
+   "B"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_doska x T_kondenzator": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_doska x T_konektory": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_doska x T_menic5V": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_drziak_serva_pan x T_paluba": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_drziak_serva_pan x T_servo_pan": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_drziak_serva_pan x T_shell": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   76.0,
+   76.0,
+   76.0,
+   76.0,
+   76.0,
+   76.0,
+   76.0
+  ]
+ },
+ "T_medzikoleso_pan x T_paluba": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   7.8,
+   7.8,
+   7.8,
+   7.8,
+   7.8,
+   7.8,
+   7.8
+  ]
+ },
+ "T_medzikoleso_pan x T_pastorok_pan": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   19.3,
+   19.3,
+   19.3,
+   19.3,
+   19.3,
+   19.3,
+   19.3
+  ]
+ },
+ "T_paluba x T_puzdro_pan": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_paluba x T_shell": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_pastorok_pan x T_servo_pan": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   45.2,
+   45.2,
+   45.2,
+   45.2,
+   45.2,
+   45.2,
+   45.2
+  ]
+ },
+ "T_rameno_L_puzdro x T_shell": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   55.3,
+   55.3,
+   55.3,
+   55.3,
+   55.3,
+   55.3,
+   55.3
+  ]
+ },
+ "T_rameno_R_puzdro x T_shell": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   56.6,
+   56.6,
+   56.6,
+   56.6,
+   56.6,
+   56.6,
+   56.6
+  ]
+ },
+ "T_shell x T_slucka_pan": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_shell x T_svetlo_hrud": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_shell x T_zlab_pan": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   34.6,
+   34.6,
+   34.6,
+   34.6,
+   34.6,
+   34.6,
+   34.6
+  ]
+ },
+ "T_slucka_pan x T_zlab_pan": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "Z_J1_koliska x Z_J1_servo": {
+  "groups": [
+   "B",
+   "B"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "Z_J1_lozisko x Z_sokel": {
+  "groups": [
+   "B",
+   "B"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "Z_J1_slucka x Z_sokel": {
+  "groups": [
+   "B",
+   "B"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "Z_koleso_L x Z_motor_L": {
+  "groups": [
+   "B",
+   "B"
+  ],
+  "vols": [
+   1.4,
+   1.4,
+   1.4,
+   1.4,
+   1.4,
+   1.4,
+   1.4
+  ]
+ },
+ "Z_koleso_R x Z_motor_R": {
+  "groups": [
+   "B",
+   "B"
+  ],
+  "vols": [
+   1.4,
+   1.4,
+   1.4,
+   1.4,
+   1.4,
+   1.4,
+   1.4
+  ]
+ },
+ "Z_koliesko_1 x Z_shell": {
+  "groups": [
+   "B",
+   "B"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "Z_koliesko_2 x Z_shell": {
+  "groups": [
+   "B",
+   "B"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "Z_koliesko_3 x Z_shell": {
+  "groups": [
+   "B",
+   "B"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "Z_koliesko_4 x Z_shell": {
+  "groups": [
+   "B",
+   "B"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "Z_okno_ToF x Z_shell": {
+  "groups": [
+   "B",
+   "B"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "Z_shell x Z_sokel": {
+  "groups": [
+   "B",
+   "B"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "Z_shell x Z_svetlo_predne": {
+  "groups": [
+   "B",
+   "B"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ }
+}

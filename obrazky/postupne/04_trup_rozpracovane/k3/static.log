@@ -1,0 +1,12 @@
+Z_shell                valid=True vol=    64386 bb x[-74.0,74.0] y[-59.0,59.0] z[6.0,40.0] m=74.0
+Z_paluba               valid=True vol=    17548 bb x[-70.0,70.0] y[-50.0,50.0] z[29.0,31.0] m=22.3
+Z_sokel                valid=True vol=    16826 bb x[-42.0,42.0] y[-42.0,42.0] z[34.5,64.9] m=21.4
+T_shell                valid=True vol=    52707 bb x[-46.0,46.0] y[-42.0,42.0] z[44.1,127.8] m=60.6
+T_paluba               valid=True vol=    10455 bb x[-43.2,43.2] y[-39.2,39.2] z[65.2,67.2] m=13.3
+P_sachta               valid=True vol=     7757 bb x[-25.1,25.1] y[-13.6,13.6] z[87.2,121.8] m=8.9
+A_R_skrupina           valid=True vol=    12117 bb x[-68.5,-47.5] y[-15.0,15.0] z[43.8,123.8] m=13.9
+invalid/empty: []
+static clashes: 0
+time 37.7
+mass 918.2 cog [0.7, -1.0, 70.1]
+{'mass_g': 918.2, 'cog': [0.7, -1.0, 70.1], 'margin_mm': 29.0, 'tip_deg': 22.5, 'margin_at_accel_mm': 18.5}

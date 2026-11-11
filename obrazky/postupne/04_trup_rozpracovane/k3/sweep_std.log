@@ -1,0 +1,18 @@
+0 {} [] 28.6
+1 {'lift': 20} [] 6.2
+2 {'lift': 20, 'tilt': 40} [] 6.4
+3 {'lift': 20, 'tilt': -40} [] 6.5
+4 {'lift': 12.5, 'tilt': 25} [] 6.4
+5 {'pan': 85} [] 6.8
+6 {'pan': -85} [] 7.0
+7 {'pan': 85, 'lift': 20, 'tilt': 40} [] 6.3
+8 {'pan': -85, 'lift': 20, 'tilt': -40} [] 6.2
+9 {'armR': 90, 'armL': 90} [] 6.8
+10 {'armR': 180, 'armL': 180} [('A_R_skrupina', 'B_hlava', 2554.85), ('A_R_skrupina', 'B_usi', 1028.15), ('A_L_skrupina', 'B_hlava', 2552.78), ('A_L_skrupina', 'B_usi', 1029.9)] 9.2
+11 {'armR': -45, 'armL': -45} [] 6.3
+12 {'armR': 135, 'armL': 45} [('A_R_skrupina', 'B_hlava', 657.79), ('A_R_skrupina', 'B_ram_tvar', 115.38)] 8.6
+13 {'armR': 180, 'armL': 180, 'pan': 85, 'lift': 20, 'tilt': 40} [('A_L_skrupina', 'B_hlava', 2921.94), ('A_L_skrupina', 'B_ram_tvar', 424.1)] 7.9
+14 {'armR': 180, 'armL': 180, 'pan': -85} [] 7.0
+15 {'j1': 150, 'armR': 90, 'armL': 90} [] 13.2
+16 {'j1': -150, 'armR': -45, 'armL': 180} [('A_L_skrupina', 'B_hlava', 2552.78), ('A_L_skrupina', 'B_usi', 1029.9)] 14.5
+17 {'j1': 90, 'pan': 85, 'lift': 20, 'tilt': 40, 'armR': 90, 'armL': 90} [] 6.6

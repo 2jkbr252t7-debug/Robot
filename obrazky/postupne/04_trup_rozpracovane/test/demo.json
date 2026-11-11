@@ -1,0 +1,10 @@
+{"name":"demo","Z_TT":130,"SH":[0,112],"contacts":[[-44,0],[44,0],[0,-40],[0,40]],
+ "comps":[
+  {"name":"Z_base","kind":"box","size":[134,109,30],"rf":8,"at":[0,0,23],"group":"B","mat":"resin","color":"white"},
+  {"name":"Z_bat","kind":"box","size":[74,65,19],"at":[0,0,20],"group":"B","mass":190,"color":"battery"},
+  {"name":"T_shell","kind":"sshell","a":46,"b":38,"n":3,"h":88,"rf":10,"wall":2.2,"at":[0,0,86],"group":"T","mat":"resin","color":"white",
+   "cuts":[{"kind":"cyl","r":28.35,"h":10,"axis":"z","at":[0,0,129]}]},
+  {"name":"AR","kind":"box","size":[18,30,80],"rf":8,"at":[-57,0,80],"group":"AR","mat":"resin","color":"white"},
+  {"name":"AL","kind":"box","size":[18,30,80],"rf":8,"at":[57,0,80],"group":"AL","mat":"resin","color":"white"}
+ ],
+ "allow":[["T_shell","B_golier_prstenec"]]}

@@ -1,0 +1,188 @@
+{
+ "0": {
+  "pose": {},
+  "clashes": []
+ },
+ "1": {
+  "pose": {
+   "lift": 20
+  },
+  "clashes": []
+ },
+ "2": {
+  "pose": {
+   "lift": 20,
+   "tilt": 40
+  },
+  "clashes": []
+ },
+ "3": {
+  "pose": {
+   "lift": 20,
+   "tilt": -40
+  },
+  "clashes": []
+ },
+ "4": {
+  "pose": {
+   "lift": 12.5,
+   "tilt": 25
+  },
+  "clashes": []
+ },
+ "5": {
+  "pose": {
+   "pan": 85
+  },
+  "clashes": []
+ },
+ "6": {
+  "pose": {
+   "pan": -85
+  },
+  "clashes": []
+ },
+ "7": {
+  "pose": {
+   "pan": 85,
+   "lift": 20,
+   "tilt": 40
+  },
+  "clashes": []
+ },
+ "8": {
+  "pose": {
+   "pan": -85,
+   "lift": 20,
+   "tilt": -40
+  },
+  "clashes": []
+ },
+ "9": {
+  "pose": {
+   "armR": 90,
+   "armL": 90
+  },
+  "clashes": []
+ },
+ "10": {
+  "pose": {
+   "armR": 180,
+   "armL": 180
+  },
+  "clashes": [
+   [
+    "A_R_ruka",
+    "B_hlava",
+    1889.05
+   ],
+   [
+    "A_R_ruka",
+    "B_usi",
+    662.65
+   ],
+   [
+    "A_L_ruka",
+    "B_hlava",
+    1889.05
+   ],
+   [
+    "A_L_ruka",
+    "B_usi",
+    662.65
+   ]
+  ]
+ },
+ "11": {
+  "pose": {
+   "armR": -45,
+   "armL": -45
+  },
+  "clashes": []
+ },
+ "12": {
+  "pose": {
+   "armR": 135,
+   "armL": 45
+  },
+  "clashes": [
+   [
+    "A_R_ruka",
+    "B_hlava",
+    538.69
+   ],
+   [
+    "A_R_ruka",
+    "B_ram_tvar",
+    81.73
+   ]
+  ]
+ },
+ "13": {
+  "pose": {
+   "armR": 180,
+   "armL": 180,
+   "pan": 85,
+   "lift": 20,
+   "tilt": 40
+  },
+  "clashes": [
+   [
+    "A_L_ruka",
+    "B_hlava",
+    1966.0
+   ],
+   [
+    "A_L_ruka",
+    "B_ram_tvar",
+    307.55
+   ]
+  ]
+ },
+ "14": {
+  "pose": {
+   "armR": 180,
+   "armL": 180,
+   "pan": -85
+  },
+  "clashes": []
+ },
+ "15": {
+  "pose": {
+   "j1": 150,
+   "armR": 90,
+   "armL": 90
+  },
+  "clashes": []
+ },
+ "16": {
+  "pose": {
+   "j1": -150,
+   "armR": -45,
+   "armL": 180
+  },
+  "clashes": [
+   [
+    "A_L_ruka",
+    "B_hlava",
+    1889.05
+   ],
+   [
+    "A_L_ruka",
+    "B_usi",
+    662.65
+   ]
+  ]
+ },
+ "17": {
+  "pose": {
+   "j1": 90,
+   "pan": 85,
+   "lift": 20,
+   "tilt": 40,
+   "armR": 90,
+   "armL": 90
+  },
+  "clashes": []
+ }
+}

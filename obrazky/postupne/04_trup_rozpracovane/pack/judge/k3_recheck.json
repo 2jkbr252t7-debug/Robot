@@ -1,0 +1,126 @@
+{
+ "layout": "../../k3/layout.json",
+ "static": [],
+ "sweep_std": {
+  "A_R_skrupina x B_hlava": [
+   [
+    10,
+    2554.85
+   ],
+   [
+    12,
+    657.79
+   ]
+  ],
+  "A_R_skrupina x B_usi": [
+   [
+    10,
+    1028.15
+   ]
+  ],
+  "A_L_skrupina x B_hlava": [
+   [
+    10,
+    2552.78
+   ],
+   [
+    13,
+    2921.94
+   ],
+   [
+    16,
+    2552.78
+   ]
+  ],
+  "A_L_skrupina x B_usi": [
+   [
+    10,
+    1029.9
+   ],
+   [
+    16,
+    1029.9
+   ]
+  ],
+  "A_R_skrupina x B_ram_tvar": [
+   [
+    12,
+    115.38
+   ]
+  ],
+  "A_L_skrupina x B_ram_tvar": [
+   [
+    13,
+    424.1
+   ]
+  ]
+ },
+ "tipping": {
+  "rest": {
+   "mass_g": 918.1,
+   "cog": [
+    0.7,
+    -1.0,
+    70.1
+   ],
+   "margin_mm": 29.0,
+   "tip_deg": 22.5,
+   "margin_at_accel_mm": 18.5
+  },
+  "std17": {
+   "mass_g": 918.1,
+   "cog": [
+    1.5,
+    7.8,
+    72.6
+   ],
+   "margin_mm": 22.2,
+   "tip_deg": 17.0,
+   "margin_at_accel_mm": 11.3
+  },
+  "arms100_lift20_tilt40": {
+   "mass_g": 918.1,
+   "cog": [
+    0.7,
+    -7.2,
+    72.7
+   ],
+   "margin_mm": 22.8,
+   "tip_deg": 17.4,
+   "margin_at_accel_mm": 11.9
+  },
+  "arms90_lift20_tilt40": {
+   "mass_g": 918.1,
+   "cog": [
+    0.7,
+    -7.2,
+    72.6
+   ],
+   "margin_mm": 22.8,
+   "tip_deg": 17.4,
+   "margin_at_accel_mm": 11.9
+  },
+  "armsback_lift20_tiltm40": {
+   "mass_g": 918.1,
+   "cog": [
+    0.7,
+    5.7,
+    73.7
+   ],
+   "margin_mm": 24.3,
+   "tip_deg": 18.3,
+   "margin_at_accel_mm": 13.3
+  },
+  "j1_45_pan85_lift20_tilt40_arms100": {
+   "mass_g": 918.1,
+   "cog": [
+    6.3,
+    4.6,
+    72.7
+   ],
+   "margin_mm": 25.4,
+   "tip_deg": 19.2,
+   "margin_at_accel_mm": 14.5
+  }
+ }
+}

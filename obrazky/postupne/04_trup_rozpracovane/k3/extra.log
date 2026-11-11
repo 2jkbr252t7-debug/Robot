@@ -1,0 +1,20 @@
+0 {'pan': 85, 'tilt': 5} [] 29
+1 {'pan': -85, 'tilt': -10} [('T_shell', 'B_hlava', 19.53), ('P_sachta', 'B_uska', 45.06)] 35
+2 {'pan': 85, 'lift': 12.5, 'tilt': 30} [] 42
+3 {'pan': -85, 'lift': 12.5, 'tilt': -40} [('T_shell', 'B_hlava', 233.21)] 49
+4 {'pan': 85, 'lift': 20, 'tilt': -40} [] 55
+5 {'pan': -85, 'lift': 20, 'tilt': 40} [] 62
+6 {'pan': 45, 'lift': 10, 'tilt': 25} [] 69
+7 {'pan': -30, 'lift': 17.5, 'tilt': 40} [('T_shell', 'B_ram_tvar', 0.77)] 75
+8 {'lift': 12.5, 'tilt': 10, 'pan': 30, 'armR': 60, 'armL': -20} [] 82
+9 {'armR': -45, 'armL': -45, 'j1': 150} [] 97
+10 {'armR': 0, 'armL': 0, 'j1': -150} [] 117
+11 {'armR': 100, 'armL': 100} [] 124
+12 {'armR': 100, 'armL': 100, 'lift': 20, 'tilt': 40} [('A_R_skrupina', 'B_ram_tvar', 5.73), ('A_L_skrupina', 'B_ram_tvar', 5.73)] 131
+13 {'armR': 180, 'armL': 180, 'pan': 85, 'lift': 12.5, 'tilt': -40} [('T_shell', 'B_hlava', 232.84), ('A_R_skrupina', 'B_hlava', 3988.72)] 139
+14 {'armR': 180, 'armL': 180, 'pan': -85, 'lift': 20, 'tilt': 40} [('A_R_skrupina', 'B_hlava', 2919.82), ('A_R_skrupina', 'B_ram_tvar', 423.41)] 147
+15 {'j1': 150, 'armR': 90, 'armL': 90, 'pan': -85, 'lift': 20, 'tilt': 40} [] 159
+16 {'j1': -150, 'armR': 180, 'armL': 180, 'pan': 85, 'lift': 20} [] 166
+17 {'j1': 150, 'armR': -45, 'armL': 0, 'pan': 85, 'lift': 20, 'tilt': -40} [] 179
+18 {'armR': 135, 'armL': 135, 'pan': 85, 'lift': 20} [] 183
+done extra 183

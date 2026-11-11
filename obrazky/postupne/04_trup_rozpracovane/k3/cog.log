@@ -1,0 +1,10 @@
+rest {'mass_g': 918.2, 'cog': [0.7, -1.0, 70.1], 'margin_mm': 29.0, 'tip_deg': 22.5, 'margin_at_accel_mm': 18.5, 'pose': {}}
+awake {'mass_g': 918.2, 'cog': [2.2, -2.3, 72.8], 'margin_mm': 27.7, 'tip_deg': 20.8, 'margin_at_accel_mm': 16.7, 'pose': {'lift': 12.5, 'tilt': 10, 'pan': 30, 'armR': 60, 'armL': -20}}
+arms fwd, head down {'mass_g': 918.2, 'cog': [0.7, -7.2, 72.6], 'margin_mm': 22.8, 'tip_deg': 17.4, 'margin_at_accel_mm': 11.9, 'pose': {'armR': 90, 'armL': 90, 'lift': 20, 'tilt': 40}}
+arms 100 fwd, lift 20 tilt 40 {'mass_g': 918.2, 'cog': [0.7, -7.2, 72.7], 'margin_mm': 22.8, 'tip_deg': 17.4, 'margin_at_accel_mm': 11.9, 'pose': {'armR': 100, 'armL': 100, 'lift': 20, 'tilt': 40}}
+arms back -45, head up {'mass_g': 918.2, 'cog': [0.7, 5.7, 73.7], 'margin_mm': 24.3, 'tip_deg': 18.3, 'margin_at_accel_mm': 13.3, 'pose': {'armR': -45, 'armL': -45, 'lift': 20, 'tilt': -40}}
+j1 90 arms fwd {'mass_g': 918.2, 'cog': [7.6, 0.9, 72.6], 'margin_mm': 29.1, 'tip_deg': 21.8, 'margin_at_accel_mm': 18.2, 'pose': {'j1': 90, 'armR': 90, 'armL': 90, 'lift': 20, 'tilt': 40}}
+j1 45 arms fwd {'mass_g': 918.2, 'cog': [5.9, -4.6, 72.6], 'margin_mm': 25.4, 'tip_deg': 19.3, 'margin_at_accel_mm': 14.5, 'pose': {'j1': 45, 'armR': 90, 'armL': 90, 'lift': 20, 'tilt': 40}}
+arms up (pan 85) {'mass_g': 918.2, 'cog': [2.2, 0.3, 76.3], 'margin_mm': 29.7, 'tip_deg': 21.3, 'margin_at_accel_mm': 18.3, 'pose': {'armR': 180, 'armL': 180, 'pan': 85, 'lift': 20}}
+{'B': 479.2, 'T': 149.3, 'P': 39.4, 'L': 46.2, 'AR': 19.5, 'AL': 19.5, 'H': 165.0}
+done cog 32

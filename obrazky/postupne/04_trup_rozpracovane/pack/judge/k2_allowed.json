@@ -1,0 +1,347 @@
+{
+ "A_L_servo x T_paka_L": {
+  "groups": [
+   "AL",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "A_R_servo x T_paka_R": {
+  "groups": [
+   "AR",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "B_golier_prstenec x T_shell": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "B_kabel_krk x L_noha": {
+  "groups": [
+   "L",
+   "L"
+  ],
+  "vols": [
+   67.5,
+   67.5,
+   67.5,
+   67.5,
+   67.5,
+   67.5,
+   67.5
+  ]
+ },
+ "B_kabel_krk x P_koleso_pan": {
+  "groups": [
+   "L",
+   "P"
+  ],
+  "vols": [
+   3.5,
+   3.5,
+   3.5,
+   3.5,
+   0,
+   3.5,
+   3.5
+  ]
+ },
+ "B_kabel_krk x P_sachta": {
+  "groups": [
+   "L",
+   "P"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "B_kabel_krk x T_kabel_pan": {
+  "groups": [
+   "L",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "B_krk x B_uska": {
+  "groups": [
+   "L",
+   "H"
+  ],
+  "vols": [
+   17995.7,
+   17995.7,
+   17995.7,
+   17995.7,
+   17995.7,
+   17995.7,
+   17995.7
+  ]
+ },
+ "L_noha x P_kluka": {
+  "groups": [
+   "L",
+   "P"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "P_koleso_pan x T_pan_pastorok": {
+  "groups": [
+   "P",
+   "T"
+  ],
+  "vols": [
+   27.5,
+   27.5,
+   27.5,
+   27.5,
+   27.5,
+   27.5,
+   27.5
+  ]
+ },
+ "P_koleso_pan x T_ptfe": {
+  "groups": [
+   "P",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "P_sachta x T_horny_kruh": {
+  "groups": [
+   "P",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_J1_lozisko x T_J1_noha": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_J1_lozisko x Z_J1_hub": {
+  "groups": [
+   "T",
+   "B"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_J1_pastorok x T_STS3215": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_J1_pastorok x Z_J1_koleso": {
+  "groups": [
+   "T",
+   "B"
+  ],
+  "vols": [
+   37.6,
+   37.6,
+   37.6,
+   37.6,
+   37.6,
+   37.6,
+   37.6
+  ]
+ },
+ "T_pan_pastorok x T_pan_servo": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "T_shell x T_svetlo": {
+  "groups": [
+   "T",
+   "T"
+  ],
+  "vols": [
+   12.8,
+   12.8,
+   12.8,
+   12.8,
+   12.8,
+   12.8,
+   12.8
+  ]
+ },
+ "Z_ToF x Z_shell": {
+  "groups": [
+   "B",
+   "B"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "Z_USB_C x Z_nabijacka": {
+  "groups": [
+   "B",
+   "B"
+  ],
+  "vols": [
+   52.0,
+   52.0,
+   52.0,
+   52.0,
+   52.0,
+   52.0,
+   52.0
+  ]
+ },
+ "Z_USB_C x Z_shell": {
+  "groups": [
+   "B",
+   "B"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "Z_shell x Z_svetlo": {
+  "groups": [
+   "B",
+   "B"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ },
+ "Z_shell x Z_vypinac": {
+  "groups": [
+   "B",
+   "B"
+  ],
+  "vols": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ]
+ }
+}

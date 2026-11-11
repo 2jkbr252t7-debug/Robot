@@ -1,0 +1,801 @@
+{
+ "head_real_vs_torso_top": {
+  "head_vs_white_torso_top_min_mm": 1.24,
+  "worst_white": {
+   "lift": 18,
+   "tilt": 40.0,
+   "pan": -80,
+   "point": [
+    -30.7,
+    -5.4,
+    133.24
+   ]
+  },
+  "head_vs_black_trim_plateau_min_mm": 0.42,
+  "worst_plateau": {
+   "lift": 18,
+   "tilt": 40.0,
+   "pan": -85,
+   "point": [
+    -29.9,
+    -2.6,
+    133.39
+   ]
+  },
+  "criteria": "white top >= 1.0 (moving parts); plateau >= 0.25 (B-verified criterion, K2/pack had 0.45)",
+  "poses": "B tilt-vs-lift table (all rows, limits + 5 deg steps) x pan -85..85 step 5"
+ },
+ "wall_thickness": {
+  "torso": {
+   "min_mm": 1.994,
+   "at": [
+    0.0,
+    -27.2,
+    132.0
+   ],
+   "p1_mm": 1.998,
+   "median_mm": 2.0,
+   "max_mm": 2.005,
+   "n": 2025,
+   "lowest5": [
+    [
+     1.994,
+     [
+      0.0,
+      -27.2,
+      132.0
+     ]
+    ],
+    [
+     1.994,
+     [
+      0.0,
+      27.2,
+      132.0
+     ]
+    ],
+    [
+     1.994,
+     [
+      -0.0,
+      27.2,
+      132.0
+     ]
+    ],
+    [
+     1.996,
+     [
+      -7.0,
+      26.3,
+      132.0
+     ]
+    ],
+    [
+     1.996,
+     [
+      7.0,
+      26.3,
+      132.0
+     ]
+    ]
+   ]
+  },
+  "base": {
+   "min_mm": 1.979,
+   "at": [
+    -44.3,
+    -39.1,
+    8.5
+   ],
+   "p1_mm": 1.985,
+   "median_mm": 2.0,
+   "max_mm": 3.83,
+   "n": 2025,
+   "lowest5": [
+    [
+     1.979,
+     [
+      -44.3,
+      -39.1,
+      8.5
+     ]
+    ],
+    [
+     1.979,
+     [
+      44.3,
+      39.1,
+      8.5
+     ]
+    ],
+    [
+     1.979,
+     [
+      44.3,
+      -39.1,
+      8.5
+     ]
+    ],
+    [
+     1.979,
+     [
+      -44.3,
+      39.1,
+      8.5
+     ]
+    ],
+    [
+     1.982,
+     [
+      -55.5,
+      29.0,
+      8.5
+     ]
+    ]
+   ]
+  },
+  "arm": {
+   "min_mm": 1.805,
+   "at": [
+    49.4,
+    1.3,
+    55.1
+   ],
+   "p1_mm": 1.862,
+   "median_mm": 2.016,
+   "max_mm": 3.282,
+   "n": 2025,
+   "lowest5": [
+    [
+     1.805,
+     [
+      49.4,
+      1.3,
+      55.1
+     ]
+    ],
+    [
+     1.806,
+     [
+      49.4,
+      2.9,
+      55.1
+     ]
+    ],
+    [
+     1.806,
+     [
+      49.2,
+      1.3,
+      56.1
+     ]
+    ],
+    [
+     1.807,
+     [
+      49.2,
+      3.0,
+      56.1
+     ]
+    ],
+    [
+     1.82,
+     [
+      49.0,
+      1.2,
+      57.2
+     ]
+    ]
+   ]
+  }
+ },
+ "static_clashes_t1lib": [
+  [
+   "T_pan_servo",
+   "T_zosilnovac",
+   16.83
+  ],
+  [
+   "T_trup_predny",
+   "T_lem_goliera",
+   41.53
+  ],
+  [
+   "T_trup_zadny",
+   "T_lem_goliera",
+   38.33
+  ],
+  [
+   "Z_skrupina",
+   "Z_spodok",
+   3.06
+  ]
+ ],
+ "static_fit": [
+  {
+   "part": "T_STS3215",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 2.5,
+   "closest_f2_part": "T_sokel",
+   "outside_outer_mm3": 11.31
+  },
+  {
+   "part": "T_J1_pastorok",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 0.8,
+   "closest_f2_part": "T_sokel",
+   "outside_outer_mm3": 1076.0
+  },
+  {
+   "part": "T_J1_noha",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": null,
+   "closest_f2_part": null,
+   "outside_outer_mm3": 2741.61
+  },
+  {
+   "part": "T_J1_lozisko",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 3.77,
+   "closest_f2_part": "T_sokel",
+   "outside_outer_mm3": 4090.35
+  },
+  {
+   "part": "T_ram_J1",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 1.99,
+   "closest_f2_part": "T_trup_predny",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "T_paluba",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 6.34,
+   "closest_f2_part": "T_trup_zadny",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "T_cap",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 35.93,
+   "closest_f2_part": "T_trup_zadny",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "T_ptfe",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 25.99,
+   "closest_f2_part": "T_trup_zadny",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "T_pan_servo",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 4.38,
+   "closest_f2_part": "T_trup_predny",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "T_pan_pastorok",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 9.35,
+   "closest_f2_part": "T_trup_predny",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "T_kanal_pan",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 10.94,
+   "closest_f2_part": "T_trup_zadny",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "T_kabel_pan",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 12.64,
+   "closest_f2_part": "T_trup_zadny",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "T_stlpik_predny_L",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 2.49,
+   "closest_f2_part": "T_trup_predny",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "T_stlpik_predny_P",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 2.49,
+   "closest_f2_part": "T_trup_predny",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "T_stlpik_L",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": null,
+   "closest_f2_part": null,
+   "outside_outer_mm3": 165.72
+  },
+  {
+   "part": "T_paka_L",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 6.5,
+   "closest_f2_part": "T_trup_zadny",
+   "outside_outer_mm3": 229.06
+  },
+  {
+   "part": "T_kabel_ramena_L",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 1.0,
+   "closest_f2_part": "T_trup_zadny",
+   "outside_outer_mm3": 525.01
+  },
+  {
+   "part": "T_stlpik_R",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": null,
+   "closest_f2_part": null,
+   "outside_outer_mm3": 165.72
+  },
+  {
+   "part": "T_paka_R",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 6.5,
+   "closest_f2_part": "T_trup_zadny",
+   "outside_outer_mm3": 229.06
+  },
+  {
+   "part": "T_kabel_ramena_R",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 1.0,
+   "closest_f2_part": "T_trup_predny",
+   "outside_outer_mm3": 524.98
+  },
+  {
+   "part": "T_horny_kruh",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 2.9,
+   "closest_f2_part": "T_lem_goliera",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "T_riadenie",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 1.2,
+   "closest_f2_part": "T_trup_zadny",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "T_menic",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 2.95,
+   "closest_f2_part": "T_trup_predny",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "T_zosilnovac",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 1.56,
+   "closest_f2_part": "T_trup_predny",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "T_kondenzator",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 2.52,
+   "closest_f2_part": "T_trup_zadny",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "T_reproduktor",
+   "group": "T",
+   "intersections": [],
+   "min_clearance_mm": 1.86,
+   "closest_f2_part": "T_svetlovod",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "T_svetlo",
+   "group": "T",
+   "intersections": [
+    [
+     "T_trup_predny",
+     12.245,
+     "LED strip carrier clipped into the front panel behind the slot"
+    ],
+    [
+     "T_svetlovod",
+     259.617,
+     "LED strip lies on the back of the PMMA light guide"
+    ]
+   ],
+   "min_clearance_mm": null,
+   "closest_f2_part": null,
+   "outside_outer_mm3": 1.93
+  },
+  {
+   "part": "P_sachta",
+   "group": "P",
+   "intersections": [],
+   "min_clearance_mm": 2.32,
+   "closest_f2_part": "T_lem_goliera",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "P_koleso_pan",
+   "group": "P",
+   "intersections": [],
+   "min_clearance_mm": 23.74,
+   "closest_f2_part": "T_trup_zadny",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "P_servo_zdvih",
+   "group": "P",
+   "intersections": [],
+   "min_clearance_mm": 9.48,
+   "closest_f2_part": "T_trup_zadny",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "P_kluka",
+   "group": "P",
+   "intersections": [],
+   "min_clearance_mm": 3.58,
+   "closest_f2_part": "T_trup_zadny",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "P_kabel_zdvih",
+   "group": "P",
+   "intersections": [],
+   "min_clearance_mm": 11.8,
+   "closest_f2_part": "T_trup_predny",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "L_noha",
+   "group": "L",
+   "intersections": [],
+   "min_clearance_mm": 4.38,
+   "closest_f2_part": "T_trup_zadny",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "A_R_servo",
+   "group": "AR",
+   "intersections": [
+    [
+     "A_R_vonkajsia",
+     0.238,
+     "servo case bonded to the outer wall (pack)"
+    ]
+   ],
+   "min_clearance_mm": null,
+   "closest_f2_part": null,
+   "outside_outer_mm3": 371.31
+  },
+  {
+   "part": "A_R_kabel",
+   "group": "AR",
+   "intersections": [],
+   "min_clearance_mm": 2.4,
+   "closest_f2_part": "A_R_vonkajsia",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "A_L_servo",
+   "group": "AL",
+   "intersections": [
+    [
+     "A_L_vonkajsia",
+     0.238,
+     "servo case bonded to the outer wall (pack)"
+    ]
+   ],
+   "min_clearance_mm": null,
+   "closest_f2_part": null,
+   "outside_outer_mm3": 371.31
+  },
+  {
+   "part": "A_L_kabel",
+   "group": "AL",
+   "intersections": [],
+   "min_clearance_mm": 2.4,
+   "closest_f2_part": "A_L_vonkajsia",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_J1_hub",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 9.0,
+   "closest_f2_part": "Z_skrupina",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_J1_koleso",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 19.0,
+   "closest_f2_part": "Z_skrupina",
+   "outside_outer_mm3": 628.32
+  },
+  {
+   "part": "Z_J1_kanal",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": null,
+   "closest_f2_part": null,
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_J1_kabel",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 0.8,
+   "closest_f2_part": "Z_skrupina",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_clanok_P1",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 2.3,
+   "closest_f2_part": "Z_kryt_bat_P",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_clanok_P2",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 2.3,
+   "closest_f2_part": "Z_kryt_bat_P",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_clanok_Z1",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 2.3,
+   "closest_f2_part": "Z_kryt_bat_Z",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_clanok_Z2",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 2.3,
+   "closest_f2_part": "Z_kryt_bat_Z",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_BMS",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 3.75,
+   "closest_f2_part": "Z_skrupina",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_nabijacka",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 2.4,
+   "closest_f2_part": "Z_skrupina",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_USB_C",
+   "group": "B",
+   "intersections": [
+    [
+     "Z_skrupina",
+     1.437,
+     "receptacle in the back-wall opening"
+    ]
+   ],
+   "min_clearance_mm": null,
+   "closest_f2_part": null,
+   "outside_outer_mm3": 0.05
+  },
+  {
+   "part": "Z_vypinac",
+   "group": "B",
+   "intersections": [
+    [
+     "Z_skrupina",
+     4.214,
+     "switch in the back-wall opening"
+    ]
+   ],
+   "min_clearance_mm": null,
+   "closest_f2_part": null,
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_uzol",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 3.5,
+   "closest_f2_part": "Z_spodok",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_driver",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 6.52,
+   "closest_f2_part": "Z_skrupina",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_menic",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 7.54,
+   "closest_f2_part": "Z_skrupina",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_ToF",
+   "group": "B",
+   "intersections": [
+    [
+     "Z_skrupina",
+     21.297,
+     "sensor bracket on the front wall"
+    ],
+    [
+     "Z_okno_ToF",
+     5.31,
+     "sensor behind its window"
+    ]
+   ],
+   "min_clearance_mm": 1.0,
+   "closest_f2_part": "Z_svetlovod",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_svetlo",
+   "group": "B",
+   "intersections": [
+    [
+     "Z_skrupina",
+     2.019,
+     "LED strip carrier on the front wall"
+    ],
+    [
+     "Z_svetlovod",
+     105.079,
+     "LED strip behind the base light guide"
+    ]
+   ],
+   "min_clearance_mm": 3.62,
+   "closest_f2_part": "Z_okno_ToF",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_motor_R",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 1.5,
+   "closest_f2_part": "Z_spodok",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_enkoder_R",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 1.0,
+   "closest_f2_part": "Z_spodok",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_koleso_R",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 1.25,
+   "closest_f2_part": "Z_spodok",
+   "outside_outer_mm3": 1541.05
+  },
+  {
+   "part": "Z_motor_L",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 1.5,
+   "closest_f2_part": "Z_spodok",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_enkoder_L",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 1.0,
+   "closest_f2_part": "Z_spodok",
+   "outside_outer_mm3": 0
+  },
+  {
+   "part": "Z_koleso_L",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 1.25,
+   "closest_f2_part": "Z_spodok",
+   "outside_outer_mm3": 1541.05
+  },
+  {
+   "part": "Z_kolieska_P",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 5.5,
+   "closest_f2_part": "Z_spodok",
+   "outside_outer_mm3": 659.52
+  },
+  {
+   "part": "Z_utes_PR",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 0.56,
+   "closest_f2_part": "Z_spodok",
+   "outside_outer_mm3": 14.4
+  },
+  {
+   "part": "Z_utes_PL",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 0.56,
+   "closest_f2_part": "Z_spodok",
+   "outside_outer_mm3": 14.4
+  },
+  {
+   "part": "Z_kolieska_Z",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 5.5,
+   "closest_f2_part": "Z_spodok",
+   "outside_outer_mm3": 659.52
+  },
+  {
+   "part": "Z_utes_ZR",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 0.56,
+   "closest_f2_part": "Z_spodok",
+   "outside_outer_mm3": 14.4
+  },
+  {
+   "part": "Z_utes_ZL",
+   "group": "B",
+   "intersections": [],
+   "min_clearance_mm": 0.56,
+   "closest_f2_part": "Z_spodok",
+   "outside_outer_mm3": 14.4
+  }
+ ]
+}

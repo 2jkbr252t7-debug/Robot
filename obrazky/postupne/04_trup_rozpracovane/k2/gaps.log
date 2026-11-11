@@ -1,0 +1,20 @@
+P+L vs T (no running fits) {'min_mm': 0.25, 'pose': {'pan': 85, 'lift': 0}, 'a': 'B_golier_kotuc', 'b': 'B_golier_prstenec'} 179
+P_sachta vs T (except journal ring) {'min_mm': 0.25, 'pose': {'pan': -85, 'lift': 0}, 'a': 'P_sachta', 'b': 'B_golier_prstenec'} 245
+P_koleso_pan vs T (except pinion, pin, PTFE) {'min_mm': 0.4, 'pose': {'pan': 85, 'lift': 0}, 'a': 'P_koleso_pan', 'b': 'T_kabel_pan'} 272
+journal running fit P_sachta vs T_horny_kruh {'min_mm': 0.4, 'pose': {'pan': -85, 'lift': 0}, 'a': 'P_sachta', 'b': 'T_horny_kruh'} 273
+lift ear/foot vs well P_sachta {'min_mm': 0.79, 'pose': {'pan': -85, 'lift': 0}, 'a': 'L_noha', 'b': 'P_sachta'} 274
+neck B_krk vs T/P static {'min_mm': 3.0, 'pose': {'pan': 45, 'lift': 0}, 'a': 'B_krk', 'b': 'P_servo_zdvih'} 311
+J1: torso parts below floor vs base {'min_mm': 0.0, 'pose': {'j1': -150}, 'a': 'T_J1_pastorok', 'b': 'Z_J1_hub'} 430
+J1: arms vs base {'min_mm': 5.0, 'pose': {'j1': -150}, 'a': 'A_R_ruka', 'b': 'Z_shell'} 440
+arm R vs torso {'min_mm': 1.0, 'pose': {'armR': 120, 'armL': 120}, 'a': 'A_R_kryt', 'b': 'T_shell'} 459
+arm L vs torso {'min_mm': 1.0, 'pose': {'armR': -20, 'armL': -20}, 'a': 'A_L_kryt', 'b': 'T_shell'} 475
+arm R vs base {'min_mm': 5.0, 'pose': {'armR': 0, 'armL': 0}, 'a': 'A_R_ruka', 'b': 'Z_shell'} 480
+arm L vs base {'min_mm': 5.0, 'pose': {'armR': 0, 'armL': 0}, 'a': 'A_L_ruka', 'b': 'Z_shell'} 486
+head vs torso shell {'min_mm': 0.0, 'pose': {'lift': 12.5, 'tilt': -40}, 'a': 'B_hlava', 'b': 'T_shell'} 490
+rest {'pose': {}, 'mass_g': 885.6, 'cog': [-0.1, -1.6, 75.1], 'margin_mm': 27.3, 'tip_deg': 20.0, 'margin_at_accel_mm': 16.1}
+awake {'pose': {'lift': 12.5, 'tilt': 10, 'pan': 30, 'armR': 60, 'armL': -20}, 'mass_g': 885.6, 'cog': [1.2, -3.0, 77.9], 'margin_mm': 25.6, 'tip_deg': 18.2, 'margin_at_accel_mm': 13.9}
+arms_fwd_head_down {'pose': {'armR': 100, 'armL': 100, 'lift': 20, 'tilt': 40}, 'mass_g': 885.6, 'cog': [-0.1, -7.9, 77.7], 'margin_mm': 22.0, 'tip_deg': 15.8, 'margin_at_accel_mm': 10.4}
+j1_90_reach {'pose': {'j1': 90, 'pan': 85, 'lift': 20, 'tilt': 40, 'armR': 90, 'armL': 90}, 'mass_g': 885.6, 'cog': [1.9, 6.3, 77.6], 'margin_mm': 22.4, 'tip_deg': 16.1, 'margin_at_accel_mm': 10.8}
+j1_45_reach {'pose': {'j1': 45, 'pan': 85, 'lift': 20, 'tilt': 40, 'armR': 100, 'armL': 100}, 'mass_g': 885.6, 'cog': [5.9, 3.2, 77.7], 'margin_mm': 22.9, 'tip_deg': 16.4, 'margin_at_accel_mm': 11.3}
+arms_back {'pose': {'armR': -45, 'armL': -45, 'lift': 20, 'tilt': -40}, 'mass_g': 885.6, 'cog': [-0.1, 5.1, 78.9], 'margin_mm': 24.4, 'tip_deg': 17.2, 'margin_at_accel_mm': 12.5}
+done 494
