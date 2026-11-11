@@ -26,6 +26,11 @@ v `r5/`. Rozmery v mm.
 ## 3. Škrupina hlavy
 - 110 × 79 × 66 (bolo 108 × 77), superelipsa N = 5 (bolo 3.6) – hranatejšia „poduška“ ako na cieľovom obrázku.
 - Predné zaoblenie ROVNAKÉ v X aj Z (9 hlboké × 7.5), plynule do rovného čela; farebný zlom čierna/biela na y = −26.
+- Zadok hlavy (na pripomienku používateľa „vyzerá ako kocka“): profil zboku je plynulý bez skokov v zakrivení –
+  od y = −6 dozadu „squircle“ (exponent 3.5) až po malú uzatváraciu plôšku 15 × 11 mm. Zmizol rovný úsek
+  hranolu so zlomom zaoblenia na y = 3 aj rovná zadná doska 33 × 23 mm. Predné zaoblenie má exponent 2.4
+  (plynulý prechod do boku). Prierezy majú body rovnomerne po dĺžke krivky, prierezy každých 1.2 mm → bez vlnenia.
+  Dno hlavy pri pánte sa zdvihlo len o 0.0–0.6 mm.
 - Uši: kupolky (valec R13 + guľa R38, R1.5), svetlovodný krúžok v rovine kupoly, hrana otvoru v škrupine R0.8.
 - Mostík na kábel serva na podlahe (strana −X), vrch vo výške 9.1.
 
