@@ -1,18 +1,11 @@
 {
  "revision": "E2 integrated (neck/hinge build.py + head common/head_common.py)",
  "units": "mm / mm3 / N",
- "written": "2026-11-10 21:38:30",
+ "written": "2026-11-11 08:12:55",
  "how": "checks.py: build + export, then checks_e2_neck.py / checks_e2_head.py / checks_e2_integr.py on the integrated model, merged here",
- "all_E_checks_pass": false,
- "all_checks_pass": false,
- "failed": {
-  "E9": [
-   "[integr] E9 no internal part visible: {'whole_robot': 0.0, 'hinge_window': 0.005}"
-  ],
-  "S": [
-   "[integr] S every part STL closed (edges shared by 2): {'skrutky.stl': 504, 'usi.stl': 2}"
-  ]
- },
+ "all_E_checks_pass": true,
+ "all_checks_pass": true,
+ "failed": {},
  "summary": {
   "E1": {
    "check": "every solid valid, mesh volumes sane",
@@ -102,25 +95,25 @@
     "neck_side": {
      "krk_predna_polovica": {
       "min": 0.5,
-      "n_lt_1p19": 15,
+      "n_lt_1p19": 11,
       "exceptions": {
-       "MR85 inner-ring stop step (0.25 high ring r2.55..3.1 on the solid counterbore floor)": 15
+       "MR85 inner-ring stop step (0.25 high ring r2.55..3.1 on the solid counterbore floor)": 11
       },
       "unexplained": 0
      },
      "krk_zadna_polovica": {
-      "min": 0.5,
-      "n_lt_1p19": 12,
+      "min": 0.501,
+      "n_lt_1p19": 9,
       "exceptions": {
-       "MR85 inner-ring stop step (0.25 high ring r2.55..3.1 on the solid counterbore floor)": 12
+       "MR85 inner-ring stop step (0.25 high ring r2.55..3.1 on the solid counterbore floor)": 9
       },
       "unexplained": 0
      },
      "usko_kryt": {
       "min": 1.0,
-      "n_lt_1p19": 354,
+      "n_lt_1p19": 307,
       "exceptions": {
-       "blind end wall 1.0 over the horn-screw head bore r2.3 (E2 C3: allowed down to 1.0)": 354
+       "blind end wall 1.0 over the horn-screw head bore r2.3 (E2 C3: allowed down to 1.0)": 307
       },
       "unexplained": 0
      },
@@ -131,7 +124,7 @@
       "unexplained": 0
      },
      "golier_kotuc": {
-      "min": 2.481,
+      "min": 1.781,
       "n_lt_1p19": 0,
       "exceptions": {},
       "unexplained": 0
@@ -327,16 +320,14 @@
   },
   "E9": {
    "check": "visibility ray cast: no internal part visible",
-   "passed": false,
+   "passed": true,
    "run_complete": true,
-   "failed": [
-    "[integr] E9 no internal part visible: {'whole_robot': 0.0, 'hinge_window': 0.005}"
-   ],
+   "failed": [],
    "not_run": [],
    "key_numbers": {
     "worst_internal_area_mm2": {
      "whole_robot": 0.0,
-     "hinge_window": 0.005
+     "hinge_window": 0.0
     },
     "servo_lead_visible_area_mm2": {
      "whole_robot_worst_view": 19.0,
@@ -472,11 +463,9 @@
   },
   "S": {
    "check": "exported STL files",
-   "passed": false,
+   "passed": true,
    "run_complete": true,
-   "failed": [
-    "[integr] S every part STL closed (edges shared by 2): {'skrutky.stl': 504, 'usi.stl': 2}"
-   ],
+   "failed": [],
    "not_run": [],
    "key_numbers": {
     "names": {
@@ -484,9 +473,9 @@
      "stale": []
     },
     "open_edges": {
-     "CELOK_naklon40.stl": 1483,
-     "CELOK_pokoj.stl": 1526,
-     "CELOK_vysunute.stl": 1526,
+     "CELOK_naklon40.stl": 1044,
+     "CELOK_pokoj.stl": 1087,
+     "CELOK_vysunute.stl": 1087,
      "capy.stl": 0,
      "displej.stl": 0,
      "drziak_displeja.stl": 0,
@@ -507,9 +496,9 @@
      "pena_serva.stl": 0,
      "ram_displeja.stl": 0,
      "servo_MG90S.stl": 0,
-     "skrutky.stl": 504,
+     "skrutky.stl": 0,
      "trup.stl": 0,
-     "usi.stl": 2,
+     "usi.stl": 0,
      "usko_kryt.stl": 0,
      "usko_lozisko.stl": 0
     }
@@ -670,7 +659,7 @@
    "group": "N",
    "solids": 1,
    "valid": true,
-   "mesh_volume": 12132.996
+   "mesh_volume": 12329.504
   },
   {
    "name": "krk_zadna_polovica",
@@ -678,7 +667,7 @@
    "group": "N",
    "solids": 1,
    "valid": true,
-   "mesh_volume": 12252.678
+   "mesh_volume": 12449.185
   },
   {
    "name": "usko_kryt",
@@ -686,7 +675,7 @@
    "group": "H",
    "solids": 1,
    "valid": true,
-   "mesh_volume": 1784.999
+   "mesh_volume": 1879.99
   },
   {
    "name": "usko_lozisko",
@@ -694,7 +683,7 @@
    "group": "H",
    "solids": 1,
    "valid": true,
-   "mesh_volume": 1793.886
+   "mesh_volume": 1888.885
   },
   {
    "name": "paka",
@@ -806,7 +795,7 @@
    "group": "H",
    "solids": 4,
    "valid": true,
-   "mesh_volume": 72.352
+   "mesh_volume": 69.243
   },
   {
    "name": "kabel",
@@ -846,7 +835,7 @@
    "group": "T",
    "solids": 1,
    "valid": true,
-   "mesh_volume": 7676.54
+   "mesh_volume": 7624.627
   },
   {
    "name": "golier_prstenec",
@@ -862,17 +851,22 @@
   "A1/B2 depth: the official side view dimensions 7.50 to the PCB BACK and 11.50 to the STANDOFF ENDS -> mounting plane (standoff ends = bezel post faces = bar front face) at y -19.5, i.e. 11.5 behind the glass front (E2 text: 7.5 -> -23.7); 2x16 header modelled 5.0 tall = 12.5 behind the glass front, y -18.5 (E2: 11.5 -> -19.7); keep-out to 11.5 over the PCB + header zone to 12.5",
   "A1: PCB modelled 78.0 x 54.6 (measured on the drawing: 72 + 2 x 3.0, 48.5 + 2 x 3.05; E2: 'about 79.5 x 55')",
   "B2 carrier: bars 3.0 thick on 4 bezel POSTS D5.86 at (+-21, +-33.65) in the top / bottom ring; screws M2x5 into the standoffs (E2: M2x4; 2.0 thread engagement behind the 3.0 bar) and M2x6 into the inserts",
-  "C2 floor slot: end walls vertical at |y| 13.72 up to local z 3.0, then flared 40 deg, corner edges R2.2 (E2: |y| <= 11.2, ends R2.25) - a straight lead clears the 2.5 floor at +-40 deg (0.5+) and the back end has no feather edge on the rising floor",
+  "C2 floor slot: end walls vertical at |y| 13.72 up to local z 3.0, then flared 40 deg, corner edges R2.2 (E2: |y| <= 11.2, ends R2.25) - a straight lead clears the 2.5 floor at +-40 deg and the back end has no feather edge on the rising floor (integration: the plain flare gave ray-cast walls 0.01..1.0 there)",
+  "C2 / E9 (integration, NOT in the spec): vault over the floor slot inside the head (part of hlava_skrupina, concentric with the hinge axis, inner r 19.8 / outer 21.1, x -6..14, top at local z 10.6) - without it the display board (29 mm2), a carrier bar, an LED board and cross-screw heads were visible through the slot; the lead turns to -X at local z 7.5 under the vault",
+  "C2 / E9 (integration, NOT in the spec): black foam plug in the knuckle lead slot = 2nd item of pena_serva (the servo end face was visible there from 3/4 above at +-40 deg, up to 4.7 mm2)",
   "C2 tie-down: cable bridge on the -X side, 38.5 from the slot (E2: >= 20), deck top local z 9.1 so the lead runs level over the -X pad",
   "C3 cap: open knuckle bore r6.65 + cap plug (2 cheeks r6.3) instead of only a deeper arm slot; blind cap end wall 1.0 (allowed by E2)",
-  "C3 lug: concave web blend R4 and end-face round R3 (E1: R3 / R2) - the barrel must pass the collar slot corner R3.25",
+  "C3 lug: concave web blend R4 and end-face round R3 (E1: R3 / R2) - the barrel must pass the collar slot corner R3.25; web half width 8.25 (E1: 8.0 = tenon) so the web covers the 0.1 clearance strip of the floor slot (E9: screw shank visible, 0.02 mm2)",
   "C1/E5: far case end -> spline axis above 17.06 (drawing max 17.1) needs 0.05 filed off the far case end (assembly text)",
-  "neck: 4th screw = oblique M2x12 (round 5: M2x14); head-wire passage = slot 1.6 x 4.0 in the +X lug / tenon"
+  "C1: the longer pocket moved the hollow pin to x 13.4..18.5 (length 5.1): glued seat 2.6 long (round 5: 3.2)",
+  "E10: the rigid straight test lead now ends where the run turns under the vault (local z 7.5; neck engineer: local z 12 with the open slot)",
+  "neck: 4th screw = oblique M2x12 (round 5: M2x14); head-wire passage = slot 1.6 x 4.0 in the +X lug / tenon",
+  "E1 6.2 torso rim R1.0: not applied to the ILLUSTRATIVE torso of this builder when OCC refuses the fillet (see R5.collar_ring.torso_rim_round_R)"
  ],
  "worker_times_s": {
-  "neck": 1197.8,
-  "head": 1249.3,
-  "integr": 1690.2
+  "neck": 1224.2,
+  "head": 1285.9,
+  "integr": 2822.9
  },
  "neck": {
   "units": "mm / mm3",
@@ -1007,7 +1001,7 @@
      {
       "valid": true,
       "solids": 1,
-      "volume": 12133.859,
+      "volume": 12330.067,
       "group": "N"
      }
     ],
@@ -1015,7 +1009,7 @@
      {
       "valid": true,
       "solids": 1,
-      "volume": 12253.586,
+      "volume": 12449.793,
       "group": "N"
      }
     ],
@@ -1023,7 +1017,7 @@
      {
       "valid": true,
       "solids": 1,
-      "volume": 1785.381,
+      "volume": 1880.268,
       "group": "H"
      }
     ],
@@ -1031,7 +1025,7 @@
      {
       "valid": true,
       "solids": 1,
-      "volume": 1794.229,
+      "volume": 1889.141,
       "group": "H"
      }
     ],
@@ -1129,7 +1123,7 @@
      {
       "valid": true,
       "solids": 4,
-      "volume": 72.382,
+      "volume": 69.272,
       "group": "H"
      }
     ],
@@ -1163,7 +1157,7 @@
      {
       "valid": true,
       "solids": 1,
-      "volume": 7681.963,
+      "volume": 7630.127,
       "group": "T"
      }
     ],
@@ -1224,7 +1218,7 @@
    "notes": [
     "E5: far case end -> spline axis above 17.06 (drawing max 17.1) does not fit the floor datum: file the far end 0.05 (montaz)"
    ],
-   "time_s": 1197.8
+   "time_s": 1224.2
   },
   "E2_overlaps_extended_tilt0": {
    "nonzero_pairs": {
@@ -1525,10 +1519,10 @@
     "krk_zadna_polovica-golier_prstenec": 6.636,
     "krk_zadna_polovica-trup": 1.0,
     "usko_kryt-golier_kotuc": 0.25,
-    "usko_kryt-golier_prstenec": 3.074,
+    "usko_kryt-golier_prstenec": 2.329,
     "usko_kryt-trup": 1.0,
     "usko_lozisko-golier_kotuc": 0.25,
-    "usko_lozisko-golier_prstenec": 3.074,
+    "usko_lozisko-golier_prstenec": 2.329,
     "usko_lozisko-trup": 1.0
    },
    "overall": {
@@ -1629,7 +1623,7 @@
      45.5,
      20.5
     ],
-    "slot_corner_r": 3.25,
+    "slot_corner_r": 0.75,
     "slot_edge_r": 0.6,
     "disc_ring_seam": 0.25,
     "ring_torso_seam": 0.1
@@ -1642,9 +1636,9 @@
     "krk_predna_polovica": {
      "samples": 15000,
      "min": 0.5,
-     "n_lt_1p19": 15,
+     "n_lt_1p19": 11,
      "listed_exceptions": {
-      "MR85 inner-ring stop step (0.25 high ring r2.55..3.1 on the solid counterbore floor)": 15
+      "MR85 inner-ring stop step (0.25 high ring r2.55..3.1 on the solid counterbore floor)": 11
      },
      "n_unexplained": 0,
      "unexplained_min": null,
@@ -1652,10 +1646,10 @@
     },
     "krk_zadna_polovica": {
      "samples": 15000,
-     "min": 0.5,
-     "n_lt_1p19": 12,
+     "min": 0.501,
+     "n_lt_1p19": 9,
      "listed_exceptions": {
-      "MR85 inner-ring stop step (0.25 high ring r2.55..3.1 on the solid counterbore floor)": 12
+      "MR85 inner-ring stop step (0.25 high ring r2.55..3.1 on the solid counterbore floor)": 9
      },
      "n_unexplained": 0,
      "unexplained_min": null,
@@ -1664,9 +1658,9 @@
     "usko_kryt": {
      "samples": 15000,
      "min": 1.0,
-     "n_lt_1p19": 354,
+     "n_lt_1p19": 307,
      "listed_exceptions": {
-      "blind end wall 1.0 over the horn-screw head bore r2.3 (E2 C3: allowed down to 1.0)": 354
+      "blind end wall 1.0 over the horn-screw head bore r2.3 (E2 C3: allowed down to 1.0)": 307
      },
      "n_unexplained": 0,
      "unexplained_min": null,
@@ -1683,7 +1677,7 @@
     },
     "golier_kotuc": {
      "samples": 15000,
-     "min": 2.481,
+     "min": 1.781,
      "n_lt_1p19": 0,
      "listed_exceptions": {},
      "n_unexplained": 0,
@@ -2919,8 +2913,8 @@
    "skrutky_inserts": {
     "valid": true,
     "solids": 4,
-    "mesh_volume": 72.4,
-    "occ_volume": 72.4,
+    "mesh_volume": 69.2,
+    "occ_volume": 69.3,
     "bbox": [
      -22.6,
      22.6,
@@ -3049,7 +3043,7 @@
     "tol_0p005": 64416.8
    }
   },
-  "time_s": 1249.3,
+  "time_s": 1285.9,
   "2_seam_step_72pts": {
    "method": "72 polar rays (every 5 deg) in the planes y -26.6/-26.4/-26.2 (bezel) and -25.8/-25.6/-25.4 (shell), outermost hit radius, quadratic extrapolation of both exterior surfaces to the seam plane y=-26",
    "step_bezel_minus_shell": {
@@ -4361,8 +4355,8 @@
       "group": "N",
       "solids": 1,
       "valid": true,
-      "mesh_volume": 12132.996,
-      "occ_volume": 12133.859
+      "mesh_volume": 12329.504,
+      "occ_volume": 12330.067
      }
     ],
     "krk_zadna_polovica": [
@@ -4371,8 +4365,8 @@
       "group": "N",
       "solids": 1,
       "valid": true,
-      "mesh_volume": 12252.678,
-      "occ_volume": 12253.586
+      "mesh_volume": 12449.185,
+      "occ_volume": 12449.793
      }
     ],
     "usko_kryt": [
@@ -4381,8 +4375,8 @@
       "group": "H",
       "solids": 1,
       "valid": true,
-      "mesh_volume": 1784.999,
-      "occ_volume": 1785.381
+      "mesh_volume": 1879.99,
+      "occ_volume": 1880.268
      }
     ],
     "usko_lozisko": [
@@ -4391,8 +4385,8 @@
       "group": "H",
       "solids": 1,
       "valid": true,
-      "mesh_volume": 1793.886,
-      "occ_volume": 1794.229
+      "mesh_volume": 1888.885,
+      "occ_volume": 1889.141
      }
     ],
     "paka": [
@@ -4517,8 +4511,8 @@
       "group": "H",
       "solids": 4,
       "valid": true,
-      "mesh_volume": 72.352,
-      "occ_volume": 72.382
+      "mesh_volume": 69.243,
+      "occ_volume": 69.272
      }
     ],
     "kabel": [
@@ -4561,8 +4555,8 @@
       "group": "T",
       "solids": 1,
       "valid": true,
-      "mesh_volume": 7676.54,
-      "occ_volume": 7681.963
+      "mesh_volume": 7624.627,
+      "occ_volume": 7630.127
      }
     ],
     "golier_prstenec": [
@@ -4626,11 +4620,8 @@
    }
   },
   "summary": {
-   "failed": [
-    "E9 no internal part visible: {'whole_robot': 0.0, 'hinge_window': 0.005}",
-    "S every part STL closed (edges shared by 2): {'skrutky.stl': 504, 'usi.stl': 2}"
-   ],
-   "time_s": 1690.2
+   "failed": [],
+   "time_s": 2822.9
   },
   "X_interfaces": {
    "X1_pads_tenons_floor": {
@@ -5009,8 +5000,8 @@
    "X4_bosses_bars_bridge": {
     "magnet_bosses": {
      "pads": 10.67,
-     "usko_kryt": 14.798,
-     "usko_lozisko": 14.798,
+     "usko_kryt": 14.159,
+     "usko_lozisko": 14.159,
      "cross_screws": 9.485,
      "servo_lead_run": 12.451,
      "head_wires": 11.383
@@ -5286,41 +5277,41 @@
     "-1.5": {
      "nod_down_+": {
       "tilt": 40,
-      "min_clear": 2.399
+      "min_clear": 1.396
      },
      "nod_up_-": {
       "tilt": 40,
-      "min_clear": 2.399
+      "min_clear": 1.396
      }
     },
     "-2.5": {
      "nod_down_+": {
       "tilt": 35,
-      "min_clear": 1.671
+      "min_clear": 0.641
      },
      "nod_up_-": {
       "tilt": 40,
-      "min_clear": 1.671
+      "min_clear": 0.641
      }
     },
     "-3.5": {
      "nod_down_+": {
       "tilt": 35,
-      "min_clear": 1.046
+      "min_clear": 0.254
      },
      "nod_up_-": {
       "tilt": 40,
-      "min_clear": 1.046
+      "min_clear": 0.254
      }
     },
     "-4.5": {
      "nod_down_+": {
       "tilt": 35,
-      "min_clear": 0.569
+      "min_clear": 0.25
      },
      "nod_up_-": {
       "tilt": 40,
-      "min_clear": 0.569
+      "min_clear": 0.25
      }
     },
     "-6.25": {
@@ -5433,7 +5424,7 @@
     "kabel#stub",
     "pena_serva#slot_plug"
    ],
-   "triangles": 135432,
+   "triangles": 355618,
    "whole_robot": {
     "rest": {
      "views_with_non_exterior_parts_mm2": {
@@ -5488,7 +5479,7 @@
        "kabel#stub": 0.62
       },
       "az40_el-20": {
-       "kabel#lead_run": 1.69
+       "kabel#lead_run": 1.56
       },
       "az40_el0": {
        "kabel#stub": 0.5
@@ -5511,7 +5502,7 @@
     "extended_tilt+40": {
      "views_with_non_exterior_parts_mm2": {
       "az180_el-20": {
-       "kabel#lead_run": 0.19
+       "kabel#lead_run": 0.25
       },
       "az180_el0": {
        "kabel#stub": 0.62,
@@ -5527,10 +5518,10 @@
     "extended_tilt-40": {
      "views_with_non_exterior_parts_mm2": {
       "az-60_el0": {
-       "kabel#stub": 0.31
+       "kabel#stub": 0.25
       },
       "az-60_el35": {
-       "pena_serva#slot_plug": 1.38
+       "pena_serva#slot_plug": 1.31
       },
       "az-40_el0": {
        "kabel#stub": 0.5,
@@ -5550,7 +5541,7 @@
        "kabel#lead_run": 1.31
       },
       "az0_el-20": {
-       "kabel#lead_run": 0.19
+       "kabel#lead_run": 0.25
       },
       "az0_el0": {
        "kabel#stub": 0.62,
@@ -5594,7 +5585,7 @@
        "kabel#stub": 0.78
       },
       "az180_el-15": {
-       "kabel#lead_run": 0.797
+       "kabel#lead_run": 0.8
       },
       "az180_el0": {
        "kabel#stub": 0.78,
@@ -5614,33 +5605,32 @@
       },
       "az150_el0": {
        "kabel#stub": 0.7,
-       "kabel#lead_run": 0.168
+       "kabel#lead_run": 0.118
       },
       "az165_el0": {
        "kabel#stub": 0.777,
-       "kabel#lead_run": 1.17
+       "kabel#lead_run": 1.15
       },
       "az195_el0": {
        "kabel#stub": 0.775,
-       "kabel#lead_run": 1.145
+       "kabel#lead_run": 1.113
       },
       "az210_el0": {
        "kabel#stub": 0.69,
-       "kabel#lead_run": 0.19
+       "kabel#lead_run": 0.163
       },
       "az60_el0": {
        "kabel#stub": 0.295
       },
       "az120_el0": {
-       "kabel#stub": 0.295,
-       "kabel#lead_run": 0.045
+       "kabel#stub": 0.295
       }
      }
     },
     "extended_tilt0": {
      "views_with_non_exterior_parts_mm2": {
       "az0_el-30": {
-       "kabel#lead_run": 15.593
+       "kabel#lead_run": 15.603
       },
       "az0_el-15": {
        "kabel#lead_run": 9.545
@@ -5649,10 +5639,10 @@
        "kabel#stub": 0.78
       },
       "az180_el-30": {
-       "kabel#lead_run": 16.933
+       "kabel#lead_run": 16.945
       },
       "az180_el-15": {
-       "kabel#lead_run": 12.912
+       "kabel#lead_run": 12.915
       },
       "az180_el0": {
        "kabel#stub": 0.78,
@@ -5672,19 +5662,19 @@
       },
       "az150_el0": {
        "kabel#stub": 0.7,
-       "kabel#lead_run": 0.168
+       "kabel#lead_run": 0.118
       },
       "az165_el0": {
        "kabel#stub": 0.777,
-       "kabel#lead_run": 1.17
+       "kabel#lead_run": 1.15
       },
       "az195_el0": {
        "kabel#stub": 0.775,
-       "kabel#lead_run": 1.145
+       "kabel#lead_run": 1.113
       },
       "az210_el0": {
        "kabel#stub": 0.69,
-       "kabel#lead_run": 0.19
+       "kabel#lead_run": 0.163
       },
       "az60_el-20": {
        "kabel#lead_run": 0.018
@@ -5693,26 +5683,24 @@
        "kabel#stub": 0.295
       },
       "az120_el-20": {
-       "kabel#lead_run": 0.025
+       "kabel#lead_run": 0.02
       },
       "az120_el0": {
-       "kabel#stub": 0.295,
-       "kabel#lead_run": 0.045
+       "kabel#stub": 0.295
       }
      }
     },
     "extended_tilt+40": {
      "views_with_non_exterior_parts_mm2": {
       "az180_el-15": {
-       "kabel#lead_run": 3.328
+       "kabel#lead_run": 3.335
       },
       "az180_el0": {
        "kabel#stub": 0.78,
-       "kabel#lead_run": 5.38
+       "kabel#lead_run": 5.383
       },
       "az180_el15": {
        "pena_serva#slot_plug": 3.19,
-       "skrutky#cross": 0.005,
        "kabel#stub": 2.135,
        "kabel#lead_run": 14.145
       },
@@ -5722,49 +5710,49 @@
        "kabel#lead_run": 10.033
       },
       "az180_el45": {
-       "pena_serva#slot_plug": 10.422,
-       "kabel#stub": 4.272,
+       "pena_serva#slot_plug": 10.42,
+       "kabel#stub": 4.275,
        "kabel#lead_run": 0.593
       },
       "az180_el60": {
-       "pena_serva#slot_plug": 10.888,
-       "kabel#stub": 4.982
+       "pena_serva#slot_plug": 10.66,
+       "kabel#stub": 4.985
       },
       "az150_el0": {
        "kabel#stub": 0.7,
-       "kabel#lead_run": 0.973
+       "kabel#lead_run": 0.97
       },
       "az150_el20": {
        "pena_serva#slot_plug": 4.095,
        "kabel#stub": 2.545,
-       "kabel#lead_run": 3.363
+       "kabel#lead_run": 3.317
       },
       "az165_el0": {
        "kabel#stub": 0.777,
-       "kabel#lead_run": 4.143
+       "kabel#lead_run": 4.14
       },
       "az165_el20": {
-       "pena_serva#slot_plug": 4.298,
-       "kabel#stub": 2.542,
-       "kabel#lead_run": 8.1
+       "pena_serva#slot_plug": 4.293,
+       "kabel#stub": 2.545,
+       "kabel#lead_run": 8.07
       },
       "az195_el0": {
        "kabel#stub": 0.775,
-       "kabel#lead_run": 4.157
+       "kabel#lead_run": 4.143
       },
       "az195_el20": {
-       "pena_serva#slot_plug": 4.295,
+       "pena_serva#slot_plug": 4.293,
        "kabel#stub": 2.542,
-       "kabel#lead_run": 8.335
+       "kabel#lead_run": 8.3
       },
       "az210_el0": {
        "kabel#stub": 0.69,
-       "kabel#lead_run": 1.002
+       "kabel#lead_run": 0.975
       },
       "az210_el20": {
-       "pena_serva#slot_plug": 4.085,
-       "kabel#stub": 2.55,
-       "kabel#lead_run": 3.383
+       "pena_serva#slot_plug": 4.083,
+       "kabel#stub": 2.555,
+       "kabel#lead_run": 3.345
       },
       "az120_el0": {
        "kabel#stub": 0.295
@@ -5777,11 +5765,11 @@
     "extended_tilt-40": {
      "views_with_non_exterior_parts_mm2": {
       "az0_el-15": {
-       "kabel#lead_run": 3.328
+       "kabel#lead_run": 3.335
       },
       "az0_el0": {
        "kabel#stub": 0.78,
-       "kabel#lead_run": 5.38
+       "kabel#lead_run": 5.383
       },
       "az0_el15": {
        "pena_serva#slot_plug": 3.19,
@@ -5794,16 +5782,16 @@
        "kabel#lead_run": 6.6
       },
       "az0_el45": {
-       "pena_serva#slot_plug": 9.672,
-       "kabel#stub": 4.272
+       "pena_serva#slot_plug": 9.585,
+       "kabel#stub": 4.275
       },
       "az-30_el0": {
        "kabel#stub": 0.69,
        "kabel#lead_run": 0.935
       },
       "az-30_el20": {
-       "pena_serva#slot_plug": 4.09,
-       "kabel#stub": 2.55,
+       "pena_serva#slot_plug": 4.083,
+       "kabel#stub": 2.555,
        "kabel#lead_run": 3.208
       },
       "az-15_el0": {
@@ -5812,12 +5800,12 @@
       },
       "az-15_el20": {
        "pena_serva#slot_plug": 4.295,
-       "kabel#stub": 2.54,
-       "kabel#lead_run": 7.03
+       "kabel#stub": 2.542,
+       "kabel#lead_run": 7.02
       },
       "az15_el0": {
        "kabel#stub": 0.775,
-       "kabel#lead_run": 4.08
+       "kabel#lead_run": 4.088
       },
       "az15_el20": {
        "pena_serva#slot_plug": 4.288,
@@ -5826,7 +5814,7 @@
       },
       "az30_el0": {
        "kabel#stub": 0.7,
-       "kabel#lead_run": 0.927
+       "kabel#lead_run": 0.93
       },
       "az30_el20": {
        "pena_serva#slot_plug": 4.1,
@@ -5845,9 +5833,9 @@
    "worst_internal_area_mm2": {
     "value": {
      "whole_robot": 0.0,
-     "hinge_window": 0.005
+     "hinge_window": 0.0
     },
-    "passed": false
+    "passed": true
    },
    "servo_lead_visible_area_mm2": {
     "whole_robot_worst_view": 19.0,
@@ -5860,144 +5848,144 @@
    "dir": "/tmp/claude-0/gapwf/fin/B/stl",
    "files": {
     "CELOK_naklon40.stl": {
-     "triangles": 343580,
-     "open_edges": 1483,
-     "mtime": "20:31:19"
+     "triangles": 349452,
+     "open_edges": 1044,
+     "mtime": "07:25:48"
     },
     "CELOK_pokoj.stl": {
-     "triangles": 343580,
-     "open_edges": 1526,
-     "mtime": "20:31:19"
+     "triangles": 349452,
+     "open_edges": 1087,
+     "mtime": "07:25:48"
     },
     "CELOK_vysunute.stl": {
-     "triangles": 343580,
-     "open_edges": 1526,
-     "mtime": "20:31:19"
+     "triangles": 349452,
+     "open_edges": 1087,
+     "mtime": "07:25:48"
     },
     "capy.stl": {
      "triangles": 2946,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "displej.stl": {
      "triangles": 6308,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "drziak_displeja.stl": {
      "triangles": 8216,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "golier_kotuc.stl": {
      "triangles": 17544,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "golier_prstenec.stl": {
      "triangles": 9072,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "hlava_skrupina.stl": {
      "triangles": 81544,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "kabel.stl": {
      "triangles": 27620,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "klzny_kruzok.stl": {
      "triangles": 1008,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "krk_predna_polovica.stl": {
-     "triangles": 14952,
+     "triangles": 17538,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "krk_zadna_polovica.stl": {
-     "triangles": 13392,
+     "triangles": 15974,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "led_dosky.stl": {
      "triangles": 1172,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "led_kruzky.stl": {
      "triangles": 3032,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "loziska_MR85.stl": {
      "triangles": 2016,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "magnety.stl": {
      "triangles": 6000,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "oci_len_vizualizacia.stl": {
      "triangles": 1048,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "paka.stl": {
      "triangles": 2036,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "pena_displeja.stl": {
      "triangles": 1056,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "pena_serva.stl": {
      "triangles": 3128,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "ram_displeja.stl": {
      "triangles": 57632,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "servo_MG90S.stl": {
      "triangles": 2234,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "skrutky.stl": {
      "triangles": 25132,
-     "open_edges": 504,
-     "mtime": "20:31:19"
+     "open_edges": 0,
+     "mtime": "07:25:48"
     },
     "trup.stl": {
      "triangles": 9598,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "usi.stl": {
-     "triangles": 22358,
-     "open_edges": 2,
-     "mtime": "20:31:19"
+     "triangles": 22356,
+     "open_edges": 0,
+     "mtime": "07:25:48"
     },
     "usko_kryt.stl": {
-     "triangles": 12230,
+     "triangles": 12578,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     },
     "usko_lozisko.stl": {
-     "triangles": 12306,
+     "triangles": 12664,
      "open_edges": 0,
-     "mtime": "20:31:19"
+     "mtime": "07:25:48"
     }
    },
    "names": {
@@ -6008,11 +5996,8 @@
     "passed": true
    },
    "per_part_closed": {
-    "value": {
-     "skrutky.stl": 504,
-     "usi.stl": 2
-    },
-    "passed": false
+    "value": {},
+    "passed": true
    },
    "note": "per-part STL = REST pose (neck + head 20 mm down); CELOK_* = concatenation of the closed part meshes (extended / tilt 40 / rest); weld tolerance 1e-4"
   },

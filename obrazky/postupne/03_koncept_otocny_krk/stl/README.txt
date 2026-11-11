@@ -18,11 +18,10 @@ pravého uška (−X) a točí hlavou priamo. Ľavé uško (+X) sa otáča na lo
 Tvárou robota je sklo displeja v čiernom lesklom ráme; celý predný modul drží na 6 magnetoch.
 
 Priečinok B_servo_v_krku
-  <diel>.stl            každý diel zvlášť; názvy sú rovnaké ako v montaz.txt
-  CELOK_pokoj.stl       celý robot v jednom súbore, krk zasunutý
-  CELOK_vysunute.stl    krk vysunutý, hlava rovno
-  CELOK_naklon40.stl    krk vysunutý, hlava 40° dole
-                        (CELOK_* sú zjednodušené na 30 % trojuholníkov – len na prezeranie, netlačiť)
+  <diel>.stl            každý diel zvlášť na TLAČ; názvy sú rovnaké ako v montaz.txt (presnosť povrchu 0.005 mm)
+  CELOK_pokoj.glb       celý robot, krk zasunutý          ┐ na PREZERANIE: hladké a vyfarbené,
+  CELOK_vysunute.glb    krk vysunutý, hlava rovno         │ v Blenderi File > Import > glTF 2.0
+  CELOK_naklon40.glb    krk vysunutý, hlava 40° dole      ┘ (každý diel je samostatný objekt)
   montaz.txt            nákup, tlač (farba, povrch, orientácia), montáž krok za krokom, zapojenie, servis,
                         obmedzenia náklonu vo firmvéri
   ZMENY_E2.md           čo sa zmenilo oproti predchádzajúcej verzii a prečo
@@ -37,6 +36,11 @@ Ostatné súbory (displej, servo, páka, ložisko, čapy, skrutky, vložky, magn
 LED dosky, oči) sú kupované diely alebo len vizualizácia – v modeli sú na kontrolu, že sa všetko zmestí. Netlačiť.
 
 Trup je zatiaľ ilustračný (výška 100 mm) – je ďalší na rade.
+
+HLADKÝ POVRCH V BLENDERI: STL neobsahuje informáciu o vyhladení, Blender ho preto zobrazí s plôškami (jemné
+pásy na oblých plochách). Je to len zobrazenie – tvar aj tlač sú hladké. Na prezeranie použi CELOK_*.glb alebo:
+  označ diely (A), pravé tlačidlo myši > Shade Auto Smooth (Blender 4.1+; staršie: Shade Smooth + Auto Smooth 30°).
+  Alebo rovno otvor ../NOVA_mini_B.blend – tam je všetko vyhladené, vyfarbené a s animáciou.
 
 Blender: ../NOVA_mini_B.blend
   Medzerník = animácia: otočenie do strán, vysunutie krku, náklon 40° dole, 40° hore, zasunutie.

@@ -46,10 +46,14 @@ v `r5/`. Rozmery v mm.
 ## 6. Pánt a vonkajšok krku
 - Škára pántu 0.3 (bolo 0.5); pevný prstenec na OBOCH koncoch kĺbu (na +X skrýva puzdro ložiska);
   PTFE krúžok 0.25 → axiálna vôľa hlavy ≤ 0.05.
-- Uši pántu: valec R10 + stojina s plynulým prechodom (R4, čelo R3). **Preč:** zásterky a ich kolíky
+- Uši pántu: valec R10 + stojina, prechod aj hrany čela R0.5 (na želanie používateľa; prvá verzia E2 mala R4 / R3). **Preč:** zásterky a ich kolíky
   („hranaté bloky“ pod hlavou).
-- Krk: rohy R3 (bolo R2), sedlá pod ušami zaoblené R3 namiesto 35° plôšky, deliaca línia ako V 0.3 × 0.15.
-- Golier: drážka R3.25, hrana R0.6, škáry 0.25 (kotúč/prstenec) a 0.1 (prstenec/trup).
+- Krk (na želanie používateľa hranatý): zvislé rohy a všetky hrany R0.5 (prvá verzia E2 mala R3). Pod ušami pántu je
+  kolíska: sedlo R10.5 sústredné s valčekom ucha (vôľa 0.5), zrezané rovno na z = 10.0, kde má stena vedľa sedla
+  1.75 – sedlo po celej výške by na bokoch krku nechalo klin hrubý 0.3 mm, ktorý by sa odlomil.
+  Deliaca línia ako V 0.3 × 0.15.
+- Golier: drážka R0.75 (roh krku R0.5 + vôľa 0.25), hrana R0.6, škáry 0.25 (kotúč/prstenec) a 0.1 (prstenec/trup);
+  šachta v trupe 47 × 22 s rohmi R1.5.
 - Vodiče hlavy: 4 × Ø0.85 – štrbina 1.6 × 4.0 v +X uchu, širšia komora pri serve; čap 13.4–18.5 (dĺžka 5.1).
 - Skrutky: M2×8 ISO 7380-1 (dk 3.8) do hlavy; štvrtá skrutka krku je šikmá M2×12 (bola M2×14).
 
@@ -77,5 +81,5 @@ v `r5/`. Rozmery v mm.
 - montážna rovina displeja je na koncoch stĺpikov (11.5 za sklom), nie 7.5; hlavička 12.5;
 - lem okna 1.7 / R0.7; doska modelovaná 78.0 × 54.6; lišty hr. 3.0 so skrutkami M2×5;
 - drážka v podlahe ±13.72 (zadanie ±11.2) + klenba;
-- uši pántu R4 / R3 (zadanie R3 / R2), stojina ±8.25 (zadanie ±8.0);
+- uši pántu a krk R0.5 (zadanie R3 / R2 – zmenené na želanie používateľa), stojina ±8.25 (zadanie ±8.0);
 - lepená dĺžka čapu 2.6 (kolo 5: 3.2) – kapsa serva je o 0.75 dlhšia.

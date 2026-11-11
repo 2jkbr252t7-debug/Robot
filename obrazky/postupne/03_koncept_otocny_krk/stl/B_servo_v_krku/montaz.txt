@@ -145,7 +145,7 @@ C. MONTÁŽ
     Spodok krku pripoj k unášaču zdvihu zvnútra trupu (mechanizmus zdvihu nie je súčasťou modelu).
     Over celý zdvih 0 až −20: krk ide hladko, nikde neškrtá o šachtu (vôľa 1.0 na stranu).
 10. GOLIER: zdvih nastav do stredu (krk o 10 nižšie ako vysunutý). Kotúč (golier_kotuc, drážka 45.5 × 20.5, rohy
-    R3.25) a potom prstenec (golier_prstenec) nasuň na krk zhora. Do medzery krk–drážka zasuň na každej zo 4 strán
+    R0.75) a potom prstenec (golier_prstenec) nasuň na krk zhora. Do medzery krk–drážka zasuň na každej zo 4 strán
     pásik fólie 0.2 – vycentrujú kotúč. Epoxid nanes tenko len na dno výrezu (z = −2) pod vonkajšiu časť kotúča
     (r > 24) a pod prstenec – NIE k drážke a ku krku. Horné plochy zarovno s vrchom trupu (z = 4). Škáry:
     kotúč–prstenec 0.25, prstenec–trup 0.1. Po vytvrdnutí fólie vytiahni a over zdvih: vôľa 0.25 dookola.
@@ -245,4 +245,4 @@ E. SERVIS (servo, páka, displej)
   8) Pri výmene serva vymeň penové pásiky, podložky aj zátku (body 3d, 3e, 7) a zopakuj merania z bodu 1 a 8.
 
 Pozn.: trup je ilustračný: výrez Ø56.7 do hĺbky z = −2 (kotúč aj prstenec goliera na ňom ležia), šachta pre krk
-  47 × 22 s rohmi R4 do z = −40, horný okraj trupu r = 29.8.
+  47 × 22 s rohmi R1.5 do z = −40, horný okraj trupu r = 29.8.
