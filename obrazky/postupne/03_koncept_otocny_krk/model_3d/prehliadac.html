@@ -1,4 +1,5 @@
-<title>Hlava NOVA mini</title>
+<meta charset="utf-8">
+<title>NOVA mini B</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;650&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
@@ -74,8 +75,8 @@ input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--accent
 
 <div class="wrap">
   <header>
-    <h1>NOVA mini · vysúvací krk A / B</h1>
-    <p class="sub">Prepni verziu A alebo B a porovnaj. Model si otáčaj prstom alebo myšou. Krk sa vysunie, až keď sa hlava nakláňa, v pokoji sedí hlava na tele.</p>
+    <h1>NOVA mini · vysúvací krk (verzia B)</h1>
+    <p class="sub">Revízia E2 – podľa skutočných rozmerov displeja Waveshare 3.5B a serva MG90S. Servo náklonu je v krku a hlavou točí priamo. Model si otáčaj prstom alebo myšou. Krk sa vysunie, až keď sa hlava nakláňa, v pokoji sedí hlava na tele.</p>
   </header>
 
   <div class="main">
@@ -86,12 +87,9 @@ input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--accent
 
     <aside class="panel" aria-label="Ovládanie modelu">
       <div class="group">
-        <div class="label">Verzia</div>
-        <div class="seg" role="group" aria-label="Verzia">
-          <button id="v-a" type="button" aria-pressed="false">A · servo v hlave</button>
-          <button id="v-b" type="button" aria-pressed="true">B · servo v krku</button>
-        </div>
+        <div class="label">Verzia B · servo v krku</div>
         <p class="vnote" id="v-note"></p>
+        <button id="v-a" type="button" hidden></button><button id="v-b" type="button" hidden></button>
       </div>
       <div class="group">
         <div class="label">Pohyby</div>
@@ -114,7 +112,7 @@ input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--accent
       </div>
 
       <div class="group">
-        <label class="toggle" for="t-xray"><input id="t-xray" type="checkbox"> Priehľadne – ukázať servo a pánt</label>
+        <label class="toggle" for="t-xray"><input id="t-xray" type="checkbox"> Priehľadne – ukázať servo, pánt a displej</label>
         <label class="toggle" for="t-torso"><input id="t-torso" type="checkbox" checked> Ukázať trup (ilustračný, 100 mm)</label>
       </div>
     </aside>
@@ -124,7 +122,7 @@ input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--accent
     <div class="fact"><b>3 mm</b><span>škára pod hlavou v pokoji</span></div>
     <div class="fact"><b id="f-lift">20 mm</b><span>vysunutie krku pri náklone</span></div>
     <div class="fact"><b>±40°</b><span>náklon dole k zošitu aj hore k človeku</span></div>
-    <div class="fact"><b>86 × 56 mm</b><span>displej 3,5" sa zmestí, hlava 108 × 77 mm</span></div>
+    <div class="fact"><b>92,4 × 61 mm</b><span>sklo displeja 3,5" je tvárou robota, hlava 110 × 79 mm</span></div>
     <div class="fact"><b id="f-neck">45 × 20 mm</b><span>plochý dutý krk</span></div>
     <div class="fact"><b id="f-servo">v krku</b><span id="f-servo-t">servo náklonu točí hlavou priamo</span></div>
   </div>
@@ -175,31 +173,38 @@ const M = {
   white:   () => new THREE.MeshPhysicalMaterial({ color: 0xf2f3f1, roughness: 0.32, clearcoat: 0.6, clearcoatRoughness: 0.2 }),
   satin:   () => new THREE.MeshStandardMaterial({ color: 0x1e2124, roughness: 0.55, metalness: 0.0 }),
   gloss:   () => new THREE.MeshPhysicalMaterial({ color: 0x15171a, roughness: 0.06, clearcoat: 1.0 }),
+  glass:   () => new THREE.MeshPhysicalMaterial({ color: 0x050607, roughness: 0.03, clearcoat: 1.0, clearcoatRoughness: 0.02 }),
   led:     () => new THREE.MeshStandardMaterial({ color: 0x7fe7f2, emissive: 0x5fd6e4, emissiveIntensity: 1.2 }),
   eye:     () => new THREE.MeshStandardMaterial({ color: 0xf4ece0, emissive: 0xf4e6d2, emissiveIntensity: 0.55 }),
   metal:   () => new THREE.MeshStandardMaterial({ color: 0xc3c8cd, roughness: 0.28, metalness: 0.9 }),
   servo:   () => new THREE.MeshStandardMaterial({ color: 0x3d6fe0, roughness: 0.5 }),
   bracket: () => new THREE.MeshStandardMaterial({ color: 0x9a72e0, roughness: 0.5 }),
   display: () => new THREE.MeshStandardMaterial({ color: 0x2b2f35, roughness: 0.4 }),
-  pcb:     () => new THREE.MeshStandardMaterial({ color: 0x1f5c3a, roughness: 0.5 }),
+  pcb:     () => new THREE.MeshStandardMaterial({ color: 0x1d3f8a, roughness: 0.5 }),
   comp:    () => new THREE.MeshStandardMaterial({ color: 0x8d949b, roughness: 0.5 }),
-  cable:   () => new THREE.MeshStandardMaterial({ color: 0x2a2a2a, roughness: 0.7 }),
+  cable:   () => new THREE.MeshStandardMaterial({ color: 0xa3261c, roughness: 0.7 }),
+  brass:   () => new THREE.MeshStandardMaterial({ color: 0xc9a050, roughness: 0.3, metalness: 0.9 }),
+  zone:    () => new THREE.MeshStandardMaterial({ color: 0xe08a2a, roughness: 0.6, transparent: true, opacity: 0.25, depthWrite: false }),
 };
 // ---- variants (CAD frame: mm -> m, Z up, front -Y; head + neck exported with the neck EXTENDED) ----------
+// same geometry as the STL files and the Blender scene; meshes are named "<diel>__<skupina>"
+// skupina: head/H = turns with the head, neck/N = lifts, horn = servo horn (A), link = tiahlo (A), T = torso
 const VAR = {
-  a: { file: "nova_a.txt", AXZ: 0.0175, LIFT: 19, link: true, YS: 0.0, ZS: 0.0175 + 0.030, R_ARM: 0.004, XL: 0.00725,
-       lift: ["N", "pins", "lever", "cable", "spring", "horn"], neck: "34 × 16 mm", servo: "v hlave",
-       servoT: "za displejom, hlavou točí cez tiahlo", note: "Štíhly krk. Servo náklonu je v hlave za displejom a hlavu otáča cez malé tiahlo." },
-  b: { file: "nova_b.txt", AXZ: 0.0165, LIFT: 20, link: false,
-       lift: ["NF", "NB", "servo", "pins", "cable", "screws", "dowels"], neck: "45 × 20 mm", servo: "v krku",
-       servoT: "servo náklonu točí hlavou priamo", note: "Širší krk. Servo náklonu je v ňom a hlavou točí priamo, bez tiahla. V hlave je len displej." },
+  a: { file: "nova_a.txt", AXZ: 0.0175, LIFT: 19, link: true, ZS: 0.0475, R_ARM: 0.0045, neck: "34 × 16 mm", servo: "v hlave",
+       servoT: "za displejom, hlavou točí cez tiahlo", note: "Štíhly krk. Servo náklonu je v hlave za displejom, prichytené dvomi skrutkami v kolíske, a hlavu otáča cez páku a tiahlo v ľavom uchu." },
+  b: { file: "NOVA_mini_B_servo_v_krku.glb", AXZ: 0.0165, LIFT: 20, link: false, neck: "45 × 20 mm", servo: "v krku",
+       servoT: "servo náklonu točí hlavou priamo", note: "Servo náklonu je zovreté medzi dvomi polovicami krku a hlavou točí priamo, bez tiahla. Jeho kábel ide hore cez kĺb do hlavy. Predný modul s displejom drží na magnetoch." },
 };
-const FIXED = ["T", "R"], PANP = ["C"];
-const SHELLS = ["T", "R", "C", "N", "NF", "NB", "K", "H", "V", "E", "L", "Y"];
-const INTERNAL = ["pins", "brg", "spring", "lever", "cable", "scable", "servo", "bracket", "lcd", "pcb", "comp", "horn", "link", "screws", "dowels"];
-const MAT = { T: "white", R: "gloss", C: "satin", N: "satin", NF: "satin", NB: "satin", K: "satin", H: "white", V: "gloss", E: "satin", L: "led", Y: "eye",
-  pins: "metal", brg: "metal", spring: "metal", lever: "metal", cable: "cable", scable: "cable", servo: "servo", bracket: "bracket",
-  lcd: "display", pcb: "pcb", comp: "comp", horn: "metal", screws: "metal", dowels: "metal" };
+const EXTERIOR = ["hlava_skrupina", "ram_displeja", "displej_sklo", "usi", "led_kruzky", "usko_kryt", "usko_lozisko",
+  "krk_predna_polovica", "krk_zadna_polovica", "golier_kotuc", "golier_prstenec", "trup"];
+const ALWAYS = ["oci_len_vizualizacia"];
+const MAT = { trup: "white", hlava_skrupina: "white", golier_prstenec: "satin", golier_kotuc: "satin",
+  ram_displeja: "gloss", displej_sklo: "glass", displej: "pcb", pena_displeja: "comp", drziak_displeja: "satin",
+  magnety: "metal", magnety_skrupina: "metal", vlozky: "brass", skrutky_drziaka: "metal",
+  usi: "satin", led_kruzky: "led", oci_len_vizualizacia: "eye", usko_kryt: "satin", usko_lozisko: "satin",
+  krk_predna_polovica: "satin", krk_zadna_polovica: "satin", servo_MG90S: "servo", paka: "comp", klzny_kruzok: "comp",
+  capy: "metal", loziska_MR85: "metal", skrutky: "metal", kabel: "cable", kabel_serva: "satin", zatka_kabla: "satin",
+  led_dosky: "pcb", pena_serva: "comp" };
 
 const cad = new THREE.Group(); cad.rotation.x = -Math.PI / 2; scene.add(cad);
 let V = null, meshes = {}, grp = null;
@@ -210,21 +215,25 @@ function build(key, gltf) {
   V = VAR[key]; meshes = {};
   const root = new THREE.Group(), fixed = new THREE.Group(), pan = new THREE.Group(), lift = new THREE.Group();
   const tiltPivot = new THREE.Group(), tiltInner = new THREE.Group();
+  const horn = new THREE.Group(), linkPivot = new THREE.Group(), linkInner = new THREE.Group();
   root.add(fixed); root.add(pan); pan.add(lift); lift.add(tiltPivot); tiltPivot.add(tiltInner);
+  lift.add(horn); lift.add(linkPivot); linkPivot.add(linkInner);
   tiltPivot.position.set(0, 0, V.AXZ); tiltInner.position.set(0, 0, -V.AXZ);
+  if (V.link) { linkPivot.position.set(0, V.R_ARM, V.AXZ); linkInner.position.set(0, -V.R_ARM, -V.AXZ); }
   const scene0 = gltf.scene.clone(true);
   const found = []; scene0.traverse((o) => { if (o.isMesh) found.push(o); });
   for (const o of found) {
-    const name = o.name.replace(/[._]\d+$/, "");
-    o.material = M[MAT[name] || "satin"]();
-    const g = FIXED.includes(name) ? fixed : PANP.includes(name) ? pan : V.lift.includes(name) ? lift : tiltInner;
+    const m = /^(.+?)__([A-Za-z]+)/.exec(o.name) || /^(.+?)__([A-Za-z]+)/.exec((o.parent && o.parent.name) || "");
+    if (!m) continue;
+    const part = m[1], g = m[2];
+    o.material = M[MAT[part] || "satin"]();
+    const dst = g === "T" ? (part === "golier_kotuc" ? pan : fixed)
+      : (g === "neck" || g === "N") ? lift : g === "horn" ? horn : g === "link" ? linkInner : tiltInner;
     o.position.set(0, 0, 0); o.rotation.set(0, 0, 0); o.scale.set(1, 1, 1);
-    g.add(o); meshes[name] = o;
+    o.userData.part = part;
+    dst.add(o); meshes[part + "__" + g] = o;
   }
-  if (V.link) {
-    const lm = new THREE.Mesh(new THREE.BoxGeometry(0.0015, 0.0035, 1), M.metal()); lift.add(lm); meshes.link = lm;
-  }
-  grp = { root, pan, lift, tiltPivot };
+  grp = { root, pan, lift, tiltPivot, horn, linkPivot };
   cad.add(root);
   document.getElementById("v-note").textContent = V.note;
   document.getElementById("f-lift").textContent = V.LIFT + " mm";
@@ -242,10 +251,17 @@ function loadVariant(key) {
   document.getElementById("v-b").setAttribute("aria-pressed", key === "b");
   if (cache[key]) { build(key, cache[key]); return; }
   const ld = document.getElementById("loading"); ld.hidden = false; ld.textContent = "Načítavam model…";
-  fetch(VAR[key].file).then((r) => { if (!r.ok) throw new Error(r.status); return r.text(); }).then((b64) => {
-    const bin = atob(b64.trim()); const buf = new Uint8Array(bin.length);
-    for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
-    new GLTFLoader().parse(buf.buffer, "", (g) => { cache[key] = g; ld.hidden = true; build(key, g); },
+  const file = VAR[key].file;           // .glb (binary) or .txt (the same GLB as base64)
+  fetch(file).then((r) => {
+    if (!r.ok) throw new Error(r.status);
+    if (file.endsWith(".glb")) return r.arrayBuffer();
+    return r.text().then((b64) => {
+      const bin = atob(b64.trim()); const buf = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
+      return buf.buffer;
+    });
+  }).then((buf) => {
+    new GLTFLoader().parse(buf, "", (g) => { cache[key] = g; ld.hidden = true; build(key, g); },
       () => { ld.textContent = "Model sa nepodarilo načítať – skús obnoviť stránku."; });
   }).catch(() => { ld.textContent = "Model sa nepodarilo načítať – skús obnoviť stránku."; });
 }
@@ -282,15 +298,10 @@ function pose() {
   const t = THREE.MathUtils.degToRad(cur.tilt);
   grp.tiltPivot.rotation.x = t;
   grp.pan.rotation.z = THREE.MathUtils.degToRad(cur.pan);
-  if (V.link) {   // parallelogram: horn stays parallel to the knuckle lever
-    const c = Math.cos(t), s = Math.sin(t), dz = V.ZS - V.AXZ;
-    const sy = V.YS * c - dz * s, sz = V.YS * s + dz * c;
-    if (meshes.horn) meshes.horn.position.set(0, sy - V.YS, V.AXZ + sz - V.ZS);
-    const ly = V.R_ARM, lz = V.AXZ, hy = sy + V.R_ARM, hz = V.AXZ + sz;
-    const Ln = Math.hypot(hy - ly, hz - lz);
-    meshes.link.scale.set(1, 1, Ln);
-    meshes.link.position.set(V.XL, (ly + hy) / 2, (lz + hz) / 2);
-    meshes.link.rotation.set(Math.atan2(-(hy - ly), hz - lz), 0, 0);
+  if (V.link) {   // 1:1 parallelogram: the horn translates with the servo shaft, the link turns about the lever pin
+    const L = V.ZS - V.AXZ;
+    grp.horn.position.set(0, -L * Math.sin(t), L * (Math.cos(t) - 1));
+    grp.linkPivot.rotation.x = t;
   }
   vL.textContent = cur.lift.toFixed(1).replace(".", ",") + " mm";
   vT.textContent = Math.round(cur.tilt) + "°";
@@ -301,14 +312,20 @@ function pose() {
 const tX = document.getElementById("t-xray"), tTo = document.getElementById("t-torso");
 function applyXray() {
   const on = tX.checked;
-  for (const n of SHELLS) {
-    const m = meshes[n]; if (!m) continue;
-    m.material.transparent = on; m.material.opacity = on ? 0.14 : 1; m.material.depthWrite = !on; m.material.needsUpdate = true;
-    m.renderOrder = on ? 2 : 0;
+  for (const m of Object.values(meshes)) {
+    const p = m.userData.part;
+    if (EXTERIOR.includes(p)) {
+      m.material.transparent = on; m.material.opacity = on ? 0.14 : 1; m.material.depthWrite = !on; m.material.needsUpdate = true;
+      m.renderOrder = on ? 2 : 0;
+    } else if (!ALWAYS.includes(p)) {
+      m.visible = on && p !== "displej_zona_suciastok";
+    }
   }
-  for (const n of INTERNAL) { if (meshes[n]) meshes[n].visible = on; }
+  applyTorso();
 }
-function applyTorso() { for (const n of ["T", "R"]) if (meshes[n]) meshes[n].visible = tTo.checked; }
+function applyTorso() {
+  for (const m of Object.values(meshes)) if (["trup", "golier_prstenec"].includes(m.userData.part)) m.visible = tTo.checked;
+}
 tX.addEventListener("change", applyXray); tTo.addEventListener("change", applyTorso);
 loadVariant("b");
 

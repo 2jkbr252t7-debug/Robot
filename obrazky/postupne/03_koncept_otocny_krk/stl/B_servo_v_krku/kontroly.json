@@ -1,0 +1,6495 @@
+{
+ "revision": "E2 integrated (neck/hinge build.py + head common/head_common.py)",
+ "units": "mm / mm3 / N",
+ "written": "2026-11-10 21:38:30",
+ "how": "checks.py: build + export, then checks_e2_neck.py / checks_e2_head.py / checks_e2_integr.py on the integrated model, merged here",
+ "all_E_checks_pass": false,
+ "all_checks_pass": false,
+ "failed": {
+  "E9": [
+   "[integr] E9 no internal part visible: {'whole_robot': 0.0, 'hinge_window': 0.005}"
+  ],
+  "S": [
+   "[integr] S every part STL closed (edges shared by 2): {'skrutky.stl': 504, 'usi.stl': 2}"
+  ]
+ },
+ "summary": {
+  "E1": {
+   "check": "every solid valid, mesh volumes sane",
+   "passed": true,
+   "run_complete": true,
+   "failed": [],
+   "not_run": [],
+   "key_numbers": {
+    "parts": 24,
+    "solids": 94,
+    "all_valid": true,
+    "shell_mesh_volume": 64473.2,
+    "bezel_mesh_volume": 15797.0,
+    "printed_parts_solid_count": {
+     "hlava_skrupina": 1,
+     "ram_displeja": 1,
+     "drziak_displeja": 2,
+     "usi": 2,
+     "led_kruzky": 2,
+     "krk_predna_polovica": 1,
+     "krk_zadna_polovica": 1,
+     "usko_kryt": 1,
+     "usko_lozisko": 1,
+     "golier_kotuc": 1,
+     "golier_prstenec": 1
+    }
+   }
+  },
+  "E2": {
+   "check": "zero interference (rest, extended, tilt -40..+40 step 5)",
+   "passed": true,
+   "run_complete": true,
+   "failed": [],
+   "not_run": [],
+   "key_numbers": {
+    "worst_unintended_overlap_tilt0_mm3": 0.0,
+    "intended_overlaps": {
+     "usko_kryt x paka": "0.21 (4 crush ribs 0.1 on the arm flanks (intended press, zero backlash))"
+    },
+    "sweep_interference_mm3": {},
+    "head_internal_overlaps": {},
+    "head_internal_pairs_tested": 70,
+    "cables_in_head_overlap_mm3": {
+     "lead_run": 0.0,
+     "head_wires": 0.0
+    },
+    "rest_pose_min_distance_to_torso_side": 0.25
+   }
+  },
+  "E3": {
+   "check": "clearances H vs N/T >= 0.25 over the sweep, hinge seams 0.3 uniform",
+   "passed": true,
+   "run_complete": true,
+   "failed": [],
+   "not_run": [],
+   "key_numbers": {
+    "min_clearance_over_sweep": 0.25,
+    "at": [
+     "-40",
+     [
+      0.25,
+      "MR85_outer-krk_predna_polovica"
+     ]
+    ],
+    "rest_pose_min": 0.25,
+    "hinge_seams": [
+     0.3,
+     0.3,
+     0.3,
+     0.3,
+     0.3,
+     0.3
+    ],
+    "head_axial_float": 0.05,
+    "collar_slot_clearance_over_lift": 0.25,
+    "head_exterior_vs_collar_torso_sweep_min": 2.802,
+    "head_exterior_vs_collar_torso_rest_min": 3.0
+   }
+  },
+  "E4": {
+   "check": "walls >= 1.2 (ray cast), listed exceptions only",
+   "passed": true,
+   "run_complete": true,
+   "failed": [],
+   "not_run": [],
+   "key_numbers": {
+    "neck_side": {
+     "krk_predna_polovica": {
+      "min": 0.5,
+      "n_lt_1p19": 15,
+      "exceptions": {
+       "MR85 inner-ring stop step (0.25 high ring r2.55..3.1 on the solid counterbore floor)": 15
+      },
+      "unexplained": 0
+     },
+     "krk_zadna_polovica": {
+      "min": 0.5,
+      "n_lt_1p19": 12,
+      "exceptions": {
+       "MR85 inner-ring stop step (0.25 high ring r2.55..3.1 on the solid counterbore floor)": 12
+      },
+      "unexplained": 0
+     },
+     "usko_kryt": {
+      "min": 1.0,
+      "n_lt_1p19": 354,
+      "exceptions": {
+       "blind end wall 1.0 over the horn-screw head bore r2.3 (E2 C3: allowed down to 1.0)": 354
+      },
+      "unexplained": 0
+     },
+     "usko_lozisko": {
+      "min": 1.2,
+      "n_lt_1p19": 0,
+      "exceptions": {},
+      "unexplained": 0
+     },
+     "golier_kotuc": {
+      "min": 2.481,
+      "n_lt_1p19": 0,
+      "exceptions": {},
+      "unexplained": 0
+     },
+     "golier_prstenec": {
+      "min": 1.413,
+      "n_lt_1p19": 0,
+      "exceptions": {},
+      "unexplained": 0
+     }
+    },
+    "head_side": {
+     "ram_displeja": {
+      "min": 1.205,
+      "n_lt_1p19": 0
+     },
+     "hlava_skrupina": {
+      "min": 1.229,
+      "n_lt_1p19": 0
+     },
+     "drziak_displeja": {
+      "min": 1.299,
+      "n_lt_1p19": 0
+     },
+     "usi": {
+      "min": 1.963,
+      "n_lt_1p19": 0
+     },
+     "led_kruzky": {
+      "min": 1.447,
+      "n_lt_1p19": 0
+     }
+    },
+    "shell_hinge_zone": {
+     "min": 1.262,
+     "n_lt_1p19": 0
+    },
+    "neck_void_walls_min": 1.2,
+    "wire_passages_ok": true
+   }
+  },
+  "E5": {
+   "check": "MG90S envelope range fits the closed halves",
+   "passed": true,
+   "run_complete": true,
+   "failed": [],
+   "not_run": [],
+   "key_numbers": {
+    "all_fit": true,
+    "variants": 19,
+    "max_stack": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.3,
+     "foam_pad_compression_pct": 70.0,
+     "wires_room_x_beside_bottom_cover": 1.35
+    },
+    "min_stack": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.9,
+     "foam_pad_compression_pct": 10.0,
+     "wires_room_x_beside_bottom_cover": 1.95
+    },
+    "note": [
+     "E5: far case end -> spline axis above 17.06 (drawing max 17.1) does not fit the floor datum: file the far end 0.05 (montaz)"
+    ]
+   }
+  },
+  "E6": {
+   "check": "horn arm top 8.9 / 9.6 / 10.3: cap fits, sweep clear",
+   "passed": true,
+   "run_complete": true,
+   "failed": [],
+   "not_run": [],
+   "key_numbers": {
+    "all_fit": true,
+    "rows": {
+     "arm_top_8.9_dx-0.05": {
+      "fits": true,
+      "min_clear_static_over_sweep": 0.618,
+      "arm_top_to_slot_bottom": 1.65
+     },
+     "arm_top_8.9_dx+0.00": {
+      "fits": true,
+      "min_clear_static_over_sweep": 0.618,
+      "arm_top_to_slot_bottom": 1.7
+     },
+     "arm_top_8.9_dx+0.15": {
+      "fits": true,
+      "min_clear_static_over_sweep": 0.618,
+      "arm_top_to_slot_bottom": 1.85
+     },
+     "arm_top_9.6_dx-0.05": {
+      "fits": true,
+      "min_clear_static_over_sweep": 0.764,
+      "arm_top_to_slot_bottom": 0.95
+     },
+     "arm_top_9.6_dx+0.00": {
+      "fits": true,
+      "min_clear_static_over_sweep": 0.736,
+      "arm_top_to_slot_bottom": 1.0
+     },
+     "arm_top_9.6_dx+0.15": {
+      "fits": true,
+      "min_clear_static_over_sweep": 0.666,
+      "arm_top_to_slot_bottom": 1.15
+     },
+     "arm_top_10.3_dx-0.05": {
+      "fits": true,
+      "min_clear_static_over_sweep": 0.918,
+      "arm_top_to_slot_bottom": 0.25
+     },
+     "arm_top_10.3_dx+0.00": {
+      "fits": true,
+      "min_clear_static_over_sweep": 0.894,
+      "arm_top_to_slot_bottom": 0.3
+     },
+     "arm_top_10.3_dx+0.15": {
+      "fits": true,
+      "min_clear_static_over_sweep": 0.838,
+      "arm_top_to_slot_bottom": 0.45
+     }
+    }
+   }
+  },
+  "E7": {
+   "check": "display: official outline fits, module passes the opening, bezel/shell step <= 0.02",
+   "passed": true,
+   "run_complete": true,
+   "failed": [],
+   "not_run": [],
+   "key_numbers": {
+    "glass_to_pocket": [
+     0.2,
+     0.2,
+     0.2,
+     0.2
+    ],
+    "lip_overlap": [
+     1.2,
+     1.22
+    ],
+    "window_clear_of_active_area": [
+     8.28,
+     4.82
+    ],
+    "standoff_pattern": [
+     72.0,
+     48.5
+    ],
+    "screw_axis_offset_max": 0.0,
+    "keepout_nothing_inside": true,
+    "keepout_min_distance": {
+     "bars": 0.05,
+     "screws": 1.65,
+     "bezel": 3.37,
+     "shell": 3.391,
+     "mag_shell": 4.721,
+     "cross_screws": 7.81
+    },
+    "module_through_opening_worst_overlap_mm3": 0.0,
+    "module_min_clearance_during_pull": {
+     "0.0": 0.304,
+     "2.0": 0.296,
+     "3.5": 0.296,
+     "5.0": 0.296,
+     "6.5": 0.426,
+     "8.0": 0.426
+    },
+    "seam_step_abs_max": 0.0,
+    "stack_depth_behind_glass_front": {
+     "pcb_back": 7.5,
+     "standoff_ends": 11.5,
+     "header_top": 12.5
+    }
+   }
+  },
+  "E8": {
+   "check": "magnets: walls >= 1.0, pairs aligned <= 0.1",
+   "passed": true,
+   "run_complete": true,
+   "failed": [],
+   "not_run": [],
+   "key_numbers": {
+    "bezel_pocket_min_wall": 1.214,
+    "shell_pocket_min_wall": 1.23,
+    "pair_misalignment_max": 0.0,
+    "face_gap": 0.2,
+    "hold_total_N": 18.664,
+    "magnets": "6 pairs N35 D4 x 2"
+   }
+  },
+  "E9": {
+   "check": "visibility ray cast: no internal part visible",
+   "passed": false,
+   "run_complete": true,
+   "failed": [
+    "[integr] E9 no internal part visible: {'whole_robot': 0.0, 'hinge_window': 0.005}"
+   ],
+   "not_run": [],
+   "key_numbers": {
+    "worst_internal_area_mm2": {
+     "whole_robot": 0.0,
+     "hinge_window": 0.005
+    },
+    "servo_lead_visible_area_mm2": {
+     "whole_robot_worst_view": 19.0,
+     "hinge_window_worst_view": 20.293,
+     "note": "allowed: servo lead (black sleeve) in the knuckle / head-floor gap and through the floor slot, and the black foam plug that closes the knuckle lead slot around it"
+    },
+    "through_window_other_parts_mm2": 0
+   }
+  },
+  "E10": {
+   "check": "lead floor slot never touches the static lead (>= 0.5)",
+   "passed": true,
+   "run_complete": true,
+   "failed": [],
+   "not_run": [],
+   "key_numbers": {
+    "min_floor_slot_to_static_stub": 1.073,
+    "min_floor_slot_to_rigid_straight_lead": 0.947,
+    "floor_slot": {
+     "x": [
+      8.0,
+      12.5
+     ],
+     "flare_line_half_y_at_head_bottom": 11.2,
+     "flare_deg": 40.0,
+     "top_z": 34.0,
+     "corner_r": 2.2,
+     "vertical_land_up_to_local_z": 3.0,
+     "half_y_bottom_opening": 13.717,
+     "half_y_at_local_z2p5": 13.298,
+     "head_floor_z_at_lead": 27.001
+    }
+   }
+  },
+  "X": {
+   "check": "integration: interfaces between head and neck side",
+   "passed": true,
+   "run_complete": true,
+   "failed": [],
+   "not_run": [],
+   "key_numbers": {
+    "tenon_in_slot": [
+     0.1,
+     0.1
+    ],
+    "lead_run_min_clear": {
+     "pads": 0.6,
+     "to_head_wires": 0.64,
+     "length_in_head": 146.525,
+     "tie_point_to_floor_slot": 38.5
+    },
+    "front_module_pull_out_before_taut": [
+     62.712,
+     42.633
+    ],
+    "tool_path_min_clearance": 0.1,
+    "bosses_bars_bridge_min": 0.5,
+    "head_vs_collar_torso": [
+     3.0,
+     2.802
+    ]
+   }
+  },
+  "A": {
+   "check": "assembly paths free",
+   "passed": true,
+   "run_complete": true,
+   "failed": [],
+   "not_run": [],
+   "key_numbers": {
+    "all_paths_free": true
+   }
+  },
+  "T": {
+   "check": "tilt vs lift (firmware rule) for the new head",
+   "passed": true,
+   "run_complete": true,
+   "failed": [],
+   "not_run": [],
+   "key_numbers": {
+    "table": {
+     "0": {
+      "nod_down_+": 40,
+      "nod_up_-": 40
+     },
+     "-1": {
+      "nod_down_+": 40,
+      "nod_up_-": 40
+     },
+     "-2": {
+      "nod_down_+": 40,
+      "nod_up_-": 40
+     },
+     "-3": {
+      "nod_down_+": 35,
+      "nod_up_-": 40
+     },
+     "-4": {
+      "nod_down_+": 35,
+      "nod_up_-": 40
+     },
+     "-5": {
+      "nod_down_+": 35,
+      "nod_up_-": 40
+     },
+     "-7.5": {
+      "nod_down_+": 30,
+      "nod_up_-": 40
+     },
+     "-10": {
+      "nod_down_+": 25,
+      "nod_up_-": 35
+     },
+     "-12.5": {
+      "nod_down_+": 20,
+      "nod_up_-": 30
+     },
+     "-15": {
+      "nod_down_+": 15,
+      "nod_up_-": 20
+     },
+     "-17.5": {
+      "nod_down_+": 10,
+      "nod_up_-": 15
+     },
+     "-20": {
+      "nod_down_+": 5,
+      "nod_up_-": 10
+     }
+    },
+    "rule_min_clear": 0.25
+   }
+  },
+  "S": {
+   "check": "exported STL files",
+   "passed": false,
+   "run_complete": true,
+   "failed": [
+    "[integr] S every part STL closed (edges shared by 2): {'skrutky.stl': 504, 'usi.stl': 2}"
+   ],
+   "not_run": [],
+   "key_numbers": {
+    "names": {
+     "missing": [],
+     "stale": []
+    },
+    "open_edges": {
+     "CELOK_naklon40.stl": 1483,
+     "CELOK_pokoj.stl": 1526,
+     "CELOK_vysunute.stl": 1526,
+     "capy.stl": 0,
+     "displej.stl": 0,
+     "drziak_displeja.stl": 0,
+     "golier_kotuc.stl": 0,
+     "golier_prstenec.stl": 0,
+     "hlava_skrupina.stl": 0,
+     "kabel.stl": 0,
+     "klzny_kruzok.stl": 0,
+     "krk_predna_polovica.stl": 0,
+     "krk_zadna_polovica.stl": 0,
+     "led_dosky.stl": 0,
+     "led_kruzky.stl": 0,
+     "loziska_MR85.stl": 0,
+     "magnety.stl": 0,
+     "oci_len_vizualizacia.stl": 0,
+     "paka.stl": 0,
+     "pena_displeja.stl": 0,
+     "pena_serva.stl": 0,
+     "ram_displeja.stl": 0,
+     "servo_MG90S.stl": 0,
+     "skrutky.stl": 504,
+     "trup.stl": 0,
+     "usi.stl": 2,
+     "usko_kryt.stl": 0,
+     "usko_lozisko.stl": 0
+    }
+   }
+  },
+  "R5": {
+   "check": "round-5 checks that are still valid",
+   "passed": true,
+   "run_complete": true,
+   "failed": [],
+   "not_run": [],
+   "key_numbers": {
+    "containment": true,
+    "pin_grip_len": 1.6
+   }
+  }
+ },
+ "registry": [
+  {
+   "name": "hlava_skrupina",
+   "item": "hlava_skrupina",
+   "group": "H",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 64473.228
+  },
+  {
+   "name": "ram_displeja",
+   "item": "ram_displeja",
+   "group": "H",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 15796.982
+  },
+  {
+   "name": "displej",
+   "item": "glass",
+   "group": "H",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 6168.681
+  },
+  {
+   "name": "displej",
+   "item": "lcd",
+   "group": "H",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 23279.192
+  },
+  {
+   "name": "displej",
+   "item": "pcb",
+   "group": "H",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 6812.705
+  },
+  {
+   "name": "displej",
+   "item": "standoffs",
+   "group": "H",
+   "solids": 4,
+   "valid": true,
+   "mesh_volume": 149.227
+  },
+  {
+   "name": "displej",
+   "item": "header",
+   "group": "H",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 1063.4
+  },
+  {
+   "name": "displej",
+   "item": "usbc",
+   "group": "H",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 229.909
+  },
+  {
+   "name": "displej",
+   "item": "small",
+   "group": "H",
+   "solids": 12,
+   "valid": true,
+   "mesh_volume": 1742.677
+  },
+  {
+   "name": "pena_displeja",
+   "item": "pena_displeja",
+   "group": "H",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 87.839
+  },
+  {
+   "name": "drziak_displeja",
+   "item": "drziak_displeja",
+   "group": "H",
+   "solids": 2,
+   "valid": true,
+   "mesh_volume": 1708.583
+  },
+  {
+   "name": "magnety",
+   "item": "bezel side (6)",
+   "group": "H",
+   "solids": 6,
+   "valid": true,
+   "mesh_volume": 150.734
+  },
+  {
+   "name": "magnety",
+   "item": "shell side (6)",
+   "group": "H",
+   "solids": 6,
+   "valid": true,
+   "mesh_volume": 150.734
+  },
+  {
+   "name": "usi",
+   "item": "usi",
+   "group": "H",
+   "solids": 2,
+   "valid": true,
+   "mesh_volume": 7055.395
+  },
+  {
+   "name": "led_kruzky",
+   "item": "led_kruzky",
+   "group": "H",
+   "solids": 2,
+   "valid": true,
+   "mesh_volume": 367.439
+  },
+  {
+   "name": "led_dosky",
+   "item": "led_dosky",
+   "group": "H",
+   "solids": 2,
+   "valid": true,
+   "mesh_volume": 706.869
+  },
+  {
+   "name": "oci_len_vizualizacia",
+   "item": "oci_len_vizualizacia",
+   "group": "H",
+   "solids": 2,
+   "valid": true,
+   "mesh_volume": 15.436
+  },
+  {
+   "name": "krk_predna_polovica",
+   "item": "krk_predna_polovica",
+   "group": "N",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 12132.996
+  },
+  {
+   "name": "krk_zadna_polovica",
+   "item": "krk_zadna_polovica",
+   "group": "N",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 12252.678
+  },
+  {
+   "name": "usko_kryt",
+   "item": "usko_kryt",
+   "group": "H",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 1784.999
+  },
+  {
+   "name": "usko_lozisko",
+   "item": "usko_lozisko",
+   "group": "H",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 1793.886
+  },
+  {
+   "name": "paka",
+   "item": "paka",
+   "group": "H",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 112.862
+  },
+  {
+   "name": "klzny_kruzok",
+   "item": "klzny_kruzok",
+   "group": "H",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 19.619
+  },
+  {
+   "name": "servo_MG90S",
+   "item": "servo_MG90S",
+   "group": "N",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 7051.313
+  },
+  {
+   "name": "pena_serva",
+   "item": "2 Y strips + 2 X pads in the servo pocket",
+   "group": "N",
+   "solids": 4,
+   "valid": true,
+   "mesh_volume": 162.642
+  },
+  {
+   "name": "pena_serva",
+   "item": "black plug in the knuckle lead slot",
+   "group": "N",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 20.316
+  },
+  {
+   "name": "loziska_MR85",
+   "item": "outer ring",
+   "group": "H",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 26.673
+  },
+  {
+   "name": "loziska_MR85",
+   "item": "inner ring",
+   "group": "N",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 21.589
+  },
+  {
+   "name": "capy",
+   "item": "hollow pin",
+   "group": "N",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 55.484
+  },
+  {
+   "name": "capy",
+   "item": "2 dowels",
+   "group": "N",
+   "solids": 2,
+   "valid": true,
+   "mesh_volume": 37.683
+  },
+  {
+   "name": "skrutky",
+   "item": "neck: 4 screws + 4 inserts",
+   "group": "N",
+   "solids": 8,
+   "valid": true,
+   "mesh_volume": 235.647
+  },
+  {
+   "name": "skrutky",
+   "item": "horn screw",
+   "group": "H",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 20.839
+  },
+  {
+   "name": "skrutky",
+   "item": "4 cross screws M2x8",
+   "group": "H",
+   "solids": 4,
+   "valid": true,
+   "mesh_volume": 123.263
+  },
+  {
+   "name": "skrutky",
+   "item": "carrier: 4 x M2x5 + 4 x M2x6",
+   "group": "H",
+   "solids": 8,
+   "valid": true,
+   "mesh_volume": 206.33
+  },
+  {
+   "name": "skrutky",
+   "item": "carrier: 4 inserts",
+   "group": "H",
+   "solids": 4,
+   "valid": true,
+   "mesh_volume": 72.352
+  },
+  {
+   "name": "kabel",
+   "item": "head wires, static part",
+   "group": "N",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 45.17
+  },
+  {
+   "name": "kabel",
+   "item": "head wires, rotating part + loop",
+   "group": "H",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 93.104
+  },
+  {
+   "name": "kabel",
+   "item": "servo-lead stub",
+   "group": "N",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 11.145
+  },
+  {
+   "name": "kabel",
+   "item": "servo-lead run in the head",
+   "group": "H",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 777.577
+  },
+  {
+   "name": "golier_kotuc",
+   "item": "golier_kotuc",
+   "group": "T",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 7676.54
+  },
+  {
+   "name": "golier_prstenec",
+   "item": "golier_prstenec",
+   "group": "T",
+   "solids": 1,
+   "valid": true,
+   "mesh_volume": 1551.02
+  }
+ ],
+ "deviations_from_E2_spec": [
+  "B2 stack: lip 1.7 / window edge R0.7 (E2: 1.5 / R1.0) - keeps every lip wall >= 1.2 (min 1.205); glass front y -31.0 (E2 -31.2)",
+  "A1/B2 depth: the official side view dimensions 7.50 to the PCB BACK and 11.50 to the STANDOFF ENDS -> mounting plane (standoff ends = bezel post faces = bar front face) at y -19.5, i.e. 11.5 behind the glass front (E2 text: 7.5 -> -23.7); 2x16 header modelled 5.0 tall = 12.5 behind the glass front, y -18.5 (E2: 11.5 -> -19.7); keep-out to 11.5 over the PCB + header zone to 12.5",
+  "A1: PCB modelled 78.0 x 54.6 (measured on the drawing: 72 + 2 x 3.0, 48.5 + 2 x 3.05; E2: 'about 79.5 x 55')",
+  "B2 carrier: bars 3.0 thick on 4 bezel POSTS D5.86 at (+-21, +-33.65) in the top / bottom ring; screws M2x5 into the standoffs (E2: M2x4; 2.0 thread engagement behind the 3.0 bar) and M2x6 into the inserts",
+  "C2 floor slot: end walls vertical at |y| 13.72 up to local z 3.0, then flared 40 deg, corner edges R2.2 (E2: |y| <= 11.2, ends R2.25) - a straight lead clears the 2.5 floor at +-40 deg (0.5+) and the back end has no feather edge on the rising floor",
+  "C2 tie-down: cable bridge on the -X side, 38.5 from the slot (E2: >= 20), deck top local z 9.1 so the lead runs level over the -X pad",
+  "C3 cap: open knuckle bore r6.65 + cap plug (2 cheeks r6.3) instead of only a deeper arm slot; blind cap end wall 1.0 (allowed by E2)",
+  "C3 lug: concave web blend R4 and end-face round R3 (E1: R3 / R2) - the barrel must pass the collar slot corner R3.25",
+  "C1/E5: far case end -> spline axis above 17.06 (drawing max 17.1) needs 0.05 filed off the far case end (assembly text)",
+  "neck: 4th screw = oblique M2x12 (round 5: M2x14); head-wire passage = slot 1.6 x 4.0 in the +X lug / tenon"
+ ],
+ "worker_times_s": {
+  "neck": 1197.8,
+  "head": 1249.3,
+  "integr": 1690.2
+ },
+ "neck": {
+  "units": "mm / mm3",
+  "pose": "extended (HZ 27, axis z 16.5) unless stated; rest = lift -20; neck halves CLOSED",
+  "head": "INTEGRATED: live E2 head module /tmp/claude-0/gapwf/fin/common/head_common.py",
+  "revision": "E2 neck side, integrated model",
+  "E1_validity": {
+   "parts": {
+    "hlava_skrupina": [
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 64473.228,
+      "group": "H"
+     }
+    ],
+    "ram_displeja": [
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 15796.982,
+      "group": "H"
+     }
+    ],
+    "displej": [
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 6168.731,
+      "group": "H"
+     },
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 23279.198,
+      "group": "H"
+     },
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 6812.707,
+      "group": "H"
+     },
+     {
+      "valid": true,
+      "solids": 4,
+      "volume": 149.288,
+      "group": "H"
+     },
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 1063.4,
+      "group": "H"
+     },
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 229.924,
+      "group": "H"
+     },
+     {
+      "valid": true,
+      "solids": 12,
+      "volume": 1742.677,
+      "group": "H"
+     }
+    ],
+    "pena_displeja": [
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 87.843,
+      "group": "H"
+     }
+    ],
+    "drziak_displeja": [
+     {
+      "valid": true,
+      "solids": 2,
+      "volume": 1708.65,
+      "group": "H"
+     }
+    ],
+    "magnety": [
+     {
+      "valid": true,
+      "solids": 6,
+      "volume": 150.796,
+      "group": "H"
+     },
+     {
+      "valid": true,
+      "solids": 6,
+      "volume": 150.796,
+      "group": "H"
+     }
+    ],
+    "usi": [
+     {
+      "valid": true,
+      "solids": 2,
+      "volume": 7063.121,
+      "group": "H"
+     }
+    ],
+    "led_kruzky": [
+     {
+      "valid": true,
+      "solids": 2,
+      "volume": 368.562,
+      "group": "H"
+     }
+    ],
+    "led_dosky": [
+     {
+      "valid": true,
+      "solids": 2,
+      "volume": 707.121,
+      "group": "H"
+     }
+    ],
+    "oci_len_vizualizacia": [
+     {
+      "valid": true,
+      "solids": 2,
+      "volume": 15.439,
+      "group": "H"
+     }
+    ],
+    "krk_predna_polovica": [
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 12133.859,
+      "group": "N"
+     }
+    ],
+    "krk_zadna_polovica": [
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 12253.586,
+      "group": "N"
+     }
+    ],
+    "usko_kryt": [
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 1785.381,
+      "group": "H"
+     }
+    ],
+    "usko_lozisko": [
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 1794.229,
+      "group": "H"
+     }
+    ],
+    "paka": [
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 112.888,
+      "group": "H"
+     }
+    ],
+    "klzny_kruzok": [
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 19.627,
+      "group": "H"
+     }
+    ],
+    "servo_MG90S": [
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 7051.598,
+      "group": "N"
+     }
+    ],
+    "pena_serva": [
+     {
+      "valid": true,
+      "solids": 4,
+      "volume": 162.642,
+      "group": "N"
+     },
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 20.314,
+      "group": "N"
+     }
+    ],
+    "loziska_MR85": [
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 26.684,
+      "group": "H"
+     },
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 21.598,
+      "group": "N"
+     }
+    ],
+    "capy": [
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 55.498,
+      "group": "N"
+     },
+     {
+      "valid": true,
+      "solids": 2,
+      "volume": 37.699,
+      "group": "N"
+     }
+    ],
+    "skrutky": [
+     {
+      "valid": true,
+      "solids": 8,
+      "volume": 235.745,
+      "group": "N"
+     },
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 20.848,
+      "group": "H"
+     },
+     {
+      "valid": true,
+      "solids": 4,
+      "volume": 123.314,
+      "group": "H"
+     },
+     {
+      "valid": true,
+      "solids": 8,
+      "volume": 206.415,
+      "group": "H"
+     },
+     {
+      "valid": true,
+      "solids": 4,
+      "volume": 72.382,
+      "group": "H"
+     }
+    ],
+    "kabel": [
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 45.189,
+      "group": "N"
+     },
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 93.149,
+      "group": "H"
+     },
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 11.15,
+      "group": "N"
+     },
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 777.945,
+      "group": "H"
+     }
+    ],
+    "golier_kotuc": [
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 7681.963,
+      "group": "T"
+     }
+    ],
+    "golier_prstenec": [
+     {
+      "valid": true,
+      "solids": 1,
+      "volume": 1551.668,
+      "group": "T"
+     }
+    ]
+   },
+   "printed_parts_single_solid": {
+    "value": {
+     "krk_predna_polovica": 1,
+     "krk_zadna_polovica": 1,
+     "usko_kryt": 1,
+     "usko_lozisko": 1,
+     "golier_kotuc": 1,
+     "golier_prstenec": 1,
+     "klzny_kruzok": 1
+    },
+    "passed": true
+   },
+   "servo_model": {
+    "turret_top_above_bottom": 28.5,
+    "spec_range": [
+     28.0,
+     28.5
+    ],
+    "horn_top_above_bottom": 32.1,
+    "spec_horn": [
+     32.0,
+     32.6
+    ],
+    "spline_top_above_bottom": 31.5,
+    "case": [
+     22.5,
+     12.2,
+     22.8
+    ],
+    "lobe": {
+     "r": 2.9,
+     "centre": 5.6,
+     "reach": 8.5
+    },
+    "spline_axis_from_near_end": 5.9,
+    "nub_x_above_bottom_cover": [
+     1.35,
+     3.35
+    ],
+    "nub_on": "end face nearest the shaft (pocket top)",
+    "tabs": "none (both cut flush)"
+   }
+  },
+  "summary": {
+   "failed": [],
+   "notes": [
+    "E5: far case end -> spline axis above 17.06 (drawing max 17.1) does not fit the floor datum: file the far end 0.05 (montaz)"
+   ],
+   "time_s": 1197.8
+  },
+  "E2_overlaps_extended_tilt0": {
+   "nonzero_pairs": {
+    "usko_kryt x paka": "0.21 (4 crush ribs 0.1 on the arm flanks (intended press, zero backlash))"
+   },
+   "worst_unintended_mm3": {
+    "value": 0.0,
+    "passed": true
+   },
+   "n_parts": 40
+  },
+  "E2_E3_tilt_sweep": {
+   "angles": [
+    -40,
+    -35,
+    -30,
+    -25,
+    -20,
+    -15,
+    -10,
+    -5,
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40
+   ],
+   "min_per_angle": {
+    "-40": [
+     0.25,
+     "MR85_outer-krk_predna_polovica"
+    ],
+    "-35": [
+     0.25,
+     "MR85_outer-krk_predna_polovica"
+    ],
+    "-30": [
+     0.25,
+     "MR85_outer-krk_predna_polovica"
+    ],
+    "-25": [
+     0.25,
+     "MR85_outer-krk_predna_polovica"
+    ],
+    "-20": [
+     0.25,
+     "MR85_outer-krk_predna_polovica"
+    ],
+    "-15": [
+     0.25,
+     "MR85_outer-krk_predna_polovica"
+    ],
+    "-10": [
+     0.25,
+     "MR85_outer-krk_predna_polovica"
+    ],
+    "-5": [
+     0.25,
+     "MR85_outer-krk_predna_polovica"
+    ],
+    "0": [
+     0.25,
+     "MR85_outer-krk_predna_polovica"
+    ],
+    "5": [
+     0.25,
+     "MR85_outer-krk_predna_polovica"
+    ],
+    "10": [
+     0.25,
+     "MR85_outer-krk_predna_polovica"
+    ],
+    "15": [
+     0.25,
+     "MR85_outer-krk_predna_polovica"
+    ],
+    "20": [
+     0.25,
+     "MR85_outer-krk_predna_polovica"
+    ],
+    "25": [
+     0.25,
+     "MR85_outer-krk_predna_polovica"
+    ],
+    "30": [
+     0.25,
+     "MR85_outer-krk_predna_polovica"
+    ],
+    "35": [
+     0.25,
+     "MR85_outer-krk_predna_polovica"
+    ],
+    "40": [
+     0.25,
+     "MR85_outer-krk_predna_polovica"
+    ]
+   },
+   "min_per_pair_mm_at_deg": {
+    "hlava_pri_pante-krk_predna_polovica": [
+     0.499,
+     40
+    ],
+    "hlava_pri_pante-krk_zadna_polovica": [
+     0.499,
+     0
+    ],
+    "hlava_pri_pante-servo_MG90S": [
+     2.26,
+     -40
+    ],
+    "hlava_pri_pante-cap_pin": [
+     8.011,
+     40
+    ],
+    "hlava_pri_pante-MR85_inner": [
+     7.515,
+     -40
+    ],
+    "hlava_pri_pante-kabel_krk": [
+     9.912,
+     40
+    ],
+    "hlava_pri_pante-privod_serva_krk": [
+     1.073,
+     0
+    ],
+    "hlava_pri_pante-pena_serva": [
+     8.431,
+     40
+    ],
+    "hlava_pri_pante-zatka_drazky": [
+     0.577,
+     15
+    ],
+    "usko_kryt-krk_predna_polovica": [
+     0.3,
+     40
+    ],
+    "usko_kryt-krk_zadna_polovica": [
+     0.3,
+     40
+    ],
+    "usko_kryt-servo_MG90S": [
+     1.0,
+     40
+    ],
+    "usko_lozisko-krk_predna_polovica": [
+     0.3,
+     40
+    ],
+    "usko_lozisko-krk_zadna_polovica": [
+     0.3,
+     40
+    ],
+    "usko_lozisko-cap_pin": [
+     0.805,
+     20
+    ],
+    "usko_lozisko-MR85_inner": [
+     0.3,
+     25
+    ],
+    "usko_lozisko-kabel_krk": [
+     2.1,
+     40
+    ],
+    "paka-krk_predna_polovica": [
+     0.736,
+     40
+    ],
+    "paka-krk_zadna_polovica": [
+     0.736,
+     40
+    ],
+    "skrutka_paky-krk_predna_polovica": [
+     5.07,
+     40
+    ],
+    "skrutka_paky-krk_zadna_polovica": [
+     5.07,
+     40
+    ],
+    "MR85_outer-krk_predna_polovica": [
+     0.25,
+     -40
+    ],
+    "MR85_outer-krk_zadna_polovica": [
+     0.25,
+     -40
+    ],
+    "MR85_outer-kabel_krk": [
+     1.6,
+     40
+    ],
+    "klzny_kruzok-servo_MG90S": [
+     2.35,
+     15
+    ],
+    "kabel_hlava-krk_predna_polovica": [
+     1.8,
+     40
+    ],
+    "kabel_hlava-krk_zadna_polovica": [
+     1.8,
+     0
+    ],
+    "kabel_hlava-MR85_inner": [
+     1.4,
+     40
+    ],
+    "privod_serva_hlava-krk_zadna_polovica": [
+     0.5,
+     -15
+    ],
+    "privod_serva_hlava-servo_MG90S": [
+     2.264,
+     40
+    ],
+    "privod_serva_hlava-zatka_drazky": [
+     0.522,
+     -15
+    ],
+    "privod_serva_hlava-krk_predna_polovica": [
+     0.5,
+     40
+    ],
+    "skrutky_hlava-krk_predna_polovica": [
+     5.544,
+     30
+    ]
+   },
+   "interference_mm3": {
+    "value": {},
+    "passed": true
+   },
+   "overall_min_clearance": {
+    "value": 0.25,
+    "passed": true
+   },
+   "design_exceptions": {
+    "paka-servo_MG90S": {
+     "min": 0.0,
+     "at_deg": -40,
+     "why": "horn on the spline"
+    },
+    "skrutka_paky-servo_MG90S": {
+     "min": 0.0,
+     "at_deg": -40,
+     "why": "horn screw in the spline"
+    },
+    "MR85_outer-cap_pin": {
+     "min": 1.055,
+     "at_deg": 40,
+     "why": "bearing on its pin"
+    },
+    "MR85_outer-MR85_inner": {
+     "min": 0.55,
+     "at_deg": 40,
+     "why": "same bearing"
+    },
+    "klzny_kruzok-krk_predna_polovica": {
+     "min": 0.05,
+     "at_deg": -40,
+     "why": "PTFE thrust ring runs on the static lip tip: 0.05 axial float by design"
+    },
+    "klzny_kruzok-krk_zadna_polovica": {
+     "min": 0.05,
+     "at_deg": -40,
+     "why": "PTFE thrust ring runs on the static lip tip: 0.05 axial float by design"
+    },
+    "kabel_hlava-cap_pin": {
+     "min": 0.985,
+     "at_deg": 40,
+     "why": "wires inside the pin bore D3 (only twist)"
+    },
+    "kabel_hlava-kabel_krk": {
+     "min": 0.0,
+     "at_deg": -40,
+     "why": "same wire group, joint on the axis"
+    },
+    "privod_serva_hlava-privod_serva_krk": {
+     "min": 0.425,
+     "at_deg": 5,
+     "why": "same lead (flexing zone)"
+    }
+   }
+  },
+  "E2_E3_rest_pose": {
+   "min_clearances": {
+    "krk_predna_polovica-golier_kotuc": 0.359,
+    "krk_predna_polovica-golier_prstenec": 6.636,
+    "krk_predna_polovica-trup": 1.0,
+    "krk_zadna_polovica-golier_kotuc": 0.359,
+    "krk_zadna_polovica-golier_prstenec": 6.636,
+    "krk_zadna_polovica-trup": 1.0,
+    "usko_kryt-golier_kotuc": 0.25,
+    "usko_kryt-golier_prstenec": 3.074,
+    "usko_kryt-trup": 1.0,
+    "usko_lozisko-golier_kotuc": 0.25,
+    "usko_lozisko-golier_prstenec": 3.074,
+    "usko_lozisko-trup": 1.0
+   },
+   "overall": {
+    "value": 0.25,
+    "passed": true
+   }
+  },
+  "E3_hinge_seams": {
+   "minus_x_cap_face_to_knuckle_end": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "plus_x_lug_face_to_knuckle_end": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "lug_barrel_to_saddle_radial": [
+    0.3,
+    0.3,
+    0.3
+   ],
+   "ptfe_ring_to_lip_tip": 0.05,
+   "lip_tip_to_cap_groove_bottom": 0.3,
+   "plug_radial_to_knuckle_bore": 0.35,
+   "plus_x_lip_tip_to_lug_groove_bottom": 0.3,
+   "sleeve_radial_to_counterbore": 0.36,
+   "mr85_outer_ring_to_counterbore_floor": 0.25,
+   "head_axial_float": {
+    "minus_x_stop": "MR85 inner ring on its boss (0)",
+    "plus_x_stop": "PTFE ring on the lip tip",
+    "float": 0.05
+   },
+   "seam_0p3_uniform": {
+    "value": [
+     0.3,
+     0.3,
+     0.3,
+     0.3,
+     0.3,
+     0.3
+    ],
+    "passed": true
+   }
+  },
+  "L_lift_vs_collar": {
+   "per_lift": {
+    "0": [
+     0.25,
+     "krk_predna_polovica-golier_kotuc"
+    ],
+    "-2.5": [
+     0.25,
+     "krk_predna_polovica-golier_kotuc"
+    ],
+    "-5": [
+     0.25,
+     "krk_predna_polovica-golier_kotuc"
+    ],
+    "-7.5": [
+     0.25,
+     "krk_predna_polovica-golier_kotuc"
+    ],
+    "-10": [
+     0.25,
+     "krk_predna_polovica-golier_kotuc"
+    ],
+    "-12.5": [
+     0.25,
+     "krk_predna_polovica-golier_kotuc"
+    ],
+    "-15": [
+     0.25,
+     "krk_predna_polovica-golier_kotuc"
+    ],
+    "-17.5": [
+     0.25,
+     "krk_predna_polovica-golier_kotuc"
+    ],
+    "-20": [
+     0.25,
+     "usko_kryt-golier_kotuc"
+    ]
+   },
+   "slot_clearance": {
+    "value": 0.25,
+    "passed": true
+   },
+   "collar": {
+    "disc_r": 26.5,
+    "ring_r": [
+     26.75,
+     28.25
+    ],
+    "torso_recess_r": 28.35,
+    "slot": [
+     45.5,
+     20.5
+    ],
+    "slot_corner_r": 3.25,
+    "slot_edge_r": 0.6,
+    "disc_ring_seam": 0.25,
+    "ring_torso_seam": 0.1
+   },
+   "note": "the tilt-vs-lift firmware table depends on the head shape (W110 x H79) -> integration step"
+  },
+  "E4_raycast_walls": {
+   "method": "tessellation tol 0.01, 15000 area-weighted samples, ray along -normal, wall = first hit with opposite normal (dot < -0.7), rays > 3 mm ignored (round-5 rule)",
+   "parts": {
+    "krk_predna_polovica": {
+     "samples": 15000,
+     "min": 0.5,
+     "n_lt_1p19": 15,
+     "listed_exceptions": {
+      "MR85 inner-ring stop step (0.25 high ring r2.55..3.1 on the solid counterbore floor)": 15
+     },
+     "n_unexplained": 0,
+     "unexplained_min": null,
+     "unexplained_spots": []
+    },
+    "krk_zadna_polovica": {
+     "samples": 15000,
+     "min": 0.5,
+     "n_lt_1p19": 12,
+     "listed_exceptions": {
+      "MR85 inner-ring stop step (0.25 high ring r2.55..3.1 on the solid counterbore floor)": 12
+     },
+     "n_unexplained": 0,
+     "unexplained_min": null,
+     "unexplained_spots": []
+    },
+    "usko_kryt": {
+     "samples": 15000,
+     "min": 1.0,
+     "n_lt_1p19": 354,
+     "listed_exceptions": {
+      "blind end wall 1.0 over the horn-screw head bore r2.3 (E2 C3: allowed down to 1.0)": 354
+     },
+     "n_unexplained": 0,
+     "unexplained_min": null,
+     "unexplained_spots": []
+    },
+    "usko_lozisko": {
+     "samples": 15000,
+     "min": 1.2,
+     "n_lt_1p19": 0,
+     "listed_exceptions": {},
+     "n_unexplained": 0,
+     "unexplained_min": null,
+     "unexplained_spots": []
+    },
+    "golier_kotuc": {
+     "samples": 15000,
+     "min": 2.481,
+     "n_lt_1p19": 0,
+     "listed_exceptions": {},
+     "n_unexplained": 0,
+     "unexplained_min": null,
+     "unexplained_spots": []
+    },
+    "golier_prstenec": {
+     "samples": 15000,
+     "min": 1.413,
+     "n_lt_1p19": 0,
+     "listed_exceptions": {},
+     "n_unexplained": 0,
+     "unexplained_min": null,
+     "unexplained_spots": []
+    }
+   }
+  },
+  "E5_servo_range": {
+   "variants": {
+    "nominal at the datum (gear face on the -X wall)": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.8,
+     "foam_pad_compression_pct": 20.0,
+     "wires_room_x_beside_bottom_cover": 1.85
+    },
+    "nominal as modelled (dx 0)": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.01,
+     "foam_pad_gap": 0.75,
+     "foam_pad_compression_pct": 25.0,
+     "wires_room_x_beside_bottom_cover": 1.85
+    },
+    "width 12.0": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.8,
+     "foam_pad_compression_pct": 20.0,
+     "wires_room_x_beside_bottom_cover": 1.85
+    },
+    "width 12.3": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.8,
+     "foam_pad_compression_pct": 20.0,
+     "wires_room_x_beside_bottom_cover": 1.85
+    },
+    "length 22.4": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.8,
+     "foam_pad_compression_pct": 20.0,
+     "wires_room_x_beside_bottom_cover": 1.85
+    },
+    "length 22.8": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.8,
+     "foam_pad_compression_pct": 20.0,
+     "wires_room_x_beside_bottom_cover": 1.85
+    },
+    "height 22.4": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.9,
+     "foam_pad_compression_pct": 10.0,
+     "wires_room_x_beside_bottom_cover": 1.95
+    },
+    "height 23.0": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.3,
+     "foam_pad_compression_pct": 70.0,
+     "wires_room_x_beside_bottom_cover": 1.35
+    },
+    "turret 5.4": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.8,
+     "foam_pad_compression_pct": 20.0,
+     "wires_room_x_beside_bottom_cover": 1.85
+    },
+    "turret 6.2": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.8,
+     "foam_pad_compression_pct": 20.0,
+     "wires_room_x_beside_bottom_cover": 1.85
+    },
+    "lobe centre 5.0 r 2.6": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.8,
+     "foam_pad_compression_pct": 20.0,
+     "wires_room_x_beside_bottom_cover": 1.85
+    },
+    "lobe centre 5.0 r 3.1": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.8,
+     "foam_pad_compression_pct": 20.0,
+     "wires_room_x_beside_bottom_cover": 1.85
+    },
+    "lobe centre 6.5 r 2.6": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.8,
+     "foam_pad_compression_pct": 20.0,
+     "wires_room_x_beside_bottom_cover": 1.85
+    },
+    "lobe centre 6.5 r 3.1": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.8,
+     "foam_pad_compression_pct": 20.0,
+     "wires_room_x_beside_bottom_cover": 1.85
+    },
+    "nub at XB-4.3..XB-2.3": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.8,
+     "foam_pad_compression_pct": 20.0,
+     "wires_room_x_beside_bottom_cover": 1.85
+    },
+    "nub at XB-2.35..XB-0.35": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.8,
+     "foam_pad_compression_pct": 20.0,
+     "wires_room_x_beside_bottom_cover": 1.85
+    },
+    "nub over the whole range XB-4.3..XB-0.35, |y| 2.2": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.8,
+     "foam_pad_compression_pct": 20.0,
+     "wires_room_x_beside_bottom_cover": 1.85
+    },
+    "MAX stack: w12.3 L22.8 h23.0 turret 6.2 lobe 6.5/3.1 nub range": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.3,
+     "foam_pad_compression_pct": 70.0,
+     "wires_room_x_beside_bottom_cover": 1.35
+    },
+    "MIN stack: w12.0 L22.4 h22.4 turret 5.4 lobe 5.0/2.6": {
+     "overlap_mm3": 0.0,
+     "min_clear": 0.0,
+     "foam_pad_gap": 0.9,
+     "foam_pad_compression_pct": 10.0,
+     "wires_room_x_beside_bottom_cover": 1.95
+    }
+   },
+   "all_fit": {
+    "value": true,
+    "passed": true
+   },
+   "pocket": {
+    "x": [
+     -9.95,
+     13.35
+    ],
+    "y_closed": 6.15,
+    "z": [
+     -0.41,
+     22.55
+    ],
+    "keyhole": {
+     "boss_r": 6.05,
+     "lobe_relief_r": 3.3,
+     "lobe_relief_centre_range": [
+      0.0,
+      6.5
+     ],
+     "floor_x": -16.2,
+     "radial_clear_to_lobe_r3p1": 0.2,
+     "end_wall_to_knuckle_face": 1.3
+    },
+    "open_bore_minus_x": {
+     "r": 6.65,
+     "x": [
+      -17.5,
+      -16.2
+     ]
+    },
+    "lead_slot": {
+     "x": [
+      8.0,
+      12.5
+     ],
+     "half_y_design": 2.4,
+     "half_y_closed": 2.35
+    }
+   },
+   "shaft_height_note": {
+    "floor_to_axis": 16.91,
+    "turret_radial_clearance": 0.15,
+    "accepted_far_end_to_spline_axis": [
+     16.75,
+     17.06
+    ],
+    "drawing_range_length_minus_near_end": [
+     16.5,
+     17.1
+    ],
+    "text": "the E5 length variants keep the spline ON the hinge axis with the far end on / above the floor; the drawing allows far end -> spline axis 16.5..17.1: 16.5..16.9 hangs on the turret bore (<= 0.15 low, case up to 0.25 above the floor), > 17.06 would need the far case end filed (assembly text)"
+   }
+  },
+  "E6_horn_range": {
+   "rows": {
+    "arm_top_8.9_dx-0.05": {
+     "arm_x": [
+      -18.85,
+      -17.25
+     ],
+     "rib_overlap_mm3": 0.21,
+     "rib_contact_lengths": [
+      1.6,
+      1.6,
+      1.6,
+      1.6
+     ],
+     "screw_vs_cap_mm3": 0.0,
+     "arm_top_to_slot_bottom": 1.65,
+     "screw_head_to_bore_bottom": 1.45,
+     "arm_inner_face_inside_plug_by": 0.35,
+     "arm_underside_to_turret_top_nominal": 1.3,
+     "sweep": {
+      "-40": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.618,
+       "screw_min_clear_neck": 4.887
+      },
+      "-20": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.633,
+       "screw_min_clear_neck": 4.887
+      },
+      "0": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.65,
+       "screw_min_clear_neck": 4.887
+      },
+      "20": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.633,
+       "screw_min_clear_neck": 4.887
+      },
+      "40": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.618,
+       "screw_min_clear_neck": 4.887
+      }
+     },
+     "min_clear_static_over_sweep": 0.618,
+     "fits": true
+    },
+    "arm_top_8.9_dx+0.00": {
+     "arm_x": [
+      -18.8,
+      -17.2
+     ],
+     "rib_overlap_mm3": 0.21,
+     "rib_contact_lengths": [
+      1.6,
+      1.6,
+      1.6,
+      1.6
+     ],
+     "screw_vs_cap_mm3": 0.0,
+     "arm_top_to_slot_bottom": 1.7,
+     "screw_head_to_bore_bottom": 1.5,
+     "arm_inner_face_inside_plug_by": 0.3,
+     "arm_underside_to_turret_top_nominal": 1.3,
+     "sweep": {
+      "-40": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.618,
+       "screw_min_clear_neck": 4.86
+      },
+      "-20": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.633,
+       "screw_min_clear_neck": 4.86
+      },
+      "0": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.65,
+       "screw_min_clear_neck": 4.86
+      },
+      "20": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.633,
+       "screw_min_clear_neck": 4.86
+      },
+      "40": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.618,
+       "screw_min_clear_neck": 4.86
+      }
+     },
+     "min_clear_static_over_sweep": 0.618,
+     "fits": true
+    },
+    "arm_top_8.9_dx+0.15": {
+     "arm_x": [
+      -18.65,
+      -17.05
+     ],
+     "rib_overlap_mm3": 0.209,
+     "rib_contact_lengths": [
+      1.6,
+      1.6,
+      1.6,
+      1.6
+     ],
+     "screw_vs_cap_mm3": 0.0,
+     "arm_top_to_slot_bottom": 1.85,
+     "screw_head_to_bore_bottom": 1.65,
+     "arm_inner_face_inside_plug_by": 0.15,
+     "arm_underside_to_turret_top_nominal": 1.3,
+     "sweep": {
+      "-40": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.618,
+       "screw_min_clear_neck": 4.781
+      },
+      "-20": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.633,
+       "screw_min_clear_neck": 4.781
+      },
+      "0": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.65,
+       "screw_min_clear_neck": 4.781
+      },
+      "20": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.633,
+       "screw_min_clear_neck": 4.781
+      },
+      "40": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.618,
+       "screw_min_clear_neck": 4.781
+      }
+     },
+     "min_clear_static_over_sweep": 0.618,
+     "fits": true
+    },
+    "arm_top_9.6_dx-0.05": {
+     "arm_x": [
+      -19.55,
+      -17.95
+     ],
+     "rib_overlap_mm3": 0.21,
+     "rib_contact_lengths": [
+      1.6,
+      1.6,
+      1.6,
+      1.6
+     ],
+     "screw_vs_cap_mm3": 0.0,
+     "arm_top_to_slot_bottom": 0.95,
+     "screw_head_to_bore_bottom": 0.75,
+     "arm_inner_face_inside_plug_by": 1.05,
+     "arm_underside_to_turret_top_nominal": 2.0,
+     "sweep": {
+      "-40": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.764,
+       "screw_min_clear_neck": 5.083
+      },
+      "-20": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.776,
+       "screw_min_clear_neck": 5.083
+      },
+      "0": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.79,
+       "screw_min_clear_neck": 5.083
+      },
+      "20": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.776,
+       "screw_min_clear_neck": 5.083
+      },
+      "40": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.764,
+       "screw_min_clear_neck": 5.083
+      }
+     },
+     "min_clear_static_over_sweep": 0.764,
+     "fits": true
+    },
+    "arm_top_9.6_dx+0.00": {
+     "arm_x": [
+      -19.5,
+      -17.9
+     ],
+     "rib_overlap_mm3": 0.21,
+     "rib_contact_lengths": [
+      1.6,
+      1.6,
+      1.6,
+      1.6
+     ],
+     "screw_vs_cap_mm3": 0.0,
+     "arm_top_to_slot_bottom": 1.0,
+     "screw_head_to_bore_bottom": 0.8,
+     "arm_inner_face_inside_plug_by": 1.0,
+     "arm_underside_to_turret_top_nominal": 2.0,
+     "sweep": {
+      "-40": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.736,
+       "screw_min_clear_neck": 5.07
+      },
+      "-20": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.748,
+       "screw_min_clear_neck": 5.07
+      },
+      "0": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.763,
+       "screw_min_clear_neck": 5.07
+      },
+      "20": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.748,
+       "screw_min_clear_neck": 5.07
+      },
+      "40": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.736,
+       "screw_min_clear_neck": 5.07
+      }
+     },
+     "min_clear_static_over_sweep": 0.736,
+     "fits": true
+    },
+    "arm_top_9.6_dx+0.15": {
+     "arm_x": [
+      -19.35,
+      -17.75
+     ],
+     "rib_overlap_mm3": 0.21,
+     "rib_contact_lengths": [
+      1.6,
+      1.6,
+      1.6,
+      1.6
+     ],
+     "screw_vs_cap_mm3": 0.0,
+     "arm_top_to_slot_bottom": 1.15,
+     "screw_head_to_bore_bottom": 0.95,
+     "arm_inner_face_inside_plug_by": 0.85,
+     "arm_underside_to_turret_top_nominal": 2.0,
+     "sweep": {
+      "-40": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.666,
+       "screw_min_clear_neck": 5.033
+      },
+      "-20": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.68,
+       "screw_min_clear_neck": 5.033
+      },
+      "0": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.696,
+       "screw_min_clear_neck": 5.033
+      },
+      "20": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.68,
+       "screw_min_clear_neck": 5.033
+      },
+      "40": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.666,
+       "screw_min_clear_neck": 5.033
+      }
+     },
+     "min_clear_static_over_sweep": 0.666,
+     "fits": true
+    },
+    "arm_top_10.3_dx-0.05": {
+     "arm_x": [
+      -20.25,
+      -18.65
+     ],
+     "rib_overlap_mm3": 0.203,
+     "rib_contact_lengths": [
+      1.55,
+      1.55,
+      1.55,
+      1.55
+     ],
+     "screw_vs_cap_mm3": 0.0,
+     "arm_top_to_slot_bottom": 0.25,
+     "screw_head_to_bore_bottom": 0.05,
+     "arm_inner_face_inside_plug_by": 1.75,
+     "arm_underside_to_turret_top_nominal": 2.7,
+     "sweep": {
+      "-40": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.918,
+       "screw_min_clear_neck": 5.22
+      },
+      "-20": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.918,
+       "screw_min_clear_neck": 5.22
+      },
+      "0": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.918,
+       "screw_min_clear_neck": 5.22
+      },
+      "20": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.918,
+       "screw_min_clear_neck": 5.22
+      },
+      "40": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.918,
+       "screw_min_clear_neck": 5.22
+      }
+     },
+     "min_clear_static_over_sweep": 0.918,
+     "fits": true
+    },
+    "arm_top_10.3_dx+0.00": {
+     "arm_x": [
+      -20.2,
+      -18.6
+     ],
+     "rib_overlap_mm3": 0.21,
+     "rib_contact_lengths": [
+      1.6,
+      1.6,
+      1.6,
+      1.6
+     ],
+     "screw_vs_cap_mm3": 0.0,
+     "arm_top_to_slot_bottom": 0.3,
+     "screw_head_to_bore_bottom": 0.1,
+     "arm_inner_face_inside_plug_by": 1.7,
+     "arm_underside_to_turret_top_nominal": 2.7,
+     "sweep": {
+      "-40": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.894,
+       "screw_min_clear_neck": 5.216
+      },
+      "-20": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.894,
+       "screw_min_clear_neck": 5.216
+      },
+      "0": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.894,
+       "screw_min_clear_neck": 5.216
+      },
+      "20": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.894,
+       "screw_min_clear_neck": 5.216
+      },
+      "40": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.894,
+       "screw_min_clear_neck": 5.216
+      }
+     },
+     "min_clear_static_over_sweep": 0.894,
+     "fits": true
+    },
+    "arm_top_10.3_dx+0.15": {
+     "arm_x": [
+      -20.05,
+      -18.45
+     ],
+     "rib_overlap_mm3": 0.21,
+     "rib_contact_lengths": [
+      1.6,
+      1.6,
+      1.6,
+      1.6
+     ],
+     "screw_vs_cap_mm3": 0.0,
+     "arm_top_to_slot_bottom": 0.45,
+     "screw_head_to_bore_bottom": 0.25,
+     "arm_inner_face_inside_plug_by": 1.55,
+     "arm_underside_to_turret_top_nominal": 2.7,
+     "sweep": {
+      "-40": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.838,
+       "screw_min_clear_neck": 5.206
+      },
+      "-20": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.838,
+       "screw_min_clear_neck": 5.206
+      },
+      "0": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.838,
+       "screw_min_clear_neck": 5.206
+      },
+      "20": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.838,
+       "screw_min_clear_neck": 5.206
+      },
+      "40": {
+       "horn_vs_neck_mm3": 0.0,
+       "horn_min_clear_neck": 0.838,
+       "screw_min_clear_neck": 5.206
+      }
+     },
+     "min_clear_static_over_sweep": 0.838,
+     "fits": true
+    }
+   },
+   "all_fit": {
+    "value": true,
+    "passed": true
+   },
+   "cap": {
+    "slot_bottom_x": -20.5,
+    "head_bore_bottom_x": -21.5,
+    "blind_end_wall": 1.0,
+    "plug": {
+     "r": 6.3,
+     "tip_x": -16.9,
+     "half_height": 4.6
+    },
+    "rib": {
+     "r": 0.35,
+     "full_x": [
+      -17.1,
+      -20.2
+     ],
+     "crushed_chord": 0.49
+    }
+   },
+   "note": "dx = axial position of the servo: -0.05 = gear face on the datum wall, +0.15 = drifted off the datum"
+  },
+  "E10_lead_slot": {
+   "floor_slot": {
+    "x": [
+     8.0,
+     12.5
+    ],
+    "flare_line_half_y_at_head_bottom": 11.2,
+    "flare_deg": 40.0,
+    "top_z": 34.0,
+    "corner_r": 2.2,
+    "vertical_land_up_to_local_z": 3.0,
+    "half_y_bottom_opening": 13.717,
+    "half_y_at_local_z2p5": 13.298,
+    "head_floor_z_at_lead": 27.001
+   },
+   "knuckle_slot": {
+    "x": [
+     8.0,
+     12.5
+    ],
+    "half_y": 2.4,
+    "edge_r": 0.5
+   },
+   "lead": {
+    "model": "tube r 1.3 (3 x D1.2 wires in a sleeve)",
+    "x": 10.25,
+    "stub_z": [
+     24.4,
+     26.5
+    ],
+    "rigid_test_lead_z": [
+     24.4,
+     34.5
+    ],
+    "run_path_local": [
+     [
+      10.25,
+      0.0,
+      0.0
+     ],
+     [
+      10.25,
+      0.0,
+      7.5
+     ],
+     [
+      -7.0,
+      0.0,
+      7.5
+     ],
+     [
+      -13.0,
+      0.0,
+      10.4
+     ],
+     [
+      -41.0,
+      0.0,
+      10.4
+     ],
+     [
+      -41.0,
+      7.0,
+      16.52
+     ],
+     [
+      16.51,
+      7.0,
+      16.52
+     ],
+     [
+      16.51,
+      -18.5,
+      16.52
+     ]
+    ],
+    "x_clear_in_slot": [
+     0.95,
+     0.95
+    ]
+   },
+   "per_tilt": {
+    "-40": {
+     "stub": 2.613,
+     "rigid_straight_lead": 0.95
+    },
+    "-35": {
+     "stub": 2.218,
+     "rigid_straight_lead": 0.95
+    },
+    "-30": {
+     "stub": 1.885,
+     "rigid_straight_lead": 0.95
+    },
+    "-25": {
+     "stub": 1.613,
+     "rigid_straight_lead": 0.95
+    },
+    "-20": {
+     "stub": 1.401,
+     "rigid_straight_lead": 0.95
+    },
+    "-15": {
+     "stub": 1.247,
+     "rigid_straight_lead": 0.95
+    },
+    "-10": {
+     "stub": 1.146,
+     "rigid_straight_lead": 0.95
+    },
+    "-5": {
+     "stub": 1.091,
+     "rigid_straight_lead": 0.95
+    },
+    "0": {
+     "stub": 1.073,
+     "rigid_straight_lead": 0.95
+    },
+    "5": {
+     "stub": 1.089,
+     "rigid_straight_lead": 0.95
+    },
+    "10": {
+     "stub": 1.142,
+     "rigid_straight_lead": 0.95
+    },
+    "15": {
+     "stub": 1.243,
+     "rigid_straight_lead": 0.95
+    },
+    "20": {
+     "stub": 1.401,
+     "rigid_straight_lead": 0.95
+    },
+    "25": {
+     "stub": 1.62,
+     "rigid_straight_lead": 0.95
+    },
+    "30": {
+     "stub": 1.904,
+     "rigid_straight_lead": 0.95
+    },
+    "35": {
+     "stub": 2.257,
+     "rigid_straight_lead": 0.95
+    },
+    "40": {
+     "stub": 2.68,
+     "rigid_straight_lead": 0.947
+    }
+   },
+   "min_stub": {
+    "value": 1.073,
+    "passed": true
+   },
+   "min_rigid_lead": {
+    "value": 0.947,
+    "passed": true
+   },
+   "vault": {
+    "inner_r_about_the_hinge_axis": 19.8,
+    "outer_r": 21.1,
+    "x": [
+     -6.0,
+     12.5,
+     14.0
+    ],
+    "lead_turn_local_z": 7.5,
+    "lead_envelope_r": 19.3
+   },
+   "nub_extremes": {
+    "lead_centre_x_range": [
+     9.3,
+     11.25
+    ],
+    "flat_lead_1p2_wide_clear_x": [
+     0.7,
+     0.65
+    ],
+    "round_sleeve_r1p3_clear_x": [
+     0.0,
+     -0.05
+    ]
+   }
+  },
+  "W_walls_passages": {
+   "neck_void_to_outside": {
+    "case_pocket": 1.3,
+    "head_chamber": 2.95,
+    "pin_seat": 2.5,
+    "counterbore": 1.3,
+    "insert_hole_0": 5.05,
+    "insert_hole_1": 5.05,
+    "insert_hole_2": 3.0,
+    "insert_hole_3": 2.025,
+    "dowel_hole_0": 6.85,
+    "dowel_hole_1": 1.99
+   },
+   "neck_void_to_void_lt4": {
+    "case_pocket-counterbore": 2.4,
+    "case_pocket-screw_cbore_2": 3.471,
+    "case_pocket-screw_clear_2": 3.716,
+    "case_pocket-insert_hole_2": 3.216,
+    "case_pocket-screw_cbore_3": 2.605,
+    "case_pocket-screw_clear_3": 2.451,
+    "case_pocket-insert_hole_3": 1.254,
+    "lead_slot-pin_seat": 3.25,
+    "lead_slot-counterbore": 3.25,
+    "head_chamber-counterbore": 1.2,
+    "head_chamber-screw_clear_2": 2.05,
+    "head_chamber-insert_hole_2": 1.55,
+    "head_chamber-dowel_hole_1": 3.44,
+    "screw_cbore_0-screw_cbore_3": 3.482,
+    "screw_clear_2-dowel_hole_1": 3.419,
+    "insert_hole_2-dowel_hole_1": 2.919
+   },
+   "merged_voids_by_design": [
+    "case_pocket+lead_slot",
+    "case_pocket+head_chamber",
+    "case_pocket+pin_seat",
+    "head_chamber+pin_seat",
+    "pin_seat+counterbore",
+    "screw_cbore_0+screw_clear_0",
+    "screw_clear_0+insert_hole_0",
+    "screw_cbore_1+screw_clear_1",
+    "screw_clear_1+insert_hole_1",
+    "screw_cbore_2+screw_clear_2",
+    "screw_clear_2+insert_hole_2",
+    "screw_cbore_3+screw_clear_3",
+    "screw_clear_3+insert_hole_3"
+   ],
+   "neck_min_wall": {
+    "value": 1.2,
+    "passed": true
+   },
+   "knuckle_lead_slot": {
+    "to_other_voids": {
+     "head_chamber": 7.3,
+     "pin_seat": 3.25,
+     "counterbore": 3.25
+    },
+    "pocket_roof_to_knuckle_surface_beside_the_slot": 1.58,
+    "roof_thickness_on_the_parting_plane": 3.95,
+    "slot_to_pocket_plus_x_end": 0.85,
+    "slot_to_knuckle_plus_x_end": 5.0
+   },
+   "keyhole_bore": {
+    "to_other_voids": {
+     "screw_clear_3": 2.424,
+     "insert_hole_3": 1.254
+    },
+    "to_outside": 1.3,
+    "end_wall_x": 1.3,
+    "lobe_relief_lowest_z": 6.7,
+    "bore_to_knuckle_surface_radial": 3.35,
+    "bore_to_lip_ring_inner": 0.15
+   },
+   "lugs": {
+    "cap_voids_to_outer_surface": 1.0,
+    "cap_blind_end_wall_over_head_bore": 1.0,
+    "lug_voids_to_outer_surface": 1.2,
+    "lug_slot_to_lip_groove": 1.3,
+    "lug_slot_to_mr85_stop_shoulder": 1.2,
+    "lug_slot_in_tenon_min_wall": 1.2,
+    "lug_slot_to_cross_screw_pilots": 1.529,
+    "lip_groove_plus_x_to_barrel": 1.6,
+    "lip_groove_minus_x_to_barrel": 1.6,
+    "sleeve_wall": 1.5,
+    "plug_cheek_min_thickness": 1.805,
+    "lip_ring_radial": 1.2
+   },
+   "wire_passages": {
+    "wire_d": 0.85,
+    "n": 4,
+    "shrink_per_wall": 0.15,
+    "lug_slot": {
+     "section": [
+      1.6,
+      4.0
+     ],
+     "after_shrink": [
+      1.3,
+      3.7
+     ],
+     "arrangement": "4 in a row",
+     "clear_x": 0.45,
+     "clear_y": 0.3
+    },
+    "neck_chamber": {
+     "width_y": 4.0,
+     "after_shrink": 3.7,
+     "clear_y_4_in_a_row": 0.3,
+     "neck_under_pin_width": 2.5,
+     "neck_clear_2_abreast": 0.5,
+     "depth_behind_pocket_wall": 1.2,
+     "room_x_to_bottom_cover": {
+      "case_h_22.4": 1.95,
+      "case_h_22.5": 1.85,
+      "case_h_22.7": 1.65,
+      "case_h_23.0": 1.35
+     }
+    },
+    "pin_end_slot": {
+     "width": 2.2,
+     "length": 2.2,
+     "steel": "no shrink",
+     "clear_2_abreast": 0.5
+    },
+    "pin_bore": {
+     "d": 3.0,
+     "bundle_2x2_circumscribed": 2.052,
+     "clear": 0.948
+    },
+    "lug_chamber": {
+     "r": 3.3,
+     "x": [
+      18.5,
+      21.3
+     ],
+     "rotating_bend_R": 2.0
+    },
+    "all_ge_0p3": {
+     "value": true,
+     "passed": true
+    }
+   }
+  },
+  "A_assembly_paths": {
+   "1_servo_dropped_into_the_front_half_along_-Y (vs front half)": {
+    "6.5": 0.0,
+    "3.0": 0.0,
+    "1.0": 0.0,
+    "0.3": 0.0,
+    "0.0": 0.0
+   },
+   "2_horn_pushed_on_the_spline_from_-X (vs closed neck)": {
+    "4.0": 0.0,
+    "2.0": 0.0,
+    "1.0": 0.0,
+    "0.0": 0.0
+   },
+   "3_plus_lug_with_MR85_slid_-X_over_the_pin (vs neck + pin + inner ring)": {
+    "3.0": 0.0,
+    "2.0": 0.0,
+    "1.0": 0.0,
+    "0.5": 0.0,
+    "0.0": 0.0
+   },
+   "4_cap_slid_+X_over_the_horn_arms (vs neck + servo)": {
+    "3.0": 0.0,
+    "2.0": 0.0,
+    "1.0": 0.0,
+    "0.5": 0.0,
+    "0.0": 0.0
+   },
+   "4b_cap_vs_horn_during_the_slide (only the 4 crush ribs touch the arms)": {
+    "3.0": 0.0,
+    "2.0": 0.063,
+    "1.0": 0.194,
+    "0.5": 0.21,
+    "0.0": 0.21
+   },
+   "5_head_lowered_vertically_onto_both_tenons (vs lugs + neck + lead stub)": {
+    "12.0": 0.0,
+    "8.0": 0.0,
+    "4.0": 0.0,
+    "2.0": 0.0,
+    "1.0": 0.0,
+    "0.5": 0.0,
+    "0.0": 0.0
+   },
+   "6_collar_disc_slid_down_over_the_neck_with_the_horn_mounted (neck at mid lift)": {
+    "30.0": 0.0,
+    "20.0": 0.0,
+    "10.0": 0.0,
+    "0.0": 0.0
+   },
+   "all_paths_free": {
+    "value": {},
+    "passed": true
+   }
+  }
+ },
+ "head": {
+  "units": "mm / mm3 / N; world coordinates, extended pose (head bottom z = 27), front -Y",
+  "build_notes": {
+   "shell": {
+    "ear_hole_edges": 2,
+    "ear_hole_fillet": 0.8
+   },
+   "model": "INTEGRATED: pads |x| 14.0..27.5, tenon slots, cross-screw holes and the flared servo-lead floor slot from build.head_pads_and_cuts(); head module /tmp/claude-0/gapwf/fin/common/head_common.py"
+  },
+  "failed": [],
+  "1_E1_validity_volumes": {
+   "hlava_skrupina": {
+    "valid": true,
+    "solids": 1,
+    "mesh_volume": 64473.2,
+    "occ_volume": 66278.9,
+    "bbox": [
+     -55.001,
+     55.001,
+     -26.0,
+     32.98,
+     26.988,
+     106.012
+    ],
+    "stl_mesh": {
+     "triangles": 81544,
+     "edges_not_shared_by_2": 0
+    }
+   },
+   "ram_displeja": {
+    "valid": true,
+    "solids": 1,
+    "mesh_volume": 15797.0,
+    "occ_volume": 15508.5,
+    "bbox": [
+     -54.789,
+     54.789,
+     -33.004,
+     -19.5,
+     27.211,
+     105.789
+    ],
+    "stl_mesh": {
+     "triangles": 57632,
+     "edges_not_shared_by_2": 0
+    }
+   },
+   "pena_displeja": {
+    "valid": true,
+    "solids": 1,
+    "mesh_volume": 87.8,
+    "occ_volume": 87.8,
+    "bbox": [
+     -46.12,
+     46.12,
+     -31.3,
+     -31.0,
+     36.1,
+     96.9
+    ]
+   },
+   "displej_glass": {
+    "valid": true,
+    "solids": 1,
+    "mesh_volume": 6168.7,
+    "occ_volume": 6168.7,
+    "bbox": [
+     -46.22,
+     46.22,
+     -31.0,
+     -29.9,
+     36.0,
+     97.0
+    ]
+   },
+   "displej_lcd": {
+    "valid": true,
+    "solids": 1,
+    "mesh_volume": 23279.2,
+    "occ_volume": 23279.2,
+    "bbox": [
+     -43.2,
+     44.5,
+     -29.9,
+     -23.5,
+     38.75,
+     94.25
+    ]
+   },
+   "displej_pcb": {
+    "valid": true,
+    "solids": 1,
+    "mesh_volume": 6812.7,
+    "occ_volume": 6812.7,
+    "bbox": [
+     -39.0,
+     39.0,
+     -25.1,
+     -23.5,
+     39.2,
+     93.8
+    ]
+   },
+   "displej_standoffs": {
+    "valid": true,
+    "solids": 4,
+    "mesh_volume": 149.2,
+    "occ_volume": 149.3,
+    "bbox": [
+     -37.9,
+     37.9,
+     -23.5,
+     -19.5,
+     40.35,
+     92.65
+    ]
+   },
+   "displej_header": {
+    "valid": true,
+    "solids": 1,
+    "mesh_volume": 1063.4,
+    "occ_volume": 1063.4,
+    "bbox": [
+     -20.45,
+     20.45,
+     -23.5,
+     -18.5,
+     39.65,
+     44.85
+    ]
+   },
+   "displej_usbc": {
+    "valid": true,
+    "solids": 1,
+    "mesh_volume": 229.9,
+    "occ_volume": 229.9,
+    "bbox": [
+     31.8,
+     40.2,
+     -23.5,
+     -20.3,
+     62.03,
+     70.97
+    ]
+   },
+   "displej_small": {
+    "valid": true,
+    "solids": 12,
+    "mesh_volume": 1742.7,
+    "occ_volume": 1742.7,
+    "bbox": [
+     -39.0,
+     33.4,
+     -23.5,
+     -20.1,
+     39.85,
+     93.8
+    ]
+   },
+   "drziak_displeja": {
+    "valid": true,
+    "solids": 2,
+    "mesh_volume": 1708.6,
+    "occ_volume": 1708.6,
+    "bbox": [
+     -38.4,
+     38.4,
+     -19.5,
+     -16.5,
+     30.05,
+     102.95
+    ],
+    "stl_mesh": {
+     "triangles": 8216,
+     "edges_not_shared_by_2": 0
+    }
+   },
+   "skrutky_carrier": {
+    "valid": true,
+    "solids": 8,
+    "mesh_volume": 206.3,
+    "occ_volume": 206.4,
+    "bbox": [
+     -37.9,
+     37.9,
+     -22.5,
+     -15.2,
+     30.95,
+     102.05
+    ]
+   },
+   "skrutky_inserts": {
+    "valid": true,
+    "solids": 4,
+    "mesh_volume": 72.4,
+    "occ_volume": 72.4,
+    "bbox": [
+     -22.6,
+     22.6,
+     -22.5,
+     -19.5,
+     31.25,
+     101.75
+    ]
+   },
+   "magnety_bezel": {
+    "valid": true,
+    "solids": 6,
+    "mesh_volume": 150.7,
+    "occ_volume": 150.8,
+    "bbox": [
+     -51.816,
+     51.816,
+     -27.15,
+     -25.15,
+     30.479,
+     102.521
+    ]
+   },
+   "magnety_shell": {
+    "valid": true,
+    "solids": 6,
+    "mesh_volume": 150.7,
+    "occ_volume": 150.8,
+    "bbox": [
+     -51.816,
+     51.816,
+     -24.95,
+     -22.95,
+     30.479,
+     102.521
+    ]
+   },
+   "usi": {
+    "valid": true,
+    "solids": 2,
+    "mesh_volume": 7055.4,
+    "occ_volume": 7063.1,
+    "bbox": [
+     -58.793,
+     58.793,
+     -14.0,
+     12.0,
+     53.5,
+     79.5
+    ],
+    "stl_mesh": {
+     "triangles": 22356,
+     "edges_not_shared_by_2": 0
+    }
+   },
+   "led_kruzky": {
+    "valid": true,
+    "solids": 2,
+    "mesh_volume": 367.4,
+    "occ_volume": 368.6,
+    "bbox": [
+     -57.76,
+     57.76,
+     -11.5,
+     9.5,
+     56.0,
+     77.0
+    ],
+    "stl_mesh": {
+     "triangles": 3032,
+     "edges_not_shared_by_2": 0
+    }
+   },
+   "led_dosky": {
+    "valid": true,
+    "solids": 2,
+    "mesh_volume": 706.9,
+    "occ_volume": 707.1,
+    "bbox": [
+     -50.5,
+     50.5,
+     -11.5,
+     9.5,
+     56.0,
+     77.0
+    ]
+   },
+   "oci_len_vizualizacia": {
+    "valid": true,
+    "solids": 2,
+    "mesh_volume": 15.4,
+    "occ_volume": 15.4,
+    "bbox": [
+     -16.0,
+     16.0,
+     -31.06,
+     -31.01,
+     57.75,
+     75.25
+    ]
+   },
+   "skrutky_cross_ref": {
+    "valid": true,
+    "solids": 4,
+    "mesh_volume": 123.3,
+    "occ_volume": 123.3,
+    "bbox": [
+     -24.2,
+     24.2,
+     -12.3,
+     -3.0,
+     30.6,
+     34.4
+    ]
+   },
+   "all_valid": true,
+   "reference_volumes": {
+    "head_outer_mesh": 483079.3,
+    "head_outer_occ": 483929.0,
+    "cavity_mesh": 400149.6,
+    "cavity_occ": 400537.7,
+    "note": "OCC GProp is off by up to 3 % on the periodic lofts -> mesh volumes are the reference"
+   },
+   "mesh_volume_convergence_shell": {
+    "tol_0p02": 64473.2,
+    "tol_0p005": 64416.8
+   }
+  },
+  "time_s": 1249.3,
+  "2_seam_step_72pts": {
+   "method": "72 polar rays (every 5 deg) in the planes y -26.6/-26.4/-26.2 (bezel) and -25.8/-25.6/-25.4 (shell), outermost hit radius, quadratic extrapolation of both exterior surfaces to the seam plane y=-26",
+   "step_bezel_minus_shell": {
+    "min": 0.0,
+    "max": 0.0,
+    "abs_max": 0.0
+   },
+   "bezel_vs_analytic_at_seam": [
+    -0.0002,
+    -0.0001
+   ],
+   "shell_vs_analytic_at_seam": [
+    -0.0002,
+    -0.0001
+   ],
+   "bezel_surface_dev_at_y_m26p2": [
+    -0.0003,
+    -0.0002
+   ],
+   "shell_surface_dev_at_y_m25p8": [
+    0.0004,
+    0.0005
+   ],
+   "v_seam": [
+    {
+     "theta": 2.5,
+     "bezel_depth_at_seam": 0.1185,
+     "shell_depth_at_seam": 0.1177,
+     "bezel_depth_0p12_before": 0.0001,
+     "shell_depth_0p12_after": -0.0002
+    },
+    {
+     "theta": 47.5,
+     "bezel_depth_at_seam": 0.1528,
+     "shell_depth_at_seam": 0.1527,
+     "bezel_depth_0p12_before": 0.0002,
+     "shell_depth_0p12_after": -0.0003
+    },
+    {
+     "theta": 92.5,
+     "bezel_depth_at_seam": 0.1185,
+     "shell_depth_at_seam": 0.1177,
+     "bezel_depth_0p12_before": 0.0001,
+     "shell_depth_0p12_after": -0.0002
+    },
+    {
+     "theta": 182.5,
+     "bezel_depth_at_seam": 0.1185,
+     "shell_depth_at_seam": 0.1177,
+     "bezel_depth_0p12_before": 0.0001,
+     "shell_depth_0p12_after": -0.0002
+    },
+    {
+     "theta": 272.5,
+     "bezel_depth_at_seam": 0.1185,
+     "shell_depth_at_seam": 0.1177,
+     "bezel_depth_0p12_before": 0.0001,
+     "shell_depth_0p12_after": -0.0002
+    }
+   ],
+   "v_seam_nominal": "chamfer 0.12 x 45 deg on both edges -> V 0.24 wide x 0.12 deep",
+   "passes": true,
+   "rabbet_floor_probe": {
+    "ledge_width_analytic": [
+     0.86,
+     1.135
+    ],
+    "floor_y_on_ledge_mid": [
+     -25.0,
+     -25.0
+    ],
+    "first_material_0p15_inside_the_inner_skin_y": [
+     -25.0,
+     6.769
+    ],
+    "note": "mid-ledge probes all hit the floor plane y=-25.0; 0.15 inside the inner skin nothing is hit before the magnet-boss front faces (y=-25.0, 6 places) / the cavity -> no ridge, no sliver"
+   }
+  },
+  "3_E7_display": {
+   "glass_bbox": [
+    -46.22,
+    46.22,
+    -31.0,
+    -29.9,
+    36.0,
+    97.0
+   ],
+   "pocket_half_size_measured_xz": [
+    46.42,
+    46.42,
+    30.7,
+    30.7
+   ],
+   "glass_to_pocket_clearance_xz": [
+    0.2,
+    0.2,
+    0.2,
+    0.2
+   ],
+   "glass_to_bezel_min_distance": 0.2,
+   "window_half_size_measured_xz": [
+    45.0,
+    45.0,
+    29.3,
+    29.3
+   ],
+   "lip_y_front_back_at_x45p7": [
+    -32.999,
+    -31.3
+   ],
+   "lip_thickness": 1.699,
+   "glass_front_y": -31.0,
+   "glass_recess_below_bezel_front": 1.999,
+   "gasket": {
+    "bbox": [
+     -46.12,
+     46.12,
+     -31.3,
+     -31.0,
+     36.1,
+     96.9
+    ],
+    "thickness": 0.3,
+    "overlap_bezel": 0.0,
+    "overlap_glass": 0.0,
+    "dist_bezel": 0.0,
+    "dist_glass": 0.0,
+    "inner_edge_outside_window_by": [
+     0.12,
+     0.1
+    ]
+   },
+   "lip_overlap_on_glass": {
+    "min": 1.2,
+    "max": 1.22,
+    "sides_x": 1.22,
+    "sides_z": 1.2,
+    "spec": "1.2 +- 0.05",
+    "passes": true
+   },
+   "window_clear_of_active_area": {
+    "x": 8.28,
+    "z": 4.82,
+    "spec": ">= 8 / 4.5",
+    "passes": true
+   },
+   "eyes": {
+    "bbox": [
+     -16.0,
+     16.0,
+     -31.06,
+     -31.01,
+     57.75,
+     75.25
+    ],
+    "inside_active_area": true,
+    "in_front_of_glass_by": 0.01,
+    "overlap_glass": 0.0
+   },
+   "standoffs": {
+    "centres_xz_rel": [
+     [
+      -36.0,
+      -24.25
+     ],
+     [
+      -36.0,
+      24.25
+     ],
+     [
+      36.0,
+      -24.25
+     ],
+     [
+      36.0,
+      24.25
+     ]
+    ],
+    "pattern": [
+     72.0,
+     48.5
+    ],
+    "spec": "72.00 x 48.50",
+    "screw_axis_offset_max": 0.0,
+    "end_plane_y": -19.5
+   },
+   "inserts": {
+    "centres_xz_rel": [
+     [
+      -21.0,
+      -33.65
+     ],
+     [
+      -21.0,
+      33.65
+     ],
+     [
+      21.0,
+      -33.65
+     ],
+     [
+      21.0,
+      33.65
+     ]
+    ],
+    "screw_axis_offset_max": 0.0,
+    "post_axes_world": [
+     [
+      -21.0,
+      32.85
+     ],
+     [
+      -21.0,
+      100.15
+     ],
+     [
+      21.0,
+      32.85
+     ],
+     [
+      21.0,
+      100.15
+     ]
+    ]
+   },
+   "mounting_plane": {
+    "standoff_ends_y": -19.5,
+    "bezel_post_faces_y": -19.5,
+    "bar_front_face_y": -19.5,
+    "bar_back_face_y": -16.5,
+    "pcb_back_y": -23.5,
+    "header_top_y": -18.5,
+    "depth_behind_glass_front": {
+     "pcb_back": 7.5,
+     "standoff_ends": 11.5,
+     "header_top": 12.5
+    }
+   },
+   "contacts_mm3": {
+    "bars_vs_standoffs": 0.0,
+    "bars_vs_bezel": 0.0,
+    "screws_vs_bars": 0.0,
+    "screws_vs_standoffs": 0.0,
+    "screws_vs_inserts": 0.0,
+    "inserts_vs_bezel": 0.0,
+    "screws_vs_bezel": 0.0,
+    "screws_vs_pcb": 0.0
+   },
+   "distances": {
+    "bars_to_standoffs": 0.0,
+    "bars_to_bezel_posts": 0.0,
+    "standoff_screw_tip_to_pcb": 2.0,
+    "inserts_to_bezel": 0.1
+   },
+   "keepout": {
+    "definition": "PCB footprint 78.0 x 54.6 from the PCB back (7.50) to the standoff-end plane (11.50) minus the four 5.5 x 5.5 corner zones (standoff + bar tab), plus the header zone (41.9 x 6.2) up to 12.50",
+    "bbox": [
+     -39.0,
+     39.0,
+     -23.5,
+     -18.5,
+     39.15,
+     93.8
+    ],
+    "volume": 16811.189,
+    "overlap_mm3": {
+     "bars": 0.0,
+     "screws": 0.0,
+     "inserts": 0.0,
+     "bezel": 0.0,
+     "shell": 0.0,
+     "gasket": 0.0,
+     "mag_bezel": 0.0,
+     "mag_shell": 0.0,
+     "cross_screws": 0.0,
+     "led_boards": 0.0,
+     "ears": 0.0
+    },
+    "min_distance": {
+     "bars": 0.05,
+     "screws": 1.65,
+     "bezel": 3.37,
+     "shell": 3.391,
+     "mag_shell": 4.721,
+     "cross_screws": 7.81
+    },
+    "nothing_inside": true
+   },
+   "bars_to_real_components_min_distance": {
+    "header": 0.95,
+    "usbc": 17.487,
+    "small": 1.02,
+    "pcb": 4.0,
+    "lcd": 5.6,
+    "standoffs": 0.0
+   },
+   "bar_screws_to_real_components_min_distance": {
+    "header": 5.313,
+    "usbc": 18.524,
+    "small": 1.503,
+    "pcb": 2.0,
+    "lcd": 3.6
+   },
+   "display_inside_bezel_pocket": {
+    "lcd_to_bezel": 1.607,
+    "pcb_to_bezel": 3.4,
+    "display_overlap_bezel": 0.0
+   },
+   "display_to_shell_min_distance": {
+    "glass": 4.904,
+    "lcd": 1.986,
+    "pcb": 3.391,
+    "header": 7.829,
+    "usbc": 6.286,
+    "small": 3.506
+   },
+   "display_to_shell_magnets": 3.316,
+   "header_pins_world": {
+    "1": [
+     19.05,
+     -18.5,
+     40.98
+    ],
+    "2": [
+     19.05,
+     -18.5,
+     43.52
+    ],
+    "3": [
+     16.51,
+     -18.5,
+     40.98
+    ],
+    "4": [
+     16.51,
+     -18.5,
+     43.52
+    ],
+    "5": [
+     13.97,
+     -18.5,
+     40.98
+    ],
+    "6": [
+     13.97,
+     -18.5,
+     43.52
+    ],
+    "31": [
+     -19.05,
+     -18.5,
+     40.98
+    ],
+    "32": [
+     -19.05,
+     -18.5,
+     43.52
+    ]
+   }
+  },
+  "4_E8_magnets": {
+   "axes_world_xz": [
+    [
+     -49.816,
+     66.5
+    ],
+    [
+     -29.0,
+     32.479
+    ],
+    [
+     -29.0,
+     100.521
+    ],
+    [
+     29.0,
+     32.479
+    ],
+    [
+     29.0,
+     100.521
+    ],
+    [
+     49.816,
+     66.5
+    ]
+   ],
+   "pair_misalignment_max": 0.0,
+   "bezel_magnet_y": [
+    -27.15,
+    -25.15
+   ],
+   "shell_magnet_y": [
+    -24.95,
+    -22.95
+   ],
+   "face_gap": 0.2,
+   "bezel_pocket_min_wall": [
+    1.296,
+    1.296,
+    1.214,
+    1.214,
+    1.214,
+    1.214
+   ],
+   "shell_pocket_min_wall": [
+    1.23,
+    1.23,
+    1.23,
+    1.23,
+    1.23,
+    1.23
+   ],
+   "bezel_pocket_floor_to_front_surfaces": "included above (air = everything outside the resin in front of the back face)",
+   "magnet_vs_part_overlap_mm3": {
+    "bezel": 0.0,
+    "shell": 0.0,
+    "bezel_mag_vs_shell": 0.0,
+    "shell_mag_vs_bezel": 0.0
+   },
+   "magnet_radial_clearance_in_pocket": 0.10000000000000009,
+   "hold_force_N": {
+    "model": "charge model, N35 Br 1.17 T (lower limit), D4 x 2 discs",
+    "per_pair_at_gap": 3.111,
+    "gap": 0.2,
+    "total_6_pairs": 18.664,
+    "per_pair_at_0p1": 3.752,
+    "total_at_gap_plus_0p15": 15.61,
+    "spec": ">= 12 N",
+    "passes": true
+   },
+   "front_module_mass_estimate_g": {
+    "bezel": 18.956,
+    "display_board": "~46 (Waveshare bare board, not measured here)",
+    "bars_screws_magnets": 4.15
+   },
+   "passes": true
+  },
+  "5_E4_walls": {
+   "ram_displeja": {
+    "samples": 40000,
+    "min": 1.205,
+    "n_lt_1p2": 0,
+    "n_lt_1p0": 0,
+    "n_lt_0p6": 0,
+    "thin_spots": [],
+    "n_lt_1p19": 0,
+    "tessellation": [
+     0.003,
+     0.03
+    ],
+    "triangles": 691198
+   },
+   "hlava_skrupina": {
+    "samples": 60000,
+    "min": 1.229,
+    "n_lt_1p2": 0,
+    "n_lt_1p0": 0,
+    "n_lt_0p6": 0,
+    "thin_spots": [],
+    "n_lt_1p19": 0,
+    "tessellation": [
+     0.01,
+     0.08
+    ],
+    "triangles": 77946
+   },
+   "drziak_displeja": {
+    "samples": 15000,
+    "min": 1.299,
+    "n_lt_1p2": 0,
+    "n_lt_1p0": 0,
+    "n_lt_0p6": 0,
+    "thin_spots": [],
+    "n_lt_1p19": 0,
+    "tessellation": [
+     0.005,
+     0.05
+    ],
+    "triangles": 8216
+   },
+   "usi": {
+    "samples": 15000,
+    "min": 1.963,
+    "n_lt_1p2": 0,
+    "n_lt_1p0": 0,
+    "n_lt_0p6": 0,
+    "thin_spots": [],
+    "n_lt_1p19": 0,
+    "tessellation": [
+     0.005,
+     0.05
+    ],
+    "triangles": 72218
+   },
+   "led_kruzky": {
+    "samples": 8000,
+    "min": 1.447,
+    "n_lt_1p2": 0,
+    "n_lt_1p0": 0,
+    "n_lt_0p6": 0,
+    "thin_spots": [],
+    "n_lt_1p19": 0,
+    "tessellation": [
+     0.005,
+     0.05
+    ],
+    "triangles": 6776
+   },
+   "method": "round-5 rule (rc.py): area-weighted random surface samples, ray along -normal, wall = first hit with an opposite normal (dot < -0.7) within 3 mm"
+  },
+  "6_interference_clearance": {
+   "pairs_tested": 70,
+   "overlaps_above_0p0001_mm3": {},
+   "zero_interference": true,
+   "pads_vs_front_module_mm3": 0.0,
+   "clearances": {
+    "spigot_to_rabbet_radial": 0.1,
+    "bezel_back_face_to_rabbet_floor": 0.1,
+    "flange_to_rim_contact": 0.0,
+    "posts_to_shell": 0.304,
+    "bars_to_shell": 0.47,
+    "bar_screws_to_shell": 1.374,
+    "bar_screws_to_cross_screws": 2.9,
+    "bars_to_shell_magnets": 3.901,
+    "display_pcb_lcd_to_shell": 1.986,
+    "header_top_to_pad_front_face_y": 7.5,
+    "led_boards_to_shell": 0.389,
+    "led_boards_to_ears": 0.0,
+    "ears_to_display": 11.236
+   }
+  },
+  "7_module_through_opening": {
+   "method": "every solid of the front module that reaches behind y=-27.5 (bezel rear with spigot + posts, LCD, PCB, standoffs, header, USB-C, components, bars, screws, inserts, bezel magnets) is translated along -Y in 22 steps (0.1..12 mm) and intersected with the shell (y -27..-10, incl. magnet bosses and pads) and the shell magnets",
+   "overlap_mm3_per_step": {
+    "0.1": 0.0,
+    "0.25": 0.0,
+    "0.5": 0.0,
+    "0.75": 0.0,
+    "1.0": 0.0,
+    "1.5": 0.0,
+    "2.0": 0.0,
+    "2.5": 0.0,
+    "3.0": 0.0,
+    "3.5": 0.0,
+    "4.0": 0.0,
+    "4.5": 0.0,
+    "5.0": 0.0,
+    "5.5": 0.0,
+    "6.0": 0.0,
+    "6.5": 0.0,
+    "7.0": 0.0,
+    "8.0": 0.0,
+    "9.0": 0.0,
+    "10.0": 0.0,
+    "11.0": 0.0,
+    "12.0": 0.0
+   },
+   "worst_overlap_mm3": 0.0,
+   "passes": true,
+   "min_clearance_posts_bars_display_to_shell_during_pull": {
+    "0.0": 0.304,
+    "2.0": 0.296,
+    "3.5": 0.296,
+    "5.0": 0.296,
+    "6.5": 0.426,
+    "8.0": 0.426
+   },
+   "rearmost_module_point_y": -15.2,
+   "free_after_pull_mm": 10.8
+  },
+  "8_tool_path_cross_screws": {
+   "tool": "D4 shank along Y from the front opening (bezel module removed) to the head top y=-12.3, axis z=32.5, x = +-18.3 / +-22.3",
+   "per_screw": {
+    "x-18.3": {
+     "overlap_shell_mm3": 0.0,
+     "overlap_shell_magnets": 0.0,
+     "min_distance_shell": 0.915,
+     "min_distance_shell_magnets": 6.7,
+     "min_distance_bridge": 14.354,
+     "overlap_other_cross_screws": 0.0
+    },
+    "x-22.3": {
+     "overlap_shell_mm3": 0.0,
+     "overlap_shell_magnets": 0.0,
+     "min_distance_shell": 0.849,
+     "min_distance_shell_magnets": 2.7,
+     "min_distance_bridge": 11.851,
+     "overlap_other_cross_screws": 0.0
+    },
+    "x+18.3": {
+     "overlap_shell_mm3": 0.0,
+     "overlap_shell_magnets": 0.0,
+     "min_distance_shell": 0.915,
+     "min_distance_shell_magnets": 6.7,
+     "min_distance_bridge": 47.877,
+     "overlap_other_cross_screws": 0.0
+    },
+    "x+22.3": {
+     "overlap_shell_mm3": 0.0,
+     "overlap_shell_magnets": 0.0,
+     "min_distance_shell": 0.849,
+     "min_distance_shell_magnets": 2.7,
+     "min_distance_bridge": 51.794,
+     "overlap_other_cross_screws": 0.0
+    }
+   },
+   "passes": true,
+   "note": "overlap_other_cross_screws = the D4 shank over the neighbouring head (axes 4.0 apart, dk 3.8): the shank stops at the head top plane, value must be 0",
+   "opening_bottom_edge_clearance": 0.849
+  },
+  "9_cable_bridge": {
+   "bbox": [
+    -37.5,
+    -30.5,
+    -2.2,
+    2.2,
+    27.5,
+    36.1
+   ],
+   "valid": true,
+   "volume": 186.747,
+   "tie_point_world": [
+    -34.0,
+    0.0,
+    36.1
+   ],
+   "deck": "x -37.5..-30.5, |y| <= 2.2, z local 5.8..9.1 (top edges R0.8); lead runs along X on the deck, cable tie 2.5 mm through the tunnel",
+   "tunnel_width_x": 3.0,
+   "tunnel_free_height_at_3_x": [
+    2.199,
+    2.417,
+    2.597
+   ],
+   "min_distance_to_lead_slot": 38.5,
+   "spec_slot": ">= 20",
+   "min_distance_to_pads": 3.0,
+   "min_distance_to_tool_paths": 6.2,
+   "min_distance_to_ear_boss_and_led": 23.127,
+   "fused_into_shell_overlap_mm3": 186.6856,
+   "passes": true
+  },
+  "10_ear_pods": {
+   "pod_bbox": [
+    50.5,
+    58.793,
+    -14.0,
+    12.0,
+    53.5,
+    79.5
+   ],
+   "ring_bbox": [
+    55.923,
+    57.76,
+    -11.5,
+    9.5,
+    56.0,
+    77.0
+   ],
+   "apex_proud_of_side_x55": 3.793,
+   "cylinder_dome_edge_proud": 1.5,
+   "ring_front_face_vs_dome_sphere": {
+    "n": 905,
+    "min": -0.0,
+    "max": 0.0,
+    "spec": "0 +- 0.05, never proud"
+   },
+   "pod_centre_disc_vs_dome_sphere": {
+    "n": 6759,
+    "min": -0.0,
+    "max": 0.0
+   },
+   "ring_vs_pod_overlap_mm3": 0.0,
+   "ring_to_pod_min_distance": 0.0,
+   "ring_radial_seam": 0.1,
+   "pod_vs_shell_overlap_mm3": 0.0,
+   "pod_to_shell_radial_seam": 0.15,
+   "pod_seated_on_lip_distance": 0.0,
+   "shell_hole_edge_fillet_R": 0.8,
+   "shell_hole_radius_at_x53p5": 13.15,
+   "shell_surface_x_just_above_hole_edge(dr=0.05,0.4,0.9,2.0)": [
+    54.416,
+    54.83,
+    54.935,
+    54.906
+   ],
+   "pod_straight_cylinder_ends_at_x": 55.434,
+   "led_board_vs_all_mm3": {
+    "shell": 0.0,
+    "ears": 0.0
+   }
+  },
+  "11_visible_through_window": {
+   "method": "orthographic z-buffer (0.2 mm/px) from 45 directions (az +-70, el +-50); only the pixels whose ray passes through the window opening (90 x 58.6 R4.8 at y=-33) are counted; area (mm2) of the first-hit part per view",
+   "allowed": [
+    "bezel",
+    "eyes",
+    "gasket",
+    "glass"
+   ],
+   "views": {
+    "az-70_el-50": {
+     "bezel": 169.0,
+     "glass": 892.3,
+     "gasket": 24.5,
+     "eyes": 69.8,
+     "window_px_area": 1155.8
+    },
+    "az-70_el-25": {
+     "bezel": 143.6,
+     "glass": 1369.6,
+     "gasket": 18.4,
+     "eyes": 98.0,
+     "window_px_area": 1629.6
+    },
+    "az-70_el0": {
+     "bezel": 93.8,
+     "glass": 1584.6,
+     "gasket": 11.9,
+     "eyes": 107.7,
+     "window_px_area": 1797.9
+    },
+    "az-70_el25": {
+     "bezel": 143.4,
+     "glass": 1369.8,
+     "gasket": 18.5,
+     "eyes": 97.7,
+     "window_px_area": 1629.4
+    },
+    "az-70_el50": {
+     "bezel": 168.9,
+     "glass": 892.5,
+     "gasket": 24.6,
+     "eyes": 69.5,
+     "window_px_area": 1155.8
+    },
+    "az-50_el-50": {
+     "bezel": 163.3,
+     "glass": 1859.6,
+     "gasket": 17.2,
+     "eyes": 129.3,
+     "window_px_area": 2169.4
+    },
+    "az-50_el-25": {
+     "bezel": 133.3,
+     "glass": 2737.0,
+     "gasket": 6.8,
+     "eyes": 181.6,
+     "window_px_area": 3058.8
+    },
+    "az-50_el0": {
+     "bezel": 81.3,
+     "glass": 3092.6,
+     "gasket": 1.0,
+     "eyes": 200.0,
+     "window_px_area": 3374.9
+    },
+    "az-50_el25": {
+     "bezel": 133.4,
+     "glass": 2737.0,
+     "gasket": 6.7,
+     "eyes": 181.8,
+     "window_px_area": 3058.8
+    },
+    "az-50_el50": {
+     "bezel": 163.5,
+     "glass": 1859.7,
+     "gasket": 16.8,
+     "eyes": 129.3,
+     "window_px_area": 2169.2
+    },
+    "az-30_el-50": {
+     "bezel": 143.3,
+     "glass": 2594.9,
+     "gasket": 15.4,
+     "eyes": 173.0,
+     "window_px_area": 2926.6
+    },
+    "az-30_el-25": {
+     "bezel": 103.4,
+     "glass": 3774.9,
+     "gasket": 4.7,
+     "eyes": 243.6,
+     "window_px_area": 4126.6
+    },
+    "az-30_el0": {
+     "bezel": 47.0,
+     "glass": 4237.1,
+     "gasket": 0.5,
+     "eyes": 268.3,
+     "window_px_area": 4552.9
+    },
+    "az-30_el25": {
+     "bezel": 103.6,
+     "glass": 3774.8,
+     "gasket": 4.6,
+     "eyes": 243.5,
+     "window_px_area": 4126.4
+    },
+    "az-30_el50": {
+     "bezel": 143.2,
+     "glass": 2594.7,
+     "gasket": 15.5,
+     "eyes": 173.3,
+     "window_px_area": 2926.7
+    },
+    "az-15_el-50": {
+     "bezel": 130.1,
+     "glass": 2928.0,
+     "gasket": 14.9,
+     "eyes": 191.4,
+     "window_px_area": 3264.4
+    },
+    "az-15_el-25": {
+     "bezel": 83.2,
+     "glass": 4246.5,
+     "gasket": 3.4,
+     "eyes": 269.6,
+     "window_px_area": 4602.8
+    },
+    "az-15_el0": {
+     "bezel": 24.1,
+     "glass": 4757.3,
+     "eyes": 297.4,
+     "window_px_area": 5078.8
+    },
+    "az-15_el25": {
+     "bezel": 83.3,
+     "glass": 4246.4,
+     "gasket": 3.4,
+     "eyes": 269.5,
+     "window_px_area": 4602.6
+    },
+    "az-15_el50": {
+     "bezel": 129.9,
+     "glass": 2927.6,
+     "gasket": 14.9,
+     "eyes": 192.0,
+     "window_px_area": 3264.5
+    },
+    "az0_el-50": {
+     "bezel": 108.9,
+     "glass": 3046.2,
+     "gasket": 17.4,
+     "eyes": 199.5,
+     "window_px_area": 3371.9
+    },
+    "az0_el-25": {
+     "bezel": 71.0,
+     "glass": 4417.8,
+     "gasket": 0.2,
+     "eyes": 280.3,
+     "window_px_area": 4769.3
+    },
+    "az0_el0": {
+     "glass": 4945.7,
+     "eyes": 308.3,
+     "window_px_area": 5254.0
+    },
+    "az0_el25": {
+     "bezel": 71.5,
+     "glass": 4417.5,
+     "gasket": 0.1,
+     "eyes": 280.2,
+     "window_px_area": 4769.3
+    },
+    "az0_el50": {
+     "bezel": 125.3,
+     "glass": 3046.6,
+     "gasket": 1.0,
+     "eyes": 199.0,
+     "window_px_area": 3371.9
+    },
+    "az15_el-50": {
+     "bezel": 136.4,
+     "glass": 2920.5,
+     "gasket": 15.0,
+     "eyes": 192.6,
+     "window_px_area": 3264.5
+    },
+    "az15_el-25": {
+     "bezel": 92.3,
+     "glass": 4235.7,
+     "gasket": 3.4,
+     "eyes": 271.2,
+     "window_px_area": 4602.6
+    },
+    "az15_el0": {
+     "bezel": 33.8,
+     "glass": 4746.2,
+     "eyes": 298.8,
+     "window_px_area": 5078.8
+    },
+    "az15_el25": {
+     "bezel": 92.4,
+     "glass": 4236.0,
+     "gasket": 3.4,
+     "eyes": 270.9,
+     "window_px_area": 4602.8
+    },
+    "az15_el50": {
+     "bezel": 136.3,
+     "glass": 2920.5,
+     "gasket": 14.8,
+     "eyes": 192.8,
+     "window_px_area": 3264.4
+    },
+    "az30_el-50": {
+     "bezel": 149.8,
+     "glass": 2589.5,
+     "gasket": 15.6,
+     "eyes": 171.9,
+     "window_px_area": 2926.7
+    },
+    "az30_el-25": {
+     "bezel": 112.2,
+     "glass": 3768.0,
+     "gasket": 4.5,
+     "eyes": 241.8,
+     "window_px_area": 4126.4
+    },
+    "az30_el0": {
+     "bezel": 57.2,
+     "glass": 4228.8,
+     "gasket": 0.2,
+     "eyes": 266.7,
+     "window_px_area": 4552.9
+    },
+    "az30_el25": {
+     "bezel": 112.4,
+     "glass": 3767.4,
+     "gasket": 4.6,
+     "eyes": 242.2,
+     "window_px_area": 4126.6
+    },
+    "az30_el50": {
+     "bezel": 149.6,
+     "glass": 2589.5,
+     "gasket": 15.5,
+     "eyes": 172.0,
+     "window_px_area": 2926.6
+    },
+    "az50_el-50": {
+     "bezel": 156.8,
+     "glass": 1860.2,
+     "gasket": 23.4,
+     "eyes": 128.9,
+     "window_px_area": 2169.2
+    },
+    "az50_el-25": {
+     "bezel": 124.3,
+     "glass": 2737.2,
+     "gasket": 15.8,
+     "eyes": 181.5,
+     "window_px_area": 3058.8
+    },
+    "az50_el0": {
+     "bezel": 71.4,
+     "glass": 3092.4,
+     "gasket": 11.0,
+     "eyes": 200.2,
+     "window_px_area": 3374.9
+    },
+    "az50_el25": {
+     "bezel": 124.2,
+     "glass": 2737.3,
+     "gasket": 15.8,
+     "eyes": 181.4,
+     "window_px_area": 3058.8
+    },
+    "az50_el50": {
+     "bezel": 156.9,
+     "glass": 1859.6,
+     "gasket": 23.5,
+     "eyes": 129.3,
+     "window_px_area": 2169.4
+    },
+    "az70_el-50": {
+     "bezel": 169.0,
+     "glass": 892.5,
+     "gasket": 24.6,
+     "eyes": 69.4,
+     "window_px_area": 1155.8
+    },
+    "az70_el-25": {
+     "bezel": 143.4,
+     "glass": 1369.6,
+     "gasket": 18.6,
+     "eyes": 97.8,
+     "window_px_area": 1629.4
+    },
+    "az70_el0": {
+     "bezel": 93.7,
+     "glass": 1584.6,
+     "gasket": 11.8,
+     "eyes": 107.9,
+     "window_px_area": 1797.9
+    },
+    "az70_el25": {
+     "bezel": 143.5,
+     "glass": 1369.8,
+     "gasket": 18.6,
+     "eyes": 97.8,
+     "window_px_area": 1629.6
+    },
+    "az70_el50": {
+     "bezel": 169.1,
+     "glass": 892.3,
+     "gasket": 24.5,
+     "eyes": 69.6,
+     "window_px_area": 1155.8
+    }
+   },
+   "worst_area_of_other_parts_mm2": 0,
+   "passes": true
+  },
+  "12_design_numbers": {
+   "exterior": {
+    "W": 110.0,
+    "H": 79.0,
+    "D": 65.98,
+    "N": 5.0,
+    "front_round": "9 deep x 7.5 inset, equal in x and z",
+    "flat_front_semi_axes": [
+     47.5,
+     32.0
+    ],
+    "section_at_seam": [
+     54.812,
+     39.312
+    ],
+    "back_flat_semi_axes": [
+     17.906,
+     19.52
+    ]
+   },
+   "stack_y_local": {
+    "bezel_front": -33.0,
+    "lip_back": -31.3,
+    "glass_front": -31.0,
+    "glass_back": -29.9,
+    "pcb_back": -23.5,
+    "mounting_plane": -19.5,
+    "header_top": -18.5,
+    "bar_back": -16.5,
+    "bar_screw_head_top": -15.2,
+    "seam": -26.0,
+    "bezel_back_face": -25.1,
+    "rabbet_floor": -25.0
+   },
+   "bezel": {
+    "window": [
+     90.0,
+     58.6,
+     4.8
+    ],
+    "window_edge_R": 0.7,
+    "lip": 1.7,
+    "pocket": [
+     92.84,
+     61.4,
+     6.2
+    ],
+    "posts": {
+     "x": 21.0,
+     "z_rel": 33.65,
+     "d": 5.86,
+     "insert_hole": [
+      3.4,
+      4.0
+     ]
+    }
+   },
+   "carrier": {
+    "bar_thickness": 3.0,
+    "beam_z_rel": [
+     27.8,
+     30.2
+    ],
+    "beam_half_length": 38.4,
+    "screws": "4 x M2x5 (standoffs) + 4 x M2x6 (inserts), ISO 7380-1 dk 3.8 k 1.3"
+   },
+   "magnets": {
+    "size": [
+     4.0,
+     2.0
+    ],
+    "pocket": [
+     4.2,
+     2.1
+    ],
+    "positions_local_xz": [
+     [
+      -49.816,
+      39.5
+     ],
+     [
+      49.816,
+      39.5
+     ],
+     [
+      -29.0,
+      5.479
+     ],
+     [
+      -29.0,
+      73.521
+     ],
+     [
+      29.0,
+      5.479
+     ],
+     [
+      29.0,
+      73.521
+     ]
+    ]
+   },
+   "ears": {
+    "centre": [
+     -1.0,
+     39.5
+    ],
+    "pod_r": 13.0,
+    "inner_face_x": 50.5,
+    "apex_x": 58.793,
+    "hole_r": 13.15,
+    "groove_floor_x": 55.923,
+    "ring": [
+     8.6,
+     10.5
+    ]
+   },
+   "bridge": {
+    "x0": -37.5,
+    "x1": -30.5,
+    "hy": 2.2,
+    "foot": 2.0,
+    "z_deck0": 5.8,
+    "z_deck1": 9.1
+   }
+  }
+ },
+ "integration": {
+  "units": "mm / mm3",
+  "pose": "extended (HZ 27, axis z 16.5) unless stated; rest = lift -20; neck halves CLOSED",
+  "model": "INTEGRATED: build.py + /tmp/claude-0/gapwf/fin/common/head_common.py",
+  "REG_registry": {
+   "parts": {
+    "hlava_skrupina": [
+     {
+      "item": "hlava_skrupina",
+      "group": "H",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 64473.228,
+      "occ_volume": 66278.863
+     }
+    ],
+    "ram_displeja": [
+     {
+      "item": "ram_displeja",
+      "group": "H",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 15796.982,
+      "occ_volume": 15508.541
+     }
+    ],
+    "displej": [
+     {
+      "item": "glass",
+      "group": "H",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 6168.681,
+      "occ_volume": 6168.731
+     },
+     {
+      "item": "lcd",
+      "group": "H",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 23279.192,
+      "occ_volume": 23279.198
+     },
+     {
+      "item": "pcb",
+      "group": "H",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 6812.705,
+      "occ_volume": 6812.707
+     },
+     {
+      "item": "standoffs",
+      "group": "H",
+      "solids": 4,
+      "valid": true,
+      "mesh_volume": 149.227,
+      "occ_volume": 149.288
+     },
+     {
+      "item": "header",
+      "group": "H",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 1063.4,
+      "occ_volume": 1063.4
+     },
+     {
+      "item": "usbc",
+      "group": "H",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 229.909,
+      "occ_volume": 229.924
+     },
+     {
+      "item": "small",
+      "group": "H",
+      "solids": 12,
+      "valid": true,
+      "mesh_volume": 1742.677,
+      "occ_volume": 1742.677
+     }
+    ],
+    "pena_displeja": [
+     {
+      "item": "pena_displeja",
+      "group": "H",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 87.839,
+      "occ_volume": 87.843
+     }
+    ],
+    "drziak_displeja": [
+     {
+      "item": "drziak_displeja",
+      "group": "H",
+      "solids": 2,
+      "valid": true,
+      "mesh_volume": 1708.583,
+      "occ_volume": 1708.65
+     }
+    ],
+    "magnety": [
+     {
+      "item": "bezel side (6)",
+      "group": "H",
+      "solids": 6,
+      "valid": true,
+      "mesh_volume": 150.734,
+      "occ_volume": 150.796
+     },
+     {
+      "item": "shell side (6)",
+      "group": "H",
+      "solids": 6,
+      "valid": true,
+      "mesh_volume": 150.734,
+      "occ_volume": 150.796
+     }
+    ],
+    "usi": [
+     {
+      "item": "usi",
+      "group": "H",
+      "solids": 2,
+      "valid": true,
+      "mesh_volume": 7055.395,
+      "occ_volume": 7063.121
+     }
+    ],
+    "led_kruzky": [
+     {
+      "item": "led_kruzky",
+      "group": "H",
+      "solids": 2,
+      "valid": true,
+      "mesh_volume": 367.439,
+      "occ_volume": 368.562
+     }
+    ],
+    "led_dosky": [
+     {
+      "item": "led_dosky",
+      "group": "H",
+      "solids": 2,
+      "valid": true,
+      "mesh_volume": 706.869,
+      "occ_volume": 707.121
+     }
+    ],
+    "oci_len_vizualizacia": [
+     {
+      "item": "oci_len_vizualizacia",
+      "group": "H",
+      "solids": 2,
+      "valid": true,
+      "mesh_volume": 15.436,
+      "occ_volume": 15.439
+     }
+    ],
+    "krk_predna_polovica": [
+     {
+      "item": "krk_predna_polovica",
+      "group": "N",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 12132.996,
+      "occ_volume": 12133.859
+     }
+    ],
+    "krk_zadna_polovica": [
+     {
+      "item": "krk_zadna_polovica",
+      "group": "N",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 12252.678,
+      "occ_volume": 12253.586
+     }
+    ],
+    "usko_kryt": [
+     {
+      "item": "usko_kryt",
+      "group": "H",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 1784.999,
+      "occ_volume": 1785.381
+     }
+    ],
+    "usko_lozisko": [
+     {
+      "item": "usko_lozisko",
+      "group": "H",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 1793.886,
+      "occ_volume": 1794.229
+     }
+    ],
+    "paka": [
+     {
+      "item": "paka",
+      "group": "H",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 112.862,
+      "occ_volume": 112.888
+     }
+    ],
+    "klzny_kruzok": [
+     {
+      "item": "klzny_kruzok",
+      "group": "H",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 19.619,
+      "occ_volume": 19.627
+     }
+    ],
+    "servo_MG90S": [
+     {
+      "item": "servo_MG90S",
+      "group": "N",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 7051.313,
+      "occ_volume": 7051.598
+     }
+    ],
+    "pena_serva": [
+     {
+      "item": "2 Y strips + 2 X pads in the servo pocket",
+      "group": "N",
+      "solids": 4,
+      "valid": true,
+      "mesh_volume": 162.642,
+      "occ_volume": 162.642
+     },
+     {
+      "item": "black plug in the knuckle lead slot",
+      "group": "N",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 20.316,
+      "occ_volume": 20.314
+     }
+    ],
+    "loziska_MR85": [
+     {
+      "item": "outer ring",
+      "group": "H",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 26.673,
+      "occ_volume": 26.684
+     },
+     {
+      "item": "inner ring",
+      "group": "N",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 21.589,
+      "occ_volume": 21.598
+     }
+    ],
+    "capy": [
+     {
+      "item": "hollow pin",
+      "group": "N",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 55.484,
+      "occ_volume": 55.498
+     },
+     {
+      "item": "2 dowels",
+      "group": "N",
+      "solids": 2,
+      "valid": true,
+      "mesh_volume": 37.683,
+      "occ_volume": 37.699
+     }
+    ],
+    "skrutky": [
+     {
+      "item": "neck: 4 screws + 4 inserts",
+      "group": "N",
+      "solids": 8,
+      "valid": true,
+      "mesh_volume": 235.647,
+      "occ_volume": 235.745
+     },
+     {
+      "item": "horn screw",
+      "group": "H",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 20.839,
+      "occ_volume": 20.848
+     },
+     {
+      "item": "4 cross screws M2x8",
+      "group": "H",
+      "solids": 4,
+      "valid": true,
+      "mesh_volume": 123.263,
+      "occ_volume": 123.314
+     },
+     {
+      "item": "carrier: 4 x M2x5 + 4 x M2x6",
+      "group": "H",
+      "solids": 8,
+      "valid": true,
+      "mesh_volume": 206.33,
+      "occ_volume": 206.415
+     },
+     {
+      "item": "carrier: 4 inserts",
+      "group": "H",
+      "solids": 4,
+      "valid": true,
+      "mesh_volume": 72.352,
+      "occ_volume": 72.382
+     }
+    ],
+    "kabel": [
+     {
+      "item": "head wires, static part",
+      "group": "N",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 45.17,
+      "occ_volume": 45.189
+     },
+     {
+      "item": "head wires, rotating part + loop",
+      "group": "H",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 93.104,
+      "occ_volume": 93.149
+     },
+     {
+      "item": "servo-lead stub",
+      "group": "N",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 11.145,
+      "occ_volume": 11.15
+     },
+     {
+      "item": "servo-lead run in the head",
+      "group": "H",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 777.577,
+      "occ_volume": 777.945
+     }
+    ],
+    "golier_kotuc": [
+     {
+      "item": "golier_kotuc",
+      "group": "T",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 7676.54,
+      "occ_volume": 7681.963
+     }
+    ],
+    "golier_prstenec": [
+     {
+      "item": "golier_prstenec",
+      "group": "T",
+      "solids": 1,
+      "valid": true,
+      "mesh_volume": 1551.02,
+      "occ_volume": 1551.668
+     }
+    ]
+   },
+   "names": {
+    "value": {
+     "missing": [],
+     "extra": []
+    },
+    "passed": true
+   },
+   "groups": {
+    "value": {},
+    "passed": true
+   },
+   "removed_names_absent": {
+    "value": [],
+    "passed": true
+   },
+   "all_valid": {
+    "value": [],
+    "passed": true
+   },
+   "printed_parts_solid_count": {
+    "value": {
+     "hlava_skrupina": 1,
+     "ram_displeja": 1,
+     "drziak_displeja": 2,
+     "usi": 2,
+     "led_kruzky": 2,
+     "krk_predna_polovica": 1,
+     "krk_zadna_polovica": 1,
+     "usko_kryt": 1,
+     "usko_lozisko": 1,
+     "golier_kotuc": 1,
+     "golier_prstenec": 1
+    },
+    "passed": true
+   },
+   "klzny_kruzok_group": "H (bonded in the cap groove)",
+   "reference_volumes": {
+    "head_outer_mesh": 483079.3,
+    "head_outer_occ": 483929.0,
+    "cavity_mesh": 400149.6,
+    "cavity_occ": 400537.7,
+    "note": "OCC GProp is off by up to 3 % on the periodic lofts -> mesh volumes are the reference"
+   },
+   "head_module": "/tmp/claude-0/gapwf/fin/common/head_common.py",
+   "shell_notes": {
+    "ear_hole_edges": 2,
+    "ear_hole_fillet": 0.8
+   }
+  },
+  "summary": {
+   "failed": [
+    "E9 no internal part visible: {'whole_robot': 0.0, 'hinge_window': 0.005}",
+    "S every part STL closed (edges shared by 2): {'skrutky.stl': 504, 'usi.stl': 2}"
+   ],
+   "time_s": 1690.2
+  },
+  "X_interfaces": {
+   "X1_pads_tenons_floor": {
+    "usko_kryt": {
+     "part_vs_shell_mm3": 0.0,
+     "part_to_shell_min_distance": 0.099,
+     "tenon_to_floor_slot_wall": 0.1,
+     "web_top_to_head_floor": 0.099,
+     "floor_slot_mouth_not_covered_by_web_mm2": 0.0,
+     "floor_slot_mouth_note": "0.1 strips along |y| 8.0..8.1 only (black tenon behind a black web)",
+     "pad_bbox": [
+      -27.5,
+      -14.0,
+      -11.0,
+      11.0,
+      27.003,
+      35.5
+     ],
+     "pad_volume_mm3": 2466.573,
+     "pad_inside_head_exterior_mm3_outside": 0.0,
+     "cross_screw_holes_to_exterior": 4.312,
+     "pad_to_magnet_bosses": 10.67,
+     "pad_to_bridge": 3.0,
+     "pad_to_lead_floor_slot": 22.0,
+     "pad_to_bezel": 8.5,
+     "pad_to_bars": 5.5,
+     "pad_to_display_header": 8.572,
+     "pad_vs_front_module_mm3": 0.0
+    },
+    "usko_lozisko": {
+     "part_vs_shell_mm3": 0.0,
+     "part_to_shell_min_distance": 0.099,
+     "tenon_to_floor_slot_wall": 0.1,
+     "web_top_to_head_floor": 0.099,
+     "floor_slot_mouth_not_covered_by_web_mm2": 0.0,
+     "floor_slot_mouth_note": "0.1 strips along |y| 8.0..8.1 only (black tenon behind a black web)",
+     "pad_bbox": [
+      14.0,
+      27.5,
+      -11.0,
+      11.0,
+      27.003,
+      35.5
+     ],
+     "pad_volume_mm3": 2468.235,
+     "pad_inside_head_exterior_mm3_outside": 0.0,
+     "cross_screw_holes_to_exterior": 4.312,
+     "pad_to_magnet_bosses": 10.67,
+     "pad_to_bridge": 44.5,
+     "pad_to_lead_floor_slot": 1.5,
+     "pad_to_bezel": 8.5,
+     "pad_to_bars": 5.5,
+     "pad_to_display_header": 8.572,
+     "pad_vs_front_module_mm3": 0.0
+    },
+    "shell_hinge_zone_raycast": {
+     "samples": 20000,
+     "min": 1.262,
+     "n_lt_1p2": 0,
+     "n_lt_1p0": 0,
+     "n_lt_0p6": 0,
+     "thin_spots": [],
+     "n_lt_1p19": 0,
+     "region": "|x| <= 32, |y| <= 19, z HZ-1.5..HZ+12 (pads, tenon slots, screw holes, lead slot), 20000 samples"
+    },
+    "lead_floor_slot": {
+     "to_tenon_slot_plus": 5.7,
+     "to_pad_plus": 1.5,
+     "to_pad_minus": 22.0,
+     "to_bridge": 38.5,
+     "to_magnet_bosses": 15.858,
+     "to_bezel": 8.656
+    }
+   },
+   "X2_cables_in_head": {
+    "servo_lead_run": {
+     "overlap_mm3": {
+      "vault": 0.0,
+      "bezel": 0.0,
+      "bars": 0.0,
+      "carrier_screws": 0.0,
+      "carrier_inserts": 0.0,
+      "glass": 0.0,
+      "lcd": 0.0,
+      "pcb": 0.0,
+      "standoffs": 0.0,
+      "header": 0.0,
+      "usbc": 0.0,
+      "small": 0.0,
+      "magnets_shell": 0.0,
+      "magnets_bezel": 0.0,
+      "cross_screws": 0.0,
+      "led_boards": 0.0,
+      "ears": 0.0,
+      "usko_kryt": 0.0,
+      "usko_lozisko": 0.0,
+      "pads": 0.0,
+      "magnet_bosses": 0.0
+     },
+     "overlap_shell_mm3": 0.0,
+     "overlap_keepout_mm3": 0.0,
+     "min_distance": {
+      "vault": 0.5,
+      "bezel": 7.414,
+      "bars": 3.52,
+      "carrier_screws": 8.376,
+      "carrier_inserts": 8.734,
+      "glass": 11.4,
+      "lcd": 6.6,
+      "pcb": 5.0,
+      "standoffs": 16.362,
+      "header": 0.0,
+      "usbc": 22.893,
+      "small": 3.48,
+      "magnets_shell": 14.092,
+      "magnets_bezel": 14.933,
+      "cross_screws": 3.78,
+      "led_boards": 15.24,
+      "ears": 14.204,
+      "usko_kryt": 0.6,
+      "usko_lozisko": 6.25,
+      "pads": 0.6,
+      "magnet_bosses": 12.451
+     },
+     "slot_and_pad_part_to_shell": 0.5,
+     "on_bridge_part_to_deck": 0.0,
+     "on_bridge_part_vs_bridge_mm3": 0.0,
+     "loop_part_to_shell": 2.173,
+     "to_head_wires": 0.64,
+     "to_stub": 0.5,
+     "path_local": [
+      [
+       10.25,
+       0.0,
+       0.0
+      ],
+      [
+       10.25,
+       0.0,
+       7.5
+      ],
+      [
+       -7.0,
+       0.0,
+       7.5
+      ],
+      [
+       -13.0,
+       0.0,
+       10.4
+      ],
+      [
+       -41.0,
+       0.0,
+       10.4
+      ],
+      [
+       -41.0,
+       7.0,
+       16.52
+      ],
+      [
+       16.51,
+       7.0,
+       16.52
+      ],
+      [
+       16.51,
+       -18.5,
+       16.52
+      ]
+     ],
+     "bend_radius": 3.0,
+     "tube_r": 1.3,
+     "ends_at": "header pin 4 (G); 5V = pin 2 beside it",
+     "length_in_head": 146.525,
+     "length_slot_to_tie_point": 50.462,
+     "free_length_tie_to_plug": 96.063,
+     "tie_point_to_floor_slot": 38.5,
+     "tie_point_to_lead_exit_x": 44.25,
+     "front_module_pull_out_before_taut": 62.712,
+     "lead_length_needed_from_the_servo_case": 149.125,
+     "note": "needed length = nub top -> knuckle top -> floor -> run; MG90S leads are 150..250 mm: >= 170 mm or an extension"
+    },
+    "head_wires": {
+     "overlap_mm3": {
+      "vault": 0.0,
+      "bezel": 0.0,
+      "bars": 0.0,
+      "carrier_screws": 0.0,
+      "carrier_inserts": 0.0,
+      "glass": 0.0,
+      "lcd": 0.0,
+      "pcb": 0.0,
+      "standoffs": 0.0,
+      "header": 0.0,
+      "usbc": 0.0,
+      "small": 0.0,
+      "magnets_shell": 0.0,
+      "magnets_bezel": 0.0,
+      "cross_screws": 0.0,
+      "led_boards": 0.0,
+      "ears": 0.0,
+      "usko_kryt": 0.0,
+      "usko_lozisko": 0.0,
+      "pads": 0.0,
+      "magnet_bosses": 0.0
+     },
+     "overlap_shell_mm3": 0.0,
+     "overlap_keepout_mm3": 0.0,
+     "min_distance_inside_head": {
+      "vault": 5.7,
+      "bezel": 7.385,
+      "bars": 4.22,
+      "carrier_screws": 8.347,
+      "carrier_inserts": 8.704,
+      "glass": 11.4,
+      "lcd": 6.6,
+      "pcb": 5.0,
+      "standoffs": 14.532,
+      "header": 0.0,
+      "usbc": 22.068,
+      "small": 2.03,
+      "magnets_shell": 13.045,
+      "magnets_bezel": 13.95,
+      "cross_screws": 3.692,
+      "led_boards": 31.328,
+      "ears": 32.122,
+      "usko_kryt": 37.601,
+      "pads": 1.503,
+      "magnet_bosses": 11.383
+     },
+     "inside_head_to_shell": 1.503,
+     "path_local_from_tenon_top": [
+      [
+       20.3,
+       0.0,
+       9.0
+      ],
+      [
+       20.3,
+       0.0,
+       12.5
+      ],
+      [
+       20.3,
+       19.0,
+       12.5
+      ],
+      [
+       20.3,
+       19.0,
+       16.52
+      ],
+      [
+       19.05,
+       -4.5,
+       16.52
+      ],
+      [
+       19.05,
+       -18.5,
+       16.52
+      ]
+     ],
+     "tube_r": 0.6,
+     "free_length_tenon_top_to_plug": 61.607,
+     "front_module_pull_out_before_taut": 42.633,
+     "ends_at": "header pin 2 (5V)"
+    },
+    "plug_zone_behind_header": {
+     "box": "header footprint 40.9 x 5.2 from the header top y=-18.5 back to y=-4.5 (Dupont housings 14 long)",
+     "overlap_mm3": {
+      "shell": 0.0,
+      "bezel": 0.0,
+      "bars": 0.0,
+      "carrier_screws": 0.0,
+      "cross_screws": 0.0,
+      "usko_kryt": 0.0,
+      "usko_lozisko": 0.0,
+      "led_boards": 0.0,
+      "magnets_shell": 0.0
+     },
+     "min_distance": {
+      "shell": 2.483,
+      "bezel": 4.019,
+      "bars": 0.95,
+      "carrier_screws": 4.922,
+      "cross_screws": 5.25,
+      "usko_kryt": 4.15,
+      "usko_lozisko": 4.15,
+      "led_boards": 30.475,
+      "magnets_shell": 10.183
+     }
+    }
+   },
+   "X3_tool_path_cross_screws": {
+    "tool": "D4 shank along Y from the front opening (front module removed, wires unplugged) to the screw-head top y=-12.3, axis z=32.5",
+    "per_screw": {
+     "x-18.3": {
+      "overlap_shell_mm3": 0.0,
+      "overlap_shell_magnets_mm3": 0.0,
+      "overlap_lugs_mm3": 0.0,
+      "overlap_cables_mm3": 0.0,
+      "overlap_other_cross_screws_mm3": 0.0,
+      "min_distance": {
+       "shell": 0.915,
+       "shell_magnets": 6.7,
+       "magnet_bosses": 5.37,
+       "bridge": 14.354,
+       "servo_lead_run": 11.337,
+       "head_wires": 36.342,
+       "led_boards": 37.612,
+       "other_cross_screw_heads": 0.1
+      }
+     },
+     "x-22.3": {
+      "overlap_shell_mm3": 0.0,
+      "overlap_shell_magnets_mm3": 0.0,
+      "overlap_lugs_mm3": 0.0,
+      "overlap_cables_mm3": 0.0,
+      "overlap_other_cross_screws_mm3": 0.0,
+      "min_distance": {
+       "shell": 0.849,
+       "shell_magnets": 2.7,
+       "magnet_bosses": 1.37,
+       "bridge": 11.851,
+       "servo_lead_run": 11.337,
+       "head_wires": 40.193,
+       "led_boards": 34.636,
+       "other_cross_screw_heads": 0.1
+      }
+     },
+     "x+18.3": {
+      "overlap_shell_mm3": 0.0,
+      "overlap_shell_magnets_mm3": 0.0,
+      "overlap_lugs_mm3": 0.0,
+      "overlap_cables_mm3": 0.0,
+      "overlap_other_cross_screws_mm3": 0.0,
+      "min_distance": {
+       "shell": 0.915,
+       "shell_magnets": 6.7,
+       "magnet_bosses": 5.37,
+       "bridge": 47.877,
+       "servo_lead_run": 7.864,
+       "head_wires": 8.445,
+       "led_boards": 37.612,
+       "other_cross_screw_heads": 0.1
+      }
+     },
+     "x+22.3": {
+      "overlap_shell_mm3": 0.0,
+      "overlap_shell_magnets_mm3": 0.0,
+      "overlap_lugs_mm3": 0.0,
+      "overlap_cables_mm3": 0.0,
+      "overlap_other_cross_screws_mm3": 0.0,
+      "min_distance": {
+       "shell": 0.849,
+       "shell_magnets": 2.7,
+       "magnet_bosses": 1.37,
+       "bridge": 51.794,
+       "servo_lead_run": 9.148,
+       "head_wires": 8.889,
+       "led_boards": 34.636,
+       "other_cross_screw_heads": 0.1
+      }
+     }
+    },
+    "free": {
+     "value": true,
+     "passed": true
+    },
+    "min_clearance": 0.1,
+    "note": "neighbouring heads are 4.0 apart (dk 3.8): the D4 shank touches nothing only because it stops at the head top; use a 1.3 hex bit with a shank <= D4"
+   },
+   "X4_bosses_bars_bridge": {
+    "magnet_bosses": {
+     "pads": 10.67,
+     "usko_kryt": 14.798,
+     "usko_lozisko": 14.798,
+     "cross_screws": 9.485,
+     "servo_lead_run": 12.451,
+     "head_wires": 11.383
+    },
+    "carrier_bars": {
+     "pads": 5.5,
+     "usko_kryt": 8.5,
+     "usko_lozisko": 8.5,
+     "cross_screws": 4.2,
+     "servo_lead_run": 3.52,
+     "head_wires": 4.22
+    },
+    "carrier_screws": {
+     "pads": 4.2,
+     "usko_kryt": 7.2,
+     "usko_lozisko": 7.2,
+     "cross_screws": 2.9,
+     "servo_lead_run": 8.376,
+     "head_wires": 8.347
+    },
+    "bezel_posts_rear": {
+     "pads": 8.5,
+     "usko_kryt": 11.5,
+     "usko_lozisko": 11.5,
+     "cross_screws": 7.2,
+     "servo_lead_run": 7.414,
+     "head_wires": 7.385
+    },
+    "cable_bridge": {
+     "pads": 3.0,
+     "usko_kryt": 8.016,
+     "usko_lozisko": 47.316,
+     "cross_screws": 7.443,
+     "servo_lead_run": 0.0,
+     "head_wires": 49.67
+    },
+    "lead_vault": {
+     "pad_minus": 8.0,
+     "magnet_bosses": 12.428,
+     "bridge": 24.542,
+     "bezel": 5.622,
+     "bars": 4.592,
+     "carrier_screws": 5.221,
+     "header": 8.534,
+     "plug_zone": 2.483,
+     "cross_screws": 2.4,
+     "head_wires": 5.7,
+     "usko_kryt": 12.301,
+     "usko_lozisko": 3.801,
+     "led_boards": 39.281,
+     "tool_path_x18p3": 2.3
+    },
+    "lead_vault_geometry": {
+     "inner_r": 19.8,
+     "outer_r": 21.1,
+     "x": [
+      -6.0,
+      12.5,
+      14.0
+     ],
+     "top_local_z": 10.6,
+     "volume": 1342.334,
+     "valid": true,
+     "solids": 1,
+     "lead_run_to_vault": 0.5
+    },
+    "bridge_other": {
+     "to_bezel": 18.506,
+     "to_bars": 14.333,
+     "to_led_boards": 23.127,
+     "deck_top_local_z": 9.1,
+     "lead_centre_local_z": 10.4,
+     "pad_top_local_z": 8.5,
+     "volume": 186.747,
+     "valid": true
+    },
+    "min_all": {
+     "value": 0.5,
+     "passed": true
+    }
+   },
+   "X5_head_vs_collar_torso": {
+    "head_exterior_bbox": [
+     -55.012,
+     55.012,
+     -33.004,
+     32.98,
+     26.988,
+     106.012
+    ],
+    "rest_pose_lift_m20": {
+     "golier_kotuc": 3.0,
+     "golier_prstenec": 3.0,
+     "trup": 3.01
+    },
+    "rest_min": {
+     "value": 3.0,
+     "passed": true
+    },
+    "extended_tilt_sweep": {
+     "-40": {
+      "golier_kotuc": 9.924,
+      "golier_prstenec": 9.707,
+      "trup": 9.558
+     },
+     "-35": {
+      "golier_kotuc": 12.322,
+      "golier_prstenec": 12.218,
+      "trup": 12.188
+     },
+     "-30": {
+      "golier_kotuc": 14.659,
+      "golier_prstenec": 14.653,
+      "trup": 14.657
+     },
+     "-25": {
+      "golier_kotuc": 16.872,
+      "golier_prstenec": 16.878,
+      "trup": 16.893
+     },
+     "-20": {
+      "golier_kotuc": 18.804,
+      "golier_prstenec": 18.834,
+      "trup": 18.863
+     },
+     "-15": {
+      "golier_kotuc": 20.414,
+      "golier_prstenec": 20.484,
+      "trup": 20.525
+     },
+     "-10": {
+      "golier_kotuc": 21.666,
+      "golier_prstenec": 21.785,
+      "trup": 21.837
+     },
+     "-5": {
+      "golier_kotuc": 22.611,
+      "golier_prstenec": 22.697,
+      "trup": 22.758
+     },
+     "0": {
+      "golier_kotuc": 23.0,
+      "golier_prstenec": 23.0,
+      "trup": 23.009
+     },
+     "5": {
+      "golier_kotuc": 20.827,
+      "golier_prstenec": 20.828,
+      "trup": 20.833
+     },
+     "10": {
+      "golier_kotuc": 18.53,
+      "golier_prstenec": 18.509,
+      "trup": 18.512
+     },
+     "15": {
+      "golier_kotuc": 16.177,
+      "golier_prstenec": 16.075,
+      "trup": 16.066
+     },
+     "20": {
+      "golier_kotuc": 13.776,
+      "golier_prstenec": 13.583,
+      "trup": 13.515
+     },
+     "25": {
+      "golier_kotuc": 11.33,
+      "golier_prstenec": 11.045,
+      "trup": 10.892
+     },
+     "30": {
+      "golier_kotuc": 8.848,
+      "golier_prstenec": 8.467,
+      "trup": 8.227
+     },
+     "35": {
+      "golier_kotuc": 6.336,
+      "golier_prstenec": 5.855,
+      "trup": 5.527
+     },
+     "40": {
+      "golier_kotuc": 3.802,
+      "golier_prstenec": 3.214,
+      "trup": 2.802
+     }
+    },
+    "sweep_min": {
+     "value": 2.802,
+     "passed": true
+    },
+    "head_floor_z_over_the_lugs": {
+     "x17.8_y0.0": 27.027,
+     "x17.8_y8.0": 27.319,
+     "x20.3_y0.0": 27.053,
+     "x20.3_y8.0": 27.346,
+     "x22.5_y0.0": 27.09,
+     "x22.5_y8.0": 27.384
+    },
+    "lowest_floor_allowed_over_the_barrels": 26.9,
+    "note": "shell vs neck halves / lead stub over the sweep: see the neck section (hlava_pri_pante); lugs turn with the head"
+   }
+  },
+  "T_tilt_vs_lift": {
+   "max_tilt_deg_keeping_0p25_vs_collar_and_torso": {
+    "0": {
+     "nod_down_+": 40,
+     "nod_up_-": 40
+    },
+    "-1": {
+     "nod_down_+": 40,
+     "nod_up_-": 40
+    },
+    "-2": {
+     "nod_down_+": 40,
+     "nod_up_-": 40
+    },
+    "-3": {
+     "nod_down_+": 35,
+     "nod_up_-": 40
+    },
+    "-4": {
+     "nod_down_+": 35,
+     "nod_up_-": 40
+    },
+    "-5": {
+     "nod_down_+": 35,
+     "nod_up_-": 40
+    },
+    "-7.5": {
+     "nod_down_+": 30,
+     "nod_up_-": 40
+    },
+    "-10": {
+     "nod_down_+": 25,
+     "nod_up_-": 35
+    },
+    "-12.5": {
+     "nod_down_+": 20,
+     "nod_up_-": 30
+    },
+    "-15": {
+     "nod_down_+": 15,
+     "nod_up_-": 20
+    },
+    "-17.5": {
+     "nod_down_+": 10,
+     "nod_up_-": 15
+    },
+    "-20": {
+     "nod_down_+": 5,
+     "nod_up_-": 10
+    }
+   },
+   "full_range_at_full_extension": {
+    "value": {
+     "nod_down_+": 40,
+     "nod_up_-": 40
+    },
+    "passed": true
+   },
+   "rule": "SIMPLE RULE (assembly text): tilt only when the neck is fully extended (lift 0); before retracting return to 0 deg. OPTIONAL table: between two listed lifts use the value of the MORE RETRACTED one (no interpolation)",
+   "rule_check_between_points": {
+    "-0.5": {
+     "nod_down_+": {
+      "tilt": 40,
+      "min_clear": 99.0
+     },
+     "nod_up_-": {
+      "tilt": 40,
+      "min_clear": 99.0
+     }
+    },
+    "-1.5": {
+     "nod_down_+": {
+      "tilt": 40,
+      "min_clear": 2.399
+     },
+     "nod_up_-": {
+      "tilt": 40,
+      "min_clear": 2.399
+     }
+    },
+    "-2.5": {
+     "nod_down_+": {
+      "tilt": 35,
+      "min_clear": 1.671
+     },
+     "nod_up_-": {
+      "tilt": 40,
+      "min_clear": 1.671
+     }
+    },
+    "-3.5": {
+     "nod_down_+": {
+      "tilt": 35,
+      "min_clear": 1.046
+     },
+     "nod_up_-": {
+      "tilt": 40,
+      "min_clear": 1.046
+     }
+    },
+    "-4.5": {
+     "nod_down_+": {
+      "tilt": 35,
+      "min_clear": 0.569
+     },
+     "nod_up_-": {
+      "tilt": 40,
+      "min_clear": 0.569
+     }
+    },
+    "-6.25": {
+     "nod_down_+": {
+      "tilt": 30,
+      "min_clear": 0.25
+     },
+     "nod_up_-": {
+      "tilt": 40,
+      "min_clear": 0.25
+     }
+    },
+    "-8.75": {
+     "nod_down_+": {
+      "tilt": 25,
+      "min_clear": 0.25
+     },
+     "nod_up_-": {
+      "tilt": 35,
+      "min_clear": 0.25
+     }
+    },
+    "-11.25": {
+     "nod_down_+": {
+      "tilt": 20,
+      "min_clear": 0.25
+     },
+     "nod_up_-": {
+      "tilt": 30,
+      "min_clear": 0.25
+     }
+    },
+    "-13.75": {
+     "nod_down_+": {
+      "tilt": 15,
+      "min_clear": 0.25
+     },
+     "nod_up_-": {
+      "tilt": 20,
+      "min_clear": 0.25
+     }
+    },
+    "-16.25": {
+     "nod_down_+": {
+      "tilt": 10,
+      "min_clear": 0.25
+     },
+     "nod_up_-": {
+      "tilt": 15,
+      "min_clear": 0.25
+     }
+    },
+    "-18.75": {
+     "nod_down_+": {
+      "tilt": 5,
+      "min_clear": 0.25
+     },
+     "nod_up_-": {
+      "tilt": 10,
+      "min_clear": 0.25
+     }
+    }
+   },
+   "rule_min_clear": {
+    "value": 0.25,
+    "passed": true
+   },
+   "clearance_at_rest_tilt0": 0.25,
+   "method": "OCC minimum distance of the head exterior (bottom 20 mm), usko_kryt and usko_lozisko to golier_kotuc, golier_prstenec and the torso top; a mesh-vertex pre-test rejects poses that are certainly closer than 0.2 to the flat collar top"
+  },
+  "V_E9_visibility": {
+   "method": "orthographic z-buffer of ALL registry parts + torso (first hit per pixel). (a) whole robot: 0.25 mm/px, 30 views (az -90,-60,-40,-20,0,20,40,60,90,180 x el -20 (from below), 0 (eye height), 35 (3/4 above)); (b) hinge window |x| <= 25, |y| <= 14, axis +-12: 0.05 mm/px, 38 views (round-5 set + az +-60 / 120 / 240).  Poses: rest, extended 0, +40, -40",
+   "exterior_parts": [
+    "displej#glass",
+    "golier_kotuc",
+    "golier_prstenec",
+    "hlava_skrupina",
+    "krk_predna_polovica",
+    "krk_zadna_polovica",
+    "led_kruzky",
+    "oci_len_vizualizacia",
+    "pena_displeja",
+    "ram_displeja",
+    "trup",
+    "usi",
+    "usko_kryt",
+    "usko_lozisko"
+   ],
+   "internal_parts": [
+    "displej#board",
+    "drziak_displeja",
+    "magnety",
+    "led_dosky",
+    "paka",
+    "klzny_kruzok",
+    "servo_MG90S",
+    "pena_serva",
+    "loziska_MR85",
+    "capy",
+    "skrutky#neck",
+    "skrutky#horn",
+    "skrutky#cross",
+    "skrutky#carrier",
+    "skrutky#carrier_inserts",
+    "kabel#head_wires_static",
+    "kabel#head_wires"
+   ],
+   "lead_parts": [
+    "kabel#lead_run",
+    "kabel#stub",
+    "pena_serva#slot_plug"
+   ],
+   "triangles": 135432,
+   "whole_robot": {
+    "rest": {
+     "views_with_non_exterior_parts_mm2": {
+      "az-40_el0": {
+       "kabel#stub": 0.44
+      },
+      "az-20_el0": {
+       "kabel#stub": 0.62
+      },
+      "az0_el0": {
+       "kabel#stub": 0.62
+      },
+      "az20_el0": {
+       "kabel#stub": 0.62
+      },
+      "az40_el0": {
+       "kabel#stub": 0.5
+      },
+      "az60_el0": {
+       "kabel#stub": 0.31
+      },
+      "az180_el0": {
+       "kabel#stub": 0.62,
+       "kabel#lead_run": 3.12
+      }
+     }
+    },
+    "extended_tilt0": {
+     "views_with_non_exterior_parts_mm2": {
+      "az-40_el-20": {
+       "kabel#lead_run": 1.69
+      },
+      "az-40_el0": {
+       "kabel#stub": 0.44
+      },
+      "az-20_el-20": {
+       "kabel#lead_run": 5.06
+      },
+      "az-20_el0": {
+       "kabel#stub": 0.62
+      },
+      "az0_el-20": {
+       "kabel#lead_run": 11.25
+      },
+      "az0_el0": {
+       "kabel#stub": 0.62
+      },
+      "az20_el-20": {
+       "kabel#lead_run": 5.06
+      },
+      "az20_el0": {
+       "kabel#stub": 0.62
+      },
+      "az40_el-20": {
+       "kabel#lead_run": 1.69
+      },
+      "az40_el0": {
+       "kabel#stub": 0.5
+      },
+      "az60_el-20": {
+       "kabel#lead_run": 0.06
+      },
+      "az60_el0": {
+       "kabel#stub": 0.31
+      },
+      "az180_el-20": {
+       "kabel#lead_run": 14.62
+      },
+      "az180_el0": {
+       "kabel#stub": 0.62,
+       "kabel#lead_run": 3.12
+      }
+     }
+    },
+    "extended_tilt+40": {
+     "views_with_non_exterior_parts_mm2": {
+      "az180_el-20": {
+       "kabel#lead_run": 0.19
+      },
+      "az180_el0": {
+       "kabel#stub": 0.62,
+       "kabel#lead_run": 12.62
+      },
+      "az180_el35": {
+       "pena_serva#slot_plug": 8.75,
+       "kabel#stub": 3.5,
+       "kabel#lead_run": 6.75
+      }
+     }
+    },
+    "extended_tilt-40": {
+     "views_with_non_exterior_parts_mm2": {
+      "az-60_el0": {
+       "kabel#stub": 0.31
+      },
+      "az-60_el35": {
+       "pena_serva#slot_plug": 1.38
+      },
+      "az-40_el0": {
+       "kabel#stub": 0.5,
+       "kabel#lead_run": 2.38
+      },
+      "az-40_el35": {
+       "pena_serva#slot_plug": 8.0,
+       "kabel#stub": 3.69
+      },
+      "az-20_el0": {
+       "kabel#stub": 0.62,
+       "kabel#lead_run": 10.56
+      },
+      "az-20_el35": {
+       "pena_serva#slot_plug": 7.94,
+       "kabel#stub": 3.69,
+       "kabel#lead_run": 1.31
+      },
+      "az0_el-20": {
+       "kabel#lead_run": 0.19
+      },
+      "az0_el0": {
+       "kabel#stub": 0.62,
+       "kabel#lead_run": 12.62
+      },
+      "az0_el35": {
+       "pena_serva#slot_plug": 8.75,
+       "kabel#stub": 3.5,
+       "kabel#lead_run": 3.12
+      },
+      "az20_el0": {
+       "kabel#stub": 0.62,
+       "kabel#lead_run": 3.12
+      },
+      "az20_el35": {
+       "pena_serva#slot_plug": 7.81,
+       "kabel#stub": 3.75,
+       "kabel#lead_run": 1.31
+      },
+      "az40_el0": {
+       "kabel#stub": 0.5,
+       "kabel#lead_run": 0.19
+      },
+      "az40_el35": {
+       "pena_serva#slot_plug": 7.81,
+       "kabel#stub": 3.69
+      },
+      "az60_el0": {
+       "kabel#stub": 0.31
+      },
+      "az60_el35": {
+       "pena_serva#slot_plug": 0.5
+      }
+     }
+    }
+   },
+   "hinge_window": {
+    "rest": {
+     "views_with_non_exterior_parts_mm2": {
+      "az0_el0": {
+       "kabel#stub": 0.78
+      },
+      "az180_el-15": {
+       "kabel#lead_run": 0.797
+      },
+      "az180_el0": {
+       "kabel#stub": 0.78,
+       "kabel#lead_run": 3.468
+      },
+      "az-30_el0": {
+       "kabel#stub": 0.69
+      },
+      "az-15_el0": {
+       "kabel#stub": 0.777
+      },
+      "az15_el0": {
+       "kabel#stub": 0.775
+      },
+      "az30_el0": {
+       "kabel#stub": 0.7
+      },
+      "az150_el0": {
+       "kabel#stub": 0.7,
+       "kabel#lead_run": 0.168
+      },
+      "az165_el0": {
+       "kabel#stub": 0.777,
+       "kabel#lead_run": 1.17
+      },
+      "az195_el0": {
+       "kabel#stub": 0.775,
+       "kabel#lead_run": 1.145
+      },
+      "az210_el0": {
+       "kabel#stub": 0.69,
+       "kabel#lead_run": 0.19
+      },
+      "az60_el0": {
+       "kabel#stub": 0.295
+      },
+      "az120_el0": {
+       "kabel#stub": 0.295,
+       "kabel#lead_run": 0.045
+      }
+     }
+    },
+    "extended_tilt0": {
+     "views_with_non_exterior_parts_mm2": {
+      "az0_el-30": {
+       "kabel#lead_run": 15.593
+      },
+      "az0_el-15": {
+       "kabel#lead_run": 9.545
+      },
+      "az0_el0": {
+       "kabel#stub": 0.78
+      },
+      "az180_el-30": {
+       "kabel#lead_run": 16.933
+      },
+      "az180_el-15": {
+       "kabel#lead_run": 12.912
+      },
+      "az180_el0": {
+       "kabel#stub": 0.78,
+       "kabel#lead_run": 3.468
+      },
+      "az-30_el0": {
+       "kabel#stub": 0.69
+      },
+      "az-15_el0": {
+       "kabel#stub": 0.777
+      },
+      "az15_el0": {
+       "kabel#stub": 0.775
+      },
+      "az30_el0": {
+       "kabel#stub": 0.7
+      },
+      "az150_el0": {
+       "kabel#stub": 0.7,
+       "kabel#lead_run": 0.168
+      },
+      "az165_el0": {
+       "kabel#stub": 0.777,
+       "kabel#lead_run": 1.17
+      },
+      "az195_el0": {
+       "kabel#stub": 0.775,
+       "kabel#lead_run": 1.145
+      },
+      "az210_el0": {
+       "kabel#stub": 0.69,
+       "kabel#lead_run": 0.19
+      },
+      "az60_el-20": {
+       "kabel#lead_run": 0.018
+      },
+      "az60_el0": {
+       "kabel#stub": 0.295
+      },
+      "az120_el-20": {
+       "kabel#lead_run": 0.025
+      },
+      "az120_el0": {
+       "kabel#stub": 0.295,
+       "kabel#lead_run": 0.045
+      }
+     }
+    },
+    "extended_tilt+40": {
+     "views_with_non_exterior_parts_mm2": {
+      "az180_el-15": {
+       "kabel#lead_run": 3.328
+      },
+      "az180_el0": {
+       "kabel#stub": 0.78,
+       "kabel#lead_run": 5.38
+      },
+      "az180_el15": {
+       "pena_serva#slot_plug": 3.19,
+       "skrutky#cross": 0.005,
+       "kabel#stub": 2.135,
+       "kabel#lead_run": 14.145
+      },
+      "az180_el30": {
+       "pena_serva#slot_plug": 6.925,
+       "kabel#stub": 3.335,
+       "kabel#lead_run": 10.033
+      },
+      "az180_el45": {
+       "pena_serva#slot_plug": 10.422,
+       "kabel#stub": 4.272,
+       "kabel#lead_run": 0.593
+      },
+      "az180_el60": {
+       "pena_serva#slot_plug": 10.888,
+       "kabel#stub": 4.982
+      },
+      "az150_el0": {
+       "kabel#stub": 0.7,
+       "kabel#lead_run": 0.973
+      },
+      "az150_el20": {
+       "pena_serva#slot_plug": 4.095,
+       "kabel#stub": 2.545,
+       "kabel#lead_run": 3.363
+      },
+      "az165_el0": {
+       "kabel#stub": 0.777,
+       "kabel#lead_run": 4.143
+      },
+      "az165_el20": {
+       "pena_serva#slot_plug": 4.298,
+       "kabel#stub": 2.542,
+       "kabel#lead_run": 8.1
+      },
+      "az195_el0": {
+       "kabel#stub": 0.775,
+       "kabel#lead_run": 4.157
+      },
+      "az195_el20": {
+       "pena_serva#slot_plug": 4.295,
+       "kabel#stub": 2.542,
+       "kabel#lead_run": 8.335
+      },
+      "az210_el0": {
+       "kabel#stub": 0.69,
+       "kabel#lead_run": 1.002
+      },
+      "az210_el20": {
+       "pena_serva#slot_plug": 4.085,
+       "kabel#stub": 2.55,
+       "kabel#lead_run": 3.383
+      },
+      "az120_el0": {
+       "kabel#stub": 0.295
+      },
+      "az240_el0": {
+       "kabel#stub": 0.295
+      }
+     }
+    },
+    "extended_tilt-40": {
+     "views_with_non_exterior_parts_mm2": {
+      "az0_el-15": {
+       "kabel#lead_run": 3.328
+      },
+      "az0_el0": {
+       "kabel#stub": 0.78,
+       "kabel#lead_run": 5.38
+      },
+      "az0_el15": {
+       "pena_serva#slot_plug": 3.19,
+       "kabel#stub": 2.135,
+       "kabel#lead_run": 13.865
+      },
+      "az0_el30": {
+       "pena_serva#slot_plug": 6.925,
+       "kabel#stub": 3.335,
+       "kabel#lead_run": 6.6
+      },
+      "az0_el45": {
+       "pena_serva#slot_plug": 9.672,
+       "kabel#stub": 4.272
+      },
+      "az-30_el0": {
+       "kabel#stub": 0.69,
+       "kabel#lead_run": 0.935
+      },
+      "az-30_el20": {
+       "pena_serva#slot_plug": 4.09,
+       "kabel#stub": 2.55,
+       "kabel#lead_run": 3.208
+      },
+      "az-15_el0": {
+       "kabel#stub": 0.777,
+       "kabel#lead_run": 4.107
+      },
+      "az-15_el20": {
+       "pena_serva#slot_plug": 4.295,
+       "kabel#stub": 2.54,
+       "kabel#lead_run": 7.03
+      },
+      "az15_el0": {
+       "kabel#stub": 0.775,
+       "kabel#lead_run": 4.08
+      },
+      "az15_el20": {
+       "pena_serva#slot_plug": 4.288,
+       "kabel#stub": 2.545,
+       "kabel#lead_run": 7.01
+      },
+      "az30_el0": {
+       "kabel#stub": 0.7,
+       "kabel#lead_run": 0.927
+      },
+      "az30_el20": {
+       "pena_serva#slot_plug": 4.1,
+       "kabel#stub": 2.545,
+       "kabel#lead_run": 3.208
+      },
+      "az-60_el0": {
+       "kabel#stub": 0.295
+      },
+      "az60_el0": {
+       "kabel#stub": 0.295
+      }
+     }
+    }
+   },
+   "worst_internal_area_mm2": {
+    "value": {
+     "whole_robot": 0.0,
+     "hinge_window": 0.005
+    },
+    "passed": false
+   },
+   "servo_lead_visible_area_mm2": {
+    "whole_robot_worst_view": 19.0,
+    "hinge_window_worst_view": 20.293,
+    "note": "allowed: servo lead (black sleeve) in the knuckle / head-floor gap and through the floor slot, and the black foam plug that closes the knuckle lead slot around it"
+   },
+   "display_note": "the display glass (displej#glass) is the face = exterior; LCD / PCB / header are behind it (displej#board)"
+  },
+  "S_stl": {
+   "dir": "/tmp/claude-0/gapwf/fin/B/stl",
+   "files": {
+    "CELOK_naklon40.stl": {
+     "triangles": 343580,
+     "open_edges": 1483,
+     "mtime": "20:31:19"
+    },
+    "CELOK_pokoj.stl": {
+     "triangles": 343580,
+     "open_edges": 1526,
+     "mtime": "20:31:19"
+    },
+    "CELOK_vysunute.stl": {
+     "triangles": 343580,
+     "open_edges": 1526,
+     "mtime": "20:31:19"
+    },
+    "capy.stl": {
+     "triangles": 2946,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "displej.stl": {
+     "triangles": 6308,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "drziak_displeja.stl": {
+     "triangles": 8216,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "golier_kotuc.stl": {
+     "triangles": 17544,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "golier_prstenec.stl": {
+     "triangles": 9072,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "hlava_skrupina.stl": {
+     "triangles": 81544,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "kabel.stl": {
+     "triangles": 27620,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "klzny_kruzok.stl": {
+     "triangles": 1008,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "krk_predna_polovica.stl": {
+     "triangles": 14952,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "krk_zadna_polovica.stl": {
+     "triangles": 13392,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "led_dosky.stl": {
+     "triangles": 1172,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "led_kruzky.stl": {
+     "triangles": 3032,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "loziska_MR85.stl": {
+     "triangles": 2016,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "magnety.stl": {
+     "triangles": 6000,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "oci_len_vizualizacia.stl": {
+     "triangles": 1048,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "paka.stl": {
+     "triangles": 2036,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "pena_displeja.stl": {
+     "triangles": 1056,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "pena_serva.stl": {
+     "triangles": 3128,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "ram_displeja.stl": {
+     "triangles": 57632,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "servo_MG90S.stl": {
+     "triangles": 2234,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "skrutky.stl": {
+     "triangles": 25132,
+     "open_edges": 504,
+     "mtime": "20:31:19"
+    },
+    "trup.stl": {
+     "triangles": 9598,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "usi.stl": {
+     "triangles": 22358,
+     "open_edges": 2,
+     "mtime": "20:31:19"
+    },
+    "usko_kryt.stl": {
+     "triangles": 12230,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    },
+    "usko_lozisko.stl": {
+     "triangles": 12306,
+     "open_edges": 0,
+     "mtime": "20:31:19"
+    }
+   },
+   "names": {
+    "value": {
+     "missing": [],
+     "stale": []
+    },
+    "passed": true
+   },
+   "per_part_closed": {
+    "value": {
+     "skrutky.stl": 504,
+     "usi.stl": 2
+    },
+    "passed": false
+   },
+   "note": "per-part STL = REST pose (neck + head 20 mm down); CELOK_* = concatenation of the closed part meshes (extended / tilt 40 / rest); weld tolerance 1e-4"
+  },
+  "R5_still_valid": {
+   "containment": {
+    "parts": {
+     "servo": {
+      "outside_mm3": 4.825,
+      "of_which_inside_the_0p3_hinge_seams": 4.825
+     },
+     "foam": {
+      "outside_mm3": 0.0,
+      "of_which_inside_the_0p3_hinge_seams": 0.0
+     },
+     "slot_plug": {
+      "outside_mm3": 0.0,
+      "of_which_inside_the_0p3_hinge_seams": 0.0
+     },
+     "pin": {
+      "outside_mm3": 3.746,
+      "of_which_inside_the_0p3_hinge_seams": 3.746
+     },
+     "brg_inner": {
+      "outside_mm3": 2.592,
+      "of_which_inside_the_0p3_hinge_seams": 2.592
+     },
+     "brg_outer": {
+      "outside_mm3": 3.202,
+      "of_which_inside_the_0p3_hinge_seams": 3.202
+     },
+     "dowels": {
+      "outside_mm3": 0.0,
+      "of_which_inside_the_0p3_hinge_seams": 0.0
+     },
+     "neck_screws": {
+      "outside_mm3": 0.0,
+      "of_which_inside_the_0p3_hinge_seams": 0.0
+     },
+     "horn": {
+      "outside_mm3": 6.117,
+      "of_which_inside_the_0p3_hinge_seams": 6.117
+     },
+     "horn_screw": {
+      "outside_mm3": 0.603,
+      "of_which_inside_the_0p3_hinge_seams": 0.603
+     },
+     "ptfe_ring": {
+      "outside_mm3": 0.0,
+      "of_which_inside_the_0p3_hinge_seams": 0.0
+     },
+     "cable_neck": {
+      "outside_mm3": 0.339,
+      "of_which_inside_the_0p3_hinge_seams": 0.339
+     },
+     "lcd": {
+      "outside_head_mm3": 0.0
+     },
+     "pcb": {
+      "outside_head_mm3": 0.0
+     },
+     "standoffs": {
+      "outside_head_mm3": 0.0
+     },
+     "header": {
+      "outside_head_mm3": 0.0
+     },
+     "usbc": {
+      "outside_head_mm3": 0.0
+     },
+     "small": {
+      "outside_head_mm3": 0.0
+     },
+     "glass": {
+      "outside_head_mm3": 0.0
+     },
+     "gasket": {
+      "outside_head_mm3": 0.0
+     },
+     "bars": {
+      "outside_head_mm3": 0.0
+     },
+     "carrier_screws": {
+      "outside_head_mm3": 0.0
+     },
+     "carrier_inserts": {
+      "outside_head_mm3": 0.0
+     },
+     "magnets_bezel": {
+      "outside_head_mm3": 0.0
+     },
+     "magnets_shell": {
+      "outside_head_mm3": 0.0
+     },
+     "led_boards": {
+      "outside_head_mm3": 0.0
+     },
+     "cross_screws": {
+      "outside_head_mm3": 0.0
+     },
+     "head_wires_in_head": {
+      "outside_head_mm3": 0.0
+     },
+     "servo_lead_run_in_head": {
+      "outside_head_mm3": 0.0
+     },
+     "servo_lead_run_below_the_head_floor_mm3": 777.945
+    },
+    "all_inside": {
+     "value": {},
+     "passed": true
+    },
+    "note": "neck-side parts vs the neck + lug envelopes (voids ignored); head-side parts vs the head exterior loft"
+   },
+   "servo_hold": {
+    "pocket_y_closed": 6.15,
+    "servo_vs_closed_halves_mm3": 0.0,
+    "servo_min_clear": 0.01,
+    "foam_y": {
+     "recess_depth": 0.3,
+     "free_t": 0.5,
+     "strip_area_mm2_per_side": 145.16,
+     "foam_vs_halves_mm3": 0.0,
+     "foam_vs_servo_mm3": 0.0,
+     "rule": "case width < 12.15 -> one layer of 0.1 Kapton under each strip"
+    },
+    "case_width_spread": {
+     "12.0": {
+      "hard_wall_overlap_mm3": 0.0,
+      "kapton_shim": 0.1,
+      "foam_gap": 0.35,
+      "foam_compression_pct": 30.0
+     },
+     "12.05": {
+      "hard_wall_overlap_mm3": 0.0,
+      "kapton_shim": 0.1,
+      "foam_gap": 0.325,
+      "foam_compression_pct": 35.0
+     },
+     "12.1": {
+      "hard_wall_overlap_mm3": 0.0,
+      "kapton_shim": 0.1,
+      "foam_gap": 0.3,
+      "foam_compression_pct": 40.0
+     },
+     "12.14": {
+      "hard_wall_overlap_mm3": 0.0,
+      "kapton_shim": 0.1,
+      "foam_gap": 0.28,
+      "foam_compression_pct": 44.0
+     },
+     "12.15": {
+      "hard_wall_overlap_mm3": 0.0,
+      "kapton_shim": 0.0,
+      "foam_gap": 0.375,
+      "foam_compression_pct": 25.0
+     },
+     "12.2": {
+      "hard_wall_overlap_mm3": 0.0,
+      "kapton_shim": 0.0,
+      "foam_gap": 0.35,
+      "foam_compression_pct": 30.0
+     },
+     "12.3": {
+      "hard_wall_overlap_mm3": 0.0,
+      "kapton_shim": 0.0,
+      "foam_gap": 0.3,
+      "foam_compression_pct": 40.0
+     }
+    },
+    "servo_overlap_after_rocking_deg": {
+     "0.05": 0.0,
+     "0.1": 0.0,
+     "0.15": 0.0959,
+     "0.2": 0.3963,
+     "0.25": 0.9797,
+     "0.3": 1.6821,
+     "0.4": 3.2912
+    },
+    "hard_stop_rock_deg": 0.15,
+    "z": {
+     "floor_gap_modelled": 0.01,
+     "roof_gap": 0.15,
+     "overlap_after_dz": {
+      "-0.02": 2.5296,
+      "0.0": 0.0,
+      "0.14": 0.0,
+      "0.16": 3.0509
+     }
+    },
+    "horn_rib_preload_overlap_mm3": 0.21
+   },
+   "neck_clamp": {
+    "screws_z_at_the_parting_plane": {
+     "M2x12 (-15.0, -10.5)": -10.5,
+     "M2x12 (5.0, -10.5)": -10.5,
+     "M2x12 (17.8, -2.5)": -2.5,
+     "M2x12 oblique x=-14.2": 2.917
+    },
+    "dowel_positions_xz": [
+     [
+      -5.0,
+      -13.0
+     ],
+     [
+      19.0,
+      3.0
+     ]
+    ],
+    "oblique_screw": {
+     "rise_deg": 28.0,
+     "face_mouth_z": [
+      -4.958,
+      -0.048
+     ],
+     "hidden_below_z": 3.0,
+     "length": 12.0
+    },
+    "head_inset_below_front_face": {
+     "x-15.0": 0.45,
+     "x5.0": 0.45,
+     "x17.8": 0.45,
+     "x-14.2": 0.347
+    },
+    "screws_vs_front_mm3": 0.0,
+    "screws_vs_back_mm3": 0.0,
+    "dowels": {
+     "front_hole_d": 2.02,
+     "back_hole_d": 2.0,
+     "vs_front_mm3": 0.0,
+     "vs_back_mm3": 0.0
+    },
+    "halves": {
+     "front_y": [
+      -10.0,
+      0.0
+     ],
+     "back_y": [
+      -0.0,
+      10.0
+     ],
+     "gap": 0.0,
+     "overlap_mm3": 0.0
+    },
+    "pin_vs_front_mm3": 0.0,
+    "pin_vs_back_mm3": 0.0,
+    "pin_seat_interference_mm3": 0.0
+   },
+   "pin_grip": {
+    "pin_od": 4.99,
+    "pin_x": [
+     13.4,
+     18.5
+    ],
+    "seat_d_closed": 5.1,
+    "coverage_by_x_0p2_slices": {
+     "13.2": 0.212,
+     "13.4": 0.847,
+     "13.6": 0.847,
+     "13.8": 0.847,
+     "14.0": 0.847,
+     "14.2": 0.847,
+     "14.4": 0.885,
+     "14.6": 1.0,
+     "14.8": 1.0,
+     "15.0": 1.0,
+     "15.2": 1.0,
+     "15.4": 1.0,
+     "15.6": 1.0,
+     "15.8": 1.0,
+     "16.0": 0.0,
+     "16.2": 0.0,
+     "16.4": 0.0,
+     "16.6": 0.0,
+     "16.8": 0.0,
+     "17.0": 0.0,
+     "17.2": 0.0,
+     "17.4": 0.0,
+     "17.6": 0.0,
+     "17.8": 0.0,
+     "18.0": 0.0,
+     "18.2": 0.0,
+     "18.4": 0.0
+    },
+    "grip_len_cov_ge_0p85": 1.6,
+    "grip_x": [
+     14.4,
+     16.0
+    ],
+    "L_over_D": 0.321,
+    "radial_glue_gap": 0.055,
+    "pin_lowered_into_front_half_minus_Y": {
+     "3.0": 0.0,
+     "1.0": 0.0,
+     "0.0": 0.0
+    },
+    "seat_len_cov_ge_0p80": 2.6,
+    "seat_L_over_D": 0.521,
+    "round5": {
+     "grip_len_cov_ge_0p85": 3.2,
+     "pin_x": [
+      12.8,
+      18.5
+     ]
+    },
+    "note": "E2 C1 made the pocket 0.75 longer -> pin 13.4..18.5, glued seat 13.4..16.0 = 2.6 (round 5: 3.2); coverage 0.847 over the first 1.0 (D-flat + the 2.5 wide wire neck), 0.885..1.0 over the last 1.6"
+   },
+   "collar_ring": {
+    "ring_z": [
+     -2.0,
+     4.0
+    ],
+    "ring_r": [
+     26.75,
+     28.25
+    ],
+    "torso_support_under_ring_fraction": 1.0,
+    "ring_vs_torso_mm3": 0.0,
+    "disc_vs_torso_mm3": 0.0,
+    "ring_to_disc_gap": 0.25,
+    "ring_to_torso_recess_radial": 0.1,
+    "disc_z": [
+     -2.0,
+     4.0
+    ],
+    "ring_top_flush_with_disc_top": true,
+    "torso_rim_round_R": 0.0
+   },
+   "lug_sleeve": {
+    "bore_d": 8.08,
+    "mr85_od": 8.0,
+    "radial_epoxy_gap": 0.04,
+    "wall": 1.5,
+    "radial_clear_to_counterbore": 0.36,
+    "bearing_vs_lug_mm3": 0.0
+   },
+   "neck_surface_openings": {
+    "openings": [
+     {
+      "void": "case_pocket",
+      "where": "knuckle end face (inside the 0.3 hinge seam, behind the lip ring)",
+      "x": [
+       -17.5,
+       -17.1
+      ],
+      "z": [
+       9.85,
+       23.15
+      ]
+     },
+     {
+      "void": "lead_slot",
+      "where": "knuckle top (servo-lead slot, under the head floor)",
+      "x": [
+       8.0,
+       12.5
+      ],
+      "z": [
+       25.795,
+       26.5
+      ]
+     },
+     {
+      "void": "head_chamber",
+      "where": "bottom",
+      "x": [
+       12.0,
+       14.55
+      ],
+      "z": [
+       -16.5,
+       -16.1
+      ]
+     },
+     {
+      "void": "counterbore",
+      "where": "knuckle end face (inside the 0.3 hinge seam, behind the lip ring)",
+      "x": [
+       17.1,
+       17.5
+      ],
+      "z": [
+       10.6,
+       22.4
+      ]
+     },
+     {
+      "void": "screw_cbore_0",
+      "where": "front",
+      "x": [
+       -17.1,
+       -12.9
+      ],
+      "z": [
+       -12.6,
+       -8.4
+      ]
+     },
+     {
+      "void": "screw_clear_0",
+      "where": "front",
+      "x": [
+       -16.2,
+       -13.8
+      ],
+      "z": [
+       -11.7,
+       -9.3
+      ]
+     },
+     {
+      "void": "screw_cbore_1",
+      "where": "front",
+      "x": [
+       2.9,
+       7.1
+      ],
+      "z": [
+       -12.6,
+       -8.4
+      ]
+     },
+     {
+      "void": "screw_clear_1",
+      "where": "front",
+      "x": [
+       3.8,
+       6.2
+      ],
+      "z": [
+       -11.7,
+       -9.3
+      ]
+     },
+     {
+      "void": "screw_cbore_2",
+      "where": "front",
+      "x": [
+       15.7,
+       19.9
+      ],
+      "z": [
+       -4.6,
+       -0.4
+      ]
+     },
+     {
+      "void": "screw_clear_2",
+      "where": "front",
+      "x": [
+       16.6,
+       19.0
+      ],
+      "z": [
+       -3.7,
+       -1.3
+      ]
+     },
+     {
+      "void": "screw_cbore_3",
+      "where": "front",
+      "x": [
+       -16.3,
+       -12.1
+      ],
+      "z": [
+       -4.778,
+       0.191
+      ]
+     }
+    ],
+    "front_back_openings_max_z_extended": 0.191,
+    "collar_top_z": 4.0,
+    "hidden_in_torso_when_extended": {
+     "value": 0.191,
+     "passed": true
+    }
+   }
+  }
+ }
+}

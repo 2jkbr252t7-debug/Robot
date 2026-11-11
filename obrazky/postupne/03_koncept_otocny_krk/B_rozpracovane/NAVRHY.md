@@ -1,6 +1,9 @@
 # NOVA mini – verzia B: ako model sedí so skutočnými dielmi a návrhy zmien (2026-11-10)
 
-Stav modelu: kolo 5 (`zdroj_B_kolo5.zip`). Nič z nižšie uvedeného ešte NIE JE zapracované – sú to návrhy na výber.
+Stav modelu: kolo 5 (`zdroj_B_kolo5.zip`).
+
+**ZAPRACOVANÉ v revízii E2 (2026-11-11):** A1–A4, B1–B3 (variant a – sklo displeja ako tvár, hlava 110 × 79),
+C1–C6, D3. Výsledok: `../stl/B_servo_v_krku/` (ZMENY_E2.md, montaz.txt, kontroly.json). D1–D2 (pohon zdvihu, firmvér) sú na rade s trupom.
 
 ## 1. Servo MG90S – porovnanie s obrázkom od používateľa
 Obrázok: `MG90S_porovnanie_s_modelom.png` (čierne = výkres používateľa, červené = servo v modeli, rovnaká mierka).
