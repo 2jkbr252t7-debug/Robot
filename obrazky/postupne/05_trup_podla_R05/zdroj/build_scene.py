@@ -19,6 +19,7 @@ ap.add_argument("--lift", type=float, default=12.5)
 ap.add_argument("--exposure", type=float, default=0.0)
 ap.add_argument("--blend", default="")
 ap.add_argument("--glb", default="")
+ap.add_argument("--stl-dir", dest="stl_dir", default="")
 A = ap.parse_args(argv)
 os.makedirs(A.out, exist_ok=True)
 TOP = S.TOP
@@ -189,9 +190,22 @@ def lathe_x(name, prof, y, z, key, col, sx=1, n=96):
     return ob
 
 
+DEC_TARGET = int(os.environ.get("NOVA_DEC", 0))      # > 0: weld + decimate imported STL parts to about this many triangles
+
+
 def imp(fn, key, col, mw=None):
     bpy.ops.wm.stl_import(filepath=fn)
     o = bpy.context.selected_objects[0]
+    o.name = "H_" + os.path.splitext(os.path.basename(fn))[0]
+    if DEC_TARGET:
+        bm = bmesh.new(); bm.from_mesh(o.data)
+        bmesh.ops.remove_doubles(bm, verts=bm.verts[:], dist=0.002)
+        bm.to_mesh(o.data); bm.free()
+        nt = len(o.data.polygons)
+        if nt > DEC_TARGET:
+            bpy.context.view_layer.objects.active = o
+            md = o.modifiers.new("dec", "DECIMATE"); md.ratio = DEC_TARGET / nt
+            bpy.ops.object.modifier_apply(modifier=md.name)
     for c in o.users_collection:
         c.objects.unlink(o)
     COL[col].objects.link(o)
@@ -311,7 +325,7 @@ for sx in (1, -1):
 
 # ------------------------------------------------------------------------------------------------ BASE (R01)
 be, bz = S.base_stations()
-rows_base = np.array([np.column_stack([S.base_section(e), np.full(480, Z_BASE_TOP - z)]) for e, z in zip(be, bz)])
+rows_base = np.array([np.column_stack([S.base_section(e), np.full(S.COUNT, Z_BASE_TOP - z)]) for e, z in zip(be, bz)])
 base = rows_solid("Z_podstavec", rows_base, "biela", "base", c_top=(0, 0, Z_BASE_TOP), c_bot=(0, 0, Z_BASE_TOP - S.BASE_H))
 BBAR = (36.0, 3.4, 15.5)
 yb = -S.BASE_D / 2
@@ -319,7 +333,7 @@ boolean(base, prism_y("cut_zsvetlo", pill_outline(BBAR[0], BBAR[1]), 0, Z_BASE_T
 bevel(base, 0.25, 2, 50); autosmooth(base)
 prism_y("Z_svetlo", pill_outline(BBAR[0] - 0.4, BBAR[1] - 0.4), 0, Z_BASE_TOP - BBAR[2], yb + 0.8, yb + 4.0, "svetlo", "base")
 foot_o = S.base_section(7.5)
-foot = rows_solid("Z_patka", np.array([np.column_stack([foot_o, np.full(480, z)]) for z in (Z_BASE_TOP - S.BASE_H + 1.0, Z_FLOOR)]),
+foot = rows_solid("Z_patka", np.array([np.column_stack([foot_o, np.full(S.COUNT, z)]) for z in (Z_BASE_TOP - S.BASE_H + 1.0, Z_FLOOR)]),
                   "cierna", "base", c_top=(0, 0, Z_BASE_TOP - S.BASE_H + 1.0), c_bot=(0, 0, Z_FLOOR))
 fix_normals(foot); autosmooth(foot)
 
@@ -404,5 +418,38 @@ for name in A.shots.split(","):
     bpy.ops.render.render(write_still=True)
     print("SHOT", name, flush=True)
 if A.blend:
-    bpy.ops.wm.save_as_mainfile(filepath=A.blend)
+    bpy.ops.wm.save_as_mainfile(filepath=os.path.abspath(A.blend), compress=True)
+if A.glb:
+    for k in ALL:
+        COL[k].hide_render = False
+    dg = bpy.context.evaluated_depsgraph_get()
+    baked = []
+    for cn in ALL:
+        for ob in list(COL[cn].objects):
+            if ob.type == "MESH" and not ob.hide_render:
+                baked.append((ob, bpy.data.meshes.new_from_object(ob.evaluated_get(dg), depsgraph=dg)))
+    for ob, me in baked:
+        ob.modifiers.clear(); ob.data = me
+    for cn in ("cutters", "stage"):
+        for ob in list(COL[cn].objects):
+            bpy.data.objects.remove(ob)
+    for ob in [o for o in bpy.data.objects if o.type in ("LIGHT", "CAMERA")]:
+        bpy.data.objects.remove(ob)
+    root = bpy.data.objects.new("NOVA", None); sc.collection.objects.link(root)
+    for ob, _ in baked:
+        mw = ob.matrix_world.copy(); ob.parent = root; ob.matrix_world = mw
+    root.location = (0, 0, -Z_FLOOR * 0.001); root.scale = (0.001, 0.001, 0.001)       # mm -> m, floor at z = 0
+    bpy.ops.object.select_all(action="SELECT")
+    bpy.ops.export_scene.gltf(filepath=A.glb, export_format="GLB", export_apply=False, export_animations=False,
+                              export_normals=True, export_materials="EXPORT", export_yup=True)
+    tris = sum(len(me.loop_triangles) or len(me.polygons) for _, me in baked)
+    print("GLB", os.path.getsize(A.glb), "objects", len(baked), flush=True)
+    if A.stl_dir:
+        os.makedirs(A.stl_dir, exist_ok=True)
+        root.scale = (1, 1, 1); root.location = (0, 0, 0)
+        for ob, _ in baked:
+            if ob.name.startswith("H_") or "tien" in ob.name:
+                continue
+            bpy.ops.object.select_all(action="DESELECT"); ob.select_set(True)
+            bpy.ops.wm.stl_export(filepath=os.path.join(A.stl_dir, ob.name + ".stl"), export_selected_objects=True)
 print("DONE z_floor", Z_FLOOR, "total height rest", 86 - Z_FLOOR)

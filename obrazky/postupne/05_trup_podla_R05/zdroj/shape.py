@@ -4,7 +4,11 @@ Torso frame: B frame of the finished neck (x right-left, y front(-)/back(+), z u
 The torso is a loft of horizontal superellipse sections |x/a|^n + |y/b|^n = 1 whose half-width a, half-depth b and
 exponent n follow profiles traced from R05 'SPREDU' (front) and 'PRAVY BOK' (side), adapted so that the top section
 hugs the finished collar ring (r 28.35) - R05's own collar is smaller (about 41 x 38 mm)."""
+import os
 import numpy as np
+
+COUNT = int(os.environ.get("NOVA_COUNT", 480))      # points per horizontal section
+DS = float(os.environ.get("NOVA_DS", 0.7))           # station spacing along the profile (mm)
 
 TOP = 4.0
 H_T = 85.0            # white torso height (R01: torso about 105 wide x 86 high for the 110 head)
@@ -83,9 +87,10 @@ def prof(s):
     return tuple(float(_SP[k](s)) for k in range(4))
 
 
-def stations(s0=0.0, s1=None, ds=0.7):
+def stations(s0=0.0, s1=None, ds=None):
     """profile parameters evenly spaced (ds mm) along the front-view profile arc"""
     s1 = S_END if s1 is None else s1
+    ds = DS if ds is None else ds
     ss = np.linspace(s0, s1, 3000)
     d, a, b = _SP[0](ss), _SP[1](ss), _SP[2](ss)
     L = np.concatenate([[0.0], np.cumsum(np.hypot(np.diff(d), np.diff(a)) + 0.3 * np.abs(np.diff(b)))])
@@ -99,8 +104,9 @@ def se_r(a, b, n, th):
     return ((c / a) ** n + (s / b) ** n) ** (-1.0 / n)
 
 
-def section(s, inset=0.0, count=480):
+def section(s, inset=0.0, count=None):
     """section points (count, 3) at profile parameter s, offset inward by `inset` along the profile normal"""
+    count = COUNT if count is None else count
     drop, a, b, n = prof(s)
     if inset:
         e = 1e-3
@@ -138,8 +144,10 @@ def arm_profile(u):
     return hw, ht
 
 
-def arm_points(nu=140, nth=200, inset=0.0):
+def arm_points(nu=None, nth=None, inset=0.0):
     """closed pebble: rows along the length; local frame: x thickness (outer +), y width, z from +0 (top) to -ARM_L"""
+    nu = nu or (140 if COUNT >= 400 else 80)
+    nth = nth or (200 if COUNT >= 400 else 110)
     us = 0.5 - 0.5 * np.cos(np.linspace(0, np.pi, nu))            # denser near both ends
     us = us[1:-1]
     hw, ht = arm_profile(us)
@@ -161,7 +169,8 @@ BASE_CP = np.array([(38.0, 0.0), (16.0, 0.0), (13.0, 0.0), (12.5, 0.2), (12.0, 0
                     (4.5, 27.0)])
 
 
-def base_stations(ds=0.7):
+def base_stations(ds=None):
+    ds = DS if ds is None else ds
     d = np.sqrt(np.hypot(np.diff(BASE_CP[:, 0]), np.diff(BASE_CP[:, 1])))
     S = np.concatenate([[0.0], np.cumsum(d)])
     se, sz = Spline(S, BASE_CP[:, 0]), Spline(S, BASE_CP[:, 1])
@@ -172,7 +181,8 @@ def base_stations(ds=0.7):
     return se(q), sz(q)
 
 
-def base_section(e, count=480):
+def base_section(e, count=None):
+    count = COUNT if count is None else count
     a, b = BASE_W / 2 - e, BASE_D / 2 - e
     th = np.linspace(0, 2 * np.pi, count, endpoint=False) - np.pi / 2
     n = max(2.0, BASE_N * min(1.0, (min(a, b) / (BASE_D / 2)) ** 0.5))
