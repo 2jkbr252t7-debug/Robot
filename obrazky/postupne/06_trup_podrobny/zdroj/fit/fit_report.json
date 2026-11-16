@@ -1,0 +1,2305 @@
+{
+ "after_vs_shell": [
+  {
+   "name": "stlp_L_pata",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 0.48,
+   "at": [
+    37.6,
+    11.0,
+    -81.4
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "stlp_P_pata",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 0.48,
+   "at": [
+    -37.6,
+    11.0,
+    -81.4
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "stlp_L",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 0.76,
+   "at": [
+    42.0,
+    15.0,
+    -78.0
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "stlp_P",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 0.76,
+   "at": [
+    -42.0,
+    15.0,
+    -78.0
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "stlp_L_doraz",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 0.8,
+   "at": [
+    39.1,
+    5.0,
+    -4.4
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "stlp_P_doraz",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 0.8,
+   "at": [
+    -39.1,
+    5.0,
+    -4.4
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "ram_koliska",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 0.99,
+   "at": [
+    -31.6,
+    -12.2,
+    -81.3
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "servo_J1",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 1.0,
+   "at": [
+    9.8,
+    -12.4,
+    -81.3
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "servo_zdvih",
+   "owner": "pan",
+   "group": "P",
+   "clearance": 1.51,
+   "at": [
+    -0.8,
+    33.4,
+    -18.3
+   ],
+   "pan": 30,
+   "lift": 0
+  },
+  {
+   "name": "ucho_koniec",
+   "owner": "pan",
+   "group": "L",
+   "clearance": 1.76,
+   "at": [
+    0.9,
+    32.0,
+    -13.4
+   ],
+   "pan": -40,
+   "lift": 20
+  },
+  {
+   "name": "kondenzator",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 2.1,
+   "at": [
+    46.0,
+    3.0,
+    -38.5
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "stlp_L_naboj",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 2.12,
+   "at": [
+    38.4,
+    5.0,
+    -5.6
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "stlp_P_naboj",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 2.12,
+   "at": [
+    -38.4,
+    5.0,
+    -5.6
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "sachta",
+   "owner": "pan",
+   "group": "P",
+   "clearance": 2.36,
+   "at": [
+    0.8,
+    28.1,
+    -3.0
+   ],
+   "pan": -65,
+   "lift": 0
+  },
+  {
+   "name": "ucho",
+   "owner": "pan",
+   "group": "L",
+   "clearance": 2.51,
+   "at": [
+    -0.1,
+    30.9,
+    -11.9
+   ],
+   "pan": -40,
+   "lift": 20
+  },
+  {
+   "name": "cap_otocny",
+   "owner": "pan",
+   "group": "P",
+   "clearance": 2.82,
+   "at": [
+    -0.0,
+    -28.2,
+    -4.5
+   ],
+   "pan": 30,
+   "lift": 0
+  },
+  {
+   "name": "menic",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 2.97,
+   "at": [
+    -45.4,
+    11.9,
+    -52.2
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "kluka_obalka",
+   "owner": "pan",
+   "group": "P",
+   "clearance": 3.03,
+   "at": [
+    0.5,
+    30.4,
+    -12.2
+   ],
+   "pan": -35,
+   "lift": 0
+  },
+  {
+   "name": "vrch_stola",
+   "owner": "pan",
+   "group": "P",
+   "clearance": 3.36,
+   "at": [
+    0.0,
+    26.5,
+    -2.0
+   ],
+   "pan": -25,
+   "lift": 0
+  },
+  {
+   "name": "servo_zdvih_kabel",
+   "owner": "pan",
+   "group": "P",
+   "clearance": 3.5,
+   "at": [
+    0.9,
+    30.2,
+    -13.3
+   ],
+   "pan": 30,
+   "lift": 0
+  },
+  {
+   "name": "kluka_naboj",
+   "owner": "pan",
+   "group": "P",
+   "clearance": 4.15,
+   "at": [
+    1.4,
+    31.6,
+    -23.3
+   ],
+   "pan": -35,
+   "lift": 0
+  },
+  {
+   "name": "servo_zdvih_veza",
+   "owner": "pan",
+   "group": "P",
+   "clearance": 4.17,
+   "at": [
+    0.9,
+    31.6,
+    -23.2
+   ],
+   "pan": -25,
+   "lift": 0
+  },
+  {
+   "name": "servo_zdvih_ucho",
+   "owner": "pan",
+   "group": "P",
+   "clearance": 4.31,
+   "at": [
+    0.1,
+    29.4,
+    -13.4
+   ],
+   "pan": -5,
+   "lift": 0
+  },
+  {
+   "name": "DPS_riadenie",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 4.48,
+   "at": [
+    -24.0,
+    22.5,
+    -77.0
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "fpc_zdvih",
+   "owner": "pan",
+   "group": "P",
+   "clearance": 5.4,
+   "at": [
+    1.5,
+    -28.4,
+    -15.5
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "name": "servo_pan",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 5.43,
+   "at": [
+    11.8,
+    -27.0,
+    -74.2
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "drziak_serva_dno",
+   "owner": "pan",
+   "group": "P",
+   "clearance": 6.18,
+   "at": [
+    0.8,
+    30.7,
+    -41.1
+   ],
+   "pan": 30,
+   "lift": 0
+  },
+  {
+   "name": "pata_jazyk",
+   "owner": "pan",
+   "group": "L",
+   "clearance": 6.93,
+   "at": [
+    -1.1,
+    -27.2,
+    -18.0
+   ],
+   "pan": -85,
+   "lift": 20
+  },
+  {
+   "name": "servo_zdvih_lalok",
+   "owner": "pan",
+   "group": "P",
+   "clearance": 6.99,
+   "at": [
+    -0.3,
+    28.9,
+    -29.8
+   ],
+   "pan": -25,
+   "lift": 0
+  },
+  {
+   "name": "servo_pan_plug",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 7.41,
+   "at": [
+    18.8,
+    -24.8,
+    -72.7
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "zosilnovac",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 7.52,
+   "at": [
+    39.6,
+    11.9,
+    -71.5
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "pastorok_pan",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 7.95,
+   "at": [
+    -6.4,
+    -28.8,
+    -42.3
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "drziak_serva",
+   "owner": "pan",
+   "group": "P",
+   "clearance": 8.34,
+   "at": [
+    0.4,
+    24.5,
+    -13.0
+   ],
+   "pan": 45,
+   "lift": 0
+  },
+  {
+   "name": "sachta_dno_zad",
+   "owner": "pan",
+   "group": "P",
+   "clearance": 8.55,
+   "at": [
+    -0.8,
+    28.1,
+    -41.3
+   ],
+   "pan": 65,
+   "lift": 0
+  },
+  {
+   "name": "servo_pan_tabs",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 8.99,
+   "at": [
+    -16.2,
+    -27.0,
+    -58.0
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "pata",
+   "owner": "pan",
+   "group": "L",
+   "clearance": 9.22,
+   "at": [
+    -0.5,
+    24.4,
+    -16.5
+   ],
+   "pan": -65,
+   "lift": 20
+  },
+  {
+   "name": "servo_pan_boss",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 9.78,
+   "at": [
+    -5.3,
+    -27.0,
+    -47.7
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "ucho_priruba_nizka",
+   "owner": "pan",
+   "group": "L",
+   "clearance": 10.21,
+   "at": [
+    0.8,
+    23.4,
+    -17.4
+   ],
+   "pan": -60,
+   "lift": 20
+  },
+  {
+   "name": "kanal_fpc_pan",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 11.29,
+   "at": [
+    0.3,
+    25.1,
+    -42.9
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "paluba_zad",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 11.39,
+   "at": [
+    0.3,
+    25.1,
+    -46.0
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "pastorok_pan_naboj",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 11.75,
+   "at": [
+    -5.6,
+    -24.8,
+    -45.5
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "paluba",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 12.02,
+   "at": [
+    -31.6,
+    15.3,
+    -46.0
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "fpc_pan",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 12.73,
+   "at": [
+    -0.3,
+    23.5,
+    -42.9
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "ucho_priruba",
+   "owner": "pan",
+   "group": "L",
+   "clearance": 14.66,
+   "at": [
+    -0.8,
+    18.3,
+    -16.5
+   ],
+   "pan": -45,
+   "lift": 20
+  },
+  {
+   "name": "servo_J1_plug",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 19.19,
+   "at": [
+    27.0,
+    -8.0,
+    -48.3
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "koleso_pan",
+   "owner": "pan",
+   "group": "P",
+   "clearance": 19.72,
+   "at": [
+    0.0,
+    15.7,
+    -42.2
+   ],
+   "pan": -35,
+   "lift": 0
+  },
+  {
+   "name": "sachta_naboj",
+   "owner": "pan",
+   "group": "P",
+   "clearance": 22.46,
+   "at": [
+    0.0,
+    -12.6,
+    -41.0
+   ],
+   "pan": 65,
+   "lift": 0
+  },
+  {
+   "name": "ptfe",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 23.17,
+   "at": [
+    -0.3,
+    12.0,
+    -45.7
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "name": "cap_pan",
+   "owner": "ram",
+   "group": "T",
+   "clearance": 31.11,
+   "at": [
+    0.0,
+    3.0,
+    -41.2
+   ],
+   "pan": 0,
+   "lift": 0
+  }
+ ],
+ "after_moving_vs_static": [
+  {
+   "moving": "sachta",
+   "static": "pastorok_pan",
+   "gap": 1.0,
+   "at": [
+    -10.4,
+    -26.1,
+    -41.3
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "sachta_dno_zad",
+   "static": "kanal_fpc_pan",
+   "gap": 1.0,
+   "at": [
+    4.1,
+    -23.9,
+    -41.9
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "sachta_dno_zad",
+   "static": "fpc_pan",
+   "gap": 1.0,
+   "at": [
+    3.4,
+    -16.1,
+    -41.9
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "drziak_serva",
+   "static": "kanal_fpc_pan",
+   "gap": 1.0,
+   "at": [
+    17.7,
+    -16.1,
+    -41.9
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "drziak_serva",
+   "static": "fpc_pan",
+   "gap": 1.0,
+   "at": [
+    14.8,
+    6.6,
+    -41.9
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "drziak_serva_dno",
+   "static": "kanal_fpc_pan",
+   "gap": 1.0,
+   "at": [
+    22.8,
+    8.5,
+    -41.9
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "drziak_serva_dno",
+   "static": "fpc_pan",
+   "gap": 1.0,
+   "at": [
+    16.5,
+    8.0,
+    -41.9
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "sachta_naboj",
+   "static": "pastorok_pan",
+   "gap": 1.01,
+   "at": [
+    -3.4,
+    -12.1,
+    -42.2
+   ],
+   "pan": -10,
+   "lift": 0
+  },
+  {
+   "moving": "servo_zdvih",
+   "static": "stlp_L",
+   "gap": 1.03,
+   "at": [
+    33.4,
+    0.8,
+    -41.1
+   ],
+   "pan": -60,
+   "lift": 0
+  },
+  {
+   "moving": "servo_zdvih",
+   "static": "stlp_L_naboj",
+   "gap": 1.03,
+   "at": [
+    33.4,
+    0.8,
+    -28.2
+   ],
+   "pan": -60,
+   "lift": 0
+  },
+  {
+   "moving": "ucho",
+   "static": "rura_goliera",
+   "gap": 1.4,
+   "at": [
+    19.0,
+    21.6,
+    -11.9
+   ],
+   "pan": -85,
+   "lift": 20
+  },
+  {
+   "moving": "fpc_zdvih",
+   "static": "led_box",
+   "gap": 1.44,
+   "at": [
+    1.0,
+    -28.7,
+    -35.5
+   ],
+   "pan": -80,
+   "lift": 0
+  },
+  {
+   "moving": "kluka_obalka",
+   "static": "rura_goliera",
+   "gap": 1.5,
+   "at": [
+    21.6,
+    19.0,
+    -12.0
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "sachta",
+   "static": "kanal_fpc_pan",
+   "gap": 1.6,
+   "at": [
+    -2.2,
+    25.0,
+    -41.3
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "sachta",
+   "static": "fpc_pan",
+   "gap": 1.6,
+   "at": [
+    -14.2,
+    18.0,
+    -41.3
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "sachta_dno_zad",
+   "static": "pastorok_pan",
+   "gap": 1.69,
+   "at": [
+    3.8,
+    -20.0,
+    -41.9
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "servo_zdvih",
+   "static": "kanal_fpc_pan",
+   "gap": 1.8,
+   "at": [
+    22.1,
+    8.5,
+    -41.1
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "servo_zdvih",
+   "static": "fpc_pan",
+   "gap": 1.8,
+   "at": [
+    16.5,
+    8.0,
+    -41.1
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "fpc_zdvih",
+   "static": "pastorok_pan",
+   "gap": 1.8,
+   "at": [
+    -1.8,
+    -25.6,
+    -40.5
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "pata",
+   "static": "pastorok_pan",
+   "gap": 1.8,
+   "at": [
+    -7.8,
+    -23.1,
+    -40.5
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "pata_jazyk",
+   "static": "pastorok_pan",
+   "gap": 1.8,
+   "at": [
+    -1.5,
+    -22.5,
+    -40.5
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "ucho_priruba_nizka",
+   "static": "pastorok_pan",
+   "gap": 1.8,
+   "at": [
+    -11.9,
+    -18.9,
+    -40.5
+   ],
+   "pan": 85,
+   "lift": 0
+  },
+  {
+   "moving": "ucho",
+   "static": "pastorok_pan",
+   "gap": 1.87,
+   "at": [
+    -14.1,
+    -18.7,
+    -40.5
+   ],
+   "pan": 85,
+   "lift": 0
+  },
+  {
+   "moving": "koleso_pan",
+   "static": "pastorok_pan_naboj",
+   "gap": 1.9,
+   "at": [
+    -4.3,
+    -15.1,
+    -45.7
+   ],
+   "pan": -80,
+   "lift": 0
+  },
+  {
+   "moving": "koleso_pan",
+   "static": "servo_pan_boss",
+   "gap": 2.0,
+   "at": [
+    -5.6,
+    -14.7,
+    -45.7
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "sachta",
+   "static": "led_box",
+   "gap": 2.03,
+   "at": [
+    -0.8,
+    -28.1,
+    -35.4
+   ],
+   "pan": -65,
+   "lift": 0
+  },
+  {
+   "moving": "koleso_pan",
+   "static": "ram_koliska",
+   "gap": 2.1,
+   "at": [
+    7.1,
+    -14.0,
+    -45.7
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "ucho_koniec",
+   "static": "stlp_P",
+   "gap": 2.38,
+   "at": [
+    -32.0,
+    0.9,
+    -40.5
+   ],
+   "pan": 50,
+   "lift": 0
+  },
+  {
+   "moving": "ucho_koniec",
+   "static": "stlp_P_naboj",
+   "gap": 2.38,
+   "at": [
+    -32.0,
+    0.9,
+    -28.4
+   ],
+   "pan": 50,
+   "lift": 5
+  },
+  {
+   "moving": "pata",
+   "static": "kanal_fpc_pan",
+   "gap": 2.4,
+   "at": [
+    -11.7,
+    21.4,
+    -40.5
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "pata",
+   "static": "fpc_pan",
+   "gap": 2.4,
+   "at": [
+    -8.8,
+    21.6,
+    -40.5
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "pata_jazyk",
+   "static": "kanal_fpc_pan",
+   "gap": 2.4,
+   "at": [
+    -1.5,
+    -23.5,
+    -40.5
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "pata_jazyk",
+   "static": "fpc_pan",
+   "gap": 2.4,
+   "at": [
+    -1.5,
+    -22.5,
+    -40.5
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "ucho",
+   "static": "kanal_fpc_pan",
+   "gap": 2.4,
+   "at": [
+    11.5,
+    21.0,
+    -40.5
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "ucho",
+   "static": "fpc_pan",
+   "gap": 2.4,
+   "at": [
+    10.6,
+    20.9,
+    -40.5
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "ucho_priruba",
+   "static": "fpc_pan",
+   "gap": 2.4,
+   "at": [
+    9.0,
+    14.3,
+    -40.5
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "ucho_priruba_nizka",
+   "static": "kanal_fpc_pan",
+   "gap": 2.4,
+   "at": [
+    10.6,
+    20.9,
+    -40.5
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "ucho_priruba_nizka",
+   "static": "fpc_pan",
+   "gap": 2.4,
+   "at": [
+    8.4,
+    20.7,
+    -40.5
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "fpc_zdvih",
+   "static": "kanal_fpc_pan",
+   "gap": 2.41,
+   "at": [
+    2.2,
+    -25.2,
+    -40.5
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "koleso_pan",
+   "static": "servo_J1",
+   "gap": 2.6,
+   "at": [
+    10.5,
+    -11.7,
+    -45.7
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "koleso_pan",
+   "static": "servo_J1_plug",
+   "gap": 2.6,
+   "at": [
+    15.7,
+    0.0,
+    -45.7
+   ],
+   "pan": 0,
+   "lift": 0
+  },
+  {
+   "moving": "ucho_priruba",
+   "static": "pastorok_pan",
+   "gap": 2.61,
+   "at": [
+    -11.3,
+    -12.6,
+    -40.5
+   ],
+   "pan": 85,
+   "lift": 0
+  },
+  {
+   "moving": "kluka_naboj",
+   "static": "stlp_P_naboj",
+   "gap": 2.69,
+   "at": [
+    -31.7,
+    -1.3,
+    -24.2
+   ],
+   "pan": 60,
+   "lift": 0
+  },
+  {
+   "moving": "servo_zdvih_veza",
+   "static": "stlp_P_naboj",
+   "gap": 2.74,
+   "at": [
+    -31.7,
+    1.0,
+    -24.2
+   ],
+   "pan": 65,
+   "lift": 0
+  },
+  {
+   "moving": "servo_zdvih_kabel",
+   "static": "rura_goliera",
+   "gap": 2.8,
+   "at": [
+    25.0,
+    -13.8,
+    -13.3
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "servo_zdvih",
+   "static": "kondenzator",
+   "gap": 2.85,
+   "at": [
+    33.2,
+    3.7,
+    -41.1
+   ],
+   "pan": -55,
+   "lift": 0
+  },
+  {
+   "moving": "pata_jazyk",
+   "static": "led_box",
+   "gap": 2.9,
+   "at": [
+    -1.1,
+    -27.2,
+    -35.5
+   ],
+   "pan": -85,
+   "lift": 2.5
+  },
+  {
+   "moving": "ucho_koniec",
+   "static": "rura_goliera",
+   "gap": 2.9,
+   "at": [
+    22.0,
+    19.4,
+    -13.4
+   ],
+   "pan": -85,
+   "lift": 20
+  },
+  {
+   "moving": "fpc_zdvih",
+   "static": "reproduktor",
+   "gap": 2.94,
+   "at": [
+    1.0,
+    -28.7,
+    -40.5
+   ],
+   "pan": -80,
+   "lift": 0
+  },
+  {
+   "moving": "servo_zdvih_ucho",
+   "static": "rura_goliera",
+   "gap": 2.95,
+   "at": [
+    28.0,
+    5.0,
+    -13.4
+   ],
+   "pan": -85,
+   "lift": 0
+  },
+  {
+   "moving": "fpc_zdvih",
+   "static": "fpc_pan",
+   "gap": 3.0,
+   "at": [
+    19.4,
+    -16.3,
+    -40.5
+   ],
+   "pan": -40,
+   "lift": 0
+  }
+ ],
+ "tower_vs_lip": [
+  {
+   "name": "pastorok_pan",
+   "lip_gap": -1.58,
+   "at": [
+    -6.4,
+    -28.8,
+    -45.5
+   ]
+  },
+  {
+   "name": "servo_pan_tabs",
+   "lip_gap": -0.67,
+   "at": [
+    16.2,
+    -27.0,
+    -58.0
+   ]
+  },
+  {
+   "name": "servo_pan",
+   "lip_gap": -0.11,
+   "at": [
+    -11.8,
+    -27.0,
+    -74.2
+   ]
+  },
+  {
+   "name": "servo_pan_boss",
+   "lip_gap": 0.26,
+   "at": [
+    -6.4,
+    -27.0,
+    -51.2
+   ]
+  },
+  {
+   "name": "servo_pan_plug",
+   "lip_gap": 1.31,
+   "at": [
+    18.8,
+    -24.8,
+    -72.7
+   ]
+  },
+  {
+   "name": "paluba_zad",
+   "lip_gap": 2.2,
+   "at": [
+    0.3,
+    25.1,
+    -47.8
+   ]
+  },
+  {
+   "name": "kanal_fpc_pan",
+   "lip_gap": 2.2,
+   "at": [
+    0.3,
+    25.1,
+    -46.0
+   ]
+  },
+  {
+   "name": "DPS_riadenie",
+   "lip_gap": 2.35,
+   "at": [
+    24.0,
+    22.5,
+    -77.0
+   ]
+  },
+  {
+   "name": "pastorok_pan_naboj",
+   "lip_gap": 2.51,
+   "at": [
+    -5.6,
+    -24.8,
+    -47.7
+   ]
+  },
+  {
+   "name": "fpc_pan",
+   "lip_gap": 3.8,
+   "at": [
+    -0.3,
+    23.5,
+    -45.9
+   ]
+  },
+  {
+   "name": "paluba",
+   "lip_gap": 5.01,
+   "at": [
+    -31.6,
+    15.3,
+    -47.8
+   ]
+  },
+  {
+   "name": "ram_koliska",
+   "lip_gap": 5.83,
+   "at": [
+    -31.6,
+    14.2,
+    -80.3
+   ]
+  },
+  {
+   "name": "servo_J1",
+   "lip_gap": 8.71,
+   "at": [
+    -29.5,
+    12.4,
+    -80.3
+   ]
+  },
+  {
+   "name": "servo_J1_plug",
+   "lip_gap": 13.22,
+   "at": [
+    27.0,
+    -8.0,
+    -66.3
+   ]
+  },
+  {
+   "name": "ptfe",
+   "lip_gap": 15.31,
+   "at": [
+    -0.3,
+    12.0,
+    -46.0
+   ]
+  },
+  {
+   "name": "cap_pan",
+   "lip_gap": 24.3,
+   "at": [
+    -0.0,
+    -3.0,
+    -47.7
+   ]
+  }
+ ],
+ "tower_in_boss_prisms": [],
+ "tower_vs_tub": [
+  {
+   "name": "stlp_L_pata",
+   "tub_gap": 0.28,
+   "at": [
+    37.6,
+    11.0,
+    -82.3
+   ]
+  },
+  {
+   "name": "stlp_P_pata",
+   "tub_gap": 0.28,
+   "at": [
+    -37.6,
+    11.0,
+    -82.3
+   ]
+  },
+  {
+   "name": "ram_koliska",
+   "tub_gap": 3.77,
+   "at": [
+    -31.6,
+    -14.2,
+    -82.3
+   ]
+  },
+  {
+   "name": "servo_J1",
+   "tub_gap": 6.67,
+   "at": [
+    -29.5,
+    -12.4,
+    -82.3
+   ]
+  }
+ ],
+ "pan_env_margin": [
+  {
+   "name": "sachta",
+   "margin_to_PAN_ENV": 0.11,
+   "r_max": 28.09
+  },
+  {
+   "name": "sachta_naboj",
+   "margin_to_PAN_ENV": 3.3,
+   "r_max": 12.6
+  },
+  {
+   "name": "sachta_dno_zad",
+   "margin_to_PAN_ENV": 5.91,
+   "r_max": 28.09
+  },
+  {
+   "name": "cap_otocny",
+   "margin_to_PAN_ENV": -0.0,
+   "r_max": 28.2
+  },
+  {
+   "name": "vrch_stola",
+   "margin_to_PAN_ENV": -0.0,
+   "r_max": 26.5
+  },
+  {
+   "name": "golier_kotuc",
+   "margin_to_PAN_ENV": -0.0,
+   "r_max": 26.5
+  },
+  {
+   "name": "koleso_pan",
+   "margin_to_PAN_ENV": 0.2,
+   "r_max": 15.7
+  },
+  {
+   "name": "servo_zdvih",
+   "margin_to_PAN_ENV": 0.12,
+   "r_max": 33.38
+  },
+  {
+   "name": "servo_zdvih_veza",
+   "margin_to_PAN_ENV": 2.33,
+   "r_max": 31.67
+  },
+  {
+   "name": "servo_zdvih_lalok",
+   "margin_to_PAN_ENV": 5.06,
+   "r_max": 28.94
+  },
+  {
+   "name": "servo_zdvih_ucho",
+   "margin_to_PAN_ENV": 2.79,
+   "r_max": 29.41
+  },
+  {
+   "name": "servo_zdvih_kabel",
+   "margin_to_PAN_ENV": 1.98,
+   "r_max": 30.22
+  },
+  {
+   "name": "kluka_naboj",
+   "margin_to_PAN_ENV": 2.26,
+   "r_max": 31.74
+  },
+  {
+   "name": "kluka_obalka",
+   "margin_to_PAN_ENV": 1.69,
+   "r_max": 30.51
+  },
+  {
+   "name": "drziak_serva",
+   "margin_to_PAN_ENV": 7.66,
+   "r_max": 24.54
+  },
+  {
+   "name": "drziak_serva_dno",
+   "margin_to_PAN_ENV": 3.3,
+   "r_max": 30.7
+  },
+  {
+   "name": "fpc_zdvih",
+   "margin_to_PAN_ENV": 3.52,
+   "r_max": 28.68
+  },
+  {
+   "name": "pata",
+   "margin_to_PAN_ENV": 7.84,
+   "r_max": 24.36
+  },
+  {
+   "name": "pata_jazyk",
+   "margin_to_PAN_ENV": 6.27,
+   "r_max": 27.23
+  },
+  {
+   "name": "ucho",
+   "margin_to_PAN_ENV": 1.33,
+   "r_max": 30.87
+  },
+  {
+   "name": "ucho_koniec",
+   "margin_to_PAN_ENV": 0.17,
+   "r_max": 32.03
+  },
+  {
+   "name": "ucho_priruba",
+   "margin_to_PAN_ENV": 13.87,
+   "r_max": 18.33
+  },
+  {
+   "name": "ucho_priruba_nizka",
+   "margin_to_PAN_ENV": 8.75,
+   "r_max": 23.45
+  },
+  {
+   "name": "krk",
+   "margin_to_PAN_ENV": 1.88,
+   "r_max": 24.62
+  }
+ ],
+ "stage_through_bore": [
+  {
+   "name": "sachta",
+   "r_max": 28.09
+  },
+  {
+   "name": "sachta_naboj",
+   "r_max": 12.6
+  },
+  {
+   "name": "sachta_dno_zad",
+   "r_max": 28.09
+  },
+  {
+   "name": "cap_otocny",
+   "r_max": 28.2
+  },
+  {
+   "name": "vrch_stola",
+   "r_max": 26.5
+  },
+  {
+   "name": "koleso_pan",
+   "r_max": 15.7
+  }
+ ],
+ "pan_env_vs_shell": [
+  [
+   -45.7,
+   15.9,
+   21.84
+  ],
+  [
+   -44.94,
+   15.9,
+   21.82
+  ],
+  [
+   -44.18,
+   15.9,
+   21.79
+  ],
+  [
+   -43.42,
+   15.9,
+   21.76
+  ],
+  [
+   -42.66,
+   15.9,
+   21.73
+  ],
+  [
+   -41.9,
+   15.9,
+   21.69
+  ],
+  [
+   -41.9,
+   34.0,
+   3.59
+  ],
+  [
+   -37.92,
+   34.0,
+   3.38
+  ],
+  [
+   -33.94,
+   34.0,
+   3.09
+  ],
+  [
+   -29.96,
+   34.0,
+   2.71
+  ],
+  [
+   -25.98,
+   34.0,
+   2.22
+  ],
+  [
+   -22.0,
+   34.0,
+   1.6
+  ],
+  [
+   -22.0,
+   33.5,
+   2.1
+  ],
+  [
+   -21.2,
+   33.5,
+   1.96
+  ],
+  [
+   -20.4,
+   33.5,
+   1.82
+  ],
+  [
+   -19.6,
+   33.5,
+   1.67
+  ],
+  [
+   -18.8,
+   33.5,
+   1.52
+  ],
+  [
+   -18.0,
+   33.5,
+   1.36
+  ],
+  [
+   -18.0,
+   32.2,
+   2.66
+  ],
+  [
+   -16.7,
+   32.2,
+   2.39
+  ],
+  [
+   -15.4,
+   32.2,
+   2.1
+  ],
+  [
+   -14.1,
+   32.2,
+   1.8
+  ],
+  [
+   -12.8,
+   32.2,
+   1.49
+  ],
+  [
+   -11.5,
+   32.2,
+   1.16
+  ],
+  [
+   -11.5,
+   28.3,
+   5.06
+  ],
+  [
+   -11.3,
+   28.3,
+   5.01
+  ],
+  [
+   -11.1,
+   28.3,
+   4.95
+  ],
+  [
+   -10.9,
+   28.3,
+   4.9
+  ],
+  [
+   -10.7,
+   28.3,
+   4.85
+  ],
+  [
+   -10.5,
+   28.3,
+   4.79
+  ],
+  [
+   -10.5,
+   28.2,
+   4.89
+  ],
+  [
+   -9.3,
+   28.2,
+   4.55
+  ],
+  [
+   -8.1,
+   28.2,
+   4.19
+  ],
+  [
+   -6.9,
+   28.2,
+   3.82
+  ],
+  [
+   -5.7,
+   28.2,
+   3.43
+  ],
+  [
+   -4.5,
+   28.2,
+   3.01
+  ],
+  [
+   -4.5,
+   28.2,
+   3.01
+  ],
+  [
+   -4.2,
+   28.2,
+   2.9
+  ],
+  [
+   -3.9,
+   28.2,
+   2.79
+  ],
+  [
+   -3.6,
+   28.2,
+   2.67
+  ],
+  [
+   -3.3,
+   28.2,
+   2.56
+  ],
+  [
+   -3.0,
+   28.2,
+   2.44
+  ],
+  [
+   -3.0,
+   26.5,
+   4.14
+  ],
+  [
+   -1.6,
+   26.5,
+   3.53
+  ],
+  [
+   -0.2,
+   26.5,
+   2.86
+  ],
+  [
+   1.2,
+   26.5,
+   2.13
+  ]
+ ],
+ "lift_vs_stage": [
+  {
+   "lift_part": "pata_jazyk",
+   "pan_part": "fpc_zdvih",
+   "gap": 0.0
+  },
+  {
+   "lift_part": "ucho",
+   "pan_part": "kluka_naboj",
+   "gap": 0.4
+  },
+  {
+   "lift_part": "ucho",
+   "pan_part": "kluka_obalka",
+   "gap": 0.4
+  },
+  {
+   "lift_part": "ucho_koniec",
+   "pan_part": "kluka_naboj",
+   "gap": 0.4
+  },
+  {
+   "lift_part": "ucho_koniec",
+   "pan_part": "kluka_obalka",
+   "gap": 0.4
+  },
+  {
+   "lift_part": "pata",
+   "pan_part": "sachta_naboj",
+   "gap": 0.5
+  },
+  {
+   "lift_part": "ucho_priruba",
+   "pan_part": "sachta_naboj",
+   "gap": 0.5
+  },
+  {
+   "lift_part": "pata",
+   "pan_part": "sachta_dno_zad",
+   "gap": 0.8
+  },
+  {
+   "lift_part": "pata_jazyk",
+   "pan_part": "sachta_dno_zad",
+   "gap": 0.8
+  },
+  {
+   "lift_part": "ucho_priruba",
+   "pan_part": "sachta_dno_zad",
+   "gap": 0.8
+  },
+  {
+   "lift_part": "krk",
+   "pan_part": "kluka_obalka",
+   "gap": 1.01
+  },
+  {
+   "lift_part": "ucho_priruba",
+   "pan_part": "kluka_obalka",
+   "gap": 1.03
+  },
+  {
+   "lift_part": "ucho_priruba_nizka",
+   "pan_part": "kluka_obalka",
+   "gap": 1.1
+  },
+  {
+   "lift_part": "pata",
+   "pan_part": "kluka_obalka",
+   "gap": 1.9
+  },
+  {
+   "lift_part": "ucho_priruba",
+   "pan_part": "drziak_serva",
+   "gap": 2.21
+  },
+  {
+   "lift_part": "krk",
+   "pan_part": "drziak_serva",
+   "gap": 2.6
+  },
+  {
+   "lift_part": "pata",
+   "pan_part": "drziak_serva",
+   "gap": 2.8
+  },
+  {
+   "lift_part": "krk",
+   "pan_part": "fpc_zdvih",
+   "gap": 2.8
+  }
+ ],
+ "time_s": 60.6,
+ "before_pack_vs_new_shell": [
+  {
+   "name": "T_svetlo",
+   "group": "T",
+   "clearance": -3.37,
+   "at": [
+    -18.0,
+    -37.8,
+    -25.0
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 41.9
+  },
+  {
+   "name": "L_noha",
+   "group": "L",
+   "clearance": -2.32,
+   "at": [
+    -0.1,
+    35.8,
+    -11.9
+   ],
+   "pan": -30,
+   "lift": 20,
+   "r_max": 35.8
+  },
+  {
+   "name": "T_kabel_ramena_L",
+   "group": "T",
+   "clearance": -2.28,
+   "at": [
+    43.2,
+    5.0,
+    -4.9
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 45.6
+  },
+  {
+   "name": "T_kabel_ramena_R",
+   "group": "T",
+   "clearance": -2.28,
+   "at": [
+    -43.2,
+    5.0,
+    -4.9
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 45.6
+  },
+  {
+   "name": "T_horny_kruh",
+   "group": "T",
+   "clearance": -0.62,
+   "at": [
+    0.3,
+    31.5,
+    -3.5
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 31.5
+  },
+  {
+   "name": "T_paka_L",
+   "group": "T",
+   "clearance": 0.01,
+   "at": [
+    43.0,
+    4.0,
+    -10.3
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 43.9
+  },
+  {
+   "name": "T_paka_R",
+   "group": "T",
+   "clearance": 0.01,
+   "at": [
+    -43.0,
+    4.0,
+    -10.3
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 43.9
+  },
+  {
+   "name": "P_kluka",
+   "group": "P",
+   "clearance": 0.17,
+   "at": [
+    -0.5,
+    35.4,
+    -21.9
+   ],
+   "pan": -25,
+   "lift": 0,
+   "r_max": 35.6
+  },
+  {
+   "name": "T_reproduktor",
+   "group": "T",
+   "clearance": 0.2,
+   "at": [
+    -12.5,
+    -36.6,
+    -39.2
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 39.2
+  },
+  {
+   "name": "T_ram_J1",
+   "group": "T",
+   "clearance": 0.3,
+   "at": [
+    -30.0,
+    12.6,
+    -82.0
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 33.1
+  },
+  {
+   "name": "T_riadenie",
+   "group": "T",
+   "clearance": 0.7,
+   "at": [
+    24.0,
+    30.0,
+    -76.0
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 38.4
+  },
+  {
+   "name": "T_STS3215",
+   "group": "T",
+   "clearance": 0.8,
+   "at": [
+    -12.8,
+    -12.4,
+    -81.5
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 32.0
+  },
+  {
+   "name": "T_zosilnovac",
+   "group": "T",
+   "clearance": 1.17,
+   "at": [
+    -28.6,
+    -27.0,
+    -76.9
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 39.4
+  },
+  {
+   "name": "T_stlpik_predny_L",
+   "group": "T",
+   "clearance": 1.4,
+   "at": [
+    20.0,
+    -29.0,
+    -10.5
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 35.2
+  },
+  {
+   "name": "T_stlpik_predny_P",
+   "group": "T",
+   "clearance": 1.4,
+   "at": [
+    -20.0,
+    -29.0,
+    -10.5
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 35.2
+  },
+  {
+   "name": "T_stlpik_L",
+   "group": "T",
+   "clearance": 1.45,
+   "at": [
+    41.5,
+    4.0,
+    -10.3
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 42.5
+  },
+  {
+   "name": "T_stlpik_R",
+   "group": "T",
+   "clearance": 1.45,
+   "at": [
+    -41.5,
+    4.0,
+    -10.3
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 42.5
+  },
+  {
+   "name": "P_sachta",
+   "group": "P",
+   "clearance": 2.74,
+   "at": [
+    0.8,
+    28.1,
+    -4.0
+   ],
+   "pan": -65,
+   "lift": 0,
+   "r_max": 28.2
+  },
+  {
+   "name": "T_pan_servo",
+   "group": "T",
+   "clearance": 4.26,
+   "at": [
+    17.6,
+    -27.8,
+    -74.5
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 35.6
+  },
+  {
+   "name": "P_servo_zdvih",
+   "group": "P",
+   "clearance": 5.41,
+   "at": [
+    0.4,
+    29.3,
+    -20.3
+   ],
+   "pan": 30,
+   "lift": 0,
+   "r_max": 29.3
+  },
+  {
+   "name": "P_kabel_zdvih",
+   "group": "P",
+   "clearance": 5.41,
+   "at": [
+    3.5,
+    -28.5,
+    -16.0
+   ],
+   "pan": -75,
+   "lift": 0,
+   "r_max": 28.7
+  },
+  {
+   "name": "T_paluba",
+   "group": "T",
+   "clearance": 6.53,
+   "at": [
+    0.0,
+    30.5,
+    -46.2
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 37.2
+  },
+  {
+   "name": "T_pan_pastorok",
+   "group": "T",
+   "clearance": 7.24,
+   "at": [
+    -0.5,
+    -29.6,
+    -42.6
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 29.6
+  },
+  {
+   "name": "T_kondenzator",
+   "group": "T",
+   "clearance": 7.83,
+   "at": [
+    36.6,
+    12.0,
+    -73.5
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 38.5
+  },
+  {
+   "name": "T_kanal_pan",
+   "group": "T",
+   "clearance": 8.66,
+   "at": [
+    -0.3,
+    28.0,
+    -42.5
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 28.0
+  },
+  {
+   "name": "T_menic",
+   "group": "T",
+   "clearance": 10.11,
+   "at": [
+    -37.5,
+    -8.9,
+    -71.9
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 38.5
+  },
+  {
+   "name": "T_kabel_pan",
+   "group": "T",
+   "clearance": 10.19,
+   "at": [
+    0.3,
+    26.3,
+    -42.5
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 26.3
+  },
+  {
+   "name": "P_koleso_pan",
+   "group": "P",
+   "clearance": 20.17,
+   "at": [
+    -0.0,
+    15.2,
+    -42.3
+   ],
+   "pan": -35,
+   "lift": 0,
+   "r_max": 15.2
+  },
+  {
+   "name": "T_ptfe",
+   "group": "T",
+   "clearance": 22.28,
+   "at": [
+    0.3,
+    13.0,
+    -45.9
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 13.0
+  },
+  {
+   "name": "T_cap",
+   "group": "T",
+   "clearance": 31.14,
+   "at": [
+    0.0,
+    3.0,
+    -42.0
+   ],
+   "pan": 0,
+   "lift": 0,
+   "r_max": 3.0
+  }
+ ]
+}
