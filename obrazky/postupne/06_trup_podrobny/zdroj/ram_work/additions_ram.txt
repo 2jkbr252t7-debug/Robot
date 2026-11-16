@@ -1,0 +1,62 @@
+# =====================================================================================================================
+# >>> additions by ram   (builder of t4_ram.py) - numbers that were MISSING or had to CHANGE inside the RAM module.
+#     Nothing above this block was edited.  Reasons: parts_ram.json["deviations"] / report of the RAM builder.
+# =====================================================================================================================
+RAM = dict(
+    # ---- fasteners (positions in the B frame)
+    SCR_DECK=[(-22.9, -15.8), (22.9, -15.8), (-22.9, 15.8), (22.9, 15.8)],   # F3, replaces SCR_DECK: insert hole clear
+    #          of the 1.6 cradle wall (was 0.85 left), pan heads clear of the FPC channel wall r 25.1 (was overlapping)
+    F3=dict(screw="M2.5x6 pan head ISO 7045 (dk 5.0, k 2.1)", head=(5.0, 2.1)),
+    SCR_RAM=[(-22.0, 17.5), (-22.0, -17.5), (20.5, 17.5), (20.5, -17.5), (35.5, 3.0), (-35.5, 3.0)],   # F2, replaces
+    #          SCR_RAM: x 18.0 -> 20.5, at 18.0 the countersunk head sat under the plinth wall r 24
+    F2=dict(screw="M2.5x6 countersunk ISO 10642", length=6.0),   # x8 would leave the 5.0 boss (tip z -76.5 > -77.3)
+    F1=dict(screw="M2.5x8 countersunk ISO 10642", head_z=-84.0),  # head sunk 0.5: the underside curves up at r > 34.7
+    F4=dict(screw="M2x6 thread-forming (pan head dk 3.8, k 1.6)", pilot_d=1.7, pilot_depth=4.0),
+    #          replaces the M2 inserts of spec F4: the STS3032 tab holes are 2.25 from the case, an insert (OD 3.2,
+    #          hole 2.9) would leave a 0.6 wall on the case side; the D1.7 pilot leaves 1.2 / 1.4
+    F5=dict(at=(-30.0, 0.0, -74.0), insert_x=-35.2, tool_d=4.6, screw="M2.5x6 set screw ISO 4026", z_was=-65.0),
+    #          z -74: below the buck -> reachable later; the insert is heat-set from OUTSIDE (-X) through the tool hole
+    F6=dict(screw="M3x6 countersunk ISO 10642", length=6.0),      # x8 would bottom in the servo shaft
+    F7=dict(xz=[(18.0, -57.0), (-18.0, -57.0)], rests=[(18.0, -74.0), (-18.0, -74.0)], screw="M2x4 thread-forming"),
+    #          controller screws: z -68 was under the ESP32 module; x5 would break into the servo pocket
+    F14=dict(screw="M2x4 thread-forming"),                         # buck / amplifier boards on 1.0 standoffs
+    # ---- cradle / J1
+    CRADLE_X1=25.8,                 # long cradle walls end at x 25.8 (CRADLE x 23.0): roots of the +X deck bosses
+    POCKET_J1=dict(x=(-30.3, 16.5), y=(-12.95, 12.95)),   # cap pocket = clearance only; the T_ram walls locate the servo
+    J1_BUMPER=dict(x=(16.7, 18.3), z_top=-70.0),          # end stop behind the 1.0 foam pad at the +X servo end
+    J1_SPLINE_Z=(-88.1, -85.9),     # servo spline inside the pinion (2.2 engaged; spec 3.5 collides with the M3 head)
+    J1_PASS=dict(r=10.8, z=(-91.0, -83.1), skirt_gap_az=(152.0, 208.0)),   # PINION PASSAGE: slot r 10.8 about J1_AX (+-J1_ADJ in x) through plinth,
+    #          skirt and floor.  Replaces the boss slot D14.4 + the notch Z_J1_NOTCH: the pinion screw F6 lies at r 18.0,
+    #          i.e. under the 6805 outer ring (r 16.3 .. 18.5) and the seat wall - it cannot be reached from below once
+    #          the bearing is in.  The pinion is therefore screwed on the servo ON THE BENCH and servo + pinion drop in
+    #          from above as one unit (and come out the same way for service).
+    SKIRT_TOOL_NOTCH_R=2.6,         # tool channels of the 4 inner F2 screws cut scallops into the skirt disc
+    J1_FPC_SLOT=dict(x=(-3.4, 3.4), y=(21.2, 22.5)),      # replaces J1_FPC["floor_slot"] y 21.6 .. 23.0: the plinth
+    #          skin outside the slot was 0.76 .. 1.0 (r 24); now 1.26 .. 1.5.  Entry point (0, 21.85) instead of (0, 22.3)
+    # ---- deck / pan
+    PAN_POST=dict(x=(11.95, 16.25), y_front=-25.0, y_leg=(-26.6, -25.0), top=-58.0, shelf=3.6,
+                  window=dict(y=(-25.0, -16.4), z=(-73.2, -61.6))),   # +X post = C-frame around the STS3032 plug zone
+    FPC_ANCHOR=dict(   # static end of the pan rolling loop.  Primary side +X (azimuths below); the deck also carries the
+        #          MIRRORED provisions (az -> 180 - az) as a spare.  Replaces "anchor at azimuth 150" + the rectangular
+        #          deck slot x -18 .. -14 of the spec: with the rotating anchor at gear azimuth 30 (spec 7.2) a rolling
+        #          loop (U-turn travel 0.40 x pan) only closes with the static anchor on the SAME side (+X).
+        slot_r=(22.5, 23.5), slot_az=(40.0, 52.0),      # arc slot through the deck, tangent to the wall inner face
+        clamp_r=(18.8, 23.4), clamp_az=(23.5, 39.5), clamp_z=(-46.0, -43.8), screw_r=21.1, screw_az=31.5,
+        screw="M2x4 countersunk thread-forming", pilot_d=1.6,
+        loop=dict(rot_anchor_gear_az=30.0, u_turn_az_pan0=92.0, u_turn_travel=(56.0, 128.0), free_length=45.6)),
+    PAN_PINION=dict(bore_d=4.0, shaft_z=(-47.7, -44.2), screw="M2x5 countersunk, flush at z -42.3"),
+    # ---- columns / electronics
+    COL_FLANGE=dict(r=12.8, x=(37.4, 39.1)),    # backing of the stop ring (the ring alone would hang on an edge)
+    COL_FOOT_X=(33.0, 37.6),                    # column foot widened inward (F2 insert at x 35.5)
+    BOARD_STANDOFF=1.0,                         # buck / amplifier stand 1.0 off the column web (thread depth)
+    BUCK_X=(-46.2, -37.4), AMP_X=(37.4, 40.4),  # replaces BUCK["x"] / AMP["x"] (+0.8 outward)
+    CAP470_AT=(41.1, 3.0, -45.0),               # +0.1 in x: saddle in the web keeps 1.65 of wall
+    CTRL_MODULE=dict(x=(-22.8, 0.7), z=(-77.0, -59.0), usb=(-24.0, 19.7, -68.0)),   # ESP32-S3-Zero on the carrier
+    # ---- dummy base hub (Z_naboj_test)
+    DUMMY=dict(plate=(110.0, 90.0), plate_z=(-109.0, -104.0), feet_z=-113.5, post_r=12.48, shoulder_r=14.0,
+               stub=(7.0, -90.0),   # r 7.0: 1.0 inside the orbit of the pinion tips (r >= 8.0 from the axis, same z -90.0)
+               bolt="ISO 4017 M8x20 from below = steel core + clutch shaft", bolt_head_z=-106.8,
+               springs="2x DIN 2093 16x8.2x0.4 in series", seat_z=-105.6, cbore_r=8.75,
+               stop=dict(az=270.0, half=21.4, r=(18.2, 21.3), z_top=-98.3)),
+)
+# <<< end of additions by ram

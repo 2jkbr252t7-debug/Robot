@@ -257,11 +257,14 @@ def mk_riadenie():
 
 
 def mk_menic():
-    """Pololu D36V28F5 17.8 x 17.8 x 8.8, on 1.0 standoffs of the right column web, components outward (-X)"""
+    """Pololu D36V28F5 17.8 x 17.8 x 8.8 (0.7 x 0.7 x 0.35 in, Pololu drawing), on 1.0 standoffs of the right column web,
+    components outward (-X).  The component block is an envelope; the two mounting-hole corners are free (screw heads)."""
     xa, xb = R["BUCK_X"]; (ya, yb), (za, zb) = C.BUCK["y"], C.BUCK["z"]
     P = [C.box(xb - 1.6, xb, ya, yb, za, zb), C.box(xa, xb - 1.5, ya + 2.0, yb - 2.0, za + 2.0, zb - 2.0)]
     s = one(fuse(P))
-    return one(cut(s, [C.cyl_x(1.1, xb - 2.5, xb + 0.5, y, z) for y, z in BUCK_HOLES]))
+    N = [C.cyl_x(1.1, xb - 2.5, xb + 0.5, y, z) for y, z in BUCK_HOLES]              # 2 holes D2.18 (0.086 in), 0.53 in pattern
+    N += [C.cyl_x(2.4, xa - 0.5, xb - 1.6, y, z) for y, z in BUCK_HOLES]             # the board is free of parts around them
+    return one(cut(s, N))
 
 
 def mk_zosilnovac():
@@ -292,7 +295,7 @@ PAD_END = dict(x=(C.STS3215["x"][1], R["J1_BUMPER"]["x"][0]), y=(-10.0, 10.0), z
 # T_spodok - black bottom cap / base plate
 # =====================================================================================================================
 def _slot_j1(r, z0, z1):
-    """slot of the servo boss / pinion hub: radius r about J1_AX, centres shifted +-J1_ADJ in x"""
+    """slot of the pinion passage: radius r about J1_AX, centres shifted +-J1_ADJ in x"""
     x, y = C.J1_AX; a = C.J1_ADJ
     return fuse([C.cyl_z(r, z0, z1, x - a, y), C.cyl_z(r, z0, z1, x + a, y), C.box(x - a, x + a, y - r, y + r, z0, z1)])
 
@@ -337,19 +340,21 @@ def mk_spodok(verbose=True):
     ring = C.cyl_z(C.R_FOOT_LOW, zb0, zb1 + 0.3) - C.cyl_z(C.R_FOOT_SEAT, zb0 - 0.5, zb1 + 0.5)
     ring = ring - bd.Pos(0, 0, zb0 + 0.2) * bd.Cone(C.R_FOOT_SEAT + 0.4, C.R_FOOT_SEAT, 0.4)      # entry chamfer 0.4
     skirt = C.cyl_z(C.SKIRT["r"], *C.SKIRT["z"]) - C.cyl_z(C.R_PLINTH - 0.6, C.SKIRT["z"][0] - 0.5, C.SKIRT["z"][1] + 0.5)
+    ga = R["J1_PASS"]["skirt_gap_az"]                              # the skirt ends in radial faces beside the pinion passage (no feather tips)
+    skirt = one(skirt - wedge_z(C.SKIRT["r"] + 2.0, ga[0], ga[1], C.SKIRT["z"][0] - 0.5, C.SKIRT["z"][1] + 0.5))
     L = C.J1_STOP_LUG
     lug = C.box(-L["w"] / 2, L["w"] / 2, L["r"][0], L["r"][1] + 1.0, L["z"][0], L["z"][1] + 0.3) & C.cyl_z(L["r"][1], L["z"][0] - 1, L["z"][1] + 1)
     under = one(fuse([plinth, ring, skirt, lug]))
-    zn0, zn1 = R["Z_J1_NOTCH"]
-    under = one(under.cut(C.cyl_z(C.R_J1_NOTCH, zn0, zn1, *C.J1_AX)))
     cap = one(cap.fuse(under))
     step("+ plinth, bearing ring, skirt, lug", t)
-    # ---- one compound cutter: boss slot, screw holes, FPC slot, drain holes
+    # ---- one compound cutter: pinion passage, screw holes, FPC slot, drain holes
+    #      passage = slot r 10.8 about J1_AX through plinth, skirt and floor: servo + pinion are mounted as ONE unit from above
     t = time.time()
-    N = [_slot_j1(C.SKIRT["hole_r"], zn1 - 0.2, C.Z_J1[0] + 0.2)]
+    Pa = R["J1_PASS"]
+    N = [_slot_j1(Pa["r"], Pa["z"][0], Pa["z"][1])]
     N += [C.screw_hole("M2.5c", 6.0, (x, y, R["F1"]["head_z"]), "z", 1, head_len=6.0) for x, y in C.SCR_STRED]
     N += [C.screw_hole("M2.5c", 6.0, (x, y, C.Z_BOT), "z", 1, head_len=3.0) for x, y in R["SCR_RAM"]]
-    S = C.J1_FPC["floor_slot"]
+    S = R["J1_FPC_SLOT"]
     N += [C.box(S["x"][0], S["x"][1], S["y"][0], S["y"][1], zb1 - 0.5, ZF + 0.5)]
     N += [C.cyl_z(1.5, C.Z_BOT - 0.5, ZF + 0.5, x, y) for x, y in C.DRAIN]
     cap = one(cap.cut(*N))
@@ -436,8 +441,8 @@ def mk_ram():
     left = prism_x([(-YO + 0.25, ZF), (-24.0, ZF), (-24.0, -78.26), (yl, -78.26 + (-24.0 - yl)), (yl, zt), (-YO + 0.25, zt)], xa, xb)
     W = Pp["window"]
     P.append(one(left - C.box(xa - 0.5, xb + 0.5, W["y"][0], W["y"][1], W["z"][0], W["z"][1])))
-    N += [hole(C.INSERTS["M2"][3], (-14.0, yt, zt), "z", -1, 3.3), hole(2.2, (-14.0, yt, zt), "z", -1, 4.5, lead=0.0),
-          hole(C.INSERTS["M2"][3], (14.0, yt, zt), "z", -1, 3.3), hole(2.2, (14.0, yt, zt), "z", -1, Pp["shelf"] + 0.3, lead=0.0)]
+    F4 = R["F4"]                                                   # M2x6 thread-forming: blind pilot (-X), through the shelf (+X)
+    N += [hole(F4["pilot_d"], (-14.0, yt, zt), "z", -1, F4["pilot_depth"]), hole(F4["pilot_d"], (14.0, yt, zt), "z", -1, Pp["shelf"] + 0.3)]
     # ---- controller standoffs (M2 thread-forming from +Y) and rests
     yf = C.CTRL["y"][0]
     for x, z in R["F7"]["xz"]:
@@ -454,9 +459,10 @@ def mk_ram():
         P += [C.box(X1 - 0.2, C.X_COL_IN + 0.1, ya, yb, -60.0, -50.0), C.box(-C.X_COL_IN - 0.1, X0 + 0.1, ya, yb, -60.0, -50.0)]
     # ---- J1 set screw F5: boss between the end wall and the right column, insert from the cradle side
     fx, fy, fz = R["F5"]["at"]
+    xi5 = R["F5"]["insert_x"]                                      # insert mouth inside the right column web
     P.append(C.cyl_x(3.4, -C.X_COL_IN - 0.1, fx, fy, fz))
-    N += [hole(C.INSERTS["M2.5"][3], (fx, fy, fz), "x", -1, 4.3), hole(2.8, (fx, fy, fz), "x", -1, 4.7, lead=0.0),
-          C.cyl_x(2.3, -(C.X_COL_IN + C.COL_WEB["t"] + 0.3), -C.X_COL_IN + 0.05, fy, fz)]
+    N += [C.cyl_x(R["F5"]["tool_d"] / 2, -(C.X_COL_IN + C.COL_WEB["t"] + 0.3), xi5, fy, fz),                 # tool / iron hole
+          hole(C.INSERTS["M2.5"][3], (xi5, fy, fz), "x", 1, 4.3, lead=0.05), C.cyl_x(1.4, xi5, fx + 0.2, fy, fz)]
     body = one(fuse(P))
     return one(cut(body, N)).clean()
 
@@ -480,23 +486,26 @@ def mk_paluba():
     gz = ZD1 - G["groove_depth"]
     N += [tube_sector(G["r"] + G["groove_w"] / 2, G["r"] - G["groove_w"] / 2, G["az"][0], G["az"][1], gz, ZD1 + 0.3),
           C.cyl_z(G["groove_w"] / 2, gz, ZD1 + 0.3, G["r"], 0.0), C.cyl_z(G["groove_w"] / 2, gz, ZD1 + 0.3, -G["r"], 0.0)]
-    S = C.FPC_PAN["deck_slot"]
-    N += [C.box(S["x"][0], S["x"][1], S["y"][0], S["y"][1], ZD0 - 0.3, ZD1 + 0.3)]
-    Fc = R["FPC_CLAMP"]
-    cxp, cyp = pol(Fc["screw_r"], Fc["screw_az"])
-    N += [hole(1.6, (cxp, cyp, ZD1), "z", -1, 2.2)]
+    # static FPC anchor: arc slot through the deck (tangent to the wall inner face) + pilot of the clamp screw;
+    # primary side +X, mirrored spare on -X (see RAM["FPC_ANCHOR"])
+    A = R["FPC_ANCHOR"]
+    for m in (False, True):
+        a0, a1 = A["slot_az"] if not m else (180.0 - A["slot_az"][1], 180.0 - A["slot_az"][0])
+        N.append(tube_sector(A["slot_r"][1], A["slot_r"][0], a0, a1, ZD0 - 0.3, ZD1 + 0.3))
+        cxp, cyp = pol(A["screw_r"], A["screw_az"] if not m else 180.0 - A["screw_az"])
+        N.append(hole(A["pilot_d"], (cxp, cyp, ZD1), "z", -1, 2.2))
     body = one(cut(body, N))
-    # FPC channel wall (added after the cuts: it bridges the corner of the FPC slot), with the slit to the clamp
+    # FPC channel wall, added after the cuts: its inner face is the outer face of the arc slots
     wall = tube_sector(C.FPC_PAN["wall"][1], C.FPC_PAN["wall"][0], C.FPC_PAN["az"][0], C.FPC_PAN["az"][1], ZD1 - 0.2, C.FPC_PAN["z"][1])
-    slit = bd.Rot(0, 0, Fc["slit_az"]) * C.box(C.FPC_PAN["wall"][0] - 0.6, C.FPC_PAN["wall"][1] + 0.6, -Fc["slit_w"] / 2, Fc["slit_w"] / 2, ZD1 - 0.5, -42.0)
-    return one(body.fuse(*list((wall - slit).solids()))).clean()
+    return one(body.fuse(wall)).clean()
 
 
 def mk_prichytka():
-    Fc = R["FPC_CLAMP"]
-    blk = tube_sector(Fc["r"][1], Fc["r"][0], Fc["az"][0], Fc["az"][1], Fc["z"][0], Fc["z"][1])
-    cxp, cyp = pol(Fc["screw_r"], Fc["screw_az"])
-    return one(blk - C.screw_hole("M2c", 3.0, (cxp, cyp, Fc["z"][1]), "z", -1, head_len=0.3))
+    """clamp of the static FPC end: presses the strip against the wall inner face (gap 0.10 for the 0.12 FPC)"""
+    A = R["FPC_ANCHOR"]
+    blk = tube_sector(A["clamp_r"][1], A["clamp_r"][0], A["clamp_az"][0], A["clamp_az"][1], A["clamp_z"][0], A["clamp_z"][1])
+    cxp, cyp = pol(A["screw_r"], A["screw_az"])
+    return one(blk - C.screw_hole("M2c", 3.0, (cxp, cyp, A["clamp_z"][1]), "z", -1, head_len=0.3))
 
 
 # =====================================================================================================================
@@ -553,16 +562,15 @@ def fasteners():
         add(f"vl_F3_{i}", C.insert("M2.5", (x, y, ZD0), "z", -1), "brass", "závitová vložka M2,5x4 (rám, zhora)", joint="F3", at=(x, y, ZD0))
     T = C.STS3032["tab"]; yt = C.PAN_AX[1]
     for i, x in enumerate(T["hole_x"], 1):
-        add(f"skr_F4_{i}", screw_cyl(2.0, 3.8, 1.6, 6, (x, yt, T["z"][1]), "z", -1), "steel", "skrutka M2x6 (servo pan)",
-            joint="F4", size="M2x6 pan", head=(x, yt, T["z"][1]), dir="-Z", tool_from="+Z")
-        add(f"vl_F4_{i}", C.insert("M2", (x, yt, R["PAN_POST"]["top"]), "z", -1), "brass", "závitová vložka M2x3 (stĺpik serva pan)", joint="F4",
-            at=(x, yt, R["PAN_POST"]["top"]))
+        add(f"skr_F4_{i}", screw_cyl(2.0, 3.8, 1.6, 6, (x, yt, T["z"][1]), "z", -1), "steel", "skrutka M2x6 do plastu (servo pan)",
+            joint="F4", size="M2x6 thread-forming", head=(x, yt, T["z"][1]), dir="-Z", tool_from="+Z")
     fx, fy, fz = R["F5"]["at"]
     add("skr_F5", one(C.cyl_x(1.25, C.STS3215["x"][0] - 6.0, C.STS3215["x"][0], fy, fz)), "steel", "stavacia skrutka M2,5x6 (osová vzdialenosť J1)",
         joint="F5", size="M2.5x6 set", head=(C.STS3215["x"][0] - 6.0, fy, fz), dir="+X", tool_from="-X")
-    add("vl_F5", C.insert("M2.5", (fx, fy, fz), "x", -1), "brass", "závitová vložka M2,5x4 (stavacia skrutka J1)", joint="F5", at=(fx, fy, fz))
+    add("vl_F5", C.insert("M2.5", (R["F5"]["insert_x"], fy, fz), "x", 1), "brass", "závitová vložka M2,5x4 (stavacia skrutka J1)", joint="F5",
+        at=(R["F5"]["insert_x"], fy, fz))
     add("skr_F6", C.screw("M3c", 6, (*C.J1_AX, C.Z_J1_GEAR[0]), "z", 1), "steel", "skrutka M3x6 zápustná (pastorok J1)",
-        joint="F6", size="M3x6 csk", head=(*C.J1_AX, C.Z_J1_GEAR[0]), dir="+Z", tool_from="-Z")
+        joint="F6", size="M3x6 csk", head=(*C.J1_AX, C.Z_J1_GEAR[0]), dir="+Z", tool_from="-Z", bench=True)   # on the bench, before the servo goes in
     yf = C.CTRL["y"][0] + C.CTRL["pcb"][2]
     for i, (x, z) in enumerate(R["F7"]["xz"], 1):
         add(f"skr_F7_{i}", screw_cyl(2.0, 3.8, 1.4, 4, (x, yf, z), "y", -1), "steel", "skrutka M2x4 do plastu (riadiaca doska)",
@@ -575,9 +583,9 @@ def fasteners():
     for i, (y, z) in enumerate(AMP_HOLES, 3):
         add(f"skr_F14_{i}", screw_cyl(2.0, 3.8, 1.4, 4, (xa, y, z), "x", -1), "steel", "skrutka M2x4 do plastu (zosilňovač)",
             joint="F14", size="M2x4 thread-forming", head=(xa, y, z), dir="-X", tool_from="+X")
-    Fc = R["FPC_CLAMP"]; cxp, cyp = pol(Fc["screw_r"], Fc["screw_az"])
-    add("skr_fpc", C.screw("M2c", 4, (cxp, cyp, Fc["z"][1]), "z", -1), "steel", "skrutka M2x4 zápustná do plastu (príchytka FPC)",
-        joint="FPC", size="M2x4 csk thread-forming", head=(cxp, cyp, Fc["z"][1]), dir="-Z", tool_from="+Z")
+    Fc = R["FPC_ANCHOR"]; cxp, cyp = pol(Fc["screw_r"], Fc["screw_az"])
+    add("skr_fpc", C.screw("M2c", 4, (cxp, cyp, Fc["clamp_z"][1]), "z", -1), "steel", "skrutka M2x4 zápustná do plastu (príchytka FPC)",
+        joint="FPC", size="M2x4 csk thread-forming", head=(cxp, cyp, Fc["clamp_z"][1]), dir="-Z", tool_from="+Z")
     add("skr_pastorok_pan", C.screw("M2c", 5, (*C.PAN_AX, C.Z_PAN_PINION[1]), "z", -1), "steel", "skrutka M2x5 zápustná (pastorok pan)",
         joint="PAN", size="M2x5 csk", head=(*C.PAN_AX, C.Z_PAN_PINION[1]), dir="-Z", tool_from="+Z (through the collar bore)")
     for s, tag in ((1, "L"), (-1, "P")):
@@ -672,6 +680,74 @@ def expected_bbox():
     }
 
 
+# dimension sources / tolerances of the bought parts (also written to parts_ram.json)
+SOURCES = {
+    "servo_J1": "Feetech STS3215: case 45.2 x 24.7 x 35.0 (+-0.3), boss D12 x 2.6, 25T spline D5.9 (listings: DFRobot, Mouser, Core Electronics). "
+                "Spline length modelled 2.2 = depth available in the pinion - NOT a datasheet value, measure. Plug block 11.3 x 16 x 18 = reserved bend space.",
+    "pastorok_J1": "catalogue brass spur gear m1 z18 (da 20.0, d 18.0), faced to 3.2 + hub D10 x 0.9, 25T bore 2.2 deep, M3 countersink; ISO 53 profile, backlash 0.04",
+    "Z_koleso_J1": "catalogue brass spur gear m1 z18, face 3.2, tapped M8",
+    "lozisko_6805": "6805-2RS, ISO 15: 25 x 37 x 7 (d 0/-0.010, D 0/-0.011); seat D37.00 +0.05/0, post D24.96",
+    "servo_pan": "Feetech STS3032: case 23.5 x 12.5 x 23.0, tabs 32.5 x 2.5 at 16.2 above the bottom, holes D2.2 at 28.0, boss D12.4 x 3.5 "
+                 "(listings, medium confidence, +-0.3 - verify on the purchased servo). Plug block 7 x 8 x 8 = reserved bend space.",
+    "pastorok_pan": "spur gear m0.8 z18 (da 16.0, d 14.4), face 3.2, hub D8 x 2.2, bore D4 (POM or brass, catalogue)",
+    "cap_pan": "dowel pin ISO 2338 D6 h6 x 6.5 (cut from x8 or x10), steel",
+    "ptfe_podlozka": "PTFE sheet 0.3: washer 24 x 12.4, cut",
+    "DPS_riadenie": "carrier PCB 48 x 22 x 1.6 (custom) + Waveshare ESP32-S3-Zero 23.5 x 18 (Waveshare drawing, +-0.2); connector blocks indicative",
+    "menic": "Pololu D36V28F5: 17.8 x 17.8 x 8.8 (0.7 x 0.7 x 0.35 in), 2 holes D2.18 on a 0.53 in diagonal pattern (Pololu drawing)",
+    "zosilnovac": "Adafruit 3006 MAX98357A: 19.3 x 17.8 x 3.0, 2 holes D2.5, 12.7 apart, 2.54 from the edge (Adafruit drawing); terminal block not fitted",
+    "kondenzator": "radial electrolytic 470 uF / 10 V, envelope D10 x 13 (generic, D 8..10, L 11.5..13)",
+    "pena_J1": "PORON 0.5 (0.3 / 0.5 / 0.8 selected to the measured servo height)", "pena_J1_celo": "PORON 1.0",
+    "Z_skrutka_M8": "ISO 4017 M8 x 20, hex 13, k 5.3", "Z_pruzina_1": "DIN 2093 16 x 8.2 x 0.4", "Z_pruzina_2": "DIN 2093 16 x 8.2 x 0.4",
+}
+# assembly step (T4_spec section 11) and direction of every part of the module (for K7)
+ASSEMBLY = {
+    "lozisko_6805": (2, "+Z from below, CA in the seat"), "T_ram": (3, "-Z onto T_spodok, F2 from below"), "pastorok_J1": (4, "on the servo ON THE BENCH (F6), "
+                    "then with the servo"), "servo_J1": (4, "-Z into the cradle, pinion through the passage r 10.8"), "pena_J1_celo": (4, "with the servo"),
+    "servo_pan": (6, "-Z onto the posts, F4"), "pena_J1": (7, "on the servo"), "T_paluba": (7, "-Z, F3 (pin pressed, PTFE washer on the boss)"),
+    "cap_pan": (7, "pressed into the deck on the bench"), "ptfe_podlozka": (7, "over the pivot boss"), "DPS_riadenie": (8, "-Y, F7"),
+    "menic": (8, "+X onto the right column, F14"), "zosilnovac": (8, "-X onto the left column, F14"), "kondenzator": (8, "-Z into the clip"),
+    "pastorok_pan": (11, "-Z through the collar bore, after T_stred"), "T_prichytka_fpc": (13, "-Z through the door / bore with the pan FPC"),
+    "T_spodok": (2, "base plate"), "Z_naboj_test": (20, "bench stand, torso lowered onto it -Z"),
+}
+DEVIATIONS = [
+    "F3 deck screws moved to (+-22.9, +-15.8) (spec (-22, +-15), (20, +-15)): insert hole clear of the 1.6 cradle wall, heads clear of the FPC wall.",
+    "F2 screws: x 18.0 -> 20.5 (countersunk head sat under the plinth wall r 24); length 8 -> 6 (boss 5.0).",
+    "F1 heads sunk 0.5 (z -84.0): the cap underside curves up beyond r 34.7.",
+    "F4: M2x6 THREAD-FORMING screws in D1.7 pilots instead of M2 inserts (tab holes 2.25 from the STS3032 case: insert would leave a 0.6 wall).",
+    "F5 set screw at z -74 (spec -65), insert heat-set from outside through a D4.6 tool hole in the right column web.",
+    "F6 M3x6 (spec x8); spline engagement 2.2 (spec 3.5 does not fit a flush M3 countersunk head in a 4.1 mm pinion).",
+    "PINION PASSAGE r 10.8 through plinth, skirt and floor (spec: boss slot D14.4 + notch only in the teeth zone): F6 lies under the 6805 outer "
+    "ring, so the pinion is fixed on the servo on the bench and servo + pinion are mounted / serviced as one unit from above. The skirt disc is open "
+    "at the pinion (C shape).",
+    "J1 FPC floor slot y 21.2 .. 22.5 (spec 21.6 .. 23.0): plinth skin outside the slot 1.26 .. 1.5 instead of 0.76 .. 1.0.",
+    "F7 controller screws at z -57 (spec -68, under the ESP32 module), M2x4; two rests at z -74.",
+    "Static pan-FPC anchor on the +X side: arc slot az 40 .. 52 at the wall inner face + clamp az 23.5 .. 39.5 inside the channel (spec: anchor at "
+    "az 150, rectangular slot x -18 .. -14). With the rotating anchor at gear azimuth 30 the rolling loop only closes with the static anchor on the "
+    "same side; the deck carries the mirrored provisions as a spare.",
+    "Cradle long walls end at x 25.8 (spec 23.0); cap pocket is clearance only (x -30.3 .. 16.5, y +-12.95), the T_ram walls locate the servo.",
+    "Buck / amplifier stand on 1.0 standoffs: +0.8 outward; capacitor +0.1 in x; column foot widened inward to x 33.0; stop ring backed by a flange r 12.8.",
+    "Dummy hub: PETG post D24.96 with an M8x20 bolt as steel core / clutch shaft and 2 disc springs (slip clutch); sun gear tapped M8; stub r 7.5. "
+    "No POM collet: the torso sits on the dummy by gravity (spec 5.5).",
+]
+STEP_MAX = 12_000_000
+STEP_SKIP = {"T_spodok": "loft-derived (B-spline faces of cap_blank): 40.7 MB measured, limit 12 MB"}
+
+
+def export_step_limited(name, shape):
+    """STEP only when the file stays under STEP_MAX; returns (relative path or None, bytes or None, note)"""
+    path = os.path.join(HERE, "step", name + ".step")
+    if name in STEP_SKIP:
+        if os.path.exists(path):
+            os.remove(path)
+        return None, None, STEP_SKIP[name]
+    bd.export_step(shape, path)
+    n = os.path.getsize(path)
+    if n > STEP_MAX:
+        os.remove(path)
+        return None, n, f"deleted: {n / 1e6:.1f} MB > {STEP_MAX / 1e6:.0f} MB"
+    return f"step/{name}.step", n, ""
+
+
 def main(argv):
     rebuild = "--rebuild" in argv
     T0 = time.time()
@@ -699,9 +775,17 @@ def main(argv):
         print("not exported; NOT OK:", bad)
         return 1 if bad else 0
     t = time.time()
-    out = []
+    pj = os.path.join(HERE, "parts_ram.json")
+    old_names = [e["name"] for e in json.load(open(pj))["parts"]] if os.path.exists(pj) else []
+    os.makedirs(os.path.join(HERE, "stl"), exist_ok=True); os.makedirs(os.path.join(HERE, "step"), exist_ok=True)
+    out, n_step = [], 0
     for name, p, r in recs:
-        e = C.export_part(name, p, HERE)
+        e = C.export_part(name, p, HERE, step=False)
+        e["stl"] = f"stl/{name}.stl"
+        e["step"], e["step_bytes"], note = export_step_limited(name, p["shape"])
+        if note:
+            e["step_note"] = note
+        n_step += e["step"] is not None
         e["build_s"] = r["build_s"]
         for k in ("bbox_expected", "bbox_ok"):
             if k in r:
@@ -709,16 +793,27 @@ def main(argv):
         e["ok"] = bool(e["ok"] and r["ok"])
         if "fastener" in p:
             e["fastener"] = p["fastener"]
+        if name in SOURCES:
+            e["source"] = SOURCES[name]
+        if name in ASSEMBLY:
+            e["assembly_step"], e["assembly_dir"] = ASSEMBLY[name]
         out.append(e)
+    stale = [n for n in old_names if n not in parts]                  # exports of parts this module no longer has
+    for n in stale:
+        for sub, ext in (("stl", ".stl"), ("step", ".step")):
+            f = os.path.join(HERE, sub, n + ext)
+            if os.path.exists(f):
+                os.remove(f)
     doc = dict(module="ram", generated=time.strftime("%Y-%m-%d %H:%M:%S"), frame="B frame, mm, rest pose", n_parts=len(out),
-               all_ok=not bad, not_ok=bad, parts=out, additions=json.loads(json.dumps(R, default=str)))
-    json.dump(doc, open(os.path.join(HERE, "parts_ram.json"), "w"), indent=1, ensure_ascii=False)
+               all_ok=not bad, not_ok=bad, step_limit_bytes=STEP_MAX, removed_parts=stale, deviations=DEVIATIONS, parts=out,
+               additions=json.loads(json.dumps(R, default=str)))
+    json.dump(doc, open(pj, "w"), indent=1, ensure_ascii=False)
     mass = {}
     for e in out:
         if e.get("mass_g") is not None:
             mass[e["group"]] = mass.get(e["group"], 0.0) + e["mass_g"]
-    print(f"exported {len(out)} STL + STEP in {time.time() - t:.1f} s -> parts_ram.json; mass by group (g): "
-          + ", ".join(f"{g} {m:.1f}" for g, m in mass.items()))
+    print(f"exported {len(out)} STL + {n_step} STEP (no STEP: {[e['name'] for e in out if e['step'] is None]}) in {time.time() - t:.1f} s "
+          f"-> parts_ram.json; removed stale exports {stale}; mass by group (g): " + ", ".join(f"{g} {m:.1f}" for g, m in mass.items()))
     print("NOT OK:", bad if bad else "none", f"| total {time.time() - T0:.1f} s")
     return 1 if bad else 0
 

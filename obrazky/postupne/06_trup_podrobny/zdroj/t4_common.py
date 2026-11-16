@@ -918,7 +918,11 @@ RAM = dict(
     #          SCR_RAM: x 18.0 -> 20.5, at 18.0 the countersunk head sat under the plinth wall r 24
     F2=dict(screw="M2.5x6 countersunk ISO 10642", length=6.0),   # x8 would leave the 5.0 boss (tip z -76.5 > -77.3)
     F1=dict(screw="M2.5x8 countersunk ISO 10642", head_z=-84.0),  # head sunk 0.5: the underside curves up at r > 34.7
-    F5=dict(at=(-30.0, 0.0, -74.0), screw="M2.5x6 set screw ISO 4026", z_was=-65.0),   # below the buck -> reachable later
+    F4=dict(screw="M2x6 thread-forming (pan head dk 3.8, k 1.6)", pilot_d=1.7, pilot_depth=4.0),
+    #          replaces the M2 inserts of spec F4: the STS3032 tab holes are 2.25 from the case, an insert (OD 3.2,
+    #          hole 2.9) would leave a 0.6 wall on the case side; the D1.7 pilot leaves 1.2 / 1.4
+    F5=dict(at=(-30.0, 0.0, -74.0), insert_x=-35.2, tool_d=4.6, screw="M2.5x6 set screw ISO 4026", z_was=-65.0),
+    #          z -74: below the buck -> reachable later; the insert is heat-set from OUTSIDE (-X) through the tool hole
     F6=dict(screw="M3x6 countersunk ISO 10642", length=6.0),      # x8 would bottom in the servo shaft
     F7=dict(xz=[(18.0, -57.0), (-18.0, -57.0)], rests=[(18.0, -74.0), (-18.0, -74.0)], screw="M2x4 thread-forming"),
     #          controller screws: z -68 was under the ESP32 module; x5 would break into the servo pocket
@@ -928,13 +932,25 @@ RAM = dict(
     POCKET_J1=dict(x=(-30.3, 16.5), y=(-12.95, 12.95)),   # cap pocket = clearance only; the T_ram walls locate the servo
     J1_BUMPER=dict(x=(16.7, 18.3), z_top=-70.0),          # end stop behind the 1.0 foam pad at the +X servo end
     J1_SPLINE_Z=(-88.1, -85.9),     # servo spline inside the pinion (2.2 engaged; spec 3.5 collides with the M3 head)
-    Z_J1_NOTCH=(-91.0, -86.3),      # pinion notch in the plinth (Z_J1_NOTCH lower end -90.6 left a 0.4 mm leaf)
+    J1_PASS=dict(r=10.8, z=(-91.0, -83.1), skirt_gap_az=(152.0, 208.0)),   # PINION PASSAGE: slot r 10.8 about J1_AX (+-J1_ADJ in x) through plinth,
+    #          skirt and floor.  Replaces the boss slot D14.4 + the notch Z_J1_NOTCH: the pinion screw F6 lies at r 18.0,
+    #          i.e. under the 6805 outer ring (r 16.3 .. 18.5) and the seat wall - it cannot be reached from below once
+    #          the bearing is in.  The pinion is therefore screwed on the servo ON THE BENCH and servo + pinion drop in
+    #          from above as one unit (and come out the same way for service).
     SKIRT_TOOL_NOTCH_R=2.6,         # tool channels of the 4 inner F2 screws cut scallops into the skirt disc
+    J1_FPC_SLOT=dict(x=(-3.4, 3.4), y=(21.2, 22.5)),      # replaces J1_FPC["floor_slot"] y 21.6 .. 23.0: the plinth
+    #          skin outside the slot was 0.76 .. 1.0 (r 24); now 1.26 .. 1.5.  Entry point (0, 21.85) instead of (0, 22.3)
     # ---- deck / pan
     PAN_POST=dict(x=(11.95, 16.25), y_front=-25.0, y_leg=(-26.6, -25.0), top=-58.0, shelf=3.6,
                   window=dict(y=(-25.0, -16.4), z=(-73.2, -61.6))),   # +X post = C-frame around the STS3032 plug zone
-    FPC_CLAMP=dict(az=(154.0, 163.0), r=(25.25, 30.0), z=(-46.0, -43.8), screw_r=27.6, screw_az=158.5,
-                   slit_az=152.5, slit_w=0.6, screw="M2x4 countersunk thread-forming"),   # static pan-FPC anchor
+    FPC_ANCHOR=dict(   # static end of the pan rolling loop.  Primary side +X (azimuths below); the deck also carries the
+        #          MIRRORED provisions (az -> 180 - az) as a spare.  Replaces "anchor at azimuth 150" + the rectangular
+        #          deck slot x -18 .. -14 of the spec: with the rotating anchor at gear azimuth 30 (spec 7.2) a rolling
+        #          loop (U-turn travel 0.40 x pan) only closes with the static anchor on the SAME side (+X).
+        slot_r=(22.5, 23.5), slot_az=(40.0, 52.0),      # arc slot through the deck, tangent to the wall inner face
+        clamp_r=(18.8, 23.4), clamp_az=(23.5, 39.5), clamp_z=(-46.0, -43.8), screw_r=21.1, screw_az=31.5,
+        screw="M2x4 countersunk thread-forming", pilot_d=1.6,
+        loop=dict(rot_anchor_gear_az=30.0, u_turn_az_pan0=92.0, u_turn_travel=(56.0, 128.0), free_length=45.6)),
     PAN_PINION=dict(bore_d=4.0, shaft_z=(-47.7, -44.2), screw="M2x5 countersunk, flush at z -42.3"),
     # ---- columns / electronics
     COL_FLANGE=dict(r=12.8, x=(37.4, 39.1)),    # backing of the stop ring (the ring alone would hang on an edge)
@@ -945,8 +961,103 @@ RAM = dict(
     CTRL_MODULE=dict(x=(-22.8, 0.7), z=(-77.0, -59.0), usb=(-24.0, 19.7, -68.0)),   # ESP32-S3-Zero on the carrier
     # ---- dummy base hub (Z_naboj_test)
     DUMMY=dict(plate=(110.0, 90.0), plate_z=(-109.0, -104.0), feet_z=-113.5, post_r=12.48, shoulder_r=14.0,
-               stub=(9.0, -90.0), bolt="ISO 4017 M8x20 from below = steel core + clutch shaft", bolt_head_z=-106.8,
+               stub=(7.0, -90.0),   # r 7.0: 1.0 inside the orbit of the pinion tips (r >= 8.0 from the axis, same z -90.0)
+               bolt="ISO 4017 M8x20 from below = steel core + clutch shaft", bolt_head_z=-106.8,
                springs="2x DIN 2093 16x8.2x0.4 in series", seat_z=-105.6, cbore_r=8.75,
                stop=dict(az=270.0, half=21.4, r=(18.2, 21.3), z_top=-98.3)),
 )
 # <<< end of additions by ram
+
+
+# =====================================================================================================================
+# >>> additions by obal   (builder of t4_obal.py) - numbers that were MISSING or had to CHANGE inside the OBAL module.
+#     Nothing above this block was edited.  Reasons: parts_obal.json["deviations"] / STATUS_obal.md.  t4_obal.py keeps
+#     the same numbers as its local constants and asserts at import that both copies agree.
+# =====================================================================================================================
+OBAL = dict(
+    # ---- door (supersedes parts of DOOR_LEDGE / DOOR_HOOK / DOOR_MAGNETS)
+    DOOR_LEDGE_TOP_GAP=dict(x=20.6, z_above=-16.5),   # ledge omitted along the top edge (top_gap_x 18.0: the hooks reach 20.25)
+    DOOR_HOOK=dict(x=16.0, half_u=4.0, inset=(2.75, 3.6), v=(-1.5, 3.3)),   # inset 2.4 left 0.07 to the curved wall -> 0.3
+    DOOR_BOSS_FACE_INSET=4.3,                         # door magnet boss D8 x 2.1 (door_boss (8.0, 2.3), face at inset 4.5)
+    PAD_INSET=(4.5, 7.2),                             # frame magnet pad (pad_inset (4.7, 7.2)): floor 0.6 behind the pocket
+    PAD_RISER=dict(u=(3.6, 7.2), door_clear=0.3),     # pad carrier stays 0.3 outside the door opening down to inset 4.4
+    DOOR_NOTCH=dict(w=12.0, h=1.2, depth=0.85),       # finger-nail notch in the bottom edge of the door
+    # ---- collar tube
+    TUBE_GUSSET=dict(z_start=-6.6, az=((50.0, 130.0), (230.0, 310.0))),   # 45 deg cones in +-Y instead of the 6 ribs
+    TUBE_VENT=dict(d=1.6, z=0.4),                     # 2 drain holes along X through the tube
+    # ---- front stack
+    LED_BOSS_FACE_Y=-31.4, LED_PILOT=4.3,             # spec -33.0 / 5.0 (pilot would leave < 1.2 of skin)
+    SPK_BOSS_AZ=(30.0, 150.0, 270.0),                 # supersedes SPK_BOSS["az"] (90 deg boss inside the LED box)
+    SPK_SEAT_D=28.3, SPK_GASKET=dict(ri=11.9, ro=14.0),
+    SPK_RING=dict(ri=13.0, ro=16.0, t=1.6, notch=dict(x=(-17.5, -12.0), z=(-53.0, -49.0))),   # T_drziak_repro, wire notch at -X
+    GUIDE_FLANGE=(33.6, 8.0, 1.2),                    # supersedes GUIDE["flange"] (35 wide hits the LED bosses)
+    GRILLE_FLANGE=(22.4, 5.2), GRILLE_BACK_Y=-36.7,   # supersedes GRILLE["flange"]: pill inside the gasket ID 23.8
+    GRILLE_SLOTS=dict(n=5, w=0.8, h=1.6, pitch=3.6),
+    EXIT_SPK=dict(x=(-16.5, -8.0), y=(-31.6, -30.0), z=(-52.5, -49.5)),   # speaker lugs + first cable bend (reserved space)
+    EXIT_LED=dict(x=(-15.0, -9.0), y=(-30.1, -28.9), z=(-34.3, -30.7)),   # LED solder pads + first cable bend
+    # ---- side caps / joints
+    SEAM_LIP=dict(clear=0.15, t=1.6, x_tip=31.05, z_bot=-77.7),   # ONE continuous lip per cap instead of 8 tabs
+    SEAT_NOTCH_R=14.0,                                # supersedes KLB_WIRE["notch_r"] 13.2 (wires pass outside the ring r 12.8)
+    KLB_KEY=dict(w=2.9, r=(7.0, 10.9), h=1.4),        # key of T_klb in the column slot 3.0 x 1.5 at azimuth 0
+    # ---- export
+    STL=dict(deflection_mm=0.01, angular_rad=0.1, relative=False),   # export_part() above meshes RELATIVE to the edge size
+)
+# <<< end of additions by obal
+
+
+# =====================================================================================================================
+# >>> additions by pan   (builder of t4_pan.py) - numbers that were MISSING or had to CHANGE inside the PAN module.
+#     Nothing above this block was edited.  Reasons: parts_pan.json["deviations"] / STATUS_pan.md.
+#     All positions in the pan-stage frame (= B frame at pan 0), rest pose (lift 0).
+# =====================================================================================================================
+PAN = dict(
+    # ---- P_sachta: well, journal, guide lands
+    WELL_CORNER_OUT=3.1,                               # outer corner radius of the well (inner 1.5 + wall 1.6) -> max r 27.06
+    JOURNAL=dict(r_resin=28.07, r_in=25.57, chamfer=0.5, fill_x=20.0, ribs_x=(10.0, -10.0), rib_t=1.6,
+                 plate_z=(-3.5, -2.0), cone_z=(-4.5, -3.0), tape=dict(t=0.13, z=(-10.0, -5.0))),
+    GLUE_GROOVE=dict(r=(24.4, 25.4), depth=0.3, az=((40.0, 140.0), (220.0, 320.0))),   # collar-disc bond (B: glue at r > 24)
+    TOOL_HOLE=dict(at=(0.0, 21.1), d=4.8, pan=-58.5),  # through the stage top plate: driver for the static FPC clamp screw of
+    #          T_prichytka_fpc (B frame (18.0, 11.0)) when the neck is already in the well; covered by the collar disc
+    LAND=dict(h=0.70, tape=0.13, z=(-38.0, -4.0), lead=0.7,    # PTFE strip seats = guide lands (neck gap 0.17 with tape)
+              front_x=((13.0, 17.0), (-17.0, -13.0)), back_x=((13.0, 17.0),),
+              back_up=dict(x=(-17.0, -13.0), z=(-10.4, -4.0)), end_y=((4.9, 8.4), (-8.4, -4.9))),
+    FLOOR=dict(z=(-41.9, -41.0), az=(5.0, 140.0)),     # back-sector floor = whole well footprint inside STAGE_BACK_AZ
+    WIN_END_Y=(-4.5, 4.5),
+    FIN=dict(x=(25.0, 27.6), y=(4.56, 5.76), z=(-41.9, -17.0), edge_r=0.5, r_max=28.15),   # backing of the fixed FPC leg
+    APRON=dict(x=(24.0, 27.6), y=(4.56, 8.2)),         # floor continued outside the +X end wall (FPC wraps under it)
+    FPC_GROOVE=dict(depth=0.2, grow=0.3),              # groove in the floor underside for the bonded FPC run
+    PAD=dict(face_y=15.4, r=3.0, seat_depth=3.5),      # bracket pads (BRACKET_PADS face y 15.6 -> 15.4: bracket 1.7 thick there)
+    # ---- P_koleso
+    GEAR=dict(phase=4.3, teeth_az=(149.3, 359.3), n_teeth=21, drum_az=(4.0, 145.0), r_root=13.4,
+              lip=dict(r=16.5, z=(-42.6, -42.2), az=(22.0, 145.0)), recess=(6.0, -44.0), backlash=0.04,
+              stop_pin=dict(r=13.5, az=90.0, d=2.0, length=4.5, z=(-46.7, -42.2)),
+              dowel_z=(-45.05, -41.05)),
+    # ---- lift servo bracket
+    BRKT=dict(plate_x=(-5.3, 16.0), plate_y=(13.0, 17.1), plate_z=(-41.9, -13.0), slot=1.0,
+              lug=dict(x=(16.0, 22.9), z=(-33.4, -26.6)), rest=dict(x=(-5.3, -1.3), z=(-40.0, -34.0), y=12.6),
+              ledge=dict(x=(-6.35, 16.0), y=(17.1, 26.2), z=(-41.9, -41.1), lip_x=(-5.0, 10.0), lip_y=(29.45, 30.95), lip_h=1.5),
+              post=dict(x=(0.0, 5.0), y=(17.1, 26.2), z=(-18.0, -13.4), pilot_d=1.7, pilot_depth=4.5),
+              screw_F10="M2x5 socket head ISO 4762", screw_F11="M2x6 thread-forming pan head"),
+    # ---- crank
+    CRANK=dict(spline=dict(n=21, d_major=4.84, d_minor=4.44, x=(-15.5, -12.7)), screw="M2.5x6 countersunk ISO 10642",
+               pin_hole_d=1.98, pin_len=5.4),
+    # ---- ear / foot / tongue
+    EAR=dict(flange_y=(9.8, 12.4), plate_y0=10.2, dowel=dict(x=-15.5, zrel=-4.75, d=1.5, length=5.0),
+             screw=dict(x=-10.0, zrel=-4.3, size="M2x8 thread-forming pan head")),
+    FOOT=dict(corner_r=0.8, slot=dict(x=(11.6, 15.0), y=(-7.2, 2.6)), pocket=dict(x=(11.0, 20.6), y=(-7.6, 5.6), depth=1.0),
+              channel=dict(y=(-1.8, 1.8), depth=0.3), key=dict(x=(21.3, 22.3), y=(-2.0, 2.0), z=(-38.9, -37.1)),
+              tongue_pilot=dict(y=0.0, z=-38.0, d=1.3, x_end=17.5),
+              opt_screws=((-10.0, -5.0), (7.5, -5.0)), ear_pilot=dict(d=1.7, depth=6.5), ear_dowel=dict(d=1.48, depth=3.2)),
+    TONGUE=dict(x=(22.3, 27.9), y=(-3.5, 3.5), z=(-40.5, -38.0), block=dict(x=(22.7, 27.9), y=(-2.2, 2.2), z_top=-35.5, chamfer=0.8),
+                r_max=28.15, screw="M1.6x10 countersunk DIN 965, along -X, self-tapping in the D1.3 pilot", recess=dict(x=(25.0, 27.9), y=(-3.5, 1.8))),
+    # ---- FPC (3.0 x 0.12)
+    FPC=dict(w=3.0, t=0.12, lift_x=(25.2, 28.2), y_move=-3.5, y_fix=4.5, z_move0=-38.0, z_fix=-41.76, z_tail=-40.26,
+             zc0=-27.5, R=4.0, paddle=dict(x=(15.6, 19.0), y=(-5.2, 5.2), z=-39.56, ramp_x=(19.0, 20.5)),
+             trunk=dict(az=14.0, r=(15.9, 27.2)), w_piece=dict(y=(4.4, 7.6)), branch=dict(x=(17.8, 20.8), y0=4.0, z_top=-35.2),
+             riser=dict(bend_r=0.56, rho=15.76), pan=dict(r_in=15.76, r_out=23.44, z=(-45.9, -42.9), u0=92.0, k=0.402,
+             static_end_az=24.5, tail=dict(az=(44.5, 51.5), z_bot=-51.0)), free_len_lift=37.27),
+    JUNCTION=dict(board=dict(x=(16.6, 22.0), y=(12.72, 13.32), z=(-41.0, -35.2)), pins_x=(18.0, 19.27, 20.54), pin_z=-37.5,
+                  pin_y=(13.32, 16.3), socket=dict(x=(17.3, 21.25), y=(14.0, 18.3), z=(-38.6, -36.4))),
+    LIFT_LOOP_ENV=dict(x=(25.2, 28.2), y=(-3.62, 4.56), z=(-41.9, -13.5)),     # replaces FPC_LIFT (U top -13.5 at lift 20)
+)
+# <<< end of additions by pan

@@ -23,6 +23,13 @@ sys.path.insert(0, HERE)
 import t4_common as C                                                                                  # noqa: E402
 
 VER = "v1"
+STEP_REV = {   # cached steps that changed after the first full build (cache name gets the suffix _r<n>)
+    "stred_pads": 3, "stred_ledge": 3, "part_T_stred": 3,
+    "dvere_cavity": 2, "dvere_shell": 2, "dvere_cut": 2, "dvere_hooks": 3, "part_T_dvere": 3,
+    "grille_flange": 2, "grille": 2, "part_T_mriezka": 2,
+    "part_T_klb_L": 2, "part_T_klb_P": 2,
+    "part_T_drziak_repro": 2,
+}
 T0 = time.time()
 LOG = []
 
@@ -41,22 +48,33 @@ FLARE_AZ = ((50.0, 130.0), (230.0, 310.0))      # gussets only in the +-Y sector
 VENT = dict(d=1.6, z=0.4)       # 2 vent holes through the collar tube into the ring seat (trough between tube and shelf)
 TOP_GAP_X = 20.6                # door ledge omitted along the top edge for |x| < this (spec 18.0; hooks reach 20.25)
 LEDGE_TOP_Z = -16.5             # ... above this height
-HOOK = dict(x=16.0, z=-12.0, tab_u=4.0, tab_w=(2.5, 3.6), tab_v=(-1.5, 3.3), root_u=4.25, root_w=3.8, root_v=(-2.05, 3.0))
-PAD = dict(r=4.0, w=(4.7, 7.2), arm_u=5.9, riser_u=(3.6, 5.9), pocket_d=5.1, pocket_depth=2.1, push_d=1.5)
-DBOSS = dict(r=4.0, w=4.5, pocket_d=5.1, pocket_depth=2.1)       # door magnet boss (face at inset 4.5)
+HOOK = dict(x=16.0, z=-12.0, tab_u=4.0, tab_w=(2.75, 3.6), tab_v=(-1.5, 3.3), root_u=4.25, root_w=3.8, root_v=(-2.05, 3.0))
+#   tab_w rev 3: 2.5 left only 0.07 to the curved wall at the outer top corner of the flat tab (measured on the meshes); 2.75 -> 0.3
+PAD = dict(r=4.0, w=(4.5, 7.2), arm_u=7.2, riser_u=(3.6, 7.2), pocket_d=5.1, pocket_depth=2.1, push_d=1.5,
+           door_clear=0.3, w_clear=4.4)   # nothing of the pad inside the opening prism + 0.3 in front of the plane w 4.4
+#   rev 3: (a) the riser of rev 1 (u 3.6..5.9) crossed the door edge and the door boss: 14.6 mm3 of interference -> riser
+#   moved outside the opening, arm behind the door boss; (b) pad 4.5..7.2 (spec 4.7): floor behind the magnet pocket
+#   0.6 instead of 0.4 (min feature); the door boss is 0.2 lower instead (face at inset 4.3), air gap 0.2 kept
+DBOSS = dict(r=4.0, w=4.3, pocket_d=5.1, pocket_depth=2.1)       # door magnet boss D8 x 2.1 (face at inset 4.3; spec 4.5)
 NOTCH = dict(w=12.0, h=1.2, depth_y=0.85)                         # finger-nail notch in the door's bottom edge
 BOSS_FACE_LED = -31.4           # LED boss face (spec -33.0: a 5 mm pilot would break through the 2.2 wall there)
 PILOT_LED = 4.3                 # pilot depth in the LED bosses (remaining skin >= 1.2)
 SPK_AZ = (30.0, 150.0, 270.0)   # speaker bosses (spec 90 / 210 / 330: the 90 deg boss sits inside the LED box)
 SPK_SEAT_D = 28.3
 FLANGE_GUIDE = (33.6, 8.0, 1.2, 1.5)      # light-guide flange w x h x t, corner r (spec 35 wide: hits the LED bosses)
-FLANGE_GRILLE = (23.0, 5.2)               # grille flange pill (inside the gasket ID 24), flat back at Y_GRILLE_BACK
+FLANGE_GRILLE = (22.4, 5.2)               # grille flange pill (0.3 inside the gasket ID 23.8), flat back at Y_GRILLE_BACK
 Y_GRILLE_BACK = -36.7
-GRILLE_SLOTS = dict(n=5, w=0.8, h=1.8, pitch=3.6)
+GRILLE_SLOTS = dict(n=5, w=0.8, h=1.6, pitch=3.6)     # webs above / below the slots 0.6 (min feature)
 HOLDER = dict(x=16.8, z=(C.Z_BAR - 3.5, C.Z_BAR + 3.5), y_back=-30.1, front_inset=3.5,
               chan_back=(14.4, 1.5), chan_front=(15.5, 2.1), rebate=(15.15, 2.1, 0.8),
               ear=dict(x=(15.3, 22.3), t=2.0, z=3.0))
-RING = dict(ri=13.0, ro=16.0, t=1.6, ear_r=2.6, flat_z=-36.3)     # speaker clamp ring (flat top under the LED holder)
+RING = dict(ri=13.0, ro=16.0, t=1.6, ear_r=2.6, flat_z=-36.3,     # speaker clamp ring (flat top under the LED holder)
+            notch=dict(x=(-17.5, -12.0), z=(-53.0, -49.0)))        # wire exit toward -X (speaker terminals turned there)
+# cable exits / bend space of the two bought parts on the front wall (solids, so that K2 / K3 see them)
+#   speaker: solder lugs on the back face inside the ring + 2 wires leaving through the ring notch toward -X
+#   LED PCB: 3 solder pads on the back at the -X end, wires bent flat along the back toward -X (both: r >= 29.7 from the axis)
+EXIT_SPK = dict(x=(-16.5, -8.0), y=(C.SPEAKER["y"][1], C.SPEAKER["y"][1] + 1.6), z=(-52.5, -49.5))
+EXIT_LED = dict(x=(-15.0, -9.0), y=(-30.1, -28.9), z=(C.Z_BAR - 1.8, C.Z_BAR + 1.8))
 GASKET = dict(ri=11.9, ro=14.0)
 LIP = dict(clear=0.15, t=1.6, x_tip=C.X_CAP - 2.5, x_root=C.X_CAP + 0.4, z_bot=-77.7, root_w=4.3, root_x=(C.XS - 0.3, C.X_CAP + 0.75))
 KEY = dict(w=2.9, r=(7.0, 10.9), h=1.4)                           # anti-rotation key of T_klb (column slot 3.0 x 1.5 at az 0)
@@ -64,6 +82,39 @@ SEAT_NOTCH_R = 14.0             # wire notch in the cap seat flange (spec 13.2; 
 BUSH = dict(d=8.0, x=(44.0, C.X_KLB_END - 0.006), flange=(10.0, 42.0, 44.0), blind=(4.0, 6.0))
 SPRING = dict(do=10.0, di=5.2, t=0.5, x=(41.0, 41.5, 42.0))
 SPEAKER_MASS, GASKET_MASS = 6.0, 0.05
+
+
+
+def _sync_common():
+    """the numbers this module changed / added are mirrored in t4_common.OBAL ('additions by obal'); both copies must agree"""
+    co = getattr(C, "OBAL", None)
+    if co is None:
+        return
+    mine = dict(
+        DOOR_LEDGE_TOP_GAP=dict(x=TOP_GAP_X, z_above=LEDGE_TOP_Z),
+        DOOR_HOOK=dict(x=HOOK["x"], half_u=HOOK["tab_u"], inset=HOOK["tab_w"], v=HOOK["tab_v"]),
+        DOOR_BOSS_FACE_INSET=DBOSS["w"], PAD_INSET=PAD["w"], PAD_RISER=dict(u=PAD["riser_u"], door_clear=PAD["door_clear"]),
+        DOOR_NOTCH=dict(w=NOTCH["w"], h=NOTCH["h"], depth=NOTCH["depth_y"]),
+        TUBE_GUSSET=dict(z_start=Z_FLARE, az=FLARE_AZ), TUBE_VENT=dict(d=VENT["d"], z=VENT["z"]),
+        LED_BOSS_FACE_Y=BOSS_FACE_LED, LED_PILOT=PILOT_LED, SPK_BOSS_AZ=SPK_AZ, SPK_SEAT_D=SPK_SEAT_D,
+        SPK_GASKET=dict(ri=GASKET["ri"], ro=GASKET["ro"]),
+        SPK_RING=dict(ri=RING["ri"], ro=RING["ro"], t=RING["t"], notch=RING["notch"]),
+        GUIDE_FLANGE=FLANGE_GUIDE[:3], GRILLE_FLANGE=FLANGE_GRILLE, GRILLE_BACK_Y=Y_GRILLE_BACK, GRILLE_SLOTS=GRILLE_SLOTS,
+        EXIT_SPK=EXIT_SPK, EXIT_LED=EXIT_LED,
+        SEAM_LIP=dict(clear=LIP["clear"], t=LIP["t"], x_tip=LIP["x_tip"], z_bot=LIP["z_bot"]),
+        SEAT_NOTCH_R=SEAT_NOTCH_R, KLB_KEY=KEY, STL=dict(deflection_mm=STL_LIN, angular_rad=STL_ANG, relative=False))
+
+    def same(a, b):
+        if isinstance(a, dict):
+            return isinstance(b, dict) and set(a) == set(b) and all(same(a[k], b[k]) for k in a)
+        if isinstance(a, (tuple, list)):
+            return isinstance(b, (tuple, list)) and len(a) == len(b) and all(same(x, y) for x, y in zip(a, b))
+        if isinstance(a, (int, float)) and isinstance(b, (int, float)):
+            return abs(a - b) < 1e-6
+        return a == b
+    bad = [k for k in mine if k not in co or not same(mine[k], co[k])]
+    assert not bad, f"t4_obal.py and t4_common.OBAL disagree on {bad}"
+
 
 bd = None
 
@@ -157,7 +208,8 @@ def pan_keep_r(z):
 # =====================================================================================================================
 def K(name, fn):
     """cached step (BREP in ./cache)"""
-    return C.cached(f"obal_{VER}_{name}", fn, verbose=True)
+    rev = STEP_REV.get(name)
+    return C.cached(f"obal_{VER}_{name}" + (f"_r{rev}" if rev else ""), fn, verbose=True)
 
 
 def one(s):
@@ -200,6 +252,12 @@ def poly_prism_x(pts_yz, x0, x1):
     _init()
     w = bd.Wire.make_polygon([bd.Vector(x0, y, z) for y, z in pts_yz], close=True)
     return bd.extrude(bd.Face(w), amount=x1 - x0, dir=(1, 0, 0))
+
+
+def poly_prism_y(pts_xz, y0, y1):
+    _init()
+    w = bd.Wire.make_polygon([bd.Vector(x, y0, z) for x, z in pts_xz], close=True)
+    return bd.extrude(bd.Face(w), amount=y1 - y0, dir=(0, 1, 0))
 
 
 def vpill_y(w, h, x, z, y0, y1):
@@ -274,6 +332,9 @@ def _pad(x, z):
     s = lcyl(L, PAD["r"], w0, w1) + lbox(L, 0.0, PAD["arm_u"], -PAD["r"], PAD["r"], w0, w1) + \
         lbox(L, PAD["riser_u"][0], PAD["riser_u"][1], -PAD["r"], PAD["r"], 0.9, w1)
     s = s - lcyl(L, PAD["pocket_d"] / 2, w0 - 0.5, w0 + PAD["pocket_depth"]) - lcyl(L, PAD["push_d"] / 2, w0, w1 + 0.5)
+    # the door (panel, boss, 0.25 seam) owns everything inside the opening outline down to the boss face (inset 4.5):
+    # the riser only exists outside the opening + 0.3 there, the arm passes behind the door boss (w >= 4.7)
+    s = s - (C.door_prism(C.SEAM / 2 + PAD["door_clear"]) & lbox(L, -40.0, 40.0, -40.0, 40.0, -12.0, PAD["w_clear"]))
     for z0, z1, r in C.PAN_ENV:                                                          # stay 1.0 outside the pan sweep
         if z1 > z - 6 and z0 < z + 6:
             s = s - C.cyl_z(r + 1.0, z0, z1)
@@ -419,7 +480,13 @@ def build_klb_L():
         y, z = klb_yz(az, C.KLB_MAGNETS["pcd_r"])
         cuts.append(C.magnet_hole(C.KLB_MAGNETS["size"][0], C.KLB_MAGNETS["size"][1], (xe, y, z), "x", -1))
     gw, gd = C.KLB_WIRE["groove"]
-    cuts.append(C.box(C.X_SEAT - 0.1, xs + 4.2 + 0.1, sy - gw / 2, sy + gw / 2, sz - 14.0, sz - (13.5 - gd)))       # wire groove, underside
+    rb = 13.5 - gd                                   # groove bottom radius 10.9
+    x_st = xs + 4.2                                  # step face of the r 13.5 body
+    # wire groove on the underside: opens through the shoulder face x 40.6 (into the notch of the cap seat flange), full
+    # depth to 1.0 before the step face, then a ramp that leaves the surface inside the 45 deg chamfer of the D22 step
+    # (rev 2: the plain box of rev 1 left two 0.1 mm notches in the neck and in the D22 journal)
+    cuts.append(poly_prism_y([(C.X_SEAT, sz - 16.0), (C.X_SEAT, sz - rb), (x_st - 1.0, sz - rb), (x_st + 1.2, sz - (rb + 0.7)),
+                              (x_st + 1.2, sz - 16.0)], sy - gw / 2, sy + gw / 2))
     return one(s.cut(*cuts))
 
 
@@ -509,7 +576,9 @@ def build_drziak_repro():
     s = C.cyl_y(RING["ro"], y0, y1, 0.0, zs)
     for x, z in spk_boss_xz():
         s = s + C.cyl_y(RING["ear_r"], y0, y1, x, z)
-    cuts = [C.cyl_y(RING["ri"], y0 - 1, y1 + 1, 0.0, zs), C.box(-30, 30, y0 - 1, y1 + 1, RING["flat_z"], 0.0)]
+    nt = RING["notch"]
+    cuts = [C.cyl_y(RING["ri"], y0 - 1, y1 + 1, 0.0, zs), C.box(-30, 30, y0 - 1, y1 + 1, RING["flat_z"], 0.0),
+            C.box(nt["x"][0], nt["x"][1], y0 - 1, y1 + 1, nt["z"][0], nt["z"][1])]
     for x, z in spk_boss_xz():
         cuts.append(C.cyl_y(C.SCREWS["M2"][1] / 2, y0 - 1, y1 + 1, x, z))
     return one(s.cut(*cuts))
@@ -576,6 +645,10 @@ def build(only=None):
     B["reproduktor"] = (build_reproduktor(), "Reproduktor Ø28 × 5 mm, 8 Ω / 1,5 W", SPEAKER_MASS)
     B["tesnenie_repro"] = (build_tesnenie(), "Penové tesnenie reproduktora (PORON 1 mm, Ø28 / Ø23,8)", GASKET_MASS)
     B["DPS_led"] = (build_dps_led(), "LED pásik 30 × 4 mm, 6 × WS2812B-2020", 0.25)
+    B["vyvod_repro"] = (C.box(*EXIT_SPK["x"], *EXIT_SPK["y"], *EXIT_SPK["z"]),
+                        "Vývody reproduktora + kábel JST-PH 2p 90 mm (rezervovaný priestor)", 0.4)
+    B["vyvod_led"] = (C.box(*EXIT_LED["x"], *EXIT_LED["y"], *EXIT_LED["z"]),
+                      "Spájkovacie plôšky LED pásika + kábel JST-SH 3p 90 mm (rezervovaný priestor)", 0.3)
     dm, fm = _door_magnets()
     for i, s in enumerate(dm):
         B[f"magnet_dvierka_{i + 1}"] = (s, "Magnet dvierok N52 Ø5 × 2 (v dvierkach)", None)
@@ -638,6 +711,148 @@ BBOX_EXPECT = {      # (x0, x1, y0, y1, z0, z1) from the spec, tolerance 0.06 un
 }
 
 
+STL_LIN, STL_ANG = 0.01, 0.1       # STL: ABSOLUTE chord deflection (mm) / angular deflection (rad)
+STEP_MAX_MB = 12.0                 # STEP is a courtesy export: only written when the file stays below this size
+STEP_BREP_MAX_MB = 8.0             # ... parts whose BREP is already larger carry trimmed loft surfaces -> STEP skipped
+
+
+_sync_common()
+
+
+def read_stl(path):
+    """binary STL -> (V (n, 3) welded vertices, T (m, 3)), float64"""
+    raw = np.fromfile(path, dtype=np.uint8)
+    n = int(np.frombuffer(raw[80:84].tobytes(), dtype="<u4")[0])
+    rec = np.frombuffer(raw[84:84 + 50 * n].tobytes(), dtype=np.dtype([("n", "<f4", 3), ("v", "<f4", (3, 3)), ("a", "<u2")]))
+    P = rec["v"].reshape(-1, 3).astype(np.float64)
+    key = np.round(P * 1e4).astype(np.int64)
+    _, idx, inv = np.unique(key, axis=0, return_index=True, return_inverse=True)
+    return P[idx], inv.reshape(-1, 3)
+
+
+def mesh_stats(V, T):
+    """watertightness of a welded triangle mesh: every undirected edge used exactly twice, once per direction"""
+    T = T[(T[:, 0] != T[:, 1]) & (T[:, 1] != T[:, 2]) & (T[:, 0] != T[:, 2])]
+    e = np.concatenate([T[:, [0, 1]], T[:, [1, 2]], T[:, [2, 0]]])
+    und = np.sort(e, 1)
+    _, cnt = np.unique(und, axis=0, return_counts=True)
+    dirk = e[:, 0].astype(np.int64) * (len(V) + 1) + e[:, 1]
+    _, dcnt = np.unique(dirk, return_counts=True)
+    a, b, c = V[T[:, 0]], V[T[:, 1]], V[T[:, 2]]
+    dv = np.einsum("ij,ij->i", a, np.cross(b, c)) / 6.0
+    vol = float(dv.sum())
+    cog = ((a + b + c) / 4.0 * dv[:, None]).sum(0) / vol if abs(vol) > 1e-9 else np.zeros(3)
+    return dict(tris=int(len(T)), verts=int(len(V)), open_edges=int((cnt == 1).sum()), nonmanifold_edges=int((cnt > 2).sum()),
+                flipped_edges=int((dcnt > 1).sum()), volume=vol, cog=[round(float(v), 3) for v in cog])
+
+
+def export_abs(name, p, out=HERE, do_step=True):
+    """stl/<name>.stl with ABSOLUTE deflection (build123d / t4_common.export_part mesh RELATIVE to the edge size, which left
+    chord errors up to 0.28 mm on the big loft faces), watertight statistics read back from the written file, and
+    step/<name>.step only when it stays below STEP_MAX_MB (otherwise step = None)."""
+    from OCP.BRepMesh import BRepMesh_IncrementalMesh
+    from OCP.StlAPI import StlAPI_Writer
+    from OCP.BRepTools import BRepTools
+    _init()
+    s = p["shape"]
+    os.makedirs(os.path.join(out, "stl"), exist_ok=True); os.makedirs(os.path.join(out, "step"), exist_ok=True)
+    rec = C.check_part(name, p)
+    f_stl = os.path.join(out, "stl", name + ".stl")
+    BRepTools.Clean_s(s.wrapped)
+    BRepMesh_IncrementalMesh(s.wrapped, STL_LIN, False, STL_ANG, True)
+    w = StlAPI_Writer(); w.ASCIIMode = False
+    w.Write(s.wrapped, f_stl)
+    st = mesh_stats(*read_stl(f_stl))
+    rec["volume_mesh"] = round(st["volume"], 2)
+    rec["cog"] = st["cog"]
+    rec["stl"] = dict(file=f"stl/{name}.stl", tris=st["tris"], open_edges=st["open_edges"], nonmanifold_edges=st["nonmanifold_edges"],
+                      flipped_edges=st["flipped_edges"], deflection_mm=STL_LIN, mb=round(os.path.getsize(f_stl) / 1e6, 2))
+    rec["watertight"] = bool(st["open_edges"] == 0 and st["nonmanifold_edges"] == 0 and st["flipped_edges"] == 0 and st["volume"] > 0)
+    f_step = os.path.join(out, "step", name + ".step")
+    rec["step"] = None
+    if os.path.exists(f_step):
+        os.remove(f_step)
+    if do_step:
+        tmp = os.path.join(C.CACHE, f"_size_{name}.brep")
+        bd.export_brep(s, tmp)
+        mb = os.path.getsize(tmp) / 1e6
+        os.remove(tmp)
+        if mb <= STEP_BREP_MAX_MB:
+            bd.export_step(s, f_step)
+            smb = os.path.getsize(f_step) / 1e6
+            if smb <= STEP_MAX_MB:
+                rec["step"] = f"step/{name}.step"
+            else:
+                os.remove(f_step); rec["step_skipped"] = f"STEP {smb:.0f} MB > {STEP_MAX_MB:.0f} MB"
+        else:
+            rec["step_skipped"] = f"BREP {mb:.0f} MB (trimmed loft surfaces) -> STEP would exceed {STEP_MAX_MB:.0f} MB"
+    dens = C.DENS.get(p["mat"])
+    rec.update(group=p["group"], mat=p["mat"], printed=p["printed"], label_sk=p["label_sk"],
+               mass_g=p.get("mass", round(rec["volume_mesh"] * dens, 2) if dens else None))
+    rec["ok"] = bool(rec["ok"] and rec["watertight"])
+    return rec
+
+
+def load_parts(path=None):
+    """list of part records of parts_obal.json (dict layout with the key "parts"; the first version was a plain list)"""
+    d = json.load(open(path or os.path.join(HERE, "parts_obal.json")))
+    return d["parts"] if isinstance(d, dict) else d
+
+
+DEVIATIONS = [   # where the built geometry differs from T4_spec.md / t4_common (reason in each line)
+    "Collar tube: two 45 deg gusset cones in the +-Y sectors (azimuth 50..130 / 230..310, from z -6.6 up) instead of the 6 ribs of "
+    "spec 4.3 - they fill the acute crevice between tube and wall (which the spec also asks to fill) and act as the +-50 / +-130 ribs; "
+    "the 0 / 180 deg ribs (2.4 mm stubs to the band edge) are omitted.  2 vent holes D1.6 at z 0.4 through the tube (resin drain of "
+    "the trough between tube and shelf; covered by the glued collar ring).",
+    "Door frame ledge omitted along the top edge for |x| < 20.6 above z -16.5 (spec 18.0): the hook tabs reach |x| 20.25.",
+    "Door magnets: door boss D8 x 2.1 with its face at inset 4.3 (spec 2.3 / 4.5), frame pad between inset 4.5 and 7.2 (spec 4.7 .. 7.2): "
+    "the floor behind the frame pocket is 0.6 instead of 0.4 (min feature); air gap 0.2 kept.  The pad is carried by an arm behind "
+    "the door boss and a riser that stays 0.3 outside the door opening (rev 1 crossed the door: 14.6 mm3).",
+    "LED-holder bosses: face at y -31.4 (spec -33.0) and pilot D1.7 x 4.3 (spec x 5): with the spec numbers the pilot leaves < 1.2 "
+    "of skin.  Skin behind the pilot 1.3.",
+    "Speaker bosses at 30 / 150 / 270 deg (spec 90 / 210 / 330): the 90 deg boss would sit inside the LED box.",
+    "Light-guide flange 33.6 x 8 x 1.2 (spec 35 wide: collides with the LED bosses at x +-19.5, r 2.5).",
+    "Grille flange = pill 22.4 x 5.2 with a flat back at y -36.7 (spec 25 x 7 x 1.2): it has to fit inside the speaker gasket "
+    "(ID 23.8) and in front of the speaker face; 5 slots 0.8 x 1.6 at 3.6 pitch (webs 0.6).",
+    "Side caps: ONE continuous seam lip (1.6 thick, 2.5 under the band edge, 0.15 clearance, straight extrusion along X) instead of "
+    "8 tabs - it also backs the whole seam against see-through (K8).  It ends at z -77.7 (cap spigot top -78.0).",
+    "Wire notch of the cap seat flange cut to r 14.0 (spec 13.2): the wires have to pass outside the stop ring r 12.8.",
+    "T_klb wire groove 1.6 x 2.6: runs out through a ramp inside the chamfer of the D22 step instead of a square end.",
+    "T_dvere: finger-nail notch 12 x 1.2, 0.85 deep, in the bottom edge (asked for in the task; the spec removes the door with a "
+    "suction cup).  Wall under the notch 1.35.",
+    "Disc springs modelled as 2 flat rings of 0.5 (working height 1.0 in series).",
+    "T_drziak_repro: wire notch 5.5 x 4 at azimuth 180 (toward -X) for the speaker leads; two reserved-space solids vyvod_repro / "
+    "vyvod_led model the solder lugs and the first cable bend (not in the spec part list).",
+    "STL written with ABSOLUTE deflection 0.01 mm (t4_common.export_part / build123d use a deflection relative to the edge size: "
+    "chord errors up to 0.28 mm on the loft faces).  STEP skipped (null) for the 8 parts that carry trimmed loft surfaces.",
+]
+BOUGHT = {   # bought parts of the module: modelled size, source of the dimension, tolerance taken by the seat
+    "reproduktor": "D28.0 x 5.0 mm, 8 ohm 1.5 W micro speaker (generic catalogue size, T4_spec 3.3); +-0.3; seat D28.3 between 3 "
+                   "scallops, depth taken by the 0.85 foam gasket; terminals turned to -X (ring notch), exit space vyvod_repro",
+    "tesnenie_repro": "PORON ring D28 / D23.8, 1.0 mm sheet compressed to 0.85 (cut from sheet)",
+    "DPS_led": "30.0 x 4.0 x 0.8 mm strip, 6 x WS2812B-2020 (2.0 x 2.0 x 0.84, Worldsemi datasheet) at 5.0 pitch; custom / cut strip "
+               "+-0.2; rebate 30.3 x 4.2 x 0.8; solder pads on the back at the -X end, exit space vyvod_led",
+    "magnet_dvierka_* / magnet_zarubna_*": "N52 disc D5 x 2 (+-0.1 typical); pockets D5.1 x 2.1, glued, air gap 0.2",
+    "magnet_klb_*": "N52 disc D3 x 2 (+-0.1); pockets D3.1 x 2.1 in the arm interface face",
+    "pruzina_klb_*": "disc spring DIN 2093 10 x 5.2 x 0.4 (l0 0.7), 2 in series, modelled as rings of 0.5 working height",
+    "skrutka_klb_*": "ISO 4762 M2 x 10 (head D3.8 x 2.0); clearance D2.3, counterbore D4.2",
+    "skrutka_led_* / skrutka_repro_*": "thread-forming M2 x 6 pan head (head D3.8 x 2.0 modelled); pilot D1.7",
+    "vlozka_stred_*": "brass insert M2.5 x 4.0, OD 3.5 (t4_common.INSERTS); hole D3.6, glued",
+}
+INTENDED_FITS = [   # designed contacts / overlaps inside the module (K2)
+    "skrutka_led_* / skrutka_repro_* in the pilots D1.7 of T_stred: thread-forming engagement (overlap 3.3 .. 3.8 mm3 each)",
+    "T_svetlovod flange, T_mriezka flange and tesnenie_repro on the inner wall of T_stred: coincident faces (glued / pressed)",
+    "vlozka_stred_* in the D3.6 holes of the T_stred bosses (glued, 0.05 radial)",
+    "magnets in their pockets D5.1 x 2.1 / D3.1 x 2.1 (glued)",
+    "T_dvere in the opening (0.25 all round), 0.2 in front of the frame ledge, 0.1 in front of the pad risers (inward stop on 4 "
+    "crescents at the magnet bosses); hook tabs 0.3 .. 0.55 behind the wall",
+    "seam lip of T_bok_* under the edge of T_stred (0.15)",
+    "T_klb_* shoulder on the seat flange of T_bok_* (x +-40.6), neck in the flange hole (0.25), body in the socket bore (0.5)",
+    "T_puzdro_* in the bore D8.05 of T_klb_* (running fit), its flange on the disc springs",
+    "DPS_led in the rebate of T_drziak_led; reproduktor between the 3 boss scallops, on the gasket, under T_drziak_repro",
+]
+
+
 def main():
     args = sys.argv[1:]
     if "--rebuild" in args:
@@ -648,17 +863,10 @@ def main():
         only = set(args[args.index("--only") + 1].split(","))
     R = build(only)
     recs = []
-    print(f"\n{'part':22s} {'valid':5s} {'sol':3s} {'vol(mesh)':>10s} {'mass g':>7s} {'build s':>7s}  bbox x / y / z")
+    print(f"\n{'part':22s} {'valid':5s} {'sol':3s} {'wt':3s} {'vol(mesh)':>10s} {'mass g':>7s} {'build s':>7s} {'tris':>7s} {'step':4s}  bbox x / y / z")
     for name, p in R.items():
         t = time.time()
-        if "--no-export" in args:
-            rec = C.check_part(name, p)
-            rec["volume_mesh"] = round(C.mesh_volume(p["shape"]), 2)
-            dens = C.DENS.get(p["mat"])
-            rec.update(group=p["group"], mat=p["mat"], printed=p["printed"], label_sk=p["label_sk"],
-                       mass_g=p.get("mass", round(rec["volume_mesh"] * dens, 2) if dens else None))
-        else:
-            rec = C.export_part(name, p, HERE)
+        rec = export_abs(name, p, HERE, do_step="--no-step" not in args)
         rec["build_s"] = p.get("build_s", 0.0)
         rec["export_s"] = round(time.time() - t, 1)
         exp = BBOX_EXPECT.get(name)
@@ -668,11 +876,27 @@ def main():
             rec["ok"] = bool(rec["ok"] and rec["bbox_ok"])
         recs.append(rec)
         b = rec["bbox"]
-        print(f"{name:22s} {str(rec['valid']):5s} {rec['n_solids']:3d} {rec['volume_mesh']:10.1f} {str(rec['mass_g']):>7s} "
-              f"{rec['build_s']:7.1f}  {b[0]:7.2f}..{b[1]:6.2f} / {b[2]:7.2f}..{b[3]:6.2f} / {b[4]:7.2f}..{b[5]:6.2f}"
+        print(f"{name:22s} {str(rec['valid']):5s} {rec['n_solids']:3d} {'ok' if rec['watertight'] else 'NO':3s} {rec['volume_mesh']:10.1f} "
+              f"{str(rec['mass_g']):>7s} {rec['build_s']:7.1f} {rec['stl']['tris']:7d} {'yes' if rec['step'] else '-':4s}  "
+              f"{b[0]:7.2f}..{b[1]:6.2f} / {b[2]:7.2f}..{b[3]:6.2f} / {b[4]:7.2f}..{b[5]:6.2f}"
               f"{'' if rec['ok'] else '   <-- NOT OK'}", flush=True)
-    if only is None:
-        json.dump(recs, open(os.path.join(HERE, "parts_obal.json"), "w"), indent=1, ensure_ascii=False)
+    pj = os.path.join(HERE, "parts_obal.json")
+    if only is not None and os.path.exists(pj):                      # partial run: merge into the existing list
+        old = load_parts(pj)
+        new = {r["name"]: r for r in recs}
+        recs_out = [new.pop(r["name"], r) for r in old] + list(new.values())
+    else:
+        recs_out = recs
+    printed = [r for r in recs_out if r["printed"]]
+    doc = dict(module="obal", generated=time.strftime("%Y-%m-%d %H:%M:%S"), frame="B frame, mm, rest pose", n_parts=len(recs_out),
+               all_ok=all(r["ok"] for r in recs_out), not_ok=[r["name"] for r in recs_out if not r["ok"]],
+               stl=dict(deflection_mm=STL_LIN, angular_rad=STL_ANG, note="absolute deflection (not relative to the edge size)"),
+               step_rule=f"STEP only below {STEP_MAX_MB:.0f} MB; step = null for parts with trimmed loft surfaces",
+               step_null=[r["name"] for r in recs_out if not r.get("step")],
+               mass_printed_g=round(sum(r["mass_g"] or 0 for r in printed), 2),
+               mass_bought_g=round(sum(r["mass_g"] or 0 for r in recs_out if not r["printed"]), 2),
+               parts=recs_out, deviations=DEVIATIONS, intended_fits=INTENDED_FITS, bought=BOUGHT)
+    json.dump(doc, open(pj, "w"), indent=1, ensure_ascii=False)
     bad = [r["name"] for r in recs if not r["ok"]]
     print(f"\n{len(recs)} parts, not ok: {bad}, total {time.time() - T0:.1f} s")
 
