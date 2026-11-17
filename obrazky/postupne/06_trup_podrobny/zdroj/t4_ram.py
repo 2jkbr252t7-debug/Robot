@@ -403,7 +403,7 @@ def _column(s):
         for (y, z) in AMP_HOLES + AMP_RESTS:
             P.append(C.cyl_x(2.2, xw - 0.2, xw + so, y, z))
         for (y, z) in AMP_HOLES:
-            N.append(C.cyl_x(0.85, xw + so - 2.5, xw + so + 0.3, y, z))
+            N.append(C.cyl_x(0.85, xi - 0.3, xw + so + 0.3, y, z))       # integrator: through the web (was blind, 0.5 floor)
         cxp, cyp, czp = R["CAP470_AT"]
         P.append(tube_sector(6.25, 5.05, 65.0, 295.0, -49.0, -41.0, cxp, cyp))
         N.append(C.cyl_z(5.05, czp - 6.8, czp + 6.8, cxp, cyp))
@@ -411,7 +411,7 @@ def _column(s):
         for (y, z) in BUCK_HOLES + BUCK_RESTS:
             P.append(C.cyl_x(2.2, -(xw + so), -(xw - 0.2), y, z))
         for (y, z) in BUCK_HOLES:
-            N.append(C.cyl_x(0.85, -(xw + so + 0.3), -(xw + so - 2.5), y, z))
+            N.append(C.cyl_x(0.85, -(xw + so + 0.3), -(xi - 0.3), y, z))   # integrator: through the web (was blind, 0.5 floor)
     return P, N
 
 
@@ -426,7 +426,7 @@ def mk_ram():
     for x, y in R["SCR_RAM"][:4]:
         sy = 1 if y > 0 else -1
         P += [C.cyl_z(3.0, ZF, -77.3, x, y), C.box(x - 3.0, x + 3.0, min(sy * (YO - 0.2), y), max(sy * (YO - 0.2), y), ZF, -77.3)]
-        N += [insert_seat("M2.5", (x, y, ZF), "z", 1, pilot=0.2)]
+        N += [insert_seat("M2.5", (x, y, ZF), "z", 1, pilot=1.0)]      # integrator: through the boss top (was a 0.5 cap, K10 min feature 0.6)
     # ---- deck bosses F3 (inserts from the top) on 45 deg corbels
     for x, y in R["SCR_DECK"]:
         sy = 1 if y > 0 else -1
@@ -446,7 +446,9 @@ def mk_ram():
     # ---- controller standoffs (M2 thread-forming from +Y) and rests
     yf = C.CTRL["y"][0]
     for x, z in R["F7"]["xz"]:
-        P.append(C.cyl_y(2.5, YO - 0.2, yf, x, z)); N.append(hole(1.7, (x, yf, z), "y", -1, 2.55))
+        P.append(C.cyl_y(2.5, YO - 0.2, yf, x, z)); N.append(hole(1.7, (x, yf, z), "y", -1, yf - YI + 0.3))
+        # integrator: pilot THROUGH into the servo pocket (was blind 2.55 with a 0.4 floor, K10 min feature 0.6); the M2x4 screw
+        # ends 0.55 short of the pocket face (PCB 1.6 + 2.4 of thread in 2.95 of plastic)
     for x, z in R["F7"]["rests"]:
         P.append(C.cyl_y(2.0, YO - 0.2, yf, x, z))
     # ---- columns, links, bridges
@@ -726,6 +728,8 @@ DEVIATIONS = [
     "same side; the deck carries the mirrored provisions as a spare.",
     "Cradle long walls end at x 25.8 (spec 23.0); cap pocket is clearance only (x -30.3 .. 16.5, y +-12.95), the T_ram walls locate the servo.",
     "Buck / amplifier stand on 1.0 standoffs: +0.8 outward; capacitor +0.1 in x; column foot widened inward to x 33.0; stop ring backed by a flange r 12.8.",
+    "Integrator (K10 min feature 0.6): the pilots of F7 (controller) and F14 (buck / amplifier) and the seats of the 4 cradle F2 inserts are "
+    "THROUGH holes now (were blind with 0.4 .. 0.5 floors).",
     "Dummy hub: PETG post D24.96 with an M8x20 bolt as steel core / clutch shaft and 2 disc springs (slip clutch); sun gear tapped M8; stub r 7.5. "
     "No POM collet: the torso sits on the dummy by gravity (spec 5.5).",
 ]

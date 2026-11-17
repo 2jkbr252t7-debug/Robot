@@ -572,7 +572,7 @@ WALLS = [  # name, part, point inside the wall, direction, nominal, minimum allo
 ]
 THIN_DECLARED = {
     "T_spodok": "1.0 skirt disc (spec D2), 1.2 floor under the servo (spec), countersink rims, run-out edges of the skirt at the pinion passage",
-    "T_ram": "blind-hole floors (0.35..0.5) of the pilot / insert holes, capacitor clip arms 1.2, standoff rims",
+    "T_ram": "0.7 floors behind the F8 inserts, 0.7 collars above the F2 insert seats (the F7 / F14 pilots and the F2 seats are through holes now), capacitor clip arms 1.2, standoff rims",
     "T_paluba": "0.6 under the stop groove (spec: groove 1.2 in the 1.8 deck; supported by the foam pad / servo below)",
     "T_prichytka_fpc": "countersink rim",
     "Z_naboj_test": "-",

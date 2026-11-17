@@ -9,7 +9,7 @@ Frame / numbers: t4_common.py (B frame = pan-stage frame at pan 0, rest pose = l
 t4_common.PAN ("additions by pan").  Registry: build() -> dict[name] = t4_common.part(shape, group, mat, printed, label_sk)
 Poses for the checks: pose_parts(lift), fpc_lift(lift), fpc_loop(pan) (not part of the registry).
 
-Printed parts   P_sachta (black tough resin)  well 47 x 22 with 9 guide lands (PTFE strip seats), journal D56.14 (+ tape),
+Printed parts   P_sachta (black tough resin)  well 47 x 22 with 8 guide lands (PTFE strip seats), journal D56.14 (+ tape),
                                               stage top (collar-disc seat), hub disc, back-sector floor, bracket pads,
                                               fin + apron for the lift loop, FPC groove, windows for the ear and the tongue
                 P_koleso (tough resin)        pan gear m0.8 z36 (21 teeth) + FPC drum sector + lip, stop-pin hole
@@ -241,15 +241,17 @@ def mk_sachta():
     fin = fuse([C.box(*Fn["x"], *Fn["y"], *Fn["z"]), C.box(*Ap["x"], *Ap["y"], fz0, fz1)])
     fin = one(fin & C.cyl_z(Fn["r_max"], fz0 - 1, 0.0))
     Pd = P["PAD"]
-    pads = [C.cyl_y(Pd["r"], YW - 0.2, Pd["face_y"], b["x"], b["z"]) for b in C.BRACKET_PADS]
+    pads = [C.cyl_y(Pd["r"], YW - 0.2, Pd["face_y"], b["x"], b["z"]) for b in P["PADS"]]
     body = one(fuse([body, hub, floor, fin] + pads))
     # ---- cuts
     N = [C.cyl_z(C.PIVOT["pin_d"] / 2 + 0.025, C.Z_WELL_FLOOR[0] - 0.5, C.Z_WELL_FLOOR[1] + 0.5)]            # pivot bore D6.05
     N += [C.cyl_z(C.GEAR_JOINT["d"] / 2, C.Z_WELL_FLOOR[0] - 0.5, C.Z_WELL_FLOOR[1] + 0.5, *pol(r, az)) for r, az in C.GEAR_JOINT["dowels"]]
     do = C.INSERTS["M2"][2]
-    N += [C.cyl_y(do / 2, Pd["face_y"] - Pd["seat_depth"], Pd["face_y"] + 0.5, b["x"], b["z"]) for b in C.BRACKET_PADS]
+    N += [C.cyl_y(do / 2, Pd["face_y"] - Pd["seat_depth"], Pd["face_y"] + 0.5, b["x"], b["z"]) for b in P["PADS"]]
     G = P["FPC_GROOVE"]
     N.append(_under_floor(G["grow"], fz0 - 0.2, fz0 + G["depth"]))
+    # integrator: the groove runs out to the apron edge y 8.2 (it left a 0.3 x 0.2 rim and a 14 deg feather edge there)
+    N.append(C.box(Ap["x"][0], Ap["x"][1] + 1.0, P["FPC"]["w_piece"]["y"][1], Ap["y"][1] + 0.1, fz0 - 0.2, fz0 + G["depth"]))
     er = Fn["edge_r"]; yf = Fn["y"][0]; zg = fz0 + G["depth"]
     N.append(prism_x([(yf - 0.02, zg - 0.02), (yf + er, zg - 0.02)] + arc_pts((yf + er, zg + er), er, -90, -180) + [(yf - 0.02, zg + er)],
                      Fn["x"][0] - 0.3, Fn["x"][1] + 0.6))                                                     # round the fin edge
@@ -290,7 +292,8 @@ def mk_koleso():
     sp = G["stop_pin"]
     N = [C.cyl_z(G["recess"][0], z0 - 0.5, G["recess"][1]), C.cyl_z(C.PIVOT["pin_d"] / 2 + 0.025, z0 - 0.5, z1 + 0.5),
          C.cyl_z(sp["d"] / 2 - 0.01, z0 - 0.5, z1 + 0.5, *pol(sp["r"], sp["az"]))]
-    N += [C.cyl_z(C.GEAR_JOINT["d"] / 2, G["dowel_z"][0] - 0.15, z1 + 0.5, *pol(r, az)) for r, az in C.GEAR_JOINT["dowels"]]
+    # integrator: 0.05 under the dowels (was 0.15) -> floor 0.6 under the blind holes (K10 min feature)
+    N += [C.cyl_z(C.GEAR_JOINT["d"] / 2, G["dowel_z"][0] - 0.05, z1 + 0.5, *pol(r, az)) for r, az in C.GEAR_JOINT["dowels"]]
     return one(cut(body, N)).clean()
 
 
@@ -320,9 +323,9 @@ def mk_servo():
 def mk_drziak():
     B = P["BRKT"]; px, py, pz = B["plate_x"], B["plate_y"], B["plate_z"]
     Lg, Rs, Ld, Po = B["lug"], B["rest"], B["ledge"], B["post"]
-    b2 = C.BRACKET_PADS[1]
+    b2 = P["PADS"][1]
     S = [C.box(*px, *py, *pz),
-         C.box(b2["x"] - 4.0, b2["x"] + 4.0, *py, pz[1] - 0.2, -12.4),                                 # tab around the upper screw
+         C.box(b2["x"] - B["tab2"]["half"], b2["x"] + B["tab2"]["half"], *py, pz[1] - 0.2, B["tab2"]["z_top"]),   # tab around the upper screw
          C.box(Lg["x"][0] - 0.2, Lg["x"][1], *py, *Lg["z"]),
          C.box(*Rs["x"], Rs["y"], py[0] + 0.1, *Rs["z"]),
          C.box(*Ld["x"], py[1] - 0.1, Ld["y"][1], *Ld["z"]),
@@ -332,7 +335,7 @@ def mk_drziak():
          C.box(*Po["x"], py[1] - 0.1, Po["y"][1], *Po["z"])]
     body = one(fuse(S))
     Pd = P["PAD"]; N = []
-    for b in C.BRACKET_PADS:
+    for b in P["PADS"]:
         N.append(stadium_y(Pd["r"] + 0.25, B["slot"], b["x"], b["z"], py[0] - 0.5, Pd["face_y"]))     # pocket over the pad
         N.append(stadium_y(C.SCREWS["M2"][1] / 2, B["slot"], b["x"], b["z"], Pd["face_y"] - 0.2, py[1] + 0.5))   # slot 2.3 x 4.3
     T = C.MG90S["tab"]; xb = C.LIFT_X[1]; zt = C.LIFT_CASE["z"][1]
@@ -395,7 +398,8 @@ def mk_jazyk():
     S = [C.box(*T["x"], *T["y"], *T["z"]),
          prism_x([(B["y"][0], zb - 0.1), (B["y"][1], zb - 0.1), (B["y"][1], B["z_top"] - c), (B["y"][1] - c, B["z_top"]),
                   (B["y"][0] + c, B["z_top"]), (B["y"][0], B["z_top"] - c)], *B["x"]),
-         C.box(ky["x"][0], T["x"][0] + 0.1, *ky["y"], *ky["z"])]
+         C.box(ky["x"][0], T["x"][0] + 0.1, ky["gap_y"], ky["y"][1], *ky["z"]),          # key = 2 prongs beside the screw hole
+         C.box(ky["x"][0], T["x"][0] + 0.1, ky["y"][0], -ky["gap_y"], *ky["z"])]
     body = one(one(fuse(S)) & C.cyl_z(T["r_max"], -60, 0))
     z0 = T["z"][0]; zc = z0 + ch["depth"]; tp = F["tongue_pilot"]
     N = [_csk16(T["x"][1], tp["y"], tp["z"], T["x"][1] - ky["x"][0] + 0.5),
@@ -411,7 +415,7 @@ def mk_ucho():
     plate = prism_x([(yp, zr1), (y1 - ch, zr1), (y1, zr1 - ch), (y1, zr0), (f0, zr0), (f0, Fz[1]), (yp, Fz[1])], x0, x1)
     flange = C.box(x0, E["flange"]["x"][1], f0, f1, *Fz)
     body = one(fuse([plate, flange]))
-    hw = E["slot_w"] / 2; sy0, sy1 = E["slot_y"]
+    hw = E["slot_w"] / 2; sy0, sy1 = Q["slot_y"]
     nt = E["flange"]["notch"]
     N = [C.box(x0 - 0.5, x1 + 0.5, sy0 + hw, sy1 - hw, -hw, hw), C.cyl_x(hw, x0 - 0.5, x1 + 0.5, sy0 + hw, 0.0),
          C.cyl_x(hw, x0 - 0.5, x1 + 0.5, sy1 - hw, 0.0),
@@ -538,7 +542,7 @@ J_Z = P["JUNCTION"]["pin_z"]
 # small bought parts
 # =====================================================================================================================
 def ptfe_parts():
-    """PTFE tape 0.13: band 5 x 177 on the journal + one strip on each of the 9 guide lands"""
+    """PTFE tape 0.13: band 5 x 177 on the journal + one strip on each of the 8 guide lands"""
     J = P["JOURNAL"]; L = P["LAND"]; t = L["tape"]; out = {}
     out["ptfe_pas_capu"] = one(C.cyl_z(J["r_resin"] + J["tape"]["t"], *J["tape"]["z"]) - C.cyl_z(J["r_resin"], J["tape"]["z"][0] - 1, J["tape"]["z"][1] + 1))
     yl, xl = YI - L["h"], XI - L["h"]; z0, z1 = L["z"][0] + 1.0, L["z"][1] - 2.0
@@ -571,9 +575,9 @@ def fasteners(lift=0.0):
     add("kolik_dorazu", C.cyl_z(sp["d"] / 2, *sp["z"], x, y), "P", "steel", "kolík dorazu pan Ø2 x 4,5", joint="stop",
         size="dowel D2 x 4.5 (cut from x5)", at=(round(x, 3), round(y, 3), sp["z"][0]), dir="+Z", bench=True)
     Pd = P["PAD"]; py1 = P["BRKT"]["plate_y"][1]
-    for i, b in enumerate(C.BRACKET_PADS, 1):
-        add(f"skr_F10_{i}", C.screw("M2", 5, (b["x"], py1, b["z"]), "y", -1), "P", "steel", "skrutka M2x5 s valcovou hlavou (držiak serva)",
-            joint="F10", size="M2x5 ISO 4762", head=(b["x"], py1, b["z"]), dir="-Y", tool_from="+Y (door)")
+    for i, b in enumerate(P["PADS"], 1):
+        add(f"skr_F10_{i}", C.screw("M2", 4, (b["x"], py1, b["z"]), "y", -1), "P", "steel", "skrutka M2x4 s valcovou hlavou (držiak serva)",
+            joint="F10", size="M2x4 ISO 4762", head=(b["x"], py1, b["z"]), dir="-Y", tool_from="+Y (door)")
         add(f"vl_F10_{i}", C.insert("M2", (b["x"], Pd["face_y"], b["z"]), "y", -1), "P", "brass", "závitová vložka M2x3 (šachta)",
             joint="F10", at=(b["x"], Pd["face_y"], b["z"]))
     T = C.MG90S["tab"]; xb = C.LIFT_X[1]; zt = C.LIFT_CASE["z"][1]; xh = xb - T["from_bottom"][1]
@@ -672,14 +676,21 @@ def pose_parts(lift=0.0):
     return out
 
 
+def _koleso_bbox():
+    """bbox of the gear from its 2-D outline (21 teeth do not reach -X / -Y exactly, the lip only spans 22 .. 145 deg)"""
+    G = P["GEAR"]; Lp = G["lip"]
+    A = np.array(gear_outline() + [pol(Lp["r"], a) for a in np.arange(Lp["az"][0], Lp["az"][1] + 1e-6, 0.5)])
+    return (A[:, 0].min(), A[:, 0].max(), A[:, 1].min(), A[:, 1].max(), C.Z_GEAR_PAN[0], max(C.Z_GEAR_PAN[1], Lp["z"][1]))
+
+
 # expected bounding boxes (x0, x1, y0, y1, z0, z1) of the printed parts - checked in main
 def expected_bbox():
     J = P["JOURNAL"]; Fn = P["FIN"]; B = P["BRKT"]; E = C.EAR; T = P["TONGUE"]; K = C.CRANK
     rj = J["r_resin"]
     return {
         "P_sachta": (-rj, rj, -rj, rj, C.Z_WELL_FLOOR[0], C.Z_COLLAR[0]),
-        "P_koleso": (-C.R_PAN_GEAR[1], P["GEAR"]["lip"]["r"], -C.R_PAN_GEAR[1], P["GEAR"]["lip"]["r"], C.Z_GEAR_PAN[0], C.Z_GEAR_PAN[1]),
-        "P_drziak_serva": (B["ledge"]["x"][0], B["lug"]["x"][1], B["rest"]["y"], B["ledge"]["lip_y"][1], B["plate_z"][0], -12.4),
+        "P_koleso": _koleso_bbox(),
+        "P_drziak_serva": (B["ledge"]["x"][0], B["lug"]["x"][1], B["rest"]["y"], B["ledge"]["lip_y"][1], B["plate_z"][0], B["tab2"]["z_top"]),
         "P_kluka": (K["hub_x"][0], K["hub_x"][1], YL - K["hub_r"], YL + K["hub_r"], ZL - RC - K["tip_r"], ZL + K["hub_r"]),
         "L_pata": (-22.3, 22.3, -9.8, 9.8, C.Z_FOOT[0], C.Z_FOOT[1]),
         "L_jazyk": (P["FOOT"]["key"]["x"][0], T["x"][1], T["y"][0], T["y"][1], T["z"][0], T["block"]["z_top"]),
@@ -699,7 +710,7 @@ SOURCES = {
     "kabel_zdvih": "3 x AWG30 silicone (D0.8 each), bundle D1.8, about 60 mm; modelled as a tube along the planned route",
     "ptfe_pas_capu": "PTFE tape 0.13 x 5 x 177 around the journal (z -10 .. -5)",
 }
-for _i in range(1, 10):
+for _i in range(1, 9):
     SOURCES[f"ptfe_pasik_{_i}"] = "PTFE tape 0.13: 3.0 (2.5 / 3.0) x 30 on the guide land (5 x 3 on the short land above the ear window)"
 ASSEMBLY = {   # (bench step, direction / note) - order inside the module, see parts_pan.json["assembly"]
     "P_koleso": ("A1", "bonded (epoxy) + 2 dowels to the hub disc of P_sachta, stop pin pressed from below"),
@@ -708,7 +719,7 @@ ASSEMBLY = {   # (bench step, direction / note) - order inside the module, see p
     "fpc_pan": ("A3", "7 neck wires soldered to the paddle (FPC loose), paddle into the foot pocket"),
     "L_jazyk": ("A5", "-X through the end window after the neck is in the well, M1.6x10"),
     "servo_zdvih": ("B1", "+X into the bracket, F11"), "P_kluka": ("B1", "+X onto the spline at servo zero, skr_kluky"),
-    "P_drziak_serva": ("C2", "-Y through the door onto the pads, 2 x F10, set the crank / ear side gap 0.4 in the slots"),
+    "P_drziak_serva": ("C2", "-Y through the door onto the pads, 2 x F10 (M2x4), set the crank / ear side gap 0.4 in the slots"),
     "L_ucho": ("C3", "+X onto the crank pin, then -Y onto the dowel, F12 through the door"),
 }
 DEVIATIONS = []          # filled from STATUS text in main (kept in parts_pan.json)
@@ -793,22 +804,12 @@ def main(argv):
     old_names = [e["name"] for e in json.load(open(pj))["parts"]] if os.path.exists(pj) else []
     os.makedirs(os.path.join(HERE, "stl"), exist_ok=True); os.makedirs(os.path.join(HERE, "step"), exist_ok=True)
     out, n_step = [], 0
+    import t4_obal as O                               # export_abs: STL with ABSOLUTE deflection 0.01, STEP only below 12 MB
     for name, p, r in recs:
-        f_stl = os.path.join(HERE, "stl", name + ".stl")
-        export_stl_abs(p["shape"], f_stl)
-        st = mesh_stats(read_stl(f_stl))
-        e = dict(r)
-        e["volume_mesh"] = round(st["volume"], 3); e["cog"] = st["cog"]
-        e["stl"] = f"stl/{name}.stl"
-        e["stl_stats"] = dict(tris=st["tris"], open_edges=st["open_edges"], nonmanifold_edges=st["nonmanifold_edges"],
-                              flipped_edges=st["flipped_edges"], deflection_mm=0.01)
-        e["watertight"] = bool(st["open_edges"] == 0 and st["nonmanifold_edges"] == 0 and st["flipped_edges"] == 0 and st["volume"] > 0)
-        dens = C.DENS.get(p["mat"])
-        e.update(group=p["group"], mat=p["mat"], printed=p["printed"], label_sk=p["label_sk"],
-                 mass_g=p.get("mass", round(st["volume"] * dens, 3) if dens else None))
-        e["step"], e["step_bytes"], note = export_step_limited(name, p["shape"])
-        if note:
-            e["step_note"] = note
+        e = O.export_abs(name, p)                     # valid / n_solids / volume / bbox / volume_mesh / cog / stl{} / watertight / step
+        for k in ("bbox_expected", "bbox_ok", "build_s"):
+            if k in r:
+                e[k] = r[k]
         n_step += e["step"] is not None
         e["ok"] = bool(r["ok"] and e["watertight"])
         if not e["ok"] and name not in bad:

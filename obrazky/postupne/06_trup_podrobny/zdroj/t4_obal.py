@@ -24,7 +24,7 @@ import t4_common as C                                                           
 
 VER = "v1"
 STEP_REV = {   # cached steps that changed after the first full build (cache name gets the suffix _r<n>)
-    "stred_pads": 3, "stred_ledge": 3, "part_T_stred": 3,
+    "stred_pads": 5, "stred_ledge": 5, "part_T_stred": 5,
     "dvere_cavity": 2, "dvere_shell": 2, "dvere_cut": 2, "dvere_hooks": 3, "part_T_dvere": 3,
     "grille_flange": 2, "grille": 2, "part_T_mriezka": 2,
     "part_T_klb_L": 2, "part_T_klb_P": 2,
@@ -51,7 +51,11 @@ LEDGE_TOP_Z = -16.5             # ... above this height
 HOOK = dict(x=16.0, z=-12.0, tab_u=4.0, tab_w=(2.75, 3.6), tab_v=(-1.5, 3.3), root_u=4.25, root_w=3.8, root_v=(-2.05, 3.0))
 #   tab_w rev 3: 2.5 left only 0.07 to the curved wall at the outer top corner of the flat tab (measured on the meshes); 2.75 -> 0.3
 PAD = dict(r=4.0, w=(4.5, 7.2), arm_u=7.2, riser_u=(3.6, 7.2), pocket_d=5.1, pocket_depth=2.1, push_d=1.5,
-           door_clear=0.3, w_clear=4.4)   # nothing of the pad inside the opening prism + 0.3 in front of the plane w 4.4
+           door_clear=0.3, w_clear=4.4,   # nothing of the pad inside the opening prism + 0.3 in front of the plane w 4.4
+           pocket_du={-24.0: 0.5})
+#   rev 4 (integrator, K4 / K10): at the two UPPER pads (z -24) the PAN_ENV + 1.0 trim left 0.46 .. 0.50 of resin beside the
+#   magnet pocket and a 0.45 x 0.4 fin at the band step z -22 -> the pocket (and the frame magnet) sits 0.5 further out
+#   along the wall (local u), and the pad is trimmed with ONE radius (the largest PAN_ENV band it touches + 1.0)
 #   rev 3: (a) the riser of rev 1 (u 3.6..5.9) crossed the door edge and the door boss: 14.6 mm3 of interference -> riser
 #   moved outside the opening, arm behind the door boss; (b) pad 4.5..7.2 (spec 4.7): floor behind the magnet pocket
 #   0.6 instead of 0.4 (min feature); the door boss is 0.2 lower instead (face at inset 4.3), air gap 0.2 kept
@@ -329,15 +333,18 @@ def _pad(x, z):
     """static magnet pad of the door frame for x > 0 (mirror for x < 0): disc + arm + riser to the wall, pocket open to the door"""
     L = loc_frame(x, z, +1)
     w0, w1 = PAD["w"]
+    du = PAD["pocket_du"].get(float(z), 0.0)
     s = lcyl(L, PAD["r"], w0, w1) + lbox(L, 0.0, PAD["arm_u"], -PAD["r"], PAD["r"], w0, w1) + \
         lbox(L, PAD["riser_u"][0], PAD["riser_u"][1], -PAD["r"], PAD["r"], 0.9, w1)
-    s = s - lcyl(L, PAD["pocket_d"] / 2, w0 - 0.5, w0 + PAD["pocket_depth"]) - lcyl(L, PAD["push_d"] / 2, w0, w1 + 0.5)
+    s = s - lcyl(L, PAD["pocket_d"] / 2, w0 - 0.5, w0 + PAD["pocket_depth"], du) - lcyl(L, PAD["push_d"] / 2, w0, w1 + 0.5, du)
     # the door (panel, boss, 0.25 seam) owns everything inside the opening outline down to the boss face (inset 4.5):
     # the riser only exists outside the opening + 0.3 there, the arm passes behind the door boss (w >= 4.7)
     s = s - (C.door_prism(C.SEAM / 2 + PAD["door_clear"]) & lbox(L, -40.0, 40.0, -40.0, 40.0, -12.0, PAD["w_clear"]))
-    for z0, z1, r in C.PAN_ENV:                                                          # stay 1.0 outside the pan sweep
-        if z1 > z - 6 and z0 < z + 6:
-            s = s - C.cyl_z(r + 1.0, z0, z1)
+    # stay 1.0 outside the pan sweep: ONE radius for the whole pad = the largest PAN_ENV band it touches (a second, smaller
+    # radius above the band step z -22 left a fin / feather edge on the rim of the pad disc)
+    bands = [b for b in C.PAN_ENV if b[1] > z - PAD["r"] - 0.2 and b[0] < z + PAD["r"] + 0.2]
+    if bands:
+        s = s - C.cyl_z(max(b[2] for b in bands) + 1.0, z - 6.0, z + 6.0)
     return one(s)
 
 
@@ -594,7 +601,7 @@ def _door_magnets():
     for x, z in C.DOOR_MAGNETS["xz"]:
         L = loc_frame(abs(x), z, +1)
         a = lcyl(L, d / 2, DBOSS["w"] - t, DBOSS["w"])
-        b = lcyl(L, d / 2, PAD["w"][0], PAD["w"][0] + t)
+        b = lcyl(L, d / 2, PAD["w"][0], PAD["w"][0] + t, PAD["pocket_du"].get(float(z), 0.0))
         door.append(a if x > 0 else mirror_x(a)); fr.append(b if x > 0 else mirror_x(b))
     return door, fr
 
@@ -821,6 +828,8 @@ DEVIATIONS = [   # where the built geometry differs from T4_spec.md / t4_common 
     "T_dvere: finger-nail notch 12 x 1.2, 0.85 deep, in the bottom edge (asked for in the task; the spec removes the door with a "
     "suction cup).  Wall under the notch 1.35.",
     "Disc springs modelled as 2 flat rings of 0.5 (working height 1.0 in series).",
+    "Frame magnet pads at z -24 (integrator): magnet pocket and frame magnet 0.5 further out along the wall than the door magnet "
+    "(0.5 lateral offset of the pair), band-step fin removed: the PAN_ENV + 1.0 trim had left 0.46 .. 0.50 of resin beside the pocket.",
     "T_drziak_repro: wire notch 5.5 x 4 at azimuth 180 (toward -X) for the speaker leads; two reserved-space solids vyvod_repro / "
     "vyvod_led model the solder lugs and the first cable bend (not in the spec part list).",
     "STL written with ABSOLUTE deflection 0.01 mm (t4_common.export_part / build123d use a deflection relative to the edge size: "

@@ -1015,7 +1015,7 @@ PAN = dict(
     WELL_CORNER_OUT=3.1,                               # outer corner radius of the well (inner 1.5 + wall 1.6) -> max r 27.06
     JOURNAL=dict(r_resin=28.07, r_in=25.57, chamfer=0.5, fill_x=20.0, ribs_x=(10.0, -10.0), rib_t=1.6,
                  plate_z=(-3.5, -2.0), cone_z=(-4.5, -3.0), tape=dict(t=0.13, z=(-10.0, -5.0))),
-    GLUE_GROOVE=dict(r=(24.4, 25.4), depth=0.3, az=((40.0, 140.0), (220.0, 320.0))),   # collar-disc bond (B: glue at r > 24)
+    GLUE_GROOVE=dict(r=(24.4, 25.4), depth=0.3, az=((40.0, 82.0), (98.0, 140.0), (220.0, 320.0))),   # collar-disc bond (B: glue at r > 24)
     TOOL_HOLE=dict(at=(0.0, 21.1), d=4.8, pan=-58.5),  # through the stage top plate: driver for the static FPC clamp screw of
     #          T_prichytka_fpc (B frame (18.0, 11.0)) when the neck is already in the well; covered by the collar disc
     LAND=dict(h=0.70, tape=0.13, z=(-38.0, -4.0), lead=0.7,    # PTFE strip seats = guide lands (neck gap 0.17 with tape)
@@ -1026,26 +1026,32 @@ PAN = dict(
     FIN=dict(x=(25.0, 27.6), y=(4.56, 5.76), z=(-41.9, -17.0), edge_r=0.5, r_max=28.15),   # backing of the fixed FPC leg
     APRON=dict(x=(24.0, 27.6), y=(4.56, 8.2)),         # floor continued outside the +X end wall (FPC wraps under it)
     FPC_GROOVE=dict(depth=0.2, grow=0.3),              # groove in the floor underside for the bonded FPC run
-    PAD=dict(face_y=15.4, r=3.0, seat_depth=3.5),      # bracket pads (BRACKET_PADS face y 15.6 -> 15.4: bracket 1.7 thick there)
+    PADS=[dict(x=19.5, z=-31.7), dict(x=8.0, z=-14.5)],   # replaces BRACKET_PADS: lower pad z -30.0 -> -31.7 (the lug and the F10_1
+    #          tool channel must pass under the frame magnet pad of T_stred at (25, -24): its silhouette along Y reaches x 18, z -29.14)
+    PAD=dict(face_y=15.4, r=3.0, seat_depth=3.2),      # bracket pads (BRACKET_PADS face y 15.6 -> 15.4: bracket 1.7 thick there);
+    #          insert hole 3.2 deep leaves 1.2 to the well inner face -> F10 screws M2x4 (2.3 in the insert)
     # ---- P_koleso
     GEAR=dict(phase=4.3, teeth_az=(149.3, 359.3), n_teeth=21, drum_az=(4.0, 145.0), r_root=13.4,
-              lip=dict(r=16.5, z=(-42.6, -42.2), az=(22.0, 145.0)), recess=(6.0, -44.0), backlash=0.04,
+              lip=dict(r=16.5, z=(-42.6, -42.0), az=(22.0, 140.0)), recess=(6.0, -44.0), backlash=0.04,
               stop_pin=dict(r=13.5, az=90.0, d=2.0, length=4.5, z=(-46.7, -42.2)),
               dowel_z=(-45.05, -41.05)),
     # ---- lift servo bracket
     BRKT=dict(plate_x=(-5.3, 16.0), plate_y=(13.0, 17.1), plate_z=(-41.9, -13.0), slot=1.0,
-              lug=dict(x=(16.0, 22.9), z=(-33.4, -26.6)), rest=dict(x=(-5.3, -1.3), z=(-40.0, -34.0), y=12.6),
+              lug=dict(x=(16.0, 22.9), z=(-36.55, -29.7)), tab2=dict(half=6.0, z_top=-12.3), rest=dict(x=(-5.3, -1.3), z=(-40.0, -34.0), y=12.6),
               ledge=dict(x=(-6.35, 16.0), y=(17.1, 26.2), z=(-41.9, -41.1), lip_x=(-5.0, 10.0), lip_y=(29.45, 30.95), lip_h=1.5),
-              post=dict(x=(0.0, 5.0), y=(17.1, 26.2), z=(-18.0, -13.4), pilot_d=1.7, pilot_depth=4.5),
-              screw_F10="M2x5 socket head ISO 4762", screw_F11="M2x6 thread-forming pan head"),
+              post=dict(x=(0.0, 5.0), y=(17.1, 26.2), z=(-18.0, -13.4), pilot_d=1.7, pilot_depth=5.2),
+              screw_F10="M2x4 socket head ISO 4762", screw_F11="M2x6 thread-forming pan head"),
     # ---- crank
     CRANK=dict(spline=dict(n=21, d_major=4.84, d_minor=4.44, x=(-15.5, -12.7)), screw="M2.5x6 countersunk ISO 10642",
                pin_hole_d=1.98, pin_len=5.4),
     # ---- ear / foot / tongue
-    EAR=dict(flange_y=(9.8, 12.4), plate_y0=10.2, dowel=dict(x=-15.5, zrel=-4.75, d=1.5, length=5.0),
+    EAR=dict(flange_y=(9.8, 12.4), plate_y0=10.2, slot_y=(11.6, 24.3),   # slot 2.2 x 12.7: front end +0.5 (EAR slot_y 12.1: the pin
+             #          had 0.1 to the slot end at mid stroke, less than the 0.17 float of the neck in the well)
+             dowel=dict(x=-15.5, zrel=-4.75, d=1.5, length=5.0),
              screw=dict(x=-10.0, zrel=-4.3, size="M2x8 thread-forming pan head")),
     FOOT=dict(corner_r=0.8, slot=dict(x=(11.6, 15.0), y=(-7.2, 2.6)), pocket=dict(x=(11.0, 20.6), y=(-7.6, 5.6), depth=1.0),
-              channel=dict(y=(-1.8, 1.8), depth=0.3), key=dict(x=(21.3, 22.3), y=(-2.0, 2.0), z=(-38.9, -37.1)),
+              channel=dict(y=(-1.8, 1.8), depth=0.3), key=dict(x=(21.3, 22.3), y=(-2.6, 2.6), z=(-39.0, -37.6), gap_y=1.1),   # 2 prongs 1.5 wide beside the D1.8 hole
+             
               tongue_pilot=dict(y=0.0, z=-38.0, d=1.3, x_end=17.5),
               opt_screws=((-10.0, -5.0), (7.5, -5.0)), ear_pilot=dict(d=1.7, depth=6.5), ear_dowel=dict(d=1.48, depth=3.2)),
     TONGUE=dict(x=(22.3, 27.9), y=(-3.5, 3.5), z=(-40.5, -38.0), block=dict(x=(22.7, 27.9), y=(-2.2, 2.2), z_top=-35.5, chamfer=0.8),
@@ -1053,11 +1059,42 @@ PAN = dict(
     # ---- FPC (3.0 x 0.12)
     FPC=dict(w=3.0, t=0.12, lift_x=(25.2, 28.2), y_move=-3.5, y_fix=4.5, z_move0=-38.0, z_fix=-41.76, z_tail=-40.26,
              zc0=-27.5, R=4.0, paddle=dict(x=(15.6, 19.0), y=(-5.2, 5.2), z=-39.56, ramp_x=(19.0, 20.5)),
-             trunk=dict(az=14.0, r=(15.9, 27.2)), w_piece=dict(y=(4.4, 7.6)), branch=dict(x=(17.8, 20.8), y0=4.0, z_top=-35.2),
+             trunk=dict(az=14.0, r=(15.9, 27.2)), w_piece=dict(y=(4.4, 7.6)), branch=dict(x=(17.8, 20.8), y0=4.0, z_top=-36.65),
              riser=dict(bend_r=0.56, rho=15.76), pan=dict(r_in=15.76, r_out=23.44, z=(-45.9, -42.9), u0=92.0, k=0.402,
              static_end_az=24.5, tail=dict(az=(44.5, 51.5), z_bot=-51.0)), free_len_lift=37.27),
-    JUNCTION=dict(board=dict(x=(16.6, 22.0), y=(12.72, 13.32), z=(-41.0, -35.2)), pins_x=(18.0, 19.27, 20.54), pin_z=-37.5,
-                  pin_y=(13.32, 16.3), socket=dict(x=(17.3, 21.25), y=(14.0, 18.3), z=(-38.6, -36.4))),
+    JUNCTION=dict(board=dict(x=(16.6, 22.0), y=(12.72, 13.32), z=(-41.0, -36.65)), pins_x=(18.0, 19.27, 20.54), pin_z=-37.85,
+                  pin_y=(13.32, 16.3), socket=dict(x=(17.3, 21.25), y=(14.0, 18.3), z=(-38.95, -36.75))),
     LIFT_LOOP_ENV=dict(x=(25.2, 28.2), y=(-3.62, 4.56), z=(-41.9, -13.5)),     # replaces FPC_LIFT (U top -13.5 at lift 20)
 )
 # <<< end of additions by pan
+
+
+# =====================================================================================================================
+# >>> additions by integrator   (build_all.py / checks.py) - nothing above this block was edited by the integrator
+#     unless listed in INTEG["changes"].  The module caches hash the text ABOVE the first "additions" block only.
+# =====================================================================================================================
+# densities prescribed for parts.json / K11: resin 1.15, PETG 1.27, POM 1.41, brass 8.5, steel 7.85 (g/cm3)
+DENS.update(resin_white=1.15e-3, resin_black=1.15e-3, resin_clear=1.15e-3, resin_grey=1.15e-3,
+            petg=1.27e-3, pom=1.41e-3, brass=8.5e-3, steel=7.85e-3)
+INTEG = dict(
+    DENS_RESIN=1.15e-3,                 # was 1.18e-3 in section 1.12 (task of the integrator: resin 1.15)
+    STEP_MAX_MB=12.0,                   # STEP is a courtesy export: written only below this size, else step = null
+    STL=dict(deflection_mm=0.01, angular_rad=0.1, relative=False),     # every module is exported with t4_obal.export_abs
+    # ---- K9: tilt-vs-lift table of variant B (B/montaz.txt, section D).  T4 lift: 0 = rest .. 20 = extended
+    TILT_AXIS_Z=-3.5,                   # hinge axis of the head: X axis through (y 0, z -3.5 + lift)
+    B_TILT_TABLE={20.0: (40.0, 40.0), 12.5: (30.0, 40.0), 7.5: (20.0, 30.0), 0.0: (5.0, 10.0)},   # lift: (down +, up -)
+    HEAD_CLEAR=0.5,                     # brief 5.3: head <-> torso top >= 0.5, otherwise a pan-dependent tilt limit
+    MOVE_CLEAR=1.0,                     # K3
+    changes=[                           # one line per edit of a module / constant made by the integrator
+        "DENS: resin 1.18 -> 1.15 g/cm3 (prescribed for parts.json / K11)",
+        "PAN['GEAR']['lip']['z'] (-42.6, -42.2) -> (-42.6, -42.0): retaining lip of P_koleso 0.6 thick (K10 min feature; was 0.4); "
+        "its top is 0.1 below the back-sector floor of P_sachta, which turns with it",
+        "t4_pan.mk_koleso: blind dowel holes 0.05 (was 0.15) deeper than the dowels -> floor 0.6 (was 0.5)",
+        "t4_pan.mk_sachta: FPC groove under the apron runs out to the apron edge (removes a 0.3 x 0.2 rim and a feather edge)",
+        "t4_ram.mk_ram / _column: pilots of F7 and F14 and the 4 cradle F2 insert seats are through holes (were 0.4 .. 0.5 floors)",
+        "t4_obal._pad / _door_magnets: frame magnet pocket + magnet of the two upper pads 0.5 further out along the wall, band-step "
+        "fin removed (0.46 .. 0.50 of resin beside the pocket -> >= 0.6); 0.5 lateral offset to the door magnet",
+        "export: every module through t4_obal.export_abs (absolute deflection 0.01); the RAM STLs were relative-deflection before",
+    ],
+)
+# <<< end of additions by integrator
