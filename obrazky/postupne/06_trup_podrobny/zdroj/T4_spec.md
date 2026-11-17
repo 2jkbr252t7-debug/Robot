@@ -1327,3 +1327,94 @@ Shared interfaces (provider → user, numbers in 17.x):
 * `python t4_common.py` (rev. 1 self-test, rev. 2 block imported): exit 0, 30 s (log `rev2_arch/t4_common_selftest.log`).
 * NOT run: any CAD of rev. 2, K1–K13. The task lists given to the builders are saved as `rev2_arch/ULOHA_pan.md`,
   `ULOHA_ram.md`, `ULOHA_obal.md`.
+
+
+### 17.15 Integrator changes (rev. 2 integration, 2026-11-17) – supersede 17.0–17.14 where different
+Source of the numbers: `t4_common.py` block `# >>> rev2 (integrator)` (R2 keys FFC_LIFT2, PIGTAIL, FRONT_STACK_RULE, CTRL2, F7,
+F1_PATH, TORQUE_REC, WASHERS_REC; PAN2_SUMMARY; OBAL overrides mirrored), `t4_pan.PAN2["FFC"]["loop"]`, `t4_ram.RAM2`
+(F3A, CTRL, STOP_POSTS.p2_column, COL.head / plate, F1.keepout_z, BOSS, PAN_POST.leg) and `t4_assembly.py`. Checks: `checks.py` → `checks.json`.
+
+1. **Front stack vs the lift loop (blocker C2 / O3b).** The OBAL front stack (LED holder, LED PCB, speaker ring, speaker; inner
+   faces y −29.4…−31.6 for |x| ≤ 22.3, z −70.7…−28.5) is reached by every stage point with stage x > 28.4 below z −28.5 at some
+   pan in ±90.3 (outside stage az 37…143). Rule `R2["FRONT_STACK_RULE"]`: below z −28.5 the stage keeps x ≤ 28.35 outside stage
+   az 37…143 (PAN_ENV2 r 33.4 / 32.2 applies only above z −28.5 or inside that sector). The **lift loop is a U in the y–z plane**:
+   strip width radial (x 25.35…28.35), fixed leg y 6.875 rising from a soft 45° fold CF (x 25.1…28.35, y 4…7, z −30.0…−29.4; part of
+   the FREE strip `fpc_lift`, not of the bonded `ffc_riser` → permanent stage r 26.30 ≤ 26.50) on top of the bonded leg (end wall,
+   z −41…−30), U centre-line R 3.125 (R/t ≈ 30), U centre z −26.0 + lift/2 (top −12.75 at lift 20),
+   moving leg y 0.625 down to the fold block CM on the moving end (z −38.25 + lift ± 0.3; the 45° fold of tail A is a triangle, x ≤
+   25.35 + (y + 5.85)). FFC envelope x 25.1…28.35, y −5.85…7.0, z −41.6…−12.75, r ≤ 29.2 (`R2["FFC_LIFT2"]`). Developed length FFC‑A
+   190.3 / FFC‑B 178.2 of 203 mm.
+2. **Pigtail** rerouted: out of the end window under CM, between the two U legs (descends at y 2.95 when the lift is > 7.5), under CF
+   at z ≤ −32, then up to the parked PicoBlade pair; bundle x ≤ 27.6 everywhere below z −28.5 (`R2["PIGTAIL"]`).
+3. **Stage removal (S3):** CF is not bonded (Kapton only): open the soft fold, lay the free FFC flat on the end wall (r ≤ 26.3), tuck the
+   U and CM into the empty well through the end window, then the stage passes the glued ring; re-fold on reassembly.
+4. **T_stred lowering (blocker O3d, step T5).** RAM keep-out for every tower part above the spigot over the FULL height: the boss
+   cylinder r 3.40 + 0.25 (= r 3.65 about (±29, ±19); measured: the T_stred footprint toward the tower is the r 3.40 cylinder) and the
+   outward web band |y| ≥ 19 for |x| 25.1…32.9 (`t4_ram._f1_keepouts_tower`); the spigot notches keep the rev. 2 box, the deck
+   T_paluba additionally gets the box over the two FRONT bosses (front C-ear 0.40 → 0.50). Consequences:
+   * post 2 = block x −24.7…−17.87 (pin, bond 8.4 unchanged) on a **column to the floor** x −24.7…−17.2, y −23.6…−15.05, merged with
+     the −X pan-servo post; that post's DIN 562 slot is now blind on −X (nut entered from +X before the servo goes in);
+   * F3a_1 (26, −13.8) → **(26.0, −11.7)**, boss merged into the front wall (0.3 off the STS3215 mounting ear); T_paluba cut by the
+     same keep-out; stop post 1 and the deck C-ear keep 1.2 toward the boss path (unloaded side of pin 1);
+   * **carrier DPS_riadenie x −24.9…24.9** (was −27…28.6), no plug notch: the ESP32-S3-Zero sits on its 2.54 pin-header spacer
+     (raised 2.5, USB-C mouth (−0.5, 22.7, −62.5), pins trimmed ≤ 1.0 behind the PCB); **F7 = 2 × DIN 7991 M2×5 flush in the FR4
+     countersink, no washer, at (−18 / −4, −62.5)** under the plug envelope (reached through the door with no plug in), standoffs
+     r 3.25 with bonded M2 inserts; the +X end rests on a pad r 2.5 at x 20; plug envelope x −21…−0.5, y 19.4…26, z −66.5…−58.5;
+   * +X pan-post front leg x 12.05…16.45 (was 16.75: 0.0 plan clearance to the T_stred front relief);
+   * measured (exact plan clearance while lowering, `integ2_work/lowering.py`, K7 criterion 0.24): servo_pan 0.50, T_paluba 0.50,
+     DPS_riadenie 0.80, all other parts ≥ 1.4; the T_spodok spigot band (z ≤ −77.95) is the declared 0.2 locating fit that guides the
+     white lip (measured ≈ 0.21, criterion 0.17).
+   * **`TOWER_CLEAR` 0.5 → 0.25** (t4_common integrator block; used by checks_obal O3d and K7): the built keep-out is boss r 3.40 +
+     0.25; 0.5 would leave stop post 1 a 0.98 wall around its pin (< 1.0). The drop is hand-guided, every face pair that passes is
+     vertical (plan clearance > 0 = no ledge) and the spigot (fit 0.21…0.28) locates the lip over the last 3 mm; seated, boss column
+     ↔ post 1 is 0.25 nominal (a light sliding contact within the spigot play is harmless – vertical faces, F1 clamps axially).
+   The pan pinion is bonded on its spline IN SITU after T5 (step T5b; RAM).
+5. **Column (L5) – head + shoulder plate.** The rev. 2 column had only the 3.0 web between the rib tops (−30) and the boss (−28.6):
+   Zw 33 mm³ (≈ 33 MPa under L5; RAM had checked z −32 only). Added to both columns: a **head** z −38…−27.5 (web thickened to x 38.4
+   over y −14…17, flanges to x 43 / 41.8 outside r 17.1 about the shoulder axis = the T_bok seat flange r 16.6 + 0.5, arm-wire channel
+   x 38.4…40 / y 5…12 kept) and a **shoulder plate** x (r 34.5 / flat 34.5 for |y| ≤ 9.5)…38.4, y −17…17, z −38…−8 with chamfered top
+   corners (shell inset ≥ 0.45) and the F1 keep-out. Rib tops −30.4 (0.5 to the T_bok socket tube). Column-alone L5 (10 N along X at
+   the 72 mm arm tip, M = 720 + 10·(−17 − z) N·mm, Kt 1.3): ≤ 7.6 MPa for z ≤ −28 (was 16.8…33), but **8.65…9.87 MPa at
+   z −26…−11 and 12.05 at z −9** (allowable 8.5; Zx 109 / 106 / 108 / 108 / 95 / 108 / 96 / 78 mm³ at z −26 / −24 / −21 / −19 / −17 /
+   −14 / −11 / −9). Required Zx = M·1.3 / 8.5 = 124 (z −26) … 110 (z ≥ −17) mm³. Within the fixed envelope the section there cannot
+   be larger: it already fills the whole free region – inner face r 34.5 (PAN_ENV2 r 33.4 + 1.1 stage clearance), outer face x 38.4
+   (frozen T_klb / T_bok seat flange r 16.6 + 0.5 about the shoulder axis), |y| ≤ 17 (shell inset + T_stred lowering path) – whose
+   full section is Zx ≈ 108–109 mm³ < 110; the shoulder-axis bore (z −17) and the top chamfers (z −9) reduce it further. So the
+   column ALONE cannot meet Kt 1.3 / 8.5. The T_bok shell is clamped in parallel at the same joint (T_klb shoulder → seat flange →
+   stop ring) and is not counted (no FE available here). **Open: 3-D FE of column + T_bok + T_klb (K12); if it
+   still fails, the fix needs the frozen arm interface (e.g. a 2 mm steel shoulder plate bonded under the stop ring, or a deeper
+   T_bok seat flange cut).**
+6. **Insert seats F3a / F3b** through the boss (depth 4.9; the 0.3 floor ring is gone).
+7. **FFC plugging:** the two FFCs are plugged into the DPS_krk ZIFs with the stage turned by hand to the +90 stop (line of sight
+   0.806 there; 0.775 at the firmware +85). F11 is driven on the bench (lift module out) – its in-situ tool path is information only.
+8. **Torques / washers** (Z2): `R2["TORQUE_REC"]` F1 0.045, F3a/F3b 0.045, F4 0.02 + Loctite 222, F7 0.03, F8 0.015 + 222,
+   F10 0.04, F11 0.02, F12 0.15 + 222, F13 0.03, F14 0.03, F15 0.08 + 222, F16 0.025 N·m (the 17.9 values fail Z2).
+   `R2["WASHERS_REC"]`: F8 ISO 7092 / DIN 433 M2 in the D4.7 counterbore; F10 DIN 433; F7, F4, F12 none (head on FR4 / the servo's
+   own tab / steel); DIN 125 under every other head on resin.
+9. **Assembly order** (`t4_assembly.py`): T0 T_spodok (B1 inserts, pins, F4 nuts, 6805) on a bench support – **the base hub /
+   dummy stand comes only at T15** (F16 and F1 are driven from below) → T1 STS3215 → **T2 STS3032 lowered 5.5 in front of its seat,
+   slid +Y (its tabs go into the front-wall slots, the +X tab under the F3b boss), down 0.2 onto the posts**, F4 loose, bus plug pushed
+   in afterwards along −X through the +X post window → T3 deck + T_most + T_cap → T4a **capacitor in from the back above the spigot,
+   then 6 down** → T4b carrier (F7), T4c buck, T4d amp → **T5 T_stred lowered straight** (F1 loose) → **T5b pan pinion in situ** →
+   T6 collar ring → T7 stage + F15 → **T8 neck from above** (no dowel protruding) → **T9 lift module through the door along −Y: the ear
+   brings the F12 dowel into the foot** (F10) → FFCs at the +90 stop → T11 F12 (1.3 key) → T12 collar disc → T13 side caps + joints
+   (F8) → T14 door → T15 onto the base hub. Bench: B5b F11 with a 1.3 hex key (long leg along the axis; a D4.5 driver meets the MG90S
+   after 9.75), B5e F12 dowel bonded in the ear. Service rows: S1 lift module out; S2 neck out (after S1); S3 stage out; S4 F15;
+   S5 pan servo (T_stred, stage, lift module, neck **and deck** off; servo + pinion up 0.2, −Y 5.5, up); S6 carrier out through the
+   door – **not possible** (see 12).
+10. Densities `DENS["alu"] 2.70e-3`, `DENS["stainless"] 7.93e-3` added; OBAL rev. 2 overrides mirrored into `OBAL`.
+11. **Deck vs shoulder plate (K7 T3).** T_paluba is kept 0.3 off the +X plate footprint (|y| ≥ 9.2 → r ≤ 34.2; flat x ≤ 34.2
+   inside): the rev. 2 deck could not be lowered past the plate (blocked after 8.2 mm). Arm-wire hole D4.5 z −50.5 → **−51.3**
+   (0.23 sliver under the bridge top → 0.85, K4).
+12. **Carrier service through the door (D6 row S6) – open.** The ESP32-S3-Zero sits at x −0.5…23 (the PCB must reach x ≥ 23, F7 /
+   ZIFs / standoffs reach x −21.25), i.e. ≥ 44.3 wide; the door ledge of T_stred and the frame magnets leave a clear opening
+   x −20.76…20.76 at the carrier height (z −71.5…−53.5). No straight or rotated path exists (K7 S6: blocked after 6.75 mm). Today the
+   carrier comes out only with T_stred off (S5 route). Fix for rev. 3: ESP32-S3-Zero turned 180° (USB-C facing +X) and the board
+   ≤ 41 wide (x −20.3…20.3), or a narrower door ledge (OBAL).
+13. **F12 dowel** (D2 × 4.5) is **bonded (Loctite 638) in the ear flange** and has a slip fit D2.05 in the Al foot (was pressed into
+   the foot): with the dowel in the foot the neck could not pass the stage well rim / the collar-disc slot (K7 T9 / S2).
+14. **K4 declarations (checks.py):** F7 insert floors at the new F7 positions (|x| 2…6 and 16…20), F8 insert floors 0.7 behind the
+   bonded M2 inserts of the shoulder boss (D2.3 pilot through, insert pull outward), wire-hole ring min 0.6.
+15. **Checks** (`checks.py` → `checks.json`, final clean run after `build_all.py`): K1–K6, K8–K11, K13 PASS;
+   K7 FAIL only for the D6 row S6 (item 12); K12 FAIL only for the column-alone L5 rows at z −26…−9 (item 5; 2 rows not verifiable:
+   MG90S side load, topple input). Details: `STATUS_rev2_integrator.md`.

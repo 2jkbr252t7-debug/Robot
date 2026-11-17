@@ -1362,3 +1362,101 @@ def rev2_check(verbose=True):
             print(f"{k_}: {v}")
     return out
 # <<< end of rev2 (architect)
+
+
+# =====================================================================================================================
+# >>> rev2 (integrator)  - notes of the three rev. 2 builders merged + integrator changes (T4_spec.md 17.15).
+#     Nothing above this block was edited by the integrator; every key set here supersedes the same key above.
+#     Module-local numbers stay in t4_pan.PAN2 / t4_ram.RAM2 / t4_obal "additions by obal rev2" (authoritative copies).
+# =====================================================================================================================
+DENS["alu"] = 2.70e-3                 # EN AW-5754 / 6061 / 6060: L_pata, rameno_zdvih, T_most   (PAN + RAM notes)
+DENS["stainless"] = 7.93e-3           # 304: L_ucho                                             (PAN note)
+# ---- OBAL: keys of the rev. 1 "additions by obal" that rev. 2 superseded (t4_obal.OBAL2_OVERRIDES, mirrored) ---------------
+OBAL.update({
+    "DOOR_HOOK": None,                                                                       # deleted (P07, S15)
+    "TUBE_VENT": dict(d=2.5, z=0.0, x=30.75),
+    "SPK_RING": dict(ri=13.0, ro=16.5, t=2.0, ear_r=3.2, step=dict(r=(12.0, 21.0), half_w=3.3), notch=None),
+    "EXIT_SPK": dict(x=(-12.5, -8.0), y=(-31.6, -29.0), z=(-52.5, -49.5)),
+    "DOOR_TONGUE_BUILT": dict(x=20.6, inset=(1.35, 2.2), z=(-12.75, -11.75)),
+    "DOOR_STEP_BUILT": dict(x=20.85, inset=1.25, z_inner_top=-13.0),
+    "KLB_BUILT": dict(neck_x=(38.6, 40.6), key_x=(37.0, 38.6), cbore_d=4.7, washer=(2.2, 4.5, 0.3), undercut_r=0.5, end_fillet_r=0.5,
+                      key_root_r=0.2),
+    "LED_SPOT": (5.4, 0.3),
+})
+# ---- PAN rev. 2 summary (pan2_work/additions_pan_rev2.txt) with the integrator's lift-loop / pigtail change -------------------
+PAN2_SUMMARY = dict(
+    STAGE_R_MAX_MEASURED=26.50, FLOOR_REGION=dict(y_min=3.3, az_max=135.0), DRUM_AZ=(8.4, 140.0), LIP_AZ0=27.0,
+    WIN_END=dict(x=(23.3, 25.4), y=(-7.0, 3.4), z=(-40.9, -15.0)),
+    FFC_FIXED_LEG=dict(x=(25.1, 25.35), y=(4.0, 7.0), z_bonded=(-41.6, -30.0)),
+    POCKET=dict(x=(-21.0, 20.9), y=(13.6, 31.3), z=(-47.2, -13.3)),
+    F10=dict(A=(7.0, -15.8), B=(18.4, -34.0), dowel=(18.4, -38.0), face_y=15.10, torque=0.04, washer="DIN 433 M2 2.2x4.5x0.3"),
+    RAIL=dict(x=(-6.0, 16.0), y=(13.0, 15.1), z=(-41.9, -33.9), groove_z=(-39.4, -36.4)),
+    F11="ISO 7380 M2x6 + DIN 125 on the +X face of the tab, DIN 562 nut in the block; driven on the bench (lift module out)",
+    F12="1 x ISO 7380 M2x6 at (x -10.0, z -38.5) + dowel D2x4.5 at (x -13.2, z -38.5); 1.3 hex key through the D2.4 bridge hole",
+    CRANK_PIN=(-19.9, -13.9), DPS_ZIF="Hirose FH19C-5S-0.5SH(10) x 2 under DPS_krk, mouths x 22.2",
+    CONNECTOR="Molex PicoBlade 1.25 3p inline pair 51047-0300 + 51021-0300, parked loose at x 17.2..22.7, y 17.2..20.5, z -29..-17",
+    # integrator rev2: lift loop = U in the y-z plane (strip width radial), everything below z -28.5 at x <= 28.35
+    FFC_LIFT_ENV=dict(x=(25.1, 28.35), y=(-5.85, 7.0), z=(-41.6, -12.75), r_max=29.2, U_R=3.125, plane="y-z",
+                      legs_y=(0.625, 6.875), crease_fixed_z=(-30.0, -29.4)),
+    PIGTAIL_ENV=dict(x=(12.2, 27.6), y=(-2.7, 19.6), z=(-40.5, -17.0)),
+)
+# ---- R2 keys changed by the integrator ------------------------------------------------------------------------------------
+R2["FFC_LIFT2"] = dict(x=(25.1, 28.35), y=(-5.85, 7.0), z=(-41.6, -12.75), r_max=29.2, R=3.125, plane="y-z")
+R2["PIGTAIL"] = dict(x=(12.2, 27.6), y=(-2.7, 19.6), z=(-40.5, -17.0), plug="Molex PicoBlade 1.25 3p (51047-0300 + 51021-0300)")
+#   static parts on the stage below z -28.5 must keep stage x <= 28.35 outside stage az 37..143 (OBAL front stack, inner faces
+#   y -29.4 .. -30.1 at |x| <= 22.3, z -70.7 .. -28.5) - the rev. 2 PAN_ENV2 table (r 33.4 at every azimuth) ignored it
+R2["FRONT_STACK_RULE"] = dict(z=(-42.0, -28.5), stage_x_max=28.35, free_stage_az=(37.0, 143.0), clearance=1.0)
+R2["CTRL2"] = dict(R2["CTRL2"])
+R2["CTRL2"].update(pcb=(49.8, 18.0, 1.6), x=(-24.9, 24.9), parts_y_max=24.35,
+                   module=dict(x=(-0.5, 23.0), usb_mouth=(-0.5, 22.7, -62.5), usb_dir="-X", raised=2.5,
+                               mount="on its 2.54 pin headers (plastic spacer 2.5); pins trimmed <= 1.0 behind the PCB"),
+                   plug_env=dict(x=(-21.0, -0.5), y=(19.4, 26.0), z=(-66.5, -58.5)))
+R2["F7"] = [(-18.0, -62.5), (-4.0, -62.5)]                # DIN 7991 M2x5 flush in the FR4, no washer (head on the PCB)
+R2["F1_PATH"] = dict(x=(25.1, 32.9), y_min=15.1, z_max="top of the tower",
+                     why="T_stred is lowered straight down at T5: no RAM part may stand in its boss columns at any z")
+#   recommended torques under the Z2 allowables (K = 0.2); R2["TORQUE"] (spec 17.9) is kept for reference only - it fails Z2
+R2["TORQUE_REC"] = dict(F1=0.045, F3a=0.045, F3b=0.045, F4=0.02, F7=0.03, F8=0.015, F10=0.04, F11=0.02, F12=0.15, F13=0.03,
+                        F14=0.03, F15=0.08, F16=0.025,
+                        loctite_222=("F4", "F8", "F12", "F15"),
+                        source="RAM S_torque_table, OBAL S rows, PAN H rows (rev. 2 STATUS files); K12 recomputes the rows")
+R2["WASHERS_REC"] = dict(F8="ISO 7092 / DIN 433 M2 (2.2 x 4.5 x 0.3) in the D4.7 counterbore", F10="DIN 433 M2",
+                         F7="none (flush countersunk head in the FR4 carrier)", F4="none (head on the servo's own tab)",
+                         F12="none (steel ear on the aluminium foot)", other="DIN 125 under every head on resin")
+# T5 tower clearance (was TOWER_CLEAR 0.5, a rev. 2 planning value): the built F1 keep-out is the boss cylinder r 3.40 + 0.25 (r 3.65);
+# 0.5 would leave stop post 1 a 0.98 wall around its pin (< 1.0, K13).  The drop is hand-guided, every face pair that passes is
+# vertical (plan clearance > 0 = no ledge), and the spigot (fit 0.21..0.28) locates the lip over the last 3 mm.  Measured: post 1 /
+# tower 0.25, deck C-ears 0.50, servo_pan 0.50 (checks.py K7, checks_obal O3d).
+TOWER_CLEAR = 0.25
+INTEG2 = dict(
+    changes=[
+        "t4_pan: lift loop U turned into the y-z plane (strip width along X 25.35..28.35, legs y 0.625 / 6.875, U R 3.125); the crease "
+        "block CF (z -30..-29.4) is a soft 45 deg fold on the FREE strip (opened for stage removal), CM on the moving end; ffc_riser keeps "
+        "only the bonded leg -> permanent stage r 26.30 (rev. 2 PAN: U in the x-z plane, outer leg x 31.35, CF in the riser r 29.2)",
+        "t4_pan: pigtail rerouted under the crease block CM, between the U legs and under CF; x <= 27.6 everywhere (was 29.5); valid "
+        "sweep and bend radius 0.78 > 0.7 at every lift 0..20 step 0.25",
+        "t4_pan: FFC-A 190.3 / FFC-B 178.2 (lift loop incl. CF, Z-fold per band)",
+        "t4_pan: L_ucho plate trimmed 0.5 at the front (fwd_trim, starts at y 10.4): 0.0 -> clear of the B neck back half",
+        "t4_ram: F1 tower keep-out over the FULL height (was z < -74.5) as a circle r 3.65 around each T_stred boss column + band "
+        "x 25.1..32.9, |y| 19..40 (stop post 1 wall 1.225 instead of 0.69 with the box); the deck gets the box only on the front bosses",
+        "t4_ram: post 2 = block x -24.7..-17.87 + column x -24.7..-17.2 to the floor merged with the -X pan post; nut slot ends at the post face",
+        "t4_ram: F3a_1 (26, -13.8) -> (26, -11.7) (clear of the STS3215 ear), boss merged into the front wall; deck pad r 4.0",
+        "t4_ram: carrier PCB x -24.9..24.9, no plug notch, ESP32-S3-Zero raised 2.5 on its pin headers, F7 = 2 x DIN 7991 M2x5 "
+        "flush at (-18 / -4, -62.5) under the plug envelope, rest pad at x 20",
+        "t4_ram: column rib top z -30 -> -30.4 (0.10 from the T_bok socket tube, OBAL X1); column head z -38..-27.5 + shoulder plate "
+        "x 34.4..38.4, |y| <= 17, z -38..-8 (inner face r 34.5 / flat 34.5 for |y| <= 9.5: T_stred lowering path)",
+        "t4_ram: +X pan-post leg x 12.05..16.45 (was to 16.95: 0.0 plan clearance to the T_stred front relief); cradle-wall FFC notch "
+        "x 18.9..20.7; insert holes through (ins_depth 4.9, no 0.3 floors)",
+        "t4_pan_checks: section B envelope lookup vectorised (identical bands); declarations for the y-z lift loop, the collar disc in "
+        "the bore and the servo bracket at the +-90.3 tolerance pose",
+        "checks.py K7 T5: exact plan clearance (integ2_work/lowering.py), the T_spodok spigot band (z <= -77.95) tested against its "
+        "declared 0.2 locating fit, everything else against TOWER_CLEAR - 0.01 (TOWER_CLEAR 0.5 -> 0.25, see above)",
+        "t4_ram: T_paluba kept 0.3 off the +X shoulder-plate footprint (|y| >= 9.2: r <= 34.2) - the deck could not be lowered past the "
+        "plate at T3 (blocked after 8.2 mm); arm-wire hole z -50.5 -> -51.3 (0.23 sliver under the bridge top -> 0.85)",
+        "t4_pan: F12 dowel bonded (Loctite 638) in the ear flange, slip fit D2.05 in the foot (was pressed into the foot): the neck "
+        "cannot pass the stage well / collar-disc slot with a protruding dowel; the lift module brings it in along -Y",
+        "t4_pan: pigtail_tris(lift) = exact tube mesh for the pose checks (OCC mesher hangs on the sweep at lift 15)",
+        "t4_assembly: T0 without the dummy stand (base hub only at T15: F16 / F1 driven from below); STS3032 in along +Y "
+        "(tabs into the front-wall slots) after a 5.5 offset, plug pushed in afterwards; capacitor in from the back; neck (T8) "
+        "before the lift module (T9); S2 needs S1 first; S5 with the deck off; F11 with the 1.3 hex key",
+    ])
+# <<< end of rev2 (integrator)

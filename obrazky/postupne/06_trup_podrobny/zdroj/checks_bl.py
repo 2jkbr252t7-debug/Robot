@@ -20,7 +20,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import t4_mesh as TM                                    # noqa: E402
 
-WORK = os.path.join(HERE, "integ_work")
+WORK = os.path.join(HERE, "integ2_work")              # rev. 2 (rev. 1 results stay in integ_work/)
 os.makedirs(WORK, exist_ok=True)
 T0 = time.time()
 ARGS = [a for a in sys.argv[1:] if a.startswith("K")]
@@ -202,8 +202,8 @@ if "K2" in ARGS:
 # =====================================================================================================================
 HEAD_PARTS = ["hlava_skrupina", "ram_displeja", "displej", "pena_displeja", "drziak_displeja", "magnety", "usi", "led_kruzky",
               "led_dosky", "oci_len_vizualizacia", "usko_kryt", "usko_lozisko", "paka", "klzny_kruzok"]      # group H of B/build.py
-STAGE_PARTS = ["golier_kotuc", "P_sachta", "ptfe_pasik_1", "ptfe_pasik_2", "ptfe_pasik_3", "ptfe_pasik_4", "ptfe_pasik_5",
-               "ptfe_pasik_6", "ptfe_pasik_7", "ptfe_pasik_8"]                                               # turn with the head (pan)
+STAGE_PARTS = ["golier_kotuc", "P_sachta", "ptfe_pas_capu", "ptfe_pasik_1", "ptfe_pasik_2", "ptfe_pasik_3", "ptfe_pasik_4",
+               "ptfe_pasik_5", "ptfe_pasik_6", "ptfe_pasik_7"]                                                # turn with the head (pan), rev. 2
 
 
 def run_K9():
@@ -359,7 +359,7 @@ def run_K8():
     import shape as S3
     res = {}
     # ---------------------------------------------------------------- (a) deviation from the T3 surface
-    names = EXT_WHITE + EXT_BLACK + ["T_puzdro_L", "T_puzdro_P"] + [r["name"] for r in PARTS if r["name"].startswith(("magnet_klb", "skrutka_klb"))]
+    names = EXT_WHITE + EXT_BLACK + [r["name"] for r in PARTS if r["name"].startswith(("magnet_klb", "skrutka_klb", "podlozka_klb"))]
     tree, own, nm = tree_of(names)
     H = 0.5
     ss = S3.stations(0.0, S3.S_END, H)
@@ -597,20 +597,21 @@ if "K4" in ARGS:
 # =====================================================================================================================
 # K5  free play of the bought parts in their seats (how much oversize / shift the seat accepts)
 # =====================================================================================================================
-K5_SEATS = {   # bought part: (neighbours that form the seat, parts ignored: foam, its own screws)
-    "servo_J1": (["T_ram", "T_spodok", "T_paluba"], "STS3215"),
-    "servo_pan": (["T_ram", "T_paluba", "T_stred"], "STS3032"),
-    "servo_zdvih": (["P_drziak_serva", "P_sachta"], "MG90S"),
-    "lozisko_6805": (["T_spodok"], "6805-2RS"),
+K5_SEATS = {   # bought part: (neighbours that form the seat, what)  - rev. 2
+    "servo_J1": (["T_spodok", "T_paluba", "T_most"], "STS3215 (corner pads + window, cradle, shims under T_most)"),
+    "servo_pan": (["T_spodok", "T_paluba", "T_stred"], "STS3032 on its 2 posts"),
+    "servo_zdvih": (["P_drziak_serva", "P_sachta"], "MG90S in the closed pocket"),
+    "lozisko_6805": (["T_spodok"], "6805-2RS in the D37.15 seat"),
     "reproduktor": (["T_stred", "T_drziak_repro", "T_mriezka"], "speaker D28 x 5"),
-    "DPS_riadenie": (["T_ram", "T_spodok", "T_paluba"], "controller"),
-    "menic": (["T_ram", "T_bok_P"], "D36V28F5"),
-    "zosilnovac": (["T_ram", "T_bok_L"], "MAX98357A"),
-    "kondenzator": (["T_ram", "T_bok_L"], "470 uF D10 x 13"),
+    "DPS_riadenie": (["T_spodok", "T_paluba"], "carrier on its standoffs + rest pad"),
+    "menic": (["T_spodok", "T_bok_P"], "buck converter"),
+    "zosilnovac": (["T_spodok", "T_bok_L"], "MAX98357A"),
+    "kondenzator": (["T_spodok"], "470 uF D8 x 11.5 on its pedestal"),
     "DPS_led": (["T_drziak_led", "T_stred"], "LED strip"),
     "pastorok_J1": (["T_spodok", "lozisko_6805"], "J1 pinion in its passage"),
-    "pastorok_pan": (["T_paluba", "T_ram", "T_stred"], "pan pinion"),
-    "cap_pan": (["P_koleso", "P_sachta"], "pivot pin in the gear / hub bore"),
+    "pastorok_pan": (["T_paluba", "T_spodok", "T_stred", "T_most"], "pan pinion"),
+    "koleso_pan": (["T_cap", "ptfe_cap", "ptfe_podlozka", "T_paluba", "T_most"], "36T gear on the taped boss / PTFE washer"),
+    "DPS_krk": (["L_pata"], "neck board in the foot slot"),
 }
 
 
@@ -769,14 +770,14 @@ def run_K7():
                 hits[nm[own[hit[2]]]] = round(min(hits.get(nm[own[hit[2]]], 1e9), hit[3]), 2)
         return dict(part=h, dir=[round(float(q), 3) for q in v], open=not hits, blocked_by=hits)
 
-    def tool_channel(s, d, ctx, pan, frame):
+    def tool_channel(s, d, ctx, pan, frame, tool_d=4.5):
         v = dirvec(d, frame, pan)
         Vs = posed(s, pan); c = Vs.mean(0)
         start = c + v * (float((Vs @ v).max()) - float(c @ v) + 0.05)
         a = np.cross(v, [0.0, 0.0, 1.0] if abs(v[2]) < 0.9 else [1.0, 0.0, 0.0]); a /= np.linalg.norm(a); b = np.cross(v, a)
         names = [n for n in ctx if n != s]
         tree, own, nm = build(names, pan)
-        rings = (0.0, 1.0, 1.5, 2.0, 2.25)
+        rings = tuple(r for r in (0.0, 0.5, 0.65, 1.0, 1.5, 2.0, 2.25) if r <= tool_d / 2 + 1e-9)
         ring_hits = {}
         for r in rings:
             hh = {}
@@ -792,7 +793,7 @@ def run_K7():
             if ring_hits[r]:
                 break
             free_r = r
-        blockers = ring_hits[2.25]
+        blockers = ring_hits[rings[-1]]
         own_seat = {}
         for n_, dist in blockers.items():
             t = mesh(n_).tree if not (pan and turns(n_)) else build([n_], pan)[0]
@@ -801,7 +802,7 @@ def run_K7():
         full = not blockers and all(not ring_hits[r] for r in rings)
         recess = (not full) and all(own_seat.get(n_, False) for n_ in blockers) and all(
             all(own_seat.get(n_, False) for n_ in ring_hits[r]) for r in rings) and not ring_hits[0.0] and not ring_hits[1.0]
-        return dict(screw=s, tool_dir=[round(float(q), 3) for q in v], pan=pan, free_D4p5=bool(full), own_recess_only=bool(recess),
+        return dict(screw=s, tool_dir=[round(float(q), 3) for q in v], pan=pan, tool_d=tool_d, free_D4p5=bool(full), own_recess_only=bool(recess),
                     free_ring_radius=free_r, blocked_by={str(r): h for r, h in ring_hits.items() if h}, ok=bool(full or recess))
 
     def door_swing(move, ctx, pan, sw):
@@ -867,6 +868,8 @@ def run_K7():
         pan = float(st.get("pan", 0.0)); bench = bool(st.get("bench", False)); frame = st.get("frame")
         move = list(st.get("move", []))
         ctx0 = list(st["ctx"]) if isinstance(st.get("ctx"), list) else list(present)
+        if st.get("remove"):
+            ctx0 = [n for n in ctx0 if n not in st["remove"]]
         if st.get("base"):
             ctx0 += [b for b in st["base"] if b not in ctx0]
         ctx = [n for n in ctx0 if n not in A.FLEX and n not in move]
@@ -893,7 +896,7 @@ def run_K7():
             r.setdefault("flex_sweeps", []).append(dict(part=part, what=why, dir=d, dist=L, collisions=col))
             if col:
                 problems.append(f"step {st['id']}: {why}: " + "; ".join(f"{c['moving']} x {c['static']} at {c['first_at_mm']} mm" for c in col[:4]))
-        if "swing" in st:
+        if "swing" in st:                                    # rev. 2: no hooks, the door goes straight in (legs) - kept for rev. 1 data
             r["swing"] = door_swing(move, ctx, pan, st["swing"])
             if not r["swing"]["ok"]:
                 problems.append(f"step {st['id']}: door swing / slide collides: {json.dumps(r['swing']['hinge'])[:700]}")
@@ -901,8 +904,9 @@ def run_K7():
         for h in r["hardware"]:
             if not h["open"]:
                 problems.append(f"step {st['id']}: {h['part']} is not accessible along {h['dir']}: {h['blocked_by']}")
-        sc_ctx = ctx + move + [h for h, _ in st.get("hardware", [])] + [s for s, _ in st.get("screws", [])]
-        r["screws"] = [tool_channel(s, d, [n for n in sc_ctx if n not in A.FLEX], pan, frame) for s, d in st.get("screws", [])]
+        sc_ctx = ctx + move + [h for h, _ in st.get("hardware", [])] + [x[0] for x in st.get("screws", [])] + list(st.get("hardware_with", []))
+        r["screws"] = [tool_channel(x[0], x[1], [n for n in sc_ctx if n not in A.FLEX], pan, frame, x[2] if len(x) > 2 else 4.5)
+                       for x in st.get("screws", [])]
         for s in r["screws"]:
             if not s["ok"]:
                 problems.append(f"step {st['id']}: no tool channel for {s['screw']}: {s['blocked_by']}")
@@ -911,13 +915,18 @@ def run_K7():
         say(f"K7 step {st['id']:4s} move {len(move):2d} ctx {len(ctx):3d} collisions {len(r.get('collisions', []))} "
             f"hardware {sum(1 for h in r['hardware'] if not h['open'])}/{len(r['hardware'])} blocked, screws "
             f"{sum(1 for s in r['screws'] if not s['ok'])}/{len(r['screws'])} blocked  ({r['time_s']} s)")
-        if not bench:
-            for n in st.get("base", []) + move + st.get("with_parts", []) + [s for s, _ in st.get("screws", [])] + [h for h, _ in st.get("hardware", [])]:
+        r["service"] = bool(st.get("service"))
+        arrive = st.get("base", []) + move + st.get("with_parts", []) + [x[0] for x in st.get("screws", [])] + [h for h, _ in st.get("hardware", [])] \
+            + list(st.get("hardware_with", []))
+        if st.get("service"):
+            pass                                             # service rows do not change the main sequence
+        elif not bench:
+            for n in arrive:
                 if n not in present:
                     present.append(n)
         else:
-            r["bench_parts"] = move + [h for h, _ in st.get("hardware", [])] + [s for s, _ in st.get("screws", [])] + st.get("with_parts", [])
-    bench_parts = {n for s in steps if s["bench"] for n in s["bench_parts"]}
+            r["bench_parts"] = arrive
+    bench_parts = {n for s in steps if s["bench"] for n in s.get("bench_parts", [])}
     never = [n for n in names_all if n not in present]
     not_swept = [n for n in present if n not in {m for s in steps for m in s["move"]} and n not in bench_parts
                  and n not in {x["screw"] for s in steps for x in s["screws"]} and n not in {h["part"] for s in steps for h in s["hardware"]}]

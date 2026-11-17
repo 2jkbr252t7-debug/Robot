@@ -1,5 +1,5 @@
 #!/opt/venv/cad/bin/python
-"""NOVA mini - T4 torso: build every module and export the deliverables.
+"""NOVA mini - T4 torso REV. 2: build every module and export the deliverables.
 
     /opt/venv/cad/bin/python build_all.py [--rebuild] [--no-step] [--only obal,ram,pan] [--annotate]
 
@@ -9,8 +9,10 @@
                            volume (OCC), volume_mesh (from the written STL), bbox, cog, mass_g, stl{}, step, watertight
        parts_<module>.json the per-module files are refreshed with the new export records (their other keys are kept)
 
-Mass: printed parts = STL volume x density (resin 1.15, PETG 1.27, POM 1.41 g/cm3); bought parts = datasheet mass given by
-the module ("mass"), otherwise volume x density of the material (brass 8.5, steel 7.85, magnet 7.5, PTFE 2.2 ...).
+Mass: printed parts = STL volume x 1.15 g/cm3 (every printed part is Elegoo Tough resin - T4_zivica Z1 / Z2; no PETG / POM in
+rev. 2); bought parts = datasheet mass given by the module ("mass"), otherwise volume x density of the material (brass 8.5,
+steel 7.85, 304 stainless 7.93, aluminium 2.70, magnet 7.5, PTFE 2.2, FR4 1.9 ...).
+Exports of parts that no longer exist (stl/*.stl, step/*.step without a part) are deleted.
 """
 from __future__ import annotations
 import os, sys, json, time, hashlib
@@ -53,6 +55,7 @@ def annotate():
     pj = os.path.join(HERE, "parts.json")
     doc = json.load(open(pj))
     doc["integrator_changes"] = C.INTEG["changes"]
+    doc["integrator_rev2_changes"] = getattr(C, "INTEG2", {}).get("changes", [])
     json.dump(doc, open(pj, "w"), indent=1, ensure_ascii=False)
     for mod in MODULES:
         mj = os.path.join(HERE, f"parts_{mod}.json")
@@ -64,6 +67,7 @@ def annotate():
         if dev:                                                   # obal / ram keep their list in the module source
             md["deviations"] = dev
         md["integrator_changes"] = [c for c in C.INTEG["changes"] if f"t4_{mod}" in c or f"{mod.upper()}[" in c or c.startswith(("export", "DENS"))]
+        md["integrator_rev2_changes"] = [c for c in getattr(C, "INTEG2", {}).get("changes", []) if c.startswith(f"t4_{mod}")]
         json.dump(md, open(mj, "w"), indent=1, ensure_ascii=False)
 
 
@@ -134,13 +138,14 @@ def main(argv):
         mdoc["all_ok"] = all(r["ok"] for r in out_mod); mdoc["not_ok"] = [r["name"] for r in out_mod if not r["ok"]]
         mdoc["exported_by"] = "build_all.py " + time.strftime("%Y-%m-%d %H:%M:%S")
         json.dump(mdoc, open(mj, "w"), indent=1, ensure_ascii=False)
-    # files in stl/ and step/ that belong to no part
+    # files in stl/ and step/ that belong to no part: deleted (exports of parts that no longer exist)
     names = {r["name"] for r in recs}
     orphans = []
     for sub, ext in (("stl", ".stl"), ("step", ".step")):
         for f in sorted(os.listdir(os.path.join(HERE, sub))):
             if f.endswith(ext) and f[:-len(ext)] not in names:
-                orphans.append(f"{sub}/{f}")
+                os.remove(os.path.join(HERE, sub, f)); orphans.append(f"{sub}/{f}")
+                print("removed orphan export", f"{sub}/{f}")
     step_big = [f for f in os.listdir(os.path.join(HERE, "step")) if os.path.getsize(os.path.join(HERE, "step", f)) > C.INTEG["STEP_MAX_MB"] * 1e6]
     mass = {}
     for r in recs:
@@ -160,7 +165,8 @@ def main(argv):
                densities_g_cm3={k: (None if v is None else round(v * 1e3, 3)) for k, v in C.DENS.items()},
                stl=dict(deflection_mm=O.STL_LIN, angular_rad=O.STL_ANG, note="absolute chord deflection"),
                step_rule=f"STEP written only below {C.INTEG['STEP_MAX_MB']:.0f} MB; step = null for loft-derived parts",
-               step_null=[r["name"] for r in recs if not r.get("step")], step_over_limit_on_disk=step_big, orphan_files=orphans,
+               step_null=[r["name"] for r in recs if not r.get("step")], step_over_limit_on_disk=step_big, orphan_files_removed=orphans,
+               revision=2, printed_material="Elegoo Tough resin (all printed parts), 1.15 g/cm3",
                mass_by_group_g=mass, parts=recs)
     json.dump(doc, open(pj, "w"), indent=1, ensure_ascii=False)
     annotate()
