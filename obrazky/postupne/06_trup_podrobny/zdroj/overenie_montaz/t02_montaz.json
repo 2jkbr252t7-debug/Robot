@@ -1,0 +1,557 @@
+{
+ "A_stol_s_krkom_hore": {},
+ "A2_krk_hore_zo_sachty": {},
+ "B_kotuc_hore_po_krku": {},
+ "B_kotuc_dole_cez_patu": {},
+ "B_prstenec_hore_po_krku": {},
+ "B_krk_bbox": [
+  [
+   -22.5,
+   -10.0,
+   -36.5
+  ],
+  [
+   22.5,
+   10.0,
+   6.5
+  ]
+ ],
+ "B_krk_polsirka_x_y_po_z": {
+  "-30": [
+   17.1,
+   10.0
+  ],
+  "-10": [
+   22.5,
+   10.0
+  ],
+  "0": [
+   18.2,
+   9.63
+  ],
+  "4": [
+   18.2,
+   7.5
+  ],
+  "6": [
+   17.5,
+   5.21
+  ]
+ },
+ "C_kondenzator_hore": {
+  "kondenzator x T_ram": {
+   "prva": 0.5,
+   "posledna": 40.0,
+   "hlbka": 4.678,
+   "bod": [
+    42.71,
+    2.93,
+    -17.0
+   ],
+   "n": 80
+  }
+ },
+ "C_kondenzator_plusX": {
+  "kondenzator x T_ram": {
+   "prva": 0.25,
+   "posledna": 4.0,
+   "hlbka": 0.422,
+   "bod": [
+    43.31,
+    -2.0,
+    -42.83
+   ],
+   "n": 16
+  }
+ },
+ "D_usb": {
+  "L20": {
+   "T_stred": 2.7,
+   "T_bok_P": 0.28
+  },
+  "L26": {
+   "T_stred": 2.7,
+   "T_bok_P": 0.48
+  },
+  "L32": {
+   "T_stred": 2.7,
+   "T_bok_P": 0.48
+  },
+  "L40": {
+   "T_stred": 2.7,
+   "T_bok_P": 0.48
+  },
+  "L40_bez_praveho_boku": {
+   "T_stred": 2.7
+  },
+  "luce_-X": {
+   "dy-3_dz-6": [
+    21.51,
+    "T_bok_P"
+   ],
+   "dy-3_dz+0": [
+    22.7,
+    "T_bok_P"
+   ],
+   "dy-3_dz+6": [
+    22.97,
+    "T_bok_P"
+   ],
+   "dy+0_dz-6": [
+    2.62,
+    "T_stred"
+   ],
+   "dy+0_dz+0": [
+    21.01,
+    "T_bok_P"
+   ],
+   "dy+0_dz+6": [
+    21.34,
+    "T_bok_P"
+   ],
+   "dy+3_dz-6": [
+    4.2,
+    "T_stred"
+   ],
+   "dy+3_dz+0": [
+    18.74,
+    "T_bok_P"
+   ],
+   "dy+3_dz+6": [
+    19.19,
+    "T_bok_P"
+   ]
+  }
+ },
+ "E_konektory_horna_hrana": {
+  "x-14": {
+   "nad_hranou_Z": [
+    [
+     7.1,
+     "T_paluba"
+    ],
+    [
+     7.1,
+     "T_paluba"
+    ],
+    [
+     7.1,
+     "T_paluba"
+    ]
+   ],
+   "od_dvierok_Y": [
+    null,
+    null,
+    null
+   ]
+  },
+  "x-8": {
+   "nad_hranou_Z": [
+    [
+     7.1,
+     "T_paluba"
+    ],
+    [
+     7.1,
+     "T_paluba"
+    ],
+    [
+     7.1,
+     "T_paluba"
+    ]
+   ],
+   "od_dvierok_Y": [
+    null,
+    null,
+    null
+   ]
+  },
+  "x+0": {
+   "nad_hranou_Z": [
+    [
+     7.1,
+     "T_paluba"
+    ],
+    [
+     7.1,
+     "T_paluba"
+    ],
+    [
+     7.1,
+     "T_paluba"
+    ]
+   ],
+   "od_dvierok_Y": [
+    null,
+    null,
+    null
+   ]
+  },
+  "x+8": {
+   "nad_hranou_Z": [
+    [
+     7.1,
+     "T_paluba"
+    ],
+    [
+     7.1,
+     "T_paluba"
+    ],
+    [
+     7.1,
+     "T_paluba"
+    ]
+   ],
+   "od_dvierok_Y": [
+    null,
+    null,
+    null
+   ]
+  },
+  "x+14": {
+   "nad_hranou_Z": [
+    [
+     7.1,
+     "T_paluba"
+    ],
+    [
+     7.1,
+     "T_paluba"
+    ],
+    [
+     7.1,
+     "T_paluba"
+    ]
+   ],
+   "od_dvierok_Y": [
+    null,
+    null,
+    null
+   ]
+  }
+ },
+ "E_konektory_dolne_pole": {
+  "x+5": {
+   "od_dvierok_Y": [
+    [
+     11.79,
+     "T_stred"
+    ],
+    null,
+    null
+   ],
+   "pod_hranou_Z": [
+    5.2,
+    "T_spodok"
+   ]
+  },
+  "x+12": {
+   "od_dvierok_Y": [
+    [
+     11.45,
+     "T_stred"
+    ],
+    null,
+    null
+   ],
+   "pod_hranou_Z": [
+    5.2,
+    "T_spodok"
+   ]
+  },
+  "x+20": {
+   "od_dvierok_Y": [
+    [
+     10.4,
+     "T_stred"
+    ],
+    null,
+    null
+   ],
+   "pod_hranou_Z": [
+    0.2,
+    "T_ram"
+   ]
+  },
+  "x+23": {
+   "od_dvierok_Y": [
+    [
+     9.77,
+     "T_stred"
+    ],
+    [
+     9.64,
+     "T_stred"
+    ],
+    null
+   ],
+   "pod_hranou_Z": [
+    0.2,
+    "T_ram"
+   ]
+  }
+ },
+ "E_konce_dosky": {
+  "plusX_koniec_dosky": [
+   [
+    1.7,
+    "T_stred"
+   ],
+   [
+    21.83,
+    "T_bok_L"
+   ],
+   [
+    21.83,
+    "T_bok_L"
+   ]
+  ],
+  "minusX_koniec_dosky": [
+   [
+    2.07,
+    "T_stred"
+   ],
+   [
+    22.63,
+    "T_bok_P"
+   ]
+  ]
+ },
+ "F_nad_servom_J1": {
+  "(-18.0,0.0)": [
+   0.49,
+   "pena_J1"
+  ],
+  "(-18.0,3.0)": [
+   0.49,
+   "pena_J1"
+  ],
+  "(-14.0,0.0)": [
+   0.49,
+   "pena_J1"
+  ],
+  "(0.0,0.0)": [
+   0.49,
+   "pena_J1"
+  ],
+  "(10.0,0.0)": [
+   0.49,
+   "pena_J1"
+  ]
+ },
+ "F_zastrcka_J1_luce_+X": {
+  "y-6_z-64": [
+   18.6,
+   "T_ram"
+  ],
+  "y-6_z-57": [
+   18.6,
+   "T_ram"
+  ],
+  "y-6_z-50": [
+   18.6,
+   "T_ram"
+  ],
+  "y+0_z-64": [
+   18.6,
+   "T_ram"
+  ],
+  "y+0_z-57": [
+   18.6,
+   "T_ram"
+  ],
+  "y+0_z-50": [
+   18.6,
+   "T_ram"
+  ],
+  "y+6_z-64": [
+   18.6,
+   "T_ram"
+  ],
+  "y+6_z-57": [
+   18.6,
+   "T_ram"
+  ],
+  "y+6_z-50": [
+   18.6,
+   "T_ram"
+  ]
+ },
+ "G_zdvih_von_bez_ucha": {},
+ "G_zdvih_von_s_uchom": {
+  "cap_kluky x L_ucho": {
+   "prva": 0.5,
+   "posledna": 2.5,
+   "hlbka": 1.894,
+   "bod": [
+    -16.3,
+    24.24,
+    -35.09
+   ],
+   "n": 5
+  }
+ },
+ "G_servo_zdvih_minusX_v_trupe": {
+  "servo_zdvih x P_drziak_serva": {
+   "prva": 6.5,
+   "posledna": 15.5,
+   "hlbka": 2.4,
+   "bod": [
+    2.4,
+    24.03,
+    -14.97
+   ],
+   "n": 19
+  },
+  "servo_zdvih x T_stred": {
+   "prva": 7.0,
+   "posledna": 30.0,
+   "hlbka": 3.277,
+   "bod": [
+    -26.0,
+    29.23,
+    -27.9
+   ],
+   "n": 47
+  },
+  "P_kluka x T_stred": {
+   "prva": 7.5,
+   "posledna": 17.0,
+   "hlbka": 1.253,
+   "bod": [
+    -29.6,
+    25.08,
+    -22.79
+   ],
+   "n": 20
+  },
+  "servo_zdvih x magnet_zarubna_2": {
+   "prva": 8.5,
+   "posledna": 30.0,
+   "hlbka": 1.143,
+   "bod": [
+    -23.5,
+    27.87,
+    -23.44
+   ],
+   "n": 44
+  },
+  "skr_kluky x T_stred": {
+   "prva": 11.0,
+   "posledna": 12.5,
+   "hlbka": 0.423,
+   "bod": [
+    -29.0,
+    24.08,
+    -23.93
+   ],
+   "n": 4
+  },
+  "P_kluka x T_bok_P": {
+   "prva": 14.5,
+   "posledna": 30.0,
+   "hlbka": 1.077,
+   "bod": [
+    -30.27,
+    25.93,
+    -21.85
+   ],
+   "n": 32
+  },
+  "skr_kluky x T_bok_P": {
+   "prva": 14.5,
+   "posledna": 30.0,
+   "hlbka": 0.445,
+   "bod": [
+    -39.5,
+    22.08,
+    -23.65
+   ],
+   "n": 31
+  },
+  "servo_zdvih x T_bok_P": {
+   "prva": 16.0,
+   "posledna": 30.0,
+   "hlbka": 1.427,
+   "bod": [
+    -34.0,
+    28.14,
+    -27.42
+   ],
+   "n": 29
+  },
+  "cap_kluky x T_bok_P": {
+   "prva": 19.5,
+   "posledna": 29.0,
+   "hlbka": 0.84,
+   "bod": [
+    -39.6,
+    23.48,
+    -33.24
+   ],
+   "n": 20
+  }
+ },
+ "H_naradie_zospodu": {
+  "skr_F2_1": {
+   "r_od_osi": 28.11,
+   "volny": true,
+   "blok": {}
+  },
+  "skr_F2_2": {
+   "r_od_osi": 28.11,
+   "volny": true,
+   "blok": {}
+  },
+  "skr_F2_3": {
+   "r_od_osi": 26.95,
+   "volny": true,
+   "blok": {}
+  },
+  "skr_F2_4": {
+   "r_od_osi": 26.95,
+   "volny": true,
+   "blok": {}
+  },
+  "skr_F2_5": {
+   "r_od_osi": 35.63,
+   "volny": true,
+   "blok": {}
+  },
+  "skr_F2_6": {
+   "r_od_osi": 35.63,
+   "volny": true,
+   "blok": {}
+  },
+  "skr_F1_1": {
+   "r_od_osi": 34.67,
+   "volny": true,
+   "blok": {}
+  },
+  "skr_F1_2": {
+   "r_od_osi": 34.67,
+   "volny": true,
+   "blok": {}
+  },
+  "skr_F1_3": {
+   "r_od_osi": 34.67,
+   "volny": true,
+   "blok": {}
+  },
+  "skr_F1_4": {
+   "r_od_osi": 34.67,
+   "volny": true,
+   "blok": {}
+  }
+ },
+ "H_F5_naradie_-X": {
+  "volny": false,
+  "blok": {
+   "T_bok_P": 13.2
+  }
+ },
+ "H_F5_naradie_-X_bez_boku": {
+  "volny": true,
+  "blok": {}
+ }
+}

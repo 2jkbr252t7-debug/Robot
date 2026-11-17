@@ -1,0 +1,217 @@
+{
+ "klucova_dierka": {
+  "zdvih35.0_posun-Y1.6": {
+   "T_stred x pastorok_pan": [
+    34.6,
+    0.506,
+    [
+     -6.55,
+     -29.15,
+     -44.58
+    ]
+   ]
+  },
+  "zdvih35.0_posun-Y1.8": {
+   "T_stred x pastorok_pan": [
+    34.6,
+    0.506,
+    [
+     -6.55,
+     -29.15,
+     -44.58
+    ]
+   ]
+  },
+  "zdvih35.0_posun-Y2.0": {
+   "T_stred x pastorok_pan": [
+    34.6,
+    0.506,
+    [
+     -6.55,
+     -29.15,
+     -44.58
+    ]
+   ]
+  },
+  "zdvih35.0_posun-Y2.4": {
+   "T_stred x pastorok_pan": [
+    34.6,
+    0.506,
+    [
+     -6.55,
+     -29.15,
+     -44.58
+    ]
+   ],
+   "T_stred x T_paluba": [
+    37.4,
+    0.417,
+    [
+     0.1,
+     26.13,
+     -43.6
+    ]
+   ]
+  },
+  "zdvih35.2_posun-Y1.6": {
+   "T_stred x pastorok_pan": [
+    34.4,
+    0.665,
+    [
+     -6.55,
+     -29.15,
+     -44.38
+    ]
+   ]
+  },
+  "zdvih35.2_posun-Y1.8": {
+   "T_stred x pastorok_pan": [
+    34.4,
+    0.665,
+    [
+     -6.55,
+     -29.15,
+     -44.38
+    ]
+   ]
+  },
+  "zdvih35.2_posun-Y2.0": {
+   "T_stred x pastorok_pan": [
+    34.4,
+    0.665,
+    [
+     -6.55,
+     -29.15,
+     -44.38
+    ]
+   ]
+  },
+  "zdvih35.2_posun-Y2.4": {
+   "T_stred x pastorok_pan": [
+    34.4,
+    0.665,
+    [
+     -6.55,
+     -29.15,
+     -44.38
+    ]
+   ],
+   "T_stred x T_paluba": [
+    37.6,
+    0.417,
+    [
+     0.1,
+     26.13,
+     -43.4
+    ]
+   ]
+  },
+  "zdvih35.4_posun-Y1.6": {
+   "T_stred x pastorok_pan": [
+    34.6,
+    0.697,
+    [
+     -6.55,
+     -29.15,
+     -44.18
+    ]
+   ]
+  },
+  "zdvih35.4_posun-Y1.8": {
+   "T_stred x pastorok_pan": [
+    34.6,
+    0.697,
+    [
+     -6.55,
+     -29.15,
+     -44.18
+    ]
+   ]
+  },
+  "zdvih35.4_posun-Y2.0": {
+   "T_stred x pastorok_pan": [
+    34.6,
+    0.697,
+    [
+     -6.55,
+     -29.15,
+     -44.18
+    ]
+   ]
+  },
+  "zdvih35.4_posun-Y2.4": {
+   "T_stred x pastorok_pan": [
+    34.6,
+    0.697,
+    [
+     -6.55,
+     -29.15,
+     -44.18
+    ]
+   ],
+   "T_stred x T_paluba": [
+    37.8,
+    0.417,
+    [
+     0.1,
+     26.13,
+     -43.6
+    ]
+   ]
+  }
+ },
+ "skr_fpc_cez_sachtu": {
+  "-58.5": {
+   "volny": false,
+   "blok": {
+    "golier_kotuc": 41.75
+   }
+  },
+  "20": {
+   "volny": false,
+   "blok": {
+    "P_sachta": 1.85
+   }
+  },
+  "30": {
+   "volny": false,
+   "blok": {
+    "P_sachta": 1.85,
+    "golier_kotuc": 41.75
+   }
+  },
+  "35": {
+   "volny": false,
+   "blok": {
+    "golier_kotuc": 41.75
+   }
+  },
+  "40": {
+   "volny": false,
+   "blok": {
+    "golier_kotuc": 41.75
+   }
+  },
+  "45": {
+   "volny": true,
+   "blok": {}
+  },
+  "50": {
+   "volny": true,
+   "blok": {}
+  },
+  "55": {
+   "volny": false,
+   "blok": {
+    "golier_kotuc": 41.75
+   }
+  },
+  "60": {
+   "volny": false,
+   "blok": {
+    "golier_kotuc": 41.75,
+    "P_sachta": 2.45
+   }
+  }
+ }
+}

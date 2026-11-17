@@ -1,0 +1,3166 @@
+{
+ "vlozky": [
+  {
+   "prvok": "vlozka_stred_1",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    29.0,
+    19.0,
+    -79.0
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 6
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 6
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    }
+   ]
+  },
+  {
+   "prvok": "vlozka_stred_2",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -29.0,
+    19.0,
+    -79.0
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 6
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 6
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    }
+   ]
+  },
+  {
+   "prvok": "vlozka_stred_3",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    29.0,
+    -19.0,
+    -79.0
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 6
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 6
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    }
+   ]
+  },
+  {
+   "prvok": "vlozka_stred_4",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -29.0,
+    -19.0,
+    -79.0
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 6
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 6
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F2_1",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -22.0,
+    17.5,
+    -80.3
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 10
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 7
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 7
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F2_2",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -22.0,
+    -17.5,
+    -80.3
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 10
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 7
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 7
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F2_3",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    20.5,
+    17.5,
+    -80.3
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 10
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 7
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 7
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F2_4",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    20.5,
+    -17.5,
+    -80.3
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 10
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 7
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 7
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F2_5",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    35.5,
+    3.0,
+    -80.3
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 10.85,
+     "stena_min": 1.61,
+     "stena_median": 2.1,
+     "n_lucov": 12
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 10.85,
+     "stena_min": 1.61,
+     "stena_median": 2.11,
+     "n_lucov": 12
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 10.85,
+     "stena_min": 1.61,
+     "stena_median": 2.11,
+     "n_lucov": 12
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F2_6",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -35.5,
+    3.0,
+    -80.3
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 10.85,
+     "stena_min": 1.61,
+     "stena_median": 2.1,
+     "n_lucov": 12
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 10.85,
+     "stena_min": 1.61,
+     "stena_median": 2.11,
+     "n_lucov": 12
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 10.85,
+     "stena_min": 1.61,
+     "stena_median": 2.1,
+     "n_lucov": 12
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F3_1",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -22.9,
+    -15.8,
+    -49.8
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F3_2",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    22.9,
+    -15.8,
+    -49.8
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F3_3",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -22.9,
+    15.8,
+    -49.8
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F3_4",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    22.9,
+    15.8,
+    -49.8
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F5",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    -33.2,
+    -0.0,
+    -74.0
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.2,
+     "stena_min": 1.8,
+     "stena_median": 1.8,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.2,
+     "stena_min": 1.8,
+     "stena_median": 1.8,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.2,
+     "stena_min": 1.8,
+     "stena_median": 1.8,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F8_L1",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.2,
+   "dlzka": 3.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    36.9,
+    3.0,
+    -9.5
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 2.9,
+     "stena_min": 2.65,
+     "stena_median": 5.67,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 2.9,
+     "stena_min": 2.65,
+     "stena_median": 5.67,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 2.9,
+     "stena_min": 3.85,
+     "stena_median": 7.1,
+     "n_lucov": 23
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F8_L2",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.2,
+   "dlzka": 3.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    36.9,
+    -3.5,
+    -20.75
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 2.9,
+     "stena_min": 2.65,
+     "stena_median": 5.04,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 2.9,
+     "stena_min": 2.65,
+     "stena_median": 5.67,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 2.9,
+     "stena_min": 3.85,
+     "stena_median": 7.16,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F8_L3",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.2,
+   "dlzka": 3.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    36.9,
+    9.5,
+    -20.75
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 2.9,
+     "stena_min": 2.65,
+     "stena_median": 5.04,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 2.9,
+     "stena_min": 0.8,
+     "stena_median": 3.04,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 2.9,
+     "stena_min": 0.8,
+     "stena_median": 4.29,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F8_P1",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.2,
+   "dlzka": 3.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    -36.9,
+    3.0,
+    -9.5
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 2.9,
+     "stena_min": 3.85,
+     "stena_median": 7.1,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 2.9,
+     "stena_min": 2.65,
+     "stena_median": 5.67,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 2.9,
+     "stena_min": 2.65,
+     "stena_median": 5.67,
+     "n_lucov": 23
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F8_P2",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.2,
+   "dlzka": 3.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    -36.9,
+    -3.5,
+    -20.75
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 2.9,
+     "stena_min": 3.85,
+     "stena_median": 7.16,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 2.9,
+     "stena_min": 2.65,
+     "stena_median": 5.66,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 2.9,
+     "stena_min": 2.65,
+     "stena_median": 5.04,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F8_P3",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.2,
+   "dlzka": 3.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    -36.9,
+    9.5,
+    -20.75
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 2.9,
+     "stena_min": 0.8,
+     "stena_median": 4.29,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 2.9,
+     "stena_min": 2.65,
+     "stena_median": 5.67,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 2.9,
+     "stena_min": 2.65,
+     "stena_median": 5.04,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F10_1",
+   "host": "P_sachta",
+   "mat_host": "resin_black",
+   "d_prvku": 3.2,
+   "dlzka": 3.0,
+   "os": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "stred": [
+    19.5,
+    13.9,
+    -31.7
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.3,
+     "stena_min": 1.35,
+     "stena_median": 1.35,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.3,
+     "stena_min": 1.35,
+     "stena_median": 1.35,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.3,
+     "stena_min": 1.35,
+     "stena_median": 1.35,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F10_2",
+   "host": "P_sachta",
+   "mat_host": "resin_black",
+   "d_prvku": 3.2,
+   "dlzka": 3.0,
+   "os": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "stred": [
+    8.0,
+    13.9,
+    -14.5
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.3,
+     "stena_min": 1.35,
+     "stena_median": 1.35,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.3,
+     "stena_min": 1.35,
+     "stena_median": 1.35,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.3,
+     "stena_min": 1.35,
+     "stena_median": 1.35,
+     "n_lucov": 23
+    }
+   ]
+  }
+ ],
+ "magnety": [
+  {
+   "prvok": "magnet_dvierka_1",
+   "host": "T_dvere",
+   "mat_host": "resin_white",
+   "d_prvku": 5.0,
+   "dlzka": 2.0,
+   "os": [
+    0.35,
+    0.92,
+    0.17
+   ],
+   "stred": [
+    23.85,
+    31.36,
+    -24.55
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "magnet_dvierka_2",
+   "host": "T_dvere",
+   "mat_host": "resin_white",
+   "d_prvku": 5.0,
+   "dlzka": 2.0,
+   "os": [
+    0.35,
+    -0.92,
+    -0.17
+   ],
+   "stred": [
+    -23.85,
+    31.36,
+    -24.55
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "magnet_dvierka_3",
+   "host": "T_dvere",
+   "mat_host": "resin_white",
+   "d_prvku": 5.0,
+   "dlzka": 2.0,
+   "os": [
+    0.28,
+    0.96,
+    -0.06
+   ],
+   "stred": [
+    24.07,
+    33.55,
+    -59.8
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 5.1,
+     "stena_min": 1.37,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "magnet_dvierka_4",
+   "host": "T_dvere",
+   "mat_host": "resin_white",
+   "d_prvku": 5.0,
+   "dlzka": 2.0,
+   "os": [
+    0.28,
+    -0.96,
+    0.06
+   ],
+   "stred": [
+    -24.07,
+    33.55,
+    -59.8
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 5.1,
+     "stena_min": 1.37,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "magnet_zarubna_1",
+   "host": "T_stred",
+   "mat_host": "resin_white",
+   "d_prvku": 5.0,
+   "dlzka": 2.0,
+   "os": [
+    0.35,
+    0.92,
+    0.17
+   ],
+   "stred": [
+    23.55,
+    29.15,
+    -24.91
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.9,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.9,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.9,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "magnet_zarubna_2",
+   "host": "T_stred",
+   "mat_host": "resin_white",
+   "d_prvku": 5.0,
+   "dlzka": 2.0,
+   "os": [
+    0.35,
+    -0.92,
+    -0.17
+   ],
+   "stred": [
+    -23.55,
+    29.15,
+    -24.91
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.9,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.9,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.9,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "magnet_zarubna_3",
+   "host": "T_stred",
+   "mat_host": "resin_white",
+   "d_prvku": 5.0,
+   "dlzka": 2.0,
+   "os": [
+    0.28,
+    0.96,
+    -0.06
+   ],
+   "stred": [
+    23.44,
+    31.44,
+    -59.66
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "magnet_zarubna_4",
+   "host": "T_stred",
+   "mat_host": "resin_white",
+   "d_prvku": 5.0,
+   "dlzka": 2.0,
+   "os": [
+    0.28,
+    -0.96,
+    0.06
+   ],
+   "stred": [
+    -23.44,
+    31.44,
+    -59.66
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 5.1,
+     "stena_min": 1.45,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "magnet_klb_L1",
+   "host": "T_klb_L",
+   "mat_host": "resin_black",
+   "d_prvku": 3.0,
+   "dlzka": 2.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    57.76,
+    9.5,
+    -13.25
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.1,
+     "stena_min": 1.93,
+     "stena_median": 3.53,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.1,
+     "stena_min": 1.93,
+     "stena_median": 3.53,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.1,
+     "stena_min": 1.54,
+     "stena_median": 3.28,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "magnet_klb_L2",
+   "host": "T_klb_L",
+   "mat_host": "resin_black",
+   "d_prvku": 3.0,
+   "dlzka": 2.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    57.76,
+    -3.5,
+    -13.25
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.1,
+     "stena_min": 1.93,
+     "stena_median": 3.53,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.1,
+     "stena_min": 1.93,
+     "stena_median": 3.53,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.1,
+     "stena_min": 1.54,
+     "stena_median": 3.28,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "magnet_klb_L3",
+   "host": "T_klb_L",
+   "mat_host": "resin_black",
+   "d_prvku": 3.0,
+   "dlzka": 2.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    57.76,
+    3.0,
+    -24.5
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.1,
+     "stena_min": 1.93,
+     "stena_median": 3.58,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.1,
+     "stena_min": 1.93,
+     "stena_median": 3.58,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.1,
+     "stena_min": 1.62,
+     "stena_median": 3.49,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "magnet_klb_P1",
+   "host": "T_klb_P",
+   "mat_host": "resin_black",
+   "d_prvku": 3.0,
+   "dlzka": 2.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    -57.76,
+    9.5,
+    -13.25
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.1,
+     "stena_min": 1.54,
+     "stena_median": 3.28,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.1,
+     "stena_min": 1.93,
+     "stena_median": 3.53,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.1,
+     "stena_min": 1.93,
+     "stena_median": 3.53,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "magnet_klb_P2",
+   "host": "T_klb_P",
+   "mat_host": "resin_black",
+   "d_prvku": 3.0,
+   "dlzka": 2.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    -57.76,
+    -3.5,
+    -13.25
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.1,
+     "stena_min": 1.54,
+     "stena_median": 3.28,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.1,
+     "stena_min": 1.93,
+     "stena_median": 3.53,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.1,
+     "stena_min": 1.93,
+     "stena_median": 3.53,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "magnet_klb_P3",
+   "host": "T_klb_P",
+   "mat_host": "resin_black",
+   "d_prvku": 3.0,
+   "dlzka": 2.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    -57.76,
+    3.0,
+    -24.5
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.1,
+     "stena_min": 1.62,
+     "stena_median": 3.49,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.1,
+     "stena_min": 1.93,
+     "stena_median": 3.58,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.1,
+     "stena_min": 1.93,
+     "stena_median": 3.58,
+     "n_lucov": 24
+    }
+   ]
+  }
+ ],
+ "koliky_capy": [
+  {
+   "prvok": "cap_pan",
+   "host": "T_paluba",
+   "mat_host": "petg",
+   "d_prvku": 6.0,
+   "dlzka": 6.5,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    0.0,
+    0.0,
+    -44.45
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 5.95,
+     "stena_min": 9.32,
+     "stena_median": 9.32,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 5.95,
+     "stena_min": 2.52,
+     "stena_median": 2.52,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    }
+   ]
+  },
+  {
+   "prvok": "cap_kluky",
+   "host": "P_kluka",
+   "mat_host": "resin_black",
+   "d_prvku": 2.0,
+   "dlzka": 5.4,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    -17.2,
+    23.2,
+    -34.2
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 1.98,
+     "stena_min": 1.2,
+     "stena_median": 1.23,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "kolik_kolesa_1",
+   "host": "P_koleso",
+   "mat_host": "resin_black",
+   "d_prvku": 2.0,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    9.0,
+    0.0,
+    -43.05
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 2.0,
+     "stena_min": 2.0,
+     "stena_median": 5.83,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 2.0,
+     "stena_min": 3.4,
+     "stena_median": 6.25,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    }
+   ]
+  },
+  {
+   "prvok": "kolik_kolesa_2",
+   "host": "P_koleso",
+   "mat_host": "resin_black",
+   "d_prvku": 2.0,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -9.0,
+    0.0,
+    -43.05
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 2.0,
+     "stena_min": 2.0,
+     "stena_median": 4.98,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 2.0,
+     "stena_min": 3.4,
+     "stena_median": 5.77,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    }
+   ]
+  },
+  {
+   "prvok": "kolik_dorazu",
+   "host": "T_paluba",
+   "mat_host": "petg",
+   "d_prvku": 2.0,
+   "dlzka": 4.5,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -0.0,
+    13.5,
+    -44.45
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 21.01,
+     "stena_min": 1.6,
+     "stena_median": 1.74,
+     "n_lucov": 12
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 21.01,
+     "stena_min": 1.6,
+     "stena_median": 1.74,
+     "n_lucov": 12
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 9
+    }
+   ]
+  },
+  {
+   "prvok": "kolik_ucha",
+   "host": "L_pata",
+   "mat_host": "petg",
+   "d_prvku": 1.5,
+   "dlzka": 5.0,
+   "os": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "stred": [
+    -15.5,
+    9.3,
+    -38.95
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 1.48,
+     "stena_min": 0.81,
+     "stena_median": 2.09,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 1.48,
+     "stena_min": 0.81,
+     "stena_median": 2.09,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    }
+   ]
+  }
+ ],
+ "skrutky": [
+  {
+   "prvok": "skrutka_klb_L1",
+   "host": "T_klb_L",
+   "mat_host": "resin_black",
+   "d_prvku": 3.8,
+   "dlzka": 12.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    43.0,
+    3.0,
+    -9.5
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 2
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 2.3,
+     "stena_min": 1.38,
+     "stena_median": 5.96,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 2.3,
+     "stena_min": 2.57,
+     "stena_median": 5.96,
+     "n_lucov": 23
+    }
+   ]
+  },
+  {
+   "prvok": "skrutka_klb_L2",
+   "host": "T_klb_L",
+   "mat_host": "resin_black",
+   "d_prvku": 3.8,
+   "dlzka": 12.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    43.0,
+    -3.5,
+    -20.75
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 1
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 2.3,
+     "stena_min": 1.25,
+     "stena_median": 5.64,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 2.3,
+     "stena_min": 2.32,
+     "stena_median": 5.64,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "skrutka_klb_L3",
+   "host": "T_klb_L",
+   "mat_host": "resin_black",
+   "d_prvku": 3.8,
+   "dlzka": 12.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    43.0,
+    9.5,
+    -20.75
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 4
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 2.3,
+     "stena_min": 1.25,
+     "stena_median": 5.64,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 2.3,
+     "stena_min": 2.32,
+     "stena_median": 5.64,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "skrutka_klb_P1",
+   "host": "T_klb_P",
+   "mat_host": "resin_black",
+   "d_prvku": 3.8,
+   "dlzka": 12.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    -43.0,
+    3.0,
+    -9.5
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 2.3,
+     "stena_min": 2.57,
+     "stena_median": 5.96,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 2.3,
+     "stena_min": 1.38,
+     "stena_median": 5.96,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 2
+    }
+   ]
+  },
+  {
+   "prvok": "skrutka_klb_P2",
+   "host": "T_klb_P",
+   "mat_host": "resin_black",
+   "d_prvku": 3.8,
+   "dlzka": 12.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    -43.0,
+    -3.5,
+    -20.75
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 2.3,
+     "stena_min": 2.33,
+     "stena_median": 5.64,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 2.3,
+     "stena_min": 1.25,
+     "stena_median": 5.64,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 1
+    }
+   ]
+  },
+  {
+   "prvok": "skrutka_klb_P3",
+   "host": "T_klb_P",
+   "mat_host": "resin_black",
+   "d_prvku": 3.8,
+   "dlzka": 12.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    -43.0,
+    9.5,
+    -20.75
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 2.3,
+     "stena_min": 2.32,
+     "stena_median": 5.64,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 2.3,
+     "stena_min": 1.25,
+     "stena_median": 5.64,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 4
+    }
+   ]
+  },
+  {
+   "prvok": "skrutka_led_1",
+   "host": "T_stred",
+   "mat_host": "resin_white",
+   "d_prvku": 3.8,
+   "dlzka": 8.0,
+   "os": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "stred": [
+    19.5,
+    -30.4,
+    -32.5
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 1.7,
+     "stena_min": 1.65,
+     "stena_median": 1.65,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 7
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 2
+    }
+   ]
+  },
+  {
+   "prvok": "skrutka_led_2",
+   "host": "T_stred",
+   "mat_host": "resin_white",
+   "d_prvku": 3.8,
+   "dlzka": 8.0,
+   "os": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "stred": [
+    -19.5,
+    -30.4,
+    -32.5
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 1.7,
+     "stena_min": 1.52,
+     "stena_median": 1.65,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 7
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 2
+    }
+   ]
+  },
+  {
+   "prvok": "skrutka_repro_1",
+   "host": "T_stred",
+   "mat_host": "resin_white",
+   "d_prvku": 3.8,
+   "dlzka": 8.0,
+   "os": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "stred": [
+    14.29,
+    -31.0,
+    -42.75
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 1.7,
+     "stena_min": 1.5,
+     "stena_median": 1.65,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 1.7,
+     "stena_min": 1.5,
+     "stena_median": 1.65,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    }
+   ]
+  },
+  {
+   "prvok": "skrutka_repro_2",
+   "host": "T_stred",
+   "mat_host": "resin_white",
+   "d_prvku": 3.8,
+   "dlzka": 8.0,
+   "os": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "stred": [
+    -14.29,
+    -31.0,
+    -42.75
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 1.7,
+     "stena_min": 1.5,
+     "stena_median": 1.65,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 1.7,
+     "stena_min": 1.5,
+     "stena_median": 1.65,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    }
+   ]
+  },
+  {
+   "prvok": "skrutka_repro_3",
+   "host": "T_stred",
+   "mat_host": "resin_white",
+   "d_prvku": 3.8,
+   "dlzka": 8.0,
+   "os": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "stred": [
+    -0.0,
+    -31.0,
+    -67.5
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 1.7,
+     "stena_min": 1.5,
+     "stena_median": 1.65,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 1.7,
+     "stena_min": 1.5,
+     "stena_median": 1.65,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 5
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F1_1",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 4.7,
+   "dlzka": 8.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    29.0,
+    19.0,
+    -81.8
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 2.8,
+     "stena_min": 3.74,
+     "stena_median": 5.33,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 6
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F1_2",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 4.7,
+   "dlzka": 8.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -29.0,
+    19.0,
+    -81.8
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 2.8,
+     "stena_min": 3.74,
+     "stena_median": 5.32,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 6
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F1_3",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 4.7,
+   "dlzka": 8.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    29.0,
+    -19.0,
+    -81.8
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 2.8,
+     "stena_min": 3.74,
+     "stena_median": 5.67,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 6
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F1_4",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 4.7,
+   "dlzka": 8.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -29.0,
+    -19.0,
+    -81.8
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 2.8,
+     "stena_min": 3.74,
+     "stena_median": 5.33,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 6
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F2_1",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 4.7,
+   "dlzka": 6.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -22.0,
+    17.5,
+    -82.7
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.26,
+     "stena_min": 2.92,
+     "stena_median": 6.28,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 10
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 7
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F2_2",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 4.7,
+   "dlzka": 6.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -22.0,
+    -17.5,
+    -82.7
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.26,
+     "stena_min": 2.92,
+     "stena_median": 6.29,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 10
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 7
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F2_3",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 4.7,
+   "dlzka": 6.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    20.5,
+    17.5,
+    -82.7
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.26,
+     "stena_min": 2.68,
+     "stena_median": 7.22,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 10
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 7
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F2_4",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 4.7,
+   "dlzka": 6.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    20.5,
+    -17.5,
+    -82.7
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.26,
+     "stena_min": 2.68,
+     "stena_median": 7.22,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 10
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 7
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F2_5",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 4.7,
+   "dlzka": 6.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    35.5,
+    3.0,
+    -82.7
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.26,
+     "stena_min": 4.65,
+     "stena_median": 6.61,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 10.85,
+     "stena_min": 1.61,
+     "stena_median": 2.1,
+     "n_lucov": 12
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 10.85,
+     "stena_min": 1.61,
+     "stena_median": 2.11,
+     "n_lucov": 12
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F2_6",
+   "host": "T_spodok",
+   "mat_host": "resin_black",
+   "d_prvku": 4.7,
+   "dlzka": 6.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -35.5,
+    3.0,
+    -82.7
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.26,
+     "stena_min": 3.76,
+     "stena_median": 5.72,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 10.85,
+     "stena_min": 1.61,
+     "stena_median": 2.1,
+     "n_lucov": 12
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 10.85,
+     "stena_min": 1.61,
+     "stena_median": 2.11,
+     "n_lucov": 12
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F3_1",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 5.0,
+   "dlzka": 8.1,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -22.9,
+    -15.8,
+    -46.98
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 1
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F3_2",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 5.0,
+   "dlzka": 8.1,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    22.9,
+    -15.8,
+    -46.98
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 1
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F3_3",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 5.0,
+   "dlzka": 8.1,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -22.9,
+    15.8,
+    -46.98
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 2
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F3_4",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 5.0,
+   "dlzka": 8.1,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    22.9,
+    15.8,
+    -46.98
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.2,
+     "stena_min": 1.3,
+     "stena_median": 1.3,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 2
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F4_1",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.8,
+   "dlzka": 7.6,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -14.0,
+    -20.79,
+    -56.6
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 1.7,
+     "stena_min": 1.2,
+     "stena_median": 2.19,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 9
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 9
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F4_2",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.8,
+   "dlzka": 7.6,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    14.0,
+    -20.79,
+    -56.6
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 1.7,
+     "stena_min": 1.2,
+     "stena_median": 2.19,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 9
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 9
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F5",
+   "host": null
+  },
+  {
+   "prvok": "skr_F6",
+   "host": null
+  },
+  {
+   "prvok": "skr_F7_1",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.8,
+   "dlzka": 5.4,
+   "os": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "stred": [
+    18.0,
+    16.45,
+    -57.0
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 1.7,
+     "stena_min": 1.65,
+     "stena_median": 1.65,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 4
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 2
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F7_2",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.8,
+   "dlzka": 5.4,
+   "os": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "stred": [
+    -18.0,
+    16.45,
+    -57.0
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 1.7,
+     "stena_min": 1.65,
+     "stena_median": 1.65,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 4
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 2
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F14_1",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.8,
+   "dlzka": 5.4,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    -38.35,
+    -3.73,
+    -54.37
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 9
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 9
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 1.7,
+     "stena_min": 4.42,
+     "stena_median": 5.24,
+     "n_lucov": 23
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F14_2",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.8,
+   "dlzka": 5.4,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    -38.35,
+    9.73,
+    -67.83
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 9
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 10
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 1.7,
+     "stena_min": 3.5,
+     "stena_median": 5.24,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F14_3",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.8,
+   "dlzka": 5.4,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    38.35,
+    -3.35,
+    -54.74
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 1.7,
+     "stena_min": 4.8,
+     "stena_median": 7.14,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 11
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 11
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F14_4",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.8,
+   "dlzka": 5.4,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    38.35,
+    9.35,
+    -54.74
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 1.7,
+     "stena_min": 4.8,
+     "stena_median": 7.14,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 11
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 11
+    }
+   ]
+  },
+  {
+   "prvok": "skr_fpc",
+   "host": "T_prichytka_fpc",
+   "mat_host": "petg",
+   "d_prvku": 3.8,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    17.99,
+    11.02,
+    -45.08
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 2.3,
+     "stena_min": 1.15,
+     "stena_median": 1.81,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 2.93,
+     "stena_min": 0.83,
+     "stena_median": 1.5,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "skr_pastorok_pan",
+   "host": null
+  },
+  {
+   "prvok": "skr_F10_1",
+   "host": "P_drziak_serva",
+   "mat_host": "petg",
+   "d_prvku": 3.8,
+   "dlzka": 6.0,
+   "os": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "stred": [
+    19.5,
+    16.6,
+    -31.7
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 8.15,
+     "stena_min": 0.93,
+     "stena_median": 1.97,
+     "n_lucov": 15
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.23,
+     "stena_min": 0.85,
+     "stena_median": 1.73,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 2
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F10_2",
+   "host": "P_drziak_serva",
+   "mat_host": "petg",
+   "d_prvku": 3.8,
+   "dlzka": 6.0,
+   "os": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "stred": [
+    8.0,
+    16.6,
+    -14.5
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 8.15,
+     "stena_min": 0.32,
+     "stena_median": 4.62,
+     "n_lucov": 17
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.23,
+     "stena_min": 1.05,
+     "stena_median": 3.31,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 5
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F11",
+   "host": "P_drziak_serva",
+   "mat_host": "petg",
+   "d_prvku": 3.8,
+   "dlzka": 7.6,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    -1.4,
+    23.2,
+    -15.85
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 6
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 6
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 1.7,
+     "stena_min": 1.3,
+     "stena_median": 2.19,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "skr_kluky",
+   "host": "P_kluka",
+   "mat_host": "resin_black",
+   "d_prvku": 4.7,
+   "dlzka": 6.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    -15.2,
+    23.2,
+    -24.2
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.26,
+     "stena_min": 1.97,
+     "stena_median": 1.97,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 4.62,
+     "stena_min": 1.18,
+     "stena_median": 1.29,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F12",
+   "host": "L_pata",
+   "mat_host": "petg",
+   "d_prvku": 3.8,
+   "dlzka": 9.6,
+   "os": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "stred": [
+    -10.0,
+    10.8,
+    -38.5
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 1.7,
+     "stena_min": 1.15,
+     "stena_median": 1.98,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 1.7,
+     "stena_min": 1.15,
+     "stena_median": 1.98,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    }
+   ]
+  },
+  {
+   "prvok": "skr_jazyka",
+   "host": "L_jazyk",
+   "mat_host": "petg",
+   "d_prvku": 3.0,
+   "dlzka": 10.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    25.37,
+    -0.0,
+    -38.0
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 1.8,
+     "stena_min": 1.3,
+     "stena_median": 1.69,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 1.8,
+     "stena_min": 1.3,
+     "stena_median": 1.69,
+     "n_lucov": 24
+    }
+   ]
+  }
+ ]
+}

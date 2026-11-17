@@ -1,0 +1,1036 @@
+{
+ "vlozky_vynuteny_host": [
+  {
+   "prvok": "vlozka_stred_1",
+   "host": "T_stred",
+   "mat_host": "resin_white",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    29.0,
+    19.0,
+    -79.0
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.6,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.6,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.6,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    }
+   ]
+  },
+  {
+   "prvok": "vlozka_stred_2",
+   "host": "T_stred",
+   "mat_host": "resin_white",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -29.0,
+    19.0,
+    -79.0
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.6,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.6,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.6,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    }
+   ]
+  },
+  {
+   "prvok": "vlozka_stred_3",
+   "host": "T_stred",
+   "mat_host": "resin_white",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    29.0,
+    -19.0,
+    -79.0
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.6,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.6,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.6,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    }
+   ]
+  },
+  {
+   "prvok": "vlozka_stred_4",
+   "host": "T_stred",
+   "mat_host": "resin_white",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -29.0,
+    -19.0,
+    -79.0
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.6,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.6,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.6,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F2_1",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -22.0,
+    17.5,
+    -80.3
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.2,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.2,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.2,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F2_2",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -22.0,
+    -17.5,
+    -80.3
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.2,
+     "stena_min": 1.4,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.2,
+     "stena_min": 1.4,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.2,
+     "stena_min": 1.4,
+     "stena_median": 1.45,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F2_3",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    20.5,
+    17.5,
+    -80.3
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.2,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.2,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.2,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F2_4",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    20.5,
+    -17.5,
+    -80.3
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.2,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.2,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.2,
+     "stena_min": 1.4,
+     "stena_median": 1.4,
+     "n_lucov": 23
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F2_5",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    35.5,
+    3.0,
+    -80.3
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.2,
+     "stena_min": 1.4,
+     "stena_median": 6.4,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.2,
+     "stena_min": 1.4,
+     "stena_median": 1.94,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.2,
+     "stena_min": 1.4,
+     "stena_median": 1.94,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "vl_F2_6",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 3.5,
+   "dlzka": 4.0,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -35.5,
+    3.0,
+    -80.3
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.2,
+     "stena_min": 1.4,
+     "stena_median": 4.75,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.2,
+     "stena_min": 1.4,
+     "stena_median": 4.75,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 3.2,
+     "stena_min": 1.4,
+     "stena_median": 4.75,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "kolik_dorazu",
+   "host": "P_koleso",
+   "mat_host": "resin_black",
+   "d_prvku": 2.0,
+   "dlzka": 4.5,
+   "os": [
+    0.0,
+    0.0,
+    1.0
+   ],
+   "stred": [
+    -0.0,
+    13.5,
+    -44.45
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 1.98,
+     "stena_min": 1.21,
+     "stena_median": 3.5,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 1.98,
+     "stena_min": 1.21,
+     "stena_median": 2.74,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "skr_F5",
+   "host": "T_ram",
+   "mat_host": "petg",
+   "d_prvku": 2.5,
+   "dlzka": 6.0,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    -32.5,
+    0.0,
+    -74.0
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "d_otvoru": 3.2,
+     "stena_min": 1.8,
+     "stena_median": 1.8,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.5,
+     "d_otvoru": 3.2,
+     "stena_min": 1.8,
+     "stena_median": 1.8,
+     "n_lucov": 24
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 2.8,
+     "stena_min": 6.9,
+     "stena_median": 10.34,
+     "n_lucov": 24
+    }
+   ]
+  },
+  {
+   "prvok": "cap_kluky",
+   "host": "P_kluka",
+   "mat_host": "resin_black",
+   "d_prvku": 2.0,
+   "dlzka": 5.4,
+   "os": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "stred": [
+    -17.2,
+    23.2,
+    -34.2
+   ],
+   "rezy": [
+    {
+     "f": 0.2,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    },
+    {
+     "f": 0.5,
+     "pozn": "mimo materialu (luce netrafili otvor)",
+     "n_lucov": 0
+    },
+    {
+     "f": 0.8,
+     "d_otvoru": 1.98,
+     "stena_min": 1.2,
+     "stena_median": 1.23,
+     "n_lucov": 24
+    }
+   ]
+  }
+ ],
+ "F2_F1_dno_pod_hlavou (z_spodok, z_vrch) po polomere": {
+  "skr_F2_1": {
+   "r1.45": [
+    [
+     -83.07,
+     -82.3
+    ],
+    [
+     -83.07,
+     -82.3
+    ],
+    [
+     -83.07,
+     -82.3
+    ]
+   ],
+   "r1.7": [
+    [
+     -83.39,
+     -82.3
+    ],
+    [
+     -83.39,
+     -82.3
+    ],
+    [
+     -83.39,
+     -82.3
+    ]
+   ],
+   "r2.0": [
+    [
+     -83.78,
+     -82.3
+    ],
+    [
+     -83.78,
+     -82.3
+    ],
+    [
+     -83.79,
+     -82.3
+    ]
+   ],
+   "r2.3": [
+    [
+     -84.17,
+     -82.3
+    ],
+    [
+     -84.18,
+     -82.3
+    ],
+    [
+     -84.18,
+     -82.3
+    ]
+   ],
+   "r2.6": [
+    [
+     -86.2,
+     -85.2
+    ],
+    [
+     -86.2,
+     -85.2
+    ],
+    [
+     -84.5,
+     -82.3
+    ]
+   ],
+   "r3.2": [
+    [
+     -86.2,
+     -85.2
+    ],
+    [
+     -86.2,
+     -85.2
+    ],
+    [
+     -84.5,
+     -82.3
+    ]
+   ]
+  },
+  "skr_F2_3": {
+   "r1.45": [
+    [
+     -83.07,
+     -82.3
+    ],
+    [
+     -83.07,
+     -82.3
+    ],
+    [
+     -83.07,
+     -82.3
+    ]
+   ],
+   "r1.7": [
+    [
+     -83.39,
+     -82.3
+    ],
+    [
+     -83.39,
+     -82.3
+    ],
+    [
+     -83.39,
+     -82.3
+    ]
+   ],
+   "r2.0": [
+    [
+     -83.78,
+     -82.3
+    ],
+    [
+     -83.78,
+     -82.3
+    ],
+    [
+     -83.79,
+     -82.3
+    ]
+   ],
+   "r2.3": [
+    [
+     -84.17,
+     -82.3
+    ],
+    [
+     -84.18,
+     -82.3
+    ],
+    [
+     -84.18,
+     -82.3
+    ]
+   ],
+   "r2.6": [
+    [
+     -84.5,
+     -82.3
+    ],
+    [
+     -84.5,
+     -82.3
+    ],
+    [
+     -84.5,
+     -82.3
+    ]
+   ],
+   "r3.2": [
+    [
+     -84.5,
+     -82.3
+    ],
+    [
+     -84.5,
+     -82.3
+    ],
+    [
+     -84.5,
+     -82.3
+    ]
+   ]
+  },
+  "skr_F2_5": {
+   "r1.45": [
+    [
+     -83.07,
+     -82.3
+    ],
+    [
+     -83.07,
+     -82.3
+    ],
+    [
+     -83.07,
+     -82.3
+    ]
+   ],
+   "r1.7": [
+    [
+     -83.39,
+     -82.3
+    ],
+    [
+     -83.39,
+     -82.3
+    ],
+    [
+     -83.39,
+     -82.3
+    ]
+   ],
+   "r2.0": [
+    [
+     -83.78,
+     -82.3
+    ],
+    [
+     -83.78,
+     -82.3
+    ],
+    [
+     -83.79,
+     -82.3
+    ]
+   ],
+   "r2.3": [
+    [
+     -84.17,
+     -82.3
+    ],
+    [
+     -84.18,
+     -82.3
+    ],
+    [
+     -84.18,
+     -82.3
+    ]
+   ],
+   "r2.6": [
+    [
+     -84.47,
+     -82.3
+    ],
+    [
+     -84.5,
+     -82.3
+    ],
+    [
+     -84.5,
+     -82.3
+    ]
+   ],
+   "r3.2": [
+    [
+     -84.33,
+     -82.3
+    ],
+    [
+     -84.5,
+     -82.3
+    ],
+    [
+     -84.5,
+     -82.3
+    ]
+   ]
+  },
+  "skr_F1_1": {
+   "r1.45": [
+    [
+     -82.57,
+     -81.0
+    ],
+    [
+     -82.57,
+     -81.0
+    ],
+    [
+     -82.57,
+     -81.0
+    ]
+   ],
+   "r1.7": [
+    [
+     -82.89,
+     -81.0
+    ],
+    [
+     -82.89,
+     -81.0
+    ],
+    [
+     -82.89,
+     -81.0
+    ]
+   ],
+   "r2.0": [
+    [
+     -83.28,
+     -81.0
+    ],
+    [
+     -83.28,
+     -81.0
+    ],
+    [
+     -83.29,
+     -81.0
+    ]
+   ],
+   "r2.3": [
+    [
+     -83.67,
+     -81.0
+    ],
+    [
+     -83.68,
+     -81.0
+    ],
+    [
+     -83.68,
+     -81.0
+    ]
+   ],
+   "r2.6": [
+    [
+     -84.18,
+     -81.0
+    ],
+    [
+     -83.83,
+     -81.0
+    ],
+    [
+     -83.93,
+     -81.0
+    ]
+   ],
+   "r3.2": [
+    [
+     -84.08,
+     -81.0
+    ],
+    [
+     -83.59,
+     -81.5
+    ],
+    [
+     -83.73,
+     -81.0
+    ]
+   ]
+  }
+ },
+ "kablovy_kut_volno_+Y_od_kolisky_y14.25": {
+  "x-29_z-80": [
+   1.55,
+   "T_stred"
+  ],
+  "x-29_z-76": [
+   1.55,
+   "T_stred"
+  ],
+  "x-29_z-72": [
+   7.75,
+   "T_stred"
+  ],
+  "x-29_z-60": [
+   13.75,
+   "T_stred"
+  ],
+  "x-24_z-80": [
+   5.49,
+   "T_ram"
+  ],
+  "x-24_z-76": [
+   1.25,
+   "DPS_riadenie"
+  ],
+  "x-24_z-72": [
+   1.25,
+   "DPS_riadenie"
+  ],
+  "x-24_z-60": [
+   1.25,
+   "DPS_riadenie"
+  ],
+  "x+0_z-80": [
+   11.24,
+   "T_spodok"
+  ],
+  "x+0_z-76": [
+   1.25,
+   "DPS_riadenie"
+  ],
+  "x+0_z-72": [
+   1.25,
+   "DPS_riadenie"
+  ],
+  "x+0_z-60": [
+   1.25,
+   "DPS_riadenie"
+  ],
+  "x+24_z-80": [
+   8.45,
+   "T_spodok"
+  ],
+  "x+24_z-76": [
+   16.63,
+   "T_stred"
+  ],
+  "x+24_z-72": [
+   16.56,
+   "T_stred"
+  ],
+  "x+24_z-60": [
+   15.23,
+   "T_stred"
+  ],
+  "x+29_z-80": [
+   1.55,
+   "T_stred"
+  ],
+  "x+29_z-76": [
+   1.55,
+   "T_stred"
+  ],
+  "x+29_z-72": [
+   7.75,
+   "T_stred"
+  ],
+  "x+29_z-60": [
+   13.75,
+   "T_stred"
+  ]
+ },
+ "prechod_koliska_stlp_volno_X": {
+  "s-1_y0_z-80": [
+   5.9,
+   "T_ram"
+  ],
+  "s-1_y12_z-80": [
+   5.75,
+   "T_spodok"
+  ],
+  "s-1_y0_z-70": [
+   2.7,
+   "T_ram"
+  ],
+  "s-1_y12_z-70": [
+   2.7,
+   "T_ram"
+  ],
+  "s-1_y0_z-55": [
+   2.7,
+   "T_ram"
+  ],
+  "s-1_y12_z-55": [
+   2.7,
+   "T_ram"
+  ],
+  "s-1_y0_z-45": [
+   2.7,
+   "T_ram"
+  ],
+  "s-1_y12_z-45": [
+   2.7,
+   "T_ram"
+  ],
+  "s+1_y0_z-80": [
+   9.9,
+   "T_ram"
+  ],
+  "s+1_y12_z-80": [
+   14.35,
+   "T_spodok"
+  ],
+  "s+1_y0_z-70": [
+   11.3,
+   "T_ram"
+  ],
+  "s+1_y12_z-70": [
+   11.3,
+   "T_ram"
+  ],
+  "s+1_y0_z-55": [
+   11.3,
+   "T_ram"
+  ],
+  "s+1_y12_z-55": [
+   11.3,
+   "T_ram"
+  ],
+  "s+1_y0_z-45": [
+   11.3,
+   "T_ram"
+  ],
+  "s+1_y12_z-45": [
+   11.3,
+   "T_ram"
+  ]
+ },
+ "dvierkovy_otvor_x0 (y zasahu zvonka; None = otvor)": {
+  "z-75.0": 36.32,
+  "z-73.0": 37.12,
+  "z-72.5": 37.29,
+  "z-72.0": 34.93,
+  "z-71.0": 35.24,
+  "z-12.5": null,
+  "z-12.0": null,
+  "z-11.5": 35.63,
+  "z-11.0": 35.49
+ },
+ "dlzka_v_otvore_d<2.5 (zaber zavitu, mm)": {
+  "skrutka_led_1 v T_stred": 4.0,
+  "skrutka_repro_1 v T_stred": 4.4,
+  "skr_F7_1 v T_ram": 2.43,
+  "skr_F4_1 v T_ram": 3.55,
+  "skr_F11 v P_drziak_serva": 3.55,
+  "skr_F12 v L_pata": 5.44,
+  "skr_fpc v T_paluba": 1.8,
+  "skr_F14_1 v T_ram": 2.43,
+  "skr_F10_1 v P_sachta": 0.0,
+  "skr_jazyka v L_pata": 4.33,
+  "skr_kluky v P_kluka": 0.0
+ }
+}

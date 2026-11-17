@@ -6,6 +6,13 @@ fully functional."* Earlier (2026-11-05): *"I can only print from resin."*
 
 This overrides the brief (§4 "Chassis: PETG FDM" was the lead's mistake) and every "PETG / POM" entry in T4_spec.md.
 
+## Z0. The user's printer (stated 2026-11-17)
+Elegoo Saturn 4 Ultra (user wrote "Saturn 4k ultra"): 10" mono LCD MSLA. Build volume of the 12K version 218.88 x 122.88 x 220 mm
+(XY pixel about 19 x 24 um); if it is the 16K version, 211.68 x 118.37 x 220 mm (14 x 19 um). Design to the SMALLER volume
+(211 x 118 x 220) so either fits. Tilting vat release. Fine detail is not the limit - strength, warp and support marks are.
+Resin advice must name resins that work on this printer (405 nm MSLA, standard vat), e.g. Elegoo ABS-Like 3.0, Siraya Tech
+Blu / Tenacious blends, Anycubic ABS-Like Pro 2, Phrozen Aqua-Gray 8K / TR250LV class - verify datasheet numbers before quoting.
+
 ## Z1. Everything printed is MSLA resin
 * No FDM / PETG part and no machined POM part. Currently wrong in parts.json: T_ram, T_paluba, T_prichytka_fpc,
   T_drziak_repro, P_drziak_serva, L_pata, L_jazyk, Z_naboj_test (petg) and T_puzdro_L/P, L_ucho (pom).
