@@ -515,16 +515,20 @@ def mk_prichytka():
 # =====================================================================================================================
 @timed("Z_naboj_test")
 def mk_naboj():
+    """integrator (K10): the plate lies flat on the bed (no feet); a pedestal carries the shoulder and the stop block at the
+    old plate-top level; the M8 head stays inside the counterbore (widened below for a 13 mm socket, 45 deg run-out)"""
     D = R["DUMMY"]
-    w, d = D["plate"]; z0, z1 = D["plate_z"]
-    P = [C.rbox(-w / 2, w / 2, -d / 2, d / 2, z0, z1, 8.0, "z")]
-    P += [C.cyl_z(6.0, D["feet_z"], z0 + 0.2, sx * 45.0, sy * 35.0) for sx in (1, -1) for sy in (1, -1)]
-    P += [C.cyl_z(D["shoulder_r"], z1 - 0.2, C.Z_BRG[0]), C.cyl_z(D["post_r"], C.Z_BRG[0] - 0.2, C.Z_BRG[1]),
+    w, d = D["plate"]; z0, z1 = D["plate_z"]; Pd = D["pedestal"]; zp = Pd["z_top"]
+    P = [C.rbox(-w / 2, w / 2, -d / 2, d / 2, z0, z1, 8.0, "z"), C.cyl_z(Pd["r"], z1 - 0.2, zp)]
+    P += [C.cyl_z(D["shoulder_r"], zp - 0.2, C.Z_BRG[0]), C.cyl_z(D["post_r"], C.Z_BRG[0] - 0.2, C.Z_BRG[1]),
           C.cyl_z(D["stub"][0], C.Z_BRG[1] - 0.2, D["stub"][1])]
     St = D["stop"]
-    P.append(tube_sector(St["r"][1], St["r"][0], St["az"] - St["half"], St["az"] + St["half"], z1 - 0.2, St["z_top"]))
+    P.append(tube_sector(St["r"][1], St["r"][0], St["az"] - St["half"], St["az"] + St["half"], zp - 0.2, St["z_top"]))
     body = one(fuse(P))
-    N = [C.cyl_z(4.1, z0 - 5, D["stub"][1] + 1), C.cyl_z(D["cbore_r"], D["feet_z"] - 1, D["seat_z"])]
+    Sk = D["socket"]; dr = Sk["r"] - D["cbore_r"]
+    zc = Sk["z_top"] + dr; h = zc - (z0 - 1.0)                       # socket relief: cylinder r 10.5 below z_top & 45 deg cone above it
+    relief = one(C.cyl_z(Sk["r"], z0 - 1.0, zc) & (bd.Pos(0, 0, z0 - 1.0 + h / 2) * bd.Cone(D["cbore_r"] + h, D["cbore_r"], h)))
+    N = [C.cyl_z(4.1, z0 - 5, D["stub"][1] + 1), C.cyl_z(D["cbore_r"], z0 - 1, D["seat_z"]), relief]   # 45 deg run-out: no ledge to support
     return one(cut(body, N)).clean()
 
 
@@ -728,6 +732,8 @@ DEVIATIONS = [
     "same side; the deck carries the mirrored provisions as a spare.",
     "Cradle long walls end at x 25.8 (spec 23.0); cap pocket is clearance only (x -30.3 .. 16.5, y +-12.95), the T_ram walls locate the servo.",
     "Buck / amplifier stand on 1.0 standoffs: +0.8 outward; capacitor +0.1 in x; column foot widened inward to x 33.0; stop ring backed by a flange r 12.8.",
+    "Integrator (K10 FDM): Z_naboj_test has no feet any more: the plate lies flat on the bed (z -113.5 .. -108.5), a pedestal r 22.5 carries "
+    "the shoulder and the stop block at z -104; the M8 head sits inside the counterbore (r 10.5 below z -109.2 for a 13 mm socket).",
     "Integrator (K10 min feature 0.6): the pilots of F7 (controller) and F14 (buck / amplifier) and the seats of the 4 cradle F2 inserts are "
     "THROUGH holes now (were blind with 0.4 .. 0.5 floors).",
     "Dummy hub: PETG post D24.96 with an M8x20 bolt as steel core / clutch shaft and 2 disc springs (slip clutch); sun gear tapped M8; stub r 7.5. "

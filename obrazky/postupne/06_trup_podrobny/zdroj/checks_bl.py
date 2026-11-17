@@ -566,12 +566,16 @@ def run_K4():
         if len(t) == 0:
             out[n] = dict(samples=int(len(S)), opposing=0)
             continue
+        # thinnest reading per 2.5 mm cell AND per 0.1 mm thickness class (so a declared thin floor cannot hide a different thin
+        # wall in the same cell); EVERY cell below 1.62 is reported (the largest material limit is 1.6) - no truncation
         cells = {}
         for q, tt in zip(P[t < 2.0], t[t < 2.0]):
-            key = tuple(np.floor(q / 2.5).astype(int).tolist())
+            key = tuple(np.floor(q / 2.5).astype(int).tolist()) + (int(tt / 0.1 + 1e-6),)
             if key not in cells or tt < cells[key][0]:
                 cells[key] = (float(tt), [round(float(v), 2) for v in q])
-        thin = sorted(cells.values())[:400]
+        thin = sorted(cells.values())
+        n_lim = sum(1 for c in thin if c[0] < 1.62)
+        thin = thin[:max(n_lim, 400)]
         hist = {f"<{b}": int((t < b).sum()) for b in (0.4, 0.6, 0.8, 1.0, 1.2, 1.6, 2.0)}
         out[n] = dict(mat=r["mat"], samples=int(len(S)), pitch=round(h, 3), opposing=int(opp.sum()), min=round(float(t.min()), 3),
                       p001=round(float(np.percentile(t, 0.1)), 3), p01=round(float(np.percentile(t, 1)), 3), median=round(float(np.median(t)), 3),
@@ -581,7 +585,7 @@ def run_K4():
     json.dump(dict(parts=out, time_s=round(time.time() - T0, 1),
                    method="every printed part: surface samples (grid on every triangle, pulled 0.05 off the edges, about 60 000 per part); ray along the inward normal to the next "
                           "face of the same part; a reading counts as a thickness when the two faces are opposed (normals within 26 deg of "
-                          "anti-parallel); thin_cells = thinnest reading per 2.5 mm cell below 2.0"),
+                          "anti-parallel); thin_cells = thinnest reading per 2.5 mm cell and 0.1 mm thickness class, all of them below 1.62"),
               open(os.path.join(WORK, "bl_K4.json"), "w"), indent=1)
     say("K4 done")
 

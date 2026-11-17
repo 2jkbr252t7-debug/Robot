@@ -804,3 +804,21 @@ Shared interfaces (who provides what)
    neck bottom would be a change of a finished part.
 5. The pan pinion and the pan stage are mounted from above through the collar bore, the lift servo through the door –
    the back door is therefore a required service opening, not optional.
+
+## 16. Integrator addendum (rev. 1 + integration; these lines supersede the numbers above)
+Changes made while integrating the three modules (K1–K11); the same list is `INTEG["changes"]` in `t4_common.py` and
+`integrator_changes` in `parts.json`. The builders' own deviations are in `parts_<module>.json["deviations"]`.
+1. §5.5 **Z_naboj_test**: no feet. Plate 110 × 90 × 5 at z −113.5…−108.5 (flat on the print bed), pedestal r 22.5 from
+   z −108.5 to −104 under the shoulder and the stop block; the M8 head stays inside the counterbore, which is r 10.5
+   below z −109.2 with a 45° run-out to r 8.75 (13 mm socket). `RAM["DUMMY"]`.
+2. §7.2 **P_koleso**: FPC retaining lip 0.6 thick (z −42.6…−42.0, was 0.4); floor under the blind dowel holes 0.6.
+   `PAN["GEAR"]["lip"]["z"]`.
+3. §7.1 **P_sachta**: the 0.2 FPC groove under the apron of the well (PAN module, `t4_pan.mk_sachta`) runs out to the
+   apron edge y 8.2.
+4. §6 **T_ram**: pilots of F7 and F14 and the 4 cradle F2 insert seats are through holes (no 0.4…0.5 floors).
+5. §4.3 **T_stred**: magnet pocket and frame magnet of the two upper door pads (z −24) sit 0.5 further out along the
+   wall than the door magnet; the pad is trimmed with one PAN_ENV radius. `PAD["pocket_du"]` in `t4_obal.py`.
+6. `t4_common.py` section 1.12: resin density 1.15 g/cm³ for masses (was 1.18).
+7. Export: STL with absolute chord deflection 0.01 for every module; STEP only below 12 MB (null for 9 loft parts).
+8. §15 point 2 is decided by K9 (BVH, real head): 0.517 mm at lift 12.5 / +30° / pan 0, criterion 0.5 met with
+   0.017 mm of margin → no pan-dependent table; recommended firmware row for lift 10…15: tilt down +27.5°.

@@ -566,7 +566,8 @@ WALLS = [  # name, part, point inside the wall, direction, nominal, minimum allo
     ("FPC clamp block height", "T_prichytka_fpc", M.pol(22.9, 26.0) + (-45.0,), (0, 0, 1), 2.2, 1.6),
     ("FPC clamp wall beside the screw hole", "T_prichytka_fpc", M.pol(19.4, 31.5) + (-45.6,), M.pol(1.0, 31.5) + (0.0,), 1.15, 1.0),
     ("F5 boss wall around the insert", "T_ram", (-33.0, 2.5, -74.0), (0, 1, 0), 1.8, 1.6),
-    ("dummy plate", "Z_naboj_test", (30.0, 20.0, -106.0), (0, 0, 1), 5.0, 3.0),
+    ("dummy plate", "Z_naboj_test", (30.0, 20.0, -111.0), (0, 0, 1), 5.0, 3.0),
+    ("dummy pedestal + plate under the stop block", "Z_naboj_test", (0.0, -19.8, -108.0), (0, 0, 1), 15.2, 9.0),
     ("dummy post wall (bore D8.2)", "Z_naboj_test", (8.0, 0.0, -95.0), (1, 0, 0), 8.38, 3.0),
     ("dummy stop block radial", "Z_naboj_test", (0.0, -19.8, -101.0), (0, 1, 0), 3.1, 2.4),
 ]

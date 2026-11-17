@@ -73,11 +73,23 @@ def res(status, summary, **details):
 # =====================================================================================================================
 # helpers: Blender sections and module check scripts (cached by the STL stamp)
 # =====================================================================================================================
+_BL_DONE, _MOD_DONE = {}, {}       # results obtained in THIS process (so --force runs every helper exactly once)
+
+
 def bl_section(key, opts=(), timeout=5400):
     """run checks_bl.py <key> unless integ_work/bl_<key>.json is already valid for the current STL set"""
+    if key in _BL_DONE:
+        return _BL_DONE[key]
+    _BL_DONE[key] = r = _bl_section(key, opts, timeout)
+    return r
+
+
+def _bl_section(key, opts=(), timeout=5400):
     f = os.path.join(WORK, f"bl_{key}.json"); st = os.path.join(WORK, f"bl_{key}.stamp")
     if not FORCE and os.path.exists(f) and os.path.exists(st) and open(st).read().strip() == STAMP:
         return json.load(open(f))
+    if os.path.exists(st):
+        os.remove(st)
     if os.path.exists(f):
         os.remove(f)
     say(f"   running checks_bl.py {key} ...")
@@ -97,11 +109,30 @@ MODCHK = {   # module check scripts: command, result file
     "obal": ([CAD, "checks_obal.py"], "checks_obal.json"),
 }
 _MOD_NOTE = {}
+import threading as _th                                  # noqa: E402
+_MOD_LOCK = {k: _th.RLock() for k in MODCHK}
 
 
 def module_check(name):
     """result dict of a module check script that is valid for the STL files on disk, or None (-> the caller reports NOT RUN).
     The scripts are (re)run here unless --no-modules; a stamp file records the STL set they ran on."""
+    with _MOD_LOCK[name]:                                # a background run of the same script (start_module_checks) is waited for
+        if name not in _MOD_DONE:
+            _MOD_DONE[name] = _module_check(name)
+    return _MOD_DONE[name]
+
+
+def start_module_checks():
+    """run the three module check scripts in the background (threads -> subprocesses) while the first sections compute;
+    module_check() of a section then waits for the one it needs.  obal = obal_mesh -> obal_slide -> checks_obal (one chain)."""
+    import threading
+    ths = [threading.Thread(target=module_check, args=(n,), daemon=True) for n in ("pan", "obal", "ram")]
+    for t in ths:
+        t.start()
+    return ths
+
+
+def _module_check(name):
     cmd, out = MODCHK[name]
     st = os.path.join(WORK, f"mod_{name}.stamp")
     f = os.path.join(HERE, out)
@@ -171,6 +202,12 @@ def K1():
             comps[n] = st["component_volumes"]
         if not ok:
             bad.append(n)
+    # the BREP volume in parts.json is OCC's default Gauss integration: unreliable on solids with trimmed loft faces
+    # (T_stred: default 28822.7, adaptive eps 1e-5 29821.2, STL 29822.8; T_bok_L: default 13773.9, adaptive 13573 .. 13838
+    # depending on the method, STL 13683.9).  The STL volume (absolute deflection 0.01) is the one used for masses.
+    vol_note = [dict(name=q["name"], volume_occ_default=q["volume_occ"], volume_stl=q["volume_stl"],
+                     diff_percent=rd(100.0 * (q["volume_occ"] - q["volume_stl"]) / q["volume_stl"], 2))
+                for q in rows if abs(q["volume_occ"] - q["volume_stl"]) > max(0.5, 0.004 * abs(q["volume_stl"]))]
     step_big = [f for f in os.listdir(os.path.join(HERE, "step")) if os.path.getsize(os.path.join(HERE, "step", f)) > C.INTEG["STEP_MAX_MB"] * 1e6]
     step_missing = [r["name"] for r in PARTS if r.get("step") and not os.path.exists(os.path.join(HERE, r["step"]))]
     stl_missing = [r["name"] for r in PARTS if not os.path.exists(os.path.join(HERE, "stl", r["name"] + ".stl"))]
@@ -181,6 +218,10 @@ def K1():
                f"{len(step_big)} STEP over the limit on disk",
                not_ok=bad, multi_component=comps, step_null=DOC["step_null"], step_over_limit=step_big, step_missing=step_missing,
                parts_json_matches_stl=PARTS_JSON_OK, parts=rows,
+               brep_volume_differs_from_stl=dict(parts=vol_note, explanation="OCC volume integration is unreliable on the trimmed B-spline loft "
+                                                 "faces (T_stred: default 28822.7, adaptive eps 1e-5 29821.2, STL 29822.8; T_bok_L: default 13773.9, "
+                                                 "adaptive / Gauss-Kronrod 13573 .. 13838, STL 13683.9); masses use the STL volume (absolute chord "
+                                                 "deflection 0.01; the exterior grid of K8 bounds the surface error to 0.013 mm, i.e. < 0.5 % of a shell)"),
                method="BREP: is_valid / number of solids / volume from the build (parts.json, written by build_all.py); STL: re-read from disk, "
                       "welded at 1e-5, every edge used exactly twice and once per direction, signed volume > 0 and equal to parts.json, "
                       "connected surface components = 1 (no hidden inner void)")
@@ -669,6 +710,8 @@ K4_DECL = {
                 ((36.0, 39.2, -10.0, 15.0, -30.0, -4.0), 0.65, "stop ring 0.7 x 1.2 on its backing flange, key slot rim"),
                 ((29.5, 31.5, -2.5, 2.5, -76.5, -71.5), 0.85, "0.9 shoulder behind the F5 insert in the cradle end wall"),
                 ((17.0, 26.5, -21.0, 21.0, -78.6, -77.0), 0.65, "0.7 stop collar above the 4 cradle F2 insert seats (seat D3.2 -> through pilot D2.8)"),
+                ((17.0, 39.0, -22.5, 22.5, -82.4, -76.7), 1.35, "ring 1.4 of the 6 F2 insert bosses r 3.0 around the D3.2 heat-set seat (M2.5 insert, "
+                                                                "4 perimeters); the bosses are tied into the cradle wall / column foot"),
                 ((33.0, 44.0, -10.0, 16.0, -78.5, -30.0), 0.95, "board standoffs 1.0 high, capacitor clip arms 1.2, column ribs 1.6 run-out"),
                 ((0.0, 33.0, -21.5, 19.5, -78.5, -46.0), 1.15, "walls 1.2 .. 1.4 beside insert / pilot holes of the cradle bosses and pan-servo posts (bosses r 2.9 .. 3.0)"),
                 ((33.0, 44.0, -10.0, 16.0, -30.0, -3.0), 0.95, "shoulder boss: spigot D10 wall, flange step 1.0, key slot walls")],
@@ -739,7 +782,9 @@ def K4():
     return res("PASS" if not fail else "FAIL",
                f"white shells (T_stred, T_bok_L/P, T_dvere), {m2.get('points')} through-wall rays: median {m2.get('median')}, 1st percentile {m2.get('p01')}, "
                f"min {m2.get('min')} (declared local spots >= 1.2: {list((m2.get('declared_thin') or {}).keys())}), {m2.get('n_below_2p0_not_declared')} below 2.0 "
-               f"undeclared; all {len(rows)} printed parts, opposing-face scan: {sum(r['cells_below_limit'] for r in rows)} thin spots below the material "
+               f"undeclared; declared rim features of the shells: flat top rim 1.25 wide (ray min {(m2.get('top_rim') or {}).get('min')}), socket rim wedge on "
+               f"top of the shoulders {(m2.get('socket_rim_wedge') or {}).get('min_beyond_0p6')} at 0.6 mm from the rim (approved T3 look, edge angle 51 deg); "
+               f"all {len(rows)} printed parts, opposing-face scan: {sum(r['cells_below_limit'] for r in rows)} thin spots below the material "
                f"limit (resin 1.2, PETG 1.6, POM 1.2), all inside {n_decl} declared local features (webs at holes, lips, rims, blind-hole floors, "
                f"snap arms; each >= 0.6), {sum(len(r['undeclared']) for r in rows)} undeclared; RAM designed walls {sum(1 for w in rw if w['ok'])}/{len(rw)}; "
                f"smallest reading {min(r['min'] for r in rows if r['min'] is not None)}",
@@ -814,10 +859,20 @@ def K5():
     jour = r_of("P_sachta", -10.05, -4.45, 27.8, 29.0)[1]
     tape = r_of("ptfe_pas_capu", -10.05, -4.95, 27.5, 29.0)[1]
     ring = r_of("golier_prstenec", -2.05, 3.0, 27.5, 29.0)[1]
-    seat = r_of("T_spodok", -97.65, -90.95, 17.5, 19.0)[0]
+    def r_cyl(n, z0, z1, rlo, rhi, c=(0.0, 0.0)):
+        """radius of the dominant cylinder in the band (mode of the vertex radii, 1e-3) - not disturbed by the few vertices of
+        a slot / passage that cuts the cylinder wall (pinion passage through the 6805 seat)"""
+        V = TM.stl(n).reshape(-1, 3)
+        r = np.hypot(V[:, 0] - c[0], V[:, 1] - c[1])
+        m = (V[:, 2] > z0) & (V[:, 2] < z1) & (r > rlo) & (r < rhi)
+        if not m.any():
+            return None
+        u, cnt = np.unique(np.round(r[m], 3), return_counts=True)
+        return float(u[np.argmax(cnt)]) if cnt.max() >= 24 else None
+    seat = r_cyl("T_spodok", -97.65, -90.95, 18.2, 18.8)              # seat wall; the pinion passage cuts it at azimuth 144 .. 216
     brg_o = r_of("lozisko_6805", -98.05, -90.95, 17.5, 19.0)[1]
     brg_i = r_of("lozisko_6805", -98.05, -90.95, 11.0, 13.5)[0]
-    post = r_of("Z_naboj_test", -97.95, -91.5, 11.0, 13.4)[1]
+    post = r_cyl("Z_naboj_test", -98.05, -90.95, 11.0, 13.4)          # post D24.96: vertices only on its end rings z -98 / -91
     if any(v is None for v in (bore, jour, tape, ring, seat, brg_o, brg_i, post)):
         raise RuntimeError(f"fit radii could not be measured on the STL: {dict(bore=bore, jour=jour, tape=tape, ring=ring, seat=seat, brg_o=brg_o, brg_i=brg_i, post=post)}")
     fits = [
@@ -1050,12 +1105,14 @@ RUN["K7"] = K7
 K10_RESIN_VOLUME = (218.0, 123.0, 220.0)
 K10_OVERHANG_DEG = 50.0
 K10_FDM = {   # FDM part: (print orientation = B-frame direction pointing AWAY from the bed, supports declared or None)
-    "T_ram": ("+z", "tree supports under the two shoulder bosses / flanges (horizontal cylinders r 11.6 .. 12.8), under the pan-servo post shelf "
-                    "and window top, under the bridges and deck-boss corbels; all reachable from outside"),
+    "T_ram": ("+z", "tree supports under the two shoulder bosses / flanges / spigots (horizontal cylinders r 5 .. 12.8, about 2.4 cm2), under the "
+                    "pan-servo post shelf and window top (0.35 cm2), under the 4 bridges at z -60 (0.5 cm2; 8 mm spans, bridgeable), under the F5 "
+                    "boss and the capacitor clip ring (0.6 cm2), board standoffs and insert bosses (horizontal cylinders D4.4 .. D5); all "
+                    "reachable from outside"),
     "T_paluba": ("+z", None),
     "T_prichytka_fpc": ("+z", None),
-    "Z_naboj_test": ("+z", "bench stand standing on its 4 feet: the whole plate underside (93 cm2, 4.5 above the bed) is printed on supports - or "
-                           "print the plate without feet and stick 4 bumpers on; a jig, not a robot part"),
+    "Z_naboj_test": ("+z", "plate flat on the bed (no feet): only the ceiling of the M8 counterbore (D17.5 around the D8.2 bore, 1.9 cm2, "
+                           "7.9 above the bed) needs one support ring inside the bore - or two bridging layers; reachable from below"),
     "P_drziak_serva": ("+z", "standing on the ledge: supports under the tab post and under the lug (about 0.9 cm2), reachable from outside"),
     "L_pata": ("-z", None),            # underside (FPC pocket, channel, countersinks) up: no overhang
     "L_jazyk": ("-x", None),           # standing on its outer end face
@@ -1182,7 +1239,10 @@ def main():
     f = os.path.join(HERE, "checks.json")
     old = json.load(open(f)).get("checks", {}) if os.path.exists(f) else {}
     out = {}
-    for k in SECTIONS:
+    need_mod = {"K4", "K5", "K7", "K8"}
+    if need_mod & set(WANT) and not NO_MOD:
+        start_module_checks()                                        # in parallel with the sections that do not need them
+    for k in sorted(SECTIONS, key=lambda q: (q in need_mod, SECTIONS.index(q))):     # run order: K1 K2 K3 K6 K9 K10 K11, then K4 K5 K7 K8
         if k in WANT and k in RUN:
             t = time.time()
             try:
@@ -1202,10 +1262,31 @@ def main():
             say(f"{k} NOT RUN")
         out[k]["title"] = TITLES[k]
     table = [dict(id=k, title=TITLES[k], status=out[k]["status"], summary=out[k]["summary"]) for k in SECTIONS]
+    # module pre-checks of the three builders: their own verdicts, only when the result is stamped for the STL files on disk
+    modsum = {}
+    for name in ("ram", "pan", "obal"):
+        st = os.path.join(WORK, f"mod_{name}.stamp"); fj = os.path.join(HERE, MODCHK[name][1])
+        if not (os.path.exists(st) and os.path.exists(fj) and open(st).read().strip() == STAMP):
+            modsum[name] = dict(valid_for_stl_set=False, note="no result stamped for the STL files on disk")
+            continue
+        m = json.load(open(fj))
+        if name == "ram":
+            v = {k: bool(q.get("ok")) for k, q in m.get("verdicts", {}).items()}
+        elif name == "pan":
+            v = {k: q.get("status") == "PASS" for k, q in m.get("checks", {}).items()}
+        else:
+            v = {k: bool(q) for k, q in (m.get("summary") or {}).items()}          # O1 .. O5, M1 .. M3, S1, X2 / X3
+            v.update({k: bool(q.get("ok")) for k, q in m.items() if isinstance(q, dict) and "ok" in q})
+        modsum[name] = dict(valid_for_stl_set=True, verdicts=v, all_ok=bool(v) and all(v.values()), not_ok=[k for k, q in v.items() if not q])
     doc = dict(project="NOVA mini - T4 torso", generated=time.strftime("%Y-%m-%d %H:%M:%S"), stl_stamp=STAMP, n_parts=len(PARTS),
                all_pass=all(out[k]["status"] == "PASS" for k in SECTIONS), table=table,
-               module_check_notes=_MOD_NOTE, checks=out)
+               module_check_notes=_MOD_NOTE, module_prechecks=modsum, checks=out)
+    rp = os.path.join(WORK, "cont", "scratch_rebuild_report.json")       # from-scratch rebuild in an empty copy (integrator, once)
+    if os.path.exists(rp):
+        doc["from_scratch_rebuild"] = json.load(open(rp))
     json.dump(doc, open(f, "w"), indent=1, ensure_ascii=False, default=float)
+    say("   module pre-checks: " + "; ".join(f"{k}: " + ("stale" if not v["valid_for_stl_set"] else "all ok" if v["all_ok"] else f"NOT OK {v['not_ok']}")
+                                              for k, v in modsum.items()))
     say("== " + "  ".join(f"{k}:{out[k]['status']}" for k in SECTIONS) + f"  ({time.time() - T0:.0f} s) ==")
     return 0 if doc["all_pass"] else 1
 

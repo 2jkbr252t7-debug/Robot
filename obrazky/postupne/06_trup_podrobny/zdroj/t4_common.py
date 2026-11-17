@@ -960,10 +960,14 @@ RAM = dict(
     CAP470_AT=(41.1, 3.0, -45.0),               # +0.1 in x: saddle in the web keeps 1.65 of wall
     CTRL_MODULE=dict(x=(-22.8, 0.7), z=(-77.0, -59.0), usb=(-24.0, 19.7, -68.0)),   # ESP32-S3-Zero on the carrier
     # ---- dummy base hub (Z_naboj_test)
-    DUMMY=dict(plate=(110.0, 90.0), plate_z=(-109.0, -104.0), feet_z=-113.5, post_r=12.48, shoulder_r=14.0,
+    # integrator (K10): the plate lies FLAT on the bed (z -113.5 .. -108.5, no feet - they put the whole 93 cm2 underside on
+    # supports); a pedestal r 22.5 carries the old plate-top level z -104 under the shoulder / stop block; the bolt head stays
+    # inside the counterbore (1.4 above the table), which is widened to r 10.5 below z -109.2 for a 13 mm socket
+    DUMMY=dict(plate=(110.0, 90.0), plate_z=(-113.5, -108.5), feet_z=-113.5, pedestal=dict(r=22.5, z_top=-104.0),
+               post_r=12.48, shoulder_r=14.0,
                stub=(7.0, -90.0),   # r 7.0: 1.0 inside the orbit of the pinion tips (r >= 8.0 from the axis, same z -90.0)
                bolt="ISO 4017 M8x20 from below = steel core + clutch shaft", bolt_head_z=-106.8,
-               springs="2x DIN 2093 16x8.2x0.4 in series", seat_z=-105.6, cbore_r=8.75,
+               springs="2x DIN 2093 16x8.2x0.4 in series", seat_z=-105.6, cbore_r=8.75, socket=dict(r=10.5, z_top=-109.2),
                stop=dict(az=270.0, half=21.4, r=(18.2, 21.3), z_top=-98.3)),
 )
 # <<< end of additions by ram
@@ -1095,6 +1099,9 @@ INTEG = dict(
         "t4_obal._pad / _door_magnets: frame magnet pocket + magnet of the two upper pads 0.5 further out along the wall, band-step "
         "fin removed (0.46 .. 0.50 of resin beside the pocket -> >= 0.6); 0.5 lateral offset to the door magnet",
         "export: every module through t4_obal.export_abs (absolute deflection 0.01); the RAM STLs were relative-deflection before",
+        "RAM['DUMMY'] / t4_ram.mk_naboj: Z_naboj_test without the 4 feet - plate flat on the bed (z -113.5 .. -108.5) + pedestal r 22.5 "
+        "up to z -104 (old plate top), counterbore widened to r 10.5 below z -109.2 with a 45 deg run-out (13 mm socket on the M8 head); "
+        "FDM overhang 9340 -> about 190 mm2 (ceiling of the counterbore only)",
     ],
 )
 # <<< end of additions by integrator
