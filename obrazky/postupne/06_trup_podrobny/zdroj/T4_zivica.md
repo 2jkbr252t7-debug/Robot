@@ -6,12 +6,16 @@ fully functional."* Earlier (2026-11-05): *"I can only print from resin."*
 
 This overrides the brief (§4 "Chassis: PETG FDM" was the lead's mistake) and every "PETG / POM" entry in T4_spec.md.
 
-## Z0. The user's printer (stated 2026-11-17)
-Elegoo Saturn 4 Ultra (user wrote "Saturn 4k ultra"): 10" mono LCD MSLA. Build volume of the 12K version 218.88 x 122.88 x 220 mm
-(XY pixel about 19 x 24 um); if it is the 16K version, 211.68 x 118.37 x 220 mm (14 x 19 um). Design to the SMALLER volume
-(211 x 118 x 220) so either fits. Tilting vat release. Fine detail is not the limit - strength, warp and support marks are.
-Resin advice must name resins that work on this printer (405 nm MSLA, standard vat), e.g. Elegoo ABS-Like 3.0, Siraya Tech
-Blu / Tenacious blends, Anycubic ABS-Like Pro 2, Phrozen Aqua-Gray 8K / TR250LV class - verify datasheet numbers before quoting.
+## Z0. The user's printer and resin (CONFIRMED by the user 2026-11-17 12:00 UTC)
+* Printer: **Elegoo Saturn 4 Ultra 16K** - build volume 211.68 x 118.37 x 220 mm (Elegoo launch post), XY pixel about 14 x 19 um,
+  heated vat (about 30 C), tilting release. Every printed part must fit 211 x 118 x 220 in its print orientation, incl. supports
+  and the raft (keep >= 5 mm margin).
+* Resin: **Elegoo Tough** (the user's choice; Elegoo sells "Tough" and "Tough 2.0"). No official technical data sheet was found;
+  numbers from retailer listings (2026-11-17): Tough: tensile 32.1 MPa +-10 %, bending strength 35.1 MPa +-10 %, Shore D 78-81;
+  Tough 2.0: tensile 28.7 MPa +-10 %, Shore D 80-85, "maximum heat resistance about 60 C"; elongation not published (a third-party
+  shop claims about 25 %, unverified). Design to the LOWER bound: tensile 25.8 MPa (28.7 - 10 %).
+* All resin advice in the documents is for this resin on this printer (exposure from Elegoo's profile for Tough on the Saturn 4
+  Ultra 16K; wash / cure per Elegoo; recommend printing a test bar + one insert pull test before the big parts).
 
 ## Z1. Everything printed is MSLA resin
 * No FDM / PETG part and no machined POM part. Currently wrong in parts.json: T_ram, T_paluba, T_prichytka_fpc,
@@ -23,10 +27,13 @@ Blu / Tenacious blends, Anycubic ABS-Like Pro 2, Phrozen Aqua-Gray 8K / TR250LV 
   a printed resin feature would be the weak point.
 
 ## Z2. Material
-* Design for ONE structural resin class: tough "ABS-like" engineering resin (not standard / water-washable resin, which is
-  glass-brittle). Properties to design with (conservative, cured): tensile strength 35 MPa, flexural strength 50 MPa,
-  E ≈ 1.8 GPa, elongation at break ≥ 15 %, HDT ≈ 55–60 °C, Shore D ≈ 80. Allowable working stress: 12 MPa static (safety
-  factor 3 on tensile), 6 MPa for sustained load (creep) and for features with a notch that cannot be filleted.
+* Design for ONE structural resin: Elegoo Tough (Z0), cured. Design values: tensile 25.8 MPa (lower bound), flexural about 32 MPa,
+  E about 1.5-1.8 GPa (assumed), elongation unknown (assume brittle-ish: >= 5 %), heat limit 55-60 C, Shore D about 80.
+  ALLOWABLES (supersede the earlier 12 / 6 MPa - every number checked against 12 / 6 must be re-checked):
+  - normal-use loads L1, L2, L4, L5, L7, L8: stress incl. stress concentration <= 8.5 MPa (factor 3 on 25.8);
+  - sustained loads (creep: head weight, preloads, springs) and unfilleted notches: <= 4.3 MPa (factor 6);
+  - abuse loads L3 (hand twist) and L6 (knock / topple): <= 12.9 MPa incl. stress concentration (factor 2);
+  - bonded joints: epoxy shear 8 MPa assumed on abraded resin / knurled brass, factor 3 -> 2.7 MPa.
 * The documents must tell the user the required PROPERTIES (so any brand can be checked against its datasheet), give 2–4
   example products, and say which parts may use ordinary white resin if they want (none that carries a screw, tab or pin).
   Visible parts are painted (as on the finished head: 2K satin white / black), so resin colour is not a constraint except the
@@ -68,7 +75,7 @@ Blu / Tenacious blends, Anycubic ABS-Like Pro 2, Phrozen Aqua-Gray 8K / TR250LV 
     are fine, but a clearance of exactly 1.000 with zero margin on several parts is fragile – prefer ≥ 1.3 where it costs
     nothing; fits that only work within ± 0.05 need an adjustment (shim, slot, file-to-fit instruction).
 
-## Z4. Load cases every loaded feature must survive (with numbers, safety factor ≥ 2 on the Z2 allowables for abuse cases)
+## Z4. Load cases every loaded feature must survive (numbers vs the Z2 allowables: normal / sustained / abuse)
 * L1 robot lifted by the head: 15 N pull up (≈ 1 kg robot × 1.5) through head → neck → lift mechanism → pan stage →
   torso → J1 bearing → base. What takes the axial load at each interface?
 * L2 head pushed down / leaned on: 30 N down on the head at any lift position (0, mid, 20).

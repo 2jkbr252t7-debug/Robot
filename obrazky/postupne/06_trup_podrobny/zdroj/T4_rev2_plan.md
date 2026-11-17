@@ -1,5 +1,11 @@
 # T4 rev. 2 – lead decisions after the resin reviews (binding for the rework)
 
+> **UPDATE 2026-11-17 12:00 UTC (lead): the user confirmed the printer (Saturn 4 Ultra 16K, 211.68 x 118.37 x 220) and the resin
+> (Elegoo Tough). New allowables in T4_zivica.md Z2: 8.5 MPa normal use, 4.3 MPa sustained / unfilleted notch, 12.9 MPa abuse, all
+> incl. stress concentration. Section 17 of the spec was written with 12 / 6 MPa: every strength number there must be re-checked and
+> the geometry thickened / filleted where it no longer passes. K12 uses the new allowables.**
+
+
 Inputs: `T4_zivica.md` (resin rules Z0–Z5, load cases L1–L8 – user requirement), `overenie_montaz.md` (M01–M16, m17–m22),
 `overenie_pevnost.md` (S01–S15, m16–m19, MATERIAL section), `zjednodusenie.md` (architecture + P01–P20).
 The current geometry (rev. 1) passes K1–K11 but is NOT printable in resin and NOT serviceable. Rev. 2 keeps the approved
@@ -69,8 +75,8 @@ Goal in the user's words: strong, does not break, resin, as uncomplicated as pos
 
 ## D6. New / changed checks (integrator)
 * K12 STRENGTH: a script that recomputes, on the final geometry, every row of the strength table (overenie_pevnost.md; reuse its
-  scripts) for L1–L8 with the Z2 allowables and safety factors; PASS only if every loaded feature has margin ≥ 1 static and
-  ≥ 2 for abuse cases, or is a bought metal part checked against its own material.
+  scripts) for L1–L8 with the Z2 allowables and safety factors; PASS only if every loaded feature is within the Z2 allowable of its load class (normal 8.5 /
+  sustained 4.3 / abuse 12.9 MPa incl. stress concentration), or is a bought metal part checked against its own material.
 * K13 RESIN RULES: no part labelled petg / pom; no heat-set insert; no countersunk head on resin; every insert boss / thread-forming
   boss meets Z3.4; every pin / sleeve / bearing / magnet a slide fit with an epoxy note; listed loaded roots have the fillet;
   no flexing feature; every printed part has a print orientation, support faces, drain / vent result (K10 extended).

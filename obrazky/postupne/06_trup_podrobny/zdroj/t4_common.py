@@ -1105,3 +1105,260 @@ INTEG = dict(
     ],
 )
 # <<< end of additions by integrator
+
+
+# =====================================================================================================================
+# >>> rev2 (architect)  - REV. 2 of the torso (T4_spec.md section 17).  Binding for the rev. 2 builders.
+#     Nothing above this block was edited.  Old names stay valid for rev. 1 code; rev. 2 code reads R2 / the *_R2 names.
+#     PAN_ENV is re-bound to the rev. 2 table below (rev. 1 table kept as PAN_ENV_REV1).
+#     Quick numeric self-check:  /opt/venv/cad/bin/python -c "import t4_common as C; C.rev2_check()"
+# =====================================================================================================================
+PAN_ENV_REV1 = PAN_ENV
+envelopes_rev1 = envelopes
+
+R2 = dict(
+    # ---- frame / stack on the axis (rest, lift 0, pan 0) -------------------------------------------------------------
+    STACK=dict(neck_bot=-36.50, foot=(-40.50, -36.50), rest_gap=0.15, rest_gap_range=(0.10, 0.20),
+               hub_disc=(-41.90, -40.65), hub_disc_r=(6.50, 12.60), gear=(-45.90, -41.90), ptfe=(-46.20, -45.90),
+               deck=(-48.20, -46.20), shim=(-48.30, -48.20), j1_case=(-83.30, -48.30), j1_pads=(-84.50, -83.30)),
+    # ---- upper bearing (OBAL bore, PAN journal) ----------------------------------------------------------------------
+    BORE=dict(r=26.65, z=(-10.50, -2.00), shoulder_z=-2.00, ring_seat_r=28.35, ring_seat_z=(-2.00, 4.00), tube_r=30.60,
+              chamfer=0.5, add_tube=(28.40, 26.65, -10.50, -2.00), tol=(0.0, 0.05)),
+    JOURNAL=dict(r_resin=26.37, tape=0.13, r=26.50, z=(-10.00, -3.00), fit=0.15, lead_in=0.5),
+    RING_R_IN=26.748,                         # measured (a01 / zjednodusenie m01)
+    STAGE_R_MAX=26.50,                        # every permanent stage part
+    # ---- pan gears (A3 / A4) -------------------------------------------------------------------------------------------
+    GEAR_PAN=dict(m=0.8, z=(18, 36), C=21.600, ax=(-5.85, -20.793), face=4.0, plane=(-45.90, -41.90),
+                  pinion=dict(d=14.4, da=16.0, bore=5.00, hub_max_d=12.0, fix="Loctite 638 on the STS3032 spline, no screw"),
+                  gear=dict(d=28.8, da=30.4, df=26.8, bore=8.00, type="plain brass/steel, bore 8 H7, bonded under the hub disc"),
+                  backlash=(0.04, 0.08)),
+    PAN_SERVO=dict(boss_top=-46.20, case_z=(-72.70, -49.70), tab_z=(-56.50, -54.00), post_top=-56.50,
+                   note="plain pinion; a pinion hub of length h lowers all by h (washers under the tabs)"),
+    DRUM=dict(r_in=15.50, r_out=16.70, az=(8.0, 140.0), z=(-45.60, -41.90), lip_r=(16.70, 17.50), lip_z=(-42.50, -41.90)),
+    # ---- pivot (A7) ----------------------------------------------------------------------------------------------------
+    PIVOT=dict(boss_d=7.70, tape=0.13, run_d=7.96, boss_z=(-46.20, -41.80), boss_hole=3.4, root_r=1.0,
+               washer="DIN 9021 M3 3.2x9x0.8", washer_z=(-41.80, -41.00), axial_play=0.10, axial_play_range=(0.05, 0.20),
+               screw="ISO 7380 M3x6", head_z=(-41.00, -39.35), tip_z=-47.00, foot_hole_d=11.0),
+    MOST=dict(mat="Al 5754-H22 / 6061-T6 sheet 2.0", x=(-6.0, 12.0), y=(-18.0, 18.0), z=(-48.20, -46.20), corner_r=2.0,
+              tap="M3 at (0, 0)", holes=[(6.0, 15.95), (6.0, -15.95)], hole_d=2.8, deck_slot=dict(x=(-6.1, 12.1), y=(-18.1, 18.1))),
+    PTFE_WASHER=dict(od=24.0, id=10.0, t=0.30),
+    # ---- pan hard stop (A6) --------------------------------------------------------------------------------------------
+    STOP=dict(pin_d=3.0, pin_len=12.0, pin_bond=6.0, pin_r=30.0, pin_az=(25.43, 224.57),
+              pin_xy=[(27.09, 12.89), (-21.37, -21.06)], pin_top=-44.60, post_d=7.0, post_top=-50.60,
+              lug=dict(r=(27.60, 31.60), az=(118.3, 131.7), z=(-47.20, -41.90), root_r=1.5),
+              bridge=dict(r=(27.60, 31.60), az=(106.5, 118.3), z=(-43.60, -39.90)), engagement=2.60, stops=(-90.0, 90.0)),
+    DECK_TRIM=dict(r=26.6, az=(16.0, 232.0)),
+    # ---- slim stage (PAN) ----------------------------------------------------------------------------------------------
+    WELL=dict(inner=(47.0, 22.0), corner_r=2.5, wall=1.6, back_wall=(11.0, 13.0), back_wall_x=(-6.0, 20.0),
+              edge_z_front=-40.90, edge_z_back=-41.90, back_sector=(5.0, 140.0), top_plate=(-3.50, -2.00)),
+    WIN_BACK=dict(x=(-20.9, -6.5), y=(11.0, 13.0), z=(-40.9, -10.9)),
+    WIN_END=dict(x=(23.4, 25.1), y=(-6.5, 6.5), z=(-40.9, -15.0)),
+    F10_PADS=[dict(x=19.5, z=-31.7), dict(x=8.0, z=-14.5)], F10_PAD=dict(face_y=15.10, r=3.5, root_r=1.0),
+    F10_DOWEL=dict(x=19.5, z=-27.7, d=2.0, hole=2.05, depth=3.5),
+    # ---- lift module (PAN) ---------------------------------------------------------------------------------------------
+    LIFT_POCKET=dict(turret_wall=dict(x=(-8.5, -6.5), y=(15.1, 29.3), z=(-41.9, -16.3),
+                                      keyhole=[(6.05, (23.2, -24.2)), (3.05, (23.2, -29.8))]),
+                     end_wall=dict(x=(16.0, 18.0), y=(15.1, 26.5), z=(-41.9, -18.3), foam=0.5),
+                     back_plate=dict(x=(-8.5, 18.0), y=(15.1, 17.1), z=(-41.9, -13.0)),
+                     post=dict(x=(0.0, 8.0), y=(17.1, 26.2), z=(-18.0, -12.3), nut_slot_x=(5.0, 6.3)), root_r=1.0),
+    CRANK=dict(r=10.00, r_tol=0.05, arm_x=(-17.5, -15.5), pin="ISO 8734 2 m6 x 8", pin_x=(-20.4, -12.4)),
+    EAR=dict(mat="304 stainless 1.5 (or 6061-T6 2.0)", plate_x=(-19.9, -17.9), plate_y=(9.9, 25.1), plate_z=(-40.5, -31.9),
+             chamfer=1.5, slot_w=2.20, slot_y=(11.6, 24.3), slot_z=(-35.30, -33.10),
+             flange=dict(x=(-19.9, -7.5), y=(9.9, 11.9), z=(-40.5, -36.5)), bend_r=(2.0, 1.5)),
+    FOOT=dict(mat="Al flat bar 20x4 (6060/6061/5754)", x=(-22.3, 22.3), y=(-9.8, 9.8), z=(-40.5, -36.5), corner_r=0.8,
+              hole_d=11.0, slot=dict(x=(9.0, 22.3), y=(-7.4, 6.4)),
+              taps=[(-15.0, -38.5), (-9.0, -38.5)], tap="M2, drill 1.6 x 7, thread 5"),
+    # ---- J1 / T_spodok (RAM) -------------------------------------------------------------------------------------------
+    J1=dict(gear_plane=(-90.00, -86.00), pinion_bore=6.00, face=4.0, fix="Loctite 638 on the STS3215 spline, no screw",
+            pads=dict(size=(5.0, 5.0), top=-83.30), window="case footprint minus the 4 corner pads",
+            screws="4 x M2 x 6 through the pads into the case holes (positions UNVERIFIED)", c_shim=0.2,
+            stop_lug=dict(w=4.0, r=(17.0, 21.0), z=(-102.0, -98.0), az=90.0, root_r=1.0), base_stop=dict(az=270.0, half=19.0)),
+    SEAT_6805_D=37.15,
+    CRADLE=dict(wall=2.5, y_in=12.55, y_out=15.05, x=(-32.2, 25.8), end_wall_x=(-32.2, -29.7), z=(-82.3, -48.2), root_r=2.0),
+    COLUMN=dict(web_x=(34.4, 37.4), y=(-9.0, 15.0), ribs_y=((-9.0, -6.5), (12.5, 15.0)), rib_x=42.0,
+                box=dict(x=(40.0, 42.0), z=(-52.0, -34.0)), foot_x=(33.0, 37.6), root_r=2.0,
+                f8_az=(60.0, 180.0, 300.0), key_az=0.0),
+    PAN_POSTS=dict(x=((11.25, 17.25), (-17.25, -11.25)), y=(-24.6, -17.1), top=-56.50, nut="DIN 562 M2"),
+    F3A=[(20.0, 13.8), (20.0, -13.8), (-33.5, 10.0), (-33.5, -10.0)], F3B=[(6.0, 15.95), (6.0, -15.95)],
+    F7=[(19.0, -62.5), (-19.0, -62.5)], F7_FACE_Y=16.50,
+    CAP470=dict(axis="x", x=(6.0, 19.0), y=20.2, z=-77.0, saddle_r=5.1, tie_slot=(2.8, 1.2)),
+    BASE_FFC_SLOT=dict(x=(-6.0, 6.0), y=(21.2, 22.5)),
+    SPIGOT_NOTCH_W=7.8,
+    BUCK_X=(-47.7, -38.9), AMP_X=(38.9, 41.9), BOARD_AIR=1.5,
+    # ---- cables / electronics ------------------------------------------------------------------------------------------
+    FFC=dict(pitch=0.5, poles=5, w=3.0, t=0.10, t_end=0.3, length=203.0, n=2, contacts="Type A (same side)",
+             z=(-46.10, -43.10), wall=(23.50, 25.10), wall_top=-43.00, wall_az=(15.0, 165.0),
+             deck_slot=dict(r=(22.4, 23.6), az=(26.0, 34.0)), cradle_slot=dict(x=(17.0, 24.0), z=(-51.0, -50.0)),
+             drum_r=16.70, uturn_R=3.2, k=0.415, u0=84.0, static_anchor_az=30.0, rot_anchor_az=14.0, free_len=52.6),
+    FFC_LIFT2=dict(x=(25.1, 31.3), y=(-3.5, 3.5), z=(-41.5, -13.5), r_max=31.7, R=3.0),
+    PIGTAIL=dict(x=(25.1, 30.0), y=(4.0, 7.0), z=(-41.0, -14.0), plug="Dupont 1x3 2.54"),
+    DPS_KRK=dict(pcb=(13.0, 13.4, 0.8), x=(9.2, 22.2), y=(-6.9, 6.5), top_z=-37.00,
+                 zif="Hirose FH19SC-5S-0.5SH (x2)", zif_mouth_x=22.2, zif_z=(-38.00, -37.00),
+                 zif_y=((-6.4, -1.2), (0.2, 5.4))),
+    CTRL2=dict(pcb=(46.0, 18.0, 1.6), x=(-23.0, 23.0), y=(16.50, 18.10), parts_y_max=23.5, z=(-71.5, -53.5),
+               module=dict(x=(-0.5, 23.0), usb_mouth=(-0.5, 20.2, -62.5), usb_dir="-X"),
+               plug_env=dict(x=(-21.0, -0.5), y=(17.0, 24.0), z=(-66.5, -58.5)),
+               zif_pan=[(-22.5, -16.4), (-15.4, -9.3)], zif_pan_z=(-57.5, -53.5),
+               bus_v=dict(x=(-8.5, -1.0), z=(-58.0, -53.5)), zif_j1=dict(x=(-22.5, -8.0), z=(-71.5, -67.0)),
+               bus_5=dict(x=(-7.5, -0.5), z=(-71.5, -67.0))),
+    # ---- shells (OBAL) -------------------------------------------------------------------------------------------------
+    F1_BOSS_R=3.4,
+    DOOR_TONGUE=dict(x=(-20.6, 20.6), inset=(1.1, 2.2), z=(-12.75, -11.75), door_inner_top=-13.00, door_outer_top=-12.00),
+    KLB=dict(neck_x=(38.6, 40.6), step_r=0.5, f8_az=(60.0, 180.0, 300.0), magnet_az=(0.0, 120.0, 240.0)),
+    REPRO_RING_T=2.0,
+    # ---- fasteners / torque --------------------------------------------------------------------------------------------
+    SCREW_KINDS=("ISO 7380 M2x6", "ISO 7380 M2x10", "ISO 7380 M2.5x6", "ISO 7380 M2.5x8", "ISO 7380 M3x6",
+                 "M2x6 thread-forming for plastics (one-time)"),
+    INSERT_HOLES=dict(M2=dict(od=3.2, l=3.0, hole=3.3, depth=3.3, boss_r=3.25), M25=dict(od=3.5, l=4.0, hole=3.6, depth=4.3, boss_r=3.4)),
+    TORQUE=dict(M2_insert=0.05, M25_insert=0.09, M2_nut_on_resin=0.05, M2_thread_forming=0.04, M2_metal=0.15,
+                M3_pivot=0.12, J1_pads=0.05),
+    WASHERS=dict(M2="DIN 125 2.2x5x0.3", M25="DIN 125 2.7x6x0.5", M3_pivot="DIN 9021 3.2x9x0.8"),
+    # ---- ownership (rev. 2) --------------------------------------------------------------------------------------------
+    OWNER=dict(
+        obal=["T_stred", "T_bok_L", "T_bok_P", "T_dvere", "T_klb_L", "T_klb_P", "T_svetlovod", "T_mriezka",
+              "T_drziak_led", "T_drziak_repro"],
+        ram=["T_spodok", "T_paluba", "T_cap", "T_most", "Z_naboj_test", "servo_J1", "pastorok_J1", "servo_pan",
+             "pastorok_pan", "koliky_dorazu", "DPS_riadenie", "menic", "zosilnovac", "kondenzator", "ptfe_podlozka"],
+        pan=["P_sachta", "P_drziak_serva", "koleso_pan", "rameno_zdvih", "cap_kluky", "servo_zdvih", "L_ucho", "L_pata",
+             "DPS_krk", "ffc_A", "ffc_B", "pigtail_zdvih", "kolik_F10"],
+        deleted=["T_ram", "T_prichytka_fpc", "T_puzdro_L", "T_puzdro_P", "P_koleso", "P_kluka", "L_jazyk", "fpc_pan",
+                 "spoj_zdvih", "cap_pan", "kolik_dorazu", "kolik_kolesa_1", "kolik_kolesa_2", "kolik_ucha"]),
+)
+
+# rev. 2 swept-radius table of the pan stage (stage frame): (z0, z1, r_max); special sectors in PAN_ENV2_SECTORS
+PAN_ENV2 = [(-47.20, -41.90, 17.50), (-41.90, -40.90, 12.60), (-40.90, -17.00, 33.40), (-17.00, -11.50, 32.20),
+            (-11.50, 4.00, 26.50)]
+PAN_ENV2_SECTORS = [dict(z=(-47.20, -39.90), r=31.60, az=(106.5, 131.7), what="stop lug + bridge (lift module)"),
+                    dict(z=(-41.90, -40.90), r=26.50, az=(5.0, 140.0), what="back floor"),
+                    dict(z=(-41.90, -40.90), r=33.40, az=(35.0, 140.0), what="lift module bottom")]
+PAN_ENV = PAN_ENV2                       # rev. 2 binding; rev. 1 code that needs the old table: PAN_ENV_REV1
+
+# rev. 2 aliases (old names -> rev. 2 values) for code that reads single constants
+R_BORE_JOURNAL = R2["BORE"]["r"]          # 26.65 (R_BORE 28.35 stays = ring seat radius)
+R_JOURNAL_R2 = R2["JOURNAL"]["r"]         # 26.50 (R_JOURNAL 28.20 is rev. 1)
+FOOT_GAP_R2 = R2["STACK"]["rest_gap"]     # 0.15 (FOOT_GAP 0.5 is rev. 1)
+Z_DECK_R2 = R2["STACK"]["deck"]           # (-48.20, -46.20)
+Z_PTFE_R2 = R2["STACK"]["ptfe"]
+Z_GEAR_PAN_R2 = R2["GEAR_PAN"]["plane"]
+Z_J1_GEAR_R2 = R2["J1"]["gear_plane"]
+PAN_STOP_R2 = R2["STOP"]
+FPC_PAN_R2 = R2["FFC"]
+FPC_LIFT_R2 = R2["FFC_LIFT2"]
+WIN_END_R2 = R2["WIN_END"]
+CTRL_R2 = R2["CTRL2"]
+
+
+def envelopes_rev2():
+    """rev. 2 space reservation: rev. 1 list minus deleted / replaced zones, plus the rev. 2 zones (B frame, rest)."""
+    drop = {"sukna", "cap_pan", "fpc_pan", "fpc_zdvih", "pata_jazyk", "cap_otocny", "vrch_stola", "koleso_pan",
+            "kluka_naboj", "kluka_obalka", "drziak_serva", "drziak_serva_dno", "ucho", "ucho_koniec", "ucho_priruba",
+            "ucho_priruba_nizka", "ptfe", "paluba", "paluba_zad", "kanal_fpc_pan", "DPS_riadenie", "servo_pan",
+            "servo_pan_tabs", "servo_pan_boss", "servo_pan_plug", "pastorok_pan", "pastorok_pan_naboj", "pastorok_J1",
+            "Z_koleso_J1", "stlp_L", "stlp_P", "menic", "zosilnovac", "kondenzator", "sachta", "sachta_naboj",
+            "sachta_dno_zad", "pata"}
+    E = [e for e in envelopes_rev1() if e["name"] not in drop]
+    S, G, P2, St = R2["STACK"], R2["GEAR_PAN"], R2["PAN_SERVO"], R2["STOP"]
+    ax = G["ax"]
+    E += [
+        _b("paluba", "ram", "T", (-36.9, 31.6), (-18.1, 25.1), S["deck"], "deck lid 2.0 (C-shape, trimmed r <= 26.6 in B az 16..232)"),
+        _b("T_most", "ram", "T", R2["MOST"]["x"], R2["MOST"]["y"], R2["MOST"]["z"], "Al pivot bridge"),
+        _c("T_cap", "ram", "T", "z", (0, 0), R2["PIVOT"]["run_d"] / 2, R2["PIVOT"]["boss_z"], note="pivot boss + tape"),
+        _c("pivot_washer", "ram", "T", "z", (0, 0), 4.5, (R2["PIVOT"]["washer_z"][0], R2["PIVOT"]["head_z"][1]), note="washer + F15 head"),
+        _c("ptfe", "ram", "T", "z", (0, 0), 12.0, S["ptfe"], 5.0),
+        _c("kanal_fpc_pan", "ram", "T", "z", (0, 0), R2["FFC"]["wall"][1], (S["deck"][1], R2["FFC"]["wall_top"]),
+           R2["FFC"]["wall"][0], "static FFC wall, B az 15..165"),
+        _b("servo_pan", "ram", "T", STS3032["x"], STS3032["y"], P2["case_z"], "STS3032 (plain pinion)"),
+        _b("servo_pan_tabs", "ram", "T", STS3032["tab"]["x"], STS3032["y"], P2["tab_z"]),
+        _c("servo_pan_boss", "ram", "T", "z", ax, STS3032["boss_r"], (P2["case_z"][1], P2["boss_top"])),
+        _c("pastorok_pan", "ram", "T", "z", ax, 8.0, G["plane"], note="18T m0.8, on the spline"),
+        _c("pastorok_J1", "ram", "T", "z", J1_AX, 10.0, R2["J1"]["gear_plane"]),
+        _c("Z_koleso_J1", "ram", "Z", "z", (0, 0), 10.0, R2["J1"]["gear_plane"]),
+        _c("kolik_dorazu_1", "ram", "T", "z", St["pin_xy"][0], 1.5, (St["post_top"], St["pin_top"])),
+        _c("kolik_dorazu_2", "ram", "T", "z", St["pin_xy"][1], 1.5, (St["post_top"], St["pin_top"])),
+        _c("stlpik_dorazu_1", "ram", "T", "z", St["pin_xy"][0], 3.5, (Z_FLOOR, St["post_top"])),
+        _c("stlpik_dorazu_2", "ram", "T", "z", St["pin_xy"][1], 3.5, (-57.6, St["post_top"])),
+        _b("stlp_L", "ram", "T", (X_COL_IN, 42.0), R2["COLUMN"]["y"], (-78.0, -30.0), "column web 3.0 + box z -52..-34"),
+        _b("stlp_P", "ram", "T", (-42.0, -X_COL_IN), R2["COLUMN"]["y"], (-78.0, -30.0)),
+        _b("menic", "ram", "T", R2["BUCK_X"], BUCK["y"], BUCK["z"], "1.5 air to the web"),
+        _b("zosilnovac", "ram", "T", R2["AMP_X"], AMP["y"], AMP["z"]),
+        _c("kondenzator", "ram", "T", "x", (R2["CAP470"]["y"], R2["CAP470"]["z"]), 5.0, R2["CAP470"]["x"], note="saddle + tie"),
+        _b("DPS_riadenie", "ram", "T", R2["CTRL2"]["x"], (R2["CTRL2"]["y"][0], R2["CTRL2"]["parts_y_max"]), R2["CTRL2"]["z"]),
+        _b("usb_zastrcka", "ram", "T", R2["CTRL2"]["plug_env"]["x"], R2["CTRL2"]["plug_env"]["y"], R2["CTRL2"]["plug_env"]["z"],
+           "USB-C plug envelope - keep free"),
+        # ---- pan (P, stage frame) / lift (L, rest)
+        _b("sachta", "pan", "P", (-25.1, 25.1), (-12.6, 13.0), (-41.9, -2.0), "slim well, r <= 26.5"),
+        _c("vrch_stola", "pan", "P", "z", (0, 0), R2["STAGE_R_MAX"], (R2["JOURNAL"]["z"][0], -2.0), note="journal + top plate"),
+        _c("sachta_naboj", "pan", "P", "z", (0, 0), 12.6, S["hub_disc"], 6.5),
+        _c("koleso_pan", "pan", "P", "z", (0, 0), 15.2, G["plane"], 4.0, "36T brass"),
+        _c("buben", "pan", "P", "z", (0, 0), R2["DRUM"]["lip_r"][1], R2["DRUM"]["z"], R2["DRUM"]["r_in"], "drum shroud az 8..140"),
+        _b("drziak_serva", "pan", "P", (-8.5, 18.0), (15.1, 29.3), (-41.9, -12.3), "lift pocket"),
+        _b("fpc_zdvih", "pan", "P", R2["FFC_LIFT2"]["x"], R2["FFC_LIFT2"]["y"], R2["FFC_LIFT2"]["z"]),
+        _b("pigtail_zdvih", "pan", "P", R2["PIGTAIL"]["x"], R2["PIGTAIL"]["y"], R2["PIGTAIL"]["z"]),
+        _b("pata", "pan", "L", R2["FOOT"]["x"], R2["FOOT"]["y"], R2["FOOT"]["z"], "Al foot"),
+        _b("ucho", "pan", "L", R2["EAR"]["plate_x"], R2["EAR"]["plate_y"], R2["EAR"]["plate_z"], "metal ear plate"),
+        _b("ucho_priruba", "pan", "L", R2["EAR"]["flange"]["x"], R2["EAR"]["flange"]["y"], R2["EAR"]["flange"]["z"]),
+        _b("DPS_krk", "pan", "L", R2["DPS_KRK"]["x"], R2["DPS_KRK"]["y"], (R2["DPS_KRK"]["zif_z"][0], R2["DPS_KRK"]["top_z"])),
+    ]
+    return E
+
+
+def rev2_check(verbose=True):
+    """numeric self-check of the rev. 2 numbers (no CAD).  Returns a dict; prints a short report."""
+    out = {}
+    S = R2["STACK"]
+    stack = (S["foot"][1] - S["foot"][0]) + S["rest_gap"] + (S["hub_disc"][1] - S["hub_disc"][0]) + \
+            (S["gear"][1] - S["gear"][0]) + (S["ptfe"][1] - S["ptfe"][0]) + (S["deck"][1] - S["deck"][0]) + \
+            (S["shim"][1] - S["shim"][0]) + (S["j1_case"][1] - S["j1_case"][0]) + (S["j1_pads"][1] - S["j1_pads"][0])
+    out["stack_sum"] = round(stack, 3); out["stack_target"] = round(Z_NECK_BOT - Z_BOT, 3)
+    out["stage_vs_ring"] = round(R2["RING_R_IN"] - R2["STAGE_R_MAX"], 3)
+    out["journal_radial"] = round(R2["BORE"]["r"] - R2["JOURNAL"]["r"], 3)
+    out["tube_wall"] = round(R2["BORE"]["tube_r"] - R2["BORE"]["r"], 3)
+    G = R2["GEAR_PAN"]
+    out["C_pan_from_ax"] = round(math.hypot(*G["ax"]), 3)
+    out["pivot_radial_clear"] = round((G["gear"]["bore"] - R2["PIVOT"]["run_d"]) / 2, 3)
+    out["washer_overlap"] = round(9.0 / 2 - G["gear"]["bore"] / 2, 3)
+    # stop: contact angles from lug faces and pin size
+    St = R2["STOP"]; half_pin = math.degrees(St["pin_d"] / 2 / St["pin_r"])
+    out["stop_pin_az_expected"] = (round(St["lug"]["az"][0] - 90.0 - half_pin, 2), round(St["lug"]["az"][1] + 90.0 + half_pin, 2))
+    out["stop_pin_xy"] = [(round(St["pin_r"] * math.cos(math.radians(a)), 2), round(St["pin_r"] * math.sin(math.radians(a)), 2))
+                          for a in St["pin_az"]]
+    out["stop_engagement"] = round(St["pin_top"] - St["lug"]["z"][0], 2)
+    out["stop_bridge_over_pin"] = round(St["bridge"]["z"][0] - St["pin_top"], 2)
+    out["lug_over_cradle"] = round(St["lug"]["z"][0] - R2["CRADLE"]["z"][1], 2)
+    # pinion zone vs drum shroud
+    C = G["C"]; r = R2["DRUM"]["lip_r"][1]; ra = G["pinion"]["da"] / 2
+    th = math.degrees(math.acos((r * r + C * C - ra * ra) / (2 * r * C)))
+    out["pinion_halfangle_at_drum_r"] = round(th, 2)
+    paz = math.degrees(math.atan2(G["ax"][1], G["ax"][0])) % 360.0            # 254.3
+    out["drum_margin_deg"] = (round(R2["DRUM"]["az"][0] - (paz + 90.0 + th - 360.0), 2),      # start side (pan -90)
+                              round((paz - 90.0 - th) - R2["DRUM"]["az"][1], 2))             # end side (pan +90)
+    out["drum_margin_mm"] = tuple(round(math.radians(a) * r, 2) for a in out["drum_margin_deg"])
+    # rolling loop
+    F = R2["FFC"]; k = F["drum_r"] / (F["drum_r"] + F["wall"][0])
+    out["loop_k"] = round(k, 3); out["uturn_B_az"] = (round(F["u0"] - 90 * k, 1), round(F["u0"] + 90 * k, 1))
+    out["uturn_stage_az"] = (round(F["u0"] - 90 * (1 - k), 1), round(F["u0"] + 90 * (1 - k), 1))
+    out["uturn_R"] = round((F["wall"][0] - F["drum_r"] - 2 * F["t"]) / 2, 2)
+    out["duct_height"] = round(S["hub_disc"][0] - S["deck"][1], 2)
+    out["ffc_wall_to_floor"] = round(S["hub_disc"][0] - F["wall_top"], 2)
+    # shell margins of PAN_ENV2
+    mar = []
+    for z0, z1, rr in PAN_ENV2:
+        b = min(inner_half(z0)[1], inner_half(z1)[1]) if z1 < 1.0 else inner_half(1.75)[1]
+        mar.append((z0, z1, rr, round(b, 2), round(b - rr, 2)))
+    out["pan_env_shell_margin"] = mar
+    out["column_vs_env"] = round(X_COL_IN - 33.40, 2)
+    # stop posts / carrier inside the white lip outline (z -81) - 0.5
+    L = lip_outline(); th_ = np.arctan2(L[:, 1], L[:, 0]); rl = np.hypot(L[:, 0], L[:, 1])
+    def lip_r(x, y):
+        a = math.atan2(y, x); i = int(np.argmin(np.abs(np.angle(np.exp(1j * (th_ - a))))))
+        return float(rl[i])
+    pts = {"post1_far": (St["pin_xy"][0][0] + 3.5 * math.cos(math.radians(St["pin_az"][0])), St["pin_xy"][0][1] + 3.5 * math.sin(math.radians(St["pin_az"][0]))),
+           "post2_far": (St["pin_xy"][1][0] + 3.5 * math.cos(math.radians(St["pin_az"][1])), St["pin_xy"][1][1] + 3.5 * math.sin(math.radians(St["pin_az"][1]))),
+           "carrier_corner": (23.0, 23.5), "f3a_head": (-33.5 - 2.35, 10.0)}
+    out["lip_margin"] = {k_: round(lip_r(*p) - math.hypot(*p), 2) for k_, p in pts.items()}
+    out["f3a_head_vs_lug_r"] = round(math.hypot(-33.5, 10.0) - 2.35 - St["lug"]["r"][1], 2)
+    if verbose:
+        for k_, v in out.items():
+            print(f"{k_}: {v}")
+    return out
+# <<< end of rev2 (architect)

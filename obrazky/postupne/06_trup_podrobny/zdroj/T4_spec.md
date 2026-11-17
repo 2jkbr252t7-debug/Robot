@@ -822,3 +822,508 @@ Changes made while integrating the three modules (K1–K11); the same list is `I
 7. Export: STL with absolute chord deflection 0.01 for every module; STEP only below 12 MB (null for 9 loft parts).
 8. §15 point 2 is decided by K9 (BVH, real head): 0.517 mm at lift 12.5 / +30° / pan 0, criterion 0.5 met with
    0.017 mm of margin → no pan-dependent table; recommended firmware row for lift 10…15: tilt down +27.5°.
+
+---------------------------------------------------------------------------------------------------------------------
+
+## 17. REV. 2 – resin-only, serviceable torso (lead architect, 2026-11-17; supersedes §1–§16 wherever they differ)
+
+Binding inputs: `T4_rev2_plan.md` (D1–D7), `T4_zivica.md` (Z0–Z5, L1–L8). Numbers below are also in the block
+`# >>> rev2 (architect)` of `t4_common.py` (dict `R2` + aliases); if this text and `R2` differ, `R2` wins.
+Measurements behind the numbers: `rev2_arch/a01_measure.py` → `a01_measure.json` (real rev. 1 STLs, B STLs, exterior
+functions) plus the reviewers' measurements (`zjednodusenie/m01…m05`, `overenie_pevnost/out`). Frame, rest pose and
+azimuth convention as §0 (azimuth about +Z from +X, CCW seen from above; "stage az" = pan-stage frame = B frame at pan 0).
+Everything printed is ONE tough ABS-like resin (Z2) unless a row says otherwise; `T_svetlovod` may be clear standard resin.
+Words "UNVERIFIED" mark catalogue numbers that could not be confirmed (most vendor pages were not reachable from this
+session, only search snippets) – the builders model them as written; the user measures the bought part first.
+
+### 17.0 Decisions in one table
+| # | topic | decision (numbers in 17.1–17.9) | why / evidence |
+|---|---|---|---|
+| A1 | slim stage | every permanent stage part r ≤ 26.50; stage leaves upward through the glued ring (r_in 26.748, measured) | D1, M01; a01: ring r_in 26.748, disc r 26.50 |
+| A2 | upper bearing | T_stred journal bore r 26.65, z −10.5…−2.0, shoulder at z −2.0 under the ring seat r 28.35 (z −2…4); stage band r 26.37 + PTFE tape 0.13 = 26.50; radial 0.15 | D1; a01: present bore r 28.342 for z −10.5…3.5, tube r 30.6 (merged with the shell at az 90/270, r 34.0) → new tube wall 3.95 |
+| A3 | pan gears | BOUGHT m0.8 pair, 18T pinion / 36T gear, C 21.600, PAN_AX unchanged (−5.85, −20.793); face 4.0; both in the plane z −45.90…−41.90 | keeps the RAM servo position; m0.8 brass/steel 4 mm face is a stock series (KHK BSS0.8, McMaster brass 0.8 mod, Accu 0.8MOD, RS PRO steel 0.8); Lewis at L8 50.8 MPa (36T brass) / 62.0 MPa (18T) |
+| A4 | gear fixing | 36T: plain brass gear, bore Ø8 H7, BONDED (epoxy) under the printed hub disc, runs on the taped static boss; 18T and the J1 18T: bored metal gear slid over the servo's own metal spline and fixed with anaerobic retaining compound (Loctite 638 class), no printed spline, no horn | no metal horn / spline-bore gear for the STS3032 micro spline 25T Ø4.95 was found; supplied horns are POM (no bond, printed carrier = weak link); J1 has no height for a horn under the cap (17.4) |
+| A5 | FFC drum vs full gear | full (not sawn) gear; the drum is a printed C-shroud of P_sachta around the gear tips, r 15.50…16.70, stage az 8…140 | the pinion never reaches stage az 8…140 at r ≤ 16.7 (pinion zone at r 16.7 = 254.3 ± 18.4 − pan) |
+| A6 | pan hard stop ±90 | 2 steel pins Ø3 bonded in T_spodok posts at r 30.0, B az 25.43° and 224.57°; stop LUG on the lift module (P_drziak_serva) at stage az 118.3…131.7, r 27.6…31.6, z −47.2…−41.9; engagement 2.6 | the duct annulus is shared by the FFC (back) and the pinion (front) – no lug fits there (17.2.4); the lift module comes out through the door before any service, so its lug never blocks the stage path |
+| A7 | pivot + axial retention | static resin boss Ø7.70 (+PTFE tape) on an ALUMINIUM pivot bridge (2.0 sheet, same sheet as the ear) tapped M3; DIN 9021 M3 washer on the boss top overlaps the brass gear top face; axial play 0.10 | D1 principle (screw on the axis, from above); the deck at the axis is a 2.0 plate on the J1 servo – a resin anchor there bends to 10–22 MPa under L1 ×2, the 2.0 Al bridge 18 MPa vs 240 MPa yield |
+| A8 | L2 at lift 0 | rest gap foot ↔ hub disc 0.15 (0.10…0.20); foot lands on the hub disc ring r 6.5…12.6 → brass gear → PTFE → bridge/deck → shims → STS3215 case → corner pads | D1; the lift chain is sized for the full 30 N anyway (lift 20 has no landing) |
+| A9 | lift | crank = bought aluminium arm on the MG90S spline (spline count UNVERIFIED: measure), Ø2 steel pin bonded at r 10.00; ear = 2.0 Al 6061-T6 / 5754 L-bracket (or 1.5 stainless 304); FOOT = 4 mm aluminium flat bar (20 × 4 stock) | S02/S04: no fastener can be held by a 4.0 resin foot in any horizontal direction (walls 0.35…1.0 measured from the 4.0 height); metal–metal joint (2 × M2 tapped) passes |
+| A10 | lift servo seat | pocket gripping both case ends: turret end wall with a keyhole hole (main load path) + bottom-cover end wall + back plate + upper tab screw into a DIN 562 nut; no floor under the case | a floor under the case cannot be ≥ 2.0 (it would sweep over the static FFC wall top −43.0) |
+| A11 | cables | stacked PAIR of stock 0.5 mm 5-pole FFC (Type A), 203 mm; carrier ZIF Hirose FH12 (2.0 high), neck ZIF Hirose FH19SC (0.9–1.0 high, takes 0.3 mm FFC); neck board DPS_krk in a slot of the Al foot; lift servo on an inline 1 × 3 (2.54) pigtail | duct height 4.30 (deck top −46.20 … back floor −41.90): 5-pole (3.0) leaves the 1.0 to the static wall top −43.0; 6-pole (3.5) would not |
+| A12 | J1 | STS3215 at x −18 shaft down, bottom on 4 corner pads 1.2 over a WINDOW (air) in the cap floor, top shimmed (0.1 strips) under the deck; brass m1 18T on the spline; C 18.00 set by 0.1 shims; stop lug 4 × 4 R1 (or Ø3 steel pin) | S07, S10 (the ≥ 1 mm-air option), P06 |
+| A13 | structure | T_ram merged into T_spodok; columns web 3.0, box closure z −52…−34, R ≥ 2 roots; no skirt disc; T_paluba stays the J1 service lid | P03, S08, S11 |
+| A14 | fasteners | ISO 7380 M2 × 6 / × 10, M2.5 × 6 / × 8, M3 × 6 (pivot only) + M2 × 6 thread-forming (one-time); bonded brass inserts or DIN 562 nuts; washers under every head on resin | D4 (M3 added for the pivot: an M2.5 washer Ø8 cannot overlap an Ø8 gear bore) |
+
+### 17.1 Vertical stack on the pan axis (rest, lift 0) – replaces §1.3/7
+| z | element | owner | note |
+|---|---|---|---|
+| −36.50 | neck bottom (B, fixed) | B | foot bonded to the FRONT half only |
+| −40.50…−36.50 | **L_pata = aluminium flat bar** 44.6 × 19.6 × 4.0 | pan | Ø11.0 through hole on the axis; DPS_krk slot at the +X end |
+| 0.15 | **rest gap** foot ↔ hub disc (0.10…0.20) | – | feeler 0.10 enters, 0.25 does not; correct with a 0.1 PET disc on the hub disc or by sanding the hub disc |
+| −41.90…−40.65 | P_sachta hub disc ring r 6.50…12.60 + back floor (same z) | pan | bonded on the gear top face (366 mm²) |
+| −45.90…−41.90 | **36T brass gear**, face 4.00, bore Ø8.00 H7 | pan (bought) | plain (no hub) |
+| −46.20…−45.90 | PTFE thrust washer 24.0 × 10.0 × 0.30 | ram | on the bridge / deck |
+| −48.20…−46.20 | **T_most** (Al bridge, 2.0) in a slot of **T_paluba** (resin deck 2.0) | ram | deck top −46.20 (was −46.00) |
+| −48.30…−48.20 | 0.10 shim strips (PET / PTFE 0.1, 2 strips 4 × 30 on the servo top) | ram | absorbs STS3215 height 35.0 ± 0.3 |
+| −83.30…−48.30 | STS3215 case (35.0) | ram | as rev. 1 |
+| −84.50…−83.30 | 4 corner pads 1.2 (compression only) – **window (air) under the rest of the case** | ram | S10 "≥ 1 mm air" option |
+Sum: 4.0 + 0.15 + 1.25 + 4.0 + 0.3 + 2.0 + 0.1 + 35.0 + 1.2 = 48.0 = (−36.5) − (−84.5). No other slack exists; the
+0.1 shims and the rest-gap disc are the only adjustments.
+
+Pivot / retention (static parts on the bridge; F15):
+| item | geometry |
+|---|---|
+| pivot boss `T_cap` (separate resin print, RAM) | Ø7.70 cylinder z −46.20…−41.80, root fillet R1.0 (inside the PTFE ID 10.0), bonded on the bridge (epoxy) and clamped by F15; centre hole Ø3.4 through; plain flat top face |
+| journal | PTFE tape 0.13 wrapped once on the boss → Ø7.96 running in the gear bore Ø8.00 H7 (radial 0.02…0.07); sand / second wrap to fit (gear turns freely, no shake) |
+| retention washer | DIN 9021 / ISO 7093-1 M3 (Ø3.2 × Ø9.0 × 0.8) on the boss top z −41.80…−41.00; overlaps the gear top face r 4.0…4.5; **axial play 0.10** (boss top 0.10 above the gear top; 0.05…0.20 allowed – sand the boss top or add a 0.1 PET disc Ø8/3.2 under the washer) |
+| screw F15 | ISO 7380 M3 × 6 (dk 5.7, k 1.65), head z −41.00…−39.35, tip −47.00, into the **tapped M3 hole of the Al bridge** (2.0 thick, 2.6 threads; metal) |
+| foot clearance | foot hole Ø11.0 (r 5.5): washer r 4.5 → 1.0 radial; head top −39.35 vs neck bottom −36.50 → 2.85; hub disc ring inner r 6.5 → 2.0 to the washer |
+| T_most (bridge) | Al 5754-H22 or 6061-T6 sheet 2.0, rectangle x −6.0…12.0, y −18.0…18.0 (18 × 36), corners R2; tapped M3 at (0, 0); 2 × Ø2.8 at (6.0, ±15.95) for F3; lies flush in a through slot of T_paluba (x −6.1…12.1, y −18.1…18.1); its underside rests on the shim strips over the servo; owner RAM |
+
+### 17.2 Pan drive
+**17.2.1 Gears (A3).** m 0.8, pressure angle 20°, 18T pinion (d 14.4, da 16.0) / 36T gear (d 28.8, da 30.4), C 21.600,
+PAN_AX (−5.85, −20.793) (unchanged), ratio 2 : 1, both teeth in z −45.90…−41.90, backlash target 0.04…0.08 (pan-servo tab
+holes slotted ±0.3, set C on assembly). Lewis (b 4.0): L3 0.6 N·m → Ft 41.7 N → gear 34.6 MPa / pinion 42.2 MPa; L8
+(STS3032 stall 4.5 kg·cm = 0.441 N·m at the pinion) → Ft 61.3 N → 50.8 / 62.0 MPa; rated 0.147 N·m → 16.9 / 20.6 MPa.
+Brass C3604 allowable taken as 100 MPa static (S01 assumption, UNVERIFIED) → margin ≥ 1.6; steel pinion ≥ 3.
+* **36T gear – buy:** plain (hubless) spur gear m0.8 36T, face 4.0, bore Ø8.00 H7, brass (C3604 / CuZn39Pb3) or steel.
+  Stock candidates: KHK BSS0.8-36 (brass series m0.5…1, face 4 for m0.8 – shape / bore UNVERIFIED), McMaster brass
+  0.8 mod 36T (face 4, hub Ø12 – listing shows an 8 mm bore; UNVERIFIED), Accu 0.8MOD brass A1-type (plain) – part
+  number UNVERIFIED. If only a hubbed or Ø5/Ø6-bore gear can be bought: a turner faces the hub off flush and bores Ø8.00 H7
+  true to the tip circle (≤ 0.02 runout) – 10 min of lathe work. **The gear is the only part that may need a lathe.**
+* **18T pinion – buy:** m0.8 18T, face ≥ 4.0 (teeth must cover z −45.90…−41.90), bore Ø5.00 H7, steel preferred (e.g.
+  RS PRO 878-7862: steel, 18T m0.8, bore 5, hub Ø12 – face / hub length UNVERIFIED) or brass (KHK BSS0.8-18). A hub is
+  allowed only BELOW the teeth (toward the servo), Ø ≤ 12.0.
+**17.2.2 Gear ↔ servo / stage (A4).**
+* Pinion on the STS3032 output spline (25T, tip Ø4.95 per reseller listings – UNVERIFIED; check that the spline is
+  METAL on the purchased servo): degrease, slide the Ø5.00 bore over the spline, Loctite 638 (or any anaerobic retaining
+  compound, gap ≤ 0.25), 24 h. No screw (a head on the pinion top would rise to z −40.3, inside the foot's sweep).
+  Engagement = spline length (3.5 modelled) ≥ 3.0. Capacity (10 MPa on π·4.95·3.0) ≈ 1.1 N·m vs stall 0.44 N·m.
+  Service: a new servo gets a new pinion (≈ 5 €) or heat the old one to 250 °C to release it.
+* **Pan-servo height follows the pinion:** servo boss top = pinion bottom − 0.30. For a plain pinion (no hub) the boss top
+  is z −46.20, case z −72.70…−49.70, tabs z −56.50…−54.00, tab-post tops z −56.50. A pinion with a hub of length h
+  lowers the servo by h: posts are modelled for h = 0 and shimmed down with M2 washers (0.3 / 0.5) – RAM models the post
+  top at −56.50 and a 6.0-deep pocket below the case for h ≤ 6 (case bottom ≥ −78.7, floor −82.3).
+* 36T gear on the stage: epoxy between the gear top face and the hub disc / back floor underside (annulus r 6.5…12.6 =
+  366 mm² + back floor over r 12.6…15.2 in stage az 8…140), centred by the boss during curing (assemble the stage on the
+  deck, gear on the taped boss, cure). Torque L8 0.88 N·m → 0.26 MPa on the bond (2.7 working) ✓. No dowels (F9 deleted).
+**17.2.3 FFC drum with a full gear (A5).** The gear stays whole. The drum is a printed C-shroud of P_sachta hanging from
+the back floor around the gear tips: r 15.50…16.70 (0.30 to the tip circle r 15.20), stage az 8.0…140.0, z −45.60…−41.90,
+end faces radiused R0.6; FFC retaining lip r 16.70…17.50, z −42.50…−41.90 on the same sector. The pinion zone at r ≤ 16.7
+is stage az 254.3 ± 18.4 − pan, i.e. never inside 8…140 for pan ±90. The FFC inner run lies on r 16.70.
+**17.2.4 Pan hard stop ±90° (A6).** Measured exclusion that drives the layout: the duct annulus r 15.2…25.1, z −46.2…−41.9 is
+FFC in the back half and the pinion orbit in the front (stage az 254.3 ∓ 90 ± 22); the deck cannot carry a 6 mm pin under
+the J1 servo (2.0 plate); any lug at r ≤ 26.5 would meet the static FFC wall (r 23.5…25.1). Therefore:
+* **Pins (static):** 2 × steel dowel Ø3 × 12 (ISO 8734 3 m6 × 12), bonded 6.0 deep (hole Ø3.05–3.10 drilled after curing)
+  in posts of T_spodok: pin 1 at r 30.0, B az 25.43° = (27.09, 12.89); pin 2 at r 30.0, B az 224.57° = (−21.37, −21.06).
+  Post Ø7.0, top z −50.60, pin top −44.60; pin 1 post stands on the floor (z −82.3…−50.6) with a rib to the cradle back
+  wall; pin 2 post is a bracket off the cradle front wall (z −57.6…−50.6, R2 roots), 1.62 clear of the pan-servo tab corner.
+* **Lug (rotating, on P_drziak_serva):** block r 27.60…31.60, stage az 118.3…131.7, z −47.20…−41.90, joined to the turret
+  end wall of the pocket by a bridge r 27.60…31.60, stage az 106.5…118.3, z −43.60…−39.90; all roots R1.5. Contact: the
+  block's CW face (az 118.3) meets pin 1 at pan −90.0, its CCW face (az 131.7) meets pin 2 at pan +90.0; engagement
+  z −47.20…−44.60 = 2.60 (2.50 with the 0.10 L1 rise); the bridge bottom is 1.0 above the pin tops; the block bottom is
+  1.0 above the cradle wall tops (−48.20). Loads: L3 0.6 N·m → 20 N, L8 (0.88 N·m at the stage) → 29 N; pin bearing
+  29/(3 × 2.6) = 3.7 MPa ✓; steel pin bending 29 N × 3.9 = 113 N·mm → 43 MPa ✓; lug root (4.0 × 4.9, lever 3.5): 6.4 MPa
+  at L8 nominal → **K12 must confirm ≤ 6 with the R1.5 roots (FE)**, otherwise widen the lug radially to r 27.1…31.6.
+* With the lift module out (service) the stage has no hard stop – turn it by hand only.
+* Firmware ±85°. The static deck (T_paluba) is trimmed to r ≤ 26.6 inside B az 16…232 (lug sweep).
+**17.2.5 Pan servo fixing (F4).** 2 × ISO 7380 M2 × 10 + DIN 125 M2 from above through the tab holes (x ±14.0) and the
+post (Ø2.3 clearance, slotted ±0.3 in the C direction) into DIN 562 M2 square nuts in side slots of the posts
+(nut slot 4.1 × 1.4, 1.5 below the post top, opening toward ±X). Posts: 6.0 × 7.5, R1 roots, part of T_spodok.
+
+### 17.3 Pan stage (PAN) – slim
+* **P_sachta:** every surface r ≤ 26.50 (check on the STL). Well inner 47.0 × 22.0, inner vertical corners R2.5 (corner wall
+  1.35 – declared local ≥ 1.2; neck corner clearance 0.59 measured by zjednodusenie m05). End walls and front wall 1.6
+  (declared, guide walls), back wall 2.0 (y 11.0…13.0) for x −6…20. Wall lower edges: z −40.90 in stage az 140…368
+  (≥ 1.0 above the pinion top −41.90), down to −41.90 in the back sector stage az 5…140. Top plate z −3.50…−2.00
+  (collar disc bonded at r > 24 as B). **Journal band** r 26.37 (resin), z −10.00…−3.00 + one PTFE tape 0.13 × 7 wide
+  → r 26.50; lead-in chamfer 0.5 at z −10.0. Hub disc / back floor 17.1. Drum shroud 17.2.3. Windows: back window
+  x −20.9…−6.5, y 11.0…13.0, z −40.9…−10.9 (ear + flange + crank, 1.0 clearance); end window +X wall y −6.5…6.5,
+  z −40.9…−15.0 (FFC moving leg + DPS_krk mouths). F10 pads: on the back wall outer face, face y 15.10, boss r 3.5,
+  R1 roots, at (x 19.5, z −31.7) and (x 8.0, z −14.5), bonded M2 inserts (OD 3.2 × 3.0, hole Ø3.3 × 3.3), dowel hole
+  Ø2.05 × 3.5 at (x 19.5, z −27.7). Delete: journal drum r 28.07, fin, apron, FPC groove, Ø4.8 tool hole, sealed pockets,
+  glue groove (keep a flat glue land r 24…26.5 on the top plate). Vents: the well is open at the bottom; no closed pocket.
+* **Lift module (P_drziak_serva + MG90S + crank + ear), removable through the door:** 17.5.
+* **PAN_ENV rev. 2** (stage frame, r about Z, any azimuth unless stated):
+  | z from | z to | r max | what |
+  |---|---|---|---|
+  | −47.20 | −41.90 | 31.60 only in stage az 106.5…131.7 (stop lug + bridge); elsewhere 17.50 | drum + lip |
+  | −41.90 | −40.90 | 26.50 in stage az 5…140; 12.60 elsewhere; plus the lift module (stage az 35…140) to 33.40 | back floor / hub disc |
+  | −40.90 | −17.00 | 33.40 | lift servo corner (16.0, 29.3) r 33.38 |
+  | −17.00 | −11.50 | 32.20 | lift module top, ear at TDC |
+  | −11.50 | 4.00 | 26.50 | journal, top plate, collar disc |
+  Shell margin (inner half depth b_i, a01): z −40.9: 37.5; −22: 35.60; −17: 34.64 → 1.24; −11.5: 33.36 → 1.16. Column
+  inner face x 34.4 → 1.00 to r 33.40. FFC lift loop r ≤ 31.7 and the pigtail loop r ≤ 31.4 are inside.
+
+### 17.4 J1, merged T_spodok, deck (RAM)
+* **T_spodok = old T_spodok + T_ram (one print, ≈ 90 × 61 × 96, fits 211 × 118 × 220).** Delete F2 and every F2 feature.
+  * Cap body, spigot (outline `SPIGOT_SE`, z −81.5…−78.0, fit 0.21…0.28): continuous except 4 notches 7.8 wide at the
+    T_stred bosses (boss r 3.4 + 0.5 per side; was 8.0); no notch within |x| 31.0…35.6 (backs the seam ends x ±33.3).
+  * **No skirt disc** (S11). Plinth r 24.0 (z −91…−84.5), foot ring r 21.0 (z −98…−91), 6805 seat **Ø37.15** slide fit +
+    epoxy (was 37.00 press + CA), shoulder r 17.0…18.5 at z −91. Pinion passage `J1_PASS` (r 10.8 about J1_AX, slot
+    ±0.3 in x) through floor and plinth as rev. 1.
+  * **J1 stop lug** 4.0 (tangential) × 4.0 (radial, r 17.0…21.0) × 4.0 (z −102.0…−98.0) at az 90°, R1.0 roots (or a
+    Ø3 × 10 steel pin bonded 6 deep in the foot ring at r 19.0, az 90°). Base stop block must span az 270° ± 19.0° at
+    r 17.0…21.0 for ±155° (base round).
+  * **Cradle** around the STS3215: long walls y ±(12.55…15.05) (2.5), x −32.2…25.8, z −82.3…−48.2 (top = deck seat),
+    −X end wall x −32.2…−29.7 (2.5); vertical inner corners and wall/floor roots R2.0 (R1.0 where the servo corner needs
+    it). +X end open (plug zone x 15.7…27.0, |y| ≤ 8, z −66.3…−48.3 stays empty). Bumper post at x 16.7…18.3, |y| ≤ 4,
+    z −83.3…−70.0 with a 1.0 PORON pad at the servo's +X end.
+  * **STS3215 support (S10, air option):** the case bottom (z −83.3) rests on 4 corner pads 5.0 × 5.0 (top z −83.3,
+    1.2 above the cap underside) at the 4 case-bottom corners; the rest of the case footprint (x −29.5…15.7, y ±12.35)
+    is a **window** through the cap floor (air to the base gap). Servo fixing: 4 × M2 through Ø2.4 holes in the pads,
+    slotted ±0.3 in x, into the servo's own case holes – **hole positions and thread are UNVERIFIED: measure the purchased
+    STS3215; RAM models the holes at the pad centres and lists the measurement as open.** C = 18.00 is set with 0.1 PET
+    shim strips between the case −X end (x −29.5) and the end wall (x −29.7, nominal 0.2 of shims); backlash target
+    0.03 at the pitch circle (P06; F5 deleted).
+  * **Columns (S08):** web x ±(34.4…37.4) (3.0) for y −9.0…15.0, ribs y −9.0…−6.5 and 12.5…15.0 to x ±42.0, foot
+    x ±(33.0…37.6), y −5…11, z −82.3…−78 widened into the floor with R2 gussets; **box closure** plate x ±(40.0…42.0),
+    y −9…15, z −52.0…−34.0 (above the boards; J ≈ 85 → ≈ 2200 mm⁴ there); shoulder boss disc r 11.6, x ±(34.4…38.4)
+    about (y 3, z −17), R2.0 into web and ribs; stop ring r 11.6…12.8, x ±(38.4…39.1) with backing flange r 12.8,
+    x ±(37.4…39.1); key slot 3.0 × 1.5 at az 0°; **F8 inserts M2 at r 7.5, az 60°, 180°, 300°** (≥ 60° from the key;
+    was 90/210/330 with a 0.6 wall); delete the Ø10 spring spigot (bush deferred, P08).
+  * **Pan-servo posts:** 2 posts 6.0 (x) × 7.5 (y) under the tabs x ±(11.25…17.25), y −24.6…−17.1, top z −56.50, DIN 562
+    slots (17.2.5), R1 roots to the cradle front wall.
+  * **Stop-pin posts** (17.2.4), **bridge bosses** for F3b at (6.0, ±15.95): r 3.4, z −52.5…−48.2 on the outer faces of
+    the long walls, bonded M2.5 inserts from the top. **Deck bosses** F3a at (20.0, ±13.8) and (−33.5, ±10.0): r 3.4,
+    z −52.5…−48.2, merged into the walls / column webs, bonded M2.5 inserts.
+  * **Carrier standoffs** (F7): 2 bosses r 3.25 on the cradle back wall at (x ±19.0, z −62.5), face y 16.50, bonded M2
+    inserts axis Y. **Board standoffs** (F14): buck on the right web, amp on the left web, Ø5.0 bosses 1.5 long (1.5 air,
+    S10), thread-forming M2 × 6 one-time + DIN 125 washers; a Ø4 vent through each web behind the board.
+  * **Capacitor saddle** (M07): 470 µF 10 V radial Ø10 × 13 lying along X at (x 6.0…19.0, y 20.2, z −77.0): 180°
+    saddle r 5.1 on the floor, 2.8 × 1.2 tie slot at x 12.5 (cable tie 2.5 mm), leads to the carrier's lower 5 V pads.
+  * **Cable tie saddles** (M16): 3 × saddle 4.0 wide with a 2.8 × 1.2 tie slot: cradle back wall at (x −10, y 15.05,
+    z −50.0); each column web inner face at (y 12.0, z −45.0) (arm / board wires up the columns).
+  * Floor slot for the base FFC: x −6.0…6.0, y 21.2…22.5 (12 wide for a 1.0 mm 10-pole FFC, 11.0 wide), continuing down
+    through the plinth wall to z −91.0 (rev. 1 slot 6.8 → 12.0; plinth skin outside the slot ≥ 1.2 – check).
+  * Drain / vent: 2 × Ø3 holes as rev. 1 + the servo window.
+* **T_paluba (deck lid, resin):** plate z −48.20…−46.20 (2.0) over the cradle; outline = rev. 1 deck incl. the back lobe
+  (r ≤ 25.1 for B az 0…180) but trimmed to r ≤ 26.6 inside B az 16…232 (stop-lug sweep) and with a through slot
+  x −6.1…12.1, y −18.1…18.1 for T_most (the deck becomes a "C" joined by the back lobe and the −X part). Static FFC wall
+  r 23.50…25.10, z −46.20…−43.00, B az 15…165; FFC slot through the deck r 22.4…23.6, B az 26…34 (3.0 + 0.3 wide for
+  the stacked pair, 1.0 radial); a 1.0 × 7.0 FFC slot in the cradle back wall at x 17.0…24.0, z −51.0…−50.0 (RAM, T_spodok)
+  leads the pair out to the carrier. 4 × F3a (M2.5 × 6). No pivot boss (it is on T_most); PTFE washer seat flush.
+* **T_most** (Al bridge): 17.1. Fixed by 2 × F3b ISO 7380 M2.5 × 6 + DIN 125 M2.5 into the bridge bosses.
+* **T_cap** (pivot boss, separate small resin print, owner RAM): cylinder Ø7.70 × 4.40 (z −46.20…−41.80), Ø3.4 hole,
+  edges R0.3; bonded (epoxy) on T_most around the tapped M3 hole and clamped by F15; PTFE tape wrap = journal (17.1).
+  It replaces the steel pin `cap_pan`. Print upright, top face to the plate is NOT allowed (journal face): print on its
+  axis, supports only on the bottom face.
+* **J1 pinion (A4):** m1 18T, face ≥ 4.0, bore Ø6.00 H7, brass (KHK BSS1-18B: m1, 18T, brass, bore 6 – face / hub
+  UNVERIFIED; Mädler 263 018 00: m1 18T brass with hub, face 6.5, OD 20 – usable if the hub is ≤ 0.9 and faces up).
+  Slid over the STS3215 spline (25T, tips Ø5.9; spline length below the boss 2.2 per the rev. 1 model – UNVERIFIED) with
+  Loctite 638, no screw. Gear plane **z −90.00…−86.00** (pinion top 0.1 below the boss end −85.9; bottom 1.0 above the
+  6805 top −91.0). Engaged length 2.1…2.2 → ≈ 1.1 N·m capacity: above the clutch (0.25…0.40 N·m) and the firmware limit
+  (≤ 30 % = 0.65 N·m); a locked clutch at stall (2.17 N·m) would release the bond before the brass teeth (244 MPa) yield –
+  the clutch is a SAFETY PART of the base.
+* **Base interface (rev. 2, replaces §5.4 where different):** sun gear m1 18T on the base hub, plane z −90.0…−86.0; base
+  top plane ≤ −86.0, opening r ≥ 29.0 down to −91.0; 6805 inner ring Ø25 on the hub z −98…−91 (hub −0.02/−0.06), the
+  hub retains the torso (≈ 30 N pull-off); **slip clutch 0.25…0.40 N·m after creep, steel / brass friction faces, steel
+  washers on both faces, positive key to the hub; bench test step in the instructions**; stop block az 270° ± 19.0°,
+  r 17.0…21.0, top ≥ −102.3; base FFC 1.0 mm pitch 10-pole (4 VBAT, 4 GND, DATA, WAKE) up through the floor slot to the
+  carrier ZIF; the J1 pinion orbit r 28.0 is hidden by the base (no skirt on the torso).
+* **Firmware:** STS3215 torque limit ≤ 30 %, temperature limit 65 °C (Feetech register; value UNVERIFIED), J1 ±150°.
+
+### 17.5 Lift module (PAN) – everything removable through the door
+* **MG90S** as rev. 1: shaft ‖X at (y 23.2, z −24.2), output −X; case x −6.5…16.0, y 17.1…29.3, z −41.1…−18.3; turret
+  x −12.5…−6.5 (r 5.9 + lobe r 2.9 at z −29.8); upper tab x −2.5…0.0, z −18.3…−13.45, hole Ø2.2 at z −15.85; the lower
+  tab is cut off. **Its spline count is UNVERIFIED (listings say 20T / 21T / 25T) – count the teeth of the purchased
+  servo before buying the arm.**
+* **Pocket = P_drziak_serva (resin, S02/S12):** turret end wall x −8.5…−6.5, y 15.1…29.3, z −41.9…−16.3 with a keyhole
+  hole (r 6.05 about (y 23.2, z −24.2) + r 3.05 about (23.2, −29.8)) – this hole carries the crank load (bearing
+  30/(11.8 × 2.0) = 1.3 MPa); bottom-cover end wall x 16.0…18.0, y 15.1…26.5, z −41.9…−18.3 with a 0.5 PORON pad on the
+  case end (pushes the case against the turret wall); back plate y 15.1…17.1, x −8.5…18.0, z −41.9…−13.0; tab post
+  x 0.0…8.0, y 17.1…26.2, z −18.0…−12.3 with a DIN 562 M2 slot (x 5.0…6.3, from the top) for F11; stop bridge + lug
+  (17.2.4). No floor under the case (a floor ≥ 2.0 would pass 0.2 over the static FFC wall top −43.0). All inside
+  roots R1.0, external edges ≥ R0.5. F10 holes Ø2.3 + dowel hole Ø2.05 at the pads (17.3). Everything inside PAN_ENV.
+* **Crank:** bought aluminium servo arm for the measured MG90S spline (single arm, ≥ 14 mm hole span, M2 clamp or
+  centre screw; e.g. "MG90S / SG90 aluminium servo arm 25T M2" – product UNVERIFIED), arm plane x −17.5…−15.5 (thickness
+  UNVERIFIED: shim to the 0.4 ear gap with 0.1 washers on the spline), hub toward the servo. Crank pin: steel dowel
+  ISO 8734 2 m6 × 8 pressed (metal–metal) + Loctite 638 into a Ø2.00 hole drilled at **r 10.00 ± 0.05** from the spline
+  axis (a ±0.1 error moves the stroke only ±0.2: dead centres), protruding −X to x −20.4 through the ear slot.
+  Fallback (P05) if no aluminium arm fits: the supplied POM horn with the pin in double shear (horn + 2.0 Al cover plate
+  riveted by the pin), K12 row with 9.4 MPa in the horn (zjednodusenie m05).
+* **Ear L_ucho (metal, S02/S14):** 5754-H22 aluminium 2.0 (or 304 stainless 1.5), one 90° bend (inner R 2.0 Al / 1.5 SS),
+  bend line ‖Z at the outer corner (x −19.9, y 9.9). Plate (y–z plane) x −19.9…−17.9, y 9.9…25.1, z −40.5…−31.9
+  (z_rel −6.3…+2.3 to the slot centre −34.2), far top corner chamfer 1.5; slot 2.20 wide (z −35.30…−33.10), y 11.6…24.3,
+  full-round ends. Flange (x–z plane) y 9.9…11.9, x −19.9…−7.5, z −40.5…−36.5. **Drawing (PNG + DXF flat pattern) by the
+  docs agent from these numbers.**
+* **Foot L_pata (metal):** aluminium flat bar 20 × 4 (EN AW-6060 / 6061 / 5754), cut 44.6 long, filed to 19.6 wide;
+  x ±22.3, y ±9.8, z −40.5…−36.5, corners R0.8. Features: Ø11.0 through hole at (0, 0); DPS_krk slot from the +X end
+  y −7.4…6.4, x 9.0…22.3 (through, 13.8 wide; prongs 2.4 and 3.4); 2 × M2 tapped holes along +Y in the back face
+  (y 9.8) at (x −15.0, z −38.5) and (x −9.0, z −38.5), drill Ø1.6 × 7, tap M2 × 5 (wall to the faces 1.0 Al). Bonded to the
+  FRONT neck half only (abrade, epoxy, release film under the back half). Mass ≈ 8.5 g.
+* **F12 ear → foot:** 2 × ISO 7380 M2 × 6 + DIN 125 M2 along −Y through the ear flange into the tapped foot (metal–metal;
+  S04 fix). L1 × 2 at lift 0 / 20: screw tension ≤ 100 N each (lever 2.0, 13.4 behind) → M2 8.8 at 47 MPa ✓.
+* **Rest gap / park:** foot underside −40.50 over the hub disc top −40.65 (0.15); firmware parks at lift 0 (crank
+  θ = 3°…177° working range, park θ = 3°).
+
+### 17.6 Cables, connectors, electronics (D2)
+* **Pan + lift FFC (A11):** 2 × stock FFC 0.5 mm pitch, **5 poles (width 3.0), length 203 mm, contacts same side (Type A)**,
+  stiffened ends 0.3 thick, flex ≈ 0.1 thick; e.g. Molex Premo-Flex 15166 series 5-circuit 203 mm Type A (exact part
+  number from the series table – UNVERIFIED; 6-circuit 203 mm is 0151660065, 0.12 thick per the Molex listing) or Würth
+  WR-FFC 0.5 mm 5p 200 mm. The two FFCs run STACKED (flat faces together) through the pan loop and separate only in the
+  last 15 mm at each end. Conductors: FFC-A 5V, 5V, GND, GND, TX; FFC-B 5V, GND, RX, PWM_TILT, PWM_LIFT (3 × 5 V, 3 × GND:
+  1.5 A per rail rated vs 1.4 A peak). Bend radii: pan U-turn R 3.2 (R/t 32), lift loop R 3.0 (R/t 30) – bench-cycle 10⁵.
+  * Route (stage frame unless B): carrier ZIFs (top edge) → up behind the cradle back wall → cradle wall slot
+    (x 17…24, z −51) → deck slot (B az 26…34, r 22.4…23.6) → static anchor = Kapton tape on the static wall inner face
+    at B az 30 → outer run on the wall r 23.5 → U-turn (B az 46.6…121.4 for pan ±90) → inner run on the drum r 16.70 →
+    rotating anchor (Kapton + epoxy dot) on the drum at stage az 14 → riser up the outside of the back floor at stage
+    az 14 (r 16.7…25.0, bonded flat, 0.3 groove) → fixed leg bonded flat on the +X end wall outer face (x 25.1,
+    y 0…3, z −41.0…−27.0) → flat U in the x–z plane R 3.0 (outer leg x ≤ 31.3) → moving leg into the end window →
+    2 ZIFs of DPS_krk (mouths at x 22.2, z −38.3…−37.8).
+  * Rolling loop numbers: drum r 16.70, wall r 23.50, U-turn R 3.2, k = 16.7 / (16.7 + 23.5) = 0.415; U-turn at B az
+    84.0 + 0.415 · pan; free length anchor-to-anchor 52.6 mm; drum wrap 32°…122°.
+  * Envelope `FFC_LIFT2`: x 25.1…31.3, y −3.5…3.5, z −41.5…−13.5 (lift 0…20), r ≤ 31.7.
+* **DPS_krk (new rigid PCB):** FR4 0.8, 13.0 (x 9.2…22.2) × 13.4 (y −6.9…6.5), in the foot slot with its top face at
+  z −37.0 (0.5 below the foot top, solder fillets clear the neck), bonded to the slot walls; underside: 2 × Hirose
+  **FH19SC-5S-0.5SH** (0.5 mm, 5 poles, ZIF, for 0.3 mm FFC, height 0.9…1.0 – UNVERIFIED for 5 poles; if not stocked use
+  FH19SC-6S with a 6-pole FFC pair and raise nothing: 3.5 FFC then has 0.6 to the wall top – K3 must accept, otherwise
+  keep 5 poles), mouths at x 22.2 facing +X, z −38.0…−37.0, bodies y −6.4…−1.2 and 0.2…5.4. Top face: 7 pads under
+  the neck wire exits (x 12.0…14.6: head 5V, GND, TX, RX at y 0…2.4; tilt servo 5V, GND, PWM at y −6.7…−3.7) + 3 pads
+  (x 20.0…22.0, y −6.0…−3.0) for the lift pigtail. Wires are soldered on the bench before bonding.
+* **Lift-servo pigtail:** 3 × AWG30 silicone, 70 mm, from DPS_krk out of the slot mouth → hanging loop beside the FFC
+  loop (x 25.1…30.0, y 4.0…7.0, z −41.0…−14.0) → inline Dupont 1 × 3 (2.54) female housing; the MG90S lead is shortened
+  to 60 mm with the male side; the plug pair is parked in a clip slot on the bracket post (x 4…8, y 26.2…28.0, z −16…−13).
+* **Carrier DPS_riadenie (rev. 2):** PCB 46.0 × 18.0 × 1.6, vertical, x −23.0…23.0, y 16.50…18.10 (all parts on the +Y
+  face, ≤ y 23.5), z −71.5…−53.5 (top 1.0 below the bridge / deck bosses). **ESP32-S3-Zero** (Waveshare, 23.5 × 18) on the
+  +Y face at x −0.5…23.0, USB-C mouth at (−0.5, ≈20.2, −62.5) **facing −X**; plug envelope x −21.0…−0.5, y 17.0…24.0,
+  z −66.5…−58.5 kept free (the plug and cable lie inside the door opening, M12). Connector zones on the −X half (mating
+  faces toward +Y = door, or FFC entry from the edge):
+  | ref | part (UNVERIFIED part numbers marked) | position (x, z) | to |
+  |---|---|---|---|
+  | J_PAN_A, J_PAN_B | Hirose FH12-5S-0.5SH(55), 0.5 mm, 5 p, ZIF, FFC from the top edge | x −22.5…−16.4 / −15.4…−9.3, z −57.5…−53.5 | pan / lift FFC pair |
+  | J_BUS_V | 3-pin 2.50 mm vertical header, Feetech/Molex-5264-compatible housing (e.g. Molex 5268-03A, UNVERIFIED) | x −8.5…−1.0, z −58.0…−53.5 | STS3215: **VBAT** / GND / DATA |
+  | J_J1 | Hirose FH12-10S-1SH(55), 1.0 mm, 10 p, ZIF, FFC from the bottom edge | x −22.5…−8.0, z −71.5…−67.0 | base FFC (4 VBAT, 4 GND, DATA, WAKE) |
+  | J_BUS_5 | as J_BUS_V | x −7.5…−0.5, z −71.5…−67.0 | STS3032: **5 V** / GND / DATA (listings give 4.8–6 V or 4–7.4 V – feed 5 V, safe for both) |
+  | LED, speaker | inline Dupont 1 × 3 (LED 5V/GND/DIN) and 1 × 2 (speaker, at the amplifier) in the pigtails | free in the door zone | unplugged before T_stred comes off |
+  | buck, amp, capacitor | soldered pigtails to pads at the −X / +X edges (static parts) | edges | MAX98357A: BCLK, LRC, DIN, 5V, GND |
+  Reach: every ZIF latch and header is at z −71.5…−53.5, x −22.5…0, y ≤ 21 – straight line from the door opening
+  (x ±28.25, z −72.25…−11.75) at pan 0 (the stage is above z −41.9). Pin table: docs agent, from the conductor lists above.
+* **Bus power (M14):** two separate headers (VBAT for STS3215, 5 V for STS3032); daisy chain removed.
+* **J1 crossing:** base FFC (1.0 mm, 10 p) through the floor slot; the slip ring is not used.
+
+### 17.7 Shells and front (OBAL)
+* **T_stred:** journal bore **r 26.65 for z −10.50…−2.00** (add the ring r 26.65…28.35 to the existing tube, then the
+  shoulder face at z −2.00; ring seat r 28.35 for z −2.00…4.00 unchanged; tube outer r 30.6 unchanged → wall 3.95);
+  lower edge chamfer 0.5 × 45°; bore tolerance r 26.65 +0.05/0 (sand to fit: the taped stage turns freely, no shake).
+  Recipe: add `tube_z(28.40, 26.65, −10.50, −2.00)` overlapping the old bore face by 0.05 (never coincident), on the cached
+  rev. 1 part; the extra resin is ≈ 2.9 g. F1 bosses r 3.2 → **3.4**, bonded M2.5 inserts (hole Ø3.6 × 4.3). Front-stack
+  bosses unchanged (thread-forming, one-time). **Door top-seam tongue:** along the door-opening top edge for |x| ≤ 20.6
+  (where the ledge is omitted) T_stred keeps the inner half of its wall (inset 1.1…2.2) 1.0 below the opening edge
+  (tongue z −12.75…−11.75); the door loses the same volume (17.7 door) – the seam line of sight ends on the tongue,
+  nothing enters PAN_ENV. Everything else of T_stred unchanged (approved exterior, seams, K8).
+* **T_dvere:** delete both hook tabs and their roots (P07, S15); top edge: the outer half (inset 0…1.1) runs to z −12.00
+  (seam 0.25), the inner half (inset 1.1…2.2) stops at z −13.00 (0.25 under the tongue) for |x| ≤ 20.6; ledge + 4 magnet
+  pairs locate it (unchanged); finger notch 12 × 1.2 × 0.85 in the bottom edge (OBAL DOOR_NOTCH) + suction cup Ø30 to open.
+* **T_bok_L / T_bok_P:** unchanged (one continuous seam lip, seat flange, notch r 14.0).
+* **T_klb_L / T_klb_P:** neck **x 38.6…40.6** (−0.2, m18: the cap flange 39.1…40.6 is always clamped); R0.5 at the
+  neck / body step (x 40.6) and at the body / end step (x 50.956), R1.0 where the 0.5 socket seam allows (m16); **F8 pattern
+  az 60°, 180°, 300°** (counterbores Ø4.2 to x 45.0, clearance Ø2.3); **magnets az 0°, 120°, 240°**; key 2.9 × 1.4 at
+  az 0°; bush bore Ø8.05 from the end face to x 44.0 + recess Ø10.2 to x 38.6 and the wire groove = **frozen arm
+  interface** (P08; T_puzdro + disc springs deleted, arm round).
+* **T_drziak_repro:** ring 1.6 → 2.0 thick, DIN 125 M2 washers under the 3 heads (m19). Front-bracket merge P10: **not done**
+  (keeps two small prints; the merged part would need a thin strap across the light box – no screw saved).
+* T_svetlovod, T_mriezka, T_drziak_led: unchanged (resin; T_svetlovod clear).
+
+### 17.8 Part list rev. 2 (owner = module that models it)
+| name | owner | grp | material | note |
+|---|---|---|---|---|
+| T_stred | obal | T | tough resin, painted white | bore step + shoulder, F1 r 3.4, door tongue |
+| T_bok_L, T_bok_P | obal | T | tough resin, white | unchanged |
+| T_dvere | obal | T | tough resin, white | hooks deleted, stepped top edge |
+| T_klb_L, T_klb_P | obal | T | tough resin, black | neck −0.2, R0.5, F8 / magnets turned |
+| T_svetlovod | obal | T | clear resin (standard allowed) | unchanged |
+| T_mriezka, T_drziak_led | obal | T | tough resin | unchanged |
+| T_drziak_repro | obal | T | tough resin | ring 2.0 |
+| **T_spodok** | ram | T | tough resin, black | merged with T_ram (17.4) |
+| T_paluba | ram | T | tough resin | deck lid 2.0, C-shape, FFC wall + slot |
+| **T_cap** | ram | T | tough resin | pivot boss Ø7.70 × 4.40 (new) |
+| **T_most** | ram | T | Al 5754-H22 / 6061-T6 sheet 2.0 (custom, hand cut) | pivot bridge 18 × 36, tapped M3 (new) |
+| Z_naboj_test | ram | Z | tough resin | bench stand; sun-gear stub to the new plane −90…−86; stop block az 270 ± 19.0 |
+| P_sachta | pan | P | tough resin, black | slim (17.3) |
+| P_drziak_serva | pan | P | tough resin | pocket + stop lug (17.5) |
+| **L_pata** | pan | L | Al flat bar 20 × 4 (custom, hand cut) | was resin |
+| **L_ucho** | pan | L | 304 stainless 1.5 (preferred) or 6061-T6 2.0 (custom, bent) | was POM |
+| koleso_pan | pan | P | bought: brass 36T m0.8 face 4 bore 8 H7 | was printed P_koleso |
+| pastorok_pan | ram | T | bought: steel / brass 18T m0.8 bore 5 | Loctite 638 on the spline |
+| pastorok_J1 | ram | T | bought: brass 18T m1 bore 6 | Loctite 638 on the spline |
+| rameno_zdvih | pan | P | bought: Al servo arm for the MG90S | replaces P_kluka |
+| cap_kluky | pan | P | steel dowel ISO 8734 2 m6 × 8 | pressed + 638 in the arm |
+| koliky_dorazu (2) | ram | T | steel dowel ISO 8734 3 m6 × 12 | bonded in T_spodok posts |
+| kolik_F10 | pan | P | steel dowel ISO 8734 2 m6 × 6 | bonded in the pad |
+| ffc_A, ffc_B | pan | P/L | 0.5 mm 5 p 203 mm Type A FFC | replaces fpc_pan |
+| DPS_krk | pan | L | FR4 0.8 + 2 × FH19SC-5S-0.5SH | new |
+| pigtail_zdvih | pan | L | 3 × AWG30 + Dupont 1 × 3 | new |
+| DPS_riadenie | ram | T | carrier (17.6) | new layout |
+| servo_J1, servo_pan, servo_zdvih, menic, zosilnovac, kondenzator, reproduktor, DPS_led, magnets, 6805 | as rev. 1 | | | positions per 17.2 / 17.4 / 17.6 |
+| ptfe_podlozka | ram | T | PTFE 24 × 10 × 0.3 | ID 12.4 → 10.0 |
+| ptfe_pas_capu, ptfe_cap | pan / ram | | PTFE tape 0.13 | journal band 7 × 167; boss wrap 4.4 × 25 |
+| podlozky_J1 | ram | T | PET 0.1 strips 4 × 30 (2–6) | J1 top shim + C shims |
+| **deleted** | – | – | – | T_ram (merged), T_prichytka_fpc, T_puzdro_L/P, P_koleso, P_kluka, L_jazyk, fpc_pan, spoj_zdvih, cap_pan, kolik_dorazu (old), koliky_kolesa, kolik_ucha, F2, F5, F6, F9, skr_fpc, skr_jazyka, skr_kluky, disc springs, all heat-set inserts |
+
+### 17.9 Fasteners, inserts, drill, torque (S03, Z3.4–Z3.6)
+**Screws (all ISO 7380-1 button head, steel 10.9 / A2 – M2 / M2.5 sizes are catalogue nominal, UNVERIFIED: M2 dk 3.5 k 1.3,
+M2.5 dk 4.7 k 1.375, M3 dk 5.7 k 1.65).**
+| # | joint | qty | screw | washer | into | direction / position |
+|---|---|---|---|---|---|---|
+| F1 | T_spodok → T_stred | 4 | M2.5 × 8 | DIN 125 M2.5 | bonded M2.5 insert, T_stred boss r 3.4 | +Z from below at (±29.0, ±19.0); Ø3.2 holes (float, M11), counterbore Ø6.5 × 1.9 in the pad |
+| F3a | T_paluba → T_spodok | 4 | M2.5 × 6 | DIN 125 M2.5 | bonded M2.5 insert, boss r 3.4 | −Z at (20.0, ±13.8), (−33.5, ±10.0) |
+| F3b | T_most → T_spodok | 2 | M2.5 × 6 | DIN 125 M2.5 | bonded M2.5 insert, boss r 3.4 | −Z at (6.0, ±15.95) |
+| F4 | pan servo tabs | 2 | M2 × 10 | DIN 125 M2 | DIN 562 M2 nut in the post | −Z at (±14.0, −20.79), slotted ±0.3 |
+| F7 | carrier | 2 | M2 × 6 | DIN 125 M2 | bonded M2 insert, boss r 3.25 | −Y (door) at (±19.0, z −62.5) |
+| F8 | T_klb → column | 3 + 3 | M2 × 10 | DIN 125 M2 | bonded M2 insert, column boss | ∓X, r 7.5 at az 60/180/300 |
+| F10 | lift module → well | 2 + dowel | M2 × 6 | DIN 125 M2 | bonded M2 insert, pad r 3.5 | −Y at (19.5, −31.7), (8.0, −14.5); dowel at (19.5, −27.7) |
+| F11 | MG90S upper tab | 1 | M2 × 10 | DIN 125 M2 | DIN 562 M2 nut in the post | +X at (y 23.2, z −15.85) |
+| F12 | ear → foot | 2 | M2 × 6 | DIN 125 M2 | tapped M2 in the Al foot (metal) | −Y at (−15.0, −38.5), (−9.0, −38.5) |
+| F13 | LED holder, speaker ring | 2 + 3 | M2 × 6 thread-forming for plastics (e.g. EJOT PT K20 class, one-time) | DIN 125 M2 | pilot Ø1.7, boss Ø5, engagement ≥ 4 | as rev. 1 |
+| F14 | buck, amplifier | 2 + 2 | M2 × 6 thread-forming, one-time | DIN 125 M2 | pilot Ø1.7, boss Ø5 × 1.5 standoff + web | ±X |
+| F15 | pivot | 1 | **M3 × 6** | DIN 9021 M3 (Ø9 × 0.8) | tapped M3 in T_most (metal) | −Z on the axis, through T_cap |
+| F16 | J1 servo | 4 | M2 × 6 (thread of the servo case UNVERIFIED) | DIN 125 M2 | servo case holes | +Z from below through the pads |
+Kinds: M2 × 6, M2 × 10, M2.5 × 6, M2.5 × 8, M3 × 6 + one thread-forming M2 × 6. No countersunk head anywhere in resin, no
+heat-set insert, no thread cut in resin that is opened in service.
+**Inserts / nuts:** brass knurled inserts bonded with epoxy – M2: OD 3.2 × 3.0, hole Ø3.3 × 3.3 (+ Ø2.3 pilot 1.0), boss
+r ≥ 3.25; M2.5: OD 3.5 × 4.0, hole Ø3.6 × 4.3 (+ Ø2.8 pilot 1.0), boss r ≥ 3.4; engagement ≥ 3.0. Square nuts DIN 562 M2
+(4.0 × 4.0 × 1.2): slot 4.1 × 1.35, ≥ 1.5 resin to every free edge.
+**Drill / ream after curing** (sharp HSS, low speed, pecking; holes are modelled at FINAL size): Ø1.6 M2 tap drill (Al
+foot); Ø1.7 thread-forming pilots; Ø2.0 crank-pin hole in the Al arm (metal press); Ø2.05 F10 dowel; Ø2.3 M2 clearance;
+Ø2.4 F16 (file the ±0.3 slot); Ø2.5 M3 tap drill (T_most); Ø2.8 M2.5 clearance; Ø3.05–3.10 stop pins (6.0 deep); Ø3.2
+F1 float holes; Ø3.3 / Ø3.6 inserts; Ø3.4 T_cap; Ø5.1 / Ø3.1 magnets; Ø11.0 Al foot (step drill); 8.00 H7 36T gear bore
+only if bought smaller (lathe); 26.65 bore / 26.50 journal / 7.96 boss: sand to fit with the PTFE tape; Ø37.15 6805
+seat: sand to a slide fit, then epoxy.
+**Torque (L7, S03):** M2 into a bonded insert ≤ 0.05 N·m; M2.5 into a bonded insert ≤ 0.09 N·m; M2 into a DIN 562 nut with
+the head on resin ≤ 0.05 N·m; M2 thread-forming one-time: seat + 1/8 turn (≤ 0.04 N·m); M2 metal–metal (F12) 0.15 N·m
++ Loctite 222; M3 into T_most through T_cap (F15) ≤ 0.12 N·m + Loctite 222 (T_cap compression ≤ 5 MPa); F16 ≤ 0.05 N·m.
+Retaining compound Loctite 638 (or equivalent) only metal–metal: both pinions on their splines, crank pin in the arm.
+**Washers:** DIN 125 M2 (2.2 × 5 × 0.3) × 26; DIN 125 M2.5 (2.7 × 6 × 0.5) × 10; DIN 9021 M3 (3.2 × 9 × 0.8) × 1; PET
+shim 0.1 strips; PTFE 24 × 10 × 0.3 thrust washer.
+
+### 17.10 Load paths with numbers (to be recomputed on the final geometry by K12)
+Limits (Z2/Z4): resin 12 MPa static, 6 MPa sustained / unfilleted notch / abuse (SF 2), epoxy 2.7 MPa working
+(8 MPa assumed ultimate); metal parts against their own yield. Numbers below are hand calculations on the 17.x geometry.
+**L1 – 15 N up on the head, × 2 = 30 N (lift 0 and 20):**
+| interface | element | stress / force | limit | margin |
+|---|---|---|---|---|
+| neck → foot | epoxy, front neck half on Al (45 × 10) | 0.59 MPa peel (rev. 1 p04 geometry) | ≈ 2 | 3.4 |
+| foot → ear | F12 2 × M2 tapped Al, prying lever 2.0 / 13.4 | 100 N per screw → 48 MPa (A_s 2.07) | 640 (8.8) | ≫ |
+| ear | 304 1.5 / 6061-T6 2.0 | 18…24 MPa (rev. 1 FE 14.5 MPa scaled to the metal section) | 215 / 240 | ≥ 9 |
+| crank pin Ø2 | shear / bending (lever 1.9) | 9.5 / 73 MPa | ≈ 400 | ≥ 5 |
+| MG90S output | side load 30 N, 6 mm outboard | – | not published | **risk (UNVERIFIED)** |
+| turret keyhole | bearing on Ø11.8 × 2.0 | 1.3 MPa | 6 | 4.6 |
+| bracket → well | F10 2 × M2 bonded inserts + dowel | 15 N per insert → 0.5 MPa bond | 2.7 | 5.4 |
+| well → gear | epoxy hub disc ↔ gear, 366 mm² | 0.08 MPa (× 3 peel 0.25) | 2.7 | ≥ 10 |
+| gear → washer | DIN 9021 M3 on brass r 4.0…4.5 (13.4 mm²) | 2.2 MPa | brass | ≫ |
+| F15 → T_most | M3 in 2.0 Al (2.6 threads) | 30 N | ≈ 1.3 kN strip | ≫ |
+| T_most | Al 2.0 × 18, span 31.9 | 19.9 MPa, deflection 0.02 | 130 (5754) | 6.5 |
+| T_most → T_spodok | F3b 2 × M2.5 bonded inserts | 15 N per insert → 0.34 MPa | 2.7 | 8 |
+| → base | cradle walls → floor → plinth → 6805 → base hub | 30 N | – | ≫ |
+The stop pins stay engaged under L1 (play 0.10, engagement 2.50 left).
+**L2 – 30 N down:**
+* lift 0: the chain foot → ear → pin → arm → MG90S (crank at BDC, no servo torque) → keyhole wall deflects / MG90S
+  output play ≥ 0.1 (UNVERIFIED) until the 0.15 rest gap closes, then: foot (Al) on the hub disc ring (366 mm² → 0.08 MPa)
+  → gear → PTFE washer (389 mm² → 0.08 MPa) → T_most / deck → 0.1 shims (240 mm² → 0.13 MPa) → STS3215 case → 4 corner
+  pads (100 mm² → 0.30 MPa) → cap floor → plinth → 6805 (0.24 MPa, rev. 1 p08) → base. Before the gap closes the chain
+  carries at most what it carries at lift 20 (below).
+* lift 20 (TDC, no landing): ear 60 MPa (rev. 1 FE on the resin outline) → 75 MPa in 6061-T6 2.0 (margin 3.2) / 100 MPa in
+  304 1.5 (2.15); slot bearing 7.5 MPa (metal); turret keyhole 1.3 MPa; F11 / F10 rows as L1 × 1.0; pad roots r 3.5 + R1:
+  8.2 MPa (rev. 1, r 3.0 sharp) × (3.0/3.5)³ / 1.3 ≈ 4.0 MPa ✓.
+* mid lift: the crank back-drives the MG90S (0.30 N·m > stall 0.216 N·m) and the head sinks onto the hub disc – by design.
+**L3 / L8 – pan:** gear teeth 34.6 / 50.8 MPa (36T brass), 42.2 / 62.0 MPa (18T); pivot journal 44 / 65 N radial on the
+taped boss Ø7.96 × 4.0 → 1.4 / 2.0 MPa (Z3.8 ≤ 5 ✓); T_cap root (clamped by F15 at 200 N; moment 65 N × 2.3) – K12 FE;
+stop at ±90: 20 / 29 N on the Ø3 pins (bearing 3.7 MPa, pin 43 MPa), lug root 6.4 MPa nominal → K12 (R1.5, widen if > 6);
+stop torque into the lift module joint F10 + dowel (K12 row).
+**L4 / L8 – J1:** slip clutch 0.25…0.40 N·m (base safety part) → J1 pinion (m1 18T b 4.0 brass) Ft 44 N → 36 MPa; cradle
+walls 2.5 → 1.2…2.5 MPa (rev. 1 3…6 MPa at 1.6 × (1.6/2.5)²); stop lug 4 × 4 R1 at the clutch limit 21 N → 3.9 MPa
+(a hand cannot exceed the clutch); locked clutch at STS3215 stall: the 638 joint releases at ≈ 1.1 N·m before the teeth
+yield (244 MPa at 2.17 N·m).
+**L5 / L6 – arm:** column web 3.0 + box closure z −52…−34 + R2 roots: K12 recomputes rows 42–46 of `overenie_pevnost.md`
+(U-channel 23…26 MPa in rev. 1 – the box and the 3.0 web must bring them ≤ 6, otherwise the box closure is extended down).
+**L7:** torque table 17.9; door pull-off: hooks deleted, 4 magnet pairs ≈ 24 N; nothing handled is < 1.2.
+
+### 17.11 Assembly order (bench groups B, torso steps T; direction per step, K7 rows)
+* **B1 T_spodok:** drill / ream per 17.9; bond inserts F3a (4), F3b (2), F7 (2), F8 (6); bond the stop pins (6.0 deep,
+  24 h); 6805 into the Ø37.15 seat with epoxy; tie saddles and capacitor saddle clean.
+* **B2 deck set:** cut / drill / tap T_most; bond T_cap on T_most (centred by a temporary M3 screw, 24 h); PTFE tape on
+  T_cap; static FFC anchor area on T_paluba cleaned.
+* **B3 T_stred:** F1 inserts (bonded), magnets, front stack (F13), LED / speaker pigtails with inline plugs.
+* **B4 stage:** PTFE tape on the journal band; bond the 36T gear under the hub disc (gear tips centred in the drum shroud
+  with a 0.3 shim strip, 24 h); F10 inserts + dowel; FFC pair: rotating anchor on the drum (stage az 14), riser, fixed
+  leg bonded on the +X end wall; both FFC tails left free at the carrier end.
+* **B5 lift module:** MG90S into P_drziak_serva (PORON pad, F11 + nut); Al arm: drill Ø2.00 at r 10.00, press the pin
+  + 638; arm on the spline at BDC (servo at θ 3°, 500…520 µs – set with a tester), arm screw.
+* **B6 neck:** B montáž 1–8; Al foot (drilled, slotted, tapped) bonded to the FRONT half only; DPS_krk: 7 neck wires +
+  pigtail soldered, board bonded into the foot slot; test the tilt servo through the ZIFs on the bench.
+* **B7 pinions:** pan pinion on the STS3032 spline (638, 24 h); J1 pinion on the STS3215 spline (638, 24 h).
+| T | step | direction / access |
+|---|---|---|
+| 1 | STS3215 + pinion into the cradle (pinion through J1_PASS), F16 × 4 from below loose; C 18.00 with shims on the dummy hub; F16 tight | −Z, then +Z tools from below |
+| 2 | STS3032 + pinion onto the posts, F4 loose (C set in T7) | −Z |
+| 3 | shim strips on the STS3215 top; T_paluba (F3a), T_most + T_cap into the slot (F3b), PTFE washer | −Z |
+| 4 | carrier (F7), buck / amp (F14), capacitor (saddle + tie), wiring in the tie saddles; FFC pair: carrier ZIFs → cradle-wall slot → deck slot → static anchor; bench test on Z_naboj_test | ±X, −Y |
+| 5 | T_stred over the tower, F1 loose; plug LED + speaker inline plugs through the door | −Z |
+| 6 | glue `golier_prstenec` on the new shoulder z −2.0 (flat plate on top) | −Z |
+| 7 | stage (gear + FFC loop) down through the ring onto T_cap / PTFE; F15 + DIN 9021 through the empty well (hex 2.0, straight on the axis); check axial play 0.10; set pan C / backlash and tighten F4 with a ball-end 1.3 hex through the bore (straight tools at r 25.2 touch the bore); spin ±85 by hand (no stop yet!) – then tighten F1 | −Z |
+| 8 | lift module through the door onto the pads (dowel), F10 × 2 | door, pan 0 |
+| 9 | neck from above (B 9) | −Z |
+| 10 | pan +85: FFC pair into the DPS_krk ZIFs, pigtail plug to the MG90S plug, plug into the post clip | door |
+| 11 | pan 0, crank at BDC: ear onto the pin, F12 × 2; cycle lift 0…20; rest gap 0.10…0.20 (feeler) | door |
+| 12 | `golier_kotuc` (B 10) glued on the stage top | −Z |
+| 13 | T_bok_L / T_bok_P, T_klb (F8) | ∓X |
+| 14 | door | −Y |
+| 15 | head (B 11–21) | – |
+| 16 | torso onto the base (base FFC into J_J1 through the door before closing it) | −Z |
+**Service (every servo; reverse of the steps named):**
+* **Tilt MG90S (in the neck):** head off (B E1–E5) → door, pan +85: open the 2 DPS_krk ZIFs, unplug the pigtail → pan 0:
+  F12 × 2, ear off the pin through the door → neck + foot + DPS_krk up through the disc slot (board 13.4 < slot 20.5) → B E7.
+* **Lift MG90S:** door: pigtail (pan +85); F12 + ear (pan 0); F10 × 2 → lift module out through the door → F11 on the bench.
+* **Pan STS3032 / pan pinion / FFC pair / gear:** neck out + lift module out (above) → F15 out → open the carrier ZIFs →
+  fold the lift-loop leg flat on the end wall (r ≤ 26.3, Kapton) → stage + gear + FFC pair up through the ring → torso
+  off the base, F1 × 4, T_klb / T_bok off, LED / speaker plugs off → T_stred up → F4 × 2 → servo out (its case corner r 29.5
+  cannot pass the r 26.65 bore – T_stred must come off).
+* **J1 STS3215:** as pan + F3a × 4, F3b × 2 → deck + bridge off → F16 × 4 from below → servo up with its pinion.
+* **Carrier / buck / amp:** carrier through the door (F7, ZIFs, plugs); buck / amp: side caps off (T_klb F8, slide ±X).
+
+### 17.12 Zones and ownership (rev. 2) – supersedes §12 where different
+| owner | owns (parts) | zone |
+|---|---|---|
+| **OBAL** | T_stred, T_bok_L/P, T_dvere, T_klb_L/P, T_svetlovod, T_mriezka, T_drziak_led, T_drziak_repro, magnets, speaker, DPS_led | shell between the exterior and inset 2.2; collar tube r ≤ 30.6, z ≥ −10.5 **with the bore r 26.65 (z −10.5…−2.0)**; door ledge / pads / tongue; socket tubes; seam lip; 4 F1 bosses (r 3.4, x ±(25.6…32.4), \|y\| ≥ 15.6, z −81…−75); front stack (rev. 1) |
+| **RAM** | T_spodok (merged), T_paluba, T_cap, T_most, Z_naboj_test, servo_J1 + pastorok_J1, servo_pan + pastorok_pan, stop pins, carrier + ESP32, buck, amp, capacitor, PTFE washer, shims, all F1/F3/F4/F7/F8/F14/F15/F16 hardware | tower inside the lip outline − 0.5 (\|x\| ≤ 33.3, z > −78) and the tub − 0.3 below; columns \|x\| 34.4…42.0; everything below z −84.5; deck up to z −46.20 (r ≤ 26.6 in B az 16…232 except the FFC wall r 23.5…25.1 up to −43.0, B az 15…165, and the 2 stop pins up to −44.6 at r 30.0); T_cap up to −41.80 + washer / F15 head up to −39.35 at r ≤ 4.5; pan pinion r 8.0 about PAN_AX, z −45.9…−41.9 |
+| **PAN** | P_sachta, P_drziak_serva, koleso_pan (36T), rameno_zdvih + cap_kluky, servo_zdvih, L_ucho, L_pata, DPS_krk, FFC pair, pigtail, kolik_F10, PTFE tapes on the stage, F10/F11/F12 hardware | PAN_ENV rev. 2 (17.3) swept over pan −90…90, lift parts additionally 0…20; the FFC static run (deck slot → static wall) and the carrier ends of the FFC are PAN's cable inside RAM's zone (RAM models the slot / wall, PAN models the cable) |
+Shared interfaces (provider → user, numbers in 17.x):
+| interface | provider | user | numbers |
+|---|---|---|---|
+| journal bore r 26.65, z −10.5…−2.0, shoulder z −2.0 | OBAL | PAN (journal r 26.50), B ring | 17.7 |
+| T_cap Ø7.96 taped, top −41.80, washer Ø9, F15 head ≤ −39.35, r ≤ 4.5 | RAM | PAN (gear bore 8.00, foot hole Ø11) | 17.1 |
+| PTFE plane −46.20 / −45.90, ID 10 OD 24 | RAM | PAN (gear bottom) | 17.1 |
+| gear plane −45.90…−41.90, C 21.600 at PAN_AX | RAM (pinion) | PAN (36T) | 17.2 |
+| static FFC wall r 23.5…25.1 top −43.0, deck slot B az 26…34, cradle-wall slot | RAM | PAN (FFC) | 17.6 |
+| stop pins r 30.0 at B az 25.43 / 224.57, top −44.60 | RAM | PAN (lug) | 17.2.4 |
+| carrier ZIF positions, FFC entry from the top edge | RAM | PAN (FFC length 203) | 17.6 |
+| door opening x ±28.25, z −72.25…−11.75 = tool / plug access | OBAL | RAM, PAN | 17.11 |
+| spigot, F1 bosses, Ø3.2 holes | RAM | OBAL | 17.4 / 17.7 |
+| column boss face x ±38.4, stop ring ±39.1, key az 0, F8 az 60/180/300 | RAM | OBAL (T_klb, T_bok) | 17.4 / 17.7 |
+| foot top z −36.5 = neck bottom, wire exits x 12.0…14.6 | B | PAN (foot, DPS_krk) | 17.5 |
+| base interface | RAM | base round | 17.4 |
+
+### 17.13 Open / UNVERIFIED (do not treat as passed)
+1. Bought-part data from search snippets only (vendor pages unreachable): STS3032 spline (25T, tip Ø4.95) and voltage
+   (4.8–6 V vs 4–7.4 V → fed 5 V), STS3215 case-hole positions / thread (F16) and spline length (2.2), MG90S spline count
+   (20T / 21T / 25T claims) → aluminium arm product, gear part numbers (KHK BSS0.8-36 / -18 shape and bore, RS PRO 878-7862
+   face / hub, KHK BSS1-18B face), 5-pole FH12 / FH19SC and 15166 part numbers, ISO 7380 M2 / M2.5 head sizes.
+2. MG90S output side-load rating (L1 / L2 30 N) – not published.
+3. K12 must confirm by FE: stop lug root (6.4 MPa nominal), T_cap root under the pan radial load, column box (L5), the
+   F10 joint under the stop torque.
+4. Epoxy shear 8 MPa (assumed), Loctite 638 on splines ≈ 10 MPa effective (assumed; spline engagement 2.2 on J1).
+5. FFC bend life at R/t 30–32: bench-cycle 10⁵ before trusting it.
+6. Feetech temperature-limit register value (firmware 65 °C target).
+
+### 17.14 Checks run by the architect and the builders' task lists
+* `python -c "import t4_common as C; C.rev2_check()"` (numbers only, no CAD): stack 48.00 = 48.00; stage ↔ ring 0.248;
+  journal 0.15; tube wall 3.95; C(pan) 21.600 from PAN_AX; pivot radial 0.02; washer overlap 0.50; stop pins at B az
+  25.44 / 224.56 from the lug faces (r 30.0 → (27.09, 12.88), (−21.37, −21.05)), engagement 2.60, bridge 1.00 over the
+  pins, lug 1.00 over the cradle; drum vs pinion zone 3.36° / 3.94° = 1.03 / 1.20 mm at r 17.5; rolling loop k 0.415,
+  U-turn B az 46.6…121.4 (stage az 31.4…136.6, inside the drum sector 8…140), U-turn R 3.3 (single strip; 3.2 for the
+  pair); duct 4.30, FFC wall ↔ floor 1.10; PAN_ENV2 ↔ shell 1.25 (z −40.9…−17), 1.16 (−17…−11.5), 1.84 (top); column
+  ↔ PAN_ENV2 1.00; lip margins: stop post 1 6.69, post 2 1.18, carrier corner 1.80; F3a head ↔ lug 1.01.
+* `python t4_common.py` (rev. 1 self-test, rev. 2 block imported): exit 0, 30 s (log `rev2_arch/t4_common_selftest.log`).
+* NOT run: any CAD of rev. 2, K1–K13. The task lists given to the builders are saved as `rev2_arch/ULOHA_pan.md`,
+  `ULOHA_ram.md`, `ULOHA_obal.md`.
