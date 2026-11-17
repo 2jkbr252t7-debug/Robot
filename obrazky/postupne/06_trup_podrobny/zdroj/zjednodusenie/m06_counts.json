@@ -1,0 +1,48 @@
+{
+ "before": {
+  "parts": 148,
+  "printed": 24
+ },
+ "removed": 31,
+ "added": 16,
+ "missing_names": [],
+ "after": {
+  "parts": 133,
+  "printed": 18,
+  "printed_list": [
+   "L_pata",
+   "L_ucho",
+   "P_drziak_serva",
+   "P_koleso",
+   "P_sachta",
+   "T_bok_L",
+   "T_bok_P",
+   "T_drziak_led",
+   "T_drziak_repro",
+   "T_dvere",
+   "T_klb_L",
+   "T_klb_P",
+   "T_mriezka",
+   "T_paluba",
+   "T_spodok",
+   "T_stred",
+   "T_svetlovod",
+   "Z_naboj_test"
+  ],
+  "printed_if_front_bracket_merge": 17
+ },
+ "screw_kinds_after": [
+  "M2x6 ISO 7380",
+  "M2x10 ISO 7380",
+  "M2.5x6 ISO 7380",
+  "M2.5x8 ISO 7380",
+  "M2x6 thread-forming for plastics (F13, F14 one-time joints)",
+  "M3x8 ISO 10642 (J1 pinion, bought-part joint)",
+  "screws supplied with the servos (pan pinion, MG90S horn)"
+ ],
+ "insert_nut_kinds_after": [
+  "brass knurled insert M2 OD 3.2 x 3.0 (bonded)",
+  "brass knurled insert M2.5 OD 3.5 x 3.5..4.0 (bonded)",
+  "square nut DIN 562 M2"
+ ]
+}

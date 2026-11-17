@@ -1,0 +1,240 @@
+{
+ "grid_mm": 0.5,
+ "candidates": [
+  {
+   "name": "+X end exterior: lift-loop zone (present FPC_LIFT x 25.2..28.4)",
+   "box": [
+    25.4,
+    31.0,
+    -6.0,
+    6.0,
+    -41.2,
+    -13.5
+   ],
+   "free_fraction": 0.887,
+   "cells": 16800
+  },
+  {
+   "name": "+X end exterior, lower half",
+   "box": [
+    25.4,
+    31.0,
+    -8.0,
+    8.0,
+    -41.2,
+    -24.0
+   ],
+   "free_fraction": 0.876,
+   "cells": 13860
+  },
+  {
+   "name": "-X end exterior (|y|<=8)",
+   "box": [
+    -31.0,
+    -25.4,
+    -8.0,
+    8.0,
+    -41.2,
+    -13.5
+   ],
+   "free_fraction": 0.916,
+   "cells": 22176
+  },
+  {
+   "name": "-X end exterior, lower half",
+   "box": [
+    -31.0,
+    -25.4,
+    -8.0,
+    8.0,
+    -41.2,
+    -24.0
+   ],
+   "free_fraction": 0.917,
+   "cells": 13860
+  },
+  {
+   "name": "front face exterior (y -13..-20, inside r 26.5)",
+   "box": [
+    -16.0,
+    16.0,
+    -20.0,
+    -13.0,
+    -41.2,
+    -12.0
+   ],
+   "free_fraction": 0.933,
+   "cells": 57525
+  },
+  {
+   "name": "front face exterior, lower part",
+   "box": [
+    -12.0,
+    12.0,
+    -19.0,
+    -13.0,
+    -41.2,
+    -26.0
+   ],
+   "free_fraction": 0.923,
+   "cells": 19747
+  },
+  {
+   "name": "back-right corner beside bracket",
+   "box": [
+    23.0,
+    30.0,
+    12.8,
+    17.0,
+    -41.2,
+    -22.0
+   ],
+   "free_fraction": 0.887,
+   "cells": 5265
+  },
+  {
+   "name": "back-right corner below the bracket lug (present micro junction)",
+   "box": [
+    16.6,
+    23.0,
+    12.8,
+    18.3,
+    -41.2,
+    -36.8
+   ],
+   "free_fraction": 0.367,
+   "cells": 1287
+  }
+ ],
+ "front_free_cells_within_r26.2": 100661,
+ "front_free_bbox_within_r26.2": [
+  -22.0,
+  22.0,
+  -26.0,
+  -13.5,
+  -41.0,
+  -11.0
+ ],
+ "door_line_of_sight(fraction of 81 lines from the opening)": [
+  {
+   "target": "+X end, low (pan +85)",
+   "stage_pt": [
+    28.0,
+    0.0,
+    -38.0
+   ],
+   "pan": 85.0,
+   "torso_pt": [
+    2.44,
+    27.89,
+    -38.0
+   ],
+   "free": 1.0
+  },
+  {
+   "target": "+X end, mid (pan +85)",
+   "stage_pt": [
+    28.0,
+    0.0,
+    -30.0
+   ],
+   "pan": 85.0,
+   "torso_pt": [
+    2.44,
+    27.89,
+    -30.0
+   ],
+   "free": 1.0
+  },
+  {
+   "target": "+X end window at the foot (pan +85)",
+   "stage_pt": [
+    24.0,
+    0.0,
+    -39.0
+   ],
+   "pan": 85.0,
+   "torso_pt": [
+    2.09,
+    23.91,
+    -39.0
+   ],
+   "free": 0.852
+  },
+  {
+   "target": "-X end, low (pan -85)",
+   "stage_pt": [
+    -28.0,
+    0.0,
+    -38.0
+   ],
+   "pan": -85.0,
+   "torso_pt": [
+    -2.44,
+    27.89,
+    -38.0
+   ],
+   "free": 1.0
+  },
+  {
+   "target": "back-right corner below the lug (pan 0)",
+   "stage_pt": [
+    20.0,
+    15.5,
+    -39.0
+   ],
+   "pan": 0.0,
+   "torso_pt": [
+    20.0,
+    15.5,
+    -39.0
+   ],
+   "free": 0.259
+  },
+  {
+   "target": "back-right corner beside the bracket (pan 0)",
+   "stage_pt": [
+    26.0,
+    14.5,
+    -30.0
+   ],
+   "pan": 0.0,
+   "torso_pt": [
+    26.0,
+    14.5,
+    -30.0
+   ],
+   "free": 0.333
+  },
+  {
+   "target": "front face (pan +85)",
+   "stage_pt": [
+    0.0,
+    -15.0,
+    -35.0
+   ],
+   "pan": 85.0,
+   "torso_pt": [
+    14.94,
+    -1.31,
+    -35.0
+   ],
+   "free": 0.123
+  },
+  {
+   "target": "front face (pan -85)",
+   "stage_pt": [
+    0.0,
+    -15.0,
+    -35.0
+   ],
+   "pan": -85.0,
+   "torso_pt": [
+    -14.94,
+    -1.31,
+    -35.0
+   ],
+   "free": 0.123
+  }
+ ]
+}

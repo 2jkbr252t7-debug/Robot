@@ -1,0 +1,123 @@
+{
+ "collar": {
+  "ring_inner_r": 26.748,
+  "disc_r": 26.5,
+  "journal_bore_r": 26.65,
+  "stage_r": 26.5,
+  "journal_radial_clearance": 0.15,
+  "stage_vs_ring_radial": 0.248,
+  "bore_wall_new": 3.95,
+  "bore_wall_now": 2.25,
+  "added_resin_g": 2.9
+ },
+ "disc_as_bearing": {
+  "pin_radial_clear": 0.024,
+  "bore_length": 3.0,
+  "tilt_deg": 0.92,
+  "lateral_at_disc_mm": 0.62,
+  "seam": 0.25
+ },
+ "pivot": {
+  "sleeve": {
+   "od": 6.0,
+   "z": [
+    -44.0,
+    -40.9
+   ]
+  },
+  "washer": {
+   "name": "DIN 9021 M2.5 (d2 8.0, h 0.8)",
+   "od": 8.0,
+   "h": 0.8
+  },
+  "head": {
+   "name": "ISO 7380-1 M2.5 button head",
+   "dk": 4.7,
+   "k": 1.375
+  },
+  "top_of_head": -38.725,
+  "foot_underside": -40.5,
+  "counterbore_depth_needed": 2.27,
+  "foot_left_over_counterbore": 1.73,
+  "axial_play": 0.1,
+  "L1_washer_bearing_MPa": 1.39,
+  "L1_hub_punch_MPa": 0.99,
+  "L1_insert_bond_MPa": 0.78,
+  "L3_sleeve_bearing_MPa": 2.56,
+  "L8_sleeve_bearing_MPa": 3.77
+ },
+ "journal": {
+  "side_push_N": 10.0,
+  "journal_reaction_N": 23.1,
+  "pressure_MPa": 0.058
+ },
+ "ffc": {
+  "width_5p": 3.0,
+  "width_6p": 3.5,
+  "width_8p": 4.5,
+  "duct_h_min": 3.4,
+  "duct_h_median": 4.1,
+  "rated_per_rail_A": 1.5,
+  "I_peak_A": 1.4,
+  "I_typ_A": 0.4,
+  "drop_peak_V": 0.41,
+  "drop_typ_V": 0.12,
+  "uturn_R_pan": 3.9,
+  "R_over_t_pan": 39.0,
+  "lift_loop_R_flat": 3.0,
+  "R_over_t_lift": 30.0,
+  "copper_strain_pct": 0.45
+ },
+ "fpc_custom": {
+  "ohm_per_m": 3.19,
+  "drop_peak_V": 0.89,
+  "copper_strain_pct_verifier": 1.5
+ },
+ "j1_ffc": {
+  "rail_conductors": 4,
+  "rated_A": 2.0,
+  "I_peak_assumed_A": 3.0,
+  "drop_peak_V": 0.66,
+  "note": "base round: prefer 1.0 mm pitch FFC or 3 x 0.5 mm"
+ },
+ "well_corner": [
+  {
+   "inner_corner_r": 1.5,
+   "wall_at_corner": 1.036,
+   "neck_corner_clearance": 1.0
+  },
+  {
+   "inner_corner_r": 2.0,
+   "wall_at_corner": 1.192,
+   "neck_corner_clearance": 0.793
+  },
+  {
+   "inner_corner_r": 2.5,
+   "wall_at_corner": 1.345,
+   "neck_corner_clearance": 0.586
+  },
+  {
+   "inner_corner_r": 3.0,
+   "wall_at_corner": 1.494,
+   "neck_corner_clearance": 0.379
+  },
+  {
+   "inner_corner_r": 3.5,
+   "wall_at_corner": 1.64,
+   "neck_corner_clearance": 0.172
+  }
+ ],
+ "loose_wires_pan": {
+  "wire_od": 0.8,
+  "R": 3.9,
+  "R_over_D": 4.9,
+  "layers_needed_in_3_4mm": 3
+ },
+ "horn_crank": {
+  "arm_t": 1.6,
+  "arm_w_assumed": 4.0,
+  "net_tension_MPa": 9.4,
+  "pin_bearing_MPa": 9.4,
+  "note": "nylon/POM horn, compare with ~50 MPa yield"
+ }
+}
