@@ -108,6 +108,8 @@ def main(argv):
             t1 = time.time()
             rec = O.export_abs(name, p, HERE, do_step=do_step)
             rec["module"] = mod
+            if p.get("print"):                                  # fixer rev2: module print records (orientation / u_away / supports / drains)
+                rec["print"] = p["print"]
             if name in exp:
                 rec["bbox_expected"] = exp[name]
                 rec["bbox_ok"] = all(e is None or abs(a - e) <= 0.06 for a, e in zip(rec["bbox"], exp[name]))

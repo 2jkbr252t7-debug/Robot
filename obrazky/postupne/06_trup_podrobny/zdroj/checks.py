@@ -264,8 +264,8 @@ K2_FITS = [   # (regex a, regex b, max common volume mm3, reason)  - designed ov
     (r"pastorok_J1$", r"servo_J1$", 30.0, "J1 pinion bore over the STS3215 spline (slide fit + Loctite 638; spline modelled solid)"),
     (r"pastorok_pan$", r"servo_pan$", 30.0, "pan pinion bore over the STS3032 spline (slide fit + Loctite 638; spline modelled solid)"),
     (r"pastorok_J1$", r"Z_koleso_J1$", 0.5, "J1 gear mesh (dummy sun gear)"), (r"koleso_pan$", r"pastorok_pan$", 0.5, "pan gear mesh"),
-    (r"ffc_(A|B)_nosic$", r"DPS_riadenie$", 6.0, "FFC end inside the FH12 ZIF of the carrier"),
-    (r"ffc_(A|B)_krk$", r"DPS_krk$", 6.0, "FFC end inside the FH19C ZIF of DPS_krk"),
+    (r"ffc_(A|B)_nosic$", r"DPS_riadenie$", 6.0, "FFC end inside the ZIF (Y5B AYF530535) of the carrier"),
+    (r"ffc_(A|B)_krk$", r"DPS_krk$", 6.0, "FFC end inside the ZIF (Y5B AYF530535) of DPS_krk"),
     (r"(pigtail_zdvih|kabel_zdvih)$", r"konektor_zdvih$", 8.0, "lead crimped in the PicoBlade housing (flexible)"),
     (r"kabel_zdvih$", r"servo_zdvih$", 16.0, "lead leaves the MG90S inside its exit block"),
     (r"pigtail_zdvih$", r"DPS_krk$", 3.0, "pigtail soldered to the DPS_krk pads"),
@@ -594,8 +594,12 @@ K4_DECL = {   # part regex -> [(box (|x|0, |x|1, y0, y1, z0, z1), min, kind, tex
                    ((2.0, 6.0, 12.4, 13.4, -64.2, -60.8), 0.64, "local", "F7 insert seat floor 0.65 (annulus behind the bonded insert, unloaded)"),
                    ((16.0, 20.0, 12.4, 13.4, -64.2, -60.8), 0.64, "local", "F7 insert seat floor 0.65 (annulus behind the bonded insert, unloaded)"),
                    ((34.3, 35.2, -6.5, 12.5, -27.0, -7.0), 0.65, "local", "F8 insert seat floors 0.7 behind the bonded M2 inserts of the shoulder boss (D2.3 pilot through; the insert pull acts outward, toward the T_klb screw head)"),
-                   ((33.9, 38.0, 9.0, 15.3, -54.2, -48.0), 0.6, "local", "column web / bridge top around the D4.5 arm-wire hole (RAM rev. 2; ring "
-                                                                           "around the wire hole, the web carries the load beside it)"),
+                   ((33.9, 38.0, -4.6, 0.6, -53.6, -48.0), 0.6, "local", "column web around the D4.5 arm-wire hole (fixer rev2: moved to y -2, z -51, "
+                                                                           "12 mm from the bridge-top corner; the web carries the load beside it)"),
+                   ((42.0, 45.0, -31.0, 31.0, -82.7, -81.3), 0.0, "runout", "black cap rim: the horizontal mating face meets the tuck-under at a "
+                    "shallow angle - knife edge 0..0.6 in the outer 0.6 mm (overenie2 m3, declared: no supports on the rim, break the edge with one "
+                    "0.2 mm sanding stroke after curing; hidden under the white lip)"),
+                   ((0.0, 45.0, 27.5, 31.0, -82.7, -81.3), 0.0, "runout", "black cap rim knife edge (front / back), as above (overenie2 m3)"),
                    ((29.3, 31.6, 20.8, 22.4, -82.8, -81.3), 1.09, "local", "F1 pad rim beside the D6.5 counterbore (1.6 under the washer, RAM E1)"),
                    ((29.3, 31.6, -22.4, -20.8, -82.8, -81.3), 1.09, "local", "F1 pad rim beside the D6.5 counterbore (1.6 under the washer, RAM E1)"),
                    ((24.3, 29.8, 7.9, 10.6, -84.7, -83.3), 0.94, "local", "J1 corner pad 1.2 edge at the window (compression only; RAM declared)"),
@@ -678,6 +682,24 @@ COAX = [   # (screw, insert / nut / hole part, axis, tolerance)
 ]
 
 
+def _journal_play(tape=0.13, crit=0.14):
+    """fixer rev2 (overenie2 G1): radial play of the upper pan journal measured WITH the PTFE tape: every P_sachta point in the tape band
+    must be at r <= 26.37 (+0.005 chord) and bore - (stage + tape) >= crit"""
+    def rr(name, z0, z1, rmax=None):
+        T = TM.stl(name); zc = T[:, :, 2]
+        T = T[(zc.max(1) > z0) & (zc.min(1) < z1)]
+        if rmax is not None:
+            T = T[np.hypot(T[:, :, 0], T[:, :, 1]).min(1) < rmax]
+        S = TM.sample(T, 0.1)[0]
+        S = S[(S[:, 2] > z0) & (S[:, 2] < z1)]
+        r = np.hypot(S[:, 0], S[:, 1])
+        return r if rmax is None else r[r < rmax]
+    rs, rt, rb = rr("P_sachta", -10.4, -2.1), rr("ptfe_pas_capu", -10.5, -2.0), rr("T_stred", -10.4, -2.1, rmax=27.5)
+    play = float(rb.min() - max(rs.max() + tape, rt.max()))
+    return dict(stage_r_max=rd(rs.max(), 4), tape_r_max=rd(rt.max(), 4), bore_r_min=rd(rb.min(), 4), play=rd(play, 4), criterion=crit,
+                ok=bool(play >= crit and rs.max() <= 26.375), z_band=(-10.4, -2.1))
+
+
 def K5():
     fail, rows = [], []
     for s, h, ax, tol in COAX:
@@ -703,10 +725,15 @@ def K5():
     a = pm.get("A_solids_slim", {})
     nums.update(stage_r_max=a.get("worst") or a.get("r_max"), ring_clear=a.get("ring_clear"), bore_clear=a.get("bore_clear"))
     play = bl_section("K5")
+    jp = _journal_play()
+    nums.update(journal=jp)
+    if not jp["ok"]:
+        fail.append(f"pan journal (G1): {jp}")
     return res("PASS" if not fail else "FAIL",
                f"{len(rows)} fasteners coaxial with their insert / nut (max offset {max((r['offset'] for r in rows), default=None)}; F4 slotted "
                f"+-0.3 for the backlash); C(pan) {nums['C_pan']}, C(J1) {nums['C_J1']}; stage ring {nums.get('ring_clear')} / bore "
-               f"{nums.get('bore_clear')}; module seat tables RAM {mods.get('ram')}, OBAL {mods.get('obal')}, PAN {mods.get('pan')}",
+               f"{nums.get('bore_clear')}; journal incl. the PTFE tape (G1) {jp['play']} (P_sachta r max {jp['stage_r_max']}, tape r max "
+               f"{jp['tape_r_max']}, bore r min {jp['bore_r_min']}); module seat tables RAM {mods.get('ram')}, OBAL {mods.get('obal')}, PAN {mods.get('pan')}",
                failures=fail, coaxial=rows, numbers=nums, module_seats=mods, free_play=play["parts"],
                method="coaxiality: bbox centres of screw and insert / nut perpendicular to the screw axis (STL); seats: the module seat "
                       "tables (RAM D 54 measurements on the solids, OBAL O4, PAN A); free play of every bought part in its seat: checks_bl.py K5")
@@ -748,6 +775,43 @@ RUN.update(K4=K4, K5=K5, K6=K6)
 K7_LOWER_MIN = C.TOWER_CLEAR - 0.01   # plan clearance while T_stred is lowered (keep-out r 3.65 = boss r 3.40 + 0.25)
 
 
+def _free_box(names, box, pred=None, h=0.3):
+    """fixer rev2: points of the named parts (STL samples) inside box (x0, x1, y0, y1, z0, z1) [and pred(points)]"""
+    hits = {}
+    for n in names:
+        T = TM.stl(n); V = T.reshape(-1, 3)
+        if (V.max(0) < np.array(box[0::2])).any() or (V.min(0) > np.array(box[1::2])).any():
+            continue
+        S = np.concatenate([V, TM.sample(T, h)[0]])
+        m = (S[:, 0] > box[0]) & (S[:, 0] < box[1]) & (S[:, 1] > box[2]) & (S[:, 1] < box[3]) & (S[:, 2] > box[4]) & (S[:, 2] < box[5])
+        if pred is not None:
+            m &= pred(S)
+        if m.any():
+            hits[n] = int(m.sum())
+    return hits
+
+
+def _ffc_route_rows():
+    """fixer rev2 (overenie2 M6): the carrier tails of the FFC pair are fed down the EMPTY bore after T6 (stage held above the torso):
+    (1) the vertical column above the deck slot (r 22.45..23.55, B az 27..33) up to z +4 is free of every static part present after T6;
+    (2) the cradle-wall slot exit (x 17.5..20.5, z -51.2..-49.8) has a free line of sight toward the door (y 15.1 .. 28)"""
+    import t4_assembly as A
+    stage_like = set(A.STAGE + A.LIFT_MODULE + A.NECK + A.FLEX + ["golier_kotuc", "skr_F15", "pd_F15", "skr_F10_A", "skr_F10_B", "podl_F10_A",
+                                                                   "podl_F10_B", "skr_F12_1"] + A.DOOR)
+    static = [n for n in REC if REC[n]["group"] == "T" and n not in stage_like] + ["golier_prstenec"]
+
+    def col(S):
+        r = np.hypot(S[:, 0], S[:, 1]); az = np.degrees(np.arctan2(S[:, 1], S[:, 0])) % 360
+        return (r > 22.45) & (r < 23.55) & (az > 27.0) & (az < 33.0)
+    h1 = _free_box(static, (-30, 30, -30, 30, -46.1, 4.0), col)
+    h2 = _free_box([n for n in static if n not in ("T_spodok",)], (17.5, 20.5, 15.1, 28.0, -51.2, -49.8))
+    h2s = _free_box(["T_spodok"], (17.5, 20.5, 15.1, 28.0, -51.2, -49.8))
+    return [dict(row="FFC tails down the empty bore: vertical column over the deck slot free to z +4 (M6)", step="T7 (fixer rev2)",
+                 ok=not h1, blocked_by=h1),
+            dict(row="FFC tails: cradle-wall slot exit -> door line of sight free above the carrier (M6)", step="T7 (fixer rev2)",
+                 ok=not h2 and not h2s, blocked_by={**h2, **h2s})]
+
+
 def K7():
     import importlib
     sys.path.insert(0, WORK)
@@ -776,8 +840,10 @@ def K7():
     # ---- T5: T_stred lowered straight down over everything that is in place (exact plan clearance)
     LW = importlib.import_module("lowering")
     sixth = [s for s in d["steps"] if s["id"] == "T5"]
-    present_t5 = [n for n in REC if REC[n]["module"] == "ram" and REC[n]["group"] == "T" and n not in ("pastorok_pan",)
-                  and not n.startswith(("skr_F1_", "pd_F1_"))] + ["ffc_A_nosic", "ffc_B_nosic"]
+    present_t5 = [n for n in REC if REC[n]["module"] == "ram" and REC[n]["group"] == "T" and n not in ("usb_predlzovac", "ffc_A_nosic", "ffc_B_nosic")
+                  and not n.startswith(("skr_F1_", "pd_F1_"))]
+    #   fixer rev2: the pan pinion is bonded on the bench (B7b) and is PRESENT when T_stred comes down (B1); the USB FPC extension comes
+    #   at T5c, the FFC carrier tails only at T7 (M6)
     # the black cap spigot (T_spodok, z <= SPIGOT top -78.0 incl. its 0.6 lead-in) is the declared 0.2 locating fit that guides the
     # white lip at T5: it is tested on its own against the fit value; everything above it against K7_LOWER_MIN
     zsp = C.SPIGOT["z"][1] + 0.05
@@ -827,8 +893,12 @@ def K7():
         dict(row="pan servo service with T_stred off", step="S5", ok=ok_step("S5")),
         dict(row="USB-C straight plug (envelope free, reachable from the door)", step="RAM H1 + H2", ok=bool(mod.get("RAM H1_usb_plug_envelope_free"))),
         dict(row="T_stred lowered straight over the tower (T5)", step="T5 + exact plan clearance", ok=ok_step("T5") and not low_bad),
-        dict(row="carrier out through the door", step="S6", ok=ok_step("S6")),
-    ]
+        dict(row="carrier out (with T_stred off: the 49.8 board cannot pass the 41.5 door opening; fixer rev2)", step="S6", ok=ok_step("S6")),
+        dict(row="T_stred lifted straight up with the pan servo AND its bonded pinion in place (B1, a sweep - not a remove)", step="S5a",
+             ok=ok_step("S5a")),
+        dict(row="pan backlash set with the gears in mesh: bare 36T on the taped T_cap, F4 tool channels (M4)", step="T3b", ok=ok_step("T3b")),
+        dict(row="USB-C: FPC extension male end along X into the module mouth (M1)", step="T5c", ok=ok_step("T5c")),
+    ] + _ffc_route_rows()
     for r in new_rows:
         if not r["ok"]:
             fail.append(f"K7 row '{r['row']}' not ok")
@@ -842,7 +912,7 @@ def K7():
                f"problems: {len(fail)}",
                failures=fail, steps=steps, d6_rows=new_rows, T5_lowering=low_rows, T5_spigot=spigot_row, module_rows=mod,
                not_path_tested=d["parts_arriving_without_a_path_test"], flexible_parts=d["flexible"],
-               notes=["pan pinion: bonded in situ AFTER T5 (its tip circle r 29.6 cannot pass the T_stred lip; RAM C2) - step T5b",
+               notes=["pan pinion: bonded on the bench (B7b); T_stred has a lip relief r 8.35 about the pinion axis and passes it at T5 / S5a (fixer rev2 B1)",
                       "FFC pair, leads, PTFE tapes, PORON: flexible, not path-tested (reserved space)",
                       "FFCs are plugged into the DPS_krk ZIFs with the stage turned by hand to the +90 stop (PAN F3 line of sight)",
                       "F11 is driven on the bench (lift module out); F12 with a 1.3 hex key through the D2.4 bridge hole",
@@ -898,25 +968,29 @@ def K8():
 # K9  real head / neck against the torso   (as rev. 1)
 # =====================================================================================================================
 def K9():
+    """fixer rev2 (overenie2 K1 / K2): the firmware tilt RULE (t4_common.FIX2 TILT_RULE: down = min(40, 4 + 1.9 lift), up = B rows as
+    steps) on a 0.5 mm lift grid: clearance >= 1.0 mm everywhere inside the limits AND >= 0.5 mm at the limits + 1 deg (servo dead band)"""
     d = bl_section("K9", ["--fine"])
-    crit = d["criterion"]
-    rows, table_needed, fail = [], {}, []
-    for lift, v in sorted(d["lifts"].items(), key=lambda kv: -float(kv[0])):
-        rows.append(dict(lift=float(lift), tilt_down_max=v["tilt_table_B"]["down"], tilt_up_max=v["tilt_table_B"]["up"], min_clearance=v["min_clearance"],
-                         at=v["at"], head_vs_stage_min=v["head_vs_stage"]["min"]))
-        if v["reduced_pans"]:
-            table_needed[lift] = v["limit_per_pan"]
-        if v["min_clearance"] <= 0.02:
-            fail.append(f"lift {lift}: the head touches the torso inside the B tilt table ({v['at']})")
-    worst = d["worst"]; margin = d["min_clearance"] - crit
+    R = C.FIX2["TILT_RULE"]; c1, c2 = R["crit_limit"], R["crit_margin"]
+    rows, fail = [], []
+    if not d.get("rule"):
+        return res("NOT RUN", "checks_bl.py K9 did not run the firmware rule (stale helper result)")
+    for lift, v in sorted(d["lifts"].items(), key=lambda kv: float(kv[0])):
+        rows.append(dict(lift=float(lift), tilt_down_max=v["tilt_table_B"]["down"], tilt_up_max=v["tilt_table_B"]["up"],
+                         min_inside_limits=v["min_inside_limits"], at=v["at_inside"], min_at_limit_plus_1deg=v["min_at_limit_plus_margin"],
+                         at_margin=v["at_margin"], head_vs_stage_min=v["head_vs_stage"]["min"]))
+        if v["min_inside_limits"] < c1:
+            fail.append(f"lift {lift}: {v['min_inside_limits']} mm < {c1} inside the firmware limits ({v['at_inside']})")
+        if v["min_at_limit_plus_margin"] is not None and v["min_at_limit_plus_margin"] < c2:
+            fail.append(f"lift {lift}: {v['min_at_limit_plus_margin']} mm < {c2} at the limits + {R['margin_deg']} deg ({v['at_margin']})")
+    wi = min(rows, key=lambda r: r["min_inside_limits"]); wm = min(rows, key=lambda r: 9 if r["min_at_limit_plus_1deg"] is None else r["min_at_limit_plus_1deg"])
     return res("PASS" if not fail else "FAIL",
-               f"head (variant B STL, {len(d['head_parts'])} parts) vs torso meshes, pan -85..85 x lift 20 / 12.5 / 7.5 / 0 x tilt inside the B "
-               f"table: min clearance {d['min_clearance']} mm at lift {worst['lift']}, tilt {worst['tilt']}, pan {worst['pan']} "
-               f"({worst['torso_part']} / {worst['head_part']}); criterion {crit}; "
-               + ("no pose below the criterion" if not table_needed else f"poses below the criterion at lifts {sorted(table_needed)} - tilt limit table attached")
-               + f"; margin {margin:.3f} mm",
-               failures=fail, criterion=crit, per_lift=rows, pan_dependent_tilt_limit_table=table_needed or None,
-               recommendation="firmware: tilt down <= 27.5 deg for lift 10 .. 15 (all pans)" if margin < 0.1 else None,
+               f"head (variant B STL, {len(d['head_parts'])} parts) vs torso meshes, firmware rule {R['text'][:80]}...; {len(rows)} lifts "
+               f"0..20 step {R['lift_step']} x pans {d['pans'][0]:.0f}..{d['pans'][-1]:.0f} x tilts (0, half, limit, limit + {R['margin_deg']} deg, "
+               f"both directions): min inside the limits {wi['min_inside_limits']} mm at lift {wi['lift']} ({wi['at']}) - criterion {c1}; min at "
+               f"limit + 1 deg {wm['min_at_limit_plus_1deg']} mm at lift {wm['lift']} - criterion {c2}; failures {len(fail)}",
+               failures=fail, criterion=dict(inside_limits=c1, limit_plus_1deg=c2), rule=R, per_lift=rows,
+               replaces="B tilt table (K9 rev. 2: 0.517 at lift 12.5 with 0.0-0.7 deg margin) and the '27.5 deg at lift 10..15' row",
                static_parts=d["static_parts"], not_included=d["not_included"], method=d["method"])
 
 
@@ -936,7 +1010,7 @@ def K10():
     for r in PARTS:
         if not r["printed"]:
             continue
-        b = np.array(r["bbox"]); ext = b[3:] - b[:3]
+        b = np.array(r["bbox"]); ext = b[1::2] - b[0::2]          # fixer rev2 (m6): bbox is [xmin, xmax, ymin, ymax, zmin, zmax]
         fits_axis = bool(all(np.sort(ext + 10.0) <= np.sort(np.array(BUILD))))
         pr = rec.get(r["name"]) or (gp.get(r["name"]) if isinstance(gp, dict) else None)
         row = dict(part=r["name"], mat=r["mat"], bbox_extents=[rd(v, 1) for v in ext], fits_axis_aligned_with_5mm=fits_axis,
@@ -952,13 +1026,58 @@ def K10():
         v = mod_verdicts(name, m); mods[name] = {k: v.get(k) for k in keys}
         if not all(v.get(k) for k in keys):
             fail.append(f"module {name} print verdicts {mods[name]}")
+    cup = _cup_test(rec)
+    for r in rows:
+        c = cup.get(r["part"])
+        r["cup_test"] = c
+        if c is None or not c.get("ok"):
+            fail.append(f"{r['part']}: print orientation / cup test not ok: {c}")
     not_axis = [r["part"] for r in rows if not r["fits_axis_aligned_with_5mm"]]
     no_rec = [r["part"] for r in rows if not r["print_record"]]
     return res("PASS" if not fail else "FAIL",
                f"{len(rows)} printed parts, all Elegoo Tough resin; {len(rows) - len(not_axis)} fit the 211.68 x 118.37 x 220 volume with 5 mm in "
                f"an axis-aligned orientation, {not_axis} fit tilted as the module print tables state; module print / support / cup / drain "
-               f"verdicts {mods}; parts without a print record in parts_<module>.json: {no_rec} (PAN keeps its print table in pan_checks G)",
-               failures=fail, parts=rows, module_print=mods, build_volume=BUILD)
+               f"verdicts {mods}; parts without a print record in parts_<module>.json: {no_rec}; cup test (bottom-up MSLA, 0.4 voxels, in the "
+               f"recorded orientation, criterion: no sealed cup > {CUP_MAX} mm2): largest cup per part "
+               + ", ".join(f"{k} {v.get('largest_cup_mm2')}" for k, v in sorted(cup.items()) if v.get("largest_cup_mm2"))
+               + f"; oriented sizes fit 211.68 x 118.37 x 220 - 10: {all(v.get('fits_5mm') for v in cup.values())}",
+               failures=fail, parts=rows, module_print=mods, build_volume=BUILD, cup_test=cup)
+
+
+CUP_MAX = 30.0      # mm2: suction of a sealed cup ~ 0.5 bar x 30 mm2 = 1.5 N per peel - negligible against the part's support adhesion
+
+
+def _cup_test(rec):
+    """fixer rev2 (overenie2 M2 / M3 / m6): every printed part in the orientation its print record states (u_away = direction away from the
+    build plate, or -plate_dir), oriented size vs the Saturn 4 Ultra volume - 10 mm, and sealed suction cups (air open toward the FEP,
+    closed toward the plate) with the voxel engine of integ2_work/tlac_engine.py (copy of the rev. 1 verifier engine)"""
+    sys.path.insert(0, WORK)
+    import tlac_engine as E
+    out = {}
+    for r in PARTS:
+        if not r["printed"]:
+            continue
+        pr = rec.get(r["name"]) or {}
+        u = pr.get("u_away") or ([-v for v in pr["plate_dir"]] if pr.get("plate_dir") else None)
+        if u is None:
+            out[r["name"]] = dict(ok=False, why="no orientation vector in the print record"); continue
+        T = TM.stl(r["name"]); Bm = E.basis(u); Tp = T @ Bm.T
+        ext = (Tp.reshape(-1, 3).max(0) - Tp.reshape(-1, 3).min(0)).round(1).tolist()
+        s2 = sorted(ext[:2]); fits = s2[0] <= BUILD[1] - 10 and s2[1] <= BUILD[0] - 10 and ext[2] <= BUILD[2] - 10
+        occ, lo, nbad = E.voxelize(Tp)
+        onp = bool(pr.get("on_plate", False))
+        if onp:
+            nz, nx, ny = occ.shape
+            pl = np.ones((1, nx, ny), bool); pl[:, 0, :] = pl[:, -1, :] = False; pl[:, :, 0] = pl[:, :, -1] = False
+            occ = np.concatenate([np.zeros((1, nx, ny), bool), pl, occ], 0); lo = lo - np.array([0, 0, 2 * E.H])
+        cups, isl = E.analyse(occ, lo, Bm)
+        big = [c for c in cups if c["max_plocha_mm2"] > CUP_MAX]
+        out[r["name"]] = dict(ok=bool(fits and not big), u_away=[round(float(v), 4) for v in Bm[2]], on_plate=onp, size=ext, fits_5mm=bool(fits),
+                              cups=[dict(area_mm2=c["max_plocha_mm2"], depth=c["hlbka_mm"], at=c["bod_dielu"]) for c in cups[:6]],
+                              largest_cup_mm2=(cups[0]["max_plocha_mm2"] if cups else 0.0), n_islands=len(isl),
+                              orientation=pr.get("orientation", "")[:160])
+        say(f"   K10 cup test {r['name']}: size {ext} fits {fits}, cups {[(c['max_plocha_mm2'], c['hlbka_mm']) for c in cups[:4]]}")
+    return out
 
 
 RUN.update(K7=K7, K8=K8, K9=K9, K10=K10)
@@ -1041,11 +1160,42 @@ def _rows_obal(m):
     return out
 
 
+def _fix2_rows(rows):
+    """fixer rev2 (overenie2 S2, S3, S5): (1) every decisive resin row whose root is declared R0 / unfilleted must use the notch
+    allowable 4.3; (2) every torque / preload row must still pass at the upper tolerance of the prescribed preset torque screwdriver
+    (+5 %: Tohnichi AMLD4CN / RTD15CN class, +-3 % catalogue); (3) the epoxy-cast F4 slot fill (positive C lock, S3)"""
+    out = []
+    for r in rows:
+        if not r["decisive"] or r.get("stress") is None or r.get("allowable") is None:
+            continue
+        txt = f"{r['feature']} {r.get('note', '')}"
+        if re.search(r"\bR0\b(?!\.)|unfilleted|sharp", txt) and not re.search(r"R0\.\d", r["feature"]) and float(r["allowable"]) > A_S + 1e-6 \
+                and str(r.get("module")) != "PAN" + "x":
+            out.append(dict(module="FIX2", id=f"R0:{r['module']} {r['id']}", feature=f"R0 / unfilleted root rated against {r['allowable']}: {r['feature'][:80]}",
+                            case=r["case"], stress=r["stress"], allowable=A_S, margin=round(A_S / r["stress"], 2) if r["stress"] else 99.0,
+                            ok=bool(r["stress"] <= A_S), decisive=True, note="Z2: unfilleted notches <= 4.3 MPa (overenie2 S2 regression)"))
+        is_tq = re.search(r"N\.?m", str(r["case"])) and re.search(r"torque|preload|L7|washer|insert", txt + " " + str(r["case"]), re.I) \
+            and not re.search(r"spec torque|\(spec\)", txt) and str(r["id"]).split()[0] in ("L7", "S3", "S4", "S5a", "S5b", "H15", "46", "S06")
+        if is_tq:
+            s5 = round(float(r["stress"]) * 1.05, 2)
+            out.append(dict(module="FIX2", id=f"tool:{r['module']} {r['id']}", feature=f"{r['feature'][:70]} at the tool's upper tolerance (+5 %)",
+                            case=r["case"], stress=s5, allowable=r["allowable"], margin=round(float(r["allowable"]) / s5, 2), ok=bool(s5 <= float(r["allowable"]) + 1e-9),
+                            decisive=True, note="preset torque screwdriver (C.FIX2 TORQUE_TOOL); hand drivers not allowed on resin joints"))
+    # S3: F4 shank in its epoxy-cast slot fill - bearing on the resin post (shank D2 x 1.5 between the post top and the nut slot)
+    for case, Fy, allow in (("L8 STS3032 stall 4.5 kg.cm: Y reaction 38.1 N (2 screws)", 38.1, A_N), ("L3 hand 0.6 N.m: Y 25.9 N", 25.9, A_A)):
+        sb = Fy / 2 / (2.0 * 1.5)
+        out.append(dict(module="FIX2", id="S3", feature="F4 shank bearing through the epoxy-cast slot fill on the pan-servo post (D2 x 1.5)",
+                        case=case, stress=round(sb, 2), allowable=allow, margin=round(allow / sb, 2), ok=bool(sb <= allow), decisive=True,
+                        note="positive C lock (Z3.7) - friction no longer counted"))
+    return out
+
+
 def K12():
     rm, pm, om = module_check("ram"), module_check("pan"), module_check("obal")
     if rm is None or pm is None or om is None:
         return res("NOT RUN", f"module strength rows missing: ram {rm is not None}, pan {pm is not None}, obal {om is not None}: {_MOD_NOTE}")
     rows = _rows_ram(rm) + _rows_pan(pm) + _rows_obal(om)
+    rows += _fix2_rows(rows)
     dec = [r for r in rows if r["decisive"]]
     fails = [r for r in dec if r["ok"] is False]
     unknown = [r for r in dec if r["ok"] is None]

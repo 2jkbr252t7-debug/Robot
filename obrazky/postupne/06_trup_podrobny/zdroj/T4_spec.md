@@ -1418,3 +1418,80 @@ F1_PATH, TORQUE_REC, WASHERS_REC; PAN2_SUMMARY; OBAL overrides mirrored), `t4_pa
 15. **Checks** (`checks.py` → `checks.json`, final clean run after `build_all.py`): K1–K6, K8–K11, K13 PASS;
    K7 FAIL only for the D6 row S6 (item 12); K12 FAIL only for the column-alone L5 rows at z −26…−9 (item 5; 2 rows not verifiable:
    MG90S side load, topple input). Details: `STATUS_rev2_integrator.md`.
+
+### 17.16 Fixer changes after the rev. 2 verification (overenie2_mechanika / overenie2_montaz, 2026-11-18) – supersede 17.0–17.15 where different
+Source of the numbers: `t4_common.py` block `# >>> rev2 (fixer …)` (dict `FIX2`, `tilt_down_max()`, `tilt_up_max()`), `t4_pan.PAN2["FIX2"]`,
+`t4_ram.RAM2` (COL.plate wide / r_in 34.4, bridge_fillet, head_cove, wire_hole, CUP_VENTS, J1_LUG, F3A, USB_EXT), `t4_obal` step `stred_pinion`,
+`t4_assembly.py` (B7b, T2, T3b, T4b, T5c, T7, S5a, S6) and `checks.py` (K5 journal, K7 rows, K9 rule, K10 cup test, K12 FIX2 rows).
+Finding-by-finding record: `opravy2.md`.
+
+1. **Pan pinion and T_stred (B1).** The T_stred front lip (z −81 … −79.5) is cut back to **r 8.35 about the pinion axis** PAN_AX (interior
+   only; ≥ 3.6 of lip left to the exterior, exterior / seams unchanged). T_stred now passes the STS3032 **with its bonded pinion** both ways
+   (plan clearance 0.35, `integ2_work/lowering.py`). Therefore the pan pinion is bonded **on the bench (B7b, Loctite 638, 24 h)** – the in-situ
+   step T5b and its 24 h cure inside the torso sequence are deleted. Service of the pan servo, the J1 servo, the deck / T_most / T_cap and the
+   carrier: S1 → S2 → S3 → side caps, joints, door, F1 × 4 off, USB FPC male end and LED / speaker plugs unplugged → **S5a: T_stred (+ front
+   stack, F1 inserts, frame magnets, glued collar ring) lifted straight up** (K7 sweep, not a removal) → S5 / J1 / deck / carrier. A new pan
+   servo gets a new pinion (≈ 5 €); the old pinion may be released on the bench at 250 °C.
+2. **Carrier service (B1 part 2).** The 49.8 wide carrier cannot pass the 41.5 door opening; it is serviced with T_stred off (S6 after S5a,
+   K7 row). Every connector and the USB port stay reachable through the door (17.16-5).
+3. **Upper pan journal (G1).** Every P_sachta surface in the PTFE band z −10.7 … −1.9 is at **r ≤ 26.365** (the 8 lands at r 26.50 – well
+   corners and rib ends – are turned off). With the tape: stage r 26.495, bore r 26.645 → **radial play 0.145** (K5 measures it with the tape).
+4. **Pan backlash and positive centre distance (M4, S3).** New step **T3b** (after the deck, before T_stred): the BARE 36T gear on the taped
+   T_cap, 0.05 paper strip in the mesh, STS3032 pushed along C, F4 tightened (F4_2 with a 1.3 hex key straight; F4_1 with a 1.3 BALL-END key
+   tilted ≈ 28° toward +Y past the pinion – K7 tool channel), then **the clearance of both F4 shanks in their ±0.3 slots is filled with epoxy
+   around the WAXED screws** (a cast, positive C stop: Z3.7; screws stay removable, a replacement servo goes back to the same C). The gear is
+   lifted off again and bonded under the hub disc on the bench (B4b, unchanged). Bearing of the shank on the cast fill: 6.4 MPa at STS3032
+   stall (K12 FIX2 S3).
+5. **USB-C (M1).** The ESP32-S3-Zero is turned 180°: its USB-C faces **+X** (mouth x 23.0, y 22.7, z −62.5). A bought **90° USB-C FPC extension**
+   (slim male end, FPC leaving toward +Y, female end on a small PCB – ADT-Link class "USB-C FPC flat cable 90 degree", ≈ 10 cm; head size
+   UNVERIFIED, modelled 5.0 × 3.5 × 9.5 = `usb_predlzovac`) is plugged in at **T5c** (after T5: the T_stred F1 boss passes there while it is
+   lowered); its female end is parked (Kapton) in the door zone and pulled out through the door to flash – any straight cable then plugs in
+   outside the torso. Unplug the male end before S5a. The old straight-plug envelope x −21 … −0.5 is free for the bus headers.
+6. **FFC installation order (M6).** B4: the FFC pair is bonded on the stage (rotating anchor, riser, fixed leg) – the carrier tails stay free.
+   T4b: carrier WITHOUT the FFC. **T7: the stage is held above the torso, both carrier tails are fed down the EMPTY bore → deck slot (r 22.4 …
+   23.6, B az 26 … 34; visible from above) → cradle-wall slot (exit above the carrier top) → ZIFs J_PAN_A / B through the door; Kapton static
+   anchor through the bore; then the stage is lowered** (the reverse of S3). The stage is never tethered to the deck while T_stred and the ring
+   go on. K7 rows: the vertical column over the deck slot is free to z +4, the wall-slot exit has a free line of sight to the door.
+   Slack (12.7 / 24.8 mm): one flat loop laid on the carrier top edge zone z −53.5 … −48.2 (Kapton dot); the fold CF is formed as a radius
+   bend over a Ø2 rod (R ≥ 1), not creased.
+7. **ZIF connectors (M5).** One type at all 4 places: **Panasonic Y5B AYF530535** (0.5 mm, 5 positions, contacts top AND bottom – FFC
+   Type A / B irrelevant, for 0.30 mm FFC, back lock); fallback **Molex 54548-0572** (bottom contact, 0.30 FFC, 1.2 high). Both from
+   distributor search snippets – vendor pages not reachable: **UNVERIFIED, confirm on a distributor page before the PCBs are drawn**.
+   FH19C (0.20 FPC only) and "FH12-5S-0.5SH" (does not exist) are deleted. The neck ZIF envelope is modelled 1.2 high (z −39.0 … −37.8).
+8. **Print strategy (M2, M3, m6).** P_sachta: **8 × Ø2.5 vents** through the top plate (z −3.6 … −1.9) into the ring / rib pockets, hidden
+   under the collar disc; printed top plate toward the build plate, **raised ≥ 3 mm on supports**. T_spodok: printed cap underside toward
+   the plate, **+15° about +X** (right-hand; the back edge rises), raised on supports; **Ø2.5 drain at (0, −16.6)** through the cap floor at
+   the low end of the pan-servo pocket, **Ø2.0 at (0, 24.6)** in the back tub floor, **Ø2.5 vents at (±38.5, 2.7)** into the column-foot bays;
+   blind Ø3.05 stop-pin holes flushed with IPA before bonding. Every printed part now has an orientation vector in its print record and K10
+   runs a voxel cup test (0.4 mm): largest sealed cup 28.8 mm² (T_spodok), criterion ≤ 30 mm². K10 size bug fixed (bbox order).
+9. **Shoulder column (S1, K12 L5).** R1.5 fillet along the +Y bridge-wall top / column inner face (x ±34.4, z −48.2) on both columns; R1.0
+   cove under the head overhang (x ±42 … 43, z −38); arm-wire hole moved to **(y −2.0, z −51.0)** (12 mm from that corner). Shoulder plate inner
+   face **r 34.4 at every y** (PAN_ENV2 + 1.0; was r 34.5 with a flat 34.5 at |y| ≤ 9.5) and plate **|y| ≤ 20 for z −38 … −20** (back to 17
+   at −16; ≥ 3 mm inside the shell inset). F3a_2 moved (31, 5) → **(30.6, 4.0)** so that the deck stays inside r 34.1 (0.3 off the plate
+   during T3). K12 column rows use the load introduction through the 3 F8 screws (elastic screws, envelope of both force directions) above
+   the lowest screw (z −23.5) and Kt 1.3 at F8 holes / key slot / top, 1.1 on plain sections: all column rows ≤ 7.65 MPa (z −24).
+10. **Lift module (S2, m1, m2).** P_drziak_serva tongue roots **R0.5** on both long edges (Kt 1.6 → 5.57 MPa ≤ 8.5); the rail groove mouth in
+    P_sachta is chamfered 0.8 × 45°. The drum lip bump 0.05 under the pocket plate is trimmed (y ≥ 15.12, z −41.9 … −41.7). The FFC under-run
+    starts on the arc r 16.72 (outside the shroud).
+11. **Ear (S4).** L_ucho is **304 stainless 1.5 only** (5754-H22 deleted: 103 MPa > 87). A **Ø1.0 hole is drilled at the inner end of the
+    bend-relief kerf** (model + DXF). K12 H19 uses the verifier's FE 137.7 MPa (before the relief hole) against 143 MPa.
+12. **Head tilt (K1, K2).** The B tilt table and the "27.5° at lift 10 … 15" row are replaced by ONE firmware rule:
+    **tilt_down_max = min(40°, 4° + 1.9°/mm × lift); tilt_up_max = 10° (lift < 7.5), 30° (7.5 … 12.5), 40° (≥ 12.5)**; park at lift 0, tilt 0
+    when idle. K9 checks it on a 0.5 mm lift grid: ≥ 1.0 mm inside the limits and ≥ 0.5 mm at the limits + 1° (dead band).
+13. **Torque (S5).** Every resin-bearing screw joint is tightened with a **preset torque screwdriver**: Tohnichi **AMLD4CN (1 … 4 cN·m)** for
+    F4 0.02, F8 0.015, F11 0.02, F16 0.025 N·m; Tohnichi **RTD15CN (2 … 15 cN·m, ±3 %)** or Wera 1460 ESD (2 … 11 cN·m) for F1 / F3a / F3b
+    0.045, F7 0.03, F10 0.04, F13 / F14 0.03 N·m; F12 0.15 and F15 0.08 N·m (metal) with any 0.05 … 0.5 N·m driver. Catalogue ranges from
+    distributor listings (UNVERIFIED). Ordinary hand drivers are not allowed on resin joints. K12 rechecks every torque row at +5 %.
+14. **J1 stop (m4).** The J1 lug is **8.0 tangential** × 2.35 × 4.0 (R1 roots): 11.2 MPa at a hand twist of **1.5 N·m** into the stop
+    (≤ 12.9). The base stop block shrinks to **az 270 ± 14.6°** (base interface; the dummy stand follows) – stop still ±153.4°. The "Ø3 pin
+    in the foot ring at r 19" of 17.4 does not fit (6805 seat r 18.575) and is withdrawn.
+15. **Minor items (documentation).** Cap rim knife edge (m3): declared, no supports on the rim, break it with one 0.2 mm sanding stroke.
+    Tolerance stack (m5, m4 of the assembly report): B1 dry-fit of T_stred on the bare T_spodok before inserts / pins are bonded – sand stop
+    post 1 and the spigot where they rub; sand the stage disc / ring passage and the neck PTFE lands to a free slide (drill table). Pigtail (m6)
+    and PicoBlade pair (m2): one Kapton wrap binds the pigtail to the moving FFC leg at z −36, the plug pair is taped to the pocket back plate
+    (x 17 … 23, z −29 … −17). MG90S (m7): firmware parks at lift 0 when idle; never drive both MG90S into stall together. 5 V budget (m1):
+    STS3032 1.0 A + 2 × MG90S 0.7 A + ESP32 0.35 A + amplifier 0.8 A + LEDs 0.22 A + head 0.4 A = 4.2 A peak vs D36V28F5 3.2 A → firmware
+    limits simultaneous moves (never both MG90S stalled, amplifier volume capped while servos move); measure the FFC drop on the bench
+    (≈ 0.4 V at 1.4 A, UNVERIFIED). Arm connectors (m8): the arm servos join the 5 V bus with a bought 3-pin Y-split at J_BUS_5, wires up
+    the column through the Ø4.5 hole. Text fixes (m7): T13Lb hex key 1.3 (ISO 7380 M2); stop pins bonded 8.4 deep (hole 8.7); the base FFC
+    is plugged through the door BEFORE the door closes; T_paluba prints tilted 70° about +Y.

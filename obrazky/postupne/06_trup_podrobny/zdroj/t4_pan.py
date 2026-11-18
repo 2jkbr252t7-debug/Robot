@@ -15,7 +15,7 @@ Printed (tough resin, Elegoo Tough class):  P_sachta (slim well + journal + hub 
                                             P_drziak_serva (lift-servo pocket + pan stop lug)
 Metal (custom, hand made):                  L_ucho (304 stainless 1.5, bent; DXF flat pattern), L_pata (Al flat bar 20 x 4)
 Bought:  koleso_pan (36T m0.8 brass), servo_zdvih (MG90S), rameno_zdvih (Al arm), cap_kluky (dowel 2 x 8), DPS_krk
-         (+ 2 x Hirose FH19C-5S-0.5SH), FFC pair (Molex Premo-Flex / Wurth WR-FFC 0.5 mm 5 p), pigtail + Molex PicoBlade
+         (+ 2 x ZIF Panasonic Y5B AYF530535), FFC pair (Molex Premo-Flex / Wurth WR-FFC 0.5 mm 5 p), pigtail + Molex PicoBlade
          inline pair, PTFE tapes, screws, inserts, nut, washers, dowel.
 """
 from __future__ import annotations
@@ -111,7 +111,7 @@ PAN2 = dict(
     FOOT=dict(slot=dict(x=(9.0, 22.3), y=(-7.1, 6.7)), taps_x=(-10.0,), tap_z=-38.5, tap_d=1.6, tap_depth=7.0),
     # ---- electronics ---------------------------------------------------------------------------------------------------
     DPS=dict(x=(9.2, 22.2), y=(-6.9, 6.5), z=(-37.8, -37.0),
-             zif=dict(x=(18.35, 22.2), z=(-38.7, -37.8), y=((-6.6, -2.1), (-1.6, 2.9)), part="Hirose FH19C-5S-0.5SH(10)"),
+             zif=dict(x=(18.35, 22.2), z=(-39.0, -37.8), y=((-6.6, -2.1), (-1.6, 2.9)), part="Panasonic Y5B AYF530535 (0.5 mm, 5 p, top + bottom contact, 0.30 FFC); alt. Molex 54548-0572 (1.2 high)"),
              pads_top=[(12.6, y) for y in (0.4, 1.2, 2.0)] + [(13.2, y) for y in (-6.4, -5.4, -4.4, -3.4)],
              pads_bot=[(x, -1.85) for x in (10.6, 11.6, 12.6)]),
     # ---- FFC pair --------------------------------------------------------------------------------------------------------
@@ -123,6 +123,16 @@ PAN2 = dict(
              loop=dict(x=(25.35, 28.35), y_fix=6.875, y_mov=0.625, yc=3.75, cf_z=(-30.0, -29.4)),
              carrier=dict(z_run=-50.5, y_run=(20.35, 23.35), x_turn=21.74, zif_x=(-19.45, -12.35), zif_y=19.1, z_zif=-56.5)),
     PIGTAIL=dict(d=1.4, plug=dict(x=(17.2, 22.7), y=(17.2, 20.5), z=(-29.0, -17.0))),
+    # ---- fixer rev2 (overenie2 findings) ---------------------------------------------------------------------------------
+    FIX2=dict(
+        journal_r=26.365,           # G1: every P_sachta surface in the PTFE band z -10.7 .. -1.9 at r <= 26.365 (was: 8 lands at 26.50)
+        journal_z=(-10.7, -1.9),
+        vents=dict(d=2.5, xy=[(sx * 6.25, sy * 18.0) for sx in (1, -1) for sy in (1, -1)] +
+                   [(sx * 16.0, sy * 15.3) for sx in (1, -1) for sy in (1, -1)], z=(-3.6, -1.9)),   # M2: 8 vents through the top plate
+        lip_trim=dict(r=(16.0, 17.6), y_min=15.12, z=(-41.9, -41.7)),   # m1: lip bump 0.05 above -41.9 under the pocket plate
+        tongue_root_r=0.5, groove_chamfer=0.8,                          # S2: R0.5 tongue roots, 0.8 x 45 deg chamfer on the groove mouth
+        ear_relief_d=1.0,                                               # S4: D1.0 drilled at the inner end of the bend-relief kerf
+        under_r=16.72),                                                 # m2: FFC under-run starts on the arc r 16.72 (outside the shroud)
 )
 P2 = PAN2
 
@@ -389,6 +399,8 @@ def mk_sachta():
              fillet_strip((xi, We["y"][1] + 0.2, zr), (xi, yi - ri, zr), (-1, 0, 0), (0, 0, 1), Rr)]  # floor - +X pillar
     body = one(fuse([body] + roots))
     body = one(body & trim)                                                                    # every surface r <= 26.50
+    Fx = P2["FIX2"]
+    body = one(body - C.tube_z(40.0, Fx["journal_r"], *Fx["journal_z"]))   # fixer G1: journal band r <= 26.365 at EVERY azimuth (tape 0.13 -> 26.495)
     body = one(body - C.tube_z(40.0, D["lip_r"][1] + 0.05, fz0 - 8.0, fz0))                  # nothing below z -41.9 outside the drum
     # ---- cuts: windows again (fillet strips / pads must not close them), groove + edge round, inserts, dowel, pilots
     G = P2["GROOVE"]; gz1 = fz0 + G["depth"]
@@ -405,6 +417,17 @@ def mk_sachta():
         N.append(C.cyl_y(2.3 / 2, yi - 0.5, pf - 3.0, x, z))                    # pilot 2.3 through to the well
     dx, dz = P2["F10"]["dowel"]
     N.append(C.cyl_y(P2["F10"]["dowel_hole"] / 2, pf - P2["F10"]["dowel_depth"], pf + 0.5, dx, dz))
+    # ---- fixer rev2: M2 vents (8 x D2.5 through the top plate into the pockets ring / ribs / walls - no suction cup when printed
+    # top plate toward the build plate on supports; hidden under the collar disc), m1 lip bump under the pocket plate, S2 groove
+    # mouth chamfers (room for the R0.5 tongue roots of P_drziak_serva)
+    V = Fx["vents"]
+    N += [C.cyl_z(V["d"] / 2, *V["z"], x, y) for x, y in V["xy"]]
+    Lt = Fx["lip_trim"]
+    N.append(one(C.box(-20.0, 20.0, Lt["y_min"], 20.0, *Lt["z"]) & C.cyl_z(Lt["r"][1], Lt["z"][0] - 1, Lt["z"][1] + 1)))
+    ch = Fx["groove_chamfer"]; gy1 = Ra["y"][1]
+    for zg, sg in ((Rgv["z"][1], 1), (Rgv["z"][0], -1)):
+        N.append(prism_x([(gy1 + 0.05, zg - sg * 0.05), (gy1 - ch, zg - sg * 0.05), (gy1 - ch, zg), (gy1 + 0.05, zg + sg * (ch + 0.05))],
+                         Rgv["x"][0], Rgv["x"][1]))
     return one(cut(body, N)).clean()
 
 
@@ -474,6 +497,10 @@ def mk_drziak():
     ro_ = Lg["r"][1] - 0.06
     root_cw = fillet_strip((ri * e[0], ri * e[1], zb), (ro_ * e[0], ro_ * e[1], zb), t_cw, (0, 0, -1), rc)
     S += br + [brl, lug, root_in, root_cw]
+    # fixer rev2 S2: R0.5 root fillets along the two long tongue / plate edges (bending root under L2; was R0)
+    Rt = P2["FIX2"]["tongue_root_r"]; yp = tg["y"][1]
+    S += [fillet_strip((tg["x"][0], yp, tg["z"][1]), (tg["x"][1], yp, tg["z"][1]), (0, 0, 1), (0, -1, 0), Rt),
+          fillet_strip((tg["x"][0], yp, tg["z"][0]), (tg["x"][1], yp, tg["z"][0]), (0, 0, -1), (0, -1, 0), Rt)]
     body = one(fuse(S))
     # ---- cuts: keyhole (closed), F10 holes + dowel hole, F11 hole + nut slot, tool notches in the bridge, wire notch
     N = [prism_x(_keyhole_yz(0.0), tu["x"][0] - 1.0, tu["x"][1] + 1.0)]
@@ -545,6 +572,7 @@ def mk_ucho(lift=0.0):
     Dw = E["dowel"]; Nt = E["notch"]
     N.append(C.cyl_y(Dw["hole"] / 2, y0 - 0.5, y0 + t + 0.5, Dw["x"], Dw["z"]))
     N.append(C.box(Nt["x"][0], Nt["x"][1], y0 - 0.5, yb, Nt["z_top"], fz1 + 0.01))      # flange + bend lowered under the arm sweep
+    N.append(C.cyl_x(P2["FIX2"]["ear_relief_d"] / 2, x0 - 0.5, x1 + 0.5, yb, sum(E["relief_z"]) / 2))   # fixer S4: D1.0 at the kerf end
     s = one(cut(body, N)).clean()
     return s if lift == 0 else bd.Pos(0, 0, lift) * s
 
@@ -570,6 +598,7 @@ def ear_flat_pattern():
     holes = [(xe - hx, E["hole_z"], E["hole_d"] / 2) for hx in E["holes_x"]] + [(xe - E["dowel"]["x"], E["dowel"]["z"], E["dowel"]["hole"] / 2)]
     sy0, sy1 = E["slot_y"]; hw = E["slot_w"] / 2; zc = (E["slot_z"][0] + E["slot_z"][1]) / 2
     slot = dict(u=(u_b1 + (sy0 - (y0 + t + R)) + hw, u_b1 + (sy1 - (y0 + t + R)) - hw), v=zc, r=hw)
+    holes.append((u_b1, (rz0 + rz1) / 2, P2["FIX2"]["ear_relief_d"] / 2))     # fixer S4: D1.0 drilled at the inner kerf end
     return dict(outline=outline, holes=holes, slot=slot, bend_lines=(u_b0, u_b1), ba=round(ba, 3), k=k, t=t, R=R,
                 u_end=round(u_end, 3), f_flat=round(f_flat, 3), p_flat=round(p_flat, 3), relief=dict(u=(u_b1 - fwd, u_b1), v=(rz0, rz1)))
 
@@ -611,7 +640,7 @@ def mk_pata(lift=0.0):
 
 
 def mk_dps_krk(lift=0.0):
-    """DPS_krk: FR4 0.8 13.0 x 13.4, top face z -37.0 (0.5 under the neck bottom), 2 x FH19C-5S ZIF on the underside
+    """DPS_krk: FR4 0.8 13.0 x 13.4, top face z -37.0 (0.5 under the neck bottom), 2 x ZIF (Panasonic Y5B AYF530535, 5 p 0.5 mm) on the underside
     (mouths at x 22.2 facing +X), 7 + 3 solder-pad keep-outs (neck wires on top, lift pigtail underneath)"""
     D = P2["DPS"]; z0, z1 = D["z"]; Z = D["zif"]
     S = [C.box(*D["x"], *D["y"], z0, z1)]
@@ -696,8 +725,9 @@ def ffc_riser():
     crease = tube_sector(ri + 3 * F["t1"] + 0.45, ri, a0, a1 + 0.6, F["z"][0], F["z"][1])
     riser = tube_sector(ri + t, ri, a0, a1, F["z"][1] - 0.1, -41.6)
     yb0, yb1 = F["band_F"]; xw = F["x_wall"]; zg = -41.6
-    x_start = max(math.sqrt(ri ** 2 - yb1 ** 2) - 0.2, P2["GROOVE"]["x"][0] + 0.05)
-    under = C.box(x_start, xw - 0.6, yb0, yb1, zg - t, zg)
+    ru = P2["FIX2"]["under_r"]                  # fixer m2: the run starts on the arc r 16.72 (outside the shroud r 16.7)
+    arc = [(math.sqrt(ru ** 2 - y ** 2), y) for y in np.linspace(yb1, yb0, 7)]
+    under = prism_z(arc + [(xw - 0.6, yb0), (xw - 0.6, yb1)], zg - t, zg)
     er = P2["GROOVE"]["edge_r"]
     wrap = prism_y(strip_poly(arc_pts((xw - er, zg + er), er + t / 2, -90, 0, 10), t), yb0, yb1)
     Lp = F["loop"]
@@ -922,8 +952,19 @@ PRINTED = {   # name: (builder, group, material, Slovak label)
     "P_sachta": (mk_sachta, "P", "resin_black", "šachta krku (štíhla, r ≤ 26,5) s čapom, nábojom a bubnom FFC"),
     "P_drziak_serva": (mk_drziak, "P", "resin_black", "kapsa serva zdvihu s dorazom pan"),
 }
+PRINT = {   # fixer rev2 (M2 / K10): print records of the two PAN resin parts (cup-tested in K10)
+    "P_sachta": dict(orientation="top plate (z -2 face) toward the build plate, axis vertical, RAISED >= 3 mm on supports (the 8 x D2.5 "
+                                 "top-plate vents must open into the gap below the part)", u_away=(0.0, 0.0, -1.0), on_plate=False,
+                     supports="top plate face r >= 24 (collar-disc glue land, sanded) and the plate face inside the ring; never on the journal "
+                              "ring r 26.37, the guide lands or the drum shroud faces",
+                     drains="8 x D2.5 vents through the top plate into the ring / rib pockets (fixer rev2 M2); the well is open at the bottom",
+                     warp="journal ring tied by the top plate + ribs; sand the journal to fit (PTFE tape)"),
+    "P_drziak_serva": dict(orientation="back plate (y 15.1 face) ON the build plate", u_away=(0.0, 1.0, 0.0), on_plate=True,
+                           supports="none on the plate face; light supports under the bridge / lug overhangs (not on the lug contact faces)",
+                           drains="open pocket, no closed cavity", warp="none (small part)"),
+}
 METAL = {
-    "L_ucho": (mk_ucho, "L", "stainless", "ucho pätky – nerez 304 1,5 ohýbané (výkres DXF)"),
+    "L_ucho": (mk_ucho, "L", "stainless", "ucho pätky – nerez 304 1,5 ohýbané (výkres DXF; len nerez 304, nie 5754)"),
     "L_pata": (mk_pata, "L", "alu", "pätka krku – Al plochá tyč 20x4"),
 }
 
@@ -952,7 +993,7 @@ def build(rebuild=False, verbose=False):
     """registry of the PAN module (rev. 2): dict[name] = t4_common.part(...) - rest pose (lift 0, pan 0)"""
     parts = {}
     for name, (fn, grp, mat, label) in PRINTED.items():
-        parts[name] = C.part(cached_part(name, fn, rebuild), grp, mat, True, label)
+        parts[name] = C.part(cached_part(name, fn, rebuild), grp, mat, True, label, print=PRINT[name])
         if verbose:
             print(f"  built {name} ({TIMES.get(name, 0)} s)", flush=True)
     for name, (fn, grp, mat, label) in METAL.items():
@@ -963,7 +1004,7 @@ def build(rebuild=False, verbose=False):
         ("rameno_zdvih", mk_rameno, "P", "alu", None, "hliníkové rameno serva MG90S (kúpené), čap na r 10,00"),
         ("cap_kluky", mk_cap_kluky, "P", "steel", None, "čap kľuky Ø2x6 ISO 8734 (lisovaný + Loctite 638)"),
         ("skr_ramena", mk_skr_ramena, "P", "steel", None, "skrutka ramena M2,5x5 zápustná (kov–kov, závit serva NEOVERENÝ)"),
-        ("DPS_krk", mk_dps_krk, "L", "pcb", 0.45, "doska krku FR4 0,8 + 2x ZIF Hirose FH19C-5S"),
+        ("DPS_krk", mk_dps_krk, "L", "pcb", 0.45, "doska krku FR4 0,8 + 2x ZIF Panasonic Y5B AYF530535 (5 p, 0,5 mm)"),
         ("ffc_par", ffc_par, "P", "fpc", None, "pár FFC 0,5 mm 5-pól. (spolu) – slučka pan + zdvih"),
         ("konektor_zdvih", mk_konektor, "P", "bought", 0.3, "spojka Molex PicoBlade 1,25 3-pól. (pár, voľne zaparkovaný, Kapton)"),
         ("kabel_zdvih", mk_kabel, "P", "bought", 0.3, "vodiče serva zdvihu (skrátené)"),
@@ -1021,9 +1062,9 @@ SOURCES = {
     "rameno_zdvih": "aluminium single servo arm for the MG90S spline (generic 'MG90S/SG90 aluminium servo arm 25T M2' listings - product, "
                     "thickness and hub UNVERIFIED); modelled hub D7 x 3, arm 2.0 x 5 to r 12.2; crank-pin hole D2.00 drilled at r 10.00 +-0.05",
     "cap_kluky": "dowel pin ISO 8734 2 m6 x 6, pressed + Loctite 638 into the Al arm (metal-metal), x -19.9 .. -13.9",
-    "DPS_krk": "FR4 0.8, 13.0 x 13.4 (custom 2-layer, any PCB house); ZIF Hirose FH19C-5S-0.5SH(10): 0.5 mm, 5 p, 0.9 high, bottom "
-               "contact, for 0.3 FFC; body 4.5 x 3.85 (catalogue A 4.5 / D 3.85 - UNVERIFIED; FH19SC-5S of section 17 does not exist "
-               "in the search results, FH19C-5S does)",
+    "DPS_krk": "FR4 0.8, 13.0 x 13.4 (custom 2-layer, any PCB house); ZIF Panasonic Y5B AYF530535 (0.5 mm, 5 p, top + bottom "
+               "contact, for 0.30 FFC, back lock; height about 1.0 - UNVERIFIED, vendor page not reachable) or Molex 54548-0572 (bottom contact, "
+               "0.30 FFC, 1.2 high, search snippet); envelope modelled 1.2 high (z -39.0 .. -37.8).  fixer rev2: FH19C takes 0.20 FPC only",
     "ffc_par": "2 x stock FFC 0.5 mm pitch, 5 conductors, 3.0 wide, 0.10 flex / 0.3 stiffened ends, 203 mm, Type A (same side) - "
                "Molex Premo-Flex 15166 series 5-circuit 203 mm (part number UNVERIFIED) or Wurth WR-FFC 0.5 mm 5 p 200 mm; stacked pair "
                "modelled as one strip 3.0 x 0.25; creases (45 deg flat folds) only in the static / bonded parts",

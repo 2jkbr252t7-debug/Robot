@@ -423,7 +423,7 @@ WALLS = [   # name, part, point inside the wall, direction, nominal, minimum all
      (math.cos(math.radians(104)), math.sin(math.radians(104)), 0), 1.6, 1.2),
     ("plinth wall (r 17..24)", "T_spodok", (0.0, -20.5, -88.0), (0, 1, 0), 7.0, 2.0),
     ("F1 pad under the counterbore", "T_spodok", (29.0 + 2.3, 19.0, -82.0), (0, 0, 1), 1.6, 1.5),
-    ("J1 stop lug (tangential)", "T_spodok", (0.0, 19.8, -100.0), (1, 0, 0), 5.0, 5.0),
+    ("J1 stop lug (tangential)", "T_spodok", (0.0, 19.8, -100.0), (1, 0, 0), 8.0, 8.0),
     ("J1 stop lug (radial, r 18.65..21)", "T_spodok", (0.0, 19.8, -100.0), (0, 1, 0), 2.35, 2.3),
     ("deck plate", "T_paluba", (17.0, 10.0, -47.2), (0, 0, 1), 2.0, 2.0),
     ("FFC wall", "T_paluba", (0.0, 24.3, -44.5), (0, 1, 0), 1.6, 1.5),
@@ -431,7 +431,7 @@ WALLS = [   # name, part, point inside the wall, direction, nominal, minimum all
     ("T_most", "T_most", (0.0, 8.0, -47.2), (0, 0, 1), 2.0, 2.0),
 ]
 INSERT_WALLS = [
-    (f"F3a {tuple(RV['F3A'][0])}", (RV["F3A"][0][0], RV["F3A"][0][1], -50.0), "z", 1.8), ("F3a (31,5)", (31.0, 5.0, -50.0), "z", 1.8),
+    (f"F3a {tuple(RV['F3A'][0])}", (RV["F3A"][0][0], RV["F3A"][0][1], -50.0), "z", 1.8), (f"F3a {tuple(RV['F3A'][1])}", (RV["F3A"][1][0], RV["F3A"][1][1], -50.0), "z", 1.8),
     ("F3b (6,15.95)", (6.0, 15.95, -50.0), "z", 1.8), ("F3b (18.5,-15.95)", (18.5, -15.95, -50.0), "z", 1.8),
     ("F7 x -25", (RV["CTRL"]["f7"][0][0], 15.5, -62.5), "y", 1.65), ("F7 x 25.8", (RV["CTRL"]["f7"][1][0], 15.5, -62.5), "y", 1.65),
     ("F8 L az 60", (37.0, M.SHY + 3.75, M.SHZ + 6.5), "x", 1.65), ("F8 L az 300", (37.0, M.SHY + 3.75, M.SHZ - 6.5), "x", 1.65),
@@ -591,10 +591,11 @@ def check_G(parts):
 # =====================================================================================================================
 def check_H(parts):
     log("H. carrier: USB envelope, connector reach")
-    E = R2["CTRL2"]["plug_env"]
-    env = C.box(E["x"][0], E["x"][1], E["y"][0], E["y"][1], E["z"][0], E["z"][1])
-    hits = [(n, round(v, 3)) for n, p in parts.items() if p["group"] == "T" for v in [common_volume(env, p["shape"])] if v > 0.001]
-    verdict("H1_usb_plug_envelope_free", not hits, f"RAM parts in x {E['x']} y {E['y']} z {E['z']}: {hits}")
+    E = M.USB_EXT["head"]                                  # fixer rev2 (M1): the USB-C FPC extension head (module turned, mouth +X)
+    env = C.box(E["x"][0], E["x"][1] + 6.7, E["y"][0], E["y"][1], E["z"][0], E["z"][1])          # seated head + its 6.7 withdrawal along +X
+    hits = [(n, round(v, 3)) for n, p in parts.items() if p["group"] == "T" and n not in ("usb_predlzovac", "DPS_riadenie")
+            for v in [common_volume(env, p["shape"])] if v > 0.001]
+    verdict("H1_usb_plug_envelope_free", not hits, f"RAM parts in the USB FPC head envelope x {E['x'][0]}..{E['x'][1] + 6.7} y {E['y']} z {E['z']}: {hits}")
     rows = []
     for name, (x0, x1, y1, z0, z1) in M.CTRL_BLOCKS.items():
         if not name.startswith("J_"):
@@ -635,11 +636,38 @@ def check_S(parts):
         secs[k] = dict(A=round(r["A"], 1), Zx=round(min(zm["Zw_p"], zm["Zw_m"]), 1), Zy=round(min(zm["Zu_p"], zm["Zu_m"]), 1))
         log(f"   column section {k}: {secs[k]}")
     OUT["S_column_sections"] = secs
+    def m_col(z):
+        """fixer rev2: column moment at section z under L5 (10 N along X at the 72 mm arm tip, arm up).  The arm moment enters the
+        column through the T_klb clamped on the boss face by the 3 F8 screws (az 60 / 180 / 300 -> z -10.5 / -17 / -23.5) and the
+        contact of the stop-ring flange (r 12.8: edge z -4.2 / -29.8).  Elastic screws (tension ~ distance from the contact edge),
+        envelope of both force directions; below the lowest screw (z <= -23.5) and the flange edge the full 10 x (55 - z)."""
+        full = 10.0 * (55.0 - z)
+        zs_ = [-17.0 + 7.5 * math.sin(math.radians(a)) for a in R2["COLUMN"]["f8_az"]]
+        best = 0.0
+        for zc, sgn in ((-17.0 + 12.8, 1), (-17.0 - 12.8, -1)):          # contact edge on top (force -X) / at the bottom (force +X)
+            d = [abs(zc - zi) for zi in zs_]
+            k_ = 10.0 * (55.0 - zc) / sum(di * di for di in d)            # moment about the contact edge = sum T_i d_i, T_i = k d_i
+            T = [k_ * di for di in d]; Cc = sum(T) + 10.0 * sgn
+            m = Cc * (zc - z) if zc > z else 0.0
+            m -= sum(Ti * (zi - z) for Ti, zi in zip(T, zs_) if zi > z)
+            if zc < z:                                                    # bottom-contact case: the column above z gets only the screws
+                m = sum(Ti * (zi - z) for Ti, zi in zip(T, zs_) if zi > z)
+            best = max(best, abs(m))
+        return min(full, best) if z > min(zs_) else full
+
+    def kt_col(z):
+        """Kt 1.3 where the section crosses an F8 insert hole (+-1.8), the key slot (-18.5..-15.5) or the chamfered top (z >= -12.5);
+        1.1 on the plain plate / boss sections"""
+        zs_ = [-17.0 + 7.5 * math.sin(math.radians(a)) for a in R2["COLUMN"]["f8_az"]]
+        hole = any(abs(z - zi) <= 1.8 for zi in zs_) or -18.6 <= z <= -15.4 or z >= -12.5
+        return 1.3 if (hole or z <= -27.5) else 1.1
+
     for k, z in zs.items():
-        Mx = 720.0 + 10.0 * max(0.0, -17.0 - z)
+        Mx = m_col(z) if z > -28.0 else 720.0 + 10.0 * max(0.0, -17.0 - z)
+        kt = kt_col(z) if z > -28.0 else 1.3
         row("42/44", f"column {k} (alone; cap shell share ignored)", "L5 10 N along X at the arm tip", f"Zx {secs[k]['Zx']}",
-            Mx / secs[k]["Zx"], A_N, f"M {Mx:.0f} N.mm" + ("; decisive: connected section 42c" if z < -48 else ""), kt=1.3,
-            info=z < -48)
+            Mx / secs[k]["Zx"], A_N, f"M {Mx:.0f} N.mm" + (" (fixer rev2: load introduced through the F8 screws / flange contact)" if z > -28 else "")
+            + ("; decisive: connected section 42c" if z < -48 else ""), kt=kt, info=z < -48)
         My = 720.0
         row("42y", f"column {k}", "L5 10 N along Y (arm down, 72 mm)", f"Zy {secs[k]['Zy']}", My / secs[k]["Zy"], A_N, "", kt=1.3)
         row("43", f"column {k}", "lifted by one arm 15 N", f"Zx {secs[k]['Zx']}", 15.0 * 13.6 / secs[k]["Zx"] + 15.0 / secs[k]["A"], A_N, "", kt=1.3)
@@ -658,8 +686,18 @@ def check_S(parts):
     row("46", "stop ring 0.7 x 1.2 under the cap flange (3 x F8 preload)", "sustained, F8 0.05 N.m", f"A {ring:.0f}", 3 * Pre / ring, A_S,
         "K 0.2; 0.04 N.m -> 3.3")
     row("40", "F8 M2 bonded inserts in the column boss", "L5 (max bolt 29.8 N, p08)", "D3.2 x 3.0", 29.8 / (math.pi * 3.2 * 3.0), A_EP, "epoxy")
+    # fixer rev2 (overenie2 S1): the two column corners that were sharp, now filleted - nominal stress from the column section just
+    # above the corner (the verifier's own raster sections: z -47.9 A 135.1 Zy 209.6; z -38.5 Zy 209.6) x Kt of the fillet
+    for nm, zc, Zc, R_, d_, kt_ in (("bridge-wall top / column inner face, R1.5 (x 34.4, z -48.2)", -48.2, 209.6, RV["COL"]["bridge_fillet"], 3.0, 1.35),
+                                     ("head overhang / box-closure face, R1.0 cove (x 42, z -38)", -38.5, 209.6, RV["COL"]["head_cove"], 7.6, 1.5)):
+        Mc = 10.0 * (72.0 + (-17.0 - zc))
+        row("S1", f"column corner {nm} (r/d {R_ / d_:.2f})", "L5 10 N along X at the arm tip", f"Zy {Zc} (overenie2 sections)", Mc / Zc, A_N,
+            f"M {Mc:.0f} N.mm; Kt {kt_} for a shoulder fillet r/d {R_ / d_:.2f} (Peterson, D/d >= 1.1)", kt=kt_)
+    row("S1", "plate / box-top step (x 38.4, z -33.8), unfilleted", "L5 10 N along X at the arm tip", "Zy 300 (overenie2)",
+        10.0 * (72.0 + 16.8) / 300.0, A_S, "unfilleted notch -> Z2 4.3 MPa on the nominal stress")
     rc = RV["J1_LUG"]["r"][0] + 1.2
-    for case, Tq, allow in (("L4 clutch-limited 0.40 N.m", 0.40, A_N), ("L4 hand on the stop 0.6 N.m", 0.60, A_A)):
+    for case, Tq, allow in (("L4 clutch-limited 0.40 N.m", 0.40, A_N), ("L4 hand on the stop 0.6 N.m", 0.60, A_A),
+                            ("L4 torso twisted by hand into the stop 1.5 N.m (fixer rev2 m4)", 1.50, A_A)):
         F = Tq * 1000.0 / rc
         Lw = RV["J1_LUG"]; Zl = (Lw["r"][1] - Lw["r"][0]) * Lw["w"] ** 2 / 6.0
         row("49", f"J1 stop lug {Lw['r'][1] - Lw['r'][0]:.2f} x {Lw['w']} root at z -98 (R1)", case, f"Z {Zl:.1f}, lever 2.15",

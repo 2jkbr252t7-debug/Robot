@@ -810,19 +810,14 @@ ROOTS = [
     ("P_sachta", "ribs to the top plate / ring / walls", "R0 - ribs support the journal only (declared)", False),
     ("P_sachta", "drum shroud to the back floor", "R0 - cable guide, unloaded (declared)", False),
     ("P_drziak_serva", "lug inner side to the bridge underside", "R1.5", True),
+    ("P_drziak_serva", "tongue / plate (both long edges, L2 bending root)", "R0.5 (fixer rev2 S2; the rail groove mouth is chamfered 0.8)", True),
     ("P_drziak_serva", "lug contact (CW) side to the bridge underside", "R0.8 (pin 1 top is only 1.0 below the bridge)", True),
     ("P_drziak_serva", "turret wall / plate junction behind the case corner", "R0 - the servo case corner occupies it (declared Z3.3 exception)", False),
     ("P_drziak_serva", "block (F11 post) / plate", "R0 - the servo tab sits in the corner (declared)", False),
 ]
-PRINT = {
-    "P_sachta": dict(orientation="top plate (z -2.0 face) on the build plate, axis vertical",
-                     supports="hub disc / back floor underside, shroud lower edge, rail and pad faces; NOT on the journal ring, the drum "
-                              "shroud outer face or the guide lands",
-                     drain="well open at both ends; pockets between ring, ribs and walls open toward the vat - no closed cup",
-                     size_mm=[53.0, 53.0, 43.6], fits_printer=True),
-    "P_drziak_serva": dict(orientation="plate (y 15.1 face) on the build plate", supports="turret wall edges, bridge and lug outer "
-                           "faces; NOT in the keyhole, on the tongue faces, in the F11 nut slot or in the F10 holes",
-                           drain="no closed pocket (nut slot, key holes and keyhole open)", size_mm=[44.4, 17.7, 33.9], fits_printer=True),
+PRINT = {   # fixer rev2 (overenie2 M2 / m6): taken from the module print records; the cup test itself runs in checks.py K10
+    k: dict(orientation=v["orientation"], supports=v["supports"], drain=v["drains"], u_away=v["u_away"], on_plate=v["on_plate"],
+            fits_printer="tested in checks.py K10 (oriented size + cup test)") for k, v in M.PRINT.items()
 }
 if "G" in SECT:
     t0 = time.time(); rows, bad = [], []
@@ -868,6 +863,7 @@ if "G" in SECT:
 # H  strength rows (Z2 allowables: normal 8.5, sustained / unfilleted notch 4.3, abuse 12.9 MPa incl. Kt; epoxy 2.7)
 # =====================================================================================================================
 if "H" in SECT:
+    R2_FIX = C.FIX2
     AL = dict(normal=8.5, notch=4.3, sustained=4.3, abuse=12.9, epoxy=2.7)
     rows = []
 
@@ -926,8 +922,9 @@ if "H" in SECT:
         row(12 if nm == "lower" else 13, f"rail {nm} lip {t_:.1f} thick (module moment end reaction over 1/3 rail, lever {lev:.2f})",
             "L2 30 N lift 20" if nm == "lower" else "L1 x 2 30 N", "normal", 6 * q * lev / t_ ** 2, AL["normal"], kt=1.3)
     tgz = P2["POCKET"]["tongue"]["z"][1] - P2["POCKET"]["tongue"]["z"][0]
-    row(13, f"pocket tongue {tgz:.1f} x 1.5 (cantilever from the plate, R0 declared)", "L2 30 N lift 20", "normal",
-        6 * q * 0.75 / tgz ** 2, AL["normal"], kt=1.5)
+    rt = P2["FIX2"]["tongue_root_r"]
+    row(13, f"pocket tongue {tgz:.1f} x 1.5 (cantilever from the plate, R{rt} roots - fixer rev2 S2; Kt 1.6 for r/d {rt / tgz:.2f})",
+        "L2 30 N lift 20", "normal", 6 * q * 0.75 / tgz ** 2, AL["normal"], kt=1.6)
     row(14, "F10 insert bond (OD 3.2 x 3.0), L1 share 15 N", "L1 x 2", "epoxy", 15.0 / (math.pi * 3.2 * 3.0), AL["epoxy"])
     pre = P2["F10"]["torque"] / (0.2 * 0.002)
     row(15, f"F10 insert bond at the assembly torque {P2['F10']['torque']} N m (preload {pre:.0f} N, K 0.2)", "L7", "epoxy ultimate / 2",
@@ -937,7 +934,9 @@ if "H" in SECT:
     row(18, "back floor 0.95 over the FFC groove (foot contact 0.08 MPa, span 8, simply supported)", "L2 30 N lift 0", "normal",
         6 * (0.08 * 8.0 ** 2 / 8) / 0.95 ** 2, AL["normal"])
     E = P2["EAR"]; t = E["t"]
-    row(19, "L_ucho plate 304 1.5 at TDC (rev. 1 FE 60 MPa on the 2.5 outline, in-plane -> x 2.5/1.5)", "L2 lift 20", "metal", 60.0 * 2.5 / t, 215.0 / 1.5)
+    row(19, "L_ucho plate 304 1.5 at TDC: plate root beside the relief kerf (overenie2 2-D FE t06: 137.7 MPa von Mises; fixer rev2: "
+            "304 only, D1.0 at the kerf end)", "L2 lift 20", "metal", R2_FIX["EAR_FE_MPA"], 215.0 / 1.5,
+        basis="FE value before the D1.0 relief (conservative); 5754-H22 2.0 deleted (103 > 87 MPa)")
     row(20, "L_ucho lower ligament under the pin at mid stroke (5.2 x 1.5, pin past the bend tangent)", "L1 x 2", "metal",
         6 * (F30 * 1.0) / (t * 5.2 ** 2), 215.0 / 1.5)
     row(21, "F12 single M2 screw tension (prying 13.4 / 2.0; dowel takes the shear)", "L1 x 2 lift 0", "metal", (F30 * 13.4 / 2.0) / 2.07, 640.0 / 1.5)

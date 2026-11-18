@@ -24,7 +24,7 @@ FRONT = ["T_svetlovod", "T_mriezka", "T_drziak_led", "DPS_led", "podlozka_led_1"
          "tesnenie_repro", "reproduktor", "T_drziak_repro", "podlozka_repro_1", "podlozka_repro_2", "podlozka_repro_3",
          "skrutka_repro_1", "skrutka_repro_2", "skrutka_repro_3"]
 # flexible / reserved space: never swept, never an obstacle (FFC, leads, wires of B, PORON, PTFE tapes)
-FLEX = ["ffc_par", "ffc_A_krk", "ffc_B_krk", "ffc_A_nosic", "ffc_B_nosic", "pigtail_zdvih", "kabel_zdvih", "konektor_zdvih",
+FLEX = ["ffc_par", "ffc_A_krk", "ffc_B_krk", "ffc_A_nosic", "ffc_B_nosic", "pigtail_zdvih", "kabel_zdvih", "konektor_zdvih", "usb_predlzovac",
         "vyvod_led", "vyvod_repro", "kabel", "pena_J1_celo", "ptfe_cap", "ptfe_pas_capu"] + [f"ptfe_pasik_{i}" for i in range(1, 8)]
 STAGE = ["P_sachta", "koleso_pan", "vl_F10_A", "vl_F10_B", "kolik_F10"]
 LIFT_MODULE = ["P_drziak_serva", "servo_zdvih", "rameno_zdvih", "cap_kluky", "skr_ramena", "skr_F11", "podl_F11", "matica_F11", "L_ucho",
@@ -44,7 +44,7 @@ SERVICE_T_STRED_OFF = ["T_stred", "T_bok_L", "T_bok_P", "T_klb_L", "T_klb_P"] + 
 STEPS = [
     # ------------------------------------------------------------------------------------------------ bench sub-assemblies
     dict(id="B1", bench=True, text="T_spodok: bonded inserts F3a / F3b (from above), F7 (from the door side), F8 (into the shoulder bosses), "
-                                   "stop pins (6.0 deep, 24 h), DIN 562 nuts of F4 into the post slots (from +X)",
+                                   "stop pins (bonded 8.4 deep in the D3.05 x 8.7 holes - flush the blind holes with IPA first, 24 h), DIN 562 nuts of F4 into the post slots (from +X); fixer rev2: dry-fit T_stred on the bare T_spodok BEFORE bonding and sand stop post 1 / the spigot where they rub",
          move=[], ctx=["T_spodok"],
          hardware=[("vl_F3a_1", "+z"), ("vl_F3a_2", "+z"), ("vl_F3b_1", "+z"), ("vl_F3b_2", "+z"), ("vl_F7_1", "+y"), ("vl_F7_2", "+y")]
          + [(f"vl_F8_L{i}", "+x") for i in (1, 2, 3)] + [(f"vl_F8_P{i}", "-x") for i in (1, 2, 3)]
@@ -88,6 +88,9 @@ STEPS = [
          move=[], ctx=["L_pata", "krk_predna_polovica"], with_parts=["kabel"]),
     dict(id="B7", bench=True, text="J1 pinion slid over the STS3215 spline + Loctite 638 (24 h)", move=["pastorok_J1"], legs=[("-z", 12.0)], ctx=["servo_J1"],
          fits=[("pastorok_J1", "servo_J1")]),
+    dict(id="B7b", bench=True, text="fixer rev2 (B1): pan pinion slid over the STS3032 spline + Loctite 638 (24 h) ON THE BENCH - T_stred now "
+                                    "passes the pinion (lip relief r 8.35 about the pinion axis), so no in-situ bond / cure in the torso",
+         move=["pastorok_pan"], legs=[("+z", 12.0)], ctx=["servo_pan"], fits=[("pastorok_pan", "servo_pan")]),
     dict(id="B8", bench=True, text="3 + 3 magnets into the shoulder joints, 4 magnets into the door bosses", move=[], ctx=["T_klb_L", "T_klb_P", "T_dvere"],
          hardware=[(f"magnet_klb_L{i}", "+x") for i in (1, 2, 3)] + [(f"magnet_klb_P{i}", "-x") for i in (1, 2, 3)]
          + [(f"magnet_dvierka_{i}", "axis:-y") for i in range(1, 5)]),
@@ -100,18 +103,27 @@ STEPS = [
     dict(id="T1", text="STS3215 + pinion into the cradle (pinion through J1_PASS); C shim; F16 x 2 from below", move=["servo_J1", "pastorok_J1"],
          legs=[("+z", 60.0)], with_parts=["podlozka_C_J1", "pena_J1_celo"],
          screws=[("skr_F16_1", "-z"), ("skr_F16_2", "-z")], hardware_with=["pd_F16_1", "pd_F16_2"]),
-    dict(id="T2", text="STS3032 (pinion NOT yet) lowered 5.5 in front of its seat, slid +Y (tabs into the front-wall slots, +X tab under the "
-                       "F3b boss), down 0.2 onto the posts; F4 x 2 loose; bus plug pushed in afterwards along -X through the +X post window",
-         move=["servo_pan"], legs=[("+z", 0.2), ("-y", 5.5), ("+z", 60.0)], screws=[("skr_F4_1", "+z"), ("skr_F4_2", "+z")],
+    dict(id="T2", text="STS3032 WITH its bonded pinion (B7b) lowered 5.5 in front of its seat, slid +Y (tabs into the front-wall slots, +X tab "
+                       "under the F3b boss), down 0.2 onto the posts; F4 x 2 loose (F4_1 sits partly under the pinion: 1.3 ball-end key tilted "
+                       "28 deg toward +Y); bus plug pushed in afterwards along -X through the +X post window",
+         move=["servo_pan", "pastorok_pan"], legs=[("+z", 0.2), ("-y", 5.5), ("+z", 60.0)],
+         screws=[("skr_F4_1", (0.06, 0.47, 0.88), KEY13), ("skr_F4_2", "+z", KEY13)], fits=[("pastorok_pan", "servo_pan")],
          skip_box={"servo_pan": ((11.76, 18.8, -24.85, -16.75, -72.75, -64.15), "bus plug + cable bend (reserved space), plugged in after the servo is seated")},
          flex_sweep=[("servo_pan", (11.76, 18.8, -24.85, -16.75, -72.75, -64.15), "+x", 12.0, "plug withdrawn along +X through the post window")]),
     dict(id="T3", text="shim strips on the STS3215; T_paluba, T_most + T_cap into its slot, PTFE washer; F3a x 2, F3b x 2",
          move=DECK, legs=[("+z", 60.0)], with_parts=["podlozka_J1_1", "podlozka_J1_2", "ptfe_cap"],
          screws=[("skr_F3a_1", "+z"), ("skr_F3a_2", "+z"), ("skr_F3b_1", "+z"), ("skr_F3b_2", "+z")], hardware_with=["pd_F3a_1", "pd_F3a_2"]),
+    dict(id="T3b", transient=True, text="fixer rev2 (M4 + S3): PAN BACKLASH with the gears in mesh - the bare 36T gear (not yet bonded, B4b comes "
+                                        "after) on the taped T_cap; 0.05 paper strip in the mesh, STS3032 pushed along C, F4 tightened (F4_2 1.3 key "
+                                        "straight, F4_1 1.3 ball-end key tilted 28 deg toward +Y past the pinion); then the F4 slots are filled with "
+                                        "epoxy around the WAXED shanks (positive C lock, S3) and the gear is lifted off again",
+         move=["koleso_pan"], legs=[("+z", 40.0)], fits=[("koleso_pan", "(T_cap|ptfe_podlozka|pastorok_pan|ptfe_cap)$")],
+         screws=[("skr_F4_1", (0.06, 0.47, 0.88), KEY13), ("skr_F4_2", "+z", KEY13)]),
     dict(id="T4a", text="capacitor in from the back (door side) above the spigot, then 6 down onto its pedestal (cable tie)", move=["kondenzator"],
          legs=[("+z", 6.0), ("+y", 20.0)]),
-    dict(id="T4b", text="carrier onto its standoffs + rest pad (from the door side), F7 x 2 flush countersunk", move=["DPS_riadenie"],
-         legs=[("+y", 40.0)], screws=[("skr_F7_1", "+y"), ("skr_F7_2", "+y")], with_parts=["ffc_A_nosic", "ffc_B_nosic"]),
+    dict(id="T4b", text="carrier onto its standoffs + rest pad (from the door side), F7 x 2 flush countersunk (FFC tails NOT yet: they come "
+                        "down the bore at T7, M6)", move=["DPS_riadenie"],
+         legs=[("+y", 40.0)], screws=[("skr_F7_1", "+y"), ("skr_F7_2", "+y")]),
     dict(id="T4c", text="buck converter onto the right column, F14 x 2", move=["menic"], legs=[("-x", 25.0)],
          screws=[("skr_F14_1", "-x"), ("skr_F14_2", "-x")], hardware_with=["pd_F14_1", "pd_F14_2"]),
     dict(id="T4d", text="amplifier onto the left column, F14 x 2", move=["zosilnovac"], legs=[("+x", 25.0)],
@@ -120,11 +132,15 @@ STEPS = [
          move=["T_stred"] + FRONT + F1_HW + [f"magnet_zarubna_{i}" for i in range(1, 5)], legs=[("+z", 110.0)],
          with_parts=["vyvod_led", "vyvod_repro"], screws=[(f"skr_F1_{i}", "-z") for i in range(1, 5)], hardware_with=[f"pd_F1_{i}" for i in range(1, 5)],
          lowering=True),
-    dict(id="T5b", text="pan pinion IN SITU: down through the bore 4 mm toward the axis, then -Y onto the STS3032 spline (Loctite 638, 24 h)",
-         move=["pastorok_pan"], legs=[("+z", 4.5), ("+y", 4.0), ("+z", 60.0)], fits=[("pastorok_pan", "servo_pan")]),
+    dict(id="T5c", text="fixer rev2 (M1): USB-C FPC extension - slim male end into the ESP32-S3-Zero mouth (+X side, along -X, by hand "
+                        "through the door), FPC laid toward the door, female end parked (Kapton) in the door zone",
+         move=["usb_predlzovac"], legs=[("+x", 6.7)], with_parts=[]),
     dict(id="T6", text="collar ring glued on the bore shoulder z -2", move=["golier_prstenec"], legs=[("+z", 20.0)]),
-    dict(id="T7", text="stage (bench B4) straight down through the glued ring onto T_cap / PTFE at pan 0; F15 + DIN 9021 through the empty well",
-         move=STAGE, legs=[("+z", 60.0)], pan=0.0, with_parts=["ptfe_pas_capu"] + [f"ptfe_pasik_{i}" for i in range(1, 8)] + ["ffc_par"],
+    dict(id="T7", text="stage (bench B4) held above the torso: both carrier tails of the FFC pair fed down the EMPTY bore -> deck slot (r 22.4..23.6, "
+                       "B az 26..34, visible from above) -> cradle-wall slot (exit above the carrier top) -> ZIFs J_PAN_A / B through the door; "
+                       "Kapton static anchor through the bore; then the stage straight down through the glued ring onto T_cap / PTFE at pan 0 "
+                       "(fixer rev2 M6: the stage is never tethered to the deck while T_stred / the ring go on); F15 + DIN 9021 through the empty well",
+         move=STAGE, legs=[("+z", 60.0)], pan=0.0, with_parts=["ptfe_pas_capu"] + [f"ptfe_pasik_{i}" for i in range(1, 8)] + ["ffc_par", "ffc_A_nosic", "ffc_B_nosic"],
          fits=[("koleso_pan", "(T_cap|ptfe_podlozka|pastorok_pan)$"), ("P_sachta", "T_stred")],
          screws=[("skr_F15", "+z", 3.0)], hardware_with=["pd_F15"]),
     dict(id="T8", text="neck with the foot, F12 dowel and DPS_krk (bench B6) from above into the well at pan 0, held at the lift-0 height (the lift module is not in yet: the F12 dowel along Y must enter the ear hole from the side)", move=NECK, legs=[("+z", 60.0)], pan=0.0,
@@ -138,13 +154,12 @@ STEPS = [
          screws=[("skr_F12_1", "+y", KEY13)]),
     dict(id="T12", text="collar disc (B 10) down the neck onto the stage top (glued)", move=["golier_kotuc"], legs=[("+z", 15.0)], pan=0.0),
     dict(id="T13L", text="left side cap along -X", move=["T_bok_L"], legs=[("+x", 35.0)]),
-    dict(id="T13Lb", text="left shoulder joint (magnets bonded, B8), F8 x 3 + ISO 7092 in the D4.7 counterbores (1.5 hex key)",
+    dict(id="T13Lb", text="left shoulder joint (magnets bonded, B8), F8 x 3 + ISO 7092 in the D4.7 counterbores (1.3 hex key, ISO 7380 M2; preset torque driver)",
          move=["T_klb_L", "magnet_klb_L1", "magnet_klb_L2", "magnet_klb_L3"], legs=[("+x", 30.0)],
          screws=[(f"skrutka_klb_L{i}", "+x", 3.0) for i in (1, 2, 3)], hardware_with=[f"podlozka_klb_L{i}" for i in (1, 2, 3)]),
     dict(id="T13P", text="right side cap along +X", move=["T_bok_P"], legs=[("-x", 35.0)]),
     dict(id="T13Pb", text="right shoulder joint, F8 x 3", move=["T_klb_P", "magnet_klb_P1", "magnet_klb_P2", "magnet_klb_P3"],
          legs=[("-x", 30.0)], screws=[(f"skrutka_klb_P{i}", "-x", 3.0) for i in (1, 2, 3)], hardware_with=[f"podlozka_klb_P{i}" for i in (1, 2, 3)]),
-    dict(id="T14", text="door straight in along -Y onto the ledge (no hooks; 4 magnet pairs)", move=DOOR, legs=[("+y", 30.0)]),
     # ------------------------------------------------------------------------------------------------ service rows (D6, K7 new)
     dict(id="S1", service=True, text="SERVICE lift module OUT through the door (ear on the pin, PicoBlade unplugged) at pan 0 - neck in place",
          move=LIFT_MODULE, legs=[("+y", 50.0)], pan=0.0, remove=DOOR + ["skr_F10_A", "skr_F10_B", "podl_F10_A", "podl_F10_B", "skr_F12_1"],
@@ -158,13 +173,20 @@ STEPS = [
          fits=[("koleso_pan", "(T_cap|ptfe_podlozka|pastorok_pan)$"), ("P_sachta", "T_stred")]),
     dict(id="S4", service=True, text="SERVICE pivot screw F15 reached through the empty well (neck out), hex 2.0", move=[], pan=0.0,
          remove=NECK + ["skr_F12_1"], screws=[("skr_F15", "+z", 3.0)]),
+    dict(id="S5a", service=True, text="fixer rev2 (B1): SERVICE T_stred (+ front stack, F1 inserts, frame magnets, glued collar ring) lifted STRAIGHT UP "
+                                       "with the STS3032 and its bonded pinion in place (stage, neck, lift module out = S1..S3; side caps, joints, door, "
+                                       "F1 x 4 out; USB FPC male end and LED / speaker plugs unplugged; deck stays on)",
+         move=["T_stred"] + FRONT + F1_HW + [f"magnet_zarubna_{i}" for i in range(1, 5)] + ["golier_prstenec"], legs=[("+z", 110.0)],
+         remove=[n for n in SERVICE_T_STRED_OFF if n not in (["T_stred"] + FRONT + F1_HW + [f"magnet_zarubna_{i}" for i in range(1, 5)] + ["golier_prstenec"])]),
     dict(id="S5", service=True, text="SERVICE pan servo with T_stred, side caps, joints, stage, lift module, neck and deck (F3a / F3b) off: bus plug out, F4 out, servo + pinion up 0.2, 5.5 forward (-Y), up",
          move=["servo_pan", "pastorok_pan"], legs=[("+z", 0.2), ("-y", 5.5), ("+z", 60.0)],
          remove=SERVICE_T_STRED_OFF + DECK + ["skr_F3a_1", "skr_F3a_2", "skr_F3b_1", "skr_F3b_2", "pd_F3a_1", "pd_F3a_2", "ptfe_cap"],
          skip_box={"servo_pan": ((11.76, 18.8, -24.85, -16.75, -72.75, -64.15), "bus plug unplugged first (along +X through the post window)")}),
-    dict(id="S6", service=True, text="SERVICE carrier out through the door (F7 x 2, plugs / ZIFs open)", move=["DPS_riadenie"], legs=[("+y", 40.0)],
-         remove=DOOR + ["skr_F7_1", "skr_F7_2"]),
+    dict(id="S6", service=True, text="SERVICE carrier out (fixer rev2: with T_stred off = S5a; the 49.8 wide board cannot pass the 41.5 door "
+                                      "opening): F7 x 2, ZIFs / plugs / USB FPC open, carrier +Y out of the open tower",
+         move=["DPS_riadenie"], legs=[("+y", 40.0)], remove=SERVICE_T_STRED_OFF + ["skr_F7_1", "skr_F7_2"]),
     dict(id="T15", text="torso onto the base hub (here: the dummy stand withdrawn downward)",
          move=["Z_naboj_test", "Z_koleso_J1", "Z_skrutka_M8", "Z_pruzina_1", "Z_pruzina_2"], legs=[("-z", 40.0)],
          fits=[("Z_naboj_test", "lozisko_6805"), ("Z_koleso_J1", "pastorok_J1")], final=True),
+    dict(id="T14", text="door straight in along -Y onto the ledge (no hooks; 4 magnet pairs) - fixer rev2: AFTER the torso is on the base and the base FFC is plugged into J_J1 through the door (m7)", move=DOOR, legs=[("+y", 30.0)]),
 ]

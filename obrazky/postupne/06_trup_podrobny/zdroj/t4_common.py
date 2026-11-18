@@ -1172,7 +1172,7 @@ R2 = dict(
     J1=dict(gear_plane=(-90.00, -86.00), pinion_bore=6.00, face=4.0, fix="Loctite 638 on the STS3215 spline, no screw",
             pads=dict(size=(5.0, 5.0), top=-83.30), window="case footprint minus the 4 corner pads",
             screws="4 x M2 x 6 through the pads into the case holes (positions UNVERIFIED)", c_shim=0.2,
-            stop_lug=dict(w=4.0, r=(17.0, 21.0), z=(-102.0, -98.0), az=90.0, root_r=1.0), base_stop=dict(az=270.0, half=19.0)),
+            stop_lug=dict(w=8.0, r=(18.65, 21.0), z=(-102.0, -98.0), az=90.0, root_r=1.0), base_stop=dict(az=270.0, half=14.6)),   # fixer rev2 m4 (lug 8.0, block +-14.6)
     SEAT_6805_D=37.15,
     CRADLE=dict(wall=2.5, y_in=12.55, y_out=15.05, x=(-32.2, 25.8), end_wall_x=(-32.2, -29.7), z=(-82.3, -48.2), root_r=2.0),
     COLUMN=dict(web_x=(34.4, 37.4), y=(-9.0, 15.0), ribs_y=((-9.0, -6.5), (12.5, 15.0)), rib_x=42.0,
@@ -1193,7 +1193,7 @@ R2 = dict(
     FFC_LIFT2=dict(x=(25.1, 31.3), y=(-3.5, 3.5), z=(-41.5, -13.5), r_max=31.7, R=3.0),
     PIGTAIL=dict(x=(25.1, 30.0), y=(4.0, 7.0), z=(-41.0, -14.0), plug="Dupont 1x3 2.54"),
     DPS_KRK=dict(pcb=(13.0, 13.4, 0.8), x=(9.2, 22.2), y=(-6.9, 6.5), top_z=-37.00,
-                 zif="Hirose FH19SC-5S-0.5SH (x2)", zif_mouth_x=22.2, zif_z=(-38.00, -37.00),
+                 zif="Panasonic Y5B AYF530535 (x2; fixer rev2 - FH19SC replaced, UNVERIFIED)", zif_mouth_x=22.2, zif_z=(-38.00, -37.00),
                  zif_y=((-6.4, -1.2), (0.2, 5.4))),
     CTRL2=dict(pcb=(46.0, 18.0, 1.6), x=(-23.0, 23.0), y=(16.50, 18.10), parts_y_max=23.5, z=(-71.5, -53.5),
                module=dict(x=(-0.5, 23.0), usb_mouth=(-0.5, 20.2, -62.5), usb_dir="-X"),
@@ -1393,7 +1393,7 @@ PAN2_SUMMARY = dict(
     RAIL=dict(x=(-6.0, 16.0), y=(13.0, 15.1), z=(-41.9, -33.9), groove_z=(-39.4, -36.4)),
     F11="ISO 7380 M2x6 + DIN 125 on the +X face of the tab, DIN 562 nut in the block; driven on the bench (lift module out)",
     F12="1 x ISO 7380 M2x6 at (x -10.0, z -38.5) + dowel D2x4.5 at (x -13.2, z -38.5); 1.3 hex key through the D2.4 bridge hole",
-    CRANK_PIN=(-19.9, -13.9), DPS_ZIF="Hirose FH19C-5S-0.5SH(10) x 2 under DPS_krk, mouths x 22.2",
+    CRANK_PIN=(-19.9, -13.9), DPS_ZIF="Panasonic Y5B AYF530535 x 2 under DPS_krk, mouths x 22.2 (fixer rev2: FH19C takes 0.2 FPC only)",
     CONNECTOR="Molex PicoBlade 1.25 3p inline pair 51047-0300 + 51021-0300, parked loose at x 17.2..22.7, y 17.2..20.5, z -29..-17",
     # integrator rev2: lift loop = U in the y-z plane (strip width radial), everything below z -28.5 at x <= 28.35
     FFC_LIFT_ENV=dict(x=(25.1, 28.35), y=(-5.85, 7.0), z=(-41.6, -12.75), r_max=29.2, U_R=3.125, plane="y-z",
@@ -1460,3 +1460,45 @@ INTEG2 = dict(
         "before the lift module (T9); S2 needs S1 first; S5 with the deck off; F11 with the 1.3 hex key",
     ])
 # <<< end of rev2 (integrator)
+
+
+# >>> rev2 (fixer, overenie2 findings 2026-11-18) - numbers the fixer added; T4_spec.md section 17.16 is the text
+FIX2 = dict(
+    # K1 / K2: ONE continuous firmware limit for the head nod (replaces the B tilt table + the 27.5 deg row): checked by K9 on a
+    # 0.5 mm lift grid at the limit (>= 1.0 mm) and at the limit + 1 deg (>= 0.5 mm: MG90S dead band + horn backlash about 1 deg)
+    TILT_RULE=dict(down=dict(a=4.0, b=1.9, max=40.0), up_rows={0.0: 10.0, 7.5: 30.0, 12.5: 40.0}, lift_step=0.5, margin_deg=1.0,
+                   crit_limit=1.0, crit_margin=0.5,
+                   text="tilt_down_max = min(40, 4 + 1.9 x lift) deg; tilt_up_max = 10 deg (lift < 7.5), 30 deg (7.5 .. 12.5), 40 deg "
+                        "(>= 12.5); firmware parks the head at lift 0, tilt 0 when idle"),
+    # S5: every resin-bearing screw joint is tightened with a PRESET torque screwdriver (the K12 rows hold up to the tool's
+    # upper tolerance, +10 %); hand drivers are not allowed on resin joints
+    TORQUE_TOOL=dict(product="preset / adjustable torque screwdriver 2..15 cN.m, e.g. Tohnichi RTD15CN (2..15 cN.m) or Wiha "
+                             "TorqueVario-S class with a cN.m range (catalogue data UNVERIFIED - vendor pages not reachable)",
+                     tol=0.10, min_cNm=2.0),
+    TORQUE=dict(F1=0.040, F3a=0.040, F3b=0.040, F4=0.020, F7=0.030, F8=0.020, F10=0.040, F11=0.020, F13=0.030, F14=0.030, F15=0.080,
+                F16=0.025, F12=0.15),
+    F8_WASHER="DIN 433 M2 (2.2 x 4.5 x 0.3) - 12.1 mm2; at 2 cN.m + 10 % the bearing is 4.2 MPa (K 0.2)",
+    # S3: positive location of the pan-servo centre distance (Z3.7): after the backlash is set (T3b) the clearance of both F4 shanks in
+    # their +-0.3 slots is filled with epoxy around the WAXED screws (release agent) - a cast, positive stop; the screws stay removable
+    F4_LOCK="epoxy-cast slot fill around waxed F4 shanks (both posts), after T3b",
+    # S4: the ear is 304 stainless 1.5 ONLY (5754 deleted); D1.0 drilled at the inner end of the bend-relief kerf
+    EAR_MAT="304 stainless 1.5 (X5CrNi18-10, yield >= 215 MPa)", EAR_FE_MPA=137.7,
+    # M5: one ZIF type at all 4 places (5 p, 0.5 mm, for 0.30 FFC)
+    ZIF="Panasonic Y5B AYF530535 (5 p, 0.5 mm, top + bottom contact, 0.30 FFC, back lock) - fallback Molex 54548-0572 (bottom contact, 1.2 high); "
+        "both from distributor search snippets, UNVERIFIED - confirm on the distributor page before the PCBs are drawn",
+    USB="90 deg USB-C FPC extension (slim male into the ESP32-S3-Zero, FPC toward the door, female end parked in the door zone); ESP32-S3-Zero "
+        "turned so its USB-C faces +X",
+)
+INTEG.setdefault("B_TILT_TABLE_REPLACED_BY", FIX2["TILT_RULE"]["text"])
+
+
+def tilt_down_max(lift):
+    """fixer rev2: firmware nod-down limit (deg) at the given lift (mm)"""
+    d = FIX2["TILT_RULE"]["down"]
+    return round(min(d["max"], d["a"] + d["b"] * float(lift)), 3)
+
+
+def tilt_up_max(lift):
+    """fixer rev2: firmware tilt-up limit (deg): the B rows taken as steps from the row at or below the lift (conservative)"""
+    rows = FIX2["TILT_RULE"]["up_rows"]
+    return float(rows[max(k for k in rows if k <= float(lift) + 1e-9)])

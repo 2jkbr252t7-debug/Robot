@@ -52,7 +52,10 @@ RAM2 = dict(
     BUMPER=dict(x=(16.7, 18.3), y=(-4.0, 4.0), z=(-83.3, -70.0)), PORON_END=dict(x=(15.7, 16.7), y=(-4.0, 4.0), z=(-80.0, -71.0)),
     FRONT_RECESS=dict(x=(-12.05, 12.05), y_face=-14.243, z=(-73.0, ZD0), tab_x=16.55, tab_z=(-56.8, -53.7)),
     #   front cradle wall 1.69 between the servos (+ over the tab ends x +-16.55, z -56.8..-53.7)
-    J1_LUG=dict(r=(18.65, 21.0), w=5.0, z=(-102.0, -98.0), az=90.0, root_r=1.0),
+    J1_LUG=dict(r=(18.65, 21.0), w=8.0, z=(-102.0, -98.0), az=90.0, root_r=1.0),
+    #   fixer rev2 (overenie2 m4): tangential 5.0 -> 8.0 so the lug survives a realistic hand twist of the torso into the stop
+    #   (1.5 N.m: 11.2 MPa incl. Kt 1.4 <= 12.9); the base stop block half-span shrinks 19.0 -> 14.6 deg (R2 J1 base_stop) so the
+    #   stop angle stays +-153.4.  The "D3 steel pin at r 19" alternative of 17.4 does not fit (the 6805 seat is r 18.575).
     #   r 18.65..21.0 (spec 17.0..21.0): inside r 18.575 the lug would block the 6805, which goes in from below; not beyond
     #   the foot ring r 21 (the base FFC wraps on it at z -98..-91).  Tangential 5.0 (spec 4.0) restores the root section.
     SEAT_R=R2["SEAT_6805_D"] / 2,                                       # 18.575
@@ -69,10 +72,14 @@ RAM2 = dict(
     # ---- columns ---------------------------------------------------------------------------------------------------------
     COL=dict(web=R2["COLUMN"]["web_x"], y=R2["COLUMN"]["y"], ribs=R2["COLUMN"]["ribs_y"], rib_x=42.0, rib_top=-30.4,
              box_x=(40.0, 42.0), box_z=(-51.0, -34.0), foot_x=(33.0, 37.6), boss_r=C.R_COL_STOP[0], flange_r=C.R_COL_STOP[1],
-             flange_x=(37.4, C.X_COL_STOP), wire_hole=dict(d=4.5, y=11.7, z=-51.3),
+             flange_x=(37.4, C.X_COL_STOP), wire_hole=dict(d=4.5, y=-2.0, z=-51.0),
+             #   fixer rev2 (S1): wire hole y 11.7 -> -2.0 (was 0.85 under the sharp bridge-top corner; now 12.3 from it, clear of
+             #   the F3a corbel at y >= 1.6 and under the deck bottom -48.2 by 0.55); the wire goes up the open bay into the box
+             bridge_fillet=1.5, head_cove=1.0,
              head=dict(z=(-38.0, -27.5), y=(-14.0, 17.0), xy_out=[(43.0, -14.0), (43.0, 12.0), (42.3, 16.0), (41.8, 17.0)],
                        x_cut=38.4, r_cut=17.1, chan=dict(x=(38.4, 40.0), y=(5.0, 12.0), z=(-40.0, -27.0)),
-                       plate=dict(x_out=38.4, x_in_min=26.0, r_in=34.5, flat_y=9.5, y=(-17.0, 17.0), z=(-38.0, -8.0), top_y=14.0,
+                       plate=dict(x_out=38.4, x_in_min=26.0, r_in=34.4, flat_y=None, y=(-17.0, 17.0), z=(-38.0, -8.0), top_y=14.0,
+                                  wide=dict(y=20.0, z=(-38.0, -20.0), z_back=-16.0),
                                   top_z_end=-12.0))),
     #   + shoulder PLATE x (r 34.4)..38.4, y -20..24, z -38..-8 (45 deg run-outs into the head): around the shoulder axis the column
     #   depth in x is fixed at 4.0 (PAN_ENV2 + 1.0 inside, the T_klb neck face 38.6 outside), so the L5 moment about y needs width
@@ -97,7 +104,9 @@ RAM2 = dict(
     #   carries it down to the floor, merged with the -X pan-servo post (its DIN 562 slot is then entered from +X, servo out)
     #   post tops -48.2 (spec -50.6): pins bonded 8.4 deep, stub 3.6, the deck C-ear braces pin 1 at the contact height
     # ---- bosses (bonded M2.5 inserts from the top) -----------------------------------------------------------------------
-    F3A=[(26.0, -11.7), (31.0, 5.0)],
+    F3A=[(26.0, -11.7), (30.6, 4.0)],
+    #   fixer rev2: F3a_2 (31, 5) -> (30.6, 4.0): its DIN 125 washer (r 3.0) stays inside r 34.1, so the deck can keep 0.3 off the
+    #   thickened shoulder plate (inner face r 34.4) while it is lowered at T3
     #   integrator rev2: F3a_1 (26, -13.8) -> (26, -11.7): its washer / deck pad reached y -17.8, inside the F1 boss path; boss 0.3 off
     #   the STS3215 mounting ear (y -8)
     #   spec (20, +13.8) sits under the static FFC wall (r 24.2, az 34.6) and in the cradle FFC slot; (-33.5, +-10) heads
@@ -127,6 +136,10 @@ RAM2 = dict(
     #   arm wires enter the closed column box through a D4.5 hole (y 10.7, z -50.5) and run up inside it
     WALL_FFC_SLOT=dict(x=R2["FFC"]["cradle_slot"]["x"], z=(-51.3, -49.7)),   # spec z -51..-50: PAN FFC pair touched the edge
     DRAINS=[(31.0, -9.0), (-31.0, -9.0)], BOARD_STANDOFF=1.5, VENT_D=4.0,      # rev. 1 (+-33, -8) would cut the column feet
+    #   fixer rev2 (overenie2 M3): print vents against suction cups (cap underside toward the plate, +15 deg about X, ON SUPPORTS):
+    #   D3 drain through the cap floor under the pan-servo pocket, D2.5 vent into each column-foot bay (hidden by the base)
+    CUP_VENTS=[(2.5, 0.0, -16.6, -80.0), (2.0, 0.0, 24.6, -81.0), (2.5, 38.5, 2.7, -79.5), (2.5, -38.5, 2.7, -79.5)],
+    #   (d, x, y, z_top): +15 deg about +X puts the +Y end of every floor lowest -> each vent sits at the +Y end of its cup
     # ---- deck / bridge / boss ------------------------------------------------------------------------------------------------
     DECK_TRIM=dict(r=R2["DECK_TRIM"]["r"], az=(26.2, 223.8)),
     #   spec az 16..232: the lug block (stage az 118.3..131.7) sweeps B az 28.3..221.7 below the pin tops; 1.0 at r 27.6 =
@@ -500,14 +513,30 @@ ZC0, ZC1 = CT["z"]                         # -71.5 / -53.5
 _RM = 2.5                                  # integrator rev2: ESP32-S3-Zero raised on its 2.54 pin headers (plastic spacer 2.5)
 CTRL_BLOCKS = {   # connector / module blocks on the +Y face (x0, x1, y1, z0, z1); y0 = 18.1 (FFC / header bodies)
     "ESP32-S3-Zero PCB": (-0.5, 23.0, 19.1 + _RM, ZC0, ZC1),
-    "ESP32-S3-Zero shield + parts": (5.0, 21.0, 21.0 + _RM, ZC0 + 2.0, ZC1 - 2.0),
-    "USB-C receptacle (mouth -X)": (-0.5, 6.85, 21.83 + _RM, -66.97, -58.03),
-    "J_PAN_A FH12-5S-0.5SH": (-22.5, -16.4, 20.1, -57.5, -53.5),
-    "J_PAN_B FH12-5S-0.5SH": (-15.4, -9.3, 20.1, -57.5, -53.5),
+    "ESP32-S3-Zero shield + parts": (1.5, 17.5, 21.0 + _RM, ZC0 + 2.0, ZC1 - 2.0),
+    "USB-C receptacle (mouth +X)": (15.65, 23.0, 21.83 + _RM, -66.97, -58.03),
+    #   fixer rev2 (overenie2 M1): module turned 180 deg - USB-C mouth faces +X at x 23.0 (a straight plug cannot be seated or
+    #   inserted from the door: shell 8.34 + overmold 12.35 x 6.5 + strain relief >= 25 against 18.6 mm to the door edge); the port
+    #   is brought to the door by a bought 90 deg USB-C FPC extension (usb_predlzovac)
+    "J_PAN_A Y5B AYF530535": (-22.5, -16.4, 20.1, -57.5, -53.5),      # fixer rev2 M5: FH12-5S-0.5SH does not exist (FH12 0.5 mm starts at 6 p)
+    "J_PAN_B Y5B AYF530535": (-15.4, -9.3, 20.1, -57.5, -53.5),
     "J_BUS_V 3p 2.5 header": (-8.5, -1.0, 23.5, -58.0, -53.5),
     "J_J1 FH12-10S-1SH": (-22.5, -8.0, 20.1, -71.5, -67.0),
     "J_BUS_5 3p 2.5 header": (-7.5, -0.5, 23.5, -71.5, -67.0),
 }
+
+
+USB_EXT = dict(head=dict(x=(23.0, 28.0), y=(20.95, 24.45), z=(-67.25, -57.75)), fpc=dict(x=(25.0, 25.3), y=(24.45, 26.2), z=(-67.0, -58.0)),
+               part="90 deg USB-C FPC extension, slim male (USB-C plug, FPC exit 90 deg toward +Y) to USB-C female on a small PCB, "
+                    "about 10 cm (ADT-Link class 'USB-C FPC flat cable 90 degree'; head size UNVERIFIED: modelled 5.0 x 3.5 x 9.5)")
+#   fixer rev2 (M1): the male head sits in the free space x 23..28 beside the module (after T5: the T_stred F1 boss passes there
+#   while it is lowered); the FPC leaves +Y toward the door; its female end is parked in the door zone and pulled out through
+#   the door for flashing (any straight USB-C cable then plugs in outside the torso)
+
+
+def mk_usb_predlzovac():
+    H, F = USB_EXT["head"], USB_EXT["fpc"]
+    return one(fuse([C.box(*H["x"], *H["y"], *H["z"]), C.box(*F["x"], H["y"][1] - 0.05, F["y"][1], *F["z"])]))
 
 
 def mk_riadenie():
@@ -521,7 +550,7 @@ def mk_riadenie():
         elif nm.startswith("ESP32-S3-Zero shield"):
             P.append(C.box(x0, x1, YPCB1 + _RM + 0.95, y1, z0, z1))
         elif nm.startswith("USB-C"):
-            P.append(C.box(-0.5, 6.85, 18.57 + _RM, 21.83 + _RM, -66.97, -58.03))   # mid-mount, centred on y 22.7
+            P.append(C.box(x0, x1, 18.57 + _RM, 21.83 + _RM, -66.97, -58.03))       # mid-mount, centred on y 22.7, mouth +X
         else:
             P.append(C.box(x0, x1, YPCB1 - 0.05, y1, z0, z1))
     s = one(fuse(P))
@@ -656,8 +685,16 @@ def _column(s):
     ty, tz = Pl["top_y"], Pl["top_z_end"]                  # top corners chamfered: >= 0.45 inside the shell inset 2.2 (C1)
     yzp = [(max(hy0, py0), pz0), (min(hy1, py1), pz0)] + ([(py1, pz0 + (py1 - hy1))] if py1 > hy1 else []) + \
         [(py1, tz), (ty, pz1), (-ty, pz1), (py0, tz)] + ([(py0, pz0 + (hy0 - py0))] if py0 < hy0 else [])
+    Wp = Pl.get("wide")                                    # fixer rev2 (K12 column L5): plate |y| <= 20 for z -38 .. -20, back to 17 at -16
+    if Wp:
+        yw, zw0, zw1 = Wp["y"], Wp["z"][1], Wp["z_back"]
+        yzp = [(max(hy0, py0), pz0), (min(hy1, py1), pz0), (yw, pz0 + (yw - hy1)), (yw, zw0), (py1, zw1), (py1, tz), (ty, pz1), (-ty, pz1),
+               (py0, tz), (py0, zw1), (-yw, zw0), (-yw, pz0 + (yw + hy0))]
     plate = prism_x(yzp, *sorted((s * Pl["x_in_min"], s * Pl["x_out"]))) - C.cyl_z(Pl["r_in"], pz0 - 1.0, pz1 + 1.0)
-    plate = plate - bx(0.0, s * Pl["r_in"], -Pl["flat_y"], Pl["flat_y"], pz0 - 1.0, pz1 + 1.0)   # flat x 34.5 at |y| <= 9.5
+    if Pl["flat_y"]:
+        plate = plate - bx(0.0, s * Pl["r_in"], -Pl["flat_y"], Pl["flat_y"], pz0 - 1.0, pz1 + 1.0)   # flat x 34.5 at |y| <= 9.5
+    #   fixer rev2 (K12 column L5): inner face r 34.4 = PAN_ENV2 r 33.4 + 1.0 at EVERY y (was r 34.5 with a flat x 34.5 for |y| <= 9.5):
+    #   the plate is 0.1 .. 1.4 deeper at |y| <= 9.5; the deck now stays inside r 34.1 (F3a_2 moved to (30.6, 4.0))
     P.append(one(plate))                                   # inner face = r 34.4 (PAN_ENV2 r 33.4 + 1.0): deeper toward |y|
     # shoulder boss disc + backing flange (stop ring after the recess cut)
     P.append(one(fuse([cyl("x", K["boss_r"], s * xi, s * C.X_COL_BOSS, SHY, SHZ),
@@ -677,6 +714,14 @@ def _column(s):
     P.append(one(cv & bx(s * (xw - 0.1), s * (xw + 2.0), wy0, wy1, -40.0, SHZ - 4.0)))
     # foot roots (R2) on the floor: inner face x 33.0 and the two y faces
     P.append(fil("T_spodok", f"col {s:+d} foot inner / floor", "y", wy0, wy1, (s * fx0, 0, ZF), "-x" if s > 0 else "+x", "+z", 2.0))
+    # ---- fixer rev2 (overenie2 S1): R1.5 along the +Y bridge-wall top / column inner face (x 34.4, z -48.2, y 12.55..15.05) and
+    #      an R1.0 cove under the head overhang (x 42 .. 43 over the box closure face x 42 at z -38), clipped to the head outline
+    P.append(fil("T_spodok", f"col {s:+d} +Y bridge top / column inner face (S1)", "y", YI, YO, (s * xi, 0, ZD0), "-x" if s > 0 else "+x", "+z",
+                 K["bridge_fillet"]))
+    hc = K["head_cove"]
+    cov = fil("T_spodok", f"col {s:+d} head overhang / box closure face (S1)", "y", wy0, wy1, (s * K["box_x"][1], 0, hz0),
+              "+x" if s > 0 else "-x", "-z", hc)
+    P.append(one(cov & prism_z([(s * x, y) for x, y in xy], hz0 - hc - 0.1, hz0 + 0.1)))
     # ---- cutters: recess inside the stop ring, key slot az 0, F8 inserts az 60/180/300, wire hole, board pilots / vents
     N.append(cyl("x", K["boss_r"], s * C.X_COL_BOSS, s * (C.X_COL_STOP + 0.5), SHY, SHZ))
     N.append(bx(s * (C.X_COL_BOSS - 1.5), s * (C.X_COL_STOP + 0.5), SHY + 5.3, SHY + 14.0, SHZ - 1.5, SHZ + 1.5))
@@ -812,7 +857,8 @@ def _tower():
     for x, y in St["pin_xy"]:
         Ng.append(hole(Sp["pin_hole_d"], (x, y, Sp["top"]), "z", -1, Sp["pin_bond"] + 0.3))
     # ---- insert bosses F3a / F3b (stadium into the wall / web)
-    bosses = [("F3a (26,-11.7)", 26.0, -11.7, dict(wall_face_y=-YI)), ("F3a (31,5)", 31.0, 5.0, dict(wall_face_x=C.X_COL_IN + 0.05, corbel=True)),
+    bosses = [("F3a (26,-11.7)", 26.0, -11.7, dict(wall_face_y=-YI)), ("F3a (30.6,4)", RAM2["F3A"][1][0], RAM2["F3A"][1][1],
+                                                                       dict(wall_face_x=C.X_COL_IN + 0.05, corbel=True)),
               ("F3b (6,15.95)", 6.0, 15.95, dict(wall_face_y=YO)), ("F3b (18.5,-15.95)", 18.5, -15.95, dict(wall_face_y=-YO))]
     for nm, x, y, kw in bosses:
         p, n = _boss(nm, x, y, **kw); P += p; Ng += n
@@ -897,6 +943,7 @@ def mk_spodok(verbose=True):
     S = RAM2["BASE_FFC_SLOT"]
     N.append(tube_sector(S["r"][1], S["r"][0], S["az"][0], S["az"][1], S["z"][0] - 0.5, S["z"][1] + 0.5))
     N += [C.cyl_z(1.5, ZB - 1.0, ZF + 0.5, x, y) for x, y in RAM2["DRAINS"]]
+    N += [C.cyl_z(d / 2, ZB - 1.0, ztop, x, y) for d, x, y, ztop in RAM2["CUP_VENTS"]]           # fixer rev2 M3
     F16 = RAM2["F16"]
     N += [slot_hole(F16["hole_d"], (x, y, ZB), "z", 1, 1.3, (1.0, 0.0, 0.0), F16["slot"]) for x, y in F16["at"]]
     Ws = RAM2["WALL_FFC_SLOT"]
@@ -926,7 +973,7 @@ def mk_paluba():
     F = R2["FFC"]
     lobe = one(C.cyl_z(F["wall"][1], z0, z1) & C.box(-26.0, 26.0, 0.0, 26.0, z0 - 1, z1 + 1))
     right = C.box(10.0, 34.2, -17.8, YO, z0, z1)
-    P = [lobe, right, C.cyl_z(3.2, z0, z1, 31.0, 5.0), C.cyl_z(4.0, z0, z1, *RAM2["F3A"][0]), C.cyl_z(4.5, z0, z1, *R2["STOP"]["pin_xy"][0])]
+    P = [lobe, right, C.cyl_z(3.2, z0, z1, *RAM2["F3A"][1]), C.cyl_z(4.0, z0, z1, *RAM2["F3A"][0]), C.cyl_z(4.5, z0, z1, *R2["STOP"]["pin_xy"][0])]
     body = fuse(P)
     assert len(body.solids()) == 1, f"T_paluba: {len(body.solids())} bodies before the cuts"
     body = one(body)
@@ -937,8 +984,7 @@ def mk_paluba():
          C.box(9.0, 15.6, -18.5, -14.0, z0 - 0.5, z1 + 0.5)]                   # sliver left of the T_most front lobe
     # integrator rev2 (K7 T3): the deck goes in from above past the +X shoulder plate (inner face r 34.5 for |y| > 9.5, flat 34.5
     # inside): keep 0.3 off its footprint over the whole lowering
-    for sy in (1, -1):
-        N.append(C.box(20.0, 40.0, *sorted((sy * 9.2, sy * 30.0)), z0 - 0.5, z1 + 0.5) - C.cyl_z(34.2, z0 - 1.0, z1 + 1.0))
+    N.append(C.box(20.0, 40.0, -30.0, 30.0, z0 - 0.5, z1 + 0.5) - C.cyl_z(34.1, z0 - 1.0, z1 + 1.0))   # fixer rev2: r 34.1 at every y
     N += _f1_keepouts_tower(z0 - 0.5, z1 + 0.5)                               # integrator rev2: F1 boss path (T_stred lowering)
     N += [b for b in _f1_keepouts(z0 - 0.5, z1 + 0.5) if b.bounding_box().max.Y < 0]   # front bosses: the 0.5 box (no C-ear there)
     N.append(tube_sector(F["deck_slot"]["r"][1], F["deck_slot"]["r"][0], *F["deck_slot"]["az"], z0 - 0.5, z1 + 0.5))
@@ -1125,7 +1171,7 @@ def build(rebuild=False, verbose=False):
     parts = {}
     for name, (fn, grp, mat, label) in PRINTED.items():
         s = printed_part(name, rebuild)
-        parts[name] = C.part(s, grp, mat, True, label)
+        parts[name] = C.part(s, grp, mat, True, label, **({"print": PRINT[name]} if name in PRINT else {}))
         if verbose:
             print(f"  built {name} ({TIMES.get(name, 0)} s)", flush=True)
     rp = os.path.join(C.CACHE, f"ram2_roots_{_src_hash()}.json")
@@ -1153,7 +1199,8 @@ def build(rebuild=False, verbose=False):
          "PET podložky 2 x 0,1 (osová vzdialenosť J1 = 18,00)"),
         ("pena_J1_celo", lambda: C.box(*RAM2["PORON_END"]["x"], *RAM2["PORON_END"]["y"], *RAM2["PORON_END"]["z"]), "T", "bought", 0.05,
          "penová podložka PORON 1,0 (čelo serva J1)"),
-        ("DPS_riadenie", mk_riadenie, "T", "bought", 9.0, "riadiaca doska s ESP32-S3-Zero, FH12 ZIF, konektory zbernice"),
+        ("DPS_riadenie", mk_riadenie, "T", "bought", 9.0, "riadiaca doska s ESP32-S3-Zero (USB-C k +X), ZIF Y5B, konektory zbernice"),
+        ("usb_predlzovac", mk_usb_predlzovac, "T", "bought", 2.0, "USB-C predlžovací FPC kábel 90° (samec do ESP32, samica zaparkovaná pri dvierkach)"),
         ("menic", mk_menic, "T", "bought", 2.5, "menič 5 V Pololu D36V28F5"),
         ("zosilnovac", mk_zosilnovac, "T", "bought", 1.5, "zosilňovač Adafruit MAX98357A"),
         ("kondenzator", mk_kondenzator, "T", "bought", 1.5, "kondenzátor 470 µF / 10 V Ø8 x 11,5 (sedlo + sťahovačka)"),
@@ -1196,7 +1243,7 @@ SOURCES = {
     "kolik_dorazu_1": "ISO 8734 3 m6 x 12 hardened dowel", "kolik_dorazu_2": "ISO 8734 3 m6 x 12 hardened dowel",
     "ptfe_podlozka": "PTFE sheet 0.3, washer 24 x 10 cut", "ptfe_cap": "PTFE thread-seal / glide tape 0.13",
     "DPS_riadenie": "custom carrier FR4 55.6 x 18 x 1.6 + Waveshare ESP32-S3-Zero (23.5 x 18, Waveshare drawing) + Hirose "
-                    "FH12-5S-0.5SH(55) x2, FH12-10S-1SH(55), 2 x 3-pin 2.50 vertical headers (part numbers UNVERIFIED)",
+                    "Panasonic Y5B AYF530535 (5 p 0.5 mm, 0.30 FFC) x2, FH12-10S-1SH(55), 2 x 3-pin 2.50 vertical headers (part numbers UNVERIFIED)",
     "menic": "Pololu D36V28F5 17.8 x 17.8 (Pololu drawing)", "zosilnovac": "Adafruit 3006 MAX98357A 19.3 x 17.8 (Adafruit drawing)",
     "kondenzator": "470 uF 10 V radial D8 x 11.5 (e.g. Panasonic EEU-FR1A471 / Nichicon UPW1A471MPD - size UNVERIFIED)",
     "pena_J1_celo": "PORON 1.0", "podlozka_J1_1": "PET film 0.1", "podlozka_J1_2": "PET film 0.1", "podlozka_C_J1": "PET film 0.1 x 2",
@@ -1298,18 +1345,23 @@ def main(argv):
 
 # print strategy of the printed parts (K10 / K13; Saturn 4 Ultra 16K, 211.68 x 118.37 x 220, Elegoo Tough)
 PRINT = {
-    "T_spodok": dict(orientation="cap underside toward the build plate, tilted 15 deg about X (tower hangs toward the FEP)",
+    "T_spodok": dict(orientation="cap underside toward the build plate, tilted +15 deg about +X (right-hand: the +Y / back edge rises, "
+                                 "u_away = (0, -0.259, 0.966)), RAISED >= 3 mm ON SUPPORTS (the drains must open into the gap)",
+                     u_away=(0.0, -0.2588, 0.9659), on_plate=False,
                      supports="cap underside, plinth / foot-ring bottom, J1 lug; never on the 6805 seat D37.15, the spigot outer "
                               "face, the cradle inner faces or the column boss faces (fit faces)",
-                     drains="servo window + 2 x D3 floor drains + floor slots vent the tub; column boxes open top and bottom; insert "
-                            "holes have through pilots; no closed cavity", hole_comp="fit holes modelled at final size, drill / ream after curing",
+                     drains="servo window + 2 x D3 floor drains + floor slots vent the tub; fixer rev2 (M3): D2.5 drain at the +Y end of the pan-servo pocket floor "
+                            "(0, -16.6), D2.0 at the back tub floor (0, 24.6), D2.5 vents into both column-foot bays at (+-38.5, 2.7); the blind D3.05 x 8.7 stop-pin holes are "
+                            "flushed with IPA and blown out before bonding; cup test in K10", hole_comp="fit holes modelled at final size, drill / ream after curing",
                      warp="thin cradle walls are tied by the end wall, bridges and columns; deck screws pull the tops flat"),
-    "T_paluba": dict(orientation="on edge, plate 70 deg to the build plate, FFC wall up", supports="straight front / right edges only "
+    "T_paluba": dict(orientation="on edge, plate tilted 70 deg about +Y (right-hand; u_away = (0.940, 0, 0.342)), FFC wall up", u_away=(0.9397, 0.0, 0.3420),
+                     on_plate=False, supports="straight front / right edges only "
                      "(never on the top = FFC / PTFE running face)", drains="open plate, none needed",
                      warp="2.0 plate may bow <= 0.2: pulled flat by F3a, sits on the shims"),
-    "T_cap": dict(orientation="axis vertical, bottom (bond face) toward the build plate", supports="bottom face only (bond face, sanded)",
+    "T_cap": dict(orientation="axis vertical, bottom (bond face) toward the build plate", u_away=(0.0, 0.0, 1.0), on_plate=False,
+                  supports="bottom face only (bond face, sanded)",
                   drains="through hole D3.4", warp="none"),
-    "Z_naboj_test": dict(orientation="plate flat on the build plate", supports="none (plate on the plate); counterbore ceiling bridged",
+    "Z_naboj_test": dict(orientation="plate flat on the build plate", u_away=(0.0, 0.0, 1.0), on_plate=True, supports="none (plate on the plate); counterbore ceiling bridged",
                          drains="through bore D8.2", warp="110 x 90 plate: raft recommended"),
 }
 

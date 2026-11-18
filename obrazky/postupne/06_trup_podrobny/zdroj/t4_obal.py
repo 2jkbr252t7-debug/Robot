@@ -93,7 +93,7 @@ SPEAKER_MASS, GASKET_MASS = 6.0, 0.05
 #     deviation from section 17 is listed in DEVIATIONS_REV2 (-> parts_obal.json["deviations"]) with its reason.
 # =====================================================================================================================
 VER2 = "v2"
-STEP_REV2 = {"part_T_klb_L": 2, "part_T_klb_P": 2}                  # cached rev. 2 steps that changed after their first build (cache name gets _r<n>)
+STEP_REV2 = {"part_T_klb_L": 2, "part_T_klb_P": 2, "part_T_stred": 2}   # fixer rev2: T_stred lip relief for the pan pinion (B1)                  # cached rev. 2 steps that changed after their first build (cache name gets _r<n>)
 PAN_ENV_PADS = C.PAN_ENV_REV1   # the door-frame pads keep the rev. 1 trim (r 35.0 at z -24): 1.6 outside PAN_ENV2 (33.4)
 BORE2 = dict(r=C.R2["BORE"]["r"], z=C.R2["BORE"]["z"], seat_r=C.R2["BORE"]["ring_seat_r"], chamfer=C.R2["BORE"]["chamfer"],
              over=0.1)          # journal cutter runs 0.1 into the ring-seat cutter (no coplanar tool faces at the shoulder)
@@ -766,7 +766,15 @@ def build_stred2():
         return one(s3.fuse(*P))
     s4 = step2("stred_pads", pads)
     lin, lout = _ledge_parts()
-    return step2("stred_ledge", lambda: one(s4.fuse(*lin.solids(), *lout.solids())))
+    s5 = step2("stred_ledge", lambda: one(s4.fuse(*lin.solids(), *lout.solids())))
+    # fixer rev2 (overenie2 B1): the front lip (z -81 .. -79.5) is cut back to r 8.35 about the pan-pinion axis, so T_stred can be
+    # lifted off / lowered with the STS3032 AND its bonded pinion in place (pinion tip r 8.0: plan clearance 0.35; the lip keeps
+    # >= 3.6 to the exterior there).  Interior only - exterior, seams and the spigot fit elsewhere unchanged.
+    pa = C.R2["GEAR_PAN"]["ax"]
+    return step2("stred_pinion", lambda: one(s5 - C.cyl_z(PINION_RELIEF_R, C.Z_WHITE - 0.3, -79.3, pa[0], pa[1])))
+
+
+PINION_RELIEF_R = 8.35        # fixer rev2 B1
 
 
 def build_dvere2():

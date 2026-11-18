@@ -288,12 +288,24 @@ def run_K9():
             return (b2[0], [round(float(v), 2) for v in at], b2[3], b2[2])
         return (b1[0], None if b1[1] is None else [round(float(v), 2) for v in b1[1]], b1[2], b1[3])
 
-    res = dict(criterion=CRIT, cap=CAP, pans=PANS, table_B=TABLE, lifts={})
+    RULE = C.FIX2["TILT_RULE"]
+    if RULE and "--btable" not in OPTS:                      # fixer rev2 (K1 / K2): firmware rule on a 0.5 mm lift grid
+        LIFTS = [round(float(v), 2) for v in np.arange(0.0, 20.0 + 1e-6, RULE["lift_step"])]
+        PANS = [float(p) for p in range(-85, 86, 17)]
+        lim_of = {L: (C.tilt_down_max(L), C.tilt_up_max(L)) for L in LIFTS}
+    else:
+        LIFTS = sorted(TABLE, reverse=True)
+        lim_of = {L: TABLE[L] for L in LIFTS}
+    res = dict(criterion=CRIT, cap=CAP, pans=PANS, table_B=TABLE, lifts={}, rule=RULE if RULE and "--btable" not in OPTS else None)
     worst_all = (9.0, None)
-    for lift in sorted(TABLE, reverse=True):
-        dn, up = TABLE[lift]
+    for lift in sorted(LIFTS, reverse=True):
+        dn, up = lim_of[lift]
         step = 2.5 if fine else 5.0
-        tilts = [float(t) for t in np.arange(-up, dn + 1e-6, step)]
+        if res["rule"]:
+            m = RULE["margin_deg"]
+            tilts = sorted({0.0, round(dn / 2, 2), float(dn), round(dn + m, 2), round(-up / 2, 2), float(-up), round(-up - m, 2)})
+        else:
+            tilts = [float(t) for t in np.arange(-up, dn + 1e-6, step)]
         grid = {}
         t1 = time.time()
         for tilt in tilts:
@@ -304,8 +316,8 @@ def run_K9():
         # limits per pan
         lim, reduced = {}, {}
         for pan in PANS:
-            ok_dn = [t for t in tilts if t >= 0 and all(grid[(u, pan)][0] >= CRIT for u in tilts if 0 <= u <= t)]
-            ok_up = [t for t in tilts if t <= 0 and all(grid[(u, pan)][0] >= CRIT for u in tilts if t <= u <= 0)]
+            ok_dn = [t for t in tilts if 0 <= t <= dn and all(grid[(u, pan)][0] >= CRIT for u in tilts if 0 <= u <= t)]
+            ok_up = [t for t in tilts if -up <= t <= 0 and all(grid[(u, pan)][0] >= CRIT for u in tilts if t <= u <= 0)]
             lim[pan] = (max(ok_dn) if ok_dn else None, min(ok_up) if ok_up else None)
             if lim[pan] != (dn, -up):
                 reduced[pan] = lim[pan]
@@ -314,8 +326,15 @@ def run_K9():
         at_lim = {"down": [round(grid[(dn, p)][0], 3) for p in PANS], "up": [round(grid[(-up, p)][0], 3) for p in PANS],
                   "zero": [round(grid[(0.0, p)][0], 3) for p in PANS]}
         sk = min(stage, key=lambda k: stage[k][0])
+        inside = [t for t in tilts if -up - 1e-6 <= t <= dn + 1e-6]
+        wi = min(((t, p) for t in inside for p in PANS), key=lambda k: grid[k][0])
+        beyond = [t for t in tilts if t > dn + 1e-6 or t < -up - 1e-6]
+        wb = min(((t, p) for t in beyond for p in PANS), key=lambda k: grid[k][0]) if beyond else None
         res["lifts"][str(lift)] = dict(
             tilt_table_B=dict(down=dn, up=up), tilts_tested=tilts,
+            min_inside_limits=round(grid[wi][0], 3), at_inside=dict(tilt=wi[0], pan=wi[1], torso_part=grid[wi][2], head_part=grid[wi][3]),
+            min_at_limit_plus_margin=None if wb is None else round(grid[wb][0], 3),
+            at_margin=None if wb is None else dict(tilt=wb[0], pan=wb[1], torso_part=grid[wb][2], head_part=grid[wb][3]),
             min_clearance=round(w[0], 3), at=dict(tilt=wk[0], pan=wk[1], point=w[1], torso_part=w[2], head_part=w[3]),
             min_by_tilt={str(t): round(min(grid[(t, p)][0] for p in PANS), 3) for t in tilts},
             pan_spread_at_limits={k: round(max(v) - min(v), 3) for k, v in at_lim.items()},
@@ -688,6 +707,9 @@ def run_K7():
                 np.concatenate(own), list(names))
 
     def dirvec(d, frame, pan):
+        if not isinstance(d, str):                           # fixer rev2: tilted tool direction given as a vector (ball-end key)
+            v = np.array(d, float); v = v / np.linalg.norm(v)
+            return TM.rotz(v[None], pan)[0] if (frame == "stage" and pan) else v
         v = np.array(AX[d], float)
         return TM.rotz(v[None], pan)[0] if (frame == "stage" and pan) else v
 
@@ -918,8 +940,8 @@ def run_K7():
         r["service"] = bool(st.get("service"))
         arrive = st.get("base", []) + move + st.get("with_parts", []) + [x[0] for x in st.get("screws", [])] + [h for h, _ in st.get("hardware", [])] \
             + list(st.get("hardware_with", []))
-        if st.get("service"):
-            pass                                             # service rows do not change the main sequence
+        if st.get("service") or st.get("transient"):
+            pass                                             # service rows / transient steps (fixer rev2 T3b) do not change the main sequence
         elif not bench:
             for n in arrive:
                 if n not in present:
