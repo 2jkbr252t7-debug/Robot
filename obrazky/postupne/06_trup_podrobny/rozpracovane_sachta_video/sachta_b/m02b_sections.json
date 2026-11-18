@@ -1,0 +1,172 @@
+{
+ "section_area_mm2": {
+  "-2.2": 1115.5,
+  "-3.0": 1115.5,
+  "-6.0": 601.8,
+  "-9.0": 601.7,
+  "-10.5": 250.6,
+  "-12.0": 229.1,
+  "-20.0": 211.3,
+  "-30.0": 218.6,
+  "-38.0": 232.9,
+  "-40.0": 252.2,
+  "-40.7": 704.7,
+  "-41.0": 593.5,
+  "-41.5": 587.1,
+  "-41.8": 551.6,
+  "-42.2": 71.4,
+  "-44.0": 44.3,
+  "-45.5": 44.3
+ },
+ "window_corner_bisector_material": {
+  "back_win_top_left": [
+   [
+    0.05,
+    false
+   ],
+   [
+    0.1,
+    false
+   ],
+   [
+    0.2,
+    false
+   ],
+   [
+    0.3,
+    false
+   ],
+   [
+    0.5,
+    false
+   ],
+   [
+    0.8,
+    false
+   ]
+  ],
+  "back_win_top_right": [
+   [
+    0.05,
+    false
+   ],
+   [
+    0.1,
+    false
+   ],
+   [
+    0.2,
+    false
+   ],
+   [
+    0.3,
+    false
+   ],
+   [
+    0.5,
+    false
+   ],
+   [
+    0.8,
+    false
+   ]
+  ],
+  "back_win_bottom_right(floor)": [
+   [
+    0.05,
+    false
+   ],
+   [
+    0.1,
+    false
+   ],
+   [
+    0.2,
+    false
+   ],
+   [
+    0.3,
+    false
+   ],
+   [
+    0.5,
+    false
+   ],
+   [
+    0.8,
+    false
+   ]
+  ],
+  "end_win_top_-Y": [
+   [
+    0.05,
+    false
+   ],
+   [
+    0.1,
+    false
+   ],
+   [
+    0.2,
+    false
+   ],
+   [
+    0.3,
+    false
+   ],
+   [
+    0.5,
+    false
+   ],
+   [
+    0.8,
+    false
+   ]
+  ],
+  "end_win_top_+Y": [
+   [
+    0.05,
+    false
+   ],
+   [
+    0.1,
+    false
+   ],
+   [
+    0.2,
+    false
+   ],
+   [
+    0.3,
+    false
+   ],
+   [
+    0.5,
+    false
+   ],
+   [
+    0.8,
+    false
+   ]
+  ]
+ },
+ "shroud_outer_root_az15_material": [
+  [
+   0.05,
+   false
+  ],
+  [
+   0.1,
+   false
+  ],
+  [
+   0.2,
+   false
+  ],
+  [
+   0.3,
+   false
+  ]
+ ],
+ "note": "True at offset s along the bisector = material there = fillet present; all False = sharp corner"
+}

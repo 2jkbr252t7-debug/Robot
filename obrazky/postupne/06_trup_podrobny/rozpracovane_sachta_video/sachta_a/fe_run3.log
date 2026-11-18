@@ -1,0 +1,21 @@
+well cells 252778 partial 86625 volume 13356.2
+gear cells 39390 partial 4810 volume 2366.6
+pocket cells 48277 partial 10159 volume 2738.7
+merged nodes {('well', 'gear'): 2597, ('well', 'pocket'): 1027} nodes 409945 2.3 s
+assembled (FC): nodes 409945, dofs 1229835, nnz 78566038, 14.8 s
+support nodes: journal 16989 pivot 1199 washer 183 ptfe 2329
+AMG setup 34 s
+MultilevelSolver
+Number of Levels:     3
+Operator Complexity:   1.346
+Grid Complexity:       1.085
+Coarse Solver:        'pinv'
+  level   unknowns     nonzeros
+     0     1229835     78566378 [74.27%]
+     1      102486     26948772 [25.48%]
+     2        1968       263448 [0.25%]
+
+  pcg: 97 its, rel res 9.3e-07, info 0, 139 s
+  L1_lift20 it 0: changed 0
+L1_lift20 [{"pocket_pin": 30.0, "R_key": 96.9, "R_tab": -66.9, "n_key": 580, "n_tab": 1806, "z_pin": -14.200000000000003}, {"wall": "back", "z": [-7.0, -6.0], "F": [0.0, 73.26, 0.0], "nodes": [22, 16]}, {"wall": "front", "z": [-15.5, -14.5], "F": [0.0, -73.26, 0.0], "nodes": [48, 48]}, {"wall": "-X", "z": [-7.0, -6.0], "F": [-58.89, 0.0, 0.0], "nodes": [32, 32]}, {"wall": "+X", "z": [-15.5, -14.5], "F": [58.89, 0.0, 0.0], "nodes": [48]}, {"lift": 20.0, "Mx": 696.0, "My": 559.5, "Fy_pair": 73.26, "Fx_pair": 58.89, "z_low": -15.5, "zux": -6.0, "zuy": -6.0}, {"F_applied": [-0.0, -0.0, 30.0], "M_applied": [45.6, -151.9, -483.9]}, {"reactions": {"journal": {"F": [2.36, -5.53, 0.0], "n_active": 16989, "n": 16989}, "pivot": {"F": [-34.87, 14.67, 0.0], "n_active": 1199, "n": 1199}, "washer": {"F": [0.0, 0.0, -30.0], "n_active": 183, "n": 183}, "pinion": {"F": [32.51, -9.14, 0.0], "n_active": 473, "n": 473}}, "reaction_sum": [0.0, 0.0, -30.0]}]
+== L1_lift20 done 173 s

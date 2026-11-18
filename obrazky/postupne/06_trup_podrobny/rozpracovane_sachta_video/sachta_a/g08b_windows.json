@@ -1,0 +1,27 @@
+[
+ {
+  "name": "back window top corner (x -6.5, z -10.9) at y 12",
+  "d_bisector": 0.0,
+  "R_equiv": 0.0
+ },
+ {
+  "name": "back window top corner (x -20.9, z -10.9) at y 11.5",
+  "d_bisector": 0.0,
+  "R_equiv": 0.0
+ },
+ {
+  "name": "end window top corner (y -7, z -15) at x 24.3",
+  "d_bisector": 0.0,
+  "R_equiv": 0.0
+ },
+ {
+  "name": "end window top corner (y 3.4, z -15) at x 24.0",
+  "d_bisector": 0.0,
+  "R_equiv": 0.0
+ },
+ {
+  "name": "back window side (x -6.5) / back floor top (z -40.65) at y 12",
+  "d_bisector": 0.0,
+  "R_equiv": 0.0
+ }
+]

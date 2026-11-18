@@ -1,0 +1,84 @@
+{
+ "F15": {
+  "engaged_nominal_mm": 0.8,
+  "pitches": 1.6,
+  "shear_area_per_mm": 5.547,
+  "preload_0p10Nm": 166.7,
+  "strip_N": {
+   "nominal 0.80 / 5754-H22 (Rm 220)": 586.0,
+   "nominal 0.80 / 6061-T6 (Rm 290)": 772.0,
+   "tip chamfer 1P + entry 0.15 -> 0.15 / 5754-H22 (Rm 220)": 110.0,
+   "tip chamfer 1P + entry 0.15 -> 0.15 / 6061-T6 (Rm 290)": 145.0,
+   "tip incomplete 0.5 P + entry 0.1 -> 0.45 / 5754-H22 (Rm 220)": 329.0,
+   "tip incomplete 0.5 P + entry 0.1 -> 0.45 / 6061-T6 (Rm 290)": 434.0
+  },
+  "torque_to_strip_Nm": {
+   "nominal 0.80 / 5754-H22 (Rm 220)": 0.351,
+   "nominal 0.80 / 6061-T6 (Rm 290)": 0.463,
+   "tip chamfer 1P + entry 0.15 -> 0.15 / 5754-H22 (Rm 220)": 0.066,
+   "tip chamfer 1P + entry 0.15 -> 0.15 / 6061-T6 (Rm 290)": 0.087,
+   "tip incomplete 0.5 P + entry 0.1 -> 0.45 / 5754-H22 (Rm 220)": 0.198,
+   "tip incomplete 0.5 P + entry 0.1 -> 0.45 / 6061-T6 (Rm 290)": 0.261
+  }
+ },
+ "F15_fix_M3x7": {
+  "engaged": 1.8,
+  "strip_N_5754": 1062.0,
+  "torque_to_strip_Nm_5754": 0.637
+ },
+ "washer_on_gear": {
+  "bore chamfer 0.0": {
+   "overlap": 0.501,
+   "area": 13.38,
+   "p_MPa": 2.24
+  },
+  "bore chamfer 0.2": {
+   "overlap": 0.301,
+   "area": 8.23,
+   "p_MPa": 3.64
+  },
+  "bore chamfer 0.3": {
+   "overlap": 0.201,
+   "area": 5.56,
+   "p_MPa": 5.39
+  },
+  "bore chamfer 0.4": {
+   "overlap": 0.101,
+   "area": 2.83,
+   "p_MPa": 10.6
+  }
+ },
+ "washer_bending_MPa": 14.7,
+ "T_cap": {
+  "area_under_washer": 37.49,
+  "crush_MPa": 4.45,
+  "allow_short": 25.8,
+  "sustained_limit": 4.3,
+  "k_cap_N_per_mm": 13632,
+  "elastic_shortening_mm": 0.0122,
+  "creep_shortening_if_Ec=0.5E_mm": 0.0122,
+  "creep_shortening_if_Ec=0.3E_mm": 0.0285,
+  "note_creep_direction": "T_cap shortening lowers the washer onto the gear: it REDUCES the 0.10 axial play (K12 TQ F15 says 'adds')"
+ },
+ "T_cap_root_Z": 43.12,
+ "T_cap_bond_A": 53.13,
+ "T_cap_bond_Z": 67.74,
+ "T_cap_radial": {
+  "L8 65 N": {
+   "F": 65.0,
+   "M": 149.5,
+   "root_nominal": 3.47,
+   "root_Kt1p7": 5.89,
+   "bond_peel": 2.21,
+   "bond_shear": 1.22
+  },
+  "L3 44 N": {
+   "F": 44.0,
+   "M": 101.2,
+   "root_nominal": 2.35,
+   "root_Kt1p7": 3.99,
+   "bond_peel": 1.49,
+   "bond_shear": 0.83
+  }
+ }
+}

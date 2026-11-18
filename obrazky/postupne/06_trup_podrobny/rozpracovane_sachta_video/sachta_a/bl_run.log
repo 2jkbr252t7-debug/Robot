@@ -1,0 +1,43 @@
+/tmp/claude-0/gapwf/fin/T4/sachta_a/bl_render.py:18: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  W = bpy.data.worlds.new("w"); sc.world = W; W.use_nodes = True
+Timer 'STL Import' took 4.66 ms
+/tmp/claude-0/gapwf/fin/T4/sachta_a/bl_render.py:30: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(key); m.use_nodes = True; b = m.node_tree.nodes["Principled BSDF"]
+00:44.632  render           | Saved: '/tmp/claude-0/gapwf/fin/T4/sachta_a/img/zdola.png'
+SHOT zdola 44 s
+/tmp/claude-0/gapwf/fin/T4/sachta_a/bl_render.py:18: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  W = bpy.data.worlds.new("w"); sc.world = W; W.use_nodes = True
+Timer 'STL Import' took 4.76 ms
+/tmp/claude-0/gapwf/fin/T4/sachta_a/bl_render.py:30: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(key); m.use_nodes = True; b = m.node_tree.nodes["Principled BSDF"]
+Timer 'STL Import' took 1.11 ms
+Timer 'STL Import' took 4.66 ms
+Timer 'STL Import' took 1.06 ms
+Timer 'STL Import' took 0.49 ms
+Timer 'STL Import' took 0.50 ms
+Timer 'STL Import' took 1.11 ms
+Timer 'STL Import' took 0.53 ms
+Timer 'STL Import' took 1.09 ms
+Timer 'STL Import' took 1.44 ms
+Timer 'STL Import' took 0.93 ms
+Timer 'STL Import' took 0.77 ms
+Timer 'STL Import' took 0.70 ms
+00:47.980  render           | Saved: '/tmp/claude-0/gapwf/fin/T4/sachta_a/img/rez_x0.png'
+SHOT rez_x0 47 s
+/tmp/claude-0/gapwf/fin/T4/sachta_a/bl_render.py:18: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  W = bpy.data.worlds.new("w"); sc.world = W; W.use_nodes = True
+Timer 'STL Import' took 6.76 ms
+/tmp/claude-0/gapwf/fin/T4/sachta_a/bl_render.py:30: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(key); m.use_nodes = True; b = m.node_tree.nodes["Principled BSDF"]
+Timer 'STL Import' took 1.21 ms
+00:31.213  render           | Saved: '/tmp/claude-0/gapwf/fin/T4/sachta_a/img/rez_z30.png'
+SHOT rez_z30 30 s
+/tmp/claude-0/gapwf/fin/T4/sachta_a/bl_render.py:18: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  W = bpy.data.worlds.new("w"); sc.world = W; W.use_nodes = True
+Timer 'STL Import' took 5.78 ms
+/tmp/claude-0/gapwf/fin/T4/sachta_a/bl_render.py:30: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(key); m.use_nodes = True; b = m.node_tree.nodes["Principled BSDF"]
+Timer 'STL Import' took 1.13 ms
+Timer 'STL Import' took 0.57 ms
+00:55.597  render           | Saved: '/tmp/claude-0/gapwf/fin/T4/sachta_a/img/rez_roh.png'
+SHOT rez_roh 54 s
