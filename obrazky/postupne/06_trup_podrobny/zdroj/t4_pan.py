@@ -80,10 +80,19 @@ PAN2 = dict(
     WIN_END=dict(x=(23.3, 25.4), y=(-7.0, 3.4), z=(-40.9, -15.0)),       # dev: y -6.5..6.5 -> -7.0..3.4 (FFC fixed leg land)
     GROOVE=dict(y=(3.3, 7.2), x=(15.0, 25.6), depth=0.3, edge_r=0.6),     # FFC riser groove under the back floor (along +X)
     PAD_FACE=15.10, ROOT_R=1.0,
-    PAD_A=dict(x=7.0, z=-15.8, r=3.5),                                    # dev: F10 positions (servo case / post / tool paths)
+    PAD_A=dict(x=7.0, z=-15.8, r=3.65),                                   # dev: F10 positions; fixer rev2 (S5): r 3.5 -> 3.65 (wall 1.6 at D4.1)
     PAD_B=dict(x=18.4, z=(-38.0, -34.0), r=3.25),                         # stadium: dowel (z -38.0) + insert (z -34.0)
-    F10=dict(A=(7.0, -15.8), B=(18.4, -34.0), dowel=(18.4, -38.0), dowel_d=2.0, dowel_hole=2.05, dowel_depth=3.0,
-             dowel_len=5.0, torque=0.04),
+    F10=dict(A=(7.0, -15.8), B=(18.0, -33.3), dowel=(18.4, -38.0), dowel_d=2.0, dowel_hole=2.05, dowel_depth=3.0,
+             dowel_len=5.0, torque=0.10),
+    #   fixer rev2 (S5, lead decision): fingertip design case 0.10 N.m -> M2 x 4 x OD 4.0 inserts in D4.1 holes THROUGH the 4.0 back wall
+    #   (flush with the pad face, 0.1 short of the well face); F10_B (18.4, -34.0) -> (18.0, -33.3): web 1.64 to the dowel hole and 1.73 to
+    #   the r 26.50 stage trim at the pad face (round pad r 3.65 added to the dowel stadium PAD_B)
+    PAD_B2=dict(r=3.65),
+    #   F10_B at x 18.0 brings its DIN 433 washer (r 2.25) to x 15.75 - the MG90S case (x <= 16.0) sits on the plate face y 17.1 there:
+    #   the washer + head sit in a 0.35 deep step of the plate (x 15.6 .. past the +X edge, z -35.62 .. the low-plate top; washer y 16.75 .. 17.05,
+    #   plate 1.65 under it, compression only);
+    #   the screw is driven with a 1.3 hex PRECISION screwdriver (blade 1.5 across corners) - a D4.5 shaft would touch the servo case
+    F10_B_CB=dict(d=4.8, depth=0.35, z_low=-35.62),   # step bottom 0.07 under the washer, 1.36 to the dowel hole; tip 0.05 short of the well face
     RAIL=dict(x=(-6.0, 16.0), y=(13.0, 15.1), z=(-41.9, -33.9),           # new: bottom rail (tongue groove) for the pocket
               groove=dict(x=(-4.5, 14.5), y=(13.5, 15.2), z=(-39.4, -36.4))),
     # ---- lift module (P_drziak_serva) -----------------------------------------------------------------------------
@@ -129,7 +138,9 @@ PAN2 = dict(
         journal_z=(-10.7, -1.9),
         vents=dict(d=2.5, xy=[(sx * 6.25, sy * 18.0) for sx in (1, -1) for sy in (1, -1)] +
                    [(sx * 16.0, sy * 15.3) for sx in (1, -1) for sy in (1, -1)], z=(-3.6, -1.9)),   # M2: 8 vents through the top plate
-        lip_trim=dict(r=(16.0, 17.6), y_min=15.12, z=(-41.9, -41.7)),   # m1: lip bump 0.05 above -41.9 under the pocket plate
+        lip_trim=None,       # m1: the P_sachta trim (run 1: y >= 15.12 left 0.02; y >= 15.0 cut slivers into the drum shroud top) is replaced
+                             # by a 0.35 x 0.15 rebate on the back-bottom edge of the P_drziak_serva plate (pocket_rebate below)
+        pocket_rebate=dict(x=(-9.0, 9.5), y=(15.0, 17.2), z=(-42.0, -41.75)),   # plate bottom -41.9 -> -41.75 over the drum shroud / lip tops
         tongue_root_r=0.5, groove_chamfer=0.8,                          # S2: R0.5 tongue roots, 0.8 x 45 deg chamfer on the groove mouth
         ear_relief_d=1.0,                                               # S4: D1.0 drilled at the inner end of the bend-relief kerf
         under_r=16.72),                                                 # m2: FFC under-run starts on the arc r 16.72 (outside the shroud)
@@ -390,6 +401,7 @@ def mk_sachta():
     rail = C.box(Ra["x"][0], Ra["x"][1], yb2 - 0.3, Ra["y"][1], *Ra["z"])
     padA = _pad_round(Pa["x"], Pa["z"], Pa["r"], yb2, pf, Rr)
     padB = _pad_stadium(Pb["x"], Pb["z"][0], Pb["z"][1], Pb["r"], yb2, pf, Rr)
+    padB = one(fuse([padB, _pad_round(P2["F10"]["B"][0], P2["F10"]["B"][1], P2["PAD_B2"]["r"], yb2, pf, Rr)]))   # fixer rev2: insert B pad
     rail_root = fillet_strip((Ra["x"][0], yb2, Ra["z"][1]), (Ra["x"][1], yb2, Ra["z"][1]), (0, 1, 0), (0, 0, 1), Rr)
     body = one(fuse([body, rail, padA, padB, rail_root]))
     # ---- root fillets R1: hub disc / floor top against the wall inner faces (inside the well)
@@ -413,8 +425,7 @@ def mk_sachta():
     Rgv = Ra["groove"]
     N.append(C.box(*Rgv["x"], *Rgv["y"], *Rgv["z"]))
     for (x, z) in (P2["F10"]["A"], P2["F10"]["B"]):
-        N.append(C.cyl_y(3.3 / 2, pf - 3.3, pf + 0.5, x, z))                    # bonded insert M2 OD 3.2 -> hole 3.3 x 3.3
-        N.append(C.cyl_y(2.3 / 2, yi - 0.5, pf - 3.0, x, z))                    # pilot 2.3 through to the well
+        N.append(C.cyl_y(R2["INSERT_HOLES"]["M2"]["hole"] / 2, yi - 0.5, pf + 0.5, x, z))   # fixer rev2: D4.1 through (M2 x 4 x OD 4.0 insert)
     dx, dz = P2["F10"]["dowel"]
     N.append(C.cyl_y(P2["F10"]["dowel_hole"] / 2, pf - P2["F10"]["dowel_depth"], pf + 0.5, dx, dz))
     # ---- fixer rev2: M2 vents (8 x D2.5 through the top plate into the pockets ring / ribs / walls - no suction cup when printed
@@ -423,7 +434,8 @@ def mk_sachta():
     V = Fx["vents"]
     N += [C.cyl_z(V["d"] / 2, *V["z"], x, y) for x, y in V["xy"]]
     Lt = Fx["lip_trim"]
-    N.append(one(C.box(-20.0, 20.0, Lt["y_min"], 20.0, *Lt["z"]) & C.cyl_z(Lt["r"][1], Lt["z"][0] - 1, Lt["z"][1] + 1)))
+    if Lt:
+        N.append(one(C.box(-20.0, 20.0, Lt["y_min"], 20.0, *Lt["z"]) & C.cyl_z(Lt["r"][1], Lt["z"][0] - 1, Lt["z"][1] + 1)))
     ch = Fx["groove_chamfer"]; gy1 = Ra["y"][1]
     for zg, sg in ((Rgv["z"][1], 1), (Rgv["z"][0], -1)):
         N.append(prism_x([(gy1 + 0.05, zg - sg * 0.05), (gy1 - ch, zg - sg * 0.05), (gy1 - ch, zg), (gy1 + 0.05, zg + sg * (ch + 0.05))],
@@ -506,6 +518,11 @@ def mk_drziak():
     N = [prism_x(_keyhole_yz(0.0), tu["x"][0] - 1.0, tu["x"][1] + 1.0)]
     for (x, z) in (P2["F10"]["A"], P2["F10"]["B"]):
         N.append(C.cyl_y(2.3 / 2, pl["y"][0] - 3.0, pl["y"][1] + 0.5, x, z))
+    Rb = P2["FIX2"]["pocket_rebate"]                                                       # fixer rev2 (m1): clear the drum shroud / lip top
+    N.append(C.box(*Rb["x"], *Rb["y"], *Rb["z"]))                                         # (z <= -41.85, y <= 15.12) by 0.1
+    cb = P2["F10_B_CB"]; xb_, zb_ = P2["F10"]["B"]                                        # fixer rev2: washer step at F10_B, OPEN to the
+    N.append(C.box(xb_ - cb["d"] / 2, pl["low"]["x"][1] + 0.6, pl["y"][1] - cb["depth"], pl["y"][1] + 0.5,  # +X edge and the low-plate top
+                   cb["z_low"], pl["low"]["z"][1] + 0.05))                                # (no thin rim; 1.65 of plate under the washer)
     dx, dz = P2["F10"]["dowel"]
     N.append(C.cyl_y(P2["F10"]["dowel_hole"] / 2, tg["y"][0] - 2.0, pl["y"][1], dx, dz))          # through the 2.0 plate (ends at the shelf)
     zt = C.LIFT_CASE["z"][1]; zh = zt + C.MG90S["tab"]["hole"]
@@ -915,13 +932,14 @@ def fasteners(lift=0.0):
     pf = P2["PAD_FACE"]; yp = P2["POCKET"]["plate"]["y"][1]
     for tag, (x, z) in (("A", P2["F10"]["A"]), ("B", P2["F10"]["B"])):
         wd = 4.5
+        yp = P2["POCKET"]["plate"]["y"][1] - (P2["F10_B_CB"]["depth"] if tag == "B" else 0.0)   # fixer rev2: B sits in its counterbore
         add(f"podl_F10_{tag}", washer(2.2, wd, 0.3, (x, yp, z), "y", 1), "P", "steel",
             "podložka DIN 433 M2 (Ø4,5)", joint="F10", size="DIN 433 2.2x4.5x0.3 (DIN 125 Ø5 would touch the servo case)")
         add(f"skr_F10_{tag}", iso7380(2.0, 6.0, (x, yp + 0.3, z), "y", -1), "P", "steel", "skrutka ISO 7380 M2x6 (držiak – šachta)",
             joint="F10", size="ISO 7380-1 M2x6", head=(x, yp + 0.3, z), dir="-Y", tool_from="+Y (door, pan 0)",
             torque_Nm=P2["F10"]["torque"])
-        add(f"vl_F10_{tag}", C.insert("M2", (x, pf, z), "y", -1), "P", "brass", "závitová vložka M2 OD3,2x3 lepená epoxidom",
-            joint="F10", size="brass knurled insert M2 OD 3.2 x 3.0, bonded (hole 3.3 x 3.3)")
+        add(f"vl_F10_{tag}", C.insert("M2", (x, pf, z), "y", -1), "P", "brass", "závitová vložka M2x4 OD4,0 lepená epoxidom",
+            joint="F10", size="brass knurled insert M2 x 4 x OD 4.0, bonded (hole D4.1 through the 4.0 wall; fixer rev2)")
     dx, dz = P2["F10"]["dowel"]
     add("kolik_F10", C.cyl_y(1.0, pf - P2["F10"]["dowel_depth"], pf - P2["F10"]["dowel_depth"] + P2["F10"]["dowel_len"], dx, dz),
         "P", "steel", "kolík Ø2x5 ISO 8734 (lepený v šachte)", joint="F10", size="ISO 8734 2 m6 x 5 (bonded 3.5 in the pad)")

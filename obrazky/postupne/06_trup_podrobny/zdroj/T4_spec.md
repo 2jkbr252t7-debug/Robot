@@ -1422,7 +1422,7 @@ F1_PATH, TORQUE_REC, WASHERS_REC; PAN2_SUMMARY; OBAL overrides mirrored), `t4_pa
 ### 17.16 Fixer changes after the rev. 2 verification (overenie2_mechanika / overenie2_montaz, 2026-11-18) – supersede 17.0–17.15 where different
 Source of the numbers: `t4_common.py` block `# >>> rev2 (fixer …)` (dict `FIX2`, `tilt_down_max()`, `tilt_up_max()`), `t4_pan.PAN2["FIX2"]`,
 `t4_ram.RAM2` (COL.plate wide / r_in 34.4, bridge_fillet, head_cove, wire_hole, CUP_VENTS, J1_LUG, F3A, USB_EXT), `t4_obal` step `stred_pinion`,
-`t4_assembly.py` (B7b, T2, T3b, T4b, T5c, T7, S5a, S6) and `checks.py` (K5 journal, K7 rows, K9 rule, K10 cup test, K12 FIX2 rows).
+`t4_assembly.py` (B7b, T2, T3b, T4b, T5c, T7, S5a, S6) and `checks.py` (K2 exact-BREP pairs, K5 journal, K7 rows, K9 rule, K10 cup test, K12 FIX2 + TQ rows, K13 ZIF / ear / insert regressions); fingertip-torque joint table `FIX2["JOINTS"]`.
 Finding-by-finding record: `opravy2.md`.
 
 1. **Pan pinion and T_stred (B1).** The T_stred front lip (z −81 … −79.5) is cut back to **r 8.35 about the pinion axis** PAN_AX (interior
@@ -1431,7 +1431,7 @@ Finding-by-finding record: `opravy2.md`.
    step T5b and its 24 h cure inside the torso sequence are deleted. Service of the pan servo, the J1 servo, the deck / T_most / T_cap and the
    carrier: S1 → S2 → S3 → side caps, joints, door, F1 × 4 off, USB FPC male end and LED / speaker plugs unplugged → **S5a: T_stred (+ front
    stack, F1 inserts, frame magnets, glued collar ring) lifted straight up** (K7 sweep, not a removal) → S5 / J1 / deck / carrier. A new pan
-   servo gets a new pinion (≈ 5 €); the old pinion may be released on the bench at 250 °C.
+   servo gets a new pinion (≈ 5 €); the old pinion may be released on the bench at 250 °C. **Run 2 addition:** with the pinion present, the head of the 270° speaker-ring screw (F13, front stack) passed the pinion tip circle r 8.0 with 0.06 at the modelled tooth angle and overlapped it by 0.13 at others → all F13 screws are **low-head thread-forming M2 × 6 (k ≤ 1.2, dk ≤ 4.0; catalogue data UNVERIFIED)**: 0.57 clear (K7 row "front stack vs pinion tip circle").
 2. **Carrier service (B1 part 2).** The 49.8 wide carrier cannot pass the 41.5 door opening; it is serviced with T_stred off (S6 after S5a,
    K7 row). Every connector and the USB port stay reachable through the door (17.16-5).
 3. **Upper pan journal (G1).** Every P_sachta surface in the PTFE band z −10.7 … −1.9 is at **r ≤ 26.365** (the 8 lands at r 26.50 – well
@@ -1471,17 +1471,42 @@ Finding-by-finding record: `opravy2.md`.
    during T3). K12 column rows use the load introduction through the 3 F8 screws (elastic screws, envelope of both force directions) above
    the lowest screw (z −23.5) and Kt 1.3 at F8 holes / key slot / top, 1.1 on plain sections: all column rows ≤ 7.65 MPa (z −24).
 10. **Lift module (S2, m1, m2).** P_drziak_serva tongue roots **R0.5** on both long edges (Kt 1.6 → 5.57 MPa ≤ 8.5); the rail groove mouth in
-    P_sachta is chamfered 0.8 × 45°. The drum lip bump 0.05 under the pocket plate is trimmed (y ≥ 15.12, z −41.9 … −41.7). The FFC under-run
+    P_sachta is chamfered 0.8 × 45°. The drum shroud / lip tops (z −41.85, 0.05 above the plate bottom) no longer reach into the pocket plate: the **P_drziak_serva plate bottom is raised 0.15 (z −41.75) over x −9 … 9.5** (P_sachta untouched; the first fix – trimming P_sachta at y ≥ 15.12 – left 0.02 and a y ≥ 15.0 trim cut slivers into the shroud top; both found by the new exact-BREP K2 regression and K4). The FFC under-run
     starts on the arc r 16.72 (outside the shroud).
 11. **Ear (S4).** L_ucho is **304 stainless 1.5 only** (5754-H22 deleted: 103 MPa > 87). A **Ø1.0 hole is drilled at the inner end of the
     bend-relief kerf** (model + DXF). K12 H19 uses the verifier's FE 137.7 MPa (before the relief hole) against 143 MPa.
 12. **Head tilt (K1, K2).** The B tilt table and the "27.5° at lift 10 … 15" row are replaced by ONE firmware rule:
     **tilt_down_max = min(40°, 4° + 1.9°/mm × lift); tilt_up_max = 10° (lift < 7.5), 30° (7.5 … 12.5), 40° (≥ 12.5)**; park at lift 0, tilt 0
     when idle. K9 checks it on a 0.5 mm lift grid: ≥ 1.0 mm inside the limits and ≥ 0.5 mm at the limits + 1° (dead band).
-13. **Torque (S5).** Every resin-bearing screw joint is tightened with a **preset torque screwdriver**: Tohnichi **AMLD4CN (1 … 4 cN·m)** for
-    F4 0.02, F8 0.015, F11 0.02, F16 0.025 N·m; Tohnichi **RTD15CN (2 … 15 cN·m, ±3 %)** or Wera 1460 ESD (2 … 11 cN·m) for F1 / F3a / F3b
-    0.045, F7 0.03, F10 0.04, F13 / F14 0.03 N·m; F12 0.15 and F15 0.08 N·m (metal) with any 0.05 … 0.5 N·m driver. Catalogue ranges from
-    distributor listings (UNVERIFIED). Ordinary hand drivers are not allowed on resin joints. K12 rechecks every torque row at +5 %.
+13. **Torque (S5) – LEAD DECISION 2026-11-18: no torque screwdriver.** Every screw joint that bears on resin is designed so that a small
+    precision screwdriver turned with the fingertips cannot damage it: **design case 0.10 N·m** for M2, M2.5 and M3 (fingertip torque on a
+    10–12 mm handle ≈ 0.03–0.08 N·m), preload F = T / (0.2 d) (also for the thread-forming screws – conservative). Criteria at 0.10 N·m:
+    bonded insert pull-out ≥ 1.5 × preload with epoxy 8 MPa; washer / nut / head bearing on resin ≤ 25.8 MPa (short-term crush);
+    thread-forming thread not stripped (0.75 π d L × 0.6 × 25.8) and boss hoop stress ≤ 12.9; clamped resin only in compression (no
+    part cracked by the head); preload relaxation by creep accepted only where the part is located positively. Result (K12 rows "TQ"):
+    | joint | at 0.10 N·m | positive location (relaxation harmless) |
+    |---|---|---|
+    | F1 M2.5 → T_stred insert | washer 11.4 / 25.8; insert 1.76 × preload | spigot + F1 shanks in Ø3.2 (no sustained torque) |
+    | F3a M2.5 deck | washer 10.3 / 25.8; insert 1.76 × | stop pin 1 through the deck C-ear + shanks |
+    | F3b M2.5 T_most (Al, countersunk) | insert 1.76 × | countersunk heads in metal |
+    | F4 M2 pan servo | DIN 562 nut 19.4 / 25.8 | epoxy-cast slot fill (item 4) |
+    | F7 M2 carrier | **new insert** 1.59 × | countersunk heads in FR4, no load |
+    | F8 M2 T_klb | ISO 7092 25.8 / 25.8 at OD 4.2 (lower tolerance; 20.7 at nominal 4.5) – **tightest joint**; **new insert** 1.61 × | key + neck spigot |
+    | F10 M2 lift module | DIN 433 25.8 / 25.8 at OD 4.2 (20.7 nominal); **new insert** 1.61 × | F10 dowel + tongue / rail |
+    | F11 M2 MG90S | DIN 562 nut 19.4 / 25.8 | closed pocket |
+    | F13 M2 thread-forming | washer 19.0 / 25.8; strip 1.17 × (K 0.2), hoop 7.2 / 12.9 | head seat holds the gasket push |
+    | F14 M2 thread-forming (boards) | strip 1.20 ×, hoop 7.1 / 12.9 | no load |
+    | F15 M3 pivot (Al thread) | T_cap 4.5 / 25.8 (root under L8: 4.2 / 8.5 tension, 8.6 / 25.8 compression) | head / washer, T_cap bonded |
+    | F16 M2 J1 servo | washer on the 1.2 slotted pad 22.0 / 25.8 | cradle walls + shims |
+    | F12 M2 ear → Al foot | metal (Loctite 222) | F12 dowel |
+    **M2 inserts changed** (the 3.2 × 3.0 insert gives only 241 N < 1.5 × 250 N): **M2 × 4 (L) × 4.0 (OD) brass knurled insert**, e.g.
+    123-3D "M2 thread inserts 4.0 mm x 4.0 mm" (123-3d.co.uk listing; drawing UNVERIFIED), bonded with epoxy in **Ø4.1 holes through the
+    4.0 wall** (set flush with the mating face; epoxy squeeze-out at the back wiped off): F7 standoffs r 3.25 → **3.65** (hole through
+    3.95, the insert end stands ≤ 0.05 into the J1 cradle, 0.15 to the STS3215), F8 column holes Ø4.1 to the insert end |x| 34.4, the lens beyond it (up to the r 34.4 inner cylinder) cut away in a radial wedge so that no floor or sliver remains (insert x 38.4 … 34.4), F10 pads r 3.5 → **3.65** with the hole through to the well (insert 0.1 short of the well face),
+    **F10_B moved (18.4, −34.0) → (18.0, −33.3)** (web 1.64 to the dowel hole, 1.73 to the r 26.50 stage trim; P_drziak_serva hole follows; its DIN 433 washer + head sit in a 0.35 deep step of the plate, open to the +X edge and the low-plate top, because the MG90S case stands on the plate at x ≤ 16.0 – plate 1.65 under the washer; F10_B is driven with the 1.3 hex precision screwdriver, a D4.5 shaft would touch the servo case).
+    The M2.5 inserts (3.5 × 4.0) already pass. **Documents: "small precision screwdriver, fingertips only, stop when the head seats
+    + 1/8 turn – no L-key leverage; a torque screwdriver is optional (if used: 5–8 cN·m)".** Loctite 222 on F4, F8, F12, F15. The torque
+    values of 17.9 / 17.15 (0.015 … 0.15 N·m) and the torque-tool plan of the previous fixer draft are withdrawn.
 14. **J1 stop (m4).** The J1 lug is **8.0 tangential** × 2.35 × 4.0 (R1 roots): 11.2 MPa at a hand twist of **1.5 N·m** into the stop
     (≤ 12.9). The base stop block shrinks to **az 270 ± 14.6°** (base interface; the dummy stand follows) – stop still ±153.4°. The "Ø3 pin
     in the foot ring at r 19" of 17.4 does not fit (6805 seat r 18.575) and is withdrawn.
@@ -1493,5 +1518,5 @@ Finding-by-finding record: `opravy2.md`.
     STS3032 1.0 A + 2 × MG90S 0.7 A + ESP32 0.35 A + amplifier 0.8 A + LEDs 0.22 A + head 0.4 A = 4.2 A peak vs D36V28F5 3.2 A → firmware
     limits simultaneous moves (never both MG90S stalled, amplifier volume capped while servos move); measure the FFC drop on the bench
     (≈ 0.4 V at 1.4 A, UNVERIFIED). Arm connectors (m8): the arm servos join the 5 V bus with a bought 3-pin Y-split at J_BUS_5, wires up
-    the column through the Ø4.5 hole. Text fixes (m7): T13Lb hex key 1.3 (ISO 7380 M2); stop pins bonded 8.4 deep (hole 8.7); the base FFC
+    the column through the Ø4.5 hole. MG90S crank (m8): count the spline teeth of the purchased MG90S BEFORE buying the aluminium arm; if none fits, use the P05 fallback (supplied horn + 2.0 Al cover plate, pin in double shear, both drilled at r 10.00 from one template) – decide before drilling. Text fixes (m7): T13Lb hex key 1.3 (ISO 7380 M2); stop pins bonded 8.4 deep (hole 8.7); the base FFC
     is plugged through the door BEFORE the door closes; T_paluba prints tilted 70° about +Y.

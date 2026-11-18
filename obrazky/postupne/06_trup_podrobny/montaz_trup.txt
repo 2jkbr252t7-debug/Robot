@@ -1,0 +1,334 @@
+NOVA mini – TRUP T4, revízia 2 (všetko tlačené zo živice, servis každého serva) – MONTÁŽNY POSTUP
+Rozmery v mm. Súradnice: Z hore, predok −Y, pravá strana robota −X (pri pohľade spredu je vľavo), vrch trupu z = 4.
+„Zdvih“ = výška krku nad pokojom: 0 = krk úplne dole (pokoj), 20 = úplne hore. Otočenie hlavy (pan) 0° = hlava dopredu,
++ = proti smeru hodinových ručičiek pri pohľade zhora (hlava sa otáča doľava robota).
+Obrázky: T4_hero.png, T4_rozlozeny.png, T4_rez_spredu.png, T4_rez_zboku.png, T4_dvere.png, T4_zospodu.png, T4_tlac.png,
+výkresy kovových dielov T4_ucho_vykres.png (+ ucho.dxf), T4_most_vykres.png (+ most.dxf), T4_pata_vykres.png (+ pata.dxf).
+Model: NOVA_trup.glb (prehliadač) a NOVA_trup.blend. Návrh, materiál, kontroly a otvorené otázky: NAVRH_trup.md.
+Hlava a krk sú hotové (variant B) – ich postup je v B/montaz.txt („B bod N“ nižšie odkazuje naň).
+
+POZOR – ČO JE EŠTE NEOVERENÉ (zmeraj / over PRED kúpou a kreslením dosiek, podrobne v NAVRH_trup.md, kap. 13):
+  ZIF Panasonic Y5B AYF530535, hlava USB-C FPC predlžovača, výkres vložky M2 × 4 × Ø4,0, skrutka do plastu M2×6 s nízkou
+  hlavou (k ≤ 1,2), počet zubov drážkovania MG90S (pred kúpou hliníkového ramena!), otvory a závit v puzdre STS3215, drážkovanie
+  STS3032 (musí byť kovové), rozmery ozubených kolies, údaje živice Elegoo Tough (z e-shopov, oficiálny list nebol dostupný).
+
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+A. ČO KÚPIŤ  (NEOVERENÉ = číslo dielu / rozmer z vyhľadávania, stránky výrobcu neboli dostupné – over na stránke predajcu)
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Serva a pohon
+  – Feetech STS3215 (servo otáčania trupu J1), 1 ks. POZOR na verziu napätia (7,4 V alebo 12 V) – musí sedieť s batériou
+    v podstavci (otázka v NAVRH_trup.md). Puzdro 45,2 × 24,7 × 35,0 ± 0,3, drážkovanie 25 z Ø5,9.
+  – Feetech STS3032 (servo otáčania hlavy), 1 ks; drážkovanie 25 z Ø4,95 – musí byť KOVOVÉ (NEOVERENÉ, skontroluj).
+  – TowerPro MG90S (servo zdvihu krku), 1 ks + 1 náhradné. (Druhé MG90S – náklon hlavy – je v zozname hlavy B.)
+  – ozubené koleso m0,8, 36 zubov, šírka 4,0, diera Ø8,00 H7, mosadz, bez náboja (napr. KHK BSS0.8-36 – tvar a diera
+    NEOVERENÉ). Ak kúpiš koleso s nábojom alebo menšou dierou: sústružník zarovná náboj a vyvŕta Ø8,00 H7 súosovo s hlavovou
+    kružnicou (hádzanie ≤ 0,02) – jediný diel, ktorý môže potrebovať sústruh.
+  – pastorok m0,8, 18 zubov, šírka ≥ 4,0, diera Ø5,00 H7, oceľ (napr. RS PRO 878-7862) alebo mosadz (KHK BSS0.8-18) –
+    NEOVERENÉ; náboj dovolený len DOLE (k servu), Ø ≤ 12.
+  – pastorok m1, 18 zubov, šírka ≥ 4, diera Ø6 H7, mosadz (KHK BSS1-18B alebo Mädler 263 018 00) – NEOVERENÉ.
+  – hliníkové rameno serva pre MG90S (jednoramenné, rozpätie ≥ 14 mm) – NAJPRV spočítaj zuby drážkovania svojho MG90S
+    (inzeráty uvádzajú 20 / 21 / 25 z), až potom kúp rameno s rovnakým počtom zubov.
+  – ložisko 6805-2RS (25 × 37 × 7), 1 ks.
+Elektronika
+  – Waveshare ESP32-S3-Zero, 1 ks (na nosnej doske, USB-C otočené k +X).
+  – Pololu D36V28F5 (menič 5 V / 3,2 A), 1 ks.
+  – Adafruit 3006 (zosilňovač MAX98357A, I2S), 1 ks.
+  – reproduktor Ø28 × 5 mm, 8 Ω / 1,5 W, 1 ks (rozmer over – kapsa je na Ø28 × 5).
+  – LED doska 30 × 4 mm so 6 × WS2812B-2020 (malá vlastná DPS alebo kúpený pásik s rovnakými rozmermi), 1 ks.
+  – kondenzátor 470 µF / 10 V, Ø8 × 11,5 (napr. Panasonic EEU-FR1A471 – rozmer NEOVERENÝ), 1 ks.
+  – ZIF konektor Panasonic Y5B AYF530535 (0,5 mm, 5 pólov, kontakty hore aj dole, pre FFC hrúbky 0,30), 4 ks (2 na nosnej
+    doske, 2 na DPS_krk) – NEOVERENÉ; náhrada Molex 54548-0572. Over na stránke predajcu PRED kreslením dosiek.
+  – ZIF Hirose FH12-10S-1SH(55) (1,0 mm, 10 pólov) pre plochý kábel z podstavca, 1 ks – NEOVERENÉ.
+  – 2 × kolíková lišta 3 piny, rozstup 2,50, kompatibilná s konektorom Feetech (napr. Molex 5268-03A) – NEOVERENÉ.
+  – plochý kábel FFC 0,5 mm, 5 vodičov, dĺžka 203 mm, typ A (kontakty na rovnakej strane), konce vystužené na 0,30,
+    2 ks (napr. Molex Premo-Flex rad 15166, 5 vodičov 203 mm – presné číslo NEOVERENÉ; alebo Würth WR-FFC 0,5 mm 5p 200 mm).
+  – USB-C predlžovač 90° na FPC páske (tenký samec do ESP32, samica na malej doske), cca 10 cm (typ „ADT-Link USB-C FPC
+    90 degree“) – rozmer hlavy NEOVERENÝ (model 5,0 × 3,5 × 9,5).
+  – Molex PicoBlade 1,25 mm 3 piny, pár vodič–vodič (51047-0300 + 51021-0300, alebo hotové „micro JST 1.25 3-pin“ pigtaily).
+  – vodiče AWG30 silikónové (červený, čierny, oranžový), Dupont 1×3 a 1×2 puzdrá + kolíky (LED a reproduktor).
+  – 2 plošné spoje na mieru: nosná doska DPS_riadenie (FR4 1,6, 49,8 × 18) a DPS_krk (FR4 0,8, 13,0 × 13,4) – nakreslia
+    sa v kole elektroniky podľa tabuľky v časti F.
+Kovové diely na mieru (výkresy + DXF v tomto priečinku)
+  – L_ucho: nerez 304 (X5CrNi18-10), plech 1,5 mm – kúsok 30 × 15 (výkres T4_ucho_vykres.png, ucho.dxf). INÝ MATERIÁL NIE.
+  – T_most: hliníkový plech 2,0 mm (EN AW-5754-H22 alebo 6061-T6) – kúsok 40 × 40 (T4_most_vykres.png, most.dxf).
+  – L_pata: hliníková plochá tyč 20 × 4 (EN AW-6060 / 6061 / 5754) – kúsok 50 mm (T4_pata_vykres.png, pata.dxf).
+Skrutky (všetko oceľ 10.9 alebo nerez A2; hlavy ISO 7380 = polguľaté s imbusom)
+  – ISO 7380 M2 × 6: 6 ks (F10 × 2, F11, F12, F16 × 2)        – ISO 7380 M2 × 10: 8 ks (F8 × 6, F4 × 2)
+  – ISO 7380 M2,5 × 6: 6 ks (F1 × 4, F3a × 2)                 – ISO 7380 M3 × 6: 1 ks (F15)
+  – DIN 7991 M2,5 × 6 zápustná: 2 ks (F3b – hlava v hliníku)   – DIN 7991 M2 × 5 zápustná: 2 ks (F7 – hlava v DPS)
+  – skrutka do plastu M2 × 6 s NÍZKOU hlavou (k ≤ 1,2, Ø hlavy ≤ 4,0), napr. typ EJOT PT K20 – 5 ks (F13) – NEOVERENÉ
+  – skrutka do plastu M2 × 6 (bežná hlava): 4 ks (F14)
+  – skrutka ramena serva: pribalená k ramenu (model: M2,5 × 5 zápustná – závit výstupu MG90S NEOVERENÝ)
+  – rezerva: +2 ks z každého druhu
+Podložky, matice, vložky, kolíky
+  – DIN 125 M2 (2,2 × 5 × 0,3): 12 ks    – DIN 125 M2,5 (2,7 × 6 × 0,5): 6 ks    – ISO 7092 / DIN 433 M2 (Ø4,5): 8 ks
+  – DIN 9021 M3 (3,2 × 9 × 0,8): 1 ks    – štvorhranná matica DIN 562 M2: 3 ks
+  – mosadzná vrúbkovaná vložka M2,5, Ø3,5 × 4,0 (na lepenie): 8 ks
+  – mosadzná vrúbkovaná vložka M2 × 4 (dĺžka) × Ø4,0 (napr. 123-3D „M2 thread inserts 4.0 mm x 4.0 mm“ – výkres NEOVERENÝ): 10 ks
+    (NIE tenšia 3,2 × 3,0 – tá pri dotiahnutí prstami nevydrží)
+  – kolík ISO 8734 Ø3 m6 × 12 (kalený): 2 ks (dorazy hlavy)
+  – kolík ISO 8734 Ø2 m6 × 6: 1 ks (čap kľuky), Ø2 m6 × 5: 2 ks (kolík F10 a kolík ucha F12 – ten skráť na 4,5)
+  – magnet N52 Ø5 × 2 (axiálne magnetovaný): 8 ks (dvierka)   – magnet N52 Ø3 × 2: 6 ks (ramenné kĺby)
+Fólie, peny, pásky
+  – PTFE páska hrúbky 0,13 (klzná / „glide tape“, nie tenká inštalatérska), šírka ≥ 8 mm – čap šachty, vodiace plochy, T_cap
+  – PTFE fólia 0,3 (podložka 24 × 10 × 0,3), PET fólia 0,1 (podložky J1), papierový prúžok 0,05 (vôľa ozubenia)
+  – PORON (alebo EPDM s uzavretými pórmi) 1,0 samolepiaci (tlmič serva J1 8 × 9) a 0,5 (podložka MG90S)
+  – penové tesnenie reproduktora PORON 1 mm, medzikružie Ø28 / Ø23,8
+  – Kapton páska, sťahovačka 2,5 mm (kondenzátor, káble), separačný vosk (F4), separačná PE fólia
+Lepidlá a chémia
+  – 2-zložkový štrukturálny epoxid, pomalý (≥ 30 min spracovateľnosť), napr. Loctite EA 3430 alebo UHU Plus Endfest 300
+  – Loctite 638 (alebo iné anaeróbne upevňovacie lepidlo na spoje kov–kov), Loctite 222 (slabé zaistenie závitov)
+  – IPA ≥ 95 % (umývanie živice, odmasťovanie), brúsny papier P240–P1000, farby 2K saténová biela / čierna (ako hlava)
+  – NEPOUŽÍVAJ sekundové (CA) lepidlo na nosné spoje.
+Náradie
+  – presné skrutkovače (rúčka 10–12 mm): imbus 1,3, imbus 1,3 S GUĽOVOU HLAVOU, imbus 2,0 (M3); bit PH0
+  – vrtáky HSS: Ø1,0 – 1,6 – 1,7 – 2,0 – 2,05 – 2,3 – 2,4 – 2,5 – 2,8 – 3,05 – 3,2 – 3,6 – 4,1 – 5,1; stupňovitý vrták do Ø11;
+    záhlbník 90°; závitníky M2 a M3; ihlové pilníky; posuvka; spárové mierky 0,10 a 0,25
+  – tester serv (5 V), prísavka Ø30, pinzeta, spájkovačka s tenkým hrotom, multimeter
+
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+B. ČO VYTLAČIŤ (MSLA živica Elegoo Tough na Elegoo Saturn 4 Ultra 16K; rozloženie na doskách: T4_tlac.png)
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+STL sú v ../stl/<názov>.stl v polohe POKOJ (montážna poloha). Orientáciu nastav podľa T4_tlac.png a stĺpca „orientácia“.
+„Zdvihnutý“ = diel 3 mm nad doskou na podperách (vetracie / odtokové otvory musia ústiť do medzery).
+  diel              ks  orientácia                                   podpery (KDE ÁNO / kde NIE)            odtok / poznámka
+  doska 1 (výška 110 mm)
+  T_stred           1   otvoreným spodkom k doske, naklonený 40°     vnútri, spodný okraj, škára −X;        otvorený spodok; 2 × Ø2,5
+                        (strana −X dole), zdvihnutý                  NIE na otvore ložiska r 26,65 ani na   do otvoru ložiska
+                                                                     ráme dvierok; ~68 mm² zvonka dole (−X)
+                                                                     zbrúsiť pred lakovaním
+  T_bok_L           1   otvorenou stranou (lem škáry) k doske,       lem škáry, vnútro, koniec objímky;     otvorená škrupina
+                        naklonený 25°, zdvihnutý                     NIE zvonka ani na čele príruby x 40,6
+  doska 2 (výška 45 mm)
+  T_bok_P           1   ako T_bok_L (zrkadlovo)                      ako T_bok_L
+  T_dvere           1   vnútornou (dutou) stranou k doske, 30°       len vnútri; NIE na vonkajšej ploche    4 kapsy magnetov otvorené
+  T_klb_L, T_klb_P  1+1 čelom krčku (x 38,6) k doske, os zvisle      len čelo krčku a koniec kľúča;         diery skrz
+                                                                     NIE na valci Ø27, čape Ø22 ani čele
+  doska 3 (výška 103 mm)
+  T_spodok          1   spodkom k doske, naklonený 15° okolo +X      spodok, pätka, zub dorazu J1;          odtoky Ø2,5 (0, −16,6),
+                        (zadná hrana hore), ZDVIHNUTÝ ≥ 3 mm         NIE na sedle ložiska Ø37,15, spigote,  Ø2,0 (0, 24,6), Ø2,5 vetranie
+                                                                     vnútri kolísky, čelách stĺpov          (±38,5; 2,7); slepé diery
+                                                                                                            kolíkov prepláchni IPA
+  P_sachta          1   hornou doskou (z −2) k doske, os zvisle,     horná doska r ≥ 24, vnútro prstenca;   8 × Ø2,5 vetracie otvory
+                        ZDVIHNUTÁ ≥ 3 mm                             NIE na čape r 26,37, vodiacich         v hornej doske (skryté pod
+                                                                     plochách šachty, obale bubna           kotúčom goliera)
+  P_drziak_serva    1   zadnou doskou (y 15,1) PRIAMO na dosku       ľahké podpery pod mostíkom a zarážkou; otvorená kapsa
+                                                                     NIE na dosadacích plochách zarážky
+  T_paluba          1   na hrane, naklonená 70° okolo +Y, stena      len predná a pravá hrana;              otvorená doska
+                        FFC hore, zdvihnutá                          NIE na hornej (klznej) ploche
+  T_drziak_repro    1   plochou k reproduktoru k doske, 45°          vonkajší obvod, rovná tetiva           otvorený krúžok
+  T_drziak_led      1   zadnou plochou k doske, 45°                  spodná a zadná hrana; NIE v drážke DPS
+  T_mriezka         1   prírubou k doske                             len zadná strana príruby               štrbiny skrz
+  T_cap             1   os zvisle, spodkom (lepená plocha) k doske   len spodok                             diera Ø3,4 skrz
+  doska 4 – ČÍRA živica (svetlovod nesie len vlastnú váhu, smie byť aj obyčajná číra živica)
+  T_svetlovod       1   prírubou k doske                             len zadná strana príruby; NIE na čele  plný diel; čelo zmatniť P800
+  doska 5 – voliteľne
+  Z_naboj_test      1   naplocho priamo na dosku (odporúčaný raft)   žiadne                                 skúšobný stojan namiesto
+                                                                                                            podstavca (pre skúšky)
+  Spolu ≈ 184 g živice v dieloch (+ podpery, + 70 g stojan). NETLAČIŤ: všetky kúpené diely (serva, kolesá, skrutky, kábel).
+  Tlač a dokončenie (podrobne NAVRH_trup.md kap. 3): najprv skúšobná tyčinka + skúška vytrhnutia jednej vložky; umyť IPA 2 × 2–3 min;
+  vysušiť ≥ 30 min (prefúkať diery); dotvrdiť presne podľa návodu živice (NIKDY viac ako 1,5 × čas – krehne); podpery z tenkých
+  miest odstráň pred dotvrdením; diery vŕtať až po dotvrdení a 24 h odstáti.
+
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+C. PRÍPRAVA DIELOV – VŔTANIE, LEPENIE, KOVOVÉ DIELY
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+VŔTANIE (diery sú v modeli v KONEČNOM rozmere; vŕtaj ostrým HSS vrtákom, nízke otáčky, po krokoch, bez zahriatia)
+  Ø       kde                                                                ako
+  1,0     L_ucho – na konci odľahčovacieho rezu                              pred ohybom (výkres)
+  1,6     L_pata – závit M2 (F12), hĺbka 7                                    závitník M2, závit 5
+  1,7     T_stred – 5 výstupkov F13; T_spodok – 4 stĺpiky F14                 len prečistiť, skrutky do plastu
+  2,0     hliníkové rameno MG90S – čap kľuky na r 10,00 ± 0,05 od osi          podľa šablóny (zdvih = 2 × r)
+  2,05    P_sachta – kolík F10 (hĺbka 3,5); P_drziak_serva – kolík F10;       posuvné uloženie
+          L_ucho – kolík F12; L_pata – kolík F12 (hĺbka 3)
+  2,3     voľné diery M2: T_klb (F8, zahĺbenie Ø4,7 pre podložku), P_drziak_serva (F10), L_ucho (F12)
+  2,4     T_spodok – 2 rohové podložky F16, pilníkom predĺž na drážku ± 0,3 v smere X
+  2,5     T_most – závit M3 v strede                                          závitník M3
+  2,8     voľné diery M2,5: T_paluba (F3a); T_most (F3b) + záhlbník 90° na Ø5,2
+  3,05    T_spodok – 2 slepé diery kolíkov dorazu, hĺbka 8,7                   prepláchnuť IPA, vyfúkať
+  3,2     T_spodok – 4 plávajúce diery F1 (zahĺbenie pre podložku Ø6,5)
+  3,1/5,1 kapsy magnetov Ø3 (T_klb) a Ø5 (dvierka, rám dvierok), hĺbka 2,1
+  3,6     vložky M2,5: T_stred (4 × F1), T_spodok (2 × F3a, 2 × F3b), hĺbka 4,3
+  4,1     vložky M2 × 4 × Ø4: T_spodok – stĺpiky F7 (skrz), stĺpy ramien F8 (6 ×, po koniec vložky), P_sachta – podložky F10 (skrz)
+  11      L_pata – stredná diera (stupňovitý vrták)
+  ZABRÚSIŤ NA POSUV (nevŕtať): sedlo ložiska Ø37,15 (6805 vojde rukou), otvor ložiska T_stred r 26,65 / čap šachty r 26,37 –
+  s PTFE páskou sa musí šachta točiť voľne a bez vôle; T_cap Ø7,70 + páska = Ø7,96 v diere kolesa Ø8,00.
+SKÚŠKA NASUCHO (pred lepením čohokoľvek): T_stred nasaď zhora na holý T_spodok. Kde drie (stĺpik dorazu 1, spigot), jemne
+  zbrús. T_stred musí dosadnúť bez sily – vôľa okolo veže je len 0,25.
+LEPENIE (plochy zdrsni P240, odmasti IPA, lep len úplne dotvrdenú živicu, 24 h pri izbovej teplote pred zaťažením)
+  epoxid: všetkých 18 mosadzných vložiek (zarovno s dosadacou plochou, prebytok zotri), 2 kolíky dorazu (8,4 hlboko), kolík F10,
+          ložisko 6805 (len vonkajší krúžok), 14 magnetov (polarita!), T_cap na T_most, 36z koleso pod šachtu, prstenec a kotúč
+          goliera, pätka L_pata na PREDNÚ polovicu krku, DPS_krk do štrbiny pätky, svetlovod a mriežka zvnútra, kotvy FFC
+          (bodka epoxidu + Kapton), výplň drážok F4 okolo NAVOSKOVANÝCH skrutiek (krok 5)
+  Loctite 638 (len kov–kov): pastorok J1 na drážkovanie STS3215, pastorok pan na drážkovanie STS3032, čap kľuky v ramene,
+          kolík F12 v uchu
+  Loctite 222 (zaistenie závitov): F4, F8, F12, F15
+KOVOVÉ DIELY: L_ucho, T_most, L_pata podľa výkresov (vyrež podľa DXF 1 : 1). Hrany odhrotuj, lepené plochy zdrsni.
+
+UŤAHOVANIE – JEDNO PRAVIDLO PRE VŠETKY SKRUTKY (momentový skrutkovač netreba):
+  malý presný skrutkovač (rúčka 10–12 mm) točený LEN končekmi prstov, prestaň, keď hlava dosadne, a dotiahni o 1/8 otáčky.
+  Žiadna páka (nedržať imbus za dlhé rameno). Všetky spoje sú prepočítané na 0,10 N·m – to prsty neprekročia. Ak máš momentový
+  skrutkovač, nastav 5–8 cN·m. Skrutky do plastu (F13, F14) sú jednorazové – nepovoľuj ich zbytočne.
+  spoj   kde                                        skrutka                     podložka         do
+  F1     T_spodok → T_stred (4×, zospodu)            ISO 7380 M2,5×6             DIN 125 M2,5     vložky v T_stred
+  F3a    paluba → T_spodok (2×)                      ISO 7380 M2,5×6             DIN 125 M2,5     vložky v T_spodok
+  F3b    T_most → T_spodok (2×)                      DIN 7991 M2,5×6 zápustná    –                vložky v T_spodok
+  F4     servo pan (2×)                              ISO 7380 M2×10 + 222        –                matica DIN 562
+  F7     nosná doska (2×)                            DIN 7991 M2×5 zápustná      –                vložky M2 × 4
+  F8     ramenný kĺb → stĺp (3 + 3)                  ISO 7380 M2×10 + 222        ISO 7092 M2      vložky M2 × 4
+  F10    modul zdvihu → šachta (2×)                  ISO 7380 M2×6               DIN 433 M2       vložky M2 × 4
+  F11    MG90S – horná úchytka                       ISO 7380 M2×6               DIN 125 M2       matica DIN 562
+  F12    ucho → pätka (kov–kov)                      ISO 7380 M2×6 + 222         –                závit M2 v hliníku
+  F13    držiak LED (2×), krúžok reproduktora (3×)   M2×6 do plastu, nízka hlava DIN 125 M2       výstupky T_stred
+  F14    menič (2×), zosilňovač (2×)                 M2×6 do plastu              DIN 125 M2       stĺpiky T_spodok
+  F15    čap šachty (na osi)                         ISO 7380 M3×6 + 222         DIN 9021 M3      závit M3 v T_most
+  F16    servo J1 zospodu (2×)                       ISO 7380 M2×6               DIN 125 M2       závit puzdra serva
+
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+D. MONTÁŽ (poradie je skontrolované kontrolou K7 – každý krok má voľnú priamu dráhu a priamy prístup náradia)
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+PRÍPRAVA NA STOLE
+ 1. T_spodok: skúška nasucho s T_stred (časť C). Vlep vložky M2,5 (F3a 2 ×, F3b 2 ×, zhora), vložky M2 × 4 (F7 2 × zo strany
+    dvierok, F8 3 + 3 do stĺpov). Vlep 2 oceľové kolíky Ø3 × 12 do stĺpikov dorazu (8,4 hlboko, diery najprv prepláchni IPA).
+    Štvorhranné matice DIN 562 pre F4 zasuň do drážok stĺpikov serva pan zo strany +X (drážka stĺpika −X je zo strany −X slepá).
+    Ložisko 6805 vlep zospodu do sedla Ø37,15 (posuvne + epoxid na vonkajší krúžok). 24 h.
+ 2. T_most (hotový podľa výkresu): T_cap prilep na stred T_most, vystreď ho dočasnou skrutkou M3 cez stred. 24 h. Potom na
+    T_cap navini 1 vrstvu PTFE pásky 0,13 (Ø7,70 → 7,96). Koleso 36z musí na ňom ísť voľne, bez hádzania.
+ 3. T_stred: vlep 4 vložky M2,5 do výstupkov F1 (zospodu) a 4 magnety do rámu dvierok (polaritu urči podľa magnetov dvierok –
+    prilož ich, kým lepidlo neschne). Zvnútra vlep svetlovod a mriežku. Držiak LED s LED doskou: 2 × F13 + DIN 125. Penové
+    tesnenie, reproduktor, prítlačný krúžok T_drziak_repro: 3 × F13 + DIN 125. Vodiče LED (3) a reproduktora (2) zakonči
+    konektormi Dupont (spoj s trupom sa rozpája – T_stred sa dá zložiť).
+ 4. P_sachta: vlep 2 vložky M2 × 4 (F10 A/B) a kolík Ø2 × 5 (F10) do podložiek na zadnej stene. PTFE páska 0,13 × 7 na pás
+    čapu (z −10 … −3, dookola, bez prekrytia) a 7 krátkych prúžkov na vodiace plochy šachty. Dvojicu FFC (oba káble na sebe)
+    prilep podľa modelu: otočná kotva na bubne (Kapton + bodka epoxidu), stúpajúci úsek po zadnej podlahe, pevná vetva na čele
+    +X; mäkký ohyb CF len Kaptonom (nelepiť, pri servise sa rozkladá). Konce k nosnej doske nechaj voľné. Koleso zatiaľ NIE.
+ 5. Modul zdvihu: MG90S zasuň do kapsy P_drziak_serva v smere −X (vežička cez kľúčovú dierku), na čelo puzdra PORON 0,5.
+    Matica DIN 562 do bloku, F11 (M2×6 + DIN 125) imbusom 1,3 (dlhé rameno v osi skrutky).
+    Hliníkové rameno: vyvŕtaj Ø2,00 na r 10,00 ± 0,05 od osi drážkovania, zalisuj čap Ø2 × 6 + Loctite 638.
+    Servo nastav testerom na 3° (impulz cca 500–520 µs = dolná úvrať), rameno nasaď na drážkovanie smerom dole a zaskrutkuj.
+    Kolík Ø2 × 4,5 vlep (Loctite 638) do diery Ø2,05 v prírube ucha L_ucho, vyčnieva 3,0 smerom −Y (k pätke).
+ 6. Krk (B body 1–8): hliníkovú pätku L_pata prilep epoxidom LEN na PREDNÚ polovicu krku (pod zadnú polovicu daj separačnú
+    fóliu). Na DPS_krk prispájkuj 7 vodičov krku (hlava 5V, GND, TX, RX; servo náklonu 5V, GND, PWM) a 3 vodiče pigtailu
+    serva zdvihu s konektorom PicoBlade; DPS_krk vlep do štrbiny pätky. Servo náklonu vyskúšaj cez ZIF konektory na stole.
+ 7. Pastorky: pastorok J1 na drážkovanie STS3215 a pastorok pan na drážkovanie STS3032 – odmastiť, Loctite 638, 24 h (NA STOLE).
+ 8. Magnety: 3 + 3 do ramenných kĺbov T_klb, 4 do dvierok.
+MONTÁŽ TRUPU
+ 9. T_spodok polož na podložku pod okraj spodku (NIE na stojan – F16 a F1 sa skrutkujú zospodu). Stojan príde až na koniec.
+10. Servo J1 (STS3215 s pastorkom) zhora do kolísky, pastorok prejde otvorom v dne. Medzi −X čelo serva a koncovú stenu vlož
+    PET podložky 0,1 (2 ×) – osová vzdialenosť ozubenia J1 = 18,00; na +X čelo PORON 1,0. F16 2 × zospodu (+ DIN 125).
+11. Servo pan (STS3032 s pastorkom): spusti ho 5,5 pred jeho miesto, posuň dozadu (+Y) – úchytky vojdú do drážok prednej steny,
+    ľavá (+X) úchytka pod výstupok F3b –, a spusti o 0,2 na stĺpiky. F4 2 × (M2×10) len voľne: F4_2 rovným imbusom 1,3, F4_1 imbusom
+    1,3 s guľovou hlavou nakloneným o 28° dozadu popri pastorku. Konektor zbernice zasuň až potom, v smere −X cez okno stĺpika.
+12. Na vrch serva J1 2 prúžky PET 0,1. Paluba T_paluba (F3a 2 × + DIN 125), T_most s T_cap do jej výrezu (F3b 2 × zápustné),
+    PTFE podložka 24 × 10 × 0,3 okolo T_cap.
+13. VÔĽA OZUBENIA PAN (koleso zatiaľ nie je prilepené): holé koleso 36z nasaď na T_cap, medzi zuby vlož papierový prúžok 0,05,
+    servo pan pritlač k kolesu a dotiahni F4 (krok 11 – rovnaké imbusy). Prúžok vytiahni: koleso sa točí ľahko a má cítiteľnú
+    malú vôľu. Potom skrutky F4 vyber, natri voskom, vráť a dotiahni, a medzery okolo driekov v drážkach ± 0,3 vyplň epoxidom
+    (pevný doraz osovej vzdialenosti; skrutky sa po vytvrdnutí dajú vyskrutkovať). Po vytvrdnutí koleso zdvihni.
+14. Koleso 36z prilep epoxidom pod nábojový kotúč šachty P_sachta (na stole; zuby vystreď v obale bubna prúžkom 0,3). 24 h.
+15. Kondenzátor vlož zozadu nad spigotom a spusti o 6 mm na podstavec, sťahovačka. Nosnú dosku (bez FFC!) zo strany dvierok
+    na stĺpiky, F7 2 × zápustné M2×5. Menič na pravý stĺp (F14 2 ×), zosilňovač na ľavý stĺp (F14 2 ×). Káble do sediel
+    sťahovačiek (zadná stena kolísky, vnútorné steny stĺpov).
+16. T_stred (s predným panelom z bodu 3) spusti ROVNO zhora cez vežu, voď ho rukou – posledné 3 mm ho vystredí spigot. F1 4 ×
+    zospodu (M2,5×6 + DIN 125) LEN VOĽNE. Konektory LED a reproduktora spoj cez dvierka.
+17. USB-C predlžovač: tenký samec zasuň rukou cez dvierka do USB-C ESP32 (ústie na strane +X, zasúva sa v smere −X), FPC veď
+    k dvierkam, samicu prilep Kaptonom pri dvierkach (na nahrávanie firmvéru ju vytiahneš von).
+18. Prstenec goliera (golier_prstenec) prilep na osadenie z −2 v otvore T_stred (vrch zarovno s vrchom trupu z 4).
+19. ŠACHTA: drž ju nad trupom, oba voľné konce FFC prestrč dole prázdnym otvorom → štrbina v palube (r 22,4 … 23,6, vidno ju
+    zhora) → štrbina v zadnej stene kolísky → cez dvierka do ZIF J_PAN_A a J_PAN_B na nosnej doske (zaklapni). Statickú kotvu
+    FFC prilep Kaptonom cez otvor. Potom šachtu spusti rovno cez prilepený prstenec na T_cap / PTFE (hlava 0°).
+    F15 (M3×6 + DIN 9021 + Loctite 222) cez prázdnu šachtu imbusom 2,0 v osi. Osová vôľa 0,1 (0,05 … 0,20): ak je väčšia, daj PET
+    kruh 0,1 pod podložku, ak menšia, zbrús vrch T_cap. Šachtu otoč rukou ±85° (doraz ešte nie je!) – ide voľne. Až TERAZ
+    dotiahni F1 (4 ×).
+20. Krk s pätkou a DPS_krk (krok 6) zhora do šachty pri hlave 0°, drž ho vo výške pokoja (zdvih 0).
+21. Modul zdvihu (krok 5; ucho zavesené na čape kľuky, kľuka v dolnej úvrati) cez dvierka v smere −Y na lištu a podložky
+    šachty (kolík F10 do diery). Kolík ucha pritom vojde do diery pätky. F10_A (M2×6 + DIN 433) imbusom 1,3, F10_B imbusom 1,3
+    (hlava je v zapustení vedľa serva).
+22. Hlavu (šachtu) otoč rukou na doraz +90°: konce FFC zasuň do ZIF konektorov DPS_krk a zaklapni (cez dvierka je na ne
+    priamy pohľad). Konektor pigtailu spoj s konektorom MG90S a pár prilep Kaptonom na zadnú dosku kapsy (x 17 … 23).
+    Jedným ovinutím Kaptonu priviaž pigtail k pohyblivej vetve FFC pri z −36.
+23. Hlava späť na 0°: F12 (M2×6 + Loctite 222) imbusom 1,3 cez dieru Ø2,4 v mostíku zarážky – ucho → pätka. Prejdi zdvih
+    0 … 20 testerom; v pokoji (zdvih 0) je medzi pätkou a kotúčom náboja 0,10 … 0,20 (spárová mierka 0,10 vojde, 0,25 nie).
+    Oprava: PET kruh 0,1 na kotúč náboja, alebo zbrúsiť kotúč.
+24. Kotúč goliera (golier_kotuc, B bod 10) nasuň po krku na vrch šachty a prilep.
+25. Bočné kryty: T_bok_L nasuň v smere −X, T_bok_P v smere +X. Ramenné kĺby T_klb_L / T_klb_P: 3 × F8 (M2×10 + ISO 7092 +
+    Loctite 222) imbusom 1,3, len prstami.
+26. Trup polož na náboj podstavca (alebo stojan Z_naboj_test); plochý kábel z podstavca zasuň cez dvierka do ZIF J_J1.
+27. Dvierka priamo v smere −Y na rímsu – drží ich 8 magnetov (4 páry). Otváraš ich prísavkou alebo za zárez v spodnej hrane.
+28. Hlava: B body 11–21.
+29. KONTROLA: hlava sa otáča ±85° bez drhnutia, v ±90° narazí na kolíky; krk ide 0 … 20 hladko; trup sa otáča ±150°; nič nevŕzga
+    o škrupinu; škáry bok/stred 0,47, dvierka 0,23 dookola.
+
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+E. ZAPOJENIE (návrh pre kreslenie nosnej dosky – zapojenie ešte nebolo vyskúšané na doske)
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+Ploché káble (FFC, oba 5 vodičov, poradie na oboch koncoch rovnaké – pri kreslení DPS over, že pin 1 je na tej istej strane):
+  FFC-A (J_PAN_A ↔ ZIF A na DPS_krk):  1 = 5 V, 2 = 5 V, 3 = GND, 4 = GND, 5 = TX (trup → hlava)
+  FFC-B (J_PAN_B ↔ ZIF B na DPS_krk):  1 = 5 V, 2 = GND, 3 = RX (hlava → trup), 4 = PWM náklonu, 5 = PWM zdvihu
+  (3 × 5 V a 3 × GND: 1,5 A na vetvu; špička hlavy + 2 MG90S ≈ 1,4 A.)
+DPS_krk: 7 plôšok pod vývodmi krku (hlava: 5 V, GND, TX, RX; servo náklonu: 5 V, GND, PWM) + 3 plôšky pigtailu zdvihu
+  (5 V, GND, PWM zdvihu) → PicoBlade → kábel MG90S (hnedý GND, červený 5 V, oranžový signál).
+Nosná doska:
+  J_PAN_A, J_PAN_B   ZIF 5 p 0,5 mm          ploché káble k pätke krku (vyššie)
+  J_BUS_V            3 piny 2,50             servo J1 STS3215: napätie batérie (VBAT) / GND / DATA
+  J_BUS_5            3 piny 2,50             servo pan STS3032: 5 V / GND / DATA (+ neskôr ruky cez Y-rozbočovač)
+                                             (poradie pinov podľa kábla Feetech – NEOVERENÉ, zmeraj kábel svojho serva)
+  J_J1               ZIF 10 p 1,0 mm          z podstavca: 1–4 VBAT, 5–8 GND, 9 DATA podstavca, 10 WAKE (návrh)
+  LED                Dupont 1×3              5 V / GND / DIN (cez odpor 330 Ω)
+  reproduktor        Dupont 1×2              výstup MAX98357A + / −
+  menič D36V28F5     prispájkované vodiče     VIN = VBAT, GND, VOUT = 5 V (zbernica 5 V, kondenzátor 470 µF pri J_BUS_5)
+  zosilňovač         prispájkované vodiče     Vin 5 V, GND, BCLK, LRC, DIN (GAIN a SD nezapojené = predvolené)
+ESP32-S3-Zero – návrh priradenia (over v pinoute Waveshare pre svoju dosku; NEPOUŽI GPIO0, 3, 45, 46 = štartovacie piny,
+  GPIO19/20 = USB, GPIO21 = LED na module):
+  GPIO1 WAKE z podstavca | GPIO2 DATA podstavca | GPIO4 I2S DIN | GPIO5 UART1 TX → zbernica serv | GPIO6 UART1 RX ← zbernica
+  GPIO7 UART2 TX → hlava | GPIO8 UART2 RX ← hlava | GPIO9 PWM náklonu | GPIO10 PWM zdvihu | GPIO11 LED DIN
+  GPIO12 I2S BCLK | GPIO13 I2S LRC
+  Zbernica Feetech je jeden vodič (polovičný duplex): TX a RX spoj na DATA cez trojstavový budič (napr. 74LVC1G125 + 74LVC1G126)
+  alebo podľa zapojenia „bus servo adapter“ výrobcu. DATA oboch líšt (J_BUS_V aj J_BUS_5) je ten istý signál, napájanie je oddelené.
+5 V rozpočet: STS3032 1,0 A + 2 × MG90S 0,7 A + ESP32 0,35 A + zosilňovač 0,8 A + LED 0,22 A + hlava 0,4 A = 4,2 A špička,
+  menič dá 3,2 A → firmvér nesmie spustiť všetko naraz (časť F). Úbytok na FFC zmeraj na stole (odhad 0,4 V pri 1,4 A, NEOVERENÉ).
+
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+F. FIRMVÉR – LIMITY
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+  – Otáčanie trupu J1 (STS3215): ±150° (mechanický doraz ±153,4° na podstavci), moment ≤ 30 %, teplotný limit 65 °C (číslo
+    registra Feetech NEOVERENÉ). Pred prekážkou chráni trup prešmykovacia spojka v podstavci (0,25 … 0,40 N·m) – firmvér ju
+    nenahradí.
+  – Otáčanie hlavy (STS3032): ±85° (dorazové kolíky ±90°). Diely sú prepočítané aj na plný moment serva; momentový limit
+    odporúčam len kvôli prúdu (napr. 50 %, voliteľné). K doraze sa približuj pomaly.
+  – Zdvih krku (MG90S): uhol kľuky 3° … 177° (= zdvih 0 … 20, úvrate sú na 0° a 180°). Keď robot stojí, PARKUJ krk na zdvihu 0
+    (3°) a hlavu na náklone 0°. Nikdy nedrž obe MG90S naraz v zablokovaní.
+  – Náklon hlavy (MG90S v krku) – JEDNO pravidlo podľa zdvihu (nahrádza tabuľku z B/montaz.txt):
+      náklon dole najviac  = min(40°, 4° + 1,9° × zdvih v mm)      (zdvih 0 → 4°, 5 → 13,5°, 10 → 23°, 15 → 32,5°, od 18,95 → 40°)
+      náklon hore najviac  = 10° pri zdvihu < 7,5;  30° pri 7,5 … 12,5;  40° pri ≥ 12,5
+    Kontrola K9 ho overila na kroku 0,5 mm: v limite ≥ 1,0 mm od trupu, aj pri limite + 1° (vôľa serva) ≥ 0,5 mm.
+    Pri zmene zdvihu najprv zmenši náklon na nový limit, až potom zdvih znižuj.
+  – Prúd 5 V: nehýb naraz servom pan aj oboma MG90S naplno; počas pohybu serv zníž hlasitosť zosilňovača.
+  – Po zapnutí: najprv náklon 0°, potom zdvih, potom pan a J1 (pomaly na stred).
+
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+G. SERVIS – KAŽDÉ SERVO (čísla krokov = časť D; všetko sa vracia v opačnom poradí)
+═══════════════════════════════════════════════════════════════════════════════════════════════════════════════════
+  Dvierka: prísavka Ø30 alebo necht do zárezu v spodnej hrane, ťahaj rovno von (−Y → +Y). Nič sa neohýba.
+  1) SERVO ZDVIHU (MG90S v module zdvihu) – bez rozoberania trupu:
+     dvierka von → hlavu otoč na +90°, rozpoj PicoBlade → hlava 0°: F12 von (imbus 1,3 cez mostík) → F10_A a F10_B von →
+     modul zdvihu vytiahni cez dvierka v smere +Y (ucho zostane na čape kľuky) → na stole F11 von, servo vysuň v smere +X.
+     Nové servo: krok 5 (rameno na 3°), späť kroky 21–23.
+  2) SERVO NÁKLONU (MG90S v krku): hlava dole (B servis 1–5) → servis 1) bez vyberania serva: modul zdvihu von → na +90° otvor
+     2 ZIF na DPS_krk a vytiahni FFC → krk s pätkou a DPS_krk vytiahni hore cez kotúč goliera → B servis 7–8.
+  3) SERVO OTÁČANIA HLAVY (STS3032) alebo jeho pastorok, koleso, ploché káble:
+     servis 2) (krk von) → F15 von cez prázdnu šachtu (imbus 2,0) → otvor ZIF J_PAN_A/B na nosnej doske, rozlož mäkký ohyb CF
+     a voľnú časť FFC polož naplocho na čelo šachty (Kapton) → šachtu s kolesom a kotúčom goliera vytiahni hore cez prilepený
+     prstenec → trup zdvihni z podstavca (vytiahni kábel z J_J1) → ramenné kĺby (F8) a bočné kryty dole → F1 4 × zospodu von,
+     vytiahni USB predlžovač z ESP32 a rozpoj LED a reproduktor → T_stred zdvihni ROVNO hore (aj s predným panelom a prstencom;
+     pastorok cez neho prejde) → F3a 2 ×, F3b 2 × von, paluba s T_most dole → konektor zbernice von (v smere +X), F4 2 × von
+     (vďaka vosku idú z epoxidovej výplne von) → servo s pastorkom: hore 0,2, dopredu 5,5, hore.
+     Nové servo potrebuje nový pastorok (≈ 5 €; starý sa dá uvoľniť na stole pri 250 °C) – lepiť na stole (krok 7). Epoxidová
+     výplň drážok drží pôvodnú osovú vzdialenosť; vôľu len skontroluj papierom 0,05 (krok 13).
+  4) SERVO OTÁČANIA TRUPU (STS3215): ako 3) po vybratie paluby → F16 2 × zospodu von → servo s pastorkom zdvihni hore
+     (pastorok prejde otvorom v dne). Späť: krok 10 (PET podložky 2 × 0,1 na osovú vzdialenosť 18,00).
+  5) NOSNÁ DOSKA / ESP32: cez dvierka sú dostupné všetky konektory a USB (nahrávanie firmvéru bez rozoberania). Samotná doska
+     je širšia (49,8) ako otvor dvierok (41,5) → vyberá sa len s T_stred dole (servis 3 po zdvihnutie T_stred), F7 2 ×.
+  6) MENIČ / ZOSILŇOVAČ: ramenný kĺb (F8 3 ×) a bočný kryt dole – doska je na vonkajšej strane stĺpa (menič vpravo, zosilňovač
+     vľavo).
+  7) LED PÁS / REPRODUKTOR: sú v T_stred – servis 3) po zdvihnutie T_stred (servo pan zostáva).

@@ -704,6 +704,12 @@ if "F" in SECT:
     yp = P2["POCKET"]["plate"]["y"][1] + 0.3 + 1.3
     for tag in ("A", "B"):
         x, z = P2["F10"][tag]
+        if tag == "B":   # fixer rev2: F10_B (18.0, -33.3) beside the MG90S case -> 1.3 hex precision screwdriver (blade 1.5 across corners)
+            ypb = yp - P2["F10_B_CB"]["depth"]
+            tools["F10_B"] = (seg_clear((x, ypb + 0.8, z), (x, 40.0, z), allT2, 0.8, tag="p0"),
+                              "1.3 hex precision screwdriver (blade r 0.8) along -Y at pan 0; head in the D4.8 x 0.4 counterbore beside the servo case",
+                              seg_clear((x, ypb + 2.3, z), (x, 40.0, z), allT2, 2.25, tag="p0"))
+            continue
         tools[f"F10_{tag}"] = (seg_clear((x, yp + 2.3, z), (x, 40.0, z), allT2, 2.25, tag="p0"), "D4.5 along -Y at pan 0 (servo seated); axis from the head top + r",
                                seg_clear((x, yp + 1.6, z), (x, 40.0, z), allT2, 1.5, tag="p0"))
     zt = C.LIFT_CASE["z"][1] + C.MG90S["tab"]["hole"]
@@ -787,7 +793,8 @@ DECL_THIN = {
         ("FFC retaining lip 0.8 x 0.6 (cable only)", lambda p: 16.6 < _r(p) < 17.6 and p[2] < -41.8, 0.55),
         ("0.8 floor behind the F10 insert seats (pilot through; the insert pull acts outward); 1.1 behind the dowel hole", lambda p: 11.4 < p[1] < 12.2 and p[2] > -39.2, 0.75),
         ("R1 root fillets inside the well (ray across the fillet strip)", lambda p: abs(abs(p[1]) - 10.5) < 0.6 and -40.7 < p[2] < -39.5, 1.3),
-        ("back floor / hub disc 1.25 (compression on the gear) and 0.95 over the 0.3 FFC groove", lambda p: p[2] < -40.6, 0.9),
+        ("back floor / hub disc 1.25 (compression on the gear) and 0.95 over the 0.3 FFC groove (fixer rev2: up to z -40.4 = the floor top "
+         "edge at the FFC under-run arc r 16.72)", lambda p: p[2] < -40.4, 0.9),
         ("journal ring 2.0 with the 0.5 lead-in chamfer; top plate 1.5 (collar-disc glue land)", lambda p: p[2] > -10.1, 1.45),
         ("rail lips 1.5 / 2.0 around the 2.0 tongue groove", lambda p: p[1] > 12.9 and p[2] < -36.3 and -6.1 < p[0] < 16.1, 1.45),
         ("insert / dowel / pilot holes in the r 3.25 .. 3.5 pads", lambda p: p[1] > 10.9 and p[2] > -37.4 and p[0] > 3.0, 1.0),
@@ -850,8 +857,8 @@ if "G" in SECT:
             if v[1]:
                 say(f"G      declared: {d}: min {v[0]:.3f} ({v[1]} rays)")
     k13 = dict(no_petg_pom=all(e["mat"] not in ("petg", "pom") for e in DOC["parts"]), heat_set_inserts=0, countersunk_on_resin=[],
-               insert_bosses=dict(F10_A=P2["PAD_A"]["r"], F10_B=P2["PAD_B"]["r"], rule="r >= 3.25 (M2 bonded insert)"),
-               slide_fits=["kolik_F10 D2 in D2.05 + epoxy", "inserts D3.2 in D3.3 + epoxy", "36T gear bonded (no press)",
+               insert_bosses=dict(F10_A=P2["PAD_A"]["r"], F10_B=P2["PAD_B2"]["r"], rule="r >= 3.65 (M2 x 4 x OD 4.0 bonded insert, D4.1 hole: wall 1.6; fixer rev2)"),
+               slide_fits=["kolik_F10 D2 in D2.05 + epoxy", "inserts D4.0 in D4.1 + epoxy (fixer rev2)", "36T gear bonded (no press)",
                            "DPS_krk bonded in the foot slot (0.2 per side)"],
                flexing_features=[], roots=[dict(part=a, root=b, radius=c, ok=d) for a, b, c, d in ROOTS])
     put("G_resin", dict(status="PASS" if not bad else "FAIL", parts=rows, not_ok=bad, k13=k13,
@@ -925,11 +932,20 @@ if "H" in SECT:
     rt = P2["FIX2"]["tongue_root_r"]
     row(13, f"pocket tongue {tgz:.1f} x 1.5 (cantilever from the plate, R{rt} roots - fixer rev2 S2; Kt 1.6 for r/d {rt / tgz:.2f})",
         "L2 30 N lift 20", "normal", 6 * q * 0.75 / tgz ** 2, AL["normal"], kt=1.6)
-    row(14, "F10 insert bond (OD 3.2 x 3.0), L1 share 15 N", "L1 x 2", "epoxy", 15.0 / (math.pi * 3.2 * 3.0), AL["epoxy"])
-    pre = P2["F10"]["torque"] / (0.2 * 0.002)
-    row(15, f"F10 insert bond at the assembly torque {P2['F10']['torque']} N m (preload {pre:.0f} N, K 0.2)", "L7", "epoxy ultimate / 2",
-        pre / (math.pi * 3.2 * 3.0), 8.0 / 2.0)
-    row(16, "F10 pad root r 3.5 + R1 (15 N lateral, lever 2.1)", "L2", "normal", 32 * 15.0 * 2.1 / (math.pi * 7.0 ** 3), AL["normal"], kt=1.3)
+    oi, li = C.INSERTS["M2"][:2]
+    row(14, f"F10 insert bond (M2 x {li} x OD {oi}, fixer rev2), L1 share 15 N", "L1 x 2", "epoxy", 15.0 / (math.pi * oi * li), AL["epoxy"])
+    pre = R2_FIX["TQ_DESIGN"] / (0.2 * 0.002)
+    row(15, f"F10 insert bond at the fingertip design case {R2_FIX['TQ_DESIGN']} N m (preload {pre:.0f} N, K 0.2; lead decision: "
+            f"1.5 x preload <= epoxy 8 MPa)", "L7", "epoxy 8 / 1.5", pre / (math.pi * oi * li), R2_FIX["EPOXY_MPA"] / R2_FIX["PULLOUT_FACTOR"])
+    Aw = math.pi / 4 * (4.2 ** 2 - 2.3 ** 2)
+    row(27, "F10 DIN 433 washer (OD 4.2 at its lower tolerance) on the P_drziak_serva plate at the design case", "L7", "crush (short-term)",
+        pre / Aw, R2_FIX["CRUSH_MPA"], basis="relaxation harmless: the module is located by the F10 dowel + tongue / rail")
+    An = 16.0 - math.pi
+    row(28, "F11 DIN 562 nut on the block slot at the design case", "L7", "crush (short-term)", pre / An, R2_FIX["CRUSH_MPA"],
+        basis="the MG90S is held by the closed pocket; the block between nut and tab is in compression")
+    rpa = P2["PAD_A"]["r"]
+    row(16, f"F10 pad root r {rpa} + R1 (15 N lateral, lever 2.1; D4.1 hole through)", "L2", "normal",
+        32 * 15.0 * 2.1 * (2 * rpa) / (math.pi * ((2 * rpa) ** 4 - 4.1 ** 4)), AL["normal"], kt=1.3)
     row(17, "hub disc ring under the Al foot (compression onto the brass gear)", "L2 30 N lift 0", "normal", F30 / (math.pi * (12.6 ** 2 - 6.5 ** 2)), AL["normal"])
     row(18, "back floor 0.95 over the FFC groove (foot contact 0.08 MPa, span 8, simply supported)", "L2 30 N lift 0", "normal",
         6 * (0.08 * 8.0 ** 2 / 8) / 0.95 ** 2, AL["normal"])

@@ -280,6 +280,24 @@ K2_FITS = [   # (regex a, regex b, max common volume mm3, reason)  - designed ov
 K2_CONTACT_DEPTH = 0.02        # overlaps shallower than this are coincident (glued / seated) faces, i.e. contact
 
 
+EXACT_PAIRS = [("P_sachta", "P_drziak_serva", "overenie2 m1: 0.050 interference at (-8.19, 15.26, -41.85) hidden by the 0.02 depth criterion"),
+               ("P_sachta", "ffc_par", "overenie2 m2: FFC under-run 0.635 inside the drum shroud (half_depth 0.052 hid it)")]
+
+
+def _exact_pairs():
+    """fixer rev2 regression (overenie2 m1 / m2): exact BREP common of the pairs whose small overlaps K2's depth criterion hides"""
+    import t4_pan as PM
+    parts = PM.build(); out = []
+    for a, b, why in EXACT_PAIRS:
+        com = parts[a]["shape"] & parts[b]["shape"]
+        sol = list(com.solids()) if com is not None else []
+        v = float(sum(x.volume for x in sol))
+        # thickness of each overlap piece = 2 V / A (thin slab); faceting slivers of the wound FFC are ~0.001
+        t = max([2 * x.volume / max(1e-9, sum(f.area for f in x.faces())) for x in sol] or [0.0])
+        out.append(dict(a=a, b=b, common_mm3=round(v, 5), max_thickness=round(t, 4), n_pieces=len(sol), ok=bool(t <= 0.005), why=why))
+    return out
+
+
 def K2():
     d = bl_section("K2")
     rows, bad, fits, contacts = [], [], [], 0
@@ -302,11 +320,15 @@ def K2():
             row.update(intended=None if not decl else decl[1] + f" - but volume over the declared {decl[0]} mm3"); bad.append(row)
         rows.append(row)
     cross = [r for r in fits if r["modules"][0] != r["modules"][1]]
+    ex = _exact_pairs()
+    bad += [dict(a=r["a"], b=r["b"], common_mm3=r["common_mm3"], half_depth=r["max_thickness"], intended=None, exact_regression=r["why"])
+            for r in ex if not r["ok"]]
     return res("PASS" if not bad else "FAIL",
                f"{len(d['names'])} parts ({len(PARTS)} torso + {len(B_MATE)} finished parts of variant B), {d['pairs_tested']} bbox-overlapping pairs: "
                f"{len(bad)} unintended interference(s); {len(fits)} declared thread / bonded / ZIF / crimp fits ({len(cross)} across modules); "
-               f"{contacts} pairs only touch (coincident faces, depth < {K2_CONTACT_DEPTH})",
-               unintended=bad, intended_fits=fits, n_contacts=contacts, pairs_tested=d["pairs_tested"], method=d["method"],
+               f"{contacts} pairs only touch (coincident faces, depth < {K2_CONTACT_DEPTH}); exact BREP regression (overenie2 m1 / m2): "
+               + ", ".join(f"{r['a']} / {r['b']} max thickness {r['max_thickness']} ({r['n_pieces']} pieces, {r['common_mm3']} mm3; need <= 0.005)" for r in ex),
+               exact_pairs=ex, unintended=bad, intended_fits=fits, n_contacts=contacts, pairs_tested=d["pairs_tested"], method=d["method"],
                declared_fit_rules=[dict(a=a, b=b, max_mm3=v, why=w) for a, b, v, w in K2_FITS])
 
 
@@ -593,8 +615,8 @@ K4_DECL = {   # part regex -> [(box (|x|0, |x|1, y0, y1, z0, z1), min, kind, tex
                    ((11.9, 13.2, -21.8, -19.8, -64.8, -56.2), 0.7, "local", "pan-post web beside the slotted D2.3 F4 hole (the DIN 562 nut carries the load; RAM rev. 2)"),
                    ((2.0, 6.0, 12.4, 13.4, -64.2, -60.8), 0.64, "local", "F7 insert seat floor 0.65 (annulus behind the bonded insert, unloaded)"),
                    ((16.0, 20.0, 12.4, 13.4, -64.2, -60.8), 0.64, "local", "F7 insert seat floor 0.65 (annulus behind the bonded insert, unloaded)"),
-                   ((34.3, 35.2, -6.5, 12.5, -27.0, -7.0), 0.65, "local", "F8 insert seat floors 0.7 behind the bonded M2 inserts of the shoulder boss (D2.3 pilot through; the insert pull acts outward, toward the T_klb screw head)"),
-                   ((33.9, 38.0, -4.6, 0.6, -53.6, -48.0), 0.6, "local", "column web around the D4.5 arm-wire hole (fixer rev2: moved to y -2, z -51, "
+                   ((33.2, 35.2, -6.6, 12.5, -27.0, -7.0), 0.6, "local", "fixer rev2 (S5): F8 D4.1 holes end at the insert end |x| 34.4; beyond it the lens to the r 34.4 inner cylinder is cut in a radial wedge (no floor / sliver); local edges of that exit >= 0.6"),
+                   ((33.9, 38.0, -4.6, 0.6, -54.5, -48.0), 0.6, "local", "column web around the D4.5 arm-wire hole (fixer rev2: moved to y -2, z -51, "
                                                                            "12 mm from the bridge-top corner; the web carries the load beside it)"),
                    ((42.0, 45.0, -31.0, 31.0, -82.7, -81.3), 0.0, "runout", "black cap rim: the horizontal mating face meets the tuck-under at a "
                     "shallow angle - knife edge 0..0.6 in the outer 0.6 mm (overenie2 m3, declared: no supports on the rim, break the edge with one "
@@ -791,9 +813,36 @@ def _free_box(names, box, pred=None, h=0.3):
     return hits
 
 
+def _pinion_envelope_row():
+    """fixer rev2 regression (B1, run 2): with the pan pinion bonded on the bench it is present while T_stred + its front stack go down
+    (T5) / up (S5a).  Every point of the moving set below the pinion top must clear the pinion TIP CIRCLE in plan (any tooth angle - the
+    modelled tooth position is arbitrary) by TOWER_CLEAR - 0.02.  Found by OBAL O3d: the k 2.0 head of the 270 deg speaker-ring screw
+    left 0.06 at the modelled tooth angle and overlapped the tip circle by 0.13."""
+    import t4_assembly as A
+    G = C.R2["GEAR_PAN"]; ax = np.array(G["ax"]); rt = G["pinion"]["da"] / 2; ztop = G["plane"][1]
+    names = ["T_stred"] + list(A.FRONT) + list(A.F1_HW) + [f"magnet_zarubna_{i}" for i in range(1, 5)]
+    worst = {}
+    for n in names:
+        if n not in REC:
+            continue
+        T = TM.stl(n); S = np.concatenate([T.reshape(-1, 3), TM.sample(T, 0.25)[0]])
+        S = S[S[:, 2] < ztop]
+        if not len(S):
+            continue
+        d = np.hypot(S[:, 0] - ax[0], S[:, 1] - ax[1]) - rt
+        # points that lie (in plan) inside the tip circle are a clash unless they are the T_stred relief (r 8.35 - checked the same way)
+        i = int(np.argmin(np.abs(d) if False else d))
+        worst[n] = (round(float(d[i]), 3), [round(float(v), 2) for v in S[i]])
+    near = {n: v for n, v in worst.items() if v[0] < 1.0}
+    bad = {n: v for n, v in worst.items() if v[0] < C.TOWER_CLEAR - 0.02}
+    return dict(row="T_stred + front stack vs the pan pinion TIP CIRCLE r %.1f in plan (any tooth angle) while lowered / lifted (B1 regression)" % rt,
+                step="T5 / S5a (fixer rev2)", ok=not bad, blocked_by=bad, nearest=dict(sorted(near.items(), key=lambda kv: kv[1][0])[:6]))
+
+
 def _ffc_route_rows():
     """fixer rev2 (overenie2 M6): the carrier tails of the FFC pair are fed down the EMPTY bore after T6 (stage held above the torso):
-    (1) the vertical column above the deck slot (r 22.45..23.55, B az 27..33) up to z +4 is free of every static part present after T6;
+    (1) the vertical column above the deck slot (r 22.45..23.45, B az 27..33 - the slot r 22.4..23.6 minus the guide wall face at r 23.5
+    that the pair runs along) up to z +4 is free of every static part present after T6;
     (2) the cradle-wall slot exit (x 17.5..20.5, z -51.2..-49.8) has a free line of sight toward the door (y 15.1 .. 28)"""
     import t4_assembly as A
     stage_like = set(A.STAGE + A.LIFT_MODULE + A.NECK + A.FLEX + ["golier_kotuc", "skr_F15", "pd_F15", "skr_F10_A", "skr_F10_B", "podl_F10_A",
@@ -802,7 +851,7 @@ def _ffc_route_rows():
 
     def col(S):
         r = np.hypot(S[:, 0], S[:, 1]); az = np.degrees(np.arctan2(S[:, 1], S[:, 0])) % 360
-        return (r > 22.45) & (r < 23.55) & (az > 27.0) & (az < 33.0)
+        return (r > 22.45) & (r < 23.45) & (az > 27.0) & (az < 33.0)     # the guide wall above the deck stands at r 23.5 (FFC pair 0.25 thick)
     h1 = _free_box(static, (-30, 30, -30, 30, -46.1, 4.0), col)
     h2 = _free_box([n for n in static if n not in ("T_spodok",)], (17.5, 20.5, 15.1, 28.0, -51.2, -49.8))
     h2s = _free_box(["T_spodok"], (17.5, 20.5, 15.1, 28.0, -51.2, -49.8))
@@ -898,7 +947,7 @@ def K7():
              ok=ok_step("S5a")),
         dict(row="pan backlash set with the gears in mesh: bare 36T on the taped T_cap, F4 tool channels (M4)", step="T3b", ok=ok_step("T3b")),
         dict(row="USB-C: FPC extension male end along X into the module mouth (M1)", step="T5c", ok=ok_step("T5c")),
-    ] + _ffc_route_rows()
+    ] + _ffc_route_rows() + [_pinion_envelope_row()]
     for r in new_rows:
         if not r["ok"]:
             fail.append(f"K7 row '{r['row']}' not ok")
@@ -1123,7 +1172,7 @@ REV1_ROWS = [   # rows of overenie_pevnost.md (rev. 1) -> what carries the load 
     ("53", "F1", "OBAL F1 rows (bonded M2.5 inserts)"),
     ("54-55", "door hook tabs", "deleted: 4 magnet pairs (OBAL door rows)"),
     ("56", "door / frame magnet bonds", "OBAL magnet rows"),
-    ("57-59", "insert / thread-forming torques at L7", "recommended torques R2['TORQUE_REC']: RAM L7 rows, OBAL torque rows, PAN F10 / F12 rows"),
+    ("57-59", "insert / thread-forming torques at L7", "fixer rev2: fingertip design case 0.10 N.m for every joint (K12 TQ rows; RAM L7, OBAL S3-S5, PAN H15 / H27 / H28)"),
     ("60", "screw heads on resin without washers", "washers under every head on resin (K13)"),
     ("61", "P_kluka hub around the countersunk head", "deleted (Al arm, metal-metal)"),
     ("62", "thread-forming boss hoop factor", "F13 / F14 bosses D5, engagement >= 2d (OBAL O4 / RAM P k13)"),
@@ -1162,8 +1211,8 @@ def _rows_obal(m):
 
 def _fix2_rows(rows):
     """fixer rev2 (overenie2 S2, S3, S5): (1) every decisive resin row whose root is declared R0 / unfilleted must use the notch
-    allowable 4.3; (2) every torque / preload row must still pass at the upper tolerance of the prescribed preset torque screwdriver
-    (+5 %: Tohnichi AMLD4CN / RTD15CN class, +-3 % catalogue); (3) the epoxy-cast F4 slot fill (positive C lock, S3)"""
+    allowable 4.3; (2) S5 / lead decision: every screw joint, rated at the FINGERTIP design case 0.10 N.m (_tq_rows); (3) the
+    epoxy-cast F4 slot fill (positive C lock, S3)"""
     out = []
     for r in rows:
         if not r["decisive"] or r.get("stress") is None or r.get("allowable") is None:
@@ -1174,19 +1223,58 @@ def _fix2_rows(rows):
             out.append(dict(module="FIX2", id=f"R0:{r['module']} {r['id']}", feature=f"R0 / unfilleted root rated against {r['allowable']}: {r['feature'][:80]}",
                             case=r["case"], stress=r["stress"], allowable=A_S, margin=round(A_S / r["stress"], 2) if r["stress"] else 99.0,
                             ok=bool(r["stress"] <= A_S), decisive=True, note="Z2: unfilleted notches <= 4.3 MPa (overenie2 S2 regression)"))
-        is_tq = re.search(r"N\.?m", str(r["case"])) and re.search(r"torque|preload|L7|washer|insert", txt + " " + str(r["case"]), re.I) \
-            and not re.search(r"spec torque|\(spec\)", txt) and str(r["id"]).split()[0] in ("L7", "S3", "S4", "S5a", "S5b", "H15", "46", "S06")
-        if is_tq:
-            s5 = round(float(r["stress"]) * 1.05, 2)
-            out.append(dict(module="FIX2", id=f"tool:{r['module']} {r['id']}", feature=f"{r['feature'][:70]} at the tool's upper tolerance (+5 %)",
-                            case=r["case"], stress=s5, allowable=r["allowable"], margin=round(float(r["allowable"]) / s5, 2), ok=bool(s5 <= float(r["allowable"]) + 1e-9),
-                            decisive=True, note="preset torque screwdriver (C.FIX2 TORQUE_TOOL); hand drivers not allowed on resin joints"))
     # S3: F4 shank in its epoxy-cast slot fill - bearing on the resin post (shank D2 x 1.5 between the post top and the nut slot)
     for case, Fy, allow in (("L8 STS3032 stall 4.5 kg.cm: Y reaction 38.1 N (2 screws)", 38.1, A_N), ("L3 hand 0.6 N.m: Y 25.9 N", 25.9, A_A)):
         sb = Fy / 2 / (2.0 * 1.5)
         out.append(dict(module="FIX2", id="S3", feature="F4 shank bearing through the epoxy-cast slot fill on the pan-servo post (D2 x 1.5)",
                         case=case, stress=round(sb, 2), allowable=allow, margin=round(allow / sb, 2), ok=bool(sb <= allow), decisive=True,
                         note="positive C lock (Z3.7) - friction no longer counted"))
+    return out + _tq_rows()
+
+
+# screw part -> joint of C.FIX2["JOINTS"] (every screw in the parts list must map to a rated joint - S5 regression)
+TQ_MAP = [(r"skr_F1_", "F1"), (r"skr_F3a_", "F3a"), (r"skr_F3b_", "F3b"), (r"skr_F4_", "F4"), (r"skr_F7_", "F7"), (r"skrutka_klb_", "F8"),
+          (r"skr_F10_", "F10"), (r"skr_F11$", "F11"), (r"skr_F12_", "F12"), (r"skrutka_(led|repro)_", "F13"), (r"skr_F14_", "F14"),
+          (r"skr_F15$", "F15"), (r"skr_F16_", "F16"), (r"skr_ramena$", None)]
+
+
+def _tq_rows():
+    """fixer rev2 (overenie2 S5, LEAD DECISION 2026-11-18): no torque screwdriver - every screw joint is recomputed at the fingertip design
+    case C.FIX2 TQ_DESIGN (0.10 N.m, K 0.2): washer / nut bearing on resin <= 25.8 (short-term crush), bonded insert 1.5 x preload <= epoxy
+    8 MPa, thread-forming thread not stripped (0.75 pi d L, shear 0.6 x 25.8) and boss hoop <= 12.9, positive location declared (Z3.7:
+    preload relaxation harmless).  Coverage: every screw in the parts list maps to a rated joint."""
+    X = C.FIX2; T = X["TQ_DESIGN"]; K = X["TQ_K"]; out = []
+    for J in X["JOINTS"]:
+        F = T / (K * J["d"] * 1e-3); tag = f"TQ {J['j']}"
+        base = dict(module="TQ", case=f"fingertip {T} N.m (K {K}): preload {F:.0f} N", decisive=True)
+        if J.get("bear"):
+            od, idd = J["bear"]; A = J.get("bear_area") or math.pi / 4 * (od ** 2 - idd ** 2); sg = F / A
+            out.append(dict(base, id=f"{tag} bearing", feature=f"{J['j']}: {J['on']} (A {A:.1f} mm2)", stress=round(sg, 2), allowable=X["CRUSH_MPA"],
+                            margin=round(X["CRUSH_MPA"] / sg, 2), ok=bool(sg <= X["CRUSH_MPA"] + 1e-9), note="short-term crush (lead decision)"))
+        if J.get("ins"):
+            od, ln = J["ins"]; A = math.pi * od * ln; sg = F / A; lim = X["EPOXY_MPA"] / X["PULLOUT_FACTOR"]
+            out.append(dict(base, id=f"{tag} insert", feature=f"{J['j']}: bonded insert OD {od} x {ln} in {J.get('ins_in', '')} (A {A:.1f} mm2; "
+                                                              f"pull-out {A * X['EPOXY_MPA']:.0f} N = {A * X['EPOXY_MPA'] / F:.2f} x preload)",
+                            stress=round(sg, 2), allowable=round(lim, 3), margin=round(lim / sg, 2), ok=bool(sg <= lim + 1e-9),
+                            note="epoxy 8 MPa, pull-out >= 1.5 x preload (lead decision)"))
+        if J.get("tf"):
+            L = J["tf"]; A = X["THREAD_SHARE"] * math.pi * J["d"] * L; sg = F / A
+            out.append(dict(base, id=f"{tag} strip", feature=f"{J['j']}: thread-forming {L} engaged in {J.get('ins_in', '')} (shear area {A:.1f} mm2, "
+                                                             f"capacity {A * X['SHEAR_MPA']:.0f} N)", stress=round(sg, 2), allowable=round(X["SHEAR_MPA"], 2),
+                            margin=round(X["SHEAR_MPA"] / sg, 2), ok=bool(sg <= X["SHEAR_MPA"] + 1e-9), note="K 0.2 also for thread-forming (conservative)"))
+            ro_, ri_ = J.get("boss_r", 2.5), 0.85; pr = F * math.tan(math.radians(30.0)) / (math.pi * J["d"] * L)
+            hoop = pr * (ro_ ** 2 + ri_ ** 2) / (ro_ ** 2 - ri_ ** 2)
+            out.append(dict(base, id=f"{tag} hoop", feature=f"{J['j']}: boss D{2 * ro_:.0f} hoop stress from the thread wedge", stress=round(hoop, 2),
+                            allowable=A_A, margin=round(A_A / hoop, 2), ok=bool(hoop <= A_A), note="one-off assembly load (abuse 12.9)"))
+        out.append(dict(base, id=f"{tag} location", feature=f"{J['j']}: positive location (preload relaxation harmless, Z3.7): {J.get('loc', '')}",
+                        stress=None, allowable=None, margin=None, ok=bool(J.get("loc")), note=J.get("metal_thread", "")))
+    have = {J["j"] for J in X["JOINTS"]}
+    screws = [r["name"] for r in PARTS if r["name"].startswith(("skr_", "skrutka_"))]
+    unmapped = [n for n in screws if not any(re.match(rx, n) for rx, _ in TQ_MAP)]
+    unrated = sorted({j for n in screws for rx, j in TQ_MAP if re.match(rx, n) and j and j not in have})
+    out.append(dict(module="TQ", id="TQ coverage", feature=f"every screw in the parts list maps to a rated joint ({len(screws)} screws; unmapped "
+                                                           f"{unmapped}, joints without a rating {unrated}; skr_ramena = metal servo output)",
+                    case="S5 regression", stress=None, allowable=None, margin=None, ok=not unmapped and not unrated, decisive=True, note=X["TQ_RULE"]))
     return out
 
 
@@ -1201,12 +1289,16 @@ def K12():
     unknown = [r for r in dec if r["ok"] is None]
     # criterion check (margin >= 1 against the Z2 allowable of the class; 12.9 for abuse = factor 2 on the UTS)
     bad_margin = [r for r in dec if r["ok"] and r.get("margin") is not None and r["margin"] < 1.0 - 1e-6]
-    status = "FAIL" if (fails or bad_margin) else ("NOT RUN" if unknown else "PASS")
+    # fixer rev2: rows whose INPUT is not published (bought-part strength, assumed impact force) cannot be verified by any calculation -
+    # they are listed as open items (bench tests, 17.13) and do not turn a fully passing table into NOT RUN; any other unknown row does
+    open_items = [r for r in unknown if re.search(r"UNVERIFIED|not published|ESTIMATE|assum", f"{r.get('feature')} {r.get('note')}", re.I)]
+    status = "FAIL" if (fails or bad_margin) else ("NOT RUN" if len(open_items) < len(unknown) else "PASS")
     tight = sorted([r for r in dec if r["ok"] and r.get("margin")], key=lambda r: r["margin"])[:8]
     return res(status,
                f"{len(rows)} rows ({len(dec)} decisive: RAM {sum(r['module'] == 'RAM' for r in dec)}, PAN {sum(r['module'] == 'PAN' for r in dec)}, "
                f"OBAL {sum(r['module'] == 'OBAL' for r in dec)}) recomputed on the final geometry with the Z2 allowables: {len(fails)} FAIL, "
-               f"{len(unknown)} not verifiable (input not published / assumed), tightest OK: "
+               f"{len(unknown)} not verifiable (input not published / assumed - open items, bench test: "
+               + "; ".join(f"{r['module']} {r['id']} {str(r['feature'])[:50]}" for r in unknown) + "), tightest OK: "
                + "; ".join(f"{r['module']} {r['id']} {str(r['feature'])[:40]} {r['stress']}/{r['allowable']}" for r in tight[:4])
                + ("; FAIL: " + "; ".join(f"{r['module']} {r['id']} {str(r['feature'])[:60]} ({r['case']}) {r['stress']} > {r['allowable']}" for r in fails[:6]) if fails else ""),
                failing_rows=fails, not_verifiable=unknown, rows=rows, rev1_table_mapping=[dict(rev1_rows=a, rev1=b, rev2=c) for a, b, c in REV1_ROWS],
@@ -1251,7 +1343,7 @@ def K13():
         k13[name] = (m.get("P", {}) or {}).get("k13") if name == "ram" else ((m.get("G_resin") or {}).get("k13") if name == "pan"
                                                                                 else (m.get("R_resin") or {}).get("k13"))
     rec = {}
-    for mod in ("obal", "ram"):
+    for mod in ("obal", "ram", "pan"):                       # fixer rev2: PAN parts carry print records too (parts_pan.json)
         for e in json.load(open(os.path.join(HERE, f"parts_{mod}.json")))["parts"]:
             if e.get("printed"):
                 rec[e["name"]] = bool(e.get("print"))
@@ -1259,6 +1351,19 @@ def K13():
     no_rec = [r["name"] for r in printed if not rec.get(r["name"]) and not (r["module"] == "pan" and pan_print)]
     if no_rec:
         fail.append(f"printed parts without a print record (orientation / supports / drains): {no_rec}")
+    # fixer rev2 regressions: M5 (no FH19C / FH12-5S-0.5SH ZIF left), S4 (ear material 304 only), S5 (M2 inserts 4 x OD 4.0 in D4.1)
+    blob = json.dumps([(r["name"], r.get("label_sk")) for r in PARTS]) + json.dumps(C.R2, default=str)
+    old_zif = sorted(set(re.findall(r"FH19C-5S|FH12-5S-0\.5SH", blob)))
+    if old_zif:
+        fail.append(f"ZIF part numbers withdrawn by the fixer still referenced (M5): {old_zif}")
+    ear = REC.get("L_ucho", {})
+    if ear.get("mat") != "stainless":
+        fail.append(f"L_ucho material {ear.get('mat')} - only 304 stainless 1.5 is allowed (S4)")
+    m2i = [r["name"] for r in inserts if r["name"].startswith(("vl_F7_", "vl_F8_", "vl_F10_"))]
+    small = [n for n in m2i if abs(REC[n]["bbox"][1] - REC[n]["bbox"][0]) < 3.9 and abs(REC[n]["bbox"][3] - REC[n]["bbox"][2]) < 3.9]
+    if small or C.INSERTS["M2"][:2] != (4.0, 4.0):
+        fail.append(f"M2 inserts smaller than 4.0 x OD 4.0 (S5 fingertip torque): {small}")
+    notes.append(f"fixer rev2: ZIF {C.FIX2['ZIF'][:60]}...; ear {ear.get('mat')}; M2 inserts {C.INSERTS['M2'][:2]} x {len(m2i)}")
     return res("PASS" if not fail else "FAIL",
                f"{len(printed)} printed parts, all resin (no PETG / POM: {not petg}); {len(inserts)} inserts all bonded (no heat-set); countersunk "
                f"heads only in metal / FR4 ({ {n: CSK_HOSTS[n] for n in csk if n in CSK_HOSTS} }); no flexing feature (door hooks deleted); module "

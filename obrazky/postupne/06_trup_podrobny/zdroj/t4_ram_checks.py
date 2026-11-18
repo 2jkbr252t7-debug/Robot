@@ -83,8 +83,8 @@ def gap(solid, p, d):
     return None if a is None or b is None else a + b
 
 
-def surf_points(shape, h=0.7, tol=0.03):
-    V, T = C.mesh_of(shape, tol, 0.25)
+def surf_points(shape, h=0.7, tol=0.03, ang=0.25):
+    V, T = C.mesh_of(shape, tol, ang)
     P = [V]
     a, b, c = V[T[:, 0]], V[T[:, 1]], V[T[:, 2]]
     area = 0.5 * np.linalg.norm(np.cross(b - a, c - a), axis=1)
@@ -116,6 +116,17 @@ def pts(parts, n):
     if n not in PTS:
         PTS[n] = surf_points(parts[n]["shape"])
     return PTS[n]
+
+
+PTS_FINE = {}
+
+
+def pts_fine(parts, n):
+    """fixer rev2: C5 needs an exact radius - the 0.03 / 0.25 rad tessellation of the r 34.4 shoulder-plate face lies up to 0.19 inside
+    the true cylinder (measured: BREP samples r 34.21 where the 0.01-deflection STL has r >= 34.393)"""
+    if n not in PTS_FINE:
+        PTS_FINE[n] = surf_points(parts[n]["shape"], tol=0.005, ang=0.03)
+    return PTS_FINE[n]
 
 
 # =====================================================================================================================
@@ -187,7 +198,10 @@ def se_margin(P, a, b, n):
 
 
 PIVOT_PARTS = ("T_cap", "ptfe_cap", "pd_F15", "skr_F15", "ptfe_podlozka")
-LATE = {"pastorok_pan": "bonded on the STS3032 spline AFTER T_stred (in situ, through the bore, Loctite 638)"}
+LATE = {"usb_predlzovac": "plugged into the ESP32-S3-Zero at T5c, AFTER T_stred (fixer rev2 M1)"}
+#   fixer rev2 (B1): the pan pinion is bonded on the bench (B7b) and IS present when T_stred comes down - it passes the T_stred lip through
+#   the relief r 8.35 about the pinion axis (t4_obal step stred_pinion); its margin = 8.35 - distance to the axis (exact lowering: K7 T5)
+PINION_RELIEF = dict(r=8.35, part="pastorok_pan")
 
 
 def env_rmax(z, azB):
@@ -249,7 +263,11 @@ def check_C(parts):
         lim = yl(P[:, 0])
         inr = (P[:, 0] >= rel["x"][0]) & (P[:, 0] <= rel["x"][1]) & (P[:, 1] < 0)
         lim = np.where(inr, np.maximum(lim, rel["y_min"]), lim)
-        mg = lim - np.abs(P[:, 1]); i = int(np.argmin(mg))
+        mg = lim - np.abs(P[:, 1])
+        if n == PINION_RELIEF["part"]:                          # fixer rev2 (B1): through the lip relief about the pinion axis
+            pa = R2["GEAR_PAN"]["ax"]
+            mg = np.maximum(mg, PINION_RELIEF["r"] - np.hypot(P[:, 0] - pa[0], P[:, 1] - pa[1]))
+        i = int(np.argmin(mg))
         rows[n] = dict(min=round(float(mg[i]), 2), at=[round(float(v), 2) for v in P[i]])
     w = sorted(rows.items(), key=lambda kv: kv[1]["min"])[:8]
     for n, r in w:
@@ -290,7 +308,7 @@ def check_C(parts):
     for n in T:
         if n in PIVOT_PARTS or n == "pastorok_pan" or n.startswith("kolik_dorazu"):
             continue
-        P = pts(parts, n); P = P[(P[:, 2] >= -47.2) & (P[:, 2] <= 4.0)]
+        P = pts_fine(parts, n); P = P[(P[:, 2] >= -47.2) & (P[:, 2] <= 4.0)]
         if not len(P):
             continue
         r = np.hypot(P[:, 0], P[:, 1]); az = np.degrees(np.arctan2(P[:, 1], P[:, 0])) % 360
@@ -369,9 +387,9 @@ def check_D(parts):
     for nm, (x, y) in (("F3a", RV["F3A"][0]), ("F3b", RV["F3B"][0])):
         row(f"{nm} insert hole radius", boundary(S, (x, y, -49.0), (1, 0, 0), tmax=4), 1.8, 0.01, "insert OD 3.5 + 0.1")
     x, z = RV["CTRL"]["f7"][0]
-    row("F7 standoff face y", 20.0 - boundary(S, (x + 2.0, 20.0, z), (0, -1, 0)), 16.5, 0.01, "carrier back face")
-    row("F7 insert hole radius", boundary(S, (x, 15.5, z), (1, 0, 0), tmax=4), 1.65, 0.01, "insert OD 3.2 + 0.1")
-    row("F8 insert hole radius (L, az 180)", boundary(S, (37.0, M.SHY - 7.5, M.SHZ), (0, 1, 0), tmax=4), 1.65, 0.01)
+    row("F7 standoff face y", 20.0 - boundary(S, (x + 2.6, 20.0, z), (0, -1, 0)), 16.5, 0.01, "carrier back face (probe r 2.6: D4.1 hole)")
+    row("F7 insert hole radius", boundary(S, (x, 15.5, z), (1, 0, 0), tmax=4), 2.05, 0.01, "fixer rev2: insert M2 x 4 x OD 4.0 + 0.1")
+    row("F8 insert hole radius (L, az 180)", boundary(S, (37.0, M.SHY - 7.5, M.SHZ), (0, 1, 0), tmax=4), 2.05, 0.01, "fixer rev2: D4.1 through")
     row("capacitor trough radius", boundary(S, (9.0, RV["CAP"]["y"], RV["CAP"]["z"]), (0, 0, -1), tmax=8), 4.1, 0.01, "can r 4.0")
     yh, zh = M.AMP_HOLES[0]
     row("amp standoff face x", 36.0 + boundary(S, (36.0, yh + 1.8, zh), (1, 0, 0), tmax=6), 38.9, 0.01, "board 1.5 off the web")
@@ -433,9 +451,9 @@ WALLS = [   # name, part, point inside the wall, direction, nominal, minimum all
 INSERT_WALLS = [
     (f"F3a {tuple(RV['F3A'][0])}", (RV["F3A"][0][0], RV["F3A"][0][1], -50.0), "z", 1.8), (f"F3a {tuple(RV['F3A'][1])}", (RV["F3A"][1][0], RV["F3A"][1][1], -50.0), "z", 1.8),
     ("F3b (6,15.95)", (6.0, 15.95, -50.0), "z", 1.8), ("F3b (18.5,-15.95)", (18.5, -15.95, -50.0), "z", 1.8),
-    ("F7 x -25", (RV["CTRL"]["f7"][0][0], 15.5, -62.5), "y", 1.65), ("F7 x 25.8", (RV["CTRL"]["f7"][1][0], 15.5, -62.5), "y", 1.65),
-    ("F8 L az 60", (37.0, M.SHY + 3.75, M.SHZ + 6.5), "x", 1.65), ("F8 L az 300", (37.0, M.SHY + 3.75, M.SHZ - 6.5), "x", 1.65),
-    ("F8 P az 180", (-37.0, M.SHY - 7.5, M.SHZ), "x", 1.65),
+    ("F7 x -18", (RV["CTRL"]["f7"][0][0], 15.5, -62.5), "y", 2.05), ("F7 x -4", (RV["CTRL"]["f7"][1][0], 15.5, -62.5), "y", 2.05),
+    ("F8 L az 60", (37.0, M.SHY + 3.75, M.SHZ + 6.5), "x", 2.05), ("F8 L az 300", (37.0, M.SHY + 3.75, M.SHZ - 6.5), "x", 2.05),
+    ("F8 P az 180", (-37.0, M.SHY - 7.5, M.SHZ), "x", 2.05),     # fixer rev2: M2 x 4 x OD 4.0 inserts in D4.1 holes
 ]
 
 
@@ -685,7 +703,8 @@ def check_S(parts):
     Pre = 0.05 / (0.2 * 0.002); ring = math.pi * (12.8 ** 2 - 11.6 ** 2)
     row("46", "stop ring 0.7 x 1.2 under the cap flange (3 x F8 preload)", "sustained, F8 0.05 N.m", f"A {ring:.0f}", 3 * Pre / ring, A_S,
         "K 0.2; 0.04 N.m -> 3.3")
-    row("40", "F8 M2 bonded inserts in the column boss", "L5 (max bolt 29.8 N, p08)", "D3.2 x 3.0", 29.8 / (math.pi * 3.2 * 3.0), A_EP, "epoxy")
+    row("40", "F8 M2 bonded inserts in the column boss (M2 x 4 x OD 4.0, fixer rev2)", "L5 (max bolt 29.8 N, p08)", "D4.0 x 4.0",
+        29.8 / (math.pi * 4.0 * 4.0), A_EP, "epoxy")
     # fixer rev2 (overenie2 S1): the two column corners that were sharp, now filleted - nominal stress from the column section just
     # above the corner (the verifier's own raster sections: z -47.9 A 135.1 Zy 209.6; z -38.5 Zy 209.6) x Kt of the fillet
     for nm, zc, Zc, R_, d_, kt_ in (("bridge-wall top / column inner face, R1.5 (x 34.4, z -48.2)", -48.2, 209.6, RV["COL"]["bridge_fillet"], 3.0, 1.35),
@@ -717,9 +736,16 @@ def check_S(parts):
             f"F {F:.1f} N per wall (F16 x2 + end wall share ignored)", kt=1.3)
     row("51", "6805 shoulder r 17..18.5 (L2 + torso weight)", "L2", "183 mm2", 40.0 / (math.pi * (18.5 ** 2 - 17.0 ** 2)), A_N)
     row("51b", "6805 bond in the D37.15 seat", "L1 x 2", "816 mm2", 30.0 / (math.pi * 37.15 * 7.0), A_EP, "epoxy")
-    Pf15 = 0.08 / (0.2 * 0.003); Acap = math.pi * (3.85 ** 2 - 1.7 ** 2); Zcap = math.pi * (7.7 ** 4 - 3.4 ** 4) / (32 * 7.7)
-    row("S06", "T_cap compression under the F15 preload", "sustained, F15 0.08 N.m", f"A {Acap:.1f}", Pf15 / Acap, A_S, "0.12 N.m (spec) -> 5.3 MPa")
-    row("S06b", "T_cap root: radial mesh 65 N x 2.3 + preload", "L8", f"Z {Zcap:.1f}", 65 * 2.3 / Zcap * 1.2 + Pf15 / Acap, A_N, "Kt 1.2 (R0.6)")
+    # fixer rev2 (lead decision S5): F15 at the fingertip design case 0.10 N.m (M3, K 0.2 -> 167 N).  The preload is pure compression of
+    # the T_cap: rated against the short-term crush 25.8; creep relaxation only opens the stage axial play by microns (the stage is held
+    # axially by the head / DIN 9021 washer, positively).  Root under L8: tension side = bending - preload (worst: preload fully relaxed)
+    Pf15 = C.FIX2["TQ_DESIGN"] / (0.2 * 0.003); Acap = math.pi * (3.85 ** 2 - 1.7 ** 2); Zcap = math.pi * (7.7 ** 4 - 3.4 ** 4) / (32 * 7.7)
+    row("S06", "T_cap compression under the F15 preload (crush; creep only adds axial play)", f"F15 {C.FIX2['TQ_DESIGN']} N.m fingertip",
+        f"A {Acap:.1f}", Pf15 / Acap, C.FIX2["CRUSH_MPA"], f"preload {Pf15:.0f} N")
+    row("S06b", "T_cap root: radial mesh 65 N x 2.3, tension side (preload relaxed to 0 = worst)", "L8", f"Z {Zcap:.1f}", 65 * 2.3 / Zcap * 1.2,
+        A_N, "Kt 1.2 (R0.6); with the preload present the root stays in compression")
+    row("S06b2", "T_cap root: radial mesh 65 N x 2.3 + full preload, compression side", "L8 + 0.10 N.m", f"Z {Zcap:.1f}",
+        65 * 2.3 / Zcap * 1.2 + Pf15 / Acap, C.FIX2["CRUSH_MPA"], "compression only (crush)")
     row("S06c", "pivot journal on PTFE tape D7.96 x 4.0", "L8", "31.8 mm2", 65.0 / (7.96 * 4.0), 5.0, "Z3.8 sliding limit 5")
     row("S06d", "T_cap bond on T_most (radial 65 N)", "L8", "53 mm2", 65.0 / (math.pi * (4.45 ** 2 - 1.7 ** 2)), A_EP, "epoxy")
     P2SEC = {}
@@ -730,7 +756,7 @@ def check_S(parts):
         f"{Ft:.0f} N per screw, wall-top reaction {Rc:.0f} N")
     row("A7b", "+Y wall top under T_most (2.5 x 6 contact)", "L1 x 2", "15 mm2", Rc / 15.0, A_N)
     row("A7c", f"T_most Al 2.0 bending (30 N x {dist:.1f}, b 25)", "L1 x 2", "Z 16.7", 30.0 * dist / 16.7, 80.0, "Al: yield 130 (5754-H22) / 1.6")
-    row("A7d", "F15 M3 in T_most, 0.8 engaged (strip about 700 N): load as % of strip x 0.8", "0.08 N.m + L1", "-", (Pf15 + 30.0) / 700.0 * 80.0, 80.0)
+    row("A7d", "F15 M3 in T_most, 0.8 engaged (strip about 700 N): load as % of strip x 0.8", f"{C.FIX2['TQ_DESIGN']} N.m + L1", "-", (Pf15 + 30.0) / 700.0 * 80.0, 80.0)
     for case, F, allow in (("L3 hand 0.6 N.m (abuse)", 20.0, A_A), ("L8 servo stall 0.88 N.m at the stage", 29.0, A_N)):
         row("S05a", "pin 1 bearing in the deck C-ear (2.0 x D3)", case, "6 mm2", F / 6.0, allow)
         row("S05b", "deck C-ear ligaments (2 x 2.0 x 2.95)", case, "11.8 mm2", F / 11.8, allow)
@@ -747,26 +773,26 @@ def check_S(parts):
                 abs(fx) * lev / Zx_ + abs(fy) * lev / Zy_, allow, f"F {F:.0f} N at z -45.9, lever {lev:.1f} (both components added)", kt=1.3)
         row("S05e", "steel pin D3 bending (lever 2.3)", case, "Z 2.65", F * 2.3 / 2.65, 400.0, "hardened dowel")
     row("S-pp", "pan-servo posts (radial 22 N, lever 25.8, 2 posts on the front wall)", "L8", "Z 86.7", 22.0 * 25.8 / 2 / 86.7, A_N, kt=1.3)
-    TQ = dict(R2["TORQUE"]); TQ_SPEC = dict(R2["TORQUE"])
-    TQ.update(TORQUE_RAM)                                 # recommended torques under the Z2 allowables (spec values fail)
+    # fixer rev2 (lead decision S5): every resin-bearing joint is rated at the FINGERTIP design case 0.10 N.m (K 0.2) - no torque
+    # screwdriver.  Criteria: washer / nut bearing on resin <= 25.8 MPa (short-term crush; creep relaxation accepted only where the joint
+    # is located positively - K12 TQ rows list it per joint), bonded insert 1.5 x preload <= 8 MPa epoxy (stress <= 5.33)
+    T_ = C.FIX2["TQ_DESIGN"]; CR = C.FIX2["CRUSH_MPA"]; EPP = C.FIX2["EPOXY_MPA"] / C.FIX2["PULLOUT_FACTOR"]
+    o2, l2 = C.INSERTS["M2"][:2]
     joints = [
-        ("F1 M2.5 head + DIN 125 on the pad", 2.5, TQ["M25_insert"], math.pi * (3.0 ** 2 - 1.35 ** 2), A_S, "washer bearing on resin"),
-        ("F3a M2.5 head + DIN 125 on the deck", 2.5, TQ["M25_insert"], math.pi * (3.0 ** 2 - 1.35 ** 2), A_S, "washer bearing on resin"),
-        ("F3a / F3b M2.5 bonded insert", 2.5, TQ["M25_insert"], math.pi * 3.5 * 4.0, A_EP, "epoxy"),
-        ("F4 DIN 562 nut on the slot ceiling", 2.0, TQ["M2_nut_on_resin"], 16.0 - math.pi, A_S, "nut bearing on resin"),
-        ("F7 M2 bonded insert", 2.0, TQ["M2_insert"], math.pi * 3.2 * 3.0, A_EP, "epoxy"),
-        ("F8 M2 bonded insert (screw: OBAL)", 2.0, TQ["M2_insert"], math.pi * 3.2 * 3.0, A_EP, "epoxy"),
-        ("F16 M2 head + DIN 125 on the 1.2 pad", 2.0, TQ["J1_pads"], math.pi * (2.5 ** 2 - 1.1 ** 2), A_S, "washer bearing on resin"),
+        ("F1 M2.5 head + DIN 125 on the pad (D3.2 float hole)", 2.5, math.pi / 4 * (5.7 ** 2 - 3.2 ** 2), CR, "washer bearing on resin (crush)"),
+        ("F3a M2.5 head + DIN 125 on the deck", 2.5, math.pi / 4 * (5.7 ** 2 - 2.8 ** 2), CR, "washer bearing on resin (crush)"),
+        ("F3a / F3b M2.5 bonded insert OD 3.5 x 4.0", 2.5, math.pi * 3.5 * 4.0, EPP, "epoxy 8 MPa / 1.5"),
+        ("F4 DIN 562 nut on the slot ceiling", 2.0, 16.0 - math.pi, CR, "nut bearing on resin (crush)"),
+        (f"F7 M2 bonded insert OD {o2} x 3.95 (through)", 2.0, math.pi * o2 * 3.95, EPP, "epoxy 8 MPa / 1.5"),
+        (f"F8 M2 bonded insert OD {o2} x {l2} (screw: OBAL)", 2.0, math.pi * o2 * l2, EPP, "epoxy 8 MPa / 1.5"),
+        ("F16 M2 head + DIN 125 on the 1.2 pad (D2.4 +-0.3 slot)", 2.0, math.pi / 4 * 4.7 ** 2 - (math.pi / 4 * 2.4 ** 2 + 2.4 * 0.6), CR,
+         "washer bearing on resin (crush)"),
     ]
     tq = []
-    spec_of = {"F1": "M25_insert", "F3a M2.5 head": "M25_insert", "F3a / F3b": "M25_insert", "F4": "M2_nut_on_resin", "F7": "M2_insert",
-               "F8": "M2_insert", "F16": "J1_pads"}
-    for nm, d, T_, A_l, allow, what in joints:
-        Ts = next(TQ_SPEC[v] for k, v in spec_of.items() if nm.startswith(k))
-        F = T_ / (0.2 * d * 1e-3); s = F / A_l; Tmax = allow * A_l * 0.2 * d * 1e-3; ss = Ts / (0.2 * d * 1e-3) / A_l
-        tq.append(dict(joint=nm, torque_spec=Ts, stress_at_spec=round(ss, 2), spec_ok=bool(ss <= allow), torque_ram=T_, preload_N=round(F),
-                       stress=round(s, 2), allow=allow, torque_max=round(Tmax, 3), what=what))
-        row("L7", nm, f"{T_} N.m (RAM; spec {Ts}: {ss:.1f} MPa)", f"A {A_l:.1f}", s, allow, f"{what}; max {Tmax:.3f} N.m")
+    for nm, d, A_l, allow, what in joints:
+        F = T_ / (0.2 * d * 1e-3); s_ = F / A_l; Tmax = allow * A_l * 0.2 * d * 1e-3
+        tq.append(dict(joint=nm, torque_design=T_, preload_N=round(F), stress=round(s_, 2), allow=round(allow, 2), torque_max=round(Tmax, 3), what=what))
+        row("L7", nm, f"{T_} N.m fingertip design case (K 0.2: {F:.0f} N)", f"A {A_l:.1f}", s_, allow, f"{what}; max {Tmax:.3f} N.m")
     OUT["S_torque_table"] = tq
     OUT["S"] = rows
     bad = [r for r in rows if not r["ok"] and not r["info"]]
@@ -776,7 +802,7 @@ def check_S(parts):
 
 # =====================================================================================================================
 BUILD = (211.68, 118.37, 220.0)
-TORQUE_RAM = dict(M25_insert=0.045, M2_nut_on_resin=0.02, M2_insert=0.03, J1_pads=0.025)   # N.m, K 0.2 (see S / STATUS)
+TORQUE_RAM = dict(M25_insert=0.10, M2_nut_on_resin=0.10, M2_insert=0.10, J1_pads=0.10)   # N.m - fixer rev2: fingertip design case (lead decision; K12 TQ rows)
 
 
 def check_P(parts):
@@ -792,7 +818,7 @@ def check_P(parts):
         rows.append(dict(part=n, mat=mat, extents_in_print=[round(float(v), 1) for v in ext], fits_with_5mm=fits, **M.PRINT[n]))
         log(f"   {n:14s} {mat:12s} {np.round(ext, 1)} fits {fits}")
     resin = all(parts[n]["mat"].startswith("resin") for n in M.PRINTED)
-    k13 = dict(no_petg_pom=resin, insert_holes="M2.5 D3.6 (OD 3.5 + 0.1), M2 D3.3 (OD 3.2 + 0.1), all bonded",
+    k13 = dict(no_petg_pom=resin, insert_holes="M2.5 D3.6 (OD 3.5 + 0.1), M2 D4.1 (M2 x 4 x OD 4.0 + 0.1, fixer rev2), all bonded",
                countersunk="only F3b DIN 7991 in the aluminium T_most", fits="pins D3.05/3.0, 6805 D37.15/37.0, T_cap 7.96 in 8.00 H7, "
                "pinions on metal splines (Loctite 638): slide fits", flex="no hook / clip / snap",
                thread_forming="F14 only (one-time, D1.7 pilot, 4.1 engaged >= 2d, boss D5)")

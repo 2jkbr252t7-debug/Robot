@@ -1470,17 +1470,57 @@ FIX2 = dict(
                    crit_limit=1.0, crit_margin=0.5,
                    text="tilt_down_max = min(40, 4 + 1.9 x lift) deg; tilt_up_max = 10 deg (lift < 7.5), 30 deg (7.5 .. 12.5), 40 deg "
                         "(>= 12.5); firmware parks the head at lift 0, tilt 0 when idle"),
-    # S5: every resin-bearing screw joint is tightened with a PRESET torque screwdriver (the K12 rows hold up to the tool's
-    # upper tolerance, +10 %); hand drivers are not allowed on resin joints
-    TORQUE_TOOL=dict(product="preset / adjustable torque screwdriver 2..15 cN.m, e.g. Tohnichi RTD15CN (2..15 cN.m) or Wiha "
-                             "TorqueVario-S class with a cN.m range (catalogue data UNVERIFIED - vendor pages not reachable)",
-                     tol=0.10, min_cNm=2.0),
-    TORQUE=dict(F1=0.040, F3a=0.040, F3b=0.040, F4=0.020, F7=0.030, F8=0.020, F10=0.040, F11=0.020, F13=0.030, F14=0.030, F15=0.080,
-                F16=0.025, F12=0.15),
-    F8_WASHER="DIN 433 M2 (2.2 x 4.5 x 0.3) - 12.1 mm2; at 2 cN.m + 10 % the bearing is 4.2 MPa (K 0.2)",
+    # S5 (LEAD DECISION 2026-11-18, supersedes the torque-tool plan): NO torque screwdriver is required.  Every screw joint that bears on
+    # resin is designed for a small precision screwdriver turned with the fingertips: design case 0.10 N.m for M2 / M2.5 / M3 (fingertip
+    # torque on a 10-12 mm handle is about 0.03-0.08 N.m).  Criteria at 0.10 N.m (K 0.2, also for thread-forming screws - conservative):
+    # insert bond >= 1.5 x preload with epoxy 8 MPa, washer / nut / head bearing on resin <= 25.8 MPa (short-term crush), thread-forming
+    # thread not stripped (0.75 pi d L x 0.6 x 25.8), no part cracked by the head (clamped resin in compression only); creep relaxation of
+    # the preload accepted ONLY where no position or torque depends on the clamp (positive location listed per joint, Z3.7).
+    # Documents: "small precision screwdriver, fingertips only, stop when the head seats + 1/8 turn; a torque screwdriver is optional".
+    TQ_DESIGN=0.10, TQ_K=0.2, EPOXY_MPA=8.0, PULLOUT_FACTOR=1.5, CRUSH_MPA=25.8, SHEAR_MPA=0.6 * 25.8, THREAD_SHARE=0.75,
+    TQ_RULE="small precision screwdriver (10-12 mm handle), fingertips only, stop when the head seats + 1/8 turn; no L-key leverage, "
+            "a torque screwdriver is optional (if used: 5-8 cN.m)",
+    M2_INSERT="brass knurled insert M2 x 4 (L) x 4.0 (OD), e.g. 123-3D 'M2 thread inserts 4.0 mm x 4.0 mm' (123-3d.co.uk listing; "
+              "drawing UNVERIFIED) - bonded with epoxy in a D4.1 hole, set flush with the mating face",
+    # joint table (K12 'TQ' rows recompute every line at TQ_DESIGN): d = thread, bear = (OD, ID) of the washer / nut / head face on resin
+    # (None = head on metal / FR4 / servo plastic), ins = (OD, bonded length) of the bonded insert (None = nut / metal / thread-forming),
+    # tf = thread-forming engagement, loc = positive location that makes preload relaxation harmless (Z3.7)
+    JOINTS=[
+        dict(j="F1", n=4, d=2.5, bear=(6.0 - 0.3, 3.2), on="T_spodok pad counterbore floor around the D3.2 float hole (DIN 125 M2.5)", ins=(3.5, 4.0), ins_in="T_stred boss",
+             loc="spigot (radial) + F1 shanks in D3.2 float holes (rotation, no sustained torque: the stage runs in T_stred, the stops "
+                 "sit in T_spodok); axial by the heads"),
+        dict(j="F3a", n=2, d=2.5, bear=(6.0 - 0.3, 2.8), on="T_paluba deck around the D2.8 hole (DIN 125 M2.5)", ins=(3.5, 4.0), ins_in="T_spodok boss",
+             loc="stop pin 1 through the deck C-ear + F3a shanks in D2.8 (0.15 radial); the stop force goes pin -> post, not friction"),
+        dict(j="F3b", n=2, d=2.5, bear=None, on="T_most aluminium (DIN 7991 countersunk, self-centring)", ins=(3.5, 4.0), ins_in="T_spodok boss",
+             loc="countersunk heads centre the aluminium bridge on the screws (metal), pivot bonded"),
+        dict(j="F4", n=2, d=2.0, bear=(4.0, 2.2), bear_area=16.0 - 3.14, on="DIN 562 nut on the slot ceiling of the pan post (head on the servo tab)",
+             ins=None, loc="epoxy-cast slot fill around the waxed shanks (S3, C positive) + case gaps +-X 0.10"),
+        dict(j="F7", n=2, d=2.0, bear=None, on="FR4 carrier (DIN 7991 flush countersunk)", ins=(4.0, 3.95), ins_in="T_spodok standoff r 3.65 (hole through 3.95)",
+             loc="countersunk heads centre the PCB; no load"),
+        dict(j="F8", n=6, d=2.0, bear=(4.5 - 0.3, 2.3), on="T_klb counterbore floor (ISO 7092 M2, OD at its lower tolerance 4.2)", ins=(4.0, 4.0),
+             ins_in="T_spodok column head (hole D4.1 through to the inner face)", loc="T_klb key in the column key slot + neck spigot (S2 rows)"),
+        dict(j="F10", n=2, d=2.0, bear=(4.5 - 0.3, 2.3), on="P_drziak_serva plate (DIN 433 M2)", ins=(4.0, 4.0), ins_in="P_sachta pad r 3.65 (hole through to the well)",
+             loc="F10 dowel + tongue in the rail"),
+        dict(j="F11", n=1, d=2.0, bear=(4.0, 2.2), bear_area=16.0 - 3.14, on="DIN 562 nut in the P_drziak_serva block slot (head on the MG90S tab)",
+             ins=None, loc="MG90S held by the closed pocket (both case ends)"),
+        dict(j="F13", n=5, d=2.0, bear=(5.0 - 0.3, 2.3), on="speaker ring step 1.7 / LED-holder ear (DIN 125 M2)", ins=None, tf=4.0, boss_r=2.5,
+             ins_in="T_stred D5 bosses, D1.7 pilot", loc="axial position = head seat (the gasket push is held by the heads); no lateral load"),
+        dict(j="F14", n=4, d=2.0, bear=None, on="FR4 buck / amplifier boards (DIN 125 M2 on FR4)", ins=None, tf=4.1, boss_r=2.5,
+             ins_in="T_spodok D5 standoffs, D1.7 pilot", loc="no load (boards)"),
+        dict(j="F15", n=1, d=3.0, bear=(7.7, 3.4), on="T_cap end face under the DIN 9021 M3 washer (T_cap bonded on the aluminium T_most)",
+             ins=None, metal_thread="T_most aluminium (M3 tapped)", loc="T_cap bonded on T_most; the stage is held axially by the head / washer "
+                                                                             "(positive), creep of T_cap only adds to the 0.1-0.3 axial play"),
+        dict(j="F16", n=2, d=2.0, bear=(5.0 - 0.3, 2.4), bear_area=3.14159 / 4 * 4.7 ** 2 - (3.14159 / 4 * 2.4 ** 2 + 2.4 * 0.6),
+             on="J1 corner pad 1.2 around the D2.4 +-0.3 slot (DIN 125 M2; pad clamped on the servo ear)", ins=None,
+             metal_thread="STS3215 case holes (servo's own thread)", loc="cradle walls + 0.1 PET shims (J1 centre distance), PORON bumper"),
+        dict(j="F12", n=1, d=2.0, bear=None, on="304 ear on the aluminium foot (metal-metal + Loctite 222)", ins=None, metal_thread="Al foot M2",
+             loc="F12 dowel"),
+    ],
     # S3: positive location of the pan-servo centre distance (Z3.7): after the backlash is set (T3b) the clearance of both F4 shanks in
     # their +-0.3 slots is filled with epoxy around the WAXED screws (release agent) - a cast, positive stop; the screws stay removable
     F4_LOCK="epoxy-cast slot fill around waxed F4 shanks (both posts), after T3b",
+    # M3: print drains / vents through the black cap floor (hidden by the base round; K8 'cap_underside_holes' zone): (d, x, y)
+    CAP_VENTS=[(2.5, 0.0, -16.6), (2.0, 0.0, 24.6), (2.5, 38.5, 2.7), (2.5, -38.5, 2.7)],
     # S4: the ear is 304 stainless 1.5 ONLY (5754 deleted); D1.0 drilled at the inner end of the bend-relief kerf
     EAR_MAT="304 stainless 1.5 (X5CrNi18-10, yield >= 215 MPa)", EAR_FE_MPA=137.7,
     # M5: one ZIF type at all 4 places (5 p, 0.5 mm, for 0.30 FFC)
@@ -1490,6 +1530,14 @@ FIX2 = dict(
         "turned so its USB-C faces +X",
 )
 INTEG.setdefault("B_TILT_TABLE_REPLACED_BY", FIX2["TILT_RULE"]["text"])
+# fixer rev2 (lead decision, S5): one design torque for every resin-bearing joint; the module torque dicts follow it
+R2["TORQUE"] = {k: (FIX2["TQ_DESIGN"] if k != "M2_metal" else FIX2["TQ_DESIGN"]) for k in R2["TORQUE"]}
+R2["TORQUE_REC"] = dict({k: FIX2["TQ_DESIGN"] for k in ("F1", "F3a", "F3b", "F4", "F7", "F8", "F10", "F11", "F12", "F13", "F14", "F15", "F16")},
+                        loctite_222=("F4", "F8", "F12", "F15"), rule=FIX2["TQ_RULE"],
+                        source="fixer rev2: design case 0.10 N.m (fingertips) - K12 TQ rows; the 0.015 .. 0.045 values of 17.15 are withdrawn")
+# fixer rev2 (S5): M2 insert 3.2 x 3.0 (30.2 mm2: 241 N < 1.5 x 250 N) -> 4.0 x 4.0 (50.3 mm2: 402 N >= 375 N); hole D4.1, boss r >= 3.65
+INSERTS["M2"] = (4.0, 4.0, 4.1, 3.9)
+R2["INSERT_HOLES"]["M2"] = dict(od=4.0, l=4.0, hole=4.1, depth=4.0, boss_r=3.65, part=FIX2["M2_INSERT"])
 
 
 def tilt_down_max(lift):

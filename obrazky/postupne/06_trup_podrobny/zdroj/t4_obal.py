@@ -130,7 +130,9 @@ LED_STEP = dict(x=(16.8, 23.0), dz=4.0)
 #   3.7 in the boss; a 0.3 spot face (D5.4) under each washer keeps 4.0 (the 270 deg speaker boss cannot take a deeper pilot:
 #   0.76 skin) -> ring 2.0 everywhere except 1.7 under the 3 washers (compression only); same 0.3 spot face on the 2 LED-holder ears
 WASHER_M2 = (2.2, 5.0, 0.3)              # DIN 125-1 A M2
-TF_HEAD = (3.8, 2.0)                     # thread-forming M2 pan head as modelled (conservative; EJOT PT K20 class)
+TF_HEAD = (3.8, 1.2)                     # fixer rev2: LOW-head thread-forming M2 x 6 (wafer / low pan head, k <= 1.2, dk <= 4.0; catalogue
+#   data UNVERIFIED): with the pan pinion bonded on the bench (B1) the 270 deg speaker-ring screw head passes the pinion tip circle r 8.0
+#   when T_stred + front stack are lifted / lowered - head k 2.0 left 0.06 (overlap at other tooth angles), k 1.2 leaves 0.57
 PRINT = {   # Z3.11 per printed part: face toward the build plate (Saturn 4 Ultra 16K, bottom-up MSLA), supports, drains, warp
     "T_stred": dict(plate_dir=(-0.643, 0.0, -0.766), orientation="lower edge (z -81, open side) toward the build plate, tilted 40 deg "
                     "about Y (-X seam side down)", supports="inside: ceiling of the top wall, bore shoulder (ring glue face), boss / pad / "
@@ -1018,11 +1020,11 @@ def build(only=None):
     for i, (x, z) in enumerate(C.LED_BOSS):
         w, scr = f13_stack(x, z, BOSS_FACE_LED + HOLDER["ear"]["t"] - LED_SPOT[1], "led")
         B[f"podlozka_led_{i + 1}"] = (w, "Podložka DIN 125 M2 (F13, držiak LED)", None)
-        B[f"skrutka_led_{i + 1}"] = (scr, "Skrutka M2 × 6 do plastu, jednorazová (držiak LED, F13)", None)
+        B[f"skrutka_led_{i + 1}"] = (scr, "Skrutka M2 × 6 do plastu s nízkou hlavou (k ≤ 1,2), jednorazová (držiak LED, F13)", None)
     for i, (x, z) in enumerate(spk_boss_xz()):
         w, scr = f13_stack(x, z, C.SPEAKER["y"][1] + RING2["t"] - RING2["spot"][1], "repro")
         B[f"podlozka_repro_{i + 1}"] = (w, "Podložka DIN 125 M2 (F13, krúžok reproduktora)", None)
-        B[f"skrutka_repro_{i + 1}"] = (scr, "Skrutka M2 × 6 do plastu, jednorazová (krúžok reproduktora, F13)", None)
+        B[f"skrutka_repro_{i + 1}"] = (scr, "Skrutka M2 × 6 do plastu s nízkou hlavou (k ≤ 1,2), jednorazová (krúžok reproduktora, F13)", None)
     for i, (x, y) in enumerate(C.SCR_STRED):
         B[f"vlozka_stred_{i + 1}"] = (one(C.insert("M2.5", (x, y, C.Z_WHITE), "z", 1)),
                                       "Mosadzná vložka M2,5 OD 3,5 × 4,0 (lepená epoxidom, F1)", None)
@@ -1244,8 +1246,9 @@ DEVIATIONS_REV2 = [   # rev. 2 deviations from T4_spec.md section 17 / ULOHA_oba
     "REV2 speaker ring CLOSED (rev. 1 wire notch at 180 deg removed) and ro 16.0 -> 16.5: the notch left a 20 mm cantilever from the "
     "270 deg screw (7 MPa sustained under the gasket push, row S8).  The speaker wires leave backward through the ring hole (solder lugs "
     "at r < 13) into the 2.5 mm between the ring and the pan servo; reserved space vyvod_repro moved there (x -12.5 .. -8, y -31.6 .. -29).",
-    "REV2 recommended torques (S rows, Z2 sustained 4.3 MPa): F8 0.015 N.m + Loctite 222 (washer bearing on the T_klb floor; spec 0.05 "
-    "gives 12.9 MPa), F13 0.03 N.m (seat + 1/8 turn), F1 0.045 N.m (insert bond 2.0 MPa, boss 3.4 MPa; spec 0.09 -> 4.1 / 6.9 MPa).",
+    "REV2 torques - SUPERSEDED by the fixer rev2 (lead decision, T4_spec 17.16-13): no torque screwdriver; every joint is rated at the "
+    "fingertip design case 0.10 N.m (small precision screwdriver, head seated + 1/8 turn): F8 ISO 7092 25.8 / 25.8 MPa at OD 4.2 "
+    "(crush, T_klb keyed + spigoted), F13 washer 19.0 / 25.8, strip 1.17 x preload, F1 insert 1.76 x preload (checks_obal S3-S5, K12 TQ rows).",
     "REV2 deleted: door hook tabs + roots, T_puzdro_L / T_puzdro_P (POM), pruzina_klb_* (disc springs) - arm round (P08).",
 ]
 INTENDED_FITS_REV2 = [   # designed contacts / overlaps inside the module (K2)

@@ -429,6 +429,7 @@ def run_K8():
     zone[DROP > 85.5 + M] = "cap"
     # holes in the tucked-under part of the cap (the underside is free): F1 / F2 countersinks, drain holes
     holes = [(x0, y0, 3.4) for x0, y0 in C.SCR_STRED] + [(x0, y0, 3.2) for x0, y0 in C.RAM["SCR_RAM"]] + [(x0, y0, 1.6) for x0, y0 in C.DRAIN]
+    holes += [(x0, y0, d / 2) for d, x0, y0 in getattr(C, "FIX2", {}).get("CAP_VENTS", [])]     # fixer rev2 M3 print drains / vents
     for x0, y0, r0 in holes:
         zone[(DROP > 85.5 + M) & (np.hypot(x - x0, y - y0) < r0 + M)] = "cap_underside_holes (free: F1 / F2 countersinks, drains)"
     wh = zone == "white"

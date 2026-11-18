@@ -728,8 +728,15 @@ def _column(s):
     for az in R2["COLUMN"]["f8_az"]:
         dy, dz = pol(7.5, az)
         at = (s * C.X_COL_BOSS, SHY + dy, SHZ + dz)
-        N += [hole(R2["INSERT_HOLES"]["M2"]["hole"], at, "x", -s, R2["INSERT_HOLES"]["M2"]["depth"]),
-              hole(2.3, at, "x", -s, C.X_COL_BOSS - xi + 0.3, lead=0.0)]
+        xe = RAM2["COL"]["head"]["plate"]["r_in"]           # 34.4 = insert end plane |x| and the plate inner cylinder radius
+        N += [hole(R2["INSERT_HOLES"]["M2"]["hole"], at, "x", -s, C.X_COL_BOSS - xe + 0.02)]   # fixer rev2 (S5): D4.1 to the insert end
+        #   (M2 x 4 x OD 4.0 insert, x 38.4 .. 34.4).  Beyond it the lens between the inner cylinder r 34.4 and the plane |x| = 34.4 is cut
+        #   away inside a RADIAL wedge over the hole (+ up past the plate top where it is < 1.0 above the hole): no floor, no sliver and no
+        #   knife edge (the wedge faces are radial, i.e. normal to the cylinder) - the insert end face is exposed there
+        hr = R2["INSERT_HOLES"]["M2"]["hole"] / 2 + 0.15
+        yc, zc = SHY + dy, SHZ + dz; ztop = RAM2["COL"]["head"]["plate"]["z"][1]
+        zw1 = zc + hr if ztop - (zc + hr) > 1.0 else ztop + 1.0
+        N.append(prism_z([(0.0, 0.0), (s * xe, yc - hr), (s * xe, yc + hr)], zc - hr, zw1))
     Wh = K["wire_hole"]
     N.append(cyl("x", Wh["d"] / 2, s * (xi - 0.3), s * (xw + 0.3), Wh["y"], Wh["z"]))
     so = RAM2["BOARD_STANDOFF"]
@@ -866,10 +873,11 @@ def _tower():
     xr, zr, rr = CT["rest_pad"]
     P.append(C.cyl_y(rr, YO - 0.2, CT["f7_face"], xr, zr))                     # +X end of the carrier rests here (no screw)
     P.append(cove("T_spodok", "carrier rest pad / wall", "y", (xr, zr), rr, 1.0, YO, 1, record_at=-90.0))
+    rb7 = R2["INSERT_HOLES"]["M2"]["boss_r"]      # fixer rev2 (S5): standoff r 3.25 -> 3.65 (wall 1.6 around the D4.1 hole of the 4 x 4 insert)
     for x, z in CT["f7"]:
-        P.append(C.cyl_y(3.25, YO - 0.2, CT["f7_face"], x, z))
-        P.append(cove("T_spodok", f"F7 standoff x {x} / wall", "y", (x, z), 3.25, 1.0, YO, 1, record_at=-90.0))
-        Ng += [hole(3.3, (x, CT["f7_face"], z), "y", -1, 3.3), hole(2.3, (x, CT["f7_face"], z), "y", -1, CT["f7_face"] - YI + 0.3, lead=0.0)]
+        P.append(C.cyl_y(rb7, YO - 0.2, CT["f7_face"], x, z))
+        P.append(cove("T_spodok", f"F7 standoff x {x} / wall", "y", (x, z), rb7, 1.0, YO, 1, record_at=-90.0))
+        Ng += [hole(R2["INSERT_HOLES"]["M2"]["hole"], (x, CT["f7_face"], z), "y", -1, CT["f7_face"] - YI + 0.3)]   # D4.1 through (3.95)
     # ---- capacitor pedestal (trough r 4.1, 180 deg) + tie groove 2.8 x 1.2 under the can
     K = RAM2["CAP"]
     ped = C.box(K["pedestal_x"][0], K["pedestal_x"][1], K["y"] - K["half_w"], K["y"] + K["half_w"], zw0, K["z"])
@@ -1092,21 +1100,21 @@ def fasteners():
         x = sx * 14.0; y = PAX[1]
         add(f"skr_F4_{i}", screw_btn("M2", 10, (x, y, zt), "z", -1), "steel", "skrutka ISO 7380 M2x10 (servo pan, hlava na úchytke serva)",
             joint="F4", size="ISO 7380 M2x10, no washer (head on the servo's own tab; a D5 washer would overlap the case 0.25)",
-            head=(x, y, zt), dir="-Z", tool_from="+Z through the T_stred bore, before the stage", torque=0.02)
+            head=(x, y, zt), dir="-Z", tool_from="+Z through the T_stred bore, before the stage", torque=C.FIX2["TQ_DESIGN"])
         add(f"mat_F4_{i}", nut562((x, y, RAM2["PAN_POST"]["nut_slot"]["z"][1])), "steel", "matica DIN 562 M2 štvorhranná", joint="F4")
     # F7 carrier
     for i, (x, z) in enumerate(CT["f7"], 1):
         add(f"skr_F7_{i}", screw_csk90(2.0, 3.8, 5.0, (x, YPCB1, z), "y", -1), "steel", "skrutka DIN 7991 M2x5 zápustná (v DPS, riadiaca doska)",
             joint="F7", size="DIN 7991 M2x5 (flush in the FR4 countersink)", head=(x, YPCB1, z), dir="-Y", tool_from="+Y (door, no USB plug in)",
             torque=R2["TORQUE"]["M2_insert"])
-        add(f"vl_F7_{i}", C.insert("M2", (x, CT["f7_face"], z), "y", -1), "brass", "závitová vložka M2 lepená (spodok)", joint="F7",
+        add(f"vl_F7_{i}", C.insert("M2", (x, CT["f7_face"], z), "y", -1), "brass", "závitová vložka M2x4 OD4,0 lepená (spodok)", joint="F7",
             at=(x, CT["f7_face"], z))
     # F8 inserts in the column bosses (the screws belong to T_klb, OBAL)
     for s, tag in ((1, "L"), (-1, "P")):
         for i, az in enumerate(R2["COLUMN"]["f8_az"], 1):
             dy, dz = pol(7.5, az)
             at = (s * C.X_COL_BOSS, SHY + dy, SHZ + dz)
-            add(f"vl_F8_{tag}{i}", C.insert("M2", at, "x", -s), "brass", "závitová vložka M2 lepená (náboj ramena)", joint="F8", at=at)
+            add(f"vl_F8_{tag}{i}", C.insert("M2", at, "x", -s), "brass", "závitová vložka M2x4 OD4,0 lepená (náboj ramena)", joint="F8", at=at)
     # F14 buck / amplifier: M2x6 thread-forming one-time + DIN 125
     xb = R2["BUCK_X"][1] - 1.6
     for i, (y, z) in enumerate(BUCK_HOLES, 1):
@@ -1121,7 +1129,7 @@ def fasteners():
     # F15 pivot: DIN 9021 M3 on T_cap, ISO 7380 M3x6 into the tapped T_most
     hz = R2["PIVOT"]["head_z"][0]; wz = R2["PIVOT"]["washer_z"]
     add("skr_F15", screw_btn("M3", 6, (0.0, 0.0, hz), "z", -1), "steel", "skrutka ISO 7380 M3x6 (čap pan, do T_most)",
-        joint="F15", size="ISO 7380 M3x6", head=(0.0, 0.0, hz), dir="-Z", tool_from="+Z (through the empty well)", torque=0.08)
+        joint="F15", size="ISO 7380 M3x6", head=(0.0, 0.0, hz), dir="-Z", tool_from="+Z (through the empty well)", torque=C.FIX2["TQ_DESIGN"])
     add("pd_F15", one(C.cyl_z(4.5, *wz) - C.cyl_z(1.6, wz[0] - 0.2, wz[1] + 0.2)), "steel", "podložka DIN 9021 M3 (3,2 x 9 x 0,8)", joint="F15")
     # F16 J1 servo (from below, the 2 -X pads)
     for i, (x, y) in enumerate(RAM2["F16"]["at"], 1):

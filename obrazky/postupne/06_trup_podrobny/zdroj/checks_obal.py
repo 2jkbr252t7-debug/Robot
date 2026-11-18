@@ -255,8 +255,9 @@ t3 = time.time()
 LOWER = ["T_stred", "T_svetlovod", "T_mriezka", "T_drziak_led", "T_drziak_repro", "reproduktor", "tesnenie_repro", "DPS_led"] + \
         [n for n in names if n.startswith(("skrutka_led", "skrutka_repro", "podlozka_led", "podlozka_repro", "vlozka_stred",
                                            "magnet_zarubna", "vyvod_"))]
-LATER = {"pastorok_pan", "skr_F1_1", "skr_F1_2", "skr_F1_3", "skr_F1_4", "pd_F1_1", "pd_F1_2", "pd_F1_3", "pd_F1_4"}
-#   pan pinion bonded after T_stred (RAM finding); F1 screws + washers are driven from below after T_stred is seated
+LATER = {"usb_predlzovac", "skr_F1_1", "skr_F1_2", "skr_F1_3", "skr_F1_4", "pd_F1_1", "pd_F1_2", "pd_F1_3", "pd_F1_4"}
+#   fixer rev2: the pan pinion is bonded on the bench (B1) and IS present at T5 (T_stred lip relief r 8.35); the USB-C FPC extension is
+#   plugged at T5c, after T_stred; F1 screws + washers are driven from below after T_stred is seated
 tower_names = [p["name"] for p in RAM_T if p["name"] not in LATER] + [p["name"] for p in PAN_ALL if p["group"] == "T"]
 TW = np.concatenate([ML.samples(n, 0.4) for n in tower_names])
 TW = TW[TW[:, 2] > C.Z_WHITE + 0.01]          # nothing of T_stred goes below its lower edge
@@ -575,28 +576,33 @@ row("S2a", f"T_klb key root bending ({kw} x {kr1 - kr0:.1f}, lever {lev:.2f}, R0
 row("S2b", "T_klb key flank bearing (1.4 engaged)", "L5 0.25 N.m", "normal", F / ((kr1 - kr0) * 1.4))
 row("S2c", "T_klb key root bending", "hypothetical: hand 0.6 N.m with the arm collar locked", "abuse", 600.0 / rc * lev / Zk * 1.8,
     "does not occur by Z4 L5 (the friction collar slips at 0.25 N.m first) - the collar is a safety element of the arm round", role="info")
-# S3 F8 washer bearing on the counterbore floor (sustained preload)
+# fixer rev2 (lead decision S5): every resin-bearing screw joint is rated at the FINGERTIP design case 0.10 N.m (K 0.2, also for the
+# thread-forming F13 - conservative) - no torque screwdriver.  Criteria: washer bearing on resin <= 25.8 (short-term crush; preload
+# relaxation by creep is harmless where the part is located positively), insert bond 1.5 x preload <= 8 MPa, thread-forming thread not
+# stripped (0.75 x pi d L x 0.6 x 25.8), boss hoop stress from the thread wedge <= 12.9
+TQ = C.FIX2["TQ_DESIGN"]; CR = C.FIX2["CRUSH_MPA"]
+# S3 F8 washer bearing on the T_klb counterbore floor (T_klb keyed + spigoted: relaxation harmless)
 A_w = math.pi / 4 * (4.2 ** 2 - 2.3 ** 2)         # washer OD at its lower tolerance 4.2
-for tq, role in ((0.05, "spec torque"), (0.03, "spec torque"), (0.015, "recommended torque")):
-    Pp = tq / (0.2 * 0.002)
-    row(f"S3 {tq}", f"F8 ISO 7092 washer on the T_klb counterbore floor (A {A_w:.1f} mm2, OD 4.2 worst)", f"preload at {tq} N.m (K 0.2): {Pp:.0f} N",
-        "sustained", Pp / A_w, "0.05 = T4_spec 17.9, 0.03 = RAM recommendation (insert bond)" if role != "recommended torque" else "+ Loctite 222", role=role)
+Pp = TQ / (0.2 * 0.002)
+row("S3", f"F8 ISO 7092 washer on the T_klb counterbore floor (A {A_w:.1f} mm2, OD 4.2 worst)", f"fingertip {TQ} N.m (K 0.2): {Pp:.0f} N",
+    "abuse", Pp / A_w, "short-term crush 25.8 (lead decision); T_klb located by the key + neck spigot, so creep relaxation is harmless", allow=CR)
 # S4 F13 washers on the ring / holder ears
 A_13 = math.pi / 4 * (5.0 ** 2 - 2.3 ** 2)
-for tq, role in ((0.04, "spec torque"), (0.03, "recommended torque")):
-    Pp = tq / (0.3 * 0.002)
-    row(f"S4 {tq}", f"F13 DIN 125 washer on the ring / LED-holder ear (A {A_13:.1f} mm2)", f"thread-forming seat + 1/8 turn {tq} N.m (K 0.3): {Pp:.0f} N",
-        "sustained", Pp / A_13, role=role)
-strip = math.pi * 2.0 * 4.0 * 0.5 * Z2["resin_tensile_low"] * 0.6        # thread shear: pi d L 0.5 x tau (0.6 x UTS)
-S.append(dict(id="S4c", feature="F13 thread strip-out, 4.0 engaged in D5 bosses", load="0.04 N.m -> 67 N", class_="assembly",
-              capacity_N=round(strip, 0), ratio=round(strip / 67.0, 2), ok=bool(strip / 67.0 >= 2.0), note="tau = 0.6 x 25.8 MPa on half the thread cylinder"))
+row("S4", f"F13 DIN 125 washer on the ring / LED-holder ear (A {A_13:.1f} mm2)", f"fingertip {TQ} N.m (K 0.2, conservative for thread-forming): {Pp:.0f} N",
+    "abuse", Pp / A_13, "short-term crush 25.8; axial position = head seat (gasket push held by the heads)", allow=CR)
+A_th = C.FIX2["THREAD_SHARE"] * math.pi * 2.0 * 4.0
+row("S4c", "F13 thread strip-out, 4.0 engaged in D5 bosses (0.75 pi d L thread share)", f"fingertip {TQ} N.m: {Pp:.0f} N", "abuse", Pp / A_th,
+    f"shear 0.6 x 25.8 = {C.FIX2['SHEAR_MPA']:.1f} MPa; capacity {A_th * C.FIX2['SHEAR_MPA']:.0f} N", allow=C.FIX2["SHEAR_MPA"])
+p_r = Pp * math.tan(math.radians(30.0)) / (math.pi * 2.0 * 4.0); ro_, ri_ = 2.5, 0.85
+row("S4d", "F13 boss D5 hoop stress from the thread wedge (tan 30 deg, Lame at the pilot r 0.85)", f"fingertip {TQ} N.m", "abuse",
+    p_r * (ro_ ** 2 + ri_ ** 2) / (ro_ ** 2 - ri_ ** 2), "one-off assembly load (abuse class 12.9)")
 # S5 F1 inserts in T_stred (epoxy) and boss bearing
 A_b = math.pi * 3.5 * 4.0
-for tq, role in ((0.09, "spec torque"), (0.045, "recommended torque")):
-    Pp = tq / (0.2 * 0.0025)
-    row(f"S5a {tq}", "F1 insert M2.5 OD 3.5 x 4.0 bond (epoxy)", f"preload at {tq} N.m: {Pp:.0f} N", "epoxy", Pp / A_b, role=role)
-    row(f"S5b {tq}", "F1 boss annulus r 1.8 .. 3.4 on the pad (compression)", f"preload {Pp:.0f} N", "sustained", Pp / (math.pi * (3.4 ** 2 - 1.8 ** 2)),
-        role=role)
+Pp25 = TQ / (0.2 * 0.0025)
+row("S5a", "F1 insert M2.5 OD 3.5 x 4.0 bond (epoxy 8 / 1.5)", f"fingertip {TQ} N.m: {Pp25:.0f} N", "epoxy", Pp25 / A_b,
+    "lead decision: pull-out >= 1.5 x preload with epoxy 8 MPa", allow=C.FIX2["EPOXY_MPA"] / C.FIX2["PULLOUT_FACTOR"])
+row("S5b", "F1 boss annulus r 1.8 .. 3.4 on the pad (compression)", f"preload {Pp25:.0f} N", "abuse", Pp25 / (math.pi * (3.4 ** 2 - 1.8 ** 2)),
+    "short-term crush 25.8; T_stred located by the spigot", allow=CR)
 row("S5c", "F1 when the torso is carried by the shell (4 inserts)", "L1-like 15 N on T_stred", "epoxy", 15.0 / 4 / A_b)
 # S6 upper journal (bore r 26.65): side load from the head reacted between the journal (z -6.5) and the pivot (z -44)
 for lab_, Fh, h in (("L2 30 N at 30 deg off-axis on the head, 60 mm above the bore", 15.0, 60.0), ("L6 knock 100 N on the head", 100.0, 60.0)):
