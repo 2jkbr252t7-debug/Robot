@@ -1,0 +1,374 @@
+{
+ "model": "NOVA_mechanizmy.glb",
+ "description_sk": "NOVA mini – trup rev. 2 + krk + hlava (variant B E2): animačný model mechanizmov J1 (otáčanie trupu), PAN (otáčanie hlavy), ZDVIH (vysunutie krku kľukou) a NÁKLON (kývanie hlavy).",
+ "units": "glTF: metres, Y up, right-handed. Robot front = +Z, robot left = +X, up = +Y. Design (B) frame mm -> glTF: (x, y, z)_B -> (x, z, -y) / 1000.",
+ "how_to_pose": [
+  "Choose the 4 independent drivers: j1 (deg), pan (deg), theta (deg, lift servo) or lift (mm), tilt (deg).",
+  "For every joint node: rotate -> node.rotation = quaternion(axis, radians(ratio * driver)), node.translation = rest_translation; translate -> node.rotation = identity, node.translation = rest_translation + axis * value / 1000 (value in mm).",
+  "Coupled nodes: pinion_J1 = +1.0 * j1 (relative to the torso; absolute 2 * j1), pan_pinion = -2.0 * pan, crank = theta, LIFT = 10 * (1 - cos(theta)) mm.  No other node is touched; every mesh node keeps its own (rest) transform.",
+  "Respect the limits: |j1| <= 150 (hard stop 153.4), |pan| <= 85 (hard stop 90), theta 0..180 (lift 0..20), -tilt_up_max(lift) <= tilt <= tilt_down_max(lift)."
+ ],
+ "drivers": {
+  "j1": {
+   "unit": "deg",
+   "default": 0.0,
+   "range_firmware": [
+    -150.0,
+    150.0
+   ],
+   "range_hard_stop": [
+    -153.4,
+    153.4
+   ],
+   "sign_sk": "kladný uhol = trup sa otočí proti smeru hodinových ručičiek pri pohľade zhora (predok ide k ľavému boku robota, +X)"
+  },
+  "pan": {
+   "unit": "deg",
+   "default": 0.0,
+   "range_firmware": [
+    -85.0,
+    85.0
+   ],
+   "range_hard_stop": [
+    -90.0,
+    90.0
+   ],
+   "sign_sk": "kladný uhol = hlava sa pozrie doľava (z pohľadu robota), proti smeru hodinových ručičiek zhora"
+  },
+  "theta": {
+   "unit": "deg",
+   "default": 0.0,
+   "range_firmware": [
+    0.0,
+    180.0
+   ],
+   "note": "lift servo angle; firmware may stop at 3..177 (checks.py K6 lists that row) - the model allows 0..180",
+   "sign_sk": "0 = čap kľuky dole (krk zasunutý), 90 = čap vpredu, 180 = čap hore (krk vysunutý o 20 mm)"
+  },
+  "lift": {
+   "unit": "mm",
+   "default": 0.0,
+   "range": [
+    0.0,
+    20.0
+   ],
+   "formula": "lift = 10 * (1 - cos(theta)); theta = acos(1 - lift / 10)"
+  },
+  "tilt": {
+   "unit": "deg",
+   "default": 0.0,
+   "sign_sk": "kladný = hlava kýve dopredu dole (prikývnutie), záporný = hore",
+   "limit_down": "tilt_down_max(lift) = min(40, 4 + 1.9 * lift)",
+   "limit_up": "tilt_up_max(lift) = 10 (lift < 7.5), 30 (7.5 <= lift < 12.5), 40 (lift >= 12.5)",
+   "table": [
+    {
+     "lift": 0,
+     "down_max": 4.0,
+     "up_max": 10.0
+    },
+    {
+     "lift": 2.5,
+     "down_max": 8.75,
+     "up_max": 10.0
+    },
+    {
+     "lift": 5,
+     "down_max": 13.5,
+     "up_max": 10.0
+    },
+    {
+     "lift": 7.5,
+     "down_max": 18.25,
+     "up_max": 30.0
+    },
+    {
+     "lift": 10,
+     "down_max": 23.0,
+     "up_max": 30.0
+    },
+    {
+     "lift": 12.5,
+     "down_max": 27.75,
+     "up_max": 40.0
+    },
+    {
+     "lift": 15,
+     "down_max": 32.5,
+     "up_max": 40.0
+    },
+    {
+     "lift": 18.95,
+     "down_max": 40.0,
+     "up_max": 40.0
+    },
+    {
+     "lift": 20,
+     "down_max": 40.0,
+     "up_max": 40.0
+    }
+   ],
+   "source": "t4_common.FIX2['TILT_RULE'] / tilt_down_max / tilt_up_max (fixer rev. 2, T4_spec 17.16)"
+  }
+ },
+ "joints": [
+  {
+   "node": "J1",
+   "parent": "root",
+   "type": "rotate",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "axis_frame": "parent node frame = model frame at rest (all joint nodes have identity rest rotation)",
+   "pivot": [
+    0.0,
+    -0.088,
+    0.0
+   ],
+   "pivot_note": "node origin = point on the joint axis, model frame (glTF metres) at rest",
+   "rest_translation": [
+    0.0,
+    -0.088,
+    0.0
+   ],
+   "driver": "j1",
+   "unit": "deg",
+   "ratio": 1.0,
+   "formula": "angle = j1",
+   "default": 0.0,
+   "description_sk": "J1 – otáčanie celého trupu okolo zvislej osi voči podstavcu",
+   "range_firmware": [
+    -150.0,
+    150.0
+   ],
+   "range_hard_stop": [
+    -153.4,
+    153.4
+   ],
+   "drive_sk": "Feetech STS3215 v trupe (hriadeľ dole) s pastorkom m1 z18, ktorý sa odvaľuje po pevnom centrálnom kolese m1 z18 podstavca; trup sa otočí o rovnaký uhol ako výstup serva voči trupu (prevod 1 : 1)"
+  },
+  {
+   "node": "pinion_J1",
+   "parent": "J1",
+   "type": "rotate",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "axis_frame": "parent node frame = model frame at rest (all joint nodes have identity rest rotation)",
+   "pivot": [
+    -0.018,
+    -0.088,
+    0.0
+   ],
+   "pivot_note": "node origin = point on the joint axis, model frame (glTF metres) at rest",
+   "rest_translation": [
+    -0.018,
+    0.0,
+    0.0
+   ],
+   "driver": "j1",
+   "unit": "deg",
+   "ratio": 1.0,
+   "formula": "angle = (z_sun / z_pinion) * j1 = +1.0 * j1 (relative to the torso; absolute 2 * j1)",
+   "default": 0.0,
+   "description_sk": "pastorok J1 m1 z18 na hriadeli STS3215 – obieha s trupom a odvaľuje sa po centrálnom kolese"
+  },
+  {
+   "node": "pan_pinion",
+   "parent": "J1",
+   "type": "rotate",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "axis_frame": "parent node frame = model frame at rest (all joint nodes have identity rest rotation)",
+   "pivot": [
+    -0.00585,
+    -0.0439,
+    0.020793
+   ],
+   "pivot_note": "node origin = point on the joint axis, model frame (glTF metres) at rest",
+   "rest_translation": [
+    -0.00585,
+    0.0441,
+    0.020793
+   ],
+   "driver": "pan",
+   "unit": "deg",
+   "ratio": -2.0,
+   "formula": "angle = -(z_gear / z_pinion) * pan = -2.0 * pan",
+   "default": 0.0,
+   "description_sk": "pastorok pan m0,8 z18 na serve STS3032 (pevné v trupe) – točí kolesom z36 na šachte"
+  },
+  {
+   "node": "PAN",
+   "parent": "J1",
+   "type": "rotate",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "axis_frame": "parent node frame = model frame at rest (all joint nodes have identity rest rotation)",
+   "pivot": [
+    0.0,
+    -0.0439,
+    0.0
+   ],
+   "pivot_note": "node origin = point on the joint axis, model frame (glTF metres) at rest",
+   "rest_translation": [
+    0.0,
+    0.0441,
+    0.0
+   ],
+   "driver": "pan",
+   "unit": "deg",
+   "ratio": 1.0,
+   "formula": "angle = pan",
+   "default": 0.0,
+   "description_sk": "PAN – otáčanie hlavy: šachta, koleso z36, kapsa serva zdvihu, kľuka, pätka, ucho, krk, golier a hlava",
+   "range_firmware": [
+    -85.0,
+    85.0
+   ],
+   "range_hard_stop": [
+    -90.0,
+    90.0
+   ],
+   "drive_sk": "Feetech STS3032 (pevne v trupe, hriadeľ hore) s pastorkom m0,8 z18 -> koleso m0,8 z36 lepené pod šachtou; prevod 2 : 1 (servo sa otočí o -2 x pan); šachta beží v ložisku trupu (čap r 26,5 + PTFE) a na čape T_cap"
+  },
+  {
+   "node": "crank",
+   "parent": "PAN",
+   "type": "rotate",
+   "axis": [
+    -1.0,
+    0.0,
+    0.0
+   ],
+   "axis_frame": "parent node frame = model frame at rest (all joint nodes have identity rest rotation)",
+   "pivot": [
+    -0.0125,
+    -0.0242,
+    -0.0232
+   ],
+   "pivot_note": "node origin = point on the joint axis, model frame (glTF metres) at rest",
+   "rest_translation": [
+    -0.0125,
+    0.0197,
+    -0.0232
+   ],
+   "driver": "theta",
+   "unit": "deg",
+   "ratio": 1.0,
+   "formula": "angle = theta;  theta = acos(1 - lift / 10)",
+   "default": 0.0,
+   "description_sk": "kľuka zdvihu – hliníkové rameno serva MG90S s čapom Ø2 na r 10",
+   "range_firmware": [
+    0.0,
+    180.0
+   ],
+   "drive_sk": "MG90S v kapse na šachte; hriadeľ pozdĺž osi X v bode (y 23,2, z -24,2); theta 0 = čap dole (zdvih 0), 90 = čap vpredu (zdvih 10), 180 = čap hore (zdvih 20); oba krajné body sú úvrate kľuky"
+  },
+  {
+   "node": "LIFT",
+   "parent": "PAN",
+   "type": "translate",
+   "axis": [
+    0.0,
+    1.0,
+    0.0
+   ],
+   "axis_frame": "parent node frame = model frame at rest (all joint nodes have identity rest rotation)",
+   "pivot": [
+    0.0,
+    -0.0365,
+    0.0
+   ],
+   "pivot_note": "node origin = point on the joint axis, model frame (glTF metres) at rest",
+   "rest_translation": [
+    0.0,
+    0.0074,
+    0.0
+   ],
+   "driver": "lift",
+   "unit": "mm",
+   "ratio": 1.0,
+   "formula": "offset = lift = 10 * (1 - cos(theta)) mm along the axis",
+   "default": 0.0,
+   "description_sk": "ZDVIH – vysunutie krku 0–20 mm (pätka, ucho, DPS_krk, krk, hlava)",
+   "range_firmware": [
+    0.0,
+    20.0
+   ],
+   "drive_sk": "čap kľuky sa posúva vo vodorovnej drážke nerezového ucha (2,2 x 12,7) a dvíha ucho s pätkou; krk je vedený v šachte na PTFE pásikoch, takže sa len posúva hore-dole"
+  },
+  {
+   "node": "TILT",
+   "parent": "LIFT",
+   "type": "rotate",
+   "axis": [
+    1.0,
+    0.0,
+    0.0
+   ],
+   "axis_frame": "parent node frame = model frame at rest (all joint nodes have identity rest rotation)",
+   "pivot": [
+    0.0,
+    -0.0035,
+    0.0
+   ],
+   "pivot_note": "node origin = point on the joint axis, model frame (glTF metres) at rest",
+   "rest_translation": [
+    0.0,
+    0.033,
+    0.0
+   ],
+   "driver": "tilt",
+   "unit": "deg",
+   "ratio": 1.0,
+   "formula": "angle = tilt (+ = nod down / front down); tilt_down_max = min(40, 4 + 1.9 * lift); tilt_up_max = 10 (lift < 7.5), 30 (7.5 <= lift < 12.5), 40 (lift >= 12.5)",
+   "default": 0.0,
+   "description_sk": "NÁKLON – kývanie hlavy na závese (os X cez y 0, z -3,5 + zdvih)",
+   "range_firmware": [
+    "-tilt_up_max(lift)",
+    "tilt_down_max(lift)"
+   ],
+   "drive_sk": "MG90S v hornej časti krku, hriadeľ na osi závesu; páka zaklinená v uchu hlavy -X, na strane +X ložisko MR85 na dutom čape"
+  }
+ ],
+ "couplings": {
+  "J1_gears": "pastorok_J1 m1 z18 (na STS3215 v trupe) x centrálne koleso Z_koleso_J1 m1 z18 (pevné v podstavci), osová vzdialenosť 18,00: pastorok voči trupu = +1,0 x j1 (planétový prevod so stojacim centrálnym kolesom), absolútne 2 x j1",
+  "PAN_gears": "pastorok_pan m0,8 z18 (na STS3032 pevnom v trupe) x koleso_pan m0,8 z36 (na šachte), osová vzdialenosť 21,600: pastorok = -2,0 x pan",
+  "lift_crank": "kľuka r 10,00 na MG90S; čap Ø2 v drážke ucha 2,2 x 12,7 (stred drážky y 12,7..23,2 pri z -34,2 + zdvih); zdvih = 10 (1 - cos theta); čap sa v drážke posúva dopredu a späť (y = 23,2 - 10 sin theta)",
+  "tilt_limits": "náklon dole je pri zasunutom krku obmedzený (4 deg pri zdvihu 0) – hlava by narazila do goliera; plný rozsah ±40 až pri zdvihu >= 18,95 (dole) a >= 12,5 (hore)"
+ },
+ "hierarchy": "root -> base_static (podstavec); root -> J1 -> {statické diely trupu, pinion_J1 -> pastorok_J1, pan_pinion -> pastorok_pan, PAN -> {šachta, koleso z36, kapsa serva zdvihu + MG90S, kotúč goliera, crank -> {rameno_zdvih, cap_kluky, skr_ramena}, LIFT -> {L_pata, L_ucho, DPS_krk, krk, servo náklonu, TILT -> diely hlavy}}}",
+ "animations_in_glb": [
+  "1_J1_otacanie_trupu",
+  "2_PAN_otacanie_hlavy",
+  "3_ZDVIH_vysunutie_krku",
+  "4_NAKLON_hlavy",
+  "5_DEMO_vsetko"
+ ],
+ "omitted_sk": {
+  "ffc_par, ffc_A/B_krk, ffc_A/B_nosic": "pásiky FFC – tvar slučky sa mení s pan aj zdvihom (nie je to tuhé teleso)",
+  "pigtail_zdvih": "pigtail serva zdvihu – ohybná slučka, tvar sa mení so zdvihom",
+  "lozisko_6805": "nahradené dvoma krúžkami (vnútorný stojí s podstavcom, vonkajší sa otáča s J1) – len vizualizácia",
+  "B trup.stl, CELOK_*.stl": "nahradené trupom T4 rev. 2"
+ },
+ "sources": [
+  "T4/t4_common.py (J1_AX, R2, FIX2, tilt_down_max, tilt_up_max, INTEG TILT_AXIS_Z)",
+  "T4/t4_pan.py (crank_angle, pin_pos, mk_rameno(theta), pose_parts(lift))",
+  "T4/t4_ram.py (mk_pastorok_J1, mk_koleso_J1, mk_pastorok_pan)",
+  "T4/checks.py K3 (J1 pinion rolled 2 x phi, pan pinion -2 x pan)",
+  "B/build.py (pose / tf: hinge axis X at AXZ, + tilt = nod down)"
+ ],
+ "glb_rest_translation_max_dev_m": 6.973743443827729e-09,
+ "viewers_sk": "GLB sa dá otvoriť napr. v Blenderi (File > Import > glTF 2.0; klipy sú v NLA / Action editore), vo Windows 3D Viewer alebo v ľubovoľnom webovom prehliadači glTF (súbor sa len pretiahne do okna; animácie 1–5 sa vyberú v zozname animácií). Kryty sa dajú skryť podľa skupiny v extras (group = shell).",
+ "verification": "work/verify_cad.json (19 póz, odchýlka od pózovacích funkcií návrhu), work/check_anim.json (klipy), verification.json (súhrn)"
+}

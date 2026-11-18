@@ -1,0 +1,319 @@
+{
+ "glb": {
+  "file": "NOVA_mechanizmy.glb",
+  "mb": 5.748,
+  "meshes": 188,
+  "faces": 199366,
+  "animations": [
+   "1_J1_otacanie_trupu",
+   "2_PAN_otacanie_hlavy",
+   "3_ZDVIH_vysunutie_krku",
+   "4_NAKLON_hlavy",
+   "5_DEMO_vsetko"
+  ]
+ },
+ "poses": {
+  "n": 19,
+  "parts": 188,
+  "max_dev_moving_mm": 3.240042772726919e-05,
+  "kabsch_residual_max_mm": 1.0302869668521453e-13,
+  "per_pose": [
+   [
+    "P01_pokoj",
+    4.337549145487706e-14
+   ],
+   [
+    "P02_pan-85",
+    6.123616101126718e-06
+   ],
+   [
+    "P03_pan+85",
+    2.173520147490053e-06
+   ],
+   [
+    "P04_zdvih10",
+    1.8558277664123621e-06
+   ],
+   [
+    "P05_zdvih20",
+    6.153964332788348e-06
+   ],
+   [
+    "P06_J1-150",
+    5.894502418607028e-06
+   ],
+   [
+    "P07_J1+150",
+    1.888877313428703e-05
+   ],
+   [
+    "P08_zdvih0_dole4",
+    8.013736056576156e-06
+   ],
+   [
+    "P09_zdvih0_hore10",
+    5.362535330628218e-06
+   ],
+   [
+    "P10_zdvih10_dole23",
+    1.4404729793199608e-05
+   ],
+   [
+    "P11_zdvih10_hore30",
+    1.2656994146226895e-05
+   ],
+   [
+    "P12_zdvih20_dole40_pan+85_J1-150",
+    1.6869719977098133e-05
+   ],
+   [
+    "P13_zdvih20_hore40_pan-85_J1+150",
+    3.240042772726919e-05
+   ],
+   [
+    "P14_zdvih20_dole40_pan+60_J1+90",
+    1.0247244278694393e-05
+   ],
+   [
+    "P15_zdvih5_dole13.5_pan-30_J1+45",
+    1.8539952392481445e-05
+   ],
+   [
+    "P16_zdvih15_hore40_pan+40_J1-75",
+    1.4049682350263902e-05
+   ],
+   [
+    "P17_dorazy_J1+153.4_pan+90_zdvih12.5_dole27.75",
+    1.2422048851651815e-05
+   ],
+   [
+    "P18_zdvih7.5_hore30_pan-60_J1-30",
+    1.7899476292984696e-05
+   ],
+   [
+    "P19_zdvih2.5_dole8.75_pan+10_J1+120",
+    2.1902981565498564e-05
+   ]
+  ],
+  "method": "landmarks = undecimated source-STL vertices (<= 3000 per part); GLB pose = node transforms from kinematics.json (Blender import of the GLB); reference = t4_mesh.rotz as in checks.py K3 (J1, pan, pinions), t4_pan.pose_parts(lift) (crank, ear, foot, DPS_krk, F12), B build.py tf(lift - 20, tilt) (neck, head)"
+ },
+ "surface_check_crisp_mm": {
+  "rameno_zdvih": 1.1351465396884596e-05,
+  "cap_kluky": 1.2163824657482297e-05,
+  "L_ucho": 1.0088985726830304e-05,
+  "L_pata": 8.999027583485698e-06,
+  "DPS_krk": 9.619531752214087e-06,
+  "koleso_pan": 5.6916534167967095e-06,
+  "pastorok_pan": 1.4535193392374152e-05,
+  "pastorok_J1": 1.2674714788965489e-05,
+  "Z_koleso_J1": 3.729452826046811e-06
+ },
+ "gears": {
+  "pan": {
+   "min_flank_gap_mm": 0.0382,
+   "points_inside_other_gear": 0,
+   "worst_at": {
+    "j1": 70.0,
+    "pan": -50.5
+   },
+   "n_angles": 722
+  },
+  "J1": {
+   "min_flank_gap_mm": 0.0396,
+   "points_inside_other_gear": 0,
+   "worst_at": {
+    "j1": -139.9
+   },
+   "n_angles": 614
+  }
+ },
+ "gears_wrong_sign_control": {
+  "pan": {
+   "min_flank_gap_mm": 0.0027,
+   "points_inside_other_gear": 9090,
+   "worst_at": {
+    "j1": 70.0,
+    "pan": -55.5
+   },
+   "n_angles": 73
+  },
+  "J1": {
+   "min_flank_gap_mm": 0.0019,
+   "points_inside_other_gear": 28365,
+   "worst_at": {
+    "j1": -143.4
+   },
+   "n_angles": 62
+  }
+ },
+ "crank_pin_in_slot": {
+  "n": 362,
+  "y_margin_front": 0.5,
+  "y_margin_back": -0.0,
+  "z_offset_max": 0.0,
+  "pin_pos_dev": 0.0,
+  "mesh_r_max": 1.0,
+  "slot_half_width": 1.1,
+  "pin_r": 1.0,
+  "slot_centre_y": [
+   12.7,
+   23.2
+  ],
+  "slot_centre_z_rest": -34.2,
+  "side_play": 0.1,
+  "note": "ear frame = L_ucho rest frame; y margins = distance of the pin centre to the slot end-arc centres"
+ },
+ "decimation": {
+  "crisp_max": 7.57227383011615e-06,
+  "decimated_max": 0.14632124832538607,
+  "decimated_p99_max": 0.11558039462907459,
+  "worst": [
+   [
+    0.146,
+    0.116,
+    "led_dosky"
+   ],
+   [
+    0.066,
+    0.026,
+    "T_bok_L"
+   ],
+   [
+    0.062,
+    0.026,
+    "ram_displeja"
+   ],
+   [
+    0.038,
+    0.021,
+    "hlava_skrupina"
+   ],
+   [
+    0.036,
+    0.028,
+    "T_klb_P"
+   ],
+   [
+    0.036,
+    0.008,
+    "magnety"
+   ],
+   [
+    0.035,
+    0.026,
+    "T_klb_L"
+   ],
+   [
+    0.034,
+    0.029,
+    "T_stred"
+   ],
+   [
+    0.033,
+    0.029,
+    "T_spodok"
+   ],
+   [
+    0.032,
+    0.032,
+    "klzny_kruzok"
+   ],
+   [
+    0.031,
+    0.031,
+    "ptfe_podlozka"
+   ],
+   [
+    0.031,
+    0.026,
+    "T_bok_P"
+   ]
+  ],
+  "note": "distance from each GLB vertex (rest) to the source STL surface: exact point-triangle distance to the triangles owning the 12 nearest points of a 40 / mm2 random surface sampling (max, 99th percentile). Visual model only - the kinematic check uses the undecimated source points."
+ },
+ "constants_checked": 258,
+ "constants_failed": [],
+ "import_rest_check": {
+  "joint_rest_translation_dev_m": 7.450580596923828e-09,
+  "mesh_world_identity_dev": 7.451e-06
+ },
+ "animation_clips": {
+  "1_J1_otacanie_trupu": {
+   "seconds": 8.0,
+   "coupling_err": {
+    "pinion_J1": 2.4409068373643095e-05,
+    "pan_pinion": 5.122642488176062e-06,
+    "lift_vs_theta": 8.845329284995485e-06
+   },
+   "within_limits": {
+    "j1": true,
+    "pan": true,
+    "theta": true,
+    "tilt": true
+   }
+  },
+  "2_PAN_otacanie_hlavy": {
+   "seconds": 8.0,
+   "coupling_err": {
+    "pinion_J1": 1.7075474960586874e-06,
+    "pan_pinion": 6.044425106210838e-05,
+    "lift_vs_theta": 8.845329284995485e-06
+   },
+   "within_limits": {
+    "j1": true,
+    "pan": true,
+    "theta": true,
+    "tilt": true
+   }
+  },
+  "3_ZDVIH_vysunutie_krku": {
+   "seconds": 7.0,
+   "coupling_err": {
+    "pinion_J1": 1.7075474960586874e-06,
+    "pan_pinion": 5.122642488176062e-06,
+    "lift_vs_theta": 1.0824957927368928e-05
+   },
+   "within_limits": {
+    "j1": true,
+    "pan": true,
+    "theta": true,
+    "tilt": true
+   }
+  },
+  "4_NAKLON_hlavy": {
+   "seconds": 11.0,
+   "coupling_err": {
+    "pinion_J1": 1.7075474960586874e-06,
+    "pan_pinion": 5.122642488176062e-06,
+    "lift_vs_theta": 9.292364079982462e-06
+   },
+   "within_limits": {
+    "j1": true,
+    "pan": true,
+    "theta": true,
+    "tilt": true
+   }
+  },
+  "5_DEMO_vsetko": {
+   "seconds": 14.0,
+   "coupling_err": {
+    "pinion_J1": 1.93108851362922e-05,
+    "pan_pinion": 8.234427745890116e-05,
+    "lift_vs_theta": 1.0824957927368928e-05
+   },
+   "within_limits": {
+    "j1": true,
+    "pan": true,
+    "theta": true,
+    "tilt": true
+   }
+  }
+ },
+ "verdict": {
+  "kinematics_ok": true,
+  "surface_ok": true,
+  "gears_ok": true,
+  "pin_ok": true,
+  "constants_ok": true
+ }
+}

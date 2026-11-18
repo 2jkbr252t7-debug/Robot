@@ -1,0 +1,491 @@
+<title>NOVA mechanizmy</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;650&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* layout: one working screen – 3D stage first, a control column beside it (under it on a phone);
+   the column reads top to bottom: pick a mechanism -> read how it works -> drive it -> see the servo angles */
+:root {
+  --bg: #eef0ee;
+  --panel: #ffffff;
+  --ink: #1b1e21;
+  --muted: #5d6670;
+  --line: #d5dad8;
+  --accent: #0f8f9e;          /* the robot's cyan light, darkened for text and controls */
+  --accent-soft: #d6eef1;
+  --brass: #9a6b12;           /* gears and the J1 / pan drive */
+  --stage: #c8c4c1;           /* studio grey of the reference picture */
+  --chip: rgba(255, 255, 255, 0.92);
+  --f-display: "Sora", "Segoe UI", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141719; --panel: #1c2023; --ink: #e8ecea; --muted: #9aa5ad; --line: #2c3236;
+    --accent: #5fd6e4; --accent-soft: #163a40; --brass: #e2b45a; --stage: #2a2d30; --chip: rgba(28, 32, 35, 0.92);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141719; --panel: #1c2023; --ink: #e8ecea; --muted: #9aa5ad; --line: #2c3236;
+  --accent: #5fd6e4; --accent-soft: #163a40; --brass: #e2b45a; --stage: #2a2d30; --chip: rgba(28, 32, 35, 0.92);
+  color-scheme: dark;
+}
+[hidden] { display: none !important; }
+html, body { height: 100%; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.45;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 14px; box-sizing: border-box;
+}
+*, *::before, *::after { box-sizing: inherit; }
+.app { height: 100%; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 14px; min-height: 0; }
+.stage { position: relative; background: var(--stage); border-radius: 14px; overflow: hidden; min-height: 320px; min-width: 0; }
+.stage canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+#loading { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--f-display); font-size: 16px; color: var(--ink); text-align: center; padding: 16px; }
+.hint { position: absolute; left: 14px; right: 14px; bottom: 12px; font-size: 13px; color: var(--ink); opacity: .62; pointer-events: none; }
+.chip {
+  position: absolute; left: 12px; top: 12px; max-width: calc(100% - 24px); background: var(--chip); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 10px; padding: 7px 10px; font-size: 13.5px; pointer-events: none;
+}
+.chip b { font-family: var(--f-mono); font-weight: 500; font-size: 12px; color: var(--muted); display: block; }
+.side { display: flex; flex-direction: column; gap: 12px; min-width: 0; overflow-y: auto; }
+h1 { font-family: var(--f-display); font-weight: 650; font-size: 22px; margin: 0; text-wrap: balance; }
+.lead { margin: 0; color: var(--muted); font-size: 14px; }
+.group { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.group h2 { font-family: var(--f-body); font-weight: 600; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0; }
+.row { display: flex; flex-wrap: wrap; gap: 7px; }
+button {
+  font: 500 14px var(--f-body); color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 9px;
+  padding: 7px 11px; cursor: pointer;
+}
+button:hover { border-color: var(--accent); }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button[aria-pressed="true"], button[aria-selected="true"] { background: var(--accent-soft); border-color: var(--accent); }
+.tabs button { flex: 1 1 auto; }
+.explain h2.title { font-family: var(--f-display); font-size: 17px; font-weight: 650; letter-spacing: 0; text-transform: none; color: var(--ink); }
+.explain p { margin: 0; }
+.explain .watch { color: var(--muted); font-size: 14px; }
+dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 5px 12px; font-size: 14px; }
+dt { color: var(--muted); }
+dd { margin: 0; font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-size: 13px; text-align: right; }
+.slider { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; align-items: baseline; }
+.slider label { font-size: 14px; }
+.slider output { font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-size: 13px; color: var(--muted); }
+.slider input { grid-column: 1 / -1; width: 100%; accent-color: var(--accent); margin: 2px 0 0; }
+.slider .range { grid-column: 1 / -1; font-size: 12px; color: var(--muted); }
+.play { display: flex; gap: 7px; flex-wrap: wrap; }
+.note { margin: 0; font-size: 13px; color: var(--muted); }
+.servo dd.brass { color: var(--brass); }
+@media (max-width: 820px) {
+  html, body { height: auto; min-height: 100%; }
+  .app { grid-template-columns: minmax(0, 1fr); height: auto; }
+  .stage { height: 60vh; }
+  .side { overflow: visible; }
+  .hint { font-size: 12px; }
+}
+</style>
+
+<div class="app">
+  <div class="stage" id="stage">
+    <div id="loading">Načítavam 3D model (asi 7 MB)…</div>
+    <div class="chip" id="chip" hidden></div>
+    <div class="hint">Ťahaním otáčaš · kolieskom alebo dvoma prstami približuješ · ťuknutím na diel uvidíš jeho názov</div>
+  </div>
+
+  <div class="side">
+    <div>
+      <h1>NOVA mini – ako sa hýbe</h1>
+      <p class="lead">Trup rev. 2 s hotovým krkom a hlavou. Vyber pohyb, pozri sa, ako ho poháňa servo, a skús ho sám posúvaním.</p>
+    </div>
+
+    <div class="group">
+      <h2>Pohyb</h2>
+      <div class="row tabs" role="tablist" aria-label="Pohyb">
+        <button type="button" role="tab" id="tab-j1" data-mech="j1">Trup</button>
+        <button type="button" role="tab" id="tab-pan" data-mech="pan">Otočenie hlavy</button>
+        <button type="button" role="tab" id="tab-lift" data-mech="lift">Zdvih krku</button>
+        <button type="button" role="tab" id="tab-tilt" data-mech="tilt">Náklon hlavy</button>
+        <button type="button" role="tab" id="tab-all" data-mech="all">Všetko</button>
+      </div>
+    </div>
+
+    <div class="group explain" id="explain" aria-live="polite">
+      <h2 class="title" id="ex-title"></h2>
+      <p id="ex-how"></p>
+      <p class="watch" id="ex-watch"></p>
+      <dl id="ex-facts"></dl>
+    </div>
+
+    <div class="group">
+      <h2>Ovládanie</h2>
+      <div class="play">
+        <button type="button" id="play" aria-pressed="true">Pozastaviť ukážku</button>
+        <button type="button" id="rest">Pokojová poloha</button>
+      </div>
+      <div class="slider">
+        <label for="s-j1">Trup (J1)</label><output id="o-j1" for="s-j1">0°</output>
+        <input type="range" id="s-j1" min="-150" max="150" step="1" value="0">
+        <span class="range">−150° až +150° (doraz ±153°)</span>
+      </div>
+      <div class="slider">
+        <label for="s-pan">Otočenie hlavy</label><output id="o-pan" for="s-pan">0°</output>
+        <input type="range" id="s-pan" min="-85" max="85" step="1" value="0">
+        <span class="range">−85° až +85° (doraz ±90°), + = hlava sa pozrie doľava</span>
+      </div>
+      <div class="slider">
+        <label for="s-lift">Zdvih krku</label><output id="o-lift" for="s-lift">0 mm</output>
+        <input type="range" id="s-lift" min="0" max="20" step="0.25" value="0">
+        <span class="range">0 až 20 mm</span>
+      </div>
+      <div class="slider">
+        <label for="s-tilt">Náklon hlavy</label><output id="o-tilt" for="s-tilt">0°</output>
+        <input type="range" id="s-tilt" min="-10" max="4" step="0.5" value="0">
+        <span class="range" id="r-tilt">povolené teraz: 10° hore až 4° dole</span>
+      </div>
+    </div>
+
+    <div class="group servo">
+      <h2>Serva v tejto polohe</h2>
+      <dl>
+        <dt>STS3215 – trup</dt><dd id="v-j1" class="brass">0°</dd>
+        <dt>STS3032 – hlava (prevod 2 : 1)</dt><dd id="v-pan" class="brass">0°</dd>
+        <dt>MG90S – kľuka zdvihu</dt><dd id="v-lift">0°</dd>
+        <dt>MG90S – náklon v krku</dt><dd id="v-tilt">0°</dd>
+      </dl>
+    </div>
+
+    <div class="group">
+      <h2>Zobraziť</h2>
+      <div class="row" role="group" aria-label="Kryty trupu">
+        <button type="button" id="sh-solid" data-shell="solid">Kryty plné</button>
+        <button type="button" id="sh-ghost" data-shell="ghost">Priehľadné</button>
+        <button type="button" id="sh-off" data-shell="off">Bez krytov</button>
+      </div>
+      <div class="row">
+        <button type="button" id="t-head" aria-pressed="true">Hlava</button>
+        <button type="button" id="t-stand" aria-pressed="true">Skúšobný stojan</button>
+      </div>
+      <p class="note">Ploché káble (FFC) nie sú zobrazené – pri pohybe menia tvar. Podstavec ešte nie je navrhnutý; namiesto neho je tu skúšobný stojan s centrálnym kolesom.</p>
+    </div>
+  </div>
+</div>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+
+const $ = (id) => document.getElementById(id);
+const fmt = (v, d = 0) => (Math.abs(v) < 0.5 * 10 ** -d ? 0 : v).toFixed(d).replace(".", ",").replace("-", "−");
+const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// ---------------------------------------------------------------- mechanisms (texts and numbers from the design)
+const MECH = {
+  j1: {
+    title: "Otáčanie trupu (J1)",
+    how: "Servo STS3215 sedí v spodku trupu hriadeľom dole. Na hriadeli má mosadzný pastorok 18 zubov, ktorý zaberá do rovnako veľkého kolesa pevne v podstavci. Keď sa servo točí, pastorok sa odvaľuje okolo stojaceho kolesa a celý trup sa otočí na ložisku 6805.",
+    watch: "Pozri sa zospodu: pastorok obieha okolo mosadzného kolesa v strede a zároveň sa točí okolo svojej osi.",
+    facts: [["Prevod", "1 : 1"], ["Rozsah", "±150° (doraz ±153°)"], ["Ložisko", "6805-2RS 25 × 37 × 7"], ["Ochrana", "trecia spojka v podstavci, sila serva ≤ 30 %"]],
+    view: "j1", shells: "ghost", ghost: [], key: ["pastorok_J1", "Z_koleso_J1", "servo_J1", "lozisko_6805_vonkajsi", "lozisko_6805_vnutorny"],
+  },
+  pan: {
+    title: "Otočenie hlavy",
+    how: "Servo STS3032 stojí vpredu pod palubou hriadeľom hore. Jeho oceľový pastorok 18 zubov točí mosadzné koleso 36 zubov prilepené pod šachtou. Šachta s krkom, servom zdvihu a hlavou sa otáča – dole na čape s teflónovou páskou, hore v teflónovom ložisku stredného krytu.",
+    watch: "Servo sa točí dvakrát viac ako hlava. Na konci rozsahu narazí zub na držiaku serva zdvihu na oceľový kolík.",
+    facts: [["Prevod", "2 : 1 (modul 0,8; 18 / 36 zubov)"], ["Rozsah", "±85° (doraz ±90°)"], ["Osová vzdialenosť", "21,6 mm"], ["Uloženie", "čap Ø7,7 dole, ložisko Ø53 hore"]],
+    view: "pan", shells: "ghost", ghost: ["P_sachta", "golier_kotuc", "krk_predna_polovica", "krk_zadna_polovica", "L_pata", "DPS_krk", "HEAD",
+      "reproduktor", "T_drziak_repro", "tesnenie_repro", "T_drziak_led", "DPS_led", "vyvod_led", "vyvod_repro"],
+    key: ["pastorok_pan", "koleso_pan", "servo_pan", "kolik_dorazu_1", "kolik_dorazu_2", "P_drziak_serva", "T_cap"],
+  },
+  lift: {
+    title: "Zdvih krku",
+    how: "Na zadnej stene šachty sedí servo MG90S a točí sa spolu s hlavou. Na jeho hriadeli je hliníková kľuka s oceľovým čapom na polomere 10 mm. Čap sa posúva vo vodorovnej drážke nerezového ucha, ktoré je priskrutkované k hliníkovej pätke pod krkom. Keď kľuka prejde z 0° na 180°, krk vyjde o 20 mm.",
+    watch: "Pri krajoch sa krk hýbe pomaly, v strede rýchlo. Pri 0° aj 180° je kľuka vystretá – váhu hlavy vtedy nesie čap a hriadeľ, nie sila serva.",
+    facts: [["Zdvih", "10 × (1 − cos θ) mm"], ["Kľuka", "hliníkové rameno, čap Ø2 na r 10"], ["Drážka ucha", "2,2 × 12,7 mm, nerez 1,5"], ["Rozsah", "0 až 20 mm"]],
+    view: "lift", shells: "ghost", ghost: ["P_sachta", "golier_kotuc"], key: ["rameno_zdvih", "cap_kluky", "L_ucho", "L_pata", "servo_zdvih"],
+  },
+  tilt: {
+    title: "Náklon hlavy",
+    how: "Druhé servo MG90S je hore v krku, hriadeľom na osi závesu. Jeho páka je zaklinená v ľavom uchu hlavy, na druhej strane je ložisko MR85. Hlava sa kýve dopredu a dozadu.",
+    watch: "Pri zasunutom krku sa hlava skloní len málo, inak by narazila na golier. Firmvér preto obmedzí náklon podľa vysunutia – vyskúšaj posuvník zdvihu.",
+    facts: [["Dole najviac", "min(40°; 4° + 1,9° na mm zdvihu)"], ["Hore najviac", "10° / 30° / 40° (zdvih < 7,5 / < 12,5 / viac)"], ["Os závesu", "MG90S + ložisko MR85"]],
+    view: "tilt", shells: "solid", ghost: [], key: ["servo_MG90S", "paka"],
+  },
+  all: {
+    title: "Všetko naraz",
+    how: "Štyri serva, štyri nezávislé pohyby: trup sa otáča voči podstavcu, hlava voči trupu, krk sa vysúva a hlava sa nakláňa. Každý pohyb má svoje servo, takže sa dajú kombinovať.",
+    watch: "Posúvaním si nastav ľubovoľnú polohu; kontrola v návrhu overila, že sa nikde nič nezráža.",
+    facts: [["Trup", "STS3215, ±150°"], ["Hlava", "STS3032, ±85°"], ["Krk", "MG90S s kľukou, 0–20 mm"], ["Náklon", "MG90S v krku"]],
+    view: "all", shells: "solid", ghost: [], key: [],
+  },
+};
+
+// camera presets in the model frame (metres, Y up, robot front = +Z, robot left = +X)
+const VIEWS = {
+  all: { pos: [0.27, 0.10, 0.50], tgt: [0, -0.005, 0] },
+  j1: { pos: [0.16, -0.19, 0.19], tgt: [0, -0.086, 0] },
+  pan: { pos: [0.055, 0.105, 0.115], tgt: [-0.004, -0.044, 0.008] },
+  lift: { pos: [-0.27, 0.015, -0.05], tgt: [-0.01, -0.018, -0.01] },
+  tilt: { pos: [0.30, 0.09, 0.14], tgt: [0, 0.03, 0] },
+};
+
+// ---------------------------------------------------------------- limits (firmware rule of the design)
+const tiltDown = (lift) => Math.min(40, 4 + 1.9 * lift);
+const tiltUp = (lift) => (lift < 7.5 ? 10 : lift < 12.5 ? 30 : 40);
+const thetaOf = (lift) => THREE.MathUtils.radToDeg(Math.acos(THREE.MathUtils.clamp(1 - lift / 10, -1, 1)));
+const liftOf = (theta) => 10 * (1 - Math.cos(THREE.MathUtils.degToRad(theta)));
+const clampTilt = (t, lift) => THREE.MathUtils.clamp(t, -tiltUp(lift), tiltDown(lift));
+
+// demos: functions of time (s) -> pose; lift driven through the crank angle so the dead centres are visible
+const DEMO = {
+  j1: (t) => ({ j1: 120 * Math.sin((2 * Math.PI * t) / 9), pan: 0, lift: 0, tilt: 0 }),
+  pan: (t) => ({ j1: 0, pan: 80 * Math.sin((2 * Math.PI * t) / 7), lift: 0, tilt: 0 }),
+  lift: (t) => ({ j1: 0, pan: 0, lift: liftOf(90 * (1 - Math.cos((2 * Math.PI * t) / 6))), tilt: 0 }),
+  tilt: (t) => ({ j1: 0, pan: 0, lift: 20, tilt: 34 * Math.sin((2 * Math.PI * t) / 4) }),
+  all: (t) => {
+    const lift = liftOf(90 * (1 - Math.cos((2 * Math.PI * t) / 8)));
+    return { j1: 45 * Math.sin((2 * Math.PI * t) / 13), pan: 60 * Math.sin((2 * Math.PI * t) / 6.5), lift, tilt: clampTilt(25 * Math.sin((2 * Math.PI * t) / 3.7), lift) };
+  },
+};
+
+// ---------------------------------------------------------------- three.js scene
+const stage = $("stage"), loading = $("loading"), chip = $("chip");
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+stage.prepend(renderer.domElement);
+const scene = new THREE.Scene();
+scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
+const key = new THREE.DirectionalLight(0xffffff, 1.5); key.position.set(-0.5, 0.9, 0.9); scene.add(key);
+const camera = new THREE.PerspectiveCamera(28, 1, 0.005, 5);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.dampingFactor = 0.08; controls.minDistance = 0.06; controls.maxDistance = 1.2;
+camera.position.set(...VIEWS.all.pos); controls.target.set(...VIEWS.all.tgt); controls.update();
+
+let camTween = null;
+function flyTo(name) {
+  const v = VIEWS[name];
+  const to = { pos: new THREE.Vector3(...v.pos), tgt: new THREE.Vector3(...v.tgt) };
+  if (reduced) { camera.position.copy(to.pos); controls.target.copy(to.tgt); controls.update(); return; }
+  camTween = { t0: performance.now(), from: { pos: camera.position.clone(), tgt: controls.target.clone() }, to };
+}
+
+// ---------------------------------------------------------------- state
+const S = { j1: 0, pan: 0, lift: 0, tilt: 0 };
+let mech = "all", playing = !reduced, demoT = 0, blend = null, shellMode = "solid";
+const J = {}, REST = {};
+const AX_Y = new THREE.Vector3(0, 1, 0), AX_X = new THREE.Vector3(1, 0, 0), AX_MX = new THREE.Vector3(-1, 0, 0);
+let ready = false;
+const meshes = [], pickable = [];
+let headOn = true, standOn = true;
+
+function rot(name, axis, deg) { J[name].quaternion.setFromAxisAngle(axis, THREE.MathUtils.degToRad(deg)); }
+function applyPose() {
+  if (!ready) return;
+  rot("J1", AX_Y, S.j1);
+  rot("pinion_J1", AX_Y, S.j1);          // pinion rolls on the static sun gear (18 / 18): +1 x j1 relative to the torso
+  rot("pan_pinion", AX_Y, -2 * S.pan);    // 36 / 18
+  rot("PAN", AX_Y, S.pan);
+  rot("crank", AX_MX, thetaOf(S.lift));
+  J.LIFT.position.set(REST.LIFT.x, REST.LIFT.y + S.lift / 1000, REST.LIFT.z);
+  rot("TILT", AX_X, S.tilt);
+}
+
+// ---------------------------------------------------------------- UI sync
+const sl = { j1: $("s-j1"), pan: $("s-pan"), lift: $("s-lift"), tilt: $("s-tilt") };
+function syncUI() {
+  const up = tiltUp(S.lift), down = tiltDown(S.lift);
+  sl.tilt.min = String(-up); sl.tilt.max = String(down);
+  for (const k of Object.keys(sl)) if (document.activeElement !== sl[k] || playing) sl[k].value = String(S[k]);
+  $("o-j1").textContent = fmt(S.j1) + "°";
+  $("o-pan").textContent = fmt(S.pan) + "°";
+  $("o-lift").textContent = fmt(S.lift, 1) + " mm";
+  $("o-tilt").textContent = S.tilt > 0.25 ? fmt(S.tilt, 1) + "° dole" : S.tilt < -0.25 ? fmt(-S.tilt, 1) + "° hore" : "0°";
+  $("r-tilt").textContent = "povolené teraz: " + fmt(up) + "° hore až " + fmt(down, 1) + "° dole";
+  $("v-j1").textContent = fmt(S.j1) + "°";
+  $("v-pan").textContent = fmt(-2 * S.pan) + "°";
+  $("v-lift").textContent = "θ " + fmt(thetaOf(S.lift)) + "°";
+  $("v-tilt").textContent = fmt(S.tilt, 1) + "°";
+}
+function setPlaying(on) {
+  playing = on;
+  const b = $("play");
+  b.setAttribute("aria-pressed", String(on));
+  b.textContent = on ? "Pozastaviť ukážku" : "Spustiť ukážku";
+}
+function showMech(name, { fly = true } = {}) {
+  mech = name;
+  const m = MECH[name];
+  for (const b of document.querySelectorAll("[data-mech]")) b.setAttribute("aria-selected", String(b.dataset.mech === name));
+  $("ex-title").textContent = m.title; $("ex-how").textContent = m.how; $("ex-watch").textContent = m.watch;
+  const dl = $("ex-facts"); dl.replaceChildren();
+  for (const [k, v] of m.facts) { const dt = document.createElement("dt"); dt.textContent = k; const dd = document.createElement("dd"); dd.textContent = v; dl.append(dt, dd); }
+  setShells(m.shells);
+  if (fly) flyTo(m.view);
+  demoT = 0; blend = { t: 0, from: { ...S } };
+  if (!reduced) setPlaying(true);
+}
+
+// ---------------------------------------------------------------- shells, ghosts, highlight, visibility (one place decides each mesh)
+function ghostOf(mat) {
+  const g = mat.clone();
+  g.transparent = true; g.opacity = 0.14; g.depthWrite = false;
+  return g;
+}
+function hotOf(mat) {
+  const h = mat.clone();
+  if (h.emissive) { h.emissive = new THREE.Color(0x0fb5c8); h.emissiveIntensity = 0.35; }
+  return h;
+}
+function refresh() {
+  const m = MECH[mech], ghostSet = new Set(m.ghost), keySet = new Set(m.key);
+  for (const o of meshes) {
+    const u = o.userData, part = u.partName;
+    let ghost = false, visible = true;
+    if (u.shell) { ghost = shellMode === "ghost"; visible = shellMode !== "off"; }
+    if (u.stand) { ghost = shellMode !== "solid"; visible = standOn; }
+    if (ghostSet.has(part) || (u.head && ghostSet.has("HEAD"))) ghost = true;
+    if (u.head && !headOn) visible = false;
+    o.visible = visible;
+    if (ghost) o.material = u.ghostMat || (u.ghostMat = ghostOf(u.base));
+    else if (keySet.has(part)) o.material = u.hotMat || (u.hotMat = hotOf(u.base));
+    else o.material = u.base;
+  }
+}
+function setShells(mode) {
+  shellMode = mode;
+  for (const b of document.querySelectorAll("[data-shell]")) b.setAttribute("aria-pressed", String(b.dataset.shell === mode));
+  refresh();
+}
+
+// ---------------------------------------------------------------- load the model (published as base64 text of the GLB)
+const MODEL = "nova_mechanizmy.txt";
+const TORSO_SHELLS = new Set(["T_stred", "T_bok_L", "T_bok_P", "T_dvere", "T_klb_L", "T_klb_P", "T_spodok", "T_mriezka", "T_svetlovod", "golier_prstenec"]);
+fetch(MODEL).then((r) => { if (!r.ok) throw new Error(r.status); return r.text(); })
+  .then((b64) => { const bin = atob(b64.trim()); const u8 = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i); return u8.buffer; })
+  .then((buf) => new Promise((ok, bad) => new GLTFLoader().parse(buf, "", ok, bad)))
+  .then((gltf) => {
+    const root = gltf.scene;
+    for (const n of ["J1", "pinion_J1", "pan_pinion", "PAN", "crank", "LIFT", "TILT"]) {
+      J[n] = root.getObjectByName(n);
+      if (!J[n]) throw new Error("missing joint " + n);
+      REST[n] = J[n].position.clone();
+    }
+    root.traverse((o) => {
+      if (!o.isMesh) return;
+      // the part node carries the name and the Slovak label (a multi-primitive part is a group of meshes)
+      let p = o; while (p && !p.userData.label_sk && p.parent) p = p.parent;
+      const u = o.userData;
+      u.partName = p ? p.name : o.name;
+      u.label = p && p.userData.label_sk ? p.userData.label_sk : o.name;
+      for (let up = o; up; up = up.parent) { if (up.name === "base_static") u.base_static = true; if (up.name === "TILT") u.head = true; }
+      u.shell = TORSO_SHELLS.has(u.partName);
+      u.stand = u.base_static && u.partName === "Z_naboj_test";
+      u.base = o.material;
+      meshes.push(o); pickable.push(o);
+    });
+    scene.add(root);
+    ready = true;
+    loading.hidden = true;
+    showMech("all", { fly: false });
+  })
+  .catch(() => { loading.textContent = "Model sa nepodarilo načítať. Skús stránku obnoviť."; });
+
+// ---------------------------------------------------------------- controls
+for (const b of document.querySelectorAll("[data-mech]")) b.addEventListener("click", () => showMech(b.dataset.mech));
+for (const b of document.querySelectorAll("[data-shell]")) b.addEventListener("click", () => setShells(b.dataset.shell));
+$("play").addEventListener("click", () => { const on = !playing; if (on) { demoT = 0; blend = { t: 0, from: { ...S } }; } setPlaying(on); });
+$("rest").addEventListener("click", () => { setPlaying(false); blend = { t: 0, from: { ...S }, to: { j1: 0, pan: 0, lift: 0, tilt: 0 } }; });
+for (const k of Object.keys(sl)) {
+  sl[k].addEventListener("input", () => {
+    setPlaying(false); blend = null;
+    S[k] = parseFloat(sl[k].value);
+    if (k === "lift") S.tilt = clampTilt(S.tilt, S.lift);
+    applyPose(); syncUI();
+  });
+}
+function toggle(id, apply) {
+  const b = $(id);
+  b.addEventListener("click", () => { const on = b.getAttribute("aria-pressed") !== "true"; b.setAttribute("aria-pressed", String(on)); apply(on); });
+}
+toggle("t-head", (on) => { headOn = on; refresh(); });
+toggle("t-stand", (on) => { standOn = on; refresh(); });
+
+// part names on tap / hover
+const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
+let downAt = null, hoverPending = false;
+function pick(clientX, clientY) {
+  const r = renderer.domElement.getBoundingClientRect();
+  ndc.set(((clientX - r.left) / r.width) * 2 - 1, -((clientY - r.top) / r.height) * 2 + 1);
+  ray.setFromCamera(ndc, camera);
+  const hits = ray.intersectObjects(pickable, false).filter((h) => {
+    let o = h.object; while (o) { if (!o.visible) return false; o = o.parent; }
+    return !(h.object.material.transparent && h.object.material.opacity < 0.5);
+  });
+  if (!hits.length) { chip.hidden = true; return; }
+  const o = hits[0].object;
+  chip.replaceChildren();
+  const b = document.createElement("b"); b.textContent = o.userData.partName;
+  chip.append(b, document.createTextNode(o.userData.label));
+  chip.hidden = false;
+}
+renderer.domElement.addEventListener("pointerdown", (e) => { downAt = [e.clientX, e.clientY]; });
+renderer.domElement.addEventListener("pointerup", (e) => {
+  if (downAt && Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]) < 5) pick(e.clientX, e.clientY);
+  downAt = null;
+});
+renderer.domElement.addEventListener("pointermove", (e) => {
+  if (e.pointerType !== "mouse" || e.buttons || hoverPending) return;
+  hoverPending = true;
+  requestAnimationFrame(() => { hoverPending = false; if (ready) pick(e.clientX, e.clientY); });
+});
+renderer.domElement.addEventListener("pointerleave", () => { chip.hidden = true; });
+
+// ---------------------------------------------------------------- loop
+function resize() {
+  const w = stage.clientWidth, h = stage.clientHeight;
+  if (!w || !h) return;
+  renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
+}
+new ResizeObserver(resize).observe(stage); resize();
+const ease = (x) => x * x * (3 - 2 * x);
+const clock = new THREE.Clock();
+renderer.setAnimationLoop(() => {
+  const dt = Math.min(clock.getDelta(), 0.1);
+  if (camTween) {
+    const u = Math.min(1, (performance.now() - camTween.t0) / 900);
+    const k = ease(u);
+    camera.position.lerpVectors(camTween.from.pos, camTween.to.pos, k);
+    controls.target.lerpVectors(camTween.from.tgt, camTween.to.tgt, k);
+    if (u >= 1) camTween = null;
+  }
+  if (ready && (playing || blend)) {
+    let target = blend && blend.to ? blend.to : null;
+    if (playing) { demoT += dt; target = DEMO[mech](demoT); }
+    if (target) {
+      if (blend) {
+        blend.t = Math.min(1, blend.t + dt / 0.6);
+        const k = ease(blend.t);
+        for (const n of Object.keys(S)) S[n] = blend.from[n] + (target[n] - blend.from[n]) * k;
+        if (blend.t >= 1) blend = null;
+      } else Object.assign(S, target);
+      S.tilt = clampTilt(S.tilt, S.lift);
+      applyPose(); syncUI();
+    }
+  }
+  controls.update();
+  renderer.render(scene, camera);
+});
+syncUI();
+</script>
