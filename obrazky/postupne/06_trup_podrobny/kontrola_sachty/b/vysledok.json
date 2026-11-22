@@ -1,0 +1,135 @@
+{
+ "findings": [
+  {
+   "id": "B1",
+   "severity": "major",
+   "feature": "F15 pivot screw thread in T_most (Al bridge)",
+   "problem": "The ISO 7380 M3x6 grips only 0.8 mm (1.6 pitches) of thread in the 2.0 mm aluminium bridge, because the head sits on the DIN 9021 at z -41.0, the tip is at -47.0 and the bridge spans -46.2...-48.2. Spec 17.1 says '2.6 threads'. A normal screwdriver, or the 2.0 L-key that step 19 names, strips it. If it strips, the stage loses its only axial retention, and fixing it means S1-S3 plus F3b to re-tap or replace T_most.",
+   "evidence": "m01: skr_F15 z -47.0...-39.35, T_most -48.2...-46.2, engaged 0.8. m05 strip force (FED-STD-H28 area 5.547 mm2/mm, tau 0.6 Rm, assumed 0.4 mm lost to chamfers): 293-772 N, i.e. strip torque 0.18-0.46 N.m (K 0.2). Fingertip 0.10 N.m + L1x2 = 197 N gives margin 1.49 (ok). 0.3 N.m = 500 N gives margin 0.59. 0.6 N.m gives 0.29. K12 A7d assumed 'about 700 N' (no chamfer loss).",
+   "fix": "Use ISO 7380 M3x8 with 2 x DIN 125 M3 (7 x 0.5) stacked on the DIN 9021. Head face -40.0, tip -48.0 (+-0.29 length tolerance), engaged 1.51-1.8. Strip 813-1737 N = 0.49-1.04 N.m; T_cap crushes first at 0.58 N.m. Clearances: head top -38.35 is 1.85 below the neck bottom -36.5 (1.70 with L2 landed); washers r 3.5 sit inside the foot hole r 5.5 (2.0 clear). The m04 ray scan of all T4 and B parts finds nothing else in r <= 6.5, z -42...-35, so the moving >= 1.0 rule holds. At worst length tolerance the tip protrudes 0.09 below the bridge (servo top -48.3): try the screw in T_most on the bench and file the tip flush if needed. In step 19, replace 'imbus 2,0' with 'precision 2.0 hex screwdriver, fingertips'."
+  },
+  {
+   "id": "B2",
+   "severity": "major",
+   "feature": "Drum shroud: free arch at az ~76-110 and ~113-126 deg",
+   "problem": "Over these arcs the C-shroud (r 15.5-16.7, 1.2 x 3.75) is not joined to the floor. At z -41.87 the floor ends at r 15.1 / 15.33 / 14.55 (az 90 / 100 / 120) and the shroud starts at r 15.5, so the arch hangs only from its ends, and its roots are print-sharp. It is the bottom part most likely to break off: a firm finger, the 0.3 shim strips in step B4, or a drop of the bare stage. It carries no service load, but a loose chip must not end up in the pan mesh. In the documented print orientation its first layer (z -41.85, facing the plate) is an unsupported bridge of about 9.6 mm, and the print table forbids supports on the shroud.",
+   "evidence": "m04: shroud z_top runs at r 16.1: az 12-38 at -40.65 (attached), az 44-53 at -2.0 (back wall), az 70-110 at -41.85 (free), az 111 attached, az 112-128 free, az 129-134 attached. Radial probes at az 90/100/120 show two separate intervals. Inner and outer roots have no fillet (probes false). m05, fixed-fixed beam over 9.6 mm: radial break 19.4 N with no Kt, 7.7 N with Kt 2.5; vertical 60 N. Bare-stage drop at 11-21 deg tilt: about 33.5 N radial (crude model), so a crack is likely.",
+   "fix": "Preferred: a web r 15.1->15.5, z -41.9...-40.9, along az 76-126 that merges the shroud top into the back-wall bottom, plus a matching relief of about 0.6 x 1.0 in the bottom edge of the P_drziak_serva back plate (y 15.1-15.7, x -9...9.5). All three ride on the stage, so no running clearance is involved (0.2 assembly gap is enough). The FFC (r >= 16.72) and the gear (below -41.9) are untouched. Designers must re-run K2/K4. Fallback: allow 3-4 light supports on the hidden arch top (keep it <= -41.85; the plate is at -41.75), inspect after printing, handle the stage by the walls, and glue a crack with epoxy."
+  },
+  {
+   "id": "B3",
+   "severity": "minor",
+   "feature": "Print: top face of the hub disc / back floor (foot landing face)",
+   "problem": "In the documented orientation this face (z -40.65) is a 420 mm2 down-facing overhang, 365 mm2 of it more than 1 mm from the walls and up to 11.4 mm. parts.json and the print table allow supports only on the top-plate face ('vnútro prstenca' is ambiguous), while T4_tlac.png shows supports reaching into the well. Read literally, the hub disc sags or delaminates. If support nubs are left unsanded, the 0.95 floor over the FFC groove takes the foot load alone.",
+   "evidence": "m02 overhang at z -40.65: 420.2 mm2, >1 mm 365.3 mm2, >3 mm 253.8 mm2, max cantilever 11.4 mm. Needed supports are about 41.65 mm long. m05: a floor 0.1 proud reaches 11.4 MPa (vs 8.5) under any L2 >= ~10 N; sanded flat it is K12 H18, 4.25 MPa.",
+   "fix": "Text only: allow light supports (tip 0.3-0.4, pitch <= 3 mm, braced) on the hub-disc / back-floor top. Sand hub and floor flat together on a sanding block, then check the 0.15 rest gap with the 0.10 / 0.25 feelers. No space cost."
+  },
+  {
+   "id": "B4",
+   "severity": "minor",
+   "feature": "T_cap bond on aluminium, D3.4 hole slop",
+   "problem": "If the T_cap-to-Al bond is poorly prepared and lets go, the only thing holding T_cap is friction under F15. That clamp relaxes, because T_cap is at 4.45 MPa sustained, above the 4.3 limit. T_cap can then slide 0.26 in its D3.4 hole over the M3 shank, which shifts the gear centre distance and removes the backlash, so the gears bind.",
+   "evidence": "K12 S06d: bond 1.22 MPa at L8 vs 2.7 (margin 2.21). m05: radial slop (3.4-2.874)/2 = 0.26, backlash change 2 x 0.26 x tan20 = 0.19 vs target 0.04-0.08. With D3.1: slop 0.11, backlash change 0.08.",
+   "fix": "Drill the T_cap hole to D3.1 after curing, abrade the Al with P120 plus IPA, and bond with a toughened 2K epoxy. No space cost."
+  },
+  {
+   "id": "B5",
+   "severity": "minor",
+   "feature": "Gear epoxy bond: preparation, adhesive type, squeeze-out",
+   "problem": "The static demand on this bond is tiny. The real-life risks are the brass/resin thermal mismatch with a rigid epoxy, smooth brass, and squeeze-out reaching the washer zone (r <= 4.5) or the bore.",
+   "evidence": "m03/m05, assumed resin CTE 70e-6, temperature swing 20-30 K: edge shear 7-10.6 MPa with a rigid epoxy and 0.1 glue line (vs 8 ultimate), 3.5-5.3 MPa with a toughened epoxy and 0.2 line. L8 needs only 0.19 MPa (K12 H2, margin 14).",
+   "fix": "Abrade brass and resin (P120-240) and clean with IPA. Use a toughened 2K epoxy with a 0.1-0.2 glue line. Wipe the squeeze-out at the hub inner edge r 6.5 before curing."
+  },
+  {
+   "id": "B6",
+   "severity": "ok",
+   "feature": "Gear bonded 0.1 off-centre or tilted (wedge)",
+   "problem": "Checked: the mesh does not change, because the gear is centred by its own bore on T_cap. The earlier run's 'binding at e > 0.145' was wrong: the stage tilts within the gear's freedom on T_cap.",
+   "evidence": "m05: e 0.1 gives 0.1 runout at the upper journal (play 0.145) and shroud-to-tip gaps of 0.20 / 0.40. e 0.2-0.3 needs 0.08-0.24 deg of stage tilt, inside the 0.57-2.0 deg tilt freedom. A 0.1 wedge gives 0.23 deg tilt and 0.016 mm face mismatch over the 4 mm face.",
+   "fix": "None. Centre the tips in the shroud with the 0.3 shims as documented."
+  },
+  {
+   "id": "B7",
+   "severity": "minor",
+   "feature": "F10 joint (lift module to well): over-torque and preload relaxation",
+   "problem": "A normal screwdriver shears the insert bond. The failure is benign: the insert is flush with the pad face, so the clamped module plate stops it, and the joint stays located by the insert body, the dowel and the tongue/rail. The fingertip preload relaxes by creep, and the documents put no Loctite on F10, so the screws can back out under vibration.",
+   "evidence": "m05: 0.3 N.m gives 750 N vs insert bond 402 N, so the bond shears at 0.16 N.m. The pad face is at 8.7 MPa sustained at 0.10 N.m (vs 4.3). The dowel sits 3.0 deep (spec says 3.5): bearing 4.3 MPa at the L8 stop force, margin 1.98.",
+   "fix": "Add Loctite 222 on F10. Measure the M2x4xD4 insert and drill to its knurl OD + 0.1 (pad ligament 1.6; never press it in). No space cost."
+  },
+  {
+   "id": "B8",
+   "severity": "minor",
+   "feature": "Rail lips when the head is pressed hard at lift 20 (2 x L2)",
+   "problem": "At lift 20 there is no landing, so the full 60 N goes through the rail lips. This slightly exceeds the abuse allowable.",
+   "evidence": "K12 H12 x 2 = 13.8 MPa vs 12.9 (margin 0.93); break at the lower-bound strength about 112 N. At lift 0 the foot lands on the hub ring: 0.2 MPa vs 12.9 (margin 64); floor over the groove 8.5 vs 12.9 (1.52); T_most 39.8 vs 130.",
+   "fix": "Accept, or thicken the rail lips if the module allows. Not a fault of the well bottom."
+  },
+  {
+   "id": "B9",
+   "severity": "ok",
+   "feature": "Head used as a handle (L1 x 2 = 30 N): bond, retention washer, F15",
+   "problem": "Checked.",
+   "evidence": "Gear bond 0.20 MPa including the x3 peel factor, vs 2.7 (margin 13.2). F10 insert 0.3 vs 2.7. Rail upper lip 6.9 vs 8.5 (1.23). F15 197 N vs 293 N (1.49) at fingertip torque. DIN 9021 at its tolerance-low OD (8.64) on a 0.2 bore chamfer: 9.3 MPa on brass. Even with a 0.5 chamfer the washer (r >= 4.32) cannot pass the r 4.00 bore; only the axial play grows, by +0.18. Washer bending 23 MPa (steel).",
+   "fix": "None."
+  },
+  {
+   "id": "B10",
+   "severity": "minor",
+   "feature": "Bare stage dropped 0.3 m during service (S3): slim corners",
+   "problem": "In a side drop the corner touches along a line and holds. A corner-first point hit can chip the 1.34 corner edge, according to a crude model.",
+   "evidence": "m05: stage 46 g including the collar disc, 135 mJ. Line contact over 30 mm: 17 MPa vs 25.8 (margin 1.52). Point hit, plate model (desk stiffness 500 N/mm assumed): about 209 N vs 31 N to break. Corner walls confirmed at 1.21 (journal band) and 1.34 (m04, analytic plus 2-D section). The earlier 0.047 / 0.353 minima were rays grazing the window jambs.",
+   "fix": "Work over a towel or mat when the stage is out. Inside the assembled torso the stage is loaded only in compression."
+  },
+  {
+   "id": "B11",
+   "severity": "minor",
+   "feature": "Window corners print-sharp (R 0)",
+   "problem": "The back and +X window corners have no fillet, against Z3.3 (R >= 1). Nominal stress there is low.",
+   "evidence": "m04: probes find material on the wall side and none on the window side, so the corners are sharp. m05, crude in-plane estimate: L8 stop force 25.9 N on the back wall gives 1.43 MPa nominal, 4.3 MPa with Kt 3 (assumed), vs 8.5.",
+   "fix": "Add R0.5-1.0 at the window corners where the ear / crank sweep allows (K2 check by the designers)."
+  },
+  {
+   "id": "B12",
+   "severity": "minor",
+   "feature": "PTFE tape on T_cap: wear",
+   "problem": "Unfilled PTFE wears fast, and the radial mesh load always presses on the same sector of the static tape.",
+   "evidence": "m03/m05, assumptions: 4.3 N radial, 1000 moves of +-45 deg per day, wear factor k 1e-4...1e-3. Result 0.03-0.3 mm per year, so the 0.13 tape lasts 0.4-4 years. Each 0.1 of wear adds about 0.07 backlash. The thrust washer wears <= 0.04 mm per year.",
+   "fix": "Apply a PTFE-compatible grease at assembly, check the radial play at every S3 service, and keep spare tape."
+  },
+  {
+   "id": "B13",
+   "severity": "minor",
+   "feature": "Heat from the MG90S, 2 mm behind the back wall",
+   "problem": "A long hold at mid lift, or a stall, inside a warm torso approaches the 55-60 C limit of the resin and of typical epoxies.",
+   "evidence": "m05 (assumed Rth 39 K/W): hold torque at mid lift 0.023 N.m (11 % of stall), about 0.5 W, steady temperature rise about 20 K. Stall: +18 K after 60 s, +48 K after 180 s. At lift 0 and lift 20 (dead centres) no holding torque is needed.",
+   "fix": "Firmware rules already in the documents: park at lift 0, never stall both MG90S. Additionally avoid long holds at mid lift."
+  },
+  {
+   "id": "B14",
+   "severity": "ok",
+   "feature": "Creep of the hub disc, sustained loads",
+   "problem": "Checked: no preload acts on the hub disc. The gear floats with 0.10 axial play, and F15 clamps only the static T_cap.",
+   "evidence": "Head and neck 235 g (m00): 0.007 MPa on the 442 mm2 bond, 0.038 MPa in the walls, vs 4.3. T_cap is at 4.45 MPa sustained under F15 at 0.10 N.m (just above 4.3): it relaxes, adds 0.01-0.04 of axial play, and is located by its bond.",
+   "fix": "None."
+  },
+  {
+   "id": "B15",
+   "severity": "ok",
+   "feature": "Print peel / suction, thin walls",
+   "problem": "Checked.",
+   "evidence": "Section grows from 252 to 705 mm2 at the hub layer. Peel at an assumed 0.5-2 N/cm2 is 3.5-14 N, which puts 0.07 MPa on the 211 mm2 wall section. The well is open at the bottom and the top-plate vents open into the 3 mm gap, so there is no cup (K10 also passes). Walls 1.21-1.6 are all >= 1.2.",
+   "fix": "Keep cure <= 1.5x the resin datasheet, as documented."
+  },
+  {
+   "id": "B16",
+   "severity": "ok",
+   "feature": "6805 ball bearing in T_spodok (J1), in case 'the bearing' means this one",
+   "problem": "Normal use is far below its capacity. Only a drop of the whole robot onto its base could brinell it.",
+   "evidence": "2 x L2 plus weight = 70 N vs about 1.3 kN axial static (0.5 x C0; C0 2.6 kN is a catalogue value from memory, UNVERIFIED). K12 rows 51/51b: 0.24 / 0.04 MPa. Whole-robot drop, 0.7 kg, stopping distance 2 / 1 / 0.5 mm (assumed): 1.0 / 2.1 / 4.1 kN.",
+   "fix": "None for the well. A notchy J1 after a fall means a new 6805."
+  }
+ ],
+ "table": "feature | load case | stress / force | allowable | margin\nF15 M3x6 thread in Al, 0.8 engaged | fingertip 0.10 N.m + L1x2 | 197 N | 293 N strip | 1.49\nF15 M3x6 thread in Al, 0.8 engaged | normal screwdriver 0.3 N.m | 500 N | 293 N | 0.59 (MAJOR)\nF15 FIX M3x8 + 2 DIN125 (1.5-1.8 engaged) | 0.3 N.m | 500 N | 813 N | 1.63\ndrum shroud free arch 1.2x3.75, span 9.6 | firm finger 5 N (A) | 5 N | 7.7 (Kt2.5)..19.4 N | 1.5\ndrum shroud free arch | bare-stage drop 0.3 m, tilt 11-21 deg | ~33.5 N (crude) | 7.7-19.4 N | 0.23-0.58 (MAJOR)\ngear epoxy bond 442 mm2 (x3 peel) | L1x2 30 N, head as handle | 0.20 MPa | 2.7 | 13.2\nhub disc ring on brass gear | 2xL2 60 N, lift 0 | 0.20 MPa | 12.9 | 64\nback floor 0.95 over FFC groove, sanded | 2xL2 60 N, lift 0 | 8.5 MPa | 12.9 | 1.52\nsame, support nub 0.1 proud | any L2 >= 10 N | 11.4 MPa | 8.5 | 0.75\nrail lips 2.5 (K12 H12 x2) | 2xL2 60 N, lift 20 | 13.8 MPa | 12.9 | 0.93\nrail upper lip (K12 H13) | L1x2 30 N | 6.9 MPa | 8.5 | 1.23\nDIN 9021 on gear-bore edge | L1x2, OD h14 low, chamfer 0.2 | 9.3 MPa brass | ~200 | >>\nT_cap end face (crush) | 0.3 N.m | 13.3 MPa | 25.8 | 1.94\nT_cap root (K12 S06b) | L8 65 N radial | 4.16 MPa | 8.5 | 2.04\nT_cap bond on Al | L8 65 N | 1.22 MPa | 2.7 | 2.21 (slop 0.26 if it fails)\npivot PTFE journal D7.96x4 | L8 | 2.04 MPa | 5.0 | 2.45\nF10 insert bond M2x4xD4 | 0.3 N.m | 750 N | 402 N | 0.54 (benign failure)\nF10 pad face, fingertip preload | sustained | 8.7 MPa | 4.3 | 0.49 (relaxes, located)\nF10 dowel D2 in well (3.0 deep) | L8 stop 25.9 N | 4.3 MPa | 8.5 | 1.98\nback-window bottom corner R0 | L8 stop | 4.3 MPa (Kt3, A) | 8.5 | 1.98\nslim corner 1.34, line contact | bare-stage side drop 0.3 m | 17 MPa | 25.8 | 1.52\nslim corner 1.34, point hit (plate model) | corner-first drop 0.3 m | ~209 N (crude) | 31 N | 0.15 (chip possible)\ngear bond edge, thermal dT 30 K | rigid / toughened epoxy | 10.6 / 5.3 MPa | 8.0 ult. | 0.75 / 1.5\nwalls + bond, head weight | sustained | 0.038 MPa | 4.3 | 113\nPTFE tape on T_cap | wear, 1000 moves/day (A) | 0.03-0.3 mm/yr | 0.13 tape | 0.4-4 yr\n6805 (J1) | 2xL2 + weight | 70 N | ~1300 N (UNVERIFIED) | 18",
+ "verdict": "The load-carrying bottom of P_sachta will not break off. The hub disc (1.25) and back floor are bonded over 442 mm2 to the brass 36T gear. Pressing the head down hard (2 x L2) puts 0.2 MPa on the hub disc, which is backed by brass (margin 64). Lifting the robot by the head (2 x L1) peels the bond at 0.20 MPa including the x3 peel factor (margin 13), and the DIN 9021 washer cannot pass the gear bore even with a 0.5 chamfer. The slim corners measure 1.21 / 1.34 and print fine.\n\nThe real-life weak points at the bottom are not the resin walls:\n(1) MAJOR: F15 (M3x6) has only 0.8 mm of thread in the aluminium bridge and strips at 0.18-0.46 N.m, which a normal screwdriver or L-key reaches. Fix: M3x8 + 2 x DIN 125 on the DIN 9021, giving 0.49-1.04 N.m; every clearance stays >= 1.0 (head 1.85 below the neck).\n(2) MAJOR: the drum shroud's free arch (az ~76-126) is not joined to the floor and has sharp roots. It breaks at about 8-19 N sideways and prints as an unsupported 9.6 mm bridge. It carries no load, but it is the piece most likely to chip. Fix: a web r 15.1-15.5 plus a relief in the lift-module plate, or at least supports on the arch and careful handling.\n\nMinor items, all without space cost:\n- print text: allow supports on the hub-disc landing face, then sand it flat;\n- drill the T_cap hole to D3.1 and abrade the aluminium;\n- use a toughened epoxy;\n- Loctite 222 on F10, and measure the insert before drilling;\n- grease and inspect the PTFE tape;\n- R0.5-1 at the window corners;\n- avoid long holds at mid lift.\n\nStatus: buildable after the two fixes and the notes.\n\nFiles are in /tmp/claude-0/gapwf/fin/T4/sachta_b/: scripts m04_geom_check.py and m05_calcs.py with their .json outputs, and r02_label.py, which produced the three labelled 1200 px images r02_zdola.png, r02_rez_x0.png and r02_rez_roh.png (I looked at all three). report.md was NOT written, because the harness blocks report files for subagents; this structured result is the report.\n\nCorrections to the paused run:\n- the 0.047 / 0.353 corner minima were rays grazing the window jambs;\n- an off-centre bond does not cause binding;\n- a bore chamfer does not lose the retention;\n- the F15 fix now includes the screw-length tolerance;\n- the drop mass now includes the collar disc (46 g).",
+ "explanation_sk": "Šachtu drží dole nábojový kotúč hrubý 1,25 mm a zadná podlaha, ktoré sú epoxidom prilepené na mosadzné ozubené koleso. Lepená plocha má 442 mm². Koleso sa otáča na plastovom čape T_cap obalenom PTFE páskou. Zhora ho drží oceľová podložka so skrutkou F15, ktorá je zaskrutkovaná do hliníkového mostíka. Keď hlavu tlačíš dole, pätka krku dosadne na kotúč a ten leží priamo na mosadzi: tlak je len 0,2 MPa, rezerva 64-krát. Keď robota zdvihneš za hlavu, lepený spoj sa odlupuje pri 0,2 MPa, rezerva 13-krát, a podložka koleso cez čap nepustí. Spodok šachty sa teda pri bežnom používaní neodlomí a tenké rohy (1,21 a 1,34 mm) sa dobre vytlačia aj vydržia. Najslabšie miesto nie je živica, ale skrutka F15: v hliníku má len 0,8 mm závitu a strhne sa už pri 0,18 až 0,46 N·m, čo bežný skrutkovač alebo imbusový kľúč ľahko dosiahne. Namiesto M3×6 použi M3×8 a pod hlavu daj dve podložky DIN 125 M3. Závit potom vydrží 0,49 až 1,04 N·m a všetko sa stále zmestí s vôľou aspoň 1 mm. Druhé slabé miesto je oblúk obalu bubna okolo kolesa (zboku, smerom dozadu): na dĺžke asi 10 mm nie je spojený s podlahou, drží len na koncoch a pri páde alebo silnom tlaku prstom (8 až 19 N) môže prasknúť. Nič nenesie, ale odlomený kúsok nesmie spadnúť do ozubenia. Konštruktérom odporúčam doplniť spojovaciu stienku, inak pri tlači daj na oblúk pár podpier a zaobchádzaj s ním opatrne. Pri tlači nechaj podpery aj na hornej ploche kotúča, kam dosadá pätka, a potom ju zbrús rovno spolu s podlahou. Ďalej používaj húževnatý epoxid na zdrsnené plochy a otvor v T_cap prevŕtaj na Ø3,1. Na skrutky F10 daj Loctite 222 a PTFE pásku na čape premaž a pri servise skontroluj. Ložisko 6805 v spodku trupu je pri bežnom používaní zaťažené len na pár percent; poškodiť ho môže iba pád celého robota."
+}

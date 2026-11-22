@@ -1,0 +1,78 @@
+{
+ "rows": [
+  {
+   "theta_deg": 3,
+   "lift_mm": 0.0137,
+   "F_N": 412.7
+  },
+  {
+   "theta_deg": 4,
+   "lift_mm": 0.0244,
+   "F_N": 309.6
+  },
+  {
+   "theta_deg": 5,
+   "lift_mm": 0.0381,
+   "F_N": 247.8
+  },
+  {
+   "theta_deg": 6.5,
+   "lift_mm": 0.0643,
+   "F_N": 190.8
+  },
+  {
+   "theta_deg": 8,
+   "lift_mm": 0.0973,
+   "F_N": 155.2
+  },
+  {
+   "theta_deg": 10,
+   "lift_mm": 0.1519,
+   "F_N": 124.4
+  },
+  {
+   "theta_deg": 15,
+   "lift_mm": 0.3407,
+   "F_N": 83.5
+  },
+  {
+   "theta_deg": 20,
+   "lift_mm": 0.6031,
+   "F_N": 63.2
+  },
+  {
+   "theta_deg": 30,
+   "lift_mm": 1.3397,
+   "F_N": 43.2
+  },
+  {
+   "theta_deg": 45,
+   "lift_mm": 2.9289,
+   "F_N": 30.5
+  },
+  {
+   "theta_deg": 90,
+   "lift_mm": 10.0,
+   "F_N": 21.6
+  }
+ ],
+ "park_deg": 3,
+ "landing": {
+  "gap 0.15": "never lands (gap > park lift)",
+  "gap 0.1": "never lands (gap > park lift)",
+  "gap 0.05": "never lands (gap > park lift)",
+  "gap 0.0": {
+   "lands_at_deg": 3.0,
+   "squeeze_N": 413.0
+  },
+  "gap -0.05": {
+   "lands_at_deg": 6.47,
+   "squeeze_N": 192.0
+  },
+  "gap -0.1": {
+   "lands_at_deg": 8.65,
+   "squeeze_N": 144.0
+  }
+ },
+ "L1_bond_reference_N": 30.0
+}

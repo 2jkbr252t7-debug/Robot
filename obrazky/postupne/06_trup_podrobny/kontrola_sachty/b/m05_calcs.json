@@ -1,0 +1,638 @@
+{
+ "results": {
+  "F15": {
+   "current": {
+    "Le_nom": 0.8,
+    "strip_N": [
+     293,
+     772
+    ],
+    "strip_torque_Nm": [
+     0.18,
+     0.46
+    ]
+   },
+   "fix": {
+    "head_face": -40.0,
+    "tip_nom": -48.0,
+    "tip_range": [
+     -48.29,
+     -47.71
+    ],
+    "bridge": [
+     -48.2,
+     -46.2
+    ],
+    "servo_top": -48.3,
+    "Le_range": [
+     1.51,
+     2.0
+    ],
+    "protrusion_below_bridge_worst": 0.09,
+    "strip_N": [
+     813,
+     1737
+    ],
+    "strip_torque_Nm": [
+     0.49,
+     1.04
+    ],
+    "head_top": -38.35,
+    "neck_bottom": -36.5,
+    "head_to_neck": 1.85,
+    "head_to_neck_L2_landed": 1.7,
+    "din125_r_vs_foot_hole_r": [
+     3.5,
+     5.5,
+     2.0
+    ],
+    "parts_near_axis_checked": {
+     "L_pata.stl": {
+      "r_min": 5.5,
+      "z_lo": -40.5,
+      "z_hi": -36.5,
+      "lowest_bottom_at_r_le_4": null,
+      "n": 120
+     },
+     "P_sachta.stl": {
+      "r_min": 6.5,
+      "z_lo": -41.9,
+      "z_hi": -40.65,
+      "lowest_bottom_at_r_le_4": null,
+      "n": 20
+     },
+     "T_cap.stl": {
+      "r_min": 1.75,
+      "z_lo": -46.2,
+      "z_hi": -41.8,
+      "lowest_bottom_at_r_le_4": -46.2,
+      "n": 216
+     },
+     "koleso_pan.stl": {
+      "r_min": 4.0,
+      "z_lo": -45.9,
+      "z_hi": -41.9,
+      "lowest_bottom_at_r_le_4": -45.9,
+      "n": 264
+     },
+     "pd_F15.stl": {
+      "r_min": 1.75,
+      "z_lo": -41.8,
+      "z_hi": -41.0,
+      "lowest_bottom_at_r_le_4": -41.8,
+      "n": 266
+     },
+     "skr_F15.stl": {
+      "r_min": 0.0,
+      "z_lo": -47.0,
+      "z_hi": -39.35,
+      "lowest_bottom_at_r_le_4": -47.0,
+      "n": 265
+     },
+     "krk_predna_polovica.stl": {
+      "r_min": 0.0,
+      "z_lo": -36.5,
+      "z_hi": 4.098,
+      "lowest_bottom_at_r_le_4": -36.5,
+      "n": 339
+     },
+     "krk_zadna_polovica.stl": {
+      "r_min": 0.0,
+      "z_lo": -36.5,
+      "z_hi": 4.098,
+      "lowest_bottom_at_r_le_4": -36.5,
+      "n": 337
+     }
+    },
+    "T_cap_crush_torque_Nm": 0.58
+   },
+   "A_cap_mm2": 37.5
+  },
+  "washer_bending_MPa": 23.1,
+  "retention": {
+   "chamfer 0.0, nominal OD 9.0": {
+    "flat_overlap": 0.5,
+    "brass_pressure_L1x2_MPa": 2.2,
+    "extra_axial_play": 0.0,
+    "retained": true
+   },
+   "chamfer 0.0, OD 8.64 (h14 lower)": {
+    "flat_overlap": 0.32,
+    "brass_pressure_L1x2_MPa": 3.6,
+    "extra_axial_play": 0.0,
+    "retained": true
+   },
+   "chamfer 0.2, nominal OD 9.0": {
+    "flat_overlap": 0.3,
+    "brass_pressure_L1x2_MPa": 3.7,
+    "extra_axial_play": 0.0,
+    "retained": true
+   },
+   "chamfer 0.2, OD 8.64 (h14 lower)": {
+    "flat_overlap": 0.12,
+    "brass_pressure_L1x2_MPa": 9.3,
+    "extra_axial_play": 0.0,
+    "retained": true
+   },
+   "chamfer 0.3, nominal OD 9.0": {
+    "flat_overlap": 0.2,
+    "brass_pressure_L1x2_MPa": 5.4,
+    "extra_axial_play": 0.0,
+    "retained": true
+   },
+   "chamfer 0.3, OD 8.64 (h14 lower)": {
+    "flat_overlap": 0.02,
+    "brass_pressure_L1x2_MPa": 55.4,
+    "extra_axial_play": 0.0,
+    "retained": true
+   },
+   "chamfer 0.5, nominal OD 9.0": {
+    "flat_overlap": 0.0,
+    "brass_pressure_L1x2_MPa": null,
+    "extra_axial_play": -0.0,
+    "retained": true
+   },
+   "chamfer 0.5, OD 8.64 (h14 lower)": {
+    "flat_overlap": 0,
+    "brass_pressure_L1x2_MPa": null,
+    "extra_axial_play": 0.18,
+    "retained": true
+   }
+  },
+  "bond_misalignment": {
+   "eccentric 0.05": {
+    "mesh": "unchanged (the gear is centred by its own bore on T_cap)",
+    "journal_runout": 0.05,
+    "stage_tilt_needed_deg": 0.0,
+    "within_pivot_tilt": true,
+    "shroud_to_tip_gap": [
+     0.25,
+     0.35
+    ],
+    "shroud_vs_pinion_zone_margin_mm": 0.98
+   },
+   "eccentric 0.1": {
+    "mesh": "unchanged (the gear is centred by its own bore on T_cap)",
+    "journal_runout": 0.1,
+    "stage_tilt_needed_deg": 0.0,
+    "within_pivot_tilt": true,
+    "shroud_to_tip_gap": [
+     0.2,
+     0.4
+    ],
+    "shroud_vs_pinion_zone_margin_mm": 0.93
+   },
+   "eccentric 0.2": {
+    "mesh": "unchanged (the gear is centred by its own bore on T_cap)",
+    "journal_runout": 0.2,
+    "stage_tilt_needed_deg": 0.084,
+    "within_pivot_tilt": true,
+    "shroud_to_tip_gap": [
+     0.1,
+     0.5
+    ],
+    "shroud_vs_pinion_zone_margin_mm": 0.83
+   },
+   "eccentric 0.3": {
+    "mesh": "unchanged (the gear is centred by its own bore on T_cap)",
+    "journal_runout": 0.3,
+    "stage_tilt_needed_deg": 0.237,
+    "within_pivot_tilt": true,
+    "shroud_to_tip_gap": [
+     0.0,
+     0.6
+    ],
+    "shroud_vs_pinion_zone_margin_mm": 0.73
+   },
+   "wedge 0.05": {
+    "stage_tilt_deg": 0.11,
+    "face_mismatch_over_4mm": 0.008,
+    "within_pivot_tilt": true
+   },
+   "wedge 0.1": {
+    "stage_tilt_deg": 0.23,
+    "face_mismatch_over_4mm": 0.016,
+    "within_pivot_tilt": true
+   },
+   "wedge 0.2": {
+    "stage_tilt_deg": 0.45,
+    "face_mismatch_over_4mm": 0.032,
+    "within_pivot_tilt": true
+   },
+   "pivot_tilt_freedom_deg": [
+    0.57,
+    2.01
+   ]
+  },
+  "floor_groove": {
+   "defl_at_p0_mm": 0.037,
+   "stress_at_p0": 4.25,
+   "proud": {
+    "proud 0.05": {
+     "stress_MPa": 5.7,
+     "force_to_flatten_N": 5.1
+    },
+    "proud 0.1": {
+     "stress_MPa": 11.4,
+     "force_to_flatten_N": 10.3
+    }
+   },
+   "note": "A: contact patch 6 x 8 mm over the groove; the stiff hub ring takes the rest of L2 once the floor is flattened"
+  },
+  "shroud_arch": {
+   "span 9.6": {
+    "F_break_radial_N": 19.4,
+    "F_break_radial_Kt25_N": 7.7,
+    "F_break_vertical_N": 60.5
+   },
+   "span 4.0": {
+    "F_break_radial_N": 46.4,
+    "F_break_radial_Kt25_N": 18.6,
+    "F_break_vertical_N": 145.1
+   },
+   "k_N_per_mm": 187.5,
+   "energy_to_break_mJ": 1.0
+  },
+  "drop": {
+   "mass_g": 46.0,
+   "v": 2.43,
+   "E_mJ": 135.5,
+   "E_eff_mJ": 54.2,
+   "corner_point": {
+    "k_N_per_mm": 2051,
+    "F_break_N": 31.3,
+    "F_impact_N": 208.8,
+    "energy_to_break_mJ": 0.24
+   },
+   "corner_line_30mm_MPa": 17.0,
+   "shroud_arch_radial_impact_N": 33.5,
+   "tilt_window_deg": [
+    11.3,
+    20.7
+   ]
+  },
+  "F10": {
+   "pad_face_mm2": 28.7,
+   "sustained_MPa_at_0p10Nm": 8.7,
+   "insert_bond_capacity_N": 402,
+   "insert_bond_torque_Nm": 0.16,
+   "dowel_depth_in_well": 3.0,
+   "dowel_floor": 1.1,
+   "dowel_bearing_L8_MPa": 4.3,
+   "failure_mode": "insert bond shears -> the insert is pushed against the clamped module plate (insert flush with the pad face): screw stays tight, pad unclamped, joint still located by insert body in its D4.1 hole + dowel + tongue/rail"
+  },
+  "T_cap_slop": {
+   "radial_slop_D34": 0.26,
+   "backlash_change": 0.191,
+   "backlash_target": [
+    0.04,
+    0.08
+   ],
+   "radial_slop_D31": 0.11,
+   "backlash_change_D31": 0.082,
+   "bond_L8_MPa": 1.22,
+   "sustained_clamp_MPa_0p10": 4.45
+  },
+  "mg90s": {
+   "head_neck_N": 2.31,
+   "hold_torque_mid_lift_Nm": 0.023,
+   "share_of_stall": 0.11,
+   "hold_power_W_A": 0.52,
+   "dT_case_steady_K": 20.0,
+   "stall": {
+    "Rth_K_per_W": 39,
+    "tau_s": 420,
+    "dT_stall_60s": 18.3,
+    "dT_stall_180s": 47.8,
+    "dT_hold_0p6W_steady": 23.5,
+    "distance_case_to_P_sachta_mm": 2.0
+   },
+   "resin_limit_C": [
+    55,
+    60
+   ],
+   "note": "A: idle electronics 0.15 W, stall 3.5 W, case Rth 39 K/W in still air; inside the torso the air is warmer"
+  },
+  "window_corner": {
+   "F_N": 25.9,
+   "lever_mm": 12.95,
+   "Z_mm3": 234.1,
+   "s_nom": 1.43,
+   "s_Kt3": 4.3,
+   "note": "A: back wall x -6.5..20 as an in-plane cantilever from the floor; Kt 3 for a print-sharp corner"
+  },
+  "b6805": {
+   "C0_N_A": 2600,
+   "axial_static_approx_N": 1300,
+   "normal_N": 70,
+   "normal_ratio": 0.027,
+   "drop_whole_robot": {
+    "stop 0.5 mm": {
+     "g": 600,
+     "F_axial_N": 4120
+    },
+    "stop 1.0 mm": {
+     "g": 300,
+     "F_axial_N": 2060
+    },
+    "stop 2.0 mm": {
+     "g": 150,
+     "F_axial_N": 1030
+    }
+   },
+   "note": "A: 61805 C0 2.6 kN (catalogue value from memory, UNVERIFIED); axial static ~0.5 C0; torso+head 0.7 kg"
+  }
+ },
+ "table": [
+  {
+   "feature": "F15 M3x6 thread in Al bridge, 0.8 engaged",
+   "case": "fingertip 0.10 N.m + L1x2",
+   "value": 197,
+   "allowable": 293,
+   "unit": "N",
+   "margin": 1.49,
+   "note": "strip 293..772 N",
+   "sev": "ok"
+  },
+  {
+   "feature": "F15 M3x6 thread in Al bridge, 0.8 engaged",
+   "case": "normal screwdriver 0.3 N.m",
+   "value": 500,
+   "allowable": 293,
+   "unit": "N",
+   "margin": 0.59,
+   "note": "strips at 0.18..0.46 N.m",
+   "sev": "major"
+  },
+  {
+   "feature": "F15 FIX M3x8 + 2 DIN125, 1.5..1.8 engaged",
+   "case": "normal screwdriver 0.3 N.m",
+   "value": 500,
+   "allowable": 813,
+   "unit": "N",
+   "margin": 1.63,
+   "note": "strips at 0.49..1.04 N.m; T_cap crushes at 0.58 N.m",
+   "sev": "fix"
+  },
+  {
+   "feature": "DIN 9021 on the gear-bore edge (retention)",
+   "case": "L1x2 30 N, OD at h14 low, chamfer 0.2",
+   "value": 9.3,
+   "allowable": 200.0,
+   "unit": "MPa",
+   "margin": 21.51,
+   "note": "brass; with a 0.5 chamfer the washer sits on the cone, play +0.18, still retained",
+   "sev": "ok"
+  },
+  {
+   "feature": "back floor 0.95 over FFC groove, support nub 0.1 proud",
+   "case": "any L2 >= ~10 N, lift 0",
+   "value": 11.4,
+   "allowable": 8.5,
+   "unit": "MPa",
+   "margin": 0.75,
+   "note": "sand the landing face flat -> back to K12 H18 4.25",
+   "sev": "minor"
+  },
+  {
+   "feature": "drum shroud free arch 1.2 x 3.75, span 9.6, sharp ends",
+   "case": "radial push / hit",
+   "value": 5.0,
+   "allowable": 7.7,
+   "unit": "N",
+   "margin": 1.54,
+   "note": "breaks at 7.7..19.4 N (Kt 2.5..1); demand = a firm finger 5 N (A)",
+   "sev": "major"
+  },
+  {
+   "feature": "slim corner 1.34, side drop, line contact 30 mm",
+   "case": "drop 0.3 m, bare stage",
+   "value": 17.0,
+   "allowable": 25.8,
+   "unit": "MPa",
+   "margin": 1.52,
+   "note": "vs lower-bound strength (one-off event)",
+   "sev": "ok"
+  },
+  {
+   "feature": "slim corner 1.34, corner-first point hit (plate model)",
+   "case": "drop 0.3 m, bare stage",
+   "value": 208.8,
+   "allowable": 31.3,
+   "unit": "N",
+   "margin": 0.15,
+   "note": "crude spring model: a chip is possible",
+   "sev": "minor"
+  },
+  {
+   "feature": "drum shroud free arch, hit at 11..21 deg tilt",
+   "case": "drop 0.3 m, bare stage",
+   "value": 33.5,
+   "allowable": 7.7,
+   "unit": "N",
+   "margin": 0.23,
+   "note": "likely crack at the arch ends",
+   "sev": "major"
+  },
+  {
+   "feature": "F10 pad face under the fingertip preload (sustained)",
+   "case": "0.10 N.m, creep",
+   "value": 8.7,
+   "allowable": 4.3,
+   "unit": "MPa",
+   "margin": 0.49,
+   "note": "relaxes; harmless (located) but add Loctite 222 so F10 cannot back out",
+   "sev": "minor"
+  },
+  {
+   "feature": "F10 insert bond (M2x4xOD4)",
+   "case": "normal screwdriver 0.3 N.m",
+   "value": 750,
+   "allowable": 402,
+   "unit": "N",
+   "margin": 0.54,
+   "note": "bond shears at 0.16 N.m - benign failure",
+   "sev": "minor"
+  },
+  {
+   "feature": "F10 dowel D2 in P_sachta (3.0 deep)",
+   "case": "L8 stop 25.9 N",
+   "value": 4.3,
+   "allowable": 8.5,
+   "unit": "MPa",
+   "margin": 1.98,
+   "note": "",
+   "sev": "ok"
+  },
+  {
+   "feature": "T_cap bond on Al (if prep is poor: slides in the D3.4 hole)",
+   "case": "L8 65 N radial",
+   "value": 1.22,
+   "allowable": 2.7,
+   "unit": "MPa",
+   "margin": 2.21,
+   "note": "if it lets go: C shifts <= 0.26 -> backlash -0.191 (binding)",
+   "sev": "minor"
+  },
+  {
+   "feature": "back-window bottom corner x -6.5 / floor, sharp",
+   "case": "L8 stop 0.88 N.m",
+   "value": 4.3,
+   "allowable": 8.5,
+   "unit": "MPa",
+   "margin": 1.98,
+   "note": "crude in-plane estimate, Kt 3 (A)",
+   "sev": "minor"
+  },
+  {
+   "feature": "36T gear epoxy bond (442 mm2), x3 peel",
+   "case": "L1 x2 = 30 N (head as a handle)",
+   "value": 0.204,
+   "allowable": 2.7,
+   "unit": "MPa",
+   "margin": 13.24,
+   "note": "K12 H3 (re-derived m03)",
+   "sev": "ok"
+  },
+  {
+   "feature": "F10 insert bond, L1 share",
+   "case": "L1 x2 = 30 N",
+   "value": 0.3,
+   "allowable": 2.7,
+   "unit": "MPa",
+   "margin": 9.0,
+   "note": "K12 H14",
+   "sev": "ok"
+  },
+  {
+   "feature": "rail upper lip 2.5",
+   "case": "L1 x2 = 30 N",
+   "value": 6.9,
+   "allowable": 8.5,
+   "unit": "MPa",
+   "margin": 1.23,
+   "note": "K12 H13",
+   "sev": "ok"
+  },
+  {
+   "feature": "hub disc ring on the brass gear (compression)",
+   "case": "2 x L2 = 60 N, lift 0",
+   "value": 0.2,
+   "allowable": 12.9,
+   "unit": "MPa",
+   "margin": 64.5,
+   "note": "landed 305.5 mm2",
+   "sev": "ok"
+  },
+  {
+   "feature": "back floor 0.95 over FFC groove (sanded flat)",
+   "case": "2 x L2 = 60 N, lift 0",
+   "value": 8.5,
+   "allowable": 12.9,
+   "unit": "MPa",
+   "margin": 1.52,
+   "note": "K12 H18 x2",
+   "sev": "ok"
+  },
+  {
+   "feature": "rail lips 2.5",
+   "case": "2 x L2 = 60 N, lift 20",
+   "value": 13.8,
+   "allowable": 12.9,
+   "unit": "MPa",
+   "margin": 0.93,
+   "note": "K12 H12 x2; lower-bound break ~112 N",
+   "sev": "minor"
+  },
+  {
+   "feature": "PTFE thrust washer 24x10",
+   "case": "2 x L2 = 60 N",
+   "value": 0.15,
+   "allowable": 5.0,
+   "unit": "MPa",
+   "margin": 33.33,
+   "note": "Z3.8 sliding limit",
+   "sev": "ok"
+  },
+  {
+   "feature": "T_most Al bridge",
+   "case": "2 x L2 = 60 N",
+   "value": 39.8,
+   "allowable": 130.0,
+   "unit": "MPa",
+   "margin": 3.27,
+   "note": "17.10 x2, metal",
+   "sev": "ok"
+  },
+  {
+   "feature": "T_cap end face (crush)",
+   "case": "normal screwdriver 0.3 N.m",
+   "value": 13.3,
+   "allowable": 25.8,
+   "unit": "MPa",
+   "margin": 1.94,
+   "note": "K12 S06 x3",
+   "sev": "ok"
+  },
+  {
+   "feature": "T_cap root (K12 S06b)",
+   "case": "L8 65 N radial",
+   "value": 4.16,
+   "allowable": 8.5,
+   "unit": "MPa",
+   "margin": 2.04,
+   "note": "",
+   "sev": "ok"
+  },
+  {
+   "feature": "pivot journal PTFE D7.96x4",
+   "case": "L8",
+   "value": 2.04,
+   "allowable": 5.0,
+   "unit": "MPa",
+   "margin": 2.45,
+   "note": "K12 S06c",
+   "sev": "ok"
+  },
+  {
+   "feature": "bond + walls under head weight (sustained)",
+   "case": "creep",
+   "value": 0.038,
+   "allowable": 4.3,
+   "unit": "MPa",
+   "margin": 113.16,
+   "note": "no preload acts on the hub disc",
+   "sev": "ok"
+  },
+  {
+   "feature": "gear bond edge shear, thermal mismatch dT 30 K",
+   "case": "rigid epoxy 0.1 glue / toughened 0.2",
+   "value": 10.6,
+   "allowable": 8.0,
+   "unit": "MPa",
+   "margin": 0.75,
+   "note": "toughened epoxy: 5.3 (A: CTE resin 70e-6)",
+   "sev": "minor"
+  },
+  {
+   "feature": "PTFE tape on T_cap, wear",
+   "case": "1000 moves/day (A)",
+   "value": 0.295,
+   "allowable": 0.13,
+   "unit": "mm/yr",
+   "margin": 0.44,
+   "note": "tape life 0.4..4.4 yr (k 1e-3..1e-4, A)",
+   "sev": "minor"
+  },
+  {
+   "feature": "6805 (J1, T_spodok)",
+   "case": "2 x L2 + weight 70 N",
+   "value": 70,
+   "allowable": 1300,
+   "unit": "N",
+   "margin": 18.57,
+   "note": "axial static ~0.5 C0 (C0 UNVERIFIED)",
+   "sev": "ok"
+  }
+ ]
+}

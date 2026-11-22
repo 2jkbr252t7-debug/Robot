@@ -1,0 +1,135 @@
+{
+ "findings": [
+  {
+   "id": "S1",
+   "severity": "major",
+   "feature": "F15 pivot screw (ISO 7380 M3x6) in the tapped 2.0 mm aluminium bridge T_most",
+   "problem": "The screw reaches only 0.80 mm (1.6 pitches) into the 2.0 mm bridge (tip z -47.0, bridge top -46.2), not the '2.6 threads' in spec 17.1. F15 + washer + gear bond are the ONLY axial retention of the whole stage + head when the robot is lifted by the head (L1).",
+   "evidence": "Mesh probe: F15 tip -47.000, T_most z -48.2...-46.2. Internal-thread strip (FED-STD-H28 area 5.55 mm2/mm, tau = 0.6 Rm): nominal 0.80 mm 586 N (5754-H22) / 772 N (6061-T6); assuming 0.5 P end chamfer + 0.1 entry -> 0.45 mm: 329 / 434 N; worst case 0.15 mm: 110 / 145 N. Demand: fingertip design preload 167 N (0.10 N.m, K 0.2) + L1 30 N = 197 N -> margin 2.98 / 1.68 / 0.56 (5754). K12 A7d assumed 'strip about 700 N'. h01_pivot.py, h02_handcalcs.py.",
+   "fix": "Use an M3x8 cut to 7.0 mm (tip z -48.0: 0.2 inside the bridge, 0.3 above the STS3215 top). Effective engagement ~1.45 mm -> ~1060 N (margin 5.4). Correct spec 17.1 and K12 A7d."
+  },
+  {
+   "id": "S2",
+   "severity": "major",
+   "feature": "Hub ring <-> front wall junction ('lens', |x| <= 6.14, z -41.9...-40.65); its ends are sharp 3-D re-entrant notches",
+   "problem": "The hub ring (r 6.5-12.6) hangs on the front wall only where the ring passes under it (12.3 mm long). The front corners and the -X end wall end free at z -40.9. All torque and wall bending that reaches the gear from the front wall goes through the two lens ends. This is the weakest spot of the well bottom.",
+   "evidence": "FE v4 (own voxel/finite-cell 3-D FE on the real STL; positive-location module joint; gap journal; FE x1.04 correction from fe_test5). L3 hand twist 0.6 N.m (abuse, allowable 12.9): notch 54.0 MPa (0.4 mm average). Away from the notch 21.5 MPa at 1.5-2.5 mm and 15.4 MPa at 2.5-4 mm, so nominal margin 0.6-0.84. Front wall at the lens 35.0, hub ring at the lens 28.8, wall 2 mm higher 14.5. L1 at lift 20 (30 N, allowable 8.5): notch 23.3; wall inner face 0.9 mm above the edge 9.2 / 10.7 MPa (margin ~0.8). The ring cannot grow (pinion tips reach r 13.6: 1.0 running clearance). lens_profile.py, results_v4.json.",
+   "fix": "Thicken the lowest 4 mm of the front wall (z -40.9...-36.8, |x| <= 12) from 1.6 to >= 2.3 (inner face y -10.3, still 0.5 from the Al foot y 9.8). Stress scales with (1.6/2.3)^2 = 0.48. Blend the lens ends (no sharp vertical notch), if needed with R0.5 inside r 12.8. Re-run the twist case after the change. Until then: do not twist the head by hand."
+  },
+  {
+   "id": "S3",
+   "severity": "major",
+   "feature": "Gear bond (epoxy, hub ring + back floor on the brass 36T top face)",
+   "problem": "Under L1 the lift module pulls the well up at the -X end of its rail tongue, right above the back edge of the bond. The bond peels there. The bond is the only link well -> gear (axial retention of stage + head). The area is also smaller than K12 assumed.",
+   "evidence": "Measured bond 387.8 mm2 inside the root circle r 13.4 (+26.1 mm2 on tooth tops; ring r <= 12.6 366.0). K12 H2 used 442 mm2. FE v4 L1 lift 20: tension resultant 78.7 N (net 30 N); edge peel 8.1 MPa (0.6 mm average, rigid-tie model) at (-4.0, 12.7) vs 2.7, margin 0.33; average only 0.077. K12 H3 reported 0.20 (x3 peel factor). L3: local bond shear 6.6 MPa at the lens (uniform 0.15). L8 first pass: 6.5 local (uniform 0.23). With the module glued to the well over whole faces (previous run's v1 model, i.e. friction fully locked) the peel was 1.9 MPa: the result depends on the module joint, and Z3.7 forbids relying on friction.",
+   "fix": "Let the module's vertical load enter the back wall higher up and positively: fitted F10 shanks (holes reamed 2.05 instead of 2.3), or a hook/ledge under pad A at z -15. Extend the epoxy over the back floor tooth tops with a fillet bead along the back edge. Add a bench pull test of one bonded gear (resin coupon + brass) to the build notes."
+  },
+  {
+   "id": "S4",
+   "severity": "major",
+   "feature": "Window corners: +X end window (y 3.4 / -7.0, z -15.0), back window (x -6.5 / -20.9, z -10.9; sill z -40.9)",
+   "problem": "All window corners are sharp (R 0, ray-cast). At lift 20 the neck's lower guide contact (z -15.5) sits on the +X PTFE land 1.75 mm from the +X window top corner. The guide couple (30 N x 29.8 mm pin offset) loads the walls there.",
+   "evidence": "Zoomed raster sections g12 and fillet march g08b: R 0. FE v4 L1 lift 20 with the realistic upper guide in the collar-disc opening (collar engages first: (0.17+0.25)/18 = 0.023 rad < (0.17+0.17)/9.5 = 0.036 rad): +X window top corner 23.1 MPa vs 4.3 (unfilleted), margin 0.19. Back-window corner 9.4 vs 4.3, margin 0.46. With the strip-only guide (previous v1 model) 32 MPa: the conclusion does not depend on the model. L3: 4.6 / 5.6 vs 6.45, ok.",
+   "fix": "R >= 1.5 fillets on all 6 window corners (free inside the slim envelope). Consider a 2.0 wall around the +X window top. If the FFC/DPS_krk allow, keep the +X land >= 3 mm from the window edge."
+  },
+  {
+   "id": "S5",
+   "severity": "major",
+   "feature": "Slim corner arcs (inner R2.5; wall 1.34 below z -10.7, 1.20 in the journal-band zone) and the +X pillar",
+   "problem": "At lift 20 under L1 the corners and the +X pillar bend over the 8.5 allowable. In the band zone the corner wall IS the PTFE journal band (1.20 = Z3.1 minimum).",
+   "evidence": "g04 medial-axis thickness: 1.341 (z -40.8...-12), 1.203 (z -10.5...-2.5). FE v4 L1 lift 20: corner arcs 14.1 MPa (front-right corner next to the +X window, z -12.7), margin 0.60. Band-zone corners 13.3 (0.64). +X pillar 14.4 (0.59). Front wall near the lens 14.3 (0.59). Journal band edge 15.0 (0.56; contact-concentration sensitive). L3 / L8: <= 9.3, ok.",
+   "fix": "Same fixes as S4 (corner fillets and a stiffer +X end) and re-check. If the slim envelope allows, do not turn the corners below 1.34 in the band zone (keep r 26.365 only on the flat faces)."
+  },
+  {
+   "id": "S6",
+   "severity": "major",
+   "feature": "Rail of the lift module (tongue in the back-wall groove) and the back-window jamb / sill at x -6.5 (L1 and L8 stall into the stop)",
+   "problem": "The pocket's vertical (L1) and stop (L8) loads leave the module at the -X end of the rail (x -4.3...-6). That is next to the sharp back-window sill corner where the back wall ends.",
+   "evidence": "FE v4 L1 lift 20 (converged, compression-only contacts): upper groove lip -X end 19.6 MPa, margin 0.43. L8 (0.88 N.m into the +90 stop, first pass with all module contacts closed): rail end 74, back floor/back wall junction at the jamb 22.4, hub ring at the jamb 20.5, sill corner 22.0, drum shroud 12.5. This pass kept 27 N of non-physical rail-face tension (the y part of the stop force must go to the F10 screws). The rerun with released contacts had not converged when stopped (rail tension still 28 N after 3 iterations), so the L8 values are upper estimates and NOT verified. Pivot 52.4 N matches hand statics (52.6 N).",
+   "fix": "Fillet the sill/jamb corners (R >= 1.5). Extend the rail lips past x -6 into the back floor with R1 roots. Spread the tongue force (tongue to x -6 with a radius). Re-run L8 after the fix."
+  },
+  {
+   "id": "S7",
+   "severity": "major",
+   "feature": "Rest gap foot <-> hub ring (0.15) vs MG90S toggle force near bottom dead centre",
+   "problem": "If the 0.15 rest gap closes (tolerance, creep), the MG90S parked near BDC squeezes the foot onto the hub ring. It pulls the lift module up at the back with the same force: F = T / (r sin theta), a closed loop through the bond.",
+   "evidence": "h03_toggle.py: T 0.216 N.m, r 10. Gap -0.05 -> lands at 6.5 deg -> 192 N. Gap -0.10 -> 144 N (6.4x / 4.8x the 30 N L1 that already peels the bond edge to 8.1 MPa). At mid-stroke only 21.6 N.",
+   "fix": "Keep the documented feeler check (0.10 enters, 0.25 not) and repeat it after a few days. Firmware: park at theta >= 10 deg (lift 0.15) or never command below the measured landing angle. Never let the gap become interference."
+  },
+  {
+   "id": "S8",
+   "severity": "minor",
+   "feature": "T_cap pivot boss (resin) root and bond on T_most",
+   "problem": "The root fillet is R0.60 on the mesh (spec 17.1 text: R1.0). K12 S06b used Kt 1.2. Under the sustained F15 preload the T_cap creeps; this REDUCES the 0.10 gear axial play (K12 'TQ F15 location' says it adds play).",
+   "evidence": "Mesh r(z) fit -> R 0.600. Kt 1.75 (Peterson, r/d 0.078). Root: L8 spec 65 N -> 6.07 MPa (margin 1.40); FE pivot 52.4 N -> 4.9 (1.73); L3 FE 39.5 N / 44 N -> 4.1 vs 12.9 (3.1). Bond on T_most with no preload: peel 2.21 vs 2.7 (1.22), shear 1.22. Crush at 0.10 N.m: 5.5 MPa on the flat r <= 3.55 (ok short-term vs 25.8, above 4.3 sustained) -> creep 0.03-0.05 mm (creep modulus 0.5-0.3 E ASSUMED).",
+   "fix": "Make the T_cap root R1.0 as specified. Set the initial axial play to >= 0.12 so it stays >= 0.05 after creep. Correct the K12 note."
+  },
+  {
+   "id": "S9",
+   "severity": "minor",
+   "feature": "DIN 9021 M3 retention washer on the brass gear top",
+   "problem": "Only 0.50 mm radial overlap on the gear (r 4.0...4.5). A bought gear's bore chamfer (0.2-0.3, typical, ASSUMED) plus 0.1 washer float leaves 0.1-0.3 mm.",
+   "evidence": "Mesh: washer r 1.6-4.5, gear bore r 4.000 (no chamfer modelled). Bearing on brass at 30 N: 2.2-5.4 MPa (ok). Washer bending 14.7 MPa (steel, ok).",
+   "fix": "Check the bore chamfer of the bought gear (<= 0.3), or use a Dia 10 x 3.2 washer: it clears the foot hole (r 5.5) and the hub ring (r 6.5)."
+  },
+  {
+   "id": "S10",
+   "severity": "minor",
+   "feature": "Drum shroud (C, r 15.5-16.7, 1.2 x 3.7) and lip",
+   "problem": "Nothing is above the shroud in stage az 75-105 and 112-128. It hangs only on its attached arc parts (az 15-70, 105-110, 130-135). Its inner root is sharp. It carries only the FFC, but it is fragile during support removal / cleaning.",
+   "evidence": "g10 column test (material directly above the shroud top). FE: L1 4.1 MPa, L3 2.9, L8 first pass 12.5 (upper estimate).",
+   "fix": "Tell the builder to handle it gently (no supports on it). Optionally add 2 small webs to the rail lip over az 80-100."
+  },
+  {
+   "id": "S11",
+   "severity": "minor",
+   "feature": "Local skins below Z3.1 (1.2): floor zone at the +X end window 0.95 mm (28.8 mm2), F10 dowel-hole bottom 1.1 mm, band-zone corners 1.20",
+   "problem": "Thinner than the Z3.1 local-skin rule.",
+   "evidence": "g10 / probes. FE: 0.95 zone max 5.3 MPa (L1, margin 1.61), 3.2 (L3); back floor 4.9; sharp corner (+X,+Y)/floor joint 1.7 vs 4.3 (2.5).",
+   "fix": "Acceptable for strength. Declare them in the spec. Fillet the corner/floor joint R1 anyway (Z3.3)."
+  },
+  {
+   "id": "S12",
+   "severity": "ok",
+   "feature": "Hub disc / floor of P_sachta as a plate (1.25 mm, backed by the bonded brass gear)",
+   "problem": "none",
+   "evidence": "FE v4 away from the lens: back floor 4.9 MPa (L1), 11.5 (L3, abuse 12.9, margin 1.13). Back floor/back wall R1.0 junction 1.8 (L1) / 6.2 (L3). Foot landing at lift 0 (L2 30 N): 0.098 MPa compression on 305.5 mm2. Fillets R1.0 measured at the front lens, back wall and +X pillar.",
+   "fix": "-"
+  },
+  {
+   "id": "S13",
+   "severity": "ok",
+   "feature": "Pivot journal (PTFE tape on T_cap in the gear bore) and upper journal band",
+   "problem": "none",
+   "evidence": "Pivot PTFE 65 N / (7.96 x 4.0) = 2.04 MPa vs Z3.8 5.0 (margin 2.45). Upper band: radial play 0.145. Contact is reached only in L1 lift 20 / L3 (net 4.5 / 10.1 N), so PTFE pressure is negligible.",
+   "fix": "-"
+  },
+  {
+   "id": "S14",
+   "severity": "ok",
+   "feature": "Collar-disc glue land (well top face, r >= 24)",
+   "problem": "At lift 20 it carries the upper neck-guide force (~50 N horizontal at z +3).",
+   "evidence": "356.6 mm2 (whole contact face 1115.8). 49.6 N -> shear 0.14 + peel 0.06 MPa vs 2.7 (margin ~13). FE land forces 37 N (y) / 31 N (x).",
+   "fix": "-"
+  },
+  {
+   "id": "S15",
+   "severity": "ok",
+   "feature": "6805 ball bearing (torso rotation J1, in T_spodok, z -98...-91; not in the well)",
+   "problem": "none",
+   "evidence": "Axial <= 40 N (L1 x 2, L2 + weight) vs C0 ~2.6 kN (typical 61805 catalogue value, ASSUMED). Seat bond 0.04 MPa (K12 51b).",
+   "fix": "-"
+  },
+  {
+   "id": "S16",
+   "severity": "minor",
+   "feature": "K12 rows that do not match the real geometry",
+   "problem": "H2 area 442 (measured 387.8). H3 0.20 MPa (FE edge peel 8.1). A7d strip 700 N (110-330 N effective). S06b Kt 1.2 (R0.6 -> 1.75). TQ F15 creep direction. No K12 row covers the wall/window/lens stresses from the neck-guide couple at lift 20 or the twist path through the lens.",
+   "evidence": "checks.json K12 rows; this review's measurements and FE.",
+   "fix": "Add rows for S2-S7 and correct H2/H3/A7d/S06b."
+  }
+ ],
+ "table": "| feature | load case | stress / force | allowable | margin |\n|---|---|---|---|---|\n| hub floor 1.25 (away from lens) | L1 lift 20 / L3 | 4.9 / 11.5 MPa | 8.5 / 12.9 | 1.74 / 1.13 |\n| thin floor zone 0.95 | L1 lift 20 | 5.3 MPa | 8.5 | 1.61 |\n| hub ring under the foot | L2 lift 0 (landed) | 0.10 MPa | 8.5 | >>10 |\n| lens end (hub ring/front wall), nominal 1.5-4 mm from notch | L3 0.6 N.m | 15.4-21.5 MPa | 12.9 | 0.60-0.84 |\n| lens end, sharp notch (0.4 mm avg) | L3 / L1 lift 20 | 54.0 / 23.3 MPa | 6.45 / 4.3 | 0.12 / 0.18 |\n| lens end, wall 0.9 mm above edge | L1 lift 20 | 9.2-10.7 MPa | 8.5 | 0.79-0.92 |\n| gear bond, back-edge peel (0.6 mm avg) | L1 lift 20 | 8.1 MPa (avg 0.08) | 2.7 | 0.33 |\n| gear bond, local shear at lens | L3 | 6.6 MPa (uniform 0.15) | 2.7 | 0.41 |\n| +X window top corner (sharp) | L1 lift 20 | 23.1 MPa | 4.3 | 0.19 |\n| back-window corner (sharp) | L1 lift 20 | 9.4 MPa | 4.3 | 0.46 |\n| slim corners 1.34 / 1.20 | L1 lift 20 | 14.1 / 13.3 MPa | 8.5 | 0.60 / 0.64 |\n| +X pillar / front wall at lens | L1 lift 20 | 14.4 / 14.3 MPa | 8.5 | 0.59 |\n| rail upper lip, -X end | L1 lift 20 | 19.6 MPa | 8.5 | 0.43 |\n| back floor at window jamb (x -6) | L8 stall into stop (first pass, not converged) | <= 22.4 MPa | 8.5 | <= 0.38 (unverified) |\n| F10 pad A root | L1 lift 20 | 10.1 MPa | 8.5 | 0.84 |\n| drum shroud | L1 / L3 | 4.1 / 2.9 MPa | 8.5 / 12.9 | 2.1 / 4.5 |\n| sharp corner (+X,+Y)/floor joint | L1 lift 20 | 1.7 MPa | 4.3 | 2.5 |\n| F15 M3 thread in 2.0 Al (0.8 engaged) | 0.10 N.m preload + L1 | 197 N vs strip 110-586 N | - | 0.56-2.98 (likely 1.68) |\n| F15 fixed (M3x8 cut to 7.0) | same | 197 N vs ~1060 N | - | 5.4 |\n| T_cap root R0.6, Kt 1.75 | L8 65 N spec / 52 N FE | 6.1 / 4.9 MPa | 8.5 | 1.40 / 1.73 |\n| T_cap bond on T_most (no preload) | L8 65 N | 2.21 MPa peel | 2.7 | 1.22 |\n| pivot PTFE journal | L8 65 N | 2.04 MPa | 5.0 | 2.45 |\n| DIN 9021 washer on brass | L1 30 N | 2.2-5.4 MPa | brass | ok |\n| collar-disc glue (356.6 mm2) | L1 lift 20, 49.6 N | 0.14 shear + 0.06 peel | 2.7 | ~13 |\n| MG90S squeeze if rest gap -0.05 | park near BDC | 192 N on bond path | 30 N case already over | watch |\n| 6805 (T_spodok, J1) | L1/L2 | <= 40 N | C0 ~2.6 kN (assumed) | >>10 |",
+ "verdict": "NOT OK yet, but the plate itself is not the problem. The 1.25 mm hub disc / floor of P_sachta, backed by the bonded brass gear, is strong enough (worst 4.9 MPa normal / 11.5 abuse away from the lens; 0.10 MPa under the landing foot). The bottom is weak at its connections:\n\n(1) F15 has only 0.8 mm (1.6 pitches) of thread in the 2 mm Al bridge (strip 110-330 N vs 197 N).\n(2) The hub ring hangs on the front wall through a 12.3 mm 'lens' whose sharp ends see 15-21 MPa nominal under a hand twist (abuse limit 12.9) and ~10 MPa when the robot is lifted by the head at lift 20 (8.5).\n(3) The gear bond (388 mm2, not 442) peels at its back edge: 8.1 MPa local vs 2.7 at L1 lift 20. That bond, the washer and F15 are the only things holding stage + head in the torso.\n\nBeyond the bottom, at lift 20 the neck-guide couple overloads the sharp window corners (23 MPa vs 4.3) and the slim corners (14 vs 8.5). Fixes needed before printing:\n- M3x8 cut to 7.0 for F15\n- R >= 1.5 on all window and sill corners and on the corner/floor joint\n- a 2.3 mm lower front wall around the lens\n- a positive vertical load path from the lift module into the back wall higher up (fitted F10 shanks or a ledge)\n- keep the 0.15 rest gap\n\nThen re-run L1 lift 20, L3 and L8. Not run or not converged: L8 rerun with released rail contacts, L2 at lift 20 and L1 at lift 0 in the v4 model. The L2 lift-20 strip model of the previous run also overloads the back-window corners (23.6).\n\nMethod: own voxel finite-cell 3-D FE on the real STL (validated within 2-4 % vs beam theory). Module joint by positive location only (Z3.7), with compression-only rail/tongue contacts, the gap journal (0.145) and the collar-disc upper guide. The previous run's glued-module model gave the same wall/window verdict but a lower bond peel (1.9).\n\nreport.md was not written: this subagent's harness blocks report files. Everything is in this result. Images in /tmp/claude-0/gapwf/fin/T4/sachta_a/: sachta_zdola.png, sachta_rez_x0.png, sachta_rez_roh.png, plus img/fe_v4_L1_lift20c.png and img/fe_v4_L3_twist_ccw.png. Scripts and data: fe_cases_v4.py, collect_v4.py, results_v4.json, h02_handcalcs.json, h03_toggle.json, g10_bottom_geo.json, lens_profile.py.",
+ "explanation_sk": "Šachta je dutý živicový kôš. Hore sa otáča v klznom PTFE páse v T_stred (vôľa 0,145 mm) a dole je náboj prilepený na mosadzné koleso. Koleso sa točí na čape T_cap a zhora ho drží len podložka so skrutkou F15. Iné guľkové ložisko v šachte nie je; ložisko 6805 je až dole v T_spodok a je zaťažené zanedbateľne (asi 40 N). Keď robota zdvihneš za hlavu, sila ide krk → modul zdvihu → spodok zadnej steny → lepidlo pod nábojom → koleso → podložka → skrutka F15. Nič iné šachtu v osi nedrží. Pri otočení hlavy rukou ide krútiaci moment cez steny a dno do lepidla a kolesa. Samotné dno (náboj aj podlaha 1,25 mm, aj tenké miesto 0,95 mm) vydrží: v bežnom zaťažení má najviac asi 5 MPa z dovolených 8,5 a pätka krku ho tlačí len 0,1 MPa. Najslabšie je miesto, kde je náboj pripojený k prednej stene. Spoj je dlhý len 12 mm a na jeho koncoch je ostrý vrub. Pri otočení hlavy rukou je tam 15–21 MPa (dovolené 12,9), teda asi o tretinu viac, než smie byť. Ďalej: skrutka F15 má v 2 mm hliníku len 0,8 mm závitu a môže sa strhnúť už pri jemnom dotiahnutí prstami. Lepidlo kolesa sa pri zdvihnutí za hlavu na zadnom okraji odlupuje (8 MPa proti 2,7). Pri vysunutej hlave (zdvih 20 mm) sú navyše preťažené ostré rohy okien a tenké rohy steny. Pred tlačou odporúčam: skrutku M3×8 skrátiť na 7 mm, všetky rohy okien a spoj rohu s podlahou zaobliť R 1,5, spodok prednej steny okolo spoja s nábojom zhrubnúť na 2,3 mm a modul zdvihu oprieť o zadnú stenu vyššie (napríklad lícované skrutky F10). Kým to nie je opravené, nedvíhaj robota za hlavu, keď je hlava vysunutá, a nekrúť hlavou rukou. Dodrž aj medzeru 0,15 mm pod pätkou krku: keby sa zatvorila, servo zdvihu ju pritlačí silou 150–400 N a lepidlo odtrhne."
+}

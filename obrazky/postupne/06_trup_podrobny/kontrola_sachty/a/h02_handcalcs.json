@@ -1,0 +1,166 @@
+{
+ "assumptions": [
+  "F15: Al thread shear strength 0.6 Rm (5754-H22 Rm 220, 6061-T6 Rm 290)",
+  "F15: screw-end chamfer / incomplete thread (ISO 4753) and the tap-hole entry chamfer remove 0.35 ... 0.65 mm of the 0.80 engaged length; 'nominal' ignores both",
+  "gear: bought plain 36T, bore chamfer 0.2 ... 0.3 x 45 deg typical (not modelled); washer floats 0.10 radially (D3.2 on M3)",
+  "T_cap root Kt 1.75 in bending (Peterson, shaft into a rigid face, r/d = 0.60/7.7 = 0.078); K12 S06b used Kt 1.2",
+  "creep modulus of Elegoo Tough unknown: 0.5 E and 0.3 E (E 1600) bracket long-term shortening",
+  "6805 (25 x 37 x 7) static rating C0 about 2.6 kN, dynamic C about 4.3 kN (typical catalogue values for 61805, UNVERIFIED for the bought part)"
+ ],
+ "F15": {
+  "tip_z": -47.0,
+  "bridge_top": -46.20000076293945,
+  "engaged_mm": 0.8,
+  "pitches": 1.6,
+  "shear_area_per_mm": 5.55,
+  "preload_at_0p10Nm": 167.0,
+  "demand_N": 197.0,
+  "rows": {
+   "nominal 0.80 / 5754-H22": {
+    "strip_N": 586.0,
+    "margin_vs_preload_plus_L1": 2.98,
+    "strip_torque_Nm": 0.351
+   },
+   "nominal 0.80 / 6061-T6": {
+    "strip_N": 772.0,
+    "margin_vs_preload_plus_L1": 3.93,
+    "strip_torque_Nm": 0.463
+   },
+   "likely 0.45 (0.5 P end + 0.1 entry) / 5754-H22": {
+    "strip_N": 329.0,
+    "margin_vs_preload_plus_L1": 1.68,
+    "strip_torque_Nm": 0.198
+   },
+   "likely 0.45 (0.5 P end + 0.1 entry) / 6061-T6": {
+    "strip_N": 434.0,
+    "margin_vs_preload_plus_L1": 2.21,
+    "strip_torque_Nm": 0.261
+   },
+   "worst 0.15 (1 P end + 0.15 entry) / 5754-H22": {
+    "strip_N": 110.0,
+    "margin_vs_preload_plus_L1": 0.56,
+    "strip_torque_Nm": 0.066
+   },
+   "worst 0.15 (1 P end + 0.15 entry) / 6061-T6": {
+    "strip_N": 145.0,
+    "margin_vs_preload_plus_L1": 0.74,
+    "strip_torque_Nm": 0.087
+   }
+  },
+  "K12_A7d_assumed_strip_N": 700,
+  "spec_17_1_text": "2.6 threads (wrong: 1.6 pitches engaged)"
+ },
+ "F15_fix_M3x8_cut_to_7": {
+  "tip_z": -48.0,
+  "eff_engaged": 1.45,
+  "strip_N_5754": 1062.0,
+  "margin": 5.4,
+  "clear_to_servo_top": 0.3
+ },
+ "washer_on_gear": {
+  "chamfer 0.0 / washer shift 0.0": {
+   "min_overlap": 0.5,
+   "p_MPa_on_brass": 2.2
+  },
+  "chamfer 0.0 / washer shift 0.1": {
+   "min_overlap": 0.4,
+   "p_MPa_on_brass": 2.2
+  },
+  "chamfer 0.2 / washer shift 0.0": {
+   "min_overlap": 0.3,
+   "p_MPa_on_brass": 3.6
+  },
+  "chamfer 0.2 / washer shift 0.1": {
+   "min_overlap": 0.2,
+   "p_MPa_on_brass": 3.6
+  },
+  "chamfer 0.3 / washer shift 0.0": {
+   "min_overlap": 0.2,
+   "p_MPa_on_brass": 5.4
+  },
+  "chamfer 0.3 / washer shift 0.1": {
+   "min_overlap": 0.1,
+   "p_MPa_on_brass": 5.4
+  }
+ },
+ "washer_bending_steel_MPa": 14.7,
+ "pivot_radial_forces_N": {
+  "spec L8 (stall, free stage)": 65.0,
+  "spec L3 (hand 0.6 N.m vs servo)": 44.0
+ },
+ "T_cap_root_and_bond": {
+  "L8 65 N (normal)": {
+   "M_Nmm": 149.5,
+   "root_nominal": 3.47,
+   "root_Kt": 6.07,
+   "allowable": 8.5,
+   "margin": 1.4,
+   "bond_shear": 1.22,
+   "bond_peel_no_preload": 2.21,
+   "bond_margin": 1.22
+  },
+  "L3 44 N (abuse)": {
+   "M_Nmm": 101.2,
+   "root_nominal": 2.35,
+   "root_Kt": 4.11,
+   "allowable": 12.9,
+   "margin": 3.14,
+   "bond_shear": 0.83,
+   "bond_peel_no_preload": 1.49,
+   "bond_margin": 1.81
+  }
+ },
+ "T_cap_sections": {
+  "Z_root": 43.1,
+  "bond_area": 53.1,
+  "Z_bond": 67.7
+ },
+ "T_cap_crush": {
+  "flat_top_area": 30.5,
+  "p_at_0p10Nm": 5.46,
+  "short_term_allow": 25.8,
+  "sustained_allow": 4.3,
+  "note": "sustained preload above 4.3 -> T_cap creeps; shortening lowers the washer, i.e. REDUCES the 0.10 gear axial play (K12 'TQ F15 location' says it adds play)",
+  "creep_shortening_mm_Ec_0.5E": 0.03,
+  "creep_shortening_mm_Ec_0.3E": 0.05
+ },
+ "pivot_PTFE_pressure_MPa": {
+  "L8 65 N": 2.04,
+  "L3 44 N": 1.38
+ },
+ "bond": {
+  "K12_H2_area": 442,
+  "measured_total": 414.0,
+  "measured_inside_root_circle_r13p4": 387.8,
+  "ring_r_le_12p6": 366.0,
+  "tooth_tops": 26.1,
+  "sum_r_dA_root": 3897.0,
+  "L8_tau_uniform": 0.226,
+  "L3_tau_uniform": 0.154,
+  "L1_avg_tension": 0.077,
+  "L1_K12_x3": 0.204,
+  "note": "K12 counted the whole annular sector r 12.6-15.2 under the back floor; there the gear top face is only tooth tops"
+ },
+ "foot_on_hub_ring": {
+  "contact_area": 305.5,
+  "p_L2_30N": 0.098,
+  "p_MG90S_stall_21p6N": 0.071
+ },
+ "bearing_6805": {
+  "axial_L1x2_N": 30,
+  "axial_L2_plus_weight_N": 40,
+  "ratio_to_C0": 0.015,
+  "seat_bond_K12_51b_MPa": 0.04,
+  "note": "the 6805 is in T_spodok (torso rotation J1, z -98...-91), not in the well"
+ },
+ "collar_glue": {
+  "glue_land_r_ge_24": 356.6,
+  "top_face_total": 1115.8,
+  "I_about_x": 117445,
+  "I_about_y": 109789,
+  "collar_guide_force_est_N": 49.6,
+  "glue_shear_MPa": 0.139,
+  "glue_peel_from_moment_MPa": 0.06,
+  "glue_peel_if_only_r24_land_and_shear_combined": 0.199
+ }
+}
