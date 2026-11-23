@@ -1550,3 +1550,206 @@ def tilt_up_max(lift):
     """fixer rev2: firmware tilt-up limit (deg): the B rows taken as steps from the row at or below the lift (conservative)"""
     rows = FIX2["TILT_RULE"]["up_rows"]
     return float(rows[max(k for k in rows if k <= float(lift) + 1e-9)])
+
+
+# =====================================================================================================================
+# >>> rev3 (sachta)  - strengthening of the rotating well and its bottom (T4_rev3_sachta_plan.md R3-1 .. R3-9, 2026-11-22).
+#     Nothing above this block was edited.  Text: T4_spec.md section 17.17; finding-by-finding record: opravy3.md.
+#     R3 = the numbers; the R2 keys that other code reads are re-bound at the end of the block.
+# =====================================================================================================================
+R3 = dict(
+    # ---- R3-1 F15 + R3-2 positive axial retention ON THE WELL ---------------------------------------------------------
+    # static stack on T_cap (top -41.80): 2 x DIN 125 M3 (spacers, D7) -> DIN 9021 M3 (D9, retention washer) -> ISO 7380 M3x8 head.
+    # The DIN 9021 overlaps the INNER LIP of the well's hub disc (lip top -40.92): the well itself is captive, the gear hangs under it.
+    PIVOT=dict(cap_top=-41.80, cap_hole=3.1, cap_root_r=1.0,
+               spacer="DIN 125 M3 3.2x7x0.5", spacer_r=3.5, spacer_t=0.5, n_spacer=2, spacer_z=(-41.80, -40.80),
+               washer="DIN 9021 M3 3.2x9x0.8", washer_r=4.5, washer_r_min=4.32, washer_z=(-40.80, -40.00),
+               screw="ISO 7380 M3x8", screw_len=8.0, screw_len_tol=0.29, head_dk=5.7, head_k=1.65, head_z=(-40.00, -38.35), tip_z=-48.00,
+               axial_play=0.12, axial_play_range=(0.10, 0.25),
+               cal_washer="1 x DIN 125 M3 UNDER THE HEAD when the dry-fitted screw tip stands proud of the T_most underside",
+               cal_head_top=-37.85,
+               engagement_nominal=1.80, engagement_min=1.51, thread_runin=0.35, strip_area_per_mm=5.547,
+               al_rm=dict(**{"5754-H22": 220.0, "6061-T6": 290.0}), strip_tau_factor=0.6,
+               gear_bore_chamfer=0.4),
+    LIP=dict(r_in=3.80, r_low=4.15, z_step=-41.60, z_top=-40.92, recess_r=4.90, overlap_nominal=0.70, overlap_min=0.27),
+    # ---- R3-3 hub ring <-> walls.  variant 'floor' = option (b): real floor over the whole well, pan pinion top -42.90 (mesh 3.0);
+    #      variant 'lens' = option (a): rev. 2 floor region, lower front wall 2.3 thick (kept for the FE comparison only)
+    FLOOR=dict(variant="floor", z=(-41.90, -40.65), root_r=1.0, lens_wall=dict(y_in=-10.30, x=12.0, z_top=-36.80, root_r=0.5),
+               pinion_top=-42.90, mesh_width=3.0,
+               # the STS3032 spline is modelled 3.5 long (tip -42.70, UNVERIFIED): it stands 0.2 proud of the 3.0 pinion -> the floor
+               # underside is relieved 0.2 over the annulus the spline tip sweeps (r 19.1 .. 24.1 + 1.0), floor 1.05 there (declared)
+               spline_relief=dict(r=(18.0, 25.2), az=(152.0, 357.0), depth=0.2)),
+    # ---- R3-4 windows / corners ------------------------------------------------------------------------------------------
+    # end window top -15.0 -> -16.9 (1.05 above the FFC fold block at lift 20): at lift 20 the lower end of the neck (z -15.5) then bears on
+    # the lintel FACE, not on the free window edge; lintel 2.3 thick from the window top to the top plate
+    # v8 (FE v7, L1 at lift 0 = normal use): the +X pillar land carries 24 N at z -35; pillar foot / sill corner / thin floor 15 .. 17 MPa ->
+    #   the SILL of the +X end window is raised at the pillar foot (see sill_z / sill_y0).
+    #   Top corners of the end window R2.0 (v8: 14.2 -> 12.6 at L1 lift 20).  A R2.5 filler tried at the back-window -X top corner made it worse (v8) - removed
+    WIN=dict(corner_r=1.5, back=dict(x=(-20.9, -6.5), z=(-40.65, -10.9)), end=dict(x=(23.0, 25.4), y=(-7.0, 3.4), z=(-40.65, -16.9), sill_z=-39.5, sill_y0=0.3, top_r=2.0),
+             #   v9: the raised sill only for y >= 0.3 (curb at the foot of the +X pillar, 1.15 high): the pigtail leaves through the window bottom
+             #   at y -1.85 (z -39.45), the FFC-B tail passes 1.1 above the curb
+             lintel=dict(x_in=22.80, y=(-8.0, 8.0), y_full=6.2, z=(-16.9, -3.6), jamb_z=-19.4, lead=0.7,
+                         tape=dict(y=(-6.0, 4.9), z=(-16.4, -12.4))),     # round 1d (K2): 6.0 -> 4.9, strip 8 lay 0.75 over strip 7 (y 5.25 .. 7.25) on the same face # the lintel is a guide land too (PTFE strip 12 x 4): +X guide at lift >= 16
+             # end lands kept >= 0.5 clear of the corner arcs (R3.0 from |y| 8.0) and run out at 45 deg in plan (no step at the thin corners)
+             land_endp=((5.0, 7.5),), land_endm=((4.6, 7.4), (-7.4, -4.6)), land_taper=0.85),
+    CORNER_RI=3.0,                                  # R3-6: inner vertical corners R2.5 -> R3.0 (corner wall 1.50 / 1.365 in the band zone)
+    # ---- R3-5 lift-module joint (positive, compression only, no tongue / groove lips):
+    #   UP   (L1, pin force up): the pocket's block top (z -13.30, x -6.5..-2.5) bears on the LEDGE RIB of the well - a 4.0 web hanging under
+    #        the top plate (z -13.20 .. -3.45), attached to the back wall: the load enters the well at its top ring zone;
+    #   DOWN (L2): the pocket plate / turret-wall bottom (z -40.55) lands on the stage FLOOR (roof over the drum shroud, locally r 17.5),
+    #        0.5 outside the tip circle of the brass gear - straight into gear / PTFE / deck in compression;
+    #   +X end: F10 dowel D2 x 8 (x and z), 5.1 engaged in the pocket (boss behind the plate), 2.9 in the well pad;
+    #   y: mounting plateau y 13.0 .. 15.1 (x -6.5 .. 14.4, z -39.4 .. -12.15 + the pad-B box), contact zones pad A / pad B / mid band /
+    #        pad C zone, the rest of its face recessed 0.15; 2 x F10 screws.  Vertical gaps 0.10 at the ledge and at the floor.
+    RAIL=dict(x=(-6.5, 14.4), y=(13.0, 15.1), z=(-39.4, -12.15), root_r=1.0, face_recess=0.15, band_z=(-29.0, -25.0),
+              padb_box=dict(x=(14.4, 21.6), z=(-41.2, -29.6)),
+              ledge=dict(x=(-8.0, -2.9), y_end=18.6, z=(-13.20, -3.45), gap=0.10, root_r=1.0, bear_y0=16.7, block_chamfer=1.6),
+              #   v9: block chamfer 1.3 -> 1.6 (bearing y 16.7 .. 18.6 = 9.7 mm2): the contact edge is 0.6 clear of the R1.0 rib root
+              #   v7 (round 1c): rib x -6.5 .. -2.5 -> -8.0 .. -2.9 (bearing on the block top 8.8 -> 11.2 mm2; the rib ends 0.4 inside the
+              #   block top: no edge-on-edge; its -X part hangs in front of the back-window top, attached above z -10.9)
+              #   the rib bottom has an R1.0 root at the plateau face; the pocket block's top-front edge is chamfered 1.3 -> bearing y 16.4 .. 18.6
+              foot=None,       # round 1, FE v4: landing on the cantilevered roof over the gear rim FAILED L2 (37 MPa at the jamb, bond shear 11.5)
+              lip=None,        # round 1, FE v5: nose over the plateau top FAILED L2 (edge bearing; 53 N on a 1.3 deep strip, back wall 15 MPa)
+              #   down stop = SHELF on the plateau face next to the jamb (stands on the shroud roof); the bottom edge of the pocket plate
+              #   (notched to z -35.9 over x -6.5 .. 0.2) lands on it: the plate is loaded in its own plane, the shelf in compression
+              #   v7: shelf x -6.3 .. 0.0 -> -6.0 .. 4.0 (bearing 5.8 -> 9.9 mm2), notch corners R0.8 at BOTH ends (the -X corner was sharp)
+              #   v8 (FE v7): the notch open to the plate bottom cut the BOTTOM CHORD of the plate next to the turret wall - the stop force
+              #   and the L1 case-corner force then had to climb through the wall (130 .. 200 MPa at the notch corner).  The down stop is now
+              #   a closed WINDOW in the plate (x -6.5 .. 4.2, z -36.2 .. -32.0, R0.8 corners): its ceiling lands on the shelf, a 3.6 high
+              #   ledge on the plateau face (z -35.7 .. -32.1); the plate keeps a 4.15 high bottom chord level with the sole top
+              shelf=dict(x=(-6.0, 3.8), y_end=17.0, z_top=-32.1, z_bot=-35.7, gap=0.10, root_r=0.5, edge_chamfer=0.9, notch_x=(-6.5, 4.2), notch_r=0.8,
+                         window_z=(-36.2, -32.0), pocket_bottom=-40.35),
+              #   v7: two more plateau contact zones (not recessed): pad D under the ledge rib (block front, the -X end of the roof beam) and
+              #   pad E at the +X top (plate top strip): the stop moment about z is carried by the ROOF beam between pad D, F10_A and pad E
+              pad_d=dict(x=(-6.5, -2.5), z=(-18.0, -12.15)), pad_e=dict(x=(11.0, 14.4), z=(-17.0, -12.15)),
+              pad_c=dict(x=(-6.5, 0.0), z=(-39.4, -36.4)),       # v8: pad C on the bottom chord (direct compression path of the stop moment, cw stop)
+              #   v7: NO boss behind the low plate (the round-1 boss x 16.0 .. 20.8 / y 17.6 .. 20.2 stood in the insertion path of the
+              #   MG90S case, which needs 9.2 of travel along -X); dowel D2 x 6 at x 17.4: 2.9 bonded in the well pad, 2.0 in the plate,
+              #   1.1 proud behind the plate = end stop of the servo case (gap 0.4) for the L2 couple (see SERVO_SEAT)
+              dowel=dict(len=6.0, boss_r=None, boss_y=17.1, proud=1.1, xz=(17.4, -38.0)),      # boss_y = plate back face (engagement 2.0)
+              plate_x0=-10.5, plate_root_r=1.0),
+    # ---- R3-6 guide band: every wall is 2.3 thick (inner face at land level) from z -17.5 up to the top plate, run out to zero toward the
+    #      thin corner arcs; the guide forces at lift 20 go up into the ring / top plate / collar instead of round the 1.5 corners
+    BAND=dict(z=(-17.5, -3.6), lead=0.7, x_full=18.5, x_end=20.3, y_full=6.2, y_end=7.7),
+    #      + the journal ring is continued DOWN to z -16.7 over the front half (stage az 182 .. 358; the back half is the lift module, the
+    #      +Y side of the +X end the FFC lift loop): the walls and the two front corners are backed by ring + ribs at the height of the
+    #      lower neck contact at lift 20 (z -15.5)
+    RING_EXT=dict(az=(182.0, 358.0), z=(-16.7, -9.4), chamfer=0.5),
+    # ---- v7 (round 1c, FE v6b): the 2.0 pocket plate cannot carry the stop moment about z (260 .. 460 N.mm; 50 .. 180 MPa at h 0.6)
+    #      -> ROOF beam: slab z -13.0 .. -11.55 over the servo (0.45 over the MG90S tab top), 12 .. 15 deep in y, from the turret wall to
+    #      x 16.8, standing on the block / turret top behind the ledge rib (y >= 18.9) and on the plate top edge for x >= -2.4
+    ROOF=None,      # v7 tried a roof beam z -13.0 .. -11.55 over the servo: K7 BLOCKED - the door lintel of T_stred is at z -12.75 (module top -13.3)
+    TURRET=dict(x=(-10.5, -6.5)),   # v8: turret wall 2.0 -> 4.0 (the old plate fin x -10.5 .. -8.5 is now wall): torsion / bending of the wall between
+    #      the sole and the block; the MG90S boss then stands 2.0 proud of it (arm hub at x <= -12.5)
+    NUT_SLOT=dict(y=(21.15, 25.35), z=(-18.5, -12.8)),   # v8: F11 nut slot closed at +Y (nut dropped in from above): the 1.6 wall under the nut is
+    #      held at both ends (was a 6.85 long cantilever finger: 14 MPa nominal under the L1 couple)
+    BLOCK_ROOT_R=0.3,
+    # v9 (FE v8, L2 at lift 20): plate top strip between the F11 block and pad A 21 MPa (pad A tension x 5.9 lever).  F10_A moves from
+    # x 7.0 to x 4.2 (pad edge 3.05 from the block; washer 1.95 clear of the MG90S tab, driver shaft 0.35 clear of the F11 head)
+    F10_A=(4.2, -15.8),
+    # v9 (FE v8, L1 at lift 0): the lower case corner of the MG90S pressed on the full width of the turret wall, 7 mm from the plate plane
+    # (bottom chord of the plate 20 MPa).  The inner wall face is recessed 0.2 except a contact pad next to the plate (y 17.1 .. 20.5,
+    # z <= -37.5, backed by the sole): the corner force enters 1.7 from the plate plane
+    WALL_PAD=dict(recess=0.2, y_end=20.5, z_top=-37.5),               # v8: R0.3 under the block against the turret wall and the plate (inside the 0.3 gap over the servo case)
+    SOLE_ROOT_R=2.0,                                # v7: R1.0 between the sole top and the plate fin / turret wall (were sharp: 118 MPa at h 0.6);
+    #      v10 (LD7): R2.0 (FE v9 at +90: 30.5 MPa on this root at the plate; pin cap x <= -13.9 / servo lobe z >= -32.7 stay >= 1.4 clear)
+    LUG=dict(root_in=1.5, root_face=1.0, step_r=1.5),   # v7 (LD3): R1.5 inner root, R1.0 at both pin faces (tangent at the pin top -44.6: a larger
+    #      radius would make the pin ride on the fillet), R1.5 between the low bridge top and the end face of the high bridge (x -16.9)
+    # MG90S in the pocket (LD1 a): the servo couple about y (crank-pin force x arm 11.15) is reacted ALONG x - L1: F11 tension + lower case
+    # corner on the turret wall; L2: tab face on the block + far case end on the proud end of the F10 dowel (gap 0.4 nominal; engages
+    # before the F11 shank takes shear as long as the gap is < 0.8)
+    SERVO_SEAT=dict(end_gap=0.4, dowel_proud=1.1),
+    SOLE=dict(x=(-14.5, -6.5), z_top=-36.2),          # P_drziak_serva: solid sole under the crank between the plate plane and the stop bridge (stop force path)
+    KEYHOLE_SCALLOP=dict(r=6.65, x=(-11.0, -5.5)),   # P_drziak_serva: plate back face scalloped concentric with the keyhole (0.55 deep, spherical run-out)
+    # ---- R3-5 (stop): the two contact faces of the stop lug are PLANES NORMAL TO X (parallel to the back-wall normal direction y): the
+    #      reaction of a stop pin then acts ALONG the back wall (x) and is carried by the F10 dowel / the tongue end in shear - with the
+    #      rev. 2 radial faces the pin pushed the lug tangentially, i.e. with a 19.5 N component that pulls the module OFF the wall at its
+    #      unscrewed -X end (FE: 42 N in the F10_A screw, 100 MPa prying at the pad edges).  Stops stay at exactly +-90.0 deg.
+    STOP=dict(face_x_cw=round(-R2["STOP"]["pin_xy"][0][1] - R2["STOP"]["pin_d"] / 2, 3), face_x_ccw=round(R2["STOP"]["pin_xy"][1][1] + R2["STOP"]["pin_d"] / 2, 3),
+              contact_y=(round(R2["STOP"]["pin_xy"][0][0], 3), round(-R2["STOP"]["pin_xy"][1][0], 3)), lug_az=(116.9, 134.9), cw_corner_y=27.7,
+              deck_trim_az=(25.4, 226.9)),
+    # ---- R3-7 drum shroud: roof (floor level) over the whole shroud top + root fillet to the back wall; relief in the pocket plate
+    SHROUD=dict(roof_r=16.70, roof_az=(20.0, 137.0), roof_y_min=12.0, roof_z=(-41.90, -40.65), root_r=1.0,
+                plate_relief=dict(x=(-7.3, 9.5), y=(15.0, 17.2), z=(-42.0, -40.35))),      # pocket bottom -40.35: 0.30 over the shroud roof (never lands)
+    #      v10: relief only for x > -7.3 (the roof arc r 16.7 is in front of the plate plane y 15.1 for x < -7.13): the SOLE keeps its full
+    #      front face down to z -41.9 = bearing pad on the CURB
+    # ---- v10 (LD7, pan stops): bottom COMPRESSION path of the cw-stop couple.  FE v9 at -90 (880 N.mm): the pin force (32.5 N along -x at
+    #      y 27.1, 11 behind the plate plane, z -45.9) gives 357 N.mm about z; the -X bottom corner of the module had nothing to push against
+    #      (back window) -> the couple was taken at the TOP (pad D +26 N / F10_A -34 N, 9 apart) through the turret wall: 110 MPa at the
+    #      sole / plate corner.  CURB = the floor of the well continued out to the plateau plane y 15.1 under the back window
+    #      (x -14.5 .. -6.5, FLOOR LEVEL ONLY, top = sill -40.65: the ear flange (bottom -40.5 at lift 0, x -19.4 .. -7.5) and the F12 head
+    #      pass 0.15 above it exactly as over the sill - a higher curb would block the ear on its way in along -y, K7).  The sole of
+    #      P_drziak_serva bears on it with its front face z -41.9 .. -40.65: 7.2 x 1.25 = 9.0 mm2, compression only, nominal gap 0
+    #      v10b (the ONE correction of LD7; FE v10a at -90, h 0.6: curb 11 N, pad D 20 N, F10_A -24.5 N, plate root at the sole 74 MPa = the 2.0
+    #      plate still resists the rotation of the sole about z): (1) the cw stop face of the lug is turned 38 deg (STOP.cw_face below) so that
+    #      the pin force presses the sole ONTO the curb; (2) sole + curb continued to x -16.9 (under the crank arm, top -37.4 like the high
+    #      bridge): the seat reaches 2.4 further toward the force line; (3) the plate relief follows the shroud roof obliquely (PLATE_RELIEF_CUT):
+    #      the plate root at the sole keeps its back 1.4 mm down to z -41.9 (no three-face notch at the chord / sole corner)
+    CURB=dict(x=(-16.9, -6.5), z=(-41.90, -40.65), root_r=1.0, pad_x=(-16.9, -8.0)),
+    SOLE_EXT=dict(x=(-16.9, -14.5), z_top=-37.4),
+    #      v10c (detail of the same correction; FE v10b at -90, h 0.6: every row <= 23.5 EXCEPT 44.6 at the feather end of this fin, where the
+    #      oblique cut ran out to zero thickness on the plate back face at x -3.1): the fin now ends bluntly at x -5.0 (0.75 thick) and
+    #      runs out into the plate underside with R1.5
+    PLATE_RELIEF_CUT=((-8.2, 15.0), (9.5, 15.0), (9.5, 17.2), (-5.0, 17.2), (-5.0, 16.354)),      # plan polygon of the relief (z -42.0 .. -40.35): >= 0.26 outside the roof r 16.7
+    PLATE_RELIEF_RUNOUT=dict(x=-5.0, r=1.5, y=(16.354, 17.3)),
+    #      v10d (K2 of checks.py --force on v10c: 0.085 mm3 overlap, 0.044 thick): the FFC retaining lip of the shroud (r 16.7 .. 17.5) is modelled
+    #      0.05 above z -41.9 outside the roof and the new fin stood on it (rev. 2 had the same finding m1, then cured by the box relief).  The
+    #      module bottom is relieved to z -41.75 inside r 17.6 (only under the fin, x -8.9 .. -5): 0.10 over the lip top
+    LIP_RELIEF=dict(r=17.6, z=-41.75),
+    # ---- R3-8 rest gap foot <-> hub ring and the firmware rule ---------------------------------------------------------------
+    REST_GAP=dict(nominal_bdc=0.15, feeler_ok=(0.10, 0.25), park_deg_ok=3.0, park_deg_default=16.0, margin_gap=0.10, margin_deg=3.0,
+                  hub_min_t=1.15, tol_linear=0.55, tol_rss=0.22,
+                  rule="the lift servo is NEVER commanded below PARK_DEG.  Calibration (T11): crank at BDC (0 deg): the 0.10 feeler must "
+                       "enter between foot and hub ring -> PARK_DEG = 3.  If it does not: raise the crank in 1 deg steps until it enters "
+                       "(landing angle + gap 0.10), add 3 deg, store as PARK_DEG.  Uncalibrated firmware default 16 deg (0.39 above BDC).",
+                  table={0.10: 8.1, 0.20: 11.5, 0.30: 14.1, 0.40: 16.3, 0.50: 18.2}),
+    # ---- R3-9 minor -------------------------------------------------------------------------------------------------------
+    EAR=dict(end_chamfer=1.2),
+    KEYHOLE_RELIEF=None,                            # tried (R0.5 groove at the keyhole / plate cusp): its end made a new notch - not built                      # L_ucho flange end, lower corner: clear of the R1.5 sill / jamb fillet
+    DOCS=["supports allowed on the hub-disc / floor landing face (tips 0.3-0.4, pitch <= 3, braced), then sanded flat on a block; "
+          "check the rest gap again", "T_cap hole drilled D3.1 after curing", "toughened 2K epoxy, 0.1-0.2 glue line, on abraded "
+          "(P120-240) + IPA-cleaned brass / resin / aluminium; wipe the squeeze-out at the lip bore", "Loctite 222 on F10 (and F4, F8, F12, F15)",
+          "PTFE-compatible grease on the T_cap tape; check the radial play at every S3 service", "a towel / mat under the bare stage",
+          "firmware: no long holds at mid lift (park at lift 0)", "bench pull test of one bonded brass coupon before the gear is bonded",
+          "F10 dowel D2 x 6 (not 2 x 8): bonded 2.9 deep in the well pad; the module plate slides onto it",
+          "F11 nut is dropped into its slot from above; push the MG90S against the turret wall while tightening F11",
+          "pan servo: torque limit in EEPROM (see the usage limits in opravy3.md) - the hard stops are a backup for the cable loop, not a "
+          "working stop; never turn the head by hand against an end stop"],
+    FE=dict(dir="fe_sachta", results="fe_sachta/results.json", h=0.5, avg=0.4, kfe=1.04, allow=dict(normal=8.5, abuse=12.9, bond=2.7, bond_abuse=4.0),
+            note="LD5 / LD7: final acceptance set at h 0.5 (frozen geometry v10); LD1 contact rows / LD2 classes - opravy3.md"),
+)
+# ---- v10b (LD7 correction): cw stop face of the lug = plane TANGENT TO PIN 1 at pan -90.0 with its normal turned PHI from +x toward +y.
+#      phi 0 = the rev. 3 plane normal to x (pin force 32.5 N along -x, 357 N.mm about z at the plate plane); the tangential direction is 25.45.
+#      phi 38: pin force 30.1 N = (-23.7, -18.5): 18.5 N press the sole onto the curb, the moment about the -X end of the seat is 186 N.mm.
+#      Larger phi would be better still (45: 154) but the nose of the lug then comes closer than 1.0 to the deck trim wall behind pin 1
+#      (inner tip az 117.6 at phi 38 = 1.07 at -90.0; 0.83 at phi 45).  Contact line 1.9 from both ends of the 3.9 long face (the plane
+#      normal to x had it 0.6 from the cut corner); the stop stays at exactly -90.0; pin 1 / the deck are not changed.
+_c1 = (-R2["STOP"]["pin_xy"][0][1], R2["STOP"]["pin_xy"][0][0]); _ph = math.radians(38.0); _rp = R2["STOP"]["pin_d"] / 2
+R3["STOP"]["cw_face"] = dict(phi=38.0, n=(round(math.cos(_ph), 6), round(math.sin(_ph), 6)), pin=_c1,
+                             p=(round(_c1[0] - _rp * math.cos(_ph), 3), round(_c1[1] - _rp * math.sin(_ph), 3)),
+                             lever=round(_c1[1] * math.cos(_ph) - _c1[0] * math.sin(_ph), 3))
+R3["STOP"]["lug_az"] = (117.6, R3["STOP"]["lug_az"][1])
+# ---- R2 keys re-bound for rev. 3 (read by t4_ram / t4_pan / the checks) ----------------------------------------------------------
+R2["PIVOT"] = dict(R2["PIVOT"])
+R2["PIVOT"].update(boss_hole=R3["PIVOT"]["cap_hole"], washer_z=R3["PIVOT"]["washer_z"], axial_play=R3["PIVOT"]["axial_play"],
+                   axial_play_range=R3["PIVOT"]["axial_play_range"], screw=R3["PIVOT"]["screw"], head_z=R3["PIVOT"]["head_z"],
+                   tip_z=R3["PIVOT"]["tip_z"], spacer_z=R3["PIVOT"]["spacer_z"])
+R2["STACK"] = dict(R2["STACK"]); R2["STACK"]["hub_disc_r"] = (R3["LIP"]["r_in"], 12.60)
+R2["STOP"] = dict(R2["STOP"]); R2["STOP"]["lug"] = dict(R2["STOP"]["lug"], az=R3["STOP"]["lug_az"], face_x=(R3["STOP"]["face_x_ccw"], R3["STOP"]["face_x_cw"]))
+PAN_ENV2_SECTORS = [dict(s, az=(s["az"][0], R3["STOP"]["lug_az"][1])) if "lug" in s["what"] else s for s in PAN_ENV2_SECTORS]
+R2["SCREW_KINDS"] = tuple("ISO 7380 M3x8" if s == "ISO 7380 M3x6" else s for s in R2["SCREW_KINDS"])
+R2["WASHERS"] = dict(R2["WASHERS"], M3_spacer=R3["PIVOT"]["spacer"])
+if R3["FLOOR"]["variant"] == "floor":
+    R2["GEAR_PAN"] = dict(R2["GEAR_PAN"]); R2["GEAR_PAN"]["mesh_width"] = R3["FLOOR"]["mesh_width"]
+    R2["GEAR_PAN"]["pinion_plane"] = (R2["GEAR_PAN"]["plane"][0], R3["FLOOR"]["pinion_top"])
+    R2["WELL"] = dict(R2["WELL"], edge_z_front=-41.90, corner_r=R3["CORNER_RI"])
+    # swept-radius table: the floor (z -41.9 .. -40.65) now reaches r 26.50 at every azimuth
+    PAN_ENV2 = [(-47.20, -41.90, 17.50), (-41.90, -40.90, 26.50), (-40.90, -17.00, 33.40), (-17.00, -11.50, 32.20), (-11.50, 4.00, 26.50)]
+    PAN_ENV = PAN_ENV2
+# fingertip-torque joint table: F15 row
+for _j in FIX2["JOINTS"]:
+    if _j["j"] == "F15":
+        _j.update(bear=(7.0, 3.2), on="T_cap end face under the 2 x DIN 125 M3 spacers (D7) of the pivot stack",
+                  loc="T_cap bonded on T_most + F15 shank in the D3.1 hole; the well is held axially by the DIN 9021 on its hub lip (positive); "
+                      "creep of T_cap LOWERS the washer: the 0.12 axial play shrinks by 0.03-0.05 (initial play >= 0.12 keeps >= 0.05)")
+# <<< end of rev3 (sachta)

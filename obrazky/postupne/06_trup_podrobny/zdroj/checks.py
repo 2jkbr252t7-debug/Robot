@@ -254,7 +254,9 @@ K2_FITS = [   # (regex a, regex b, max common volume mm3, reason)  - designed ov
     (r"(skr_F1_|skr_F3a_|skr_F3b_|skr_F7_|skrutka_klb_|skr_F10_)", r"(vlozka_stred_|vl_F3a_|vl_F3b_|vl_F7_|vl_F8_|vl_F10_)", 9.0,
      "machine screw in the thread of its bonded brass insert"),
     (r"skr_F4_", r"mat_F4_", 4.5, "M2 screw in its DIN 562 nut"), (r"skr_F11$", r"matica_F11$", 4.5, "M2 screw in its DIN 562 nut"),
-    (r"skr_F15$", r"T_most$", 3.0, "M3 screw in the tapped aluminium bridge (metal)"),
+    # rev3 (R3-1, fixer 1d): ISO 7380 M3x8 - thread engagement 1.80 nominal (rev. 2: M3x6, 0.8 -> limit 3.0); the modelled D3.0 shank in the
+    # D2.5 tap drill overlaps by pi/4 (3.0^2 - 2.5^2) = 2.16 mm3 per mm: 3.9 at 1.80, 4.5 at the longest screw (+0.29)
+    (r"skr_F15$", r"T_most$", 4.6, "M3x8 screw in the tapped aluminium bridge (metal), engagement 1.80 (R3-1)"),
     (r"skr_F12_1$", r"L_pata$", 6.0, "M2 screw in the tapped aluminium foot (metal)"),
     (r"skr_ramena$", r"(servo_zdvih|rameno_zdvih)$", 12.0, "arm screw M2.5 in the MG90S output thread / countersink of the Al arm (metal)"),
     (r"skrutka_(led|repro)_", r"T_stred$", 4.5, "thread-forming M2 x 6 (F13) in the D1.7 pilot of a front-stack boss"),
@@ -627,13 +629,26 @@ K4_DECL = {   # part regex -> [(box (|x|0, |x|1, y0, y1, z0, z1), min, kind, tex
                    ((24.3, 29.8, 7.9, 10.6, -84.7, -83.3), 0.94, "local", "J1 corner pad 1.2 edge at the window (compression only; RAM declared)"),
                    ((24.3, 29.8, -10.6, -7.9, -84.7, -83.3), 0.94, "local", "J1 corner pad 1.2 edge at the window (compression only; RAM declared)")],
     r"T_paluba$": [((19.7, 21.0, 15.5, 17.0, -46.4, -46.0), 0.0, "runout", "outer R1 cove of the static FFC wall ending at az 40 (tangent run-out)")],
-    r"T_cap$": [((1.0, 4.6, -4.5, 4.5, -46.4, -46.0), 0.0, "runout", "root flare R0.6 ending on the bonded face (tangent run-out on the epoxy joint)")],
-    r"P_sachta$": [((5.8, 8.4, 10.8, 12.0, -17.1, -14.5), 0.8, "local", "F10 A insert seat floor 0.8 (PAN declared)"),
+    # rev3 (fixer 1d): the rev. 3 features were declared only in the PAN module check (G) - K4 had still the rev. 2 table
+    r"T_cap$": [((0.0, 5.0, -5.0, 5.0, -46.25, -46.1), 0.0, "runout", "rev3 (R3-9): tangent run-out of the R1.0 root fillet on the base face")],
+    r"P_sachta$": [((24.1, 25.2, -7.4, 7.4, -41.95, -41.65), 0.0, "runout", "rev3 (R3-3): 0.2 high feather / thin rim where the spline-tip relief (r 25.2) runs out through the end faces: deburr"),
+                   ((9.0, 10.4, 12.9, 14.1, -40.7, -39.6), 0.0, "runout", "rev3 (R3-7): toe of the R1.0 roof / back-wall fillet strip beyond the roof edge r 16.7: deburr"),
+                   ((23.2, 23.7, -7.2, 3.6, -39.8, -37.9), 0.0, "runout", "rev3 (R3-4 / v9): run-outs of the R1.5 sill / jamb fillets and of the R1.0 curb-end fillet at the bottom of the +X end window"),
+                   ((6.2, 6.8, 10.8, 12.7, -40.7, -39.0), 0.0, "runout", "rev3 (R3-4): run-out of the R1.5 sill / jamb fillet of the back window (jamb x -6.5)"),
+                   ((0.0, 5.2, -5.2, 5.2, -42.0, -40.8), 0.66, "local", "rev3 (R3-2): hub lip under the DIN 9021 - lip 0.98, retention nose 0.68 (FE rows 'hub ring / lip', fail-safe rows)"),
+                   ((1.5, 3.2, 14.8, 15.2, -13.4, -12.0), 1.05, "local", "rev3 (R3-5): plateau top strip beside the ledge rib (between the plateau top -12.15 and the R1.0 root of the rib)"),
+                   # fix-back after overenie3 (V9): the rev. 2 declaration "F10 A insert seat floor 0.8" (box x 5.8 .. 8.4) is removed - F10_A sits at x 4.2
+                   # since v9 and its D4.1 insert hole is a THROUGH hole into the well since v10d (no seat floor; builder note B4a in out/zmeny_rev3.txt)
                    ((0.4, 13.1, 10.9, 17.5, -42.7, -41.6), 0.64, "local", "drum FFC retaining lip 0.6..0.65 (PAN declared; cable guide)"),
                    ((16.9, 19.9, 10.8, 12.3, -38.8, -32.9), 0.8, "local", "F10 B insert / dowel seat floors 0.8 (PAN declared)"),
-                   ((16.0, 23.7, 3.2, 7.1, -41.8, -40.3), 0.94, "local", "FFC riser groove 0.3 in the back floor (PAN declared)")],
+                   ((15.6, 23.7, 3.2, 7.1, -41.8, -40.3), 0.94, "local", "FFC riser groove 0.3 in the back floor (PAN declared)"),
+                   ((14.0, 25.2, -10.6, 10.6, -41.95, -40.55), 1.04, "local", "rev3 (R3-3): floor 1.05 over the 0.2 relief of the spline-tip annulus r 18 .. 25.2 (declared, spec 17.17)")],
     r"P_drziak_serva$": [((2.3, 6.2, 22.6, 23.9, -18.2, -16.7), 1.0, "local", "F11 block wall beside the DIN 562 nut slot 1.0 (PAN declared)"),
-                         ((9.4, 10.3, 24.3, 30.3, -37.6, -35.9), 1.1, "local", "stop bridge around the D2.4 F12 key hole (PAN declared)")],
+                         ((9.4, 10.6, 24.3, 30.3, -37.6, -35.9), 1.1, "local", "stop bridge around the D2.4 F12 key hole (PAN declared)"),
+                         ((5.4, 10.6, 17.3, 18.2, -27.6, -20.8), 0.0, "runout", "rev3: feather of the keyhole scallop (r 6.65) where it meets the keyhole r 6.05 in the turret wall: deburr"),
+                         ((4.8, 6.4, 16.3, 17.2, -41.95, -41.7), 0.0, "runout", "v10d: run-out of the 0.15 lip relief (cylinder r 17.6) across the bottom of the plate-root fin - a 0.15 high step, deburr"),
+                         ((12.0, 16.5, 24.0, 28.6, -44.7, -43.5), 0.0, "runout", "v10 (LD7): run-out of the R1.0 root fillet of the cw stop face at the ends of the lug"),
+                         ((3.3, 8.4, 15.0, 17.3, -41.95, -40.3), 0.7, "local", "v10 (LD7): plate-root fin at the sole (taper 1.45 -> 0.75, blunt end, R1.5 run-out; attached on two sides)")],
 }
 
 
@@ -1278,12 +1293,85 @@ def _tq_rows():
     return out
 
 
+FE_PARTS = ("P_sachta", "koleso_pan", "P_drziak_serva")
+FE_SHORT = [("lens", "lens / floor junction at the front wall"), ("hub ring", "hub ring + lip"), ("window", "window corners"), ("slim corner", "slim corners"),
+            ("rail", "rail / ledge"), ("bond", "gear bond"), ("shroud", "drum shroud root")]
+
+
+def _fe_rows():
+    """rev3 (R3-9): rows of the 3-D FE of the pan stage - fe_sachta/results.json, written by fe_sachta/run_fe.py on the CURRENT STL of
+    P_sachta + koleso_pan + P_drziak_serva (h 0.4; acceptance cases L1 lift 0 / 20, L2 lift 0 chain / landed / 10 / 20, L3 both
+    directions, L8 into both stops; fail-safe cases with the gear bond failed).  A result that does not belong to the STL on disk,
+    is incomplete or not converged is NOT RUN (ok = None), never PASS."""
+    import hashlib
+    f = os.path.join(HERE, "fe_sachta", "results.json")
+    nr = lambda why: [dict(module="FE", id="FE", feature="3-D FE of the pan stage (fe_sachta/run_fe.py): " + why, case="L1 / L2 / L3 / L8", stress=None,
+                           allowable=None, margin=None, ok=None, decisive=True, note="run /opt/venv/cad/bin/python fe_sachta/run_fe.py")]
+    if not os.path.exists(f):
+        return nr("results.json missing")
+    R = json.load(open(f))
+    m = hashlib.md5()
+    for n in FE_PARTS:
+        m.update(open(os.path.join(HERE, "stl", n + ".stl"), "rb").read())
+    st = m.hexdigest()[:12]
+    if R.get("stl_stamp") != st:
+        return nr(f"results.json belongs to another STL set (stamp {R.get('stl_stamp')} != {st})")
+    if abs(R.get("h", 0) - C.R3["FE"]["h"]) > 1e-9 or R.get("cases_missing") or not R.get("all_converged"):
+        return nr(f"incomplete: h {R.get('h')}, missing {R.get('cases_missing')}, all converged {R.get('all_converged')}")
+    out = []
+    # LD1 / LD2 / LD5 (opravy3.md): row kinds 'structure' (0.4 mm average x 1.04, >= 1.0 mm away from every active contact patch),
+    # 'contact' (nominal bearing pressure = pair force / engaged area) and 'bond' (nominal average shear / tension; the 0.6 mm edge peak is
+    # information).  Classes: L1 / L2 at lift 0 normal 8.5; L1 / L2 at the extended neck, L3 and L8 into a stop abuse 12.9.  A row that
+    # fails stays FAIL here and carries the load at which it reaches its allowable (capacity) = the stated usage limit.
+    for r in R["rows"]:
+        if r["cls"] == "failsafe":
+            continue
+        kind = r.get("kind", "structure")
+        cap = (f"; capacity {r['capacity_N']} N ({r.get('ref_load')})" if r.get("capacity_N") is not None else
+               f"; capacity {r['capacity_Nmm']:.0f} N.mm ({r.get('ref_load')})" if r.get("capacity_Nmm") is not None else "")
+        note = {"structure": f"at {r['at']}; 0.4 mm average x 1.04" + (f"; peak inside the contact zone {r['contact_zone_peak']} (information)" if r.get("contact_zone_peak") else ""),
+                "contact": f"{r.get('force_N')} N / {r.get('area_mm2')} mm2; {r.get('note', '')}",
+                "bond": f"nominal value; 0.6 mm edge peak {r.get('edge_peak_06')} at {r['at']} (information, LD1)"}[kind] + cap
+        out.append(dict(module="FE", id=f"FE {r['case']}", feature=f"{r['spot']} [{r['part']}]", case=f"{r['case']} ({r['cls']})", stress=r["stress"],
+                        allowable=r["allowable"], margin=r.get("margin"), ok=r["ok"], decisive=True, note=note, kind=kind,
+                        capacity_N=r.get("capacity_N"), capacity_Nmm=r.get("capacity_Nmm")))
+    # R3-2 fail-safe: gear bond failed completely (gear left out), robot lifted by the head
+    P3 = C.R3["PIVOT"]
+    for c in ("L1_lift20c_nobond", "L1_lift0_nobond"):
+        v = R["cases"].get(c)
+        if not v:
+            out += nr(f"fail-safe case {c} missing"); continue
+        d = v.get("disp") or {}
+        lift = P3["axial_play"] + max(0.0, d.get("uz_well_max") or 0.0)
+        out.append(dict(module="FE", id=f"FE {c} lift", feature="R3-2 positive retention: rise of the stage with the gear bond FAILED COMPLETELY (axial play "
+                                                               f"{P3['axial_play']} + largest upward deflection of the well {d.get('uz_well_max')})",
+                        case=f"{c}: 30 N up on the head, bond failed", stress=round(lift, 3), allowable=0.3, margin=round(0.3 / lift, 2) if lift else None,
+                        ok=bool(lift <= 0.3), decisive=True, note=f"mm; stop lug rises {d.get('uz_lug')} + play: engagement 2.6 stays; the DIN 9021 holds the hub lip"))
+    for r in R.get("failsafe_worst", []):
+        out.append(dict(module="FE", id=f"FE {r['case']}", feature=f"fail-safe (bond failed): {r['spot']} [{r['part']}]", case=r["case"], stress=r["stress"],
+                        allowable=r["allowable"], margin=round(r["allowable"] / r["stress"], 2) if r["stress"] else None, ok=r["ok"], decisive=True,
+                        note=f"at {r['at']}; damage-tolerance case rated against the lower-bound strength 25.8 MPa (the stage must stay captive, not a "
+                             f"design load case); against the abuse allowable 12.9: {'within' if r['stress'] <= A_A else 'ABOVE'}"))
+    # R3-8: stage-side deflection of the lift chain under L2 at lift 0 (deflection needed to land = rest gap)
+    v = R["cases"].get("L2_lift0_chain")
+    if v and v.get("disp"):
+        d = v["disp"]; G = C.R3["REST_GAP"]
+        dz = abs((d.get("uz_keyhole") or 0.0) - (d.get("uz_hub") or 0.0))
+        out.append(dict(module="FE", id="FE R3-8", feature=f"L2 at lift 0: stage-side deflection of the lift chain (pocket keyhole vs hub ring) under the full 30 N = {dz:.3f} mm; "
+                                                         f"rest gap {G['feeler_ok'][0]}..{G['feeler_ok'][1]} (PARK_DEG rule): with ear / pin / servo play >= 0.1 (UNVERIFIED) the foot "
+                                                         "lands or the chain carries the 30 N - both paths are rated (rows L2_lift0_chain and L2_lift0_landed)",
+                        case="L2 30 N, lift 0", stress=round(dz, 3), allowable=None, margin=None, ok=True, decisive=False,
+                        note="information row (plan R3-8): the L2 load path at lift 0 is valid with or without landing"))
+    return out
+
+
 def K12():
     rm, pm, om = module_check("ram"), module_check("pan"), module_check("obal")
     if rm is None or pm is None or om is None:
         return res("NOT RUN", f"module strength rows missing: ram {rm is not None}, pan {pm is not None}, obal {om is not None}: {_MOD_NOTE}")
     rows = _rows_ram(rm) + _rows_pan(pm) + _rows_obal(om)
     rows += _fix2_rows(rows)
+    rows += _fe_rows()                                    # rev3: 3-D FE rows of the pan stage (fe_sachta/results.json)
     dec = [r for r in rows if r["decisive"]]
     fails = [r for r in dec if r["ok"] is False]
     unknown = [r for r in dec if r["ok"] is None]
@@ -1294,18 +1382,50 @@ def K12():
     open_items = [r for r in unknown if re.search(r"UNVERIFIED|not published|ESTIMATE|assum", f"{r.get('feature')} {r.get('note')}", re.I)]
     status = "FAIL" if (fails or bad_margin) else ("NOT RUN" if len(open_items) < len(unknown) else "PASS")
     tight = sorted([r for r in dec if r["ok"] and r.get("margin")], key=lambda r: r["margin"])[:8]
+    # LD5 / LD7 (opravy3.md): an FE row that fails at its plan load is NOT hidden and does not turn into PASS - it stays FAIL here and is listed
+    # with the load at which it reaches its allowable (= the stated usage limit of that load case)
+    caps = {}
+    for r in fails:
+        v, u = (r.get("capacity_N"), "N") if r.get("capacity_N") is not None else (r.get("capacity_Nmm"), "N.mm")
+        if r.get("module") == "FE" and v is not None and (r["case"] not in caps or v < caps[r["case"]][0]):
+            caps[r["case"]] = (v, u, str(r["feature"])[:60])
+    lim_txt = "; ".join(f"{c}: {v} {u} ({f})" for c, (v, u, f) in sorted(caps.items()))
+    # fix-back after overenie3 (V1): the L8_stop_m90 limit assumes the sole / curb seat of the lift module CLOSED (pair curb_y, gap 0 in the
+    # final FE set).  The same case with the seat open (fixback3_work/fe_gap.py, same STL stamp / h / design.json) is reported next to the
+    # limit - information only: the status and the rows of K12 are not changed by it
+    cond = {}
+    if any(str(c).startswith("L8_stop_m90") for c in caps):          # the keys of caps carry the class: "L8_stop_m90 (abuse)"
+        cond["L8_stop_m90"] = dict(condition="sole / curb seat of the lift module closed (bench step B4c of out/zmeny_rev3.txt)", capacity_seat_open_Nmm=None,
+                                   note="capacity with the seat open not computed: /opt/venv/cad/bin/python fixback3_work/fe_gap.py 5.0 0.5 open_h05")
+        try:
+            gd = os.path.join(HERE, "fixback3_work", "fe_gap", "open_h05")
+            g = json.load(open(os.path.join(gd, "L8_stop_m90_curb.json"))); gr = json.load(open(os.path.join(gd, "L8_stop_m90_rows.json")))
+            Rf = json.load(open(os.path.join(HERE, "fe_sachta", "results.json")))
+            if g.get("stl_stamp") == Rf.get("stl_stamp") and abs(g["h"] - Rf["h"]) < 1e-9 and g["solver"]["converged"] and g["equilibrated"]:
+                w = max((r for r in gr if r["cls"] != "failsafe"), key=lambda r: r["stress"] / r["allowable"])
+                cond["L8_stop_m90"].update(capacity_seat_open_Nmm=round(880.0 * w["allowable"] / w["stress"]), stress_seat_open=w["stress"], allowable=w["allowable"],
+                                           spot=w["spot"], at=w.get("at"), sole_travel_to_curb_at_880=round(-g["rel_min"], 3),
+                                           note="fixback3_work/fe_gap/open_h05: L8_stop_m90 of the final set with the pair curb_y switched off")
+        except Exception as e:                                   # a missing / unreadable variant is reported as not computed, never as a number
+            cond["L8_stop_m90"]["error"] = f"{type(e).__name__}: {e}"
+    cond_txt = "; ".join(f"{c} needs the {v['condition']} - seat open: " + (f"{v['capacity_seat_open_Nmm']} N.mm ({v['stress_seat_open']} / {v['allowable']} MPa at 880 N.mm, {v['spot']})"
+                                                                              if v.get("capacity_seat_open_Nmm") else "NOT COMPUTED") for c, v in cond.items())
     return res(status,
                f"{len(rows)} rows ({len(dec)} decisive: RAM {sum(r['module'] == 'RAM' for r in dec)}, PAN {sum(r['module'] == 'PAN' for r in dec)}, "
                f"OBAL {sum(r['module'] == 'OBAL' for r in dec)}) recomputed on the final geometry with the Z2 allowables: {len(fails)} FAIL, "
                f"{len(unknown)} not verifiable (input not published / assumed - open items, bench test: "
                + "; ".join(f"{r['module']} {r['id']} {str(r['feature'])[:50]}" for r in unknown) + "), tightest OK: "
                + "; ".join(f"{r['module']} {r['id']} {str(r['feature'])[:40]} {r['stress']}/{r['allowable']}" for r in tight[:4])
-               + ("; FAIL: " + "; ".join(f"{r['module']} {r['id']} {str(r['feature'])[:60]} ({r['case']}) {r['stress']} > {r['allowable']}" for r in fails[:6]) if fails else ""),
+               + ("; FAIL: " + "; ".join(f"{r['module']} {r['id']} {str(r['feature'])[:60]} ({r['case']}) {r['stress']} > {r['allowable']}" for r in fails[:6]) if fails else "")
+               + (f"; STATED USAGE LIMITS (LD5 / LD7 - capacity of the governing FE row per load case): {lim_txt}" if caps else "")
+               + (f"; CONDITION (fix-back after overenie3, V1): {cond_txt}" if cond else ""),
+               usage_limits={c: dict(capacity=v, unit=u, spot=f) for c, (v, u, f) in caps.items()}, usage_limit_conditions=cond,
                failing_rows=fails, not_verifiable=unknown, rows=rows, rev1_table_mapping=[dict(rev1_rows=a, rev1=b, rev2=c) for a, b, c in REV1_ROWS],
                allowables=dict(normal=A_N, sustained_or_notch=A_S, abuse=A_A, epoxy=A_EP, note="resin rows include Kt; abuse 12.9 = factor 2 on the "
                                                                                                    "UTS lower bound 25.8; metal rows against the module's metal limit"),
                method="module strength rows re-run on the final STL / BREP set (t4_ram_checks.py S: sections of the real solids with "
-                      "overenie_pevnost/pv_lib.py; t4_pan_checks.py H; checks_obal.py S) - hand / section calculations, no 3-D FE")
+                      "overenie_pevnost/pv_lib.py; t4_pan_checks.py H; checks_obal.py S) - hand / section calculations; rev3: + the 3-D FE "
+                      "rows of the pan stage from fe_sachta/results.json (own voxel / finite-cell FE on the STL, fe_sachta/run_fe.py)")
 
 
 # =====================================================================================================================

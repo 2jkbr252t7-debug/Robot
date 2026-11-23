@@ -1520,3 +1520,55 @@ Finding-by-finding record: `opravy2.md`.
     (≈ 0.4 V at 1.4 A, UNVERIFIED). Arm connectors (m8): the arm servos join the 5 V bus with a bought 3-pin Y-split at J_BUS_5, wires up
     the column through the Ø4.5 hole. MG90S crank (m8): count the spline teeth of the purchased MG90S BEFORE buying the aluminium arm; if none fits, use the P05 fallback (supplied horn + 2.0 Al cover plate, pin in double shear, both drilled at r 10.00 from one template) – decide before drilling. Text fixes (m7): T13Lb hex key 1.3 (ISO 7380 M2); stop pins bonded 8.4 deep (hole 8.7); the base FFC
     is plugged through the door BEFORE the door closes; T_paluba prints tilted 70° about +Y.
+
+### 17.17 Rev. 3 - strengthening of the rotating well (fixer, 2026-11-22/23) - supersedes 17.0-17.16 where different
+Numbers: `t4_common.R3`; record: opravy3.md; FE: fe_sachta/results.json (h 0.5, STL stamp d57319eb33aa).
+1. **Pivot / retention (R3-1, R3-2).** F15 = ISO 7380 M3x8 + DIN 9021 M3 + 2 x DIN 125 M3 (spacers on the T_cap top -41.8); the DIN 9021
+   overlaps the hub LIP of the well (lip top -40.92, r_in 3.8): the stage is captive without the gear bond.  Thread engagement in T_most
+   1.8 / 1.51 min; axial play 0.12 (0.1-0.25, feeler).  T_cap: root R1.0, hole drilled D3.1.
+2. **Floor (R3-3 b).** P_sachta has a floor z -41.9 .. -40.65 over the whole well with R1.0 roots; the pan pinion face is 3.0
+   (bought 4.0 pinion shortened at its top face; top -42.9); 0.2 relief over the spline-tip annulus (floor 1.05 there, declared).
+3. **Windows / corners (R3-4, R3-6).** Window corners R1.5 (end-window top R2.0); +X lintel 2.3 = 8th PTFE land; end-window top -16.9;
+   curb z -39.5 for y >= 0.3 at the +X pillar foot; inner corners R3.0; guide band 2.3 above z -17.5; journal ring down to
+   z -16.7 over the front half.
+4. **Lift-module joint (R3-5).** No tongue / groove.  UP: pocket block top (chamfer 1.6) under the ledge rib x -8.0 .. -2.9, gap 0.1.
+   DOWN: closed window of the plate (x -6.5 .. 4.2, z -36.2 .. -32.0) on the shelf z -35.7 .. -32.1, gap 0.1.
+   x / z: F10 dowel ISO 8734 D2 x 6 at (17.4, -38.0), 2.9 bonded in the well pad, 1.1 proud behind the plate (servo end stop).
+   y: F10_A at (4.2, -15.8), F10_B, contact pads A, B, mid band, C, D, E and the sill curb (item 6).
+5. **P_drziak_serva.** Turret wall 4.0 (inner face 0.2 back except the corner pad); F11 nut slot closed at +Y (nut from above);
+   sole root R2.0; R0.3 under the block; lug roots R1.5 / R1.0, bridge step R1.5.  MG90S seat = couple along x (L1: F11 tension +
+   case corner on the wall pad; L2: tab on the block + case end on the proud dowel end, gap 0.4).  A roof beam over the servo is NOT possible (door lintel, K7).
+6. **Pan stops (LD7).** Stops at exactly +-90.0, pins D3 in the deck unchanged.  ccw face of the lug = plane x -19.56; cw face = plane tangent to pin 1
+   through (-14.072, 26.167) with its normal 38 deg from +x toward +y (lever 29.283 mm): the pin force presses the SOLE of the module (x -16.9 .. -6.5,
+   down to z -41.9) onto the SILL CURB of P_sachta (floor continued to y 15.1 under the back window, x -16.9 .. -6.5, top = sill -40.65; seat 11.0 mm2,
+   compression only, gap 0 nominal).  Plate relief over the shroud roof cut obliquely (plate root whole at the sole).
+   Fix-back after overenie3 (V1): the seat is checked on the BENCH before T7 (step B4c: bare P_drziak_serva on the stage, F10 tight; the sole / curb line is
+   looked at from below the stage with a lamp inside the well: the 0.05 feeler must not enter (no light = closed); otherwise the sole is bedded on the curb
+   face with toughened 2K epoxy, release agent on the sole) - with the seat OPEN the -90 deg stop reaches its allowable at 108 N.mm (2.2 N at the side of the head) instead of 278; the 15 % limit (132 N.mm) then gives 15.8 MPa and twice the limit 31.6 MPa (allowable 12.9, lower bound 25.8).  A residual clearance of 0.05 / 0.10 mm closes at 38 / 76 N.mm (4.5 / 9.0 MPa there): capacity 289 / 297 N.mm, twice the limit 11.8 / 12.2 MPa; from a clearance of 0.14 mm on the capacity is the open-seat value.  Bench acceptance 0.05 mm.  If the seat was not checked / bedded: EEPROM torque limit 5 % (= 44 N.mm, 2 x that <= 108).
+7. **Shroud (R3-7).** Roof at floor level over the shroud top (r <= 16.7), R1.0 root; plate relief of the pocket 0.30 over it.
+8. **Rest gap (R3-8).** 0.15 at BDC; calibration T11 (feeler 0.1 / 0.25) -> PARK_DEG; the lift servo is never commanded below PARK_DEG.
+9. **Acceptance method (LD1 / LD2).** Structure rows >= 1.0 mm from active contacts; contacts by nominal bearing pressure + hand calc of the supporting
+   section; bond by nominal average (2.7 normal / 4.0 abuse).  Classes: L1 / L2 at lift 0 normal 8.5; at the extended neck, L3 and L8 into a stop abuse 12.9.
+10. **Final FE set:** 48 spots, 14 above their allowable (26 rows) -> USAGE LIMITS (capacity = load at the allowable):
+  * robot lifted by the head, neck parked (pull up): 14.8 N - back-window corners (top + sill / jamb) [P_sachta]
+  * pull up on the head, neck extended: 22.9 N - +X end wall / lintel above the window [P_sachta]
+  * push down on the head, neck parked (before the foot lands): 24.4 N - +X end wall / lintel above the window [P_sachta]
+  * push down, neck at mid lift: 21.9 N - +X end wall / lintel above the window [P_sachta]
+  * head turned by hand against the pan servo (cw): 455 N.mm (9.1 N at the side of the head) - back-window corners (top + sill / jamb) [P_sachta]
+  * torque into the +90 deg hard stop (servo stall / hand): 451 N.mm (9.0 N at the side of the head) - P_drziak_serva plate (incl. fin, notch, low plate, dowel hole) [P_drziak_serva]
+  * torque into the -90 deg hard stop (servo stall / hand): 278 N.mm (5.6 N at the side of the head) - P_drziak_serva sole + high bridge (z <= -36) [P_drziak_serva]
+    Rules: carry the robot by the torso; the firmware parks the neck when idle and before power-off; pan range +-85 deg (+-1934 servo steps); pan-servo
+    torque limit in EEPROM 15 % (2 x 132 N.mm <= 278 N.mm; bench test that the head still turns - UNVERIFIED); never turn the head by hand against an end stop.
+11. **Print.** P_sachta: top plate toward the build plate, raised >= 3 mm; with the closed floor it is a bucket open toward the plate - it drains through the
+    back window, the -Y part of the +X end window (sills at floor level; the sill curb is flush) and the D7.6 hub bore; not a suction cup (the neck opening and the
+    windows vent it).  P_drziak_serva: plate face on the build plate.  Reprint vs rev. 2 (STL comparison): T_paluba, T_cap, P_sachta, P_drziak_serva.
+12. **Bought / made parts changed:** ISO 7380 M3x8 (was M3x6); 2 x DIN 125 M3 (+ 1 spare for B2b); dowel ISO 8734 D2 x 6 (was 2 x 5); pan pinion shortened to 3.0;
+    8th PTFE strip; L_ucho flange end chamfer 1.2; 36T gear lower bore edge chamfer 0.4; PTFE strip on T_cap 3.1 high
+    (was 3.5), lower edge 1.0 above the base (above the R1.0 root).
+13. **Fix-back after overenie3 (2026-11-23; no geometry change, record in opravy3.md).**  (a) F12 (ear -> foot) cannot be inserted with the lift module
+    seated (3.7 behind the ear flange for a 7.3 long screw, head D3.5 / key hole D2.4): it is pre-loaded in the ear flange on the bench (B5e),
+    started through the key hole about 3 mm before the module seats (T9), tightened at T11; service S1 in the reverse order.  (b) The F10_A insert hole is a
+    THROUGH hole into the well (insert y 11.1 .. 15.1, inner wall face 10.3): insert set flush with the pad face, M2x6 only.  (c) STS3032 spline: modelled
+    3.5 above the boss face (UNVERIFIED), 1.0 under the relieved floor (-41.70): measure the servo before P_sachta is printed (<= 4.0).
+    (d) Sill + curb top print as supported overhang: sanded level with the floor (ear flange 0.15 above them).  (e) P_drziak_serva: two knife-edge fins of
+    the keyhole scallop and the edge at the F10_A hole mouth are deburred; the stop faces are not touched.

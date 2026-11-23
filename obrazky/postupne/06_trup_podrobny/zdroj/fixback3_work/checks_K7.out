@@ -1,0 +1,17 @@
+[    0.2] == checks.py (rev. 2) 2026-11-23 21:18:37  sections K7  STL stamp b9361c2258e96717  force True ==
+[    0.2] K1 PASS     (kept from 2026-11-23 18:10:38, same STL set)
+[    0.2] K2 PASS     (kept from 2026-11-23 18:13:03, same STL set)
+[    0.2] K11 PASS     (kept from 2026-11-23 18:13:03, same STL set)
+[    0.2] K9 PASS     (kept from 2026-11-23 18:32:12, same STL set)
+[    0.2] K3 PASS     (kept from 2026-11-23 18:45:17, same STL set)
+[    0.2] K6 PASS     (kept from 2026-11-23 18:45:17, same STL set)
+[    0.2] K4 PASS     (kept from 2026-11-23 21:16:51, same STL set)
+[    0.2] K5 PASS     (kept from 2026-11-23 18:46:27, same STL set)
+[    0.2]    running checks_bl.py K7 ...
+[  206.5] K7 PASS     51 steps (21 bench, 23 torso, 7 service rows): 39 straight-line paths swept against the parts present - 0 undeclared collisions; 39 screws with a straight tool channel (D4.5, or the named key: ['skr_F10_B', 'skr_F11', 'skr_F12_1', 'skr_F15', 'skr_F4_1', 'skr_F4_2', 'skr_ramena', 'skrutka_klb_L1', 'skrutka_klb_L2', 'skrutka_klb_L3', 'skrutka_klb_P1', 'skrutka_klb_P2', 'skrutka_klb_P3']); 40 inserts / magnets / pins with an open mouth; T_stred lowering: min plan clearance 0.248 (T_spodok), spigot 
+[  206.5] K8 PASS     (kept from 2026-11-23 18:53:00, same STL set)
+[  206.5] K10 PASS     (kept from 2026-11-23 19:04:02, same STL set)
+[  206.5] K12 FAIL     (kept from 2026-11-23 20:38:18, same STL set)
+[  206.5] K13 PASS     (kept from 2026-11-23 19:04:02, same STL set)
+[  206.5]    module pre-checks: ram: all ok; pan: NOT OK ['H_strength']; obal: all ok
+[  206.5] == K1:PASS  K2:PASS  K3:PASS  K4:PASS  K5:PASS  K6:PASS  K7:PASS  K8:PASS  K9:PASS  K10:PASS  K11:PASS  K12:FAIL  K13:PASS  (207 s) ==

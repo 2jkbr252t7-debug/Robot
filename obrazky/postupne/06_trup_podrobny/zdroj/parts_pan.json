@@ -1,0 +1,3274 @@
+{
+ "module": "pan",
+ "revision": 2,
+ "generated": "2026-11-23 11:04:28",
+ "frame": "B frame = pan-stage frame at pan 0, mm, rest pose (lift 0)",
+ "n_parts": 39,
+ "all_ok": true,
+ "not_ok": [],
+ "step_limit_bytes": 12000000,
+ "removed_parts": [],
+ "finished_parts_used": [
+  "golier_kotuc (P, glued on the stage top plate z -2)",
+  "krk_predna_polovica / krk_zadna_polovica (L)"
+ ],
+ "ear_flat_pattern": {
+  "dxf": "stl/L_ucho_rozvin.dxf",
+  "holes": [
+   [
+    2.5,
+    -38.5,
+    1.15
+   ],
+   [
+    5.699999999999999,
+    -38.5,
+    1.025
+   ],
+   [
+    12.198672286269282,
+    -36.35,
+    0.5
+   ]
+  ],
+  "slot": {
+   "u": [
+    11.998672286269281,
+    22.498672286269283
+   ],
+   "v": -34.2,
+   "r": 1.1
+  },
+  "bend_lines": [
+   8.899999999999999,
+   12.198672286269282
+  ],
+  "ba": 3.299,
+  "k": 0.4,
+  "t": 1.5,
+  "R": 1.5,
+  "u_end": 24.399,
+  "f_flat": 8.9,
+  "p_flat": 12.2,
+  "relief": {
+   "u": [
+    9.698672286269282,
+    12.198672286269282
+   ],
+   "v": [
+    -36.5,
+    -36.2
+   ]
+  }
+ },
+ "ffc_lengths": {
+  "A": {
+   "carrier": 65.3,
+   "crease_static": 3.0,
+   "outer_run": 22.0,
+   "U": 10.3,
+   "inner_run": 17.5,
+   "riser": 14.6,
+   "lift_loop": 43.5,
+   "zfold_tail": 14.1,
+   "total": 190.3,
+   "slack_203": 12.7
+  },
+  "B": {
+   "carrier": 58.2,
+   "crease_static": 3.0,
+   "outer_run": 22.0,
+   "U": 10.3,
+   "inner_run": 17.5,
+   "riser": 14.6,
+   "lift_loop": 43.5,
+   "zfold_tail": 9.2,
+   "total": 178.2,
+   "slack_203": 24.8
+  }
+ },
+ "drum_az": [
+  8.4,
+  140.0
+ ],
+ "k_loop": 0.4185,
+ "parts": [
+  {
+   "name": "P_sachta",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 17520.8,
+   "bbox": [
+    -26.365,
+    26.365,
+    -26.37,
+    26.365,
+    -45.6,
+    -2.0
+   ],
+   "ok": true,
+   "volume_mesh": 17517.23,
+   "cog": [
+    0.524,
+    0.118,
+    -18.938
+   ],
+   "stl": {
+    "file": "stl/P_sachta.stl",
+    "tris": 22680,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 1.13,
+    "md5": "81914b258fcae0433e6649cf3fb38e3e"
+   },
+   "watertight": true,
+   "step": "step/P_sachta.step",
+   "group": "P",
+   "mat": "resin_black",
+   "printed": true,
+   "label_sk": "šachta krku (štíhla, r ≤ 26,5) s čapom, nábojom a bubnom FFC",
+   "mass_g": 20.14,
+   "build_s": 3.3,
+   "assembly_step": "B4",
+   "assembly_dir": "inserts F10 + dowel bonded, PTFE tapes; 36T gear bonded under the hub disc on the deck set (centred by the taped boss)",
+   "module": "pan",
+   "print": {
+    "orientation": "top plate (z -2 face) toward the build plate, axis vertical, RAISED >= 3 mm on supports (the 8 x D2.5 top-plate vents must open into the gap below the part)",
+    "u_away": [
+     0.0,
+     0.0,
+     -1.0
+    ],
+    "on_plate": false,
+    "supports": "top plate face r >= 24 (collar-disc glue land, sanded) and the plate face inside the ring; never on the journal ring r 26.37, the guide lands or the drum shroud faces",
+    "drains": "8 x D2.5 vents through the top plate into the ring / rib pockets (fixer rev2 M2); rev3: the well has a closed floor - in this orientation it is a bucket open toward the build plate: it empties through the back window and the -Y part of the +X end window (both sills level with the floor top) and through the D7.6 hub bore; vented by the neck opening of the top plate (part raised >= 3 mm) - no suction cup",
+    "warp": "journal ring tied by the top plate + ribs; sand the journal to fit (PTFE tape)"
+   },
+   "export_s": 0.7
+  },
+  {
+   "name": "P_drziak_serva",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 3263.02,
+   "bbox": [
+    -22.306,
+    20.9,
+    15.1,
+    31.3,
+    -47.2,
+    -13.3
+   ],
+   "ok": true,
+   "volume_mesh": 3263.12,
+   "cog": [
+    -3.793,
+    20.293,
+    -30.109
+   ],
+   "stl": {
+    "file": "stl/P_drziak_serva.stl",
+    "tris": 4774,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.24,
+    "md5": "b7fe6677c51b2921ed0697b00c730ae7"
+   },
+   "watertight": true,
+   "step": "step/P_drziak_serva.step",
+   "group": "P",
+   "mat": "resin_black",
+   "printed": true,
+   "label_sk": "kapsa serva zdvihu s dorazom pan",
+   "mass_g": 3.75,
+   "build_s": 0.8,
+   "assembly_step": "B5 / T8",
+   "assembly_dir": "MG90S inserted along -X (turret through the closed keyhole), F11; ear hung on the pin; module -Y through the door along -Y: block under the ledge rib, nose over the plateau top, F10 dowel pushed in from +Y, F10 A/B",
+   "module": "pan",
+   "print": {
+    "orientation": "back plate (y 15.1 face) ON the build plate",
+    "u_away": [
+     0.0,
+     1.0,
+     0.0
+    ],
+    "on_plate": true,
+    "supports": "none on the plate face; light supports under the bridge / lug overhangs (not on the lug contact faces)",
+    "drains": "open pocket, no closed cavity (rev3: the F11 nut slot and the plate window are through openings)",
+    "warp": "none (small part)"
+   },
+   "export_s": 0.3
+  },
+  {
+   "name": "L_ucho",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 183.27,
+   "bbox": [
+    -19.4,
+    -7.5,
+    9.9,
+    25.1,
+    -40.5,
+    -31.9
+   ],
+   "ok": true,
+   "volume_mesh": 183.27,
+   "cog": [
+    -17.195,
+    16.225,
+    -37.211
+   ],
+   "stl": {
+    "file": "stl/L_ucho.stl",
+    "tris": 2014,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.1,
+    "md5": "4c51d3721ba0e69d251b67cd738a419b"
+   },
+   "watertight": true,
+   "step": "step/L_ucho.step",
+   "group": "L",
+   "mat": "stainless",
+   "printed": false,
+   "label_sk": "ucho pätky – nerez 304 1,5 ohýbané (výkres DXF; len nerez 304, nie 5754)",
+   "mass_g": 1.45,
+   "bbox_expected": [
+    -19.4,
+    -7.5,
+    9.9,
+    25.1,
+    -40.5,
+    -31.9
+   ],
+   "bbox_ok": true,
+   "build_s": 0.1,
+   "source": "304 stainless sheet 1.5 (preferred, section 17.5), inner bend R 1.5 (= t), k-factor 0.4; flat pattern stl/L_ucho_rozvin.dxf",
+   "assembly_step": "T8 / T11",
+   "assembly_dir": "hung on the crank pin before the module goes in; F12 x 2 with a 1.3 hex key through the D2.4 key holes of the bridge",
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "L_pata",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 2356.17,
+   "bbox": [
+    -22.3,
+    22.3,
+    -9.8,
+    9.8,
+    -40.5,
+    -36.5
+   ],
+   "ok": true,
+   "volume_mesh": 2356.34,
+   "cog": [
+    -4.761,
+    -0.01,
+    -38.5
+   ],
+   "stl": {
+    "file": "stl/L_pata.stl",
+    "tris": 2056,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.1,
+    "md5": "8461f5a9637eac1dcf4479cb751ca5dd"
+   },
+   "watertight": true,
+   "step": "step/L_pata.step",
+   "group": "L",
+   "mat": "alu",
+   "printed": false,
+   "label_sk": "pätka krku – Al plochá tyč 20x4",
+   "mass_g": 6.36,
+   "bbox_expected": [
+    -22.3,
+    22.3,
+    -9.8,
+    9.8,
+    -40.5,
+    -36.5
+   ],
+   "bbox_ok": true,
+   "build_s": 0.0,
+   "source": "aluminium flat bar 20 x 4 (EN AW-6060 / 6061 / 5754), cut 44.6, filed to 19.6; 2 x M2 tapped (drill 1.6 x 7, thread 5)",
+   "assembly_step": "B6",
+   "assembly_dir": "drilled, slotted, tapped; bonded to the FRONT neck half only",
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "koleso_pan",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 2364.53,
+   "bbox": [
+    -15.176,
+    15.176,
+    -15.176,
+    15.176,
+    -45.9,
+    -41.9
+   ],
+   "ok": true,
+   "volume_mesh": 2364.63,
+   "cog": [
+    -0.0,
+    -0.0,
+    -43.898
+   ],
+   "stl": {
+    "file": "stl/koleso_pan.stl",
+    "tris": 3330,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.17,
+    "md5": "9f15f5b05ce7c9a86d5c0bda871e897f"
+   },
+   "watertight": true,
+   "step": "step/koleso_pan.step",
+   "group": "P",
+   "mat": "brass",
+   "printed": false,
+   "label_sk": "ozubené koleso pan 36z m0,8 mosadz, šírka 4, diera Ø8 H7 (kúpené)",
+   "mass_g": 20.1,
+   "build_s": 0.65,
+   "source": "plain spur gear m0.8 z36, 20 deg, face 4.0, d 28.8 / da 30.4, bore 8.00 H7, brass C3604 (KHK BSS0.8-36 class / McMaster brass 0.8 mod / Accu 0.8MOD - shape and bore UNVERIFIED; if hubbed: hub faced off, bored 8 H7 on a lathe). Teeth modelled with the t4_ram generator (backlash 0.04 per gear), a tooth faces the pinion (az 254.29)",
+   "assembly_step": "B4",
+   "assembly_dir": "epoxy on the gear top face, gear tips centred in the drum shroud with a 0.3 shim strip, 24 h",
+   "module": "pan",
+   "export_s": 0.7
+  },
+  {
+   "name": "servo_zdvih",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 7171.14,
+   "bbox": [
+    -15.5,
+    16.0,
+    17.1,
+    29.3,
+    -41.1,
+    -13.45
+   ],
+   "ok": true,
+   "volume_mesh": 7170.87,
+   "cog": [
+    3.109,
+    23.2,
+    -28.904
+   ],
+   "stl": {
+    "file": "stl/servo_zdvih.stl",
+    "tris": 2246,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.11,
+    "md5": "a9eee18b2304777489854cd276068d50"
+   },
+   "watertight": true,
+   "step": "step/servo_zdvih.step",
+   "group": "P",
+   "mat": "bought",
+   "printed": false,
+   "label_sk": "servo zdvihu MG90S (spodný úchyt odrezaný)",
+   "mass_g": 13.4,
+   "build_s": 0.06,
+   "source": "TowerPro MG90S, E2 model of the neck (user drawing): case 22.5 x 12.2 x 22.8, turret D11.8 x 6.0 + lobe r 2.9 at 5.6, spline D4.8 x 3.0 (tooth count 20/21/25 UNVERIFIED - count before buying the arm), upper tab 2.5, hole D2.2; lower tab cut off",
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "rameno_zdvih",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 207.67,
+   "bbox": [
+    -17.5,
+    -12.5,
+    19.7,
+    26.7,
+    -36.388,
+    -20.7
+   ],
+   "ok": true,
+   "volume_mesh": 207.69,
+   "cog": [
+    -15.74,
+    23.2,
+    -27.216
+   ],
+   "stl": {
+    "file": "stl/rameno_zdvih.stl",
+    "tris": 2902,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.15,
+    "md5": "e263ae6829e2f4fd66f7fb5b6002ac03"
+   },
+   "watertight": true,
+   "step": "step/rameno_zdvih.step",
+   "group": "P",
+   "mat": "alu",
+   "printed": false,
+   "label_sk": "hliníkové rameno serva MG90S (kúpené), čap na r 10,00",
+   "mass_g": 0.56,
+   "build_s": 0.12,
+   "source": "aluminium single servo arm for the MG90S spline (generic 'MG90S/SG90 aluminium servo arm 25T M2' listings - product, thickness and hub UNVERIFIED); modelled hub D7 x 3, arm 2.0 x 5 to r 12.2; crank-pin hole D2.00 drilled at r 10.00 +-0.05",
+   "module": "pan",
+   "export_s": 0.1
+  },
+  {
+   "name": "cap_kluky",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 18.85,
+   "bbox": [
+    -19.9,
+    -13.9,
+    22.2,
+    24.2,
+    -35.2,
+    -33.2
+   ],
+   "ok": true,
+   "volume_mesh": 18.84,
+   "cog": [
+    -16.9,
+    23.2,
+    -34.2
+   ],
+   "stl": {
+    "file": "stl/cap_kluky.stl",
+    "tris": 500,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.03,
+    "md5": "e363da86efee408eba187039ee4a8787"
+   },
+   "watertight": true,
+   "step": "step/cap_kluky.step",
+   "group": "P",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "čap kľuky Ø2x6 ISO 8734 (lisovaný + Loctite 638)",
+   "mass_g": 0.15,
+   "build_s": 0.0,
+   "source": "dowel pin ISO 8734 2 m6 x 6, pressed + Loctite 638 into the Al arm (metal-metal), x -19.9 .. -13.9",
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_ramena",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 32.92,
+   "bbox": [
+    -17.5,
+    -12.5,
+    20.85,
+    25.55,
+    -26.55,
+    -21.85
+   ],
+   "ok": true,
+   "volume_mesh": 32.9,
+   "cog": [
+    -15.516,
+    23.2,
+    -24.2
+   ],
+   "stl": {
+    "file": "stl/skr_ramena.stl",
+    "tris": 1256,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.06,
+    "md5": "435db0bee6ba78ab2a1de6718b836ea6"
+   },
+   "watertight": true,
+   "step": "step/skr_ramena.step",
+   "group": "P",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka ramena M2,5x5 zápustná (kov–kov, závit serva NEOVERENÝ)",
+   "mass_g": 0.26,
+   "build_s": 0.01,
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "DPS_krk",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 181.53,
+   "bbox": [
+    9.2,
+    22.2,
+    -6.9,
+    6.5,
+    -39.0,
+    -36.9
+   ],
+   "ok": true,
+   "volume_mesh": 181.53,
+   "cog": [
+    16.737,
+    -0.584,
+    -37.629
+   ],
+   "stl": {
+    "file": "stl/DPS_krk.stl",
+    "tris": 204,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.01,
+    "md5": "9e0434a4b85a158ba87813240a815bc4"
+   },
+   "watertight": true,
+   "step": "step/DPS_krk.step",
+   "group": "L",
+   "mat": "pcb",
+   "printed": false,
+   "label_sk": "doska krku FR4 0,8 + 2x ZIF Panasonic Y5B AYF530535 (5 p, 0,5 mm)",
+   "mass_g": 0.45,
+   "build_s": 0.06,
+   "source": "FR4 0.8, 13.0 x 13.4 (custom 2-layer, any PCB house); ZIF Panasonic Y5B AYF530535 (0.5 mm, 5 p, top + bottom contact, for 0.30 FFC, back lock; height about 1.0 - UNVERIFIED, vendor page not reachable) or Molex 54548-0572 (bottom contact, 0.30 FFC, 1.2 high, search snippet); envelope modelled 1.2 high (z -39.0 .. -37.8).  fixer rev2: FH19C takes 0.20 FPC only",
+   "assembly_step": "B6",
+   "assembly_dir": "neck wires + pigtail soldered on the bench, board bonded into the foot slot",
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "ffc_par",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 140.77,
+   "bbox": [
+    -20.95,
+    28.35,
+    -5.85,
+    23.389,
+    -50.625,
+    -22.75
+   ],
+   "ok": true,
+   "volume_mesh": 140.78,
+   "cog": [
+    14.443,
+    12.06,
+    -42.278
+   ],
+   "stl": {
+    "file": "stl/ffc_par.stl",
+    "tris": 1746,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.09,
+    "md5": "5050cd9eadc7d34b9caaf830a6f03a9c"
+   },
+   "watertight": true,
+   "step": "step/ffc_par.step",
+   "group": "P",
+   "mat": "fpc",
+   "printed": false,
+   "label_sk": "pár FFC 0,5 mm 5-pól. (spolu) – slučka pan + zdvih",
+   "mass_g": 0.2,
+   "build_s": 0.5,
+   "source": "2 x stock FFC 0.5 mm pitch, 5 conductors, 3.0 wide, 0.10 flex / 0.3 stiffened ends, 203 mm, Type A (same side) - Molex Premo-Flex 15166 series 5-circuit 203 mm (part number UNVERIFIED) or Wurth WR-FFC 0.5 mm 5 p 200 mm; stacked pair modelled as one strip 3.0 x 0.25; creases (45 deg flat folds) only in the static / bonded parts",
+   "assembly_step": "B4",
+   "assembly_dir": "rotating anchor (Kapton + epoxy dot) at stage az 14..24, riser + groove + fixed leg bonded flat (z -41.6 .. -30)",
+   "module": "pan",
+   "export_s": 0.4
+  },
+  {
+   "name": "konektor_zdvih",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 217.8,
+   "bbox": [
+    17.2,
+    22.7,
+    17.2,
+    20.5,
+    -29.0,
+    -17.0
+   ],
+   "ok": true,
+   "volume_mesh": 217.8,
+   "cog": [
+    19.95,
+    18.85,
+    -23.0
+   ],
+   "stl": {
+    "file": "stl/konektor_zdvih.stl",
+    "tris": 12,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.0,
+    "md5": "22a3375c94d5e980bf04518293447d91"
+   },
+   "watertight": true,
+   "step": "step/konektor_zdvih.step",
+   "group": "P",
+   "mat": "bought",
+   "printed": false,
+   "label_sk": "spojka Molex PicoBlade 1,25 3-pól. (pár, voľne zaparkovaný, Kapton)",
+   "mass_g": 0.3,
+   "build_s": 0.0,
+   "source": "Molex PicoBlade 1.25 mm 3 p wire-to-wire: 51047-0300 plug + 51021-0300 receptacle (hobby: pre-crimped 'micro JST 1.25 3-pin' pigtail pairs); mated envelope 5.5 x 3.3 x 12 (length UNVERIFIED)",
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "kabel_zdvih",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 9.88,
+   "bbox": [
+    13.146,
+    20.548,
+    18.24,
+    22.993,
+    -18.35,
+    -15.369
+   ],
+   "ok": true,
+   "volume_mesh": 9.85,
+   "cog": [
+    16.921,
+    20.188,
+    -16.833
+   ],
+   "stl": {
+    "file": "stl/kabel_zdvih.stl",
+    "tris": 14998,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.75,
+    "md5": "c37f3684220bcc2286f5d1430a23bc2c"
+   },
+   "watertight": true,
+   "step": "step/kabel_zdvih.step",
+   "group": "P",
+   "mat": "bought",
+   "printed": false,
+   "label_sk": "vodiče serva zdvihu (skrátené)",
+   "mass_g": 0.3,
+   "build_s": 0.02,
+   "source": "MG90S lead shortened to about 40 mm, PicoBlade receptacle crimped / soldered on",
+   "module": "pan",
+   "export_s": 0.5
+  },
+  {
+   "name": "pigtail_zdvih",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 64.81,
+   "bbox": [
+    12.2,
+    27.634,
+    -2.63,
+    19.55,
+    -40.452,
+    -28.453
+   ],
+   "ok": true,
+   "volume_mesh": 64.64,
+   "cog": [
+    23.236,
+    6.344,
+    -36.927
+   ],
+   "stl": {
+    "file": "stl/pigtail_zdvih.stl",
+    "tris": 52186,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 2.61,
+    "md5": "764266de6025ddf59d23961ba3e740b7"
+   },
+   "watertight": true,
+   "step": "step/pigtail_zdvih.step",
+   "group": "L",
+   "mat": "bought",
+   "printed": false,
+   "label_sk": "pigtail serva zdvihu 3x AWG30 z DPS_krk",
+   "mass_g": 0.4,
+   "build_s": 0.0,
+   "source": "3 x AWG30 silicone, bundle D1.4, about 70 mm, soldered to the 3 underside pads of DPS_krk",
+   "module": "pan",
+   "export_s": 2.2
+  },
+  {
+   "name": "ffc_A_krk",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 4.33,
+   "bbox": [
+    19.2,
+    25.65,
+    -5.85,
+    -2.85,
+    -38.4,
+    -38.1
+   ],
+   "ok": true,
+   "volume_mesh": 4.34,
+   "cog": [
+    21.747,
+    -4.35,
+    -38.25
+   ],
+   "stl": {
+    "file": "stl/ffc_A_krk.stl",
+    "tris": 28,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.0,
+    "md5": "a93d067c666502474093b33d06030bd0"
+   },
+   "watertight": true,
+   "step": "step/ffc_A_krk.step",
+   "group": "L",
+   "mat": "fpc",
+   "printed": false,
+   "label_sk": "koniec FFC do ZIF na DPS_krk (s výstuhou 0,3)",
+   "mass_g": 0.01,
+   "build_s": 0.0,
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "ffc_B_krk",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 4.33,
+   "bbox": [
+    19.2,
+    25.65,
+    -0.85,
+    2.15,
+    -38.4,
+    -38.1
+   ],
+   "ok": true,
+   "volume_mesh": 4.34,
+   "cog": [
+    21.747,
+    0.65,
+    -38.25
+   ],
+   "stl": {
+    "file": "stl/ffc_B_krk.stl",
+    "tris": 28,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.0,
+    "md5": "1982fb08f39a805002de8679a226aae7"
+   },
+   "watertight": true,
+   "step": "step/ffc_B_krk.step",
+   "group": "L",
+   "mat": "fpc",
+   "printed": false,
+   "label_sk": "koniec FFC do ZIF na DPS_krk (s výstuhou 0,3)",
+   "mass_g": 0.01,
+   "build_s": 0.0,
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "ffc_A_nosic",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 5.64,
+   "bbox": [
+    -20.95,
+    -17.95,
+    18.95,
+    20.65,
+    -56.5,
+    -50.7
+   ],
+   "ok": true,
+   "volume_mesh": 5.64,
+   "cog": [
+    -19.45,
+    19.163,
+    -53.388
+   ],
+   "stl": {
+    "file": "stl/ffc_A_nosic.stl",
+    "tris": 20,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.0,
+    "md5": "f06eb217352a1e48346faff993f38f12"
+   },
+   "watertight": true,
+   "step": "step/ffc_A_nosic.step",
+   "group": "T",
+   "mat": "fpc",
+   "printed": false,
+   "label_sk": "koniec FFC do ZIF FH12 na nosnej doske",
+   "mass_g": 0.01,
+   "build_s": 0.0,
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "ffc_B_nosic",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 5.64,
+   "bbox": [
+    -13.85,
+    -10.85,
+    18.95,
+    20.65,
+    -56.5,
+    -50.7
+   ],
+   "ok": true,
+   "volume_mesh": 5.64,
+   "cog": [
+    -12.35,
+    19.163,
+    -53.388
+   ],
+   "stl": {
+    "file": "stl/ffc_B_nosic.stl",
+    "tris": 20,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.0,
+    "md5": "6098ffa3fbfdf3e0acb62b4ef100539e"
+   },
+   "watertight": true,
+   "step": "step/ffc_B_nosic.step",
+   "group": "T",
+   "mat": "fpc",
+   "printed": false,
+   "label_sk": "koniec FFC do ZIF FH12 na nosnej doske",
+   "mass_g": 0.01,
+   "build_s": 0.0,
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "ptfe_pas_capu",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 151.15,
+   "bbox": [
+    -26.5,
+    26.5,
+    -26.5,
+    26.5,
+    -10.0,
+    -3.0
+   ],
+   "ok": true,
+   "volume_mesh": 151.11,
+   "cog": [
+    -0.0,
+    -0.0,
+    -6.5
+   ],
+   "stl": {
+    "file": "stl/ptfe_pas_capu.stl",
+    "tris": 1296,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.06,
+    "md5": "1916d0aa5e9c1e04df77883831cb59aa"
+   },
+   "watertight": true,
+   "step": "step/ptfe_pas_capu.step",
+   "group": "P",
+   "mat": "ptfe",
+   "printed": false,
+   "label_sk": "PTFE páska 0,13 (klzná plocha)",
+   "mass_g": 0.33,
+   "build_s": 0.0,
+   "source": "PTFE tape 0.13 x 7 x 167 on the journal ring (r 26.37 -> 26.50), z -10 .. -3",
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "ptfe_pasik_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 12.09,
+   "bbox": [
+    13.5,
+    16.5,
+    -10.3,
+    -10.17,
+    -37.0,
+    -6.0
+   ],
+   "ok": true,
+   "volume_mesh": 12.09,
+   "cog": [
+    15.0,
+    -10.235,
+    -21.5
+   ],
+   "stl": {
+    "file": "stl/ptfe_pasik_1.stl",
+    "tris": 12,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.0,
+    "md5": "aa918684ac2a2b04cfef39b57b1021f8"
+   },
+   "watertight": true,
+   "step": "step/ptfe_pasik_1.step",
+   "group": "P",
+   "mat": "ptfe",
+   "printed": false,
+   "label_sk": "PTFE páska 0,13 (klzná plocha)",
+   "mass_g": 0.03,
+   "build_s": 0.0,
+   "source": "PTFE tape 0.13 on the guide land (neck gap 0.30 bare / 0.17 taped)",
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "ptfe_pasik_2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 12.09,
+   "bbox": [
+    -16.5,
+    -13.5,
+    -10.3,
+    -10.17,
+    -37.0,
+    -6.0
+   ],
+   "ok": true,
+   "volume_mesh": 12.09,
+   "cog": [
+    -15.0,
+    -10.235,
+    -21.5
+   ],
+   "stl": {
+    "file": "stl/ptfe_pasik_2.stl",
+    "tris": 12,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.0,
+    "md5": "08d3cfc5e84925e58d8faa1b16094081"
+   },
+   "watertight": true,
+   "step": "step/ptfe_pasik_2.step",
+   "group": "P",
+   "mat": "ptfe",
+   "printed": false,
+   "label_sk": "PTFE páska 0,13 (klzná plocha)",
+   "mass_g": 0.03,
+   "build_s": 0.0,
+   "source": "PTFE tape 0.13 on the guide land (neck gap 0.30 bare / 0.17 taped)",
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "ptfe_pasik_3",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 16.12,
+   "bbox": [
+    10.5,
+    14.5,
+    10.17,
+    10.3,
+    -37.0,
+    -6.0
+   ],
+   "ok": true,
+   "volume_mesh": 16.12,
+   "cog": [
+    12.5,
+    10.235,
+    -21.5
+   ],
+   "stl": {
+    "file": "stl/ptfe_pasik_3.stl",
+    "tris": 12,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.0,
+    "md5": "4a35a91fcdc797c5ffa7466edd3220a5"
+   },
+   "watertight": true,
+   "step": "step/ptfe_pasik_3.step",
+   "group": "P",
+   "mat": "ptfe",
+   "printed": false,
+   "label_sk": "PTFE páska 0,13 (klzná plocha)",
+   "mass_g": 0.04,
+   "build_s": 0.0,
+   "source": "PTFE tape 0.13 on the guide land (neck gap 0.30 bare / 0.17 taped)",
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "ptfe_pasik_4",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 1.64,
+   "bbox": [
+    -16.5,
+    -13.5,
+    10.17,
+    10.3,
+    -10.2,
+    -6.0
+   ],
+   "ok": true,
+   "volume_mesh": 1.64,
+   "cog": [
+    -15.0,
+    10.235,
+    -8.1
+   ],
+   "stl": {
+    "file": "stl/ptfe_pasik_4.stl",
+    "tris": 12,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.0,
+    "md5": "39e88ccde00d6188ac99786f4374451a"
+   },
+   "watertight": true,
+   "step": "step/ptfe_pasik_4.step",
+   "group": "P",
+   "mat": "ptfe",
+   "printed": false,
+   "label_sk": "PTFE páska 0,13 (klzná plocha)",
+   "mass_g": 0.0,
+   "build_s": 0.0,
+   "source": "PTFE tape 0.13 on the guide land (neck gap 0.30 bare / 0.17 taped)",
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "ptfe_pasik_5",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 9.27,
+   "bbox": [
+    -22.8,
+    -22.67,
+    4.85,
+    7.15,
+    -37.0,
+    -6.0
+   ],
+   "ok": true,
+   "volume_mesh": 9.27,
+   "cog": [
+    -22.735,
+    6.0,
+    -21.5
+   ],
+   "stl": {
+    "file": "stl/ptfe_pasik_5.stl",
+    "tris": 12,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.0,
+    "md5": "076e549f73db1e2ae05b754466ddaa84"
+   },
+   "watertight": true,
+   "step": "step/ptfe_pasik_5.step",
+   "group": "P",
+   "mat": "ptfe",
+   "printed": false,
+   "label_sk": "PTFE páska 0,13 (klzná plocha)",
+   "mass_g": 0.02,
+   "build_s": 0.0,
+   "source": "PTFE tape 0.13 on the guide land (neck gap 0.30 bare / 0.17 taped)",
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "ptfe_pasik_6",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 9.27,
+   "bbox": [
+    -22.8,
+    -22.67,
+    -7.15,
+    -4.85,
+    -37.0,
+    -6.0
+   ],
+   "ok": true,
+   "volume_mesh": 9.27,
+   "cog": [
+    -22.735,
+    -6.0,
+    -21.5
+   ],
+   "stl": {
+    "file": "stl/ptfe_pasik_6.stl",
+    "tris": 12,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.0,
+    "md5": "0da0e5dd1a4b1ac578f3fcd787fba9fa"
+   },
+   "watertight": true,
+   "step": "step/ptfe_pasik_6.step",
+   "group": "P",
+   "mat": "ptfe",
+   "printed": false,
+   "label_sk": "PTFE páska 0,13 (klzná plocha)",
+   "mass_g": 0.02,
+   "build_s": 0.0,
+   "source": "PTFE tape 0.13 on the guide land (neck gap 0.30 bare / 0.17 taped)",
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "ptfe_pasik_7",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 8.06,
+   "bbox": [
+    22.67,
+    22.8,
+    5.25,
+    7.25,
+    -37.0,
+    -6.0
+   ],
+   "ok": true,
+   "volume_mesh": 8.06,
+   "cog": [
+    22.735,
+    6.25,
+    -21.5
+   ],
+   "stl": {
+    "file": "stl/ptfe_pasik_7.stl",
+    "tris": 12,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.0,
+    "md5": "bb18cab066f17d178328cc93db1a923d"
+   },
+   "watertight": true,
+   "step": "step/ptfe_pasik_7.step",
+   "group": "P",
+   "mat": "ptfe",
+   "printed": false,
+   "label_sk": "PTFE páska 0,13 (klzná plocha)",
+   "mass_g": 0.02,
+   "build_s": 0.0,
+   "source": "PTFE tape 0.13 on the guide land (neck gap 0.30 bare / 0.17 taped)",
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "ptfe_pasik_8",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 5.67,
+   "bbox": [
+    22.67,
+    22.8,
+    -6.0,
+    4.9,
+    -16.4,
+    -12.4
+   ],
+   "ok": true,
+   "volume_mesh": 5.67,
+   "cog": [
+    22.735,
+    -0.55,
+    -14.4
+   ],
+   "stl": {
+    "file": "stl/ptfe_pasik_8.stl",
+    "tris": 12,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.0,
+    "md5": "1962ae9c77baf2b5ea38e8ae9a0251ea"
+   },
+   "watertight": true,
+   "step": "step/ptfe_pasik_8.step",
+   "group": "P",
+   "mat": "ptfe",
+   "printed": false,
+   "label_sk": "PTFE páska 0,13 (klzná plocha)",
+   "mass_g": 0.01,
+   "build_s": 0.0,
+   "source": "PTFE tape 0.13 on the guide land (neck gap 0.30 bare / 0.17 taped)",
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "podl_F10_A",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 3.63,
+   "bbox": [
+    1.95,
+    6.45,
+    17.1,
+    17.4,
+    -18.05,
+    -13.55
+   ],
+   "ok": true,
+   "volume_mesh": 3.63,
+   "cog": [
+    4.2,
+    17.25,
+    -15.8
+   ],
+   "stl": {
+    "file": "stl/podl_F10_A.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "05b5d9874294bc8c3400661395267d45"
+   },
+   "watertight": true,
+   "step": "step/podl_F10_A.step",
+   "group": "P",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "podložka DIN 433 M2 (Ø4,5)",
+   "mass_g": 0.03,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F10",
+    "size": "DIN 433 2.2x4.5x0.3 (DIN 125 Ø5 would touch the servo case)"
+   },
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F10_A",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 31.36,
+   "bbox": [
+    2.45,
+    5.95,
+    11.4,
+    18.7,
+    -17.55,
+    -14.05
+   ],
+   "ok": true,
+   "volume_mesh": 31.34,
+   "cog": [
+    4.2,
+    15.856,
+    -15.8
+   ],
+   "stl": {
+    "file": "stl/skr_F10_A.stl",
+    "tris": 1004,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "be9386aafcf81e0262c3bbac0296d715"
+   },
+   "watertight": true,
+   "step": "step/skr_F10_A.step",
+   "group": "P",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka ISO 7380 M2x6 (držiak – šachta)",
+   "mass_g": 0.25,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F10",
+    "size": "ISO 7380-1 M2x6",
+    "head": [
+     7.0,
+     17.400000000000002,
+     -15.8
+    ],
+    "dir": "-Y",
+    "tool_from": "+Y (door, pan 0)",
+    "torque_Nm": 0.1
+   },
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "vl_F10_A",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 37.7,
+   "bbox": [
+    2.2,
+    6.2,
+    11.1,
+    15.1,
+    -17.8,
+    -13.8
+   ],
+   "ok": true,
+   "volume_mesh": 37.68,
+   "cog": [
+    4.2,
+    13.1,
+    -15.8
+   ],
+   "stl": {
+    "file": "stl/vl_F10_A.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "09bba0cc5529c41f1f81e883e4569895"
+   },
+   "watertight": true,
+   "step": "step/vl_F10_A.step",
+   "group": "P",
+   "mat": "brass",
+   "printed": false,
+   "label_sk": "závitová vložka M2x4 OD4,0 lepená epoxidom",
+   "mass_g": 0.32,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F10",
+    "size": "brass knurled insert M2 x 4 x OD 4.0, bonded (hole D4.1 through the 4.0 wall; fixer rev2)"
+   },
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "podl_F10_B",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 3.63,
+   "bbox": [
+    15.75,
+    20.25,
+    16.75,
+    17.05,
+    -35.55,
+    -31.05
+   ],
+   "ok": true,
+   "volume_mesh": 3.63,
+   "cog": [
+    18.0,
+    16.9,
+    -33.3
+   ],
+   "stl": {
+    "file": "stl/podl_F10_B.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "5a8d4779fc597fda27ca3ae96b7bebcd"
+   },
+   "watertight": true,
+   "step": "step/podl_F10_B.step",
+   "group": "P",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "podložka DIN 433 M2 (Ø4,5)",
+   "mass_g": 0.03,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F10",
+    "size": "DIN 433 2.2x4.5x0.3 (DIN 125 Ø5 would touch the servo case)"
+   },
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F10_B",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 31.36,
+   "bbox": [
+    16.25,
+    19.75,
+    11.05,
+    18.35,
+    -35.05,
+    -31.55
+   ],
+   "ok": true,
+   "volume_mesh": 31.34,
+   "cog": [
+    18.0,
+    15.506,
+    -33.3
+   ],
+   "stl": {
+    "file": "stl/skr_F10_B.stl",
+    "tris": 1004,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "b61332de2be64adae695acaf85bf5ca3"
+   },
+   "watertight": true,
+   "step": "step/skr_F10_B.step",
+   "group": "P",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka ISO 7380 M2x6 (držiak – šachta)",
+   "mass_g": 0.25,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F10",
+    "size": "ISO 7380-1 M2x6",
+    "head": [
+     18.0,
+     17.05,
+     -33.3
+    ],
+    "dir": "-Y",
+    "tool_from": "+Y (door, pan 0)",
+    "torque_Nm": 0.1
+   },
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "vl_F10_B",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 37.7,
+   "bbox": [
+    16.0,
+    20.0,
+    11.1,
+    15.1,
+    -35.3,
+    -31.3
+   ],
+   "ok": true,
+   "volume_mesh": 37.68,
+   "cog": [
+    18.0,
+    13.1,
+    -33.3
+   ],
+   "stl": {
+    "file": "stl/vl_F10_B.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "c9ec4addae2dabb57cb6914d1cc5debc"
+   },
+   "watertight": true,
+   "step": "step/vl_F10_B.step",
+   "group": "P",
+   "mat": "brass",
+   "printed": false,
+   "label_sk": "závitová vložka M2x4 OD4,0 lepená epoxidom",
+   "mass_g": 0.32,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F10",
+    "size": "brass knurled insert M2 x 4 x OD 4.0, bonded (hole D4.1 through the 4.0 wall; fixer rev2)"
+   },
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "kolik_F10",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 18.85,
+   "bbox": [
+    16.4,
+    18.4,
+    12.2,
+    18.2,
+    -39.0,
+    -37.0
+   ],
+   "ok": true,
+   "volume_mesh": 18.84,
+   "cog": [
+    17.4,
+    15.2,
+    -38.0
+   ],
+   "stl": {
+    "file": "stl/kolik_F10.stl",
+    "tris": 500,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.03,
+    "md5": "720b3ff3c54bd6819b9b32c66c216714"
+   },
+   "watertight": true,
+   "step": "step/kolik_F10.step",
+   "group": "P",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "kolík Ø2x8 ISO 8734 (lepený v šachte)",
+   "mass_g": 0.15,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F10",
+    "size": "ISO 8734 2 m6 x 8 (bonded 2.9 in the pad, 5.1 slip fit in the pocket; rev3)"
+   },
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "podl_F11",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 4.75,
+   "bbox": [
+    -0.0,
+    0.3,
+    20.7,
+    25.7,
+    -18.35,
+    -13.35
+   ],
+   "ok": true,
+   "volume_mesh": 4.75,
+   "cog": [
+    0.15,
+    23.2,
+    -15.85
+   ],
+   "stl": {
+    "file": "stl/podl_F11.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "563b27fcedd84d47034bd2827af19fbe"
+   },
+   "watertight": true,
+   "step": "step/podl_F11.step",
+   "group": "P",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "podložka DIN 125 M2",
+   "mass_g": 0.04,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F11",
+    "size": "DIN 125 2.2x5x0.3"
+   },
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F11",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 31.36,
+   "bbox": [
+    -5.7,
+    1.6,
+    21.45,
+    24.95,
+    -17.6,
+    -14.1
+   ],
+   "ok": true,
+   "volume_mesh": 31.34,
+   "cog": [
+    -1.244,
+    23.2,
+    -15.85
+   ],
+   "stl": {
+    "file": "stl/skr_F11.stl",
+    "tris": 1004,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "ddd27d0a3f92e615d0f7409e05badcdd"
+   },
+   "watertight": true,
+   "step": "step/skr_F11.step",
+   "group": "P",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka ISO 7380 M2x6 (úchyt serva zdvihu)",
+   "mass_g": 0.25,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F11",
+    "size": "ISO 7380-1 M2x6",
+    "head": [
+     0.3,
+     23.2,
+     -15.849999999999998
+    ],
+    "dir": "-X",
+    "tool_from": "+X (door at pan +85)",
+    "torque_Nm": 0.1
+   },
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "matica_F11",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 19.2,
+   "bbox": [
+    -5.375,
+    -4.175,
+    21.2,
+    25.2,
+    -17.85,
+    -13.85
+   ],
+   "ok": true,
+   "volume_mesh": 19.2,
+   "cog": [
+    -4.775,
+    23.2,
+    -15.85
+   ],
+   "stl": {
+    "file": "stl/matica_F11.stl",
+    "tris": 12,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.0,
+    "md5": "0511d6d4f11d21d0efccddc129a07e30"
+   },
+   "watertight": true,
+   "step": "step/matica_F11.step",
+   "group": "P",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "štvorhranná matica DIN 562 M2",
+   "mass_g": 0.15,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F11",
+    "size": "DIN 562 M2 4.0 x 4.0 x 1.2"
+   },
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "kolik_F12",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 14.14,
+   "bbox": [
+    -14.2,
+    -12.2,
+    6.8,
+    11.3,
+    -39.5,
+    -37.5
+   ],
+   "ok": true,
+   "volume_mesh": 14.13,
+   "cog": [
+    -13.2,
+    9.05,
+    -38.5
+   ],
+   "stl": {
+    "file": "stl/kolik_F12.stl",
+    "tris": 500,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.03,
+    "md5": "f471de6497d06bab8ffbb937a8a3bd3f"
+   },
+   "watertight": true,
+   "step": "step/kolik_F12.step",
+   "group": "L",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "kolík Ø2x4,5 (ucho – pätka, kov–kov, lepený v uchu)",
+   "mass_g": 0.11,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F12",
+    "size": "ISO 8734 2 m6 x 4.5 (cut from x 5) bonded (Loctite 638) in the D2.05 ear-flange hole, 3.0 slip fit D2.05 in the Al foot (integrator rev2: the neck must pass the stage well and the collar-disc slot without a protruding dowel; the lift module brings the dowel in along -Y)"
+   },
+   "module": "pan",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F12_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 31.36,
+   "bbox": [
+    -11.75,
+    -8.25,
+    5.4,
+    12.7,
+    -40.25,
+    -36.75
+   ],
+   "ok": true,
+   "volume_mesh": 31.34,
+   "cog": [
+    -10.0,
+    9.856,
+    -38.5
+   ],
+   "stl": {
+    "file": "stl/skr_F12_1.stl",
+    "tris": 1004,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "9ff9a00e193d8765affb46f97f5debed"
+   },
+   "watertight": true,
+   "step": "step/skr_F12_1.step",
+   "group": "L",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka ISO 7380 M2x6 (ucho – pätka, kov–kov)",
+   "mass_g": 0.25,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F12",
+    "size": "ISO 7380-1 M2x6 + Loctite 222 (no washer: head on steel)",
+    "head": [
+     -10.0,
+     11.4,
+     -38.5
+    ],
+    "dir": "-Y",
+    "tool_from": "+Y (door, pan 0, 1.3 hex key (long leg) through the D2.4 key hole of the stop bridge)",
+    "torque_Nm": 0.1
+   },
+   "module": "pan",
+   "export_s": 0.0
+  }
+ ],
+ "pan2": {
+  "WELL": {
+   "xi": 23.5,
+   "yi": 11.0,
+   "ri": 3.0,
+   "xo": 25.1,
+   "yf": -12.6,
+   "yb": 12.6,
+   "yb2": 13.0,
+   "yb2_x": [
+    -6.5,
+    23.2
+   ],
+   "r_max": 26.5,
+   "z_top": -2.0,
+   "plate_z": [
+    -3.5,
+    -2.0
+   ]
+  },
+  "RING": {
+   "r_in": 24.37,
+   "r": 26.37,
+   "z": [
+    -10.0,
+    -2.0
+   ],
+   "chamfer": 0.5
+  },
+  "RIBS": {
+   "x": [
+    -12.5,
+    0.0,
+    12.5
+   ],
+   "t": 2.0,
+   "z": [
+    -10.0,
+    -3.45
+   ]
+  },
+  "HUB": {
+   "r": [
+    6.5,
+    12.6
+   ],
+   "z": [
+    -41.9,
+    -40.65
+   ]
+  },
+  "FLOOR": {
+   "y_min": 3.3,
+   "az_max": 135.0,
+   "z": [
+    -41.9,
+    -40.65
+   ]
+  },
+  "EDGE": {
+   "front": -40.9,
+   "back": -41.9
+  },
+  "DRUM": {
+   "r": [
+    15.5,
+    16.7
+   ],
+   "az": [
+    8.4,
+    140.0
+   ],
+   "z": [
+    -45.6,
+    -41.9
+   ],
+   "end_r": 0.6,
+   "lip_r": [
+    16.7,
+    17.5
+   ],
+   "lip_z": [
+    -42.5,
+    -41.9
+   ],
+   "lip_az0": 27.0
+  },
+  "LANDS": {
+   "h": 0.7,
+   "tape": 0.13,
+   "z": [
+    -38.0,
+    -4.0
+   ],
+   "lead": 0.7,
+   "front_x": [
+    [
+     13.0,
+     17.0
+    ],
+    [
+     -17.0,
+     -13.0
+    ]
+   ],
+   "back_x": [
+    [
+     10.0,
+     15.0
+    ]
+   ],
+   "back_up": {
+    "x": [
+     -17.0,
+     -13.0
+    ],
+    "z": [
+     -10.4,
+     -4.0
+    ]
+   },
+   "endm_y": [
+    [
+     4.6,
+     7.4
+    ],
+    [
+     -7.4,
+     -4.6
+    ]
+   ],
+   "endp_y": [
+    [
+     5.0,
+     7.5
+    ]
+   ]
+  },
+  "WIN_BACK": {
+   "x": [
+    -20.9,
+    -6.5
+   ],
+   "z_top": -10.9
+  },
+  "WIN_END": {
+   "x": [
+    23.3,
+    25.4
+   ],
+   "y": [
+    -7.0,
+    3.4
+   ],
+   "z": [
+    -40.9,
+    -15.0
+   ]
+  },
+  "GROOVE": {
+   "y": [
+    3.3,
+    7.2
+   ],
+   "x": [
+    15.0,
+    25.6
+   ],
+   "depth": 0.3,
+   "edge_r": 0.6
+  },
+  "PAD_FACE": 15.1,
+  "ROOT_R": 1.0,
+  "PAD_A": {
+   "x": 7.0,
+   "z": -15.8,
+   "r": 3.65
+  },
+  "PAD_B": {
+   "x": 18.4,
+   "z": [
+    -38.0,
+    -34.0
+   ],
+   "r": 3.25
+  },
+  "F10": {
+   "A": [
+    7.0,
+    -15.8
+   ],
+   "B": [
+    18.0,
+    -33.3
+   ],
+   "dowel": [
+    17.4,
+    -38.0
+   ],
+   "dowel_d": 2.0,
+   "dowel_hole": 2.05,
+   "dowel_depth": 2.9,
+   "dowel_len": 6.0,
+   "torque": 0.1
+  },
+  "PAD_B2": {
+   "r": 3.65
+  },
+  "F10_B_CB": {
+   "d": 4.8,
+   "depth": 0.35,
+   "z_low": -35.62
+  },
+  "RAIL": {
+   "x": [
+    -6.5,
+    14.4
+   ],
+   "y": [
+    13.0,
+    15.1
+   ],
+   "z": [
+    -39.4,
+    -12.15
+   ],
+   "root_r": 1.0,
+   "face_recess": 0.15,
+   "band_z": [
+    -29.0,
+    -25.0
+   ],
+   "padb_box": {
+    "x": [
+     14.4,
+     21.6
+    ],
+    "z": [
+     -41.2,
+     -29.6
+    ]
+   },
+   "ledge": {
+    "x": [
+     -8.0,
+     -2.9
+    ],
+    "y_end": 18.6,
+    "z": [
+     -13.2,
+     -3.45
+    ],
+    "gap": 0.1,
+    "root_r": 1.0,
+    "bear_y0": 16.4,
+    "block_chamfer": 1.3
+   },
+   "foot": null,
+   "lip": null,
+   "shelf": {
+    "x": [
+     -6.0,
+     3.8
+    ],
+    "y_end": 17.0,
+    "z_top": -32.1,
+    "z_bot": -35.7,
+    "gap": 0.1,
+    "root_r": 0.5,
+    "edge_chamfer": 0.9,
+    "notch_x": [
+     -6.5,
+     4.2
+    ],
+    "notch_r": 0.8,
+    "window_z": [
+     -36.2,
+     -32.0
+    ],
+    "pocket_bottom": -40.35
+   },
+   "pad_d": {
+    "x": [
+     -6.5,
+     -2.5
+    ],
+    "z": [
+     -18.0,
+     -12.15
+    ]
+   },
+   "pad_e": {
+    "x": [
+     11.0,
+     14.4
+    ],
+    "z": [
+     -17.0,
+     -12.15
+    ]
+   },
+   "pad_c": {
+    "x": [
+     -6.5,
+     0.0
+    ],
+    "z": [
+     -39.4,
+     -36.4
+    ]
+   },
+   "dowel": {
+    "len": 6.0,
+    "boss_r": null,
+    "boss_y": 17.1,
+    "proud": 1.1,
+    "xz": [
+     17.4,
+     -38.0
+    ]
+   },
+   "plate_x0": -10.5,
+   "plate_root_r": 1.0
+  },
+  "POCKET": {
+   "plate": {
+    "x": [
+     -10.5,
+     17.0
+    ],
+    "y": [
+     15.1,
+     17.1
+    ],
+    "z": [
+     -41.9,
+     -13.3
+    ],
+    "low": {
+     "x": [
+      16.9,
+      20.9
+     ],
+     "z": [
+      -41.9,
+      -30.5
+     ]
+    }
+   },
+   "tongue": null,
+   "turret": {
+    "x": [
+     -10.5,
+     -6.5
+    ],
+    "y": [
+     15.1,
+     31.3
+    ],
+    "z": [
+     -41.9,
+     -13.3
+    ],
+    "far_top": {
+     "y": 28.0,
+     "z": -17.0
+    }
+   },
+   "block": {
+    "x": [
+     -10.5,
+     -2.5
+    ],
+    "y": [
+     15.1,
+     28.0
+    ],
+    "z": [
+     -18.0,
+     -13.3
+    ]
+   },
+   "nut_slot": {
+    "x": [
+     -5.45,
+     -4.1
+    ],
+    "y": [
+     21.15,
+     25.35
+    ],
+    "z": [
+     -18.5,
+     -12.8
+    ]
+   },
+   "keyhole": [
+    [
+     6.05,
+     [
+      23.2,
+      -24.2
+     ]
+    ],
+    [
+     3.05,
+     [
+      23.2,
+      -29.8
+     ]
+    ]
+   ],
+   "bridge": {
+    "r": [
+     26.25,
+     31.6
+    ],
+    "az": [
+     102.0,
+     134.9
+    ],
+    "z": [
+     -43.6,
+     -36.2
+    ],
+    "x_max": -6.6,
+    "z_low_top": -41.5,
+    "low_az0": 106.5,
+    "high": [
+     [
+      [
+       -16.9,
+       -14.5
+      ],
+      -37.4
+     ],
+     [
+      [
+       -14.5,
+       -6.6
+      ],
+      -36.2
+     ]
+    ],
+    "key_holes": {
+     "x": [
+      -10.0
+     ],
+     "z": -38.5,
+     "d": 2.4
+    }
+   },
+   "lug": {
+    "r": [
+     27.8,
+     31.6
+    ],
+    "az": [
+     116.9,
+     134.9
+    ],
+    "z": [
+     -47.2,
+     -43.6
+    ],
+    "root_in": 1.5,
+    "root_cw": 1.0,
+    "face_x": [
+     -19.56,
+     -14.39
+    ],
+    "cw_corner_y": 27.7
+   },
+   "clip": {
+    "plate_x": [
+     20.9,
+     23.4
+    ],
+    "z": [
+     -30.5,
+     -18.0
+    ],
+    "ribs_x": [
+     [
+      16.5,
+      17.1
+     ],
+     [
+      22.8,
+      23.4
+     ]
+    ],
+    "rib_y": [
+     17.1,
+     20.6
+    ],
+    "shelf_z": [
+     -30.5,
+     -29.0
+    ],
+    "notch_x": [
+     19.0,
+     20.9
+    ]
+   }
+  },
+  "ARM": {
+   "hub_r": 3.5,
+   "hub_x": [
+    -15.5,
+    -12.5
+   ],
+   "arm_x": [
+    -17.5,
+    -15.5
+   ],
+   "half_w": 2.5,
+   "tip_c": 9.7,
+   "pin_hole": 2.0,
+   "pin_x": [
+    -19.9,
+    -13.9
+   ],
+   "screw": "M2.5 x 5 countersunk (ISO 10642) flush at x -17.5 into the servo output (thread UNVERIFIED)"
+  },
+  "EAR": {
+   "t": 1.5,
+   "plate_x": [
+    -19.4,
+    -17.9
+   ],
+   "y": [
+    9.9,
+    25.1
+   ],
+   "z": [
+    -40.5,
+    -31.9
+   ],
+   "flange_y": [
+    9.9,
+    11.4
+   ],
+   "flange_x_end": -7.5,
+   "flange_z": [
+    -40.5,
+    -36.5
+   ],
+   "bend_r": 1.5,
+   "relief_z": [
+    -36.5,
+    -36.2
+   ],
+   "slot_w": 2.2,
+   "slot_y": [
+    11.6,
+    24.3
+   ],
+   "slot_z": [
+    -35.3,
+    -33.1
+   ],
+   "chamfer": 1.5,
+   "holes_x": [
+    -10.0
+   ],
+   "hole_z": -38.5,
+   "hole_d": 2.3,
+   "k_factor": 0.4,
+   "dowel": {
+    "x": -13.2,
+    "z": -38.5,
+    "hole": 2.05,
+    "foot_hole": 2.05,
+    "foot_depth": 3.0,
+    "len": 4.5
+   },
+   "notch": {
+    "x": [
+     -19.6,
+     -14.5
+    ],
+    "z_top": -37.7
+   },
+   "fwd_trim": 0.5,
+   "end_chamfer": 1.2
+  },
+  "FOOT": {
+   "slot": {
+    "x": [
+     9.0,
+     22.3
+    ],
+    "y": [
+     -7.1,
+     6.7
+    ]
+   },
+   "taps_x": [
+    -10.0
+   ],
+   "tap_z": -38.5,
+   "tap_d": 1.6,
+   "tap_depth": 7.0
+  },
+  "DPS": {
+   "x": [
+    9.2,
+    22.2
+   ],
+   "y": [
+    -6.9,
+    6.5
+   ],
+   "z": [
+    -37.8,
+    -37.0
+   ],
+   "zif": {
+    "x": [
+     18.35,
+     22.2
+    ],
+    "z": [
+     -39.0,
+     -37.8
+    ],
+    "y": [
+     [
+      -6.6,
+      -2.1
+     ],
+     [
+      -1.6,
+      2.9
+     ]
+    ],
+    "part": "Panasonic Y5B AYF530535 (0.5 mm, 5 p, top + bottom contact, 0.30 FFC); alt. Molex 54548-0572 (1.2 high)"
+   },
+   "pads_top": [
+    [
+     12.6,
+     0.4
+    ],
+    [
+     12.6,
+     1.2
+    ],
+    [
+     12.6,
+     2.0
+    ],
+    [
+     13.2,
+     -6.4
+    ],
+    [
+     13.2,
+     -5.4
+    ],
+    [
+     13.2,
+     -4.4
+    ],
+    [
+     13.2,
+     -3.4
+    ]
+   ],
+   "pads_bot": [
+    [
+     10.6,
+     -1.85
+    ],
+    [
+     11.6,
+     -1.85
+    ],
+    [
+     12.6,
+     -1.85
+    ]
+   ]
+  },
+  "FFC": {
+   "w": 3.0,
+   "t1": 0.1,
+   "t": 0.25,
+   "z": [
+    -46.1,
+    -43.1
+   ],
+   "r_in": 16.825,
+   "r_out": 23.375,
+   "static_az": 30.0,
+   "u0": 84.0,
+   "anchor_az": 24.4,
+   "riser_az": [
+    14.0,
+    24.4
+   ],
+   "band_F": [
+    4.0,
+    7.0
+   ],
+   "x_wall": 25.1,
+   "z_U0": -26.0,
+   "R_lift": 3.125,
+   "R_bot": 1.0,
+   "zh0": -38.25,
+   "zfold_x": [
+    25.35,
+    28.35
+   ],
+   "band_A": [
+    -5.85,
+    -2.85
+   ],
+   "band_B": [
+    -0.85,
+    2.15
+   ],
+   "zif_in": 19.2,
+   "loop": {
+    "x": [
+     25.35,
+     28.35
+    ],
+    "y_fix": 6.875,
+    "y_mov": 0.625,
+    "yc": 3.75,
+    "cf_z": [
+     -30.0,
+     -29.4
+    ]
+   },
+   "carrier": {
+    "z_run": -50.5,
+    "y_run": [
+     20.35,
+     23.35
+    ],
+    "x_turn": 21.74,
+    "zif_x": [
+     -19.45,
+     -12.35
+    ],
+    "zif_y": 19.1,
+    "z_zif": -56.5
+   }
+  },
+  "PIGTAIL": {
+   "d": 1.4,
+   "plug": {
+    "x": [
+     17.2,
+     22.7
+    ],
+    "y": [
+     17.2,
+     20.5
+    ],
+    "z": [
+     -29.0,
+     -17.0
+    ]
+   }
+  },
+  "FIX2": {
+   "journal_r": 26.365,
+   "journal_z": [
+    -10.7,
+    -1.9
+   ],
+   "vents": {
+    "d": 2.5,
+    "xy": [
+     [
+      6.25,
+      18.0
+     ],
+     [
+      6.25,
+      -18.0
+     ],
+     [
+      -9.3,
+      18.0
+     ],
+     [
+      -6.25,
+      -18.0
+     ],
+     [
+      16.0,
+      15.3
+     ],
+     [
+      16.0,
+      -15.3
+     ],
+     [
+      -16.0,
+      15.3
+     ],
+     [
+      -16.0,
+      -15.3
+     ]
+    ],
+    "z": [
+     -3.6,
+     -1.9
+    ]
+   },
+   "lip_trim": null,
+   "pocket_rebate": {
+    "x": [
+     -15.0,
+     9.5
+    ],
+    "y": [
+     15.0,
+     17.2
+    ],
+    "z": [
+     -42.0,
+     -40.35
+    ]
+   },
+   "tongue_root_r": 0.5,
+   "groove_chamfer": 0.8,
+   "ear_relief_d": 1.0,
+   "under_r": 16.72
+  },
+  "R3": {
+   "PIVOT": {
+    "cap_top": -41.8,
+    "cap_hole": 3.1,
+    "cap_root_r": 1.0,
+    "spacer": "DIN 125 M3 3.2x7x0.5",
+    "spacer_r": 3.5,
+    "spacer_t": 0.5,
+    "n_spacer": 2,
+    "spacer_z": [
+     -41.8,
+     -40.8
+    ],
+    "washer": "DIN 9021 M3 3.2x9x0.8",
+    "washer_r": 4.5,
+    "washer_r_min": 4.32,
+    "washer_z": [
+     -40.8,
+     -40.0
+    ],
+    "screw": "ISO 7380 M3x8",
+    "screw_len": 8.0,
+    "screw_len_tol": 0.29,
+    "head_dk": 5.7,
+    "head_k": 1.65,
+    "head_z": [
+     -40.0,
+     -38.35
+    ],
+    "tip_z": -48.0,
+    "axial_play": 0.12,
+    "axial_play_range": [
+     0.1,
+     0.25
+    ],
+    "cal_washer": "1 x DIN 125 M3 UNDER THE HEAD when the dry-fitted screw tip stands proud of the T_most underside",
+    "cal_head_top": -37.85,
+    "engagement_nominal": 1.8,
+    "engagement_min": 1.51,
+    "thread_runin": 0.35,
+    "strip_area_per_mm": 5.547,
+    "al_rm": {
+     "5754-H22": 220.0,
+     "6061-T6": 290.0
+    },
+    "strip_tau_factor": 0.6,
+    "gear_bore_chamfer": 0.4
+   },
+   "LIP": {
+    "r_in": 3.8,
+    "r_low": 4.15,
+    "z_step": -41.6,
+    "z_top": -40.92,
+    "recess_r": 4.9,
+    "overlap_nominal": 0.7,
+    "overlap_min": 0.27
+   },
+   "FLOOR": {
+    "variant": "floor",
+    "z": [
+     -41.9,
+     -40.65
+    ],
+    "root_r": 1.0,
+    "lens_wall": {
+     "y_in": -10.3,
+     "x": 12.0,
+     "z_top": -36.8,
+     "root_r": 0.5
+    },
+    "pinion_top": -42.9,
+    "mesh_width": 3.0,
+    "spline_relief": {
+     "r": [
+      18.0,
+      25.2
+     ],
+     "az": [
+      152.0,
+      357.0
+     ],
+     "depth": 0.2
+    }
+   },
+   "WIN": {
+    "corner_r": 1.5,
+    "back": {
+     "x": [
+      -20.9,
+      -6.5
+     ],
+     "z": [
+      -40.65,
+      -10.9
+     ],
+     "top_mx_r": 2.5
+    },
+    "end": {
+     "x": [
+      23.0,
+      25.4
+     ],
+     "y": [
+      -7.0,
+      3.4
+     ],
+     "z": [
+      -40.65,
+      -16.9
+     ],
+     "sill_z": -39.2,
+     "top_r": 2.0
+    },
+    "lintel": {
+     "x_in": 22.8,
+     "y": [
+      -8.0,
+      8.0
+     ],
+     "y_full": 6.2,
+     "z": [
+      -16.9,
+      -3.6
+     ],
+     "jamb_z": -19.4,
+     "lead": 0.7,
+     "tape": {
+      "y": [
+       -6.0,
+       6.0
+      ],
+      "z": [
+       -16.4,
+       -12.4
+      ]
+     }
+    },
+    "land_endp": [
+     [
+      5.0,
+      7.5
+     ]
+    ],
+    "land_endm": [
+     [
+      4.6,
+      7.4
+     ],
+     [
+      -7.4,
+      -4.6
+     ]
+    ],
+    "land_taper": 0.85
+   },
+   "CORNER_RI": 3.0,
+   "RAIL": {
+    "x": [
+     -6.5,
+     14.4
+    ],
+    "y": [
+     13.0,
+     15.1
+    ],
+    "z": [
+     -39.4,
+     -12.15
+    ],
+    "root_r": 1.0,
+    "face_recess": 0.15,
+    "band_z": [
+     -29.0,
+     -25.0
+    ],
+    "padb_box": {
+     "x": [
+      14.4,
+      21.6
+     ],
+     "z": [
+      -41.2,
+      -29.6
+     ]
+    },
+    "ledge": {
+     "x": [
+      -8.0,
+      -2.9
+     ],
+     "y_end": 18.6,
+     "z": [
+      -13.2,
+      -3.45
+     ],
+     "gap": 0.1,
+     "root_r": 1.0,
+     "bear_y0": 16.4,
+     "block_chamfer": 1.3
+    },
+    "foot": null,
+    "lip": null,
+    "shelf": {
+     "x": [
+      -6.0,
+      3.8
+     ],
+     "y_end": 17.0,
+     "z_top": -32.1,
+     "z_bot": -35.7,
+     "gap": 0.1,
+     "root_r": 0.5,
+     "edge_chamfer": 0.9,
+     "notch_x": [
+      -6.5,
+      4.2
+     ],
+     "notch_r": 0.8,
+     "window_z": [
+      -36.2,
+      -32.0
+     ],
+     "pocket_bottom": -40.35
+    },
+    "pad_d": {
+     "x": [
+      -6.5,
+      -2.5
+     ],
+     "z": [
+      -18.0,
+      -12.15
+     ]
+    },
+    "pad_e": {
+     "x": [
+      11.0,
+      14.4
+     ],
+     "z": [
+      -17.0,
+      -12.15
+     ]
+    },
+    "pad_c": {
+     "x": [
+      -6.5,
+      0.0
+     ],
+     "z": [
+      -39.4,
+      -36.4
+     ]
+    },
+    "dowel": {
+     "len": 6.0,
+     "boss_r": null,
+     "boss_y": 17.1,
+     "proud": 1.1,
+     "xz": [
+      17.4,
+      -38.0
+     ]
+    },
+    "plate_x0": -10.5,
+    "plate_root_r": 1.0
+   },
+   "BAND": {
+    "z": [
+     -17.5,
+     -3.6
+    ],
+    "lead": 0.7,
+    "x_full": 18.5,
+    "x_end": 20.3,
+    "y_full": 6.2,
+    "y_end": 7.7
+   },
+   "RING_EXT": {
+    "az": [
+     182.0,
+     358.0
+    ],
+    "z": [
+     -16.7,
+     -9.4
+    ],
+    "chamfer": 0.5
+   },
+   "ROOF": null,
+   "TURRET": {
+    "x": [
+     -10.5,
+     -6.5
+    ]
+   },
+   "NUT_SLOT": {
+    "y": [
+     21.15,
+     25.35
+    ],
+    "z": [
+     -18.5,
+     -12.8
+    ]
+   },
+   "BLOCK_ROOT_R": 0.3,
+   "SOLE_ROOT_R": 1.0,
+   "LUG": {
+    "root_in": 1.5,
+    "root_face": 1.0,
+    "step_r": 1.5
+   },
+   "SERVO_SEAT": {
+    "end_gap": 0.4,
+    "dowel_proud": 1.1
+   },
+   "SOLE": {
+    "x": [
+     -14.5,
+     -6.5
+    ],
+    "z_top": -36.2
+   },
+   "KEYHOLE_SCALLOP": {
+    "r": 6.65,
+    "x": [
+     -11.0,
+     -5.5
+    ]
+   },
+   "STOP": {
+    "face_x_cw": -14.39,
+    "face_x_ccw": -19.56,
+    "contact_y": [
+     27.09,
+     21.37
+    ],
+    "lug_az": [
+     116.9,
+     134.9
+    ],
+    "cw_corner_y": 27.7,
+    "deck_trim_az": [
+     25.4,
+     226.9
+    ]
+   },
+   "SHROUD": {
+    "roof_r": 16.7,
+    "roof_az": [
+     20.0,
+     137.0
+    ],
+    "roof_y_min": 12.0,
+    "roof_z": [
+     -41.9,
+     -40.65
+    ],
+    "root_r": 1.0,
+    "plate_relief": {
+     "x": [
+      -15.0,
+      9.5
+     ],
+     "y": [
+      15.0,
+      17.2
+     ],
+     "z": [
+      -42.0,
+      -40.35
+     ]
+    }
+   },
+   "REST_GAP": {
+    "nominal_bdc": 0.15,
+    "feeler_ok": [
+     0.1,
+     0.25
+    ],
+    "park_deg_ok": 3.0,
+    "park_deg_default": 16.0,
+    "margin_gap": 0.1,
+    "margin_deg": 3.0,
+    "hub_min_t": 1.15,
+    "tol_linear": 0.55,
+    "tol_rss": 0.22,
+    "rule": "the lift servo is NEVER commanded below PARK_DEG.  Calibration (T11): crank at BDC (0 deg): the 0.10 feeler must enter between foot and hub ring -> PARK_DEG = 3.  If it does not: raise the crank in 1 deg steps until it enters (landing angle + gap 0.10), add 3 deg, store as PARK_DEG.  Uncalibrated firmware default 16 deg (0.39 above BDC).",
+    "table": {
+     "0.1": 8.1,
+     "0.2": 11.5,
+     "0.3": 14.1,
+     "0.4": 16.3,
+     "0.5": 18.2
+    }
+   },
+   "EAR": {
+    "end_chamfer": 1.2
+   },
+   "KEYHOLE_RELIEF": null,
+   "DOCS": [
+    "supports allowed on the hub-disc / floor landing face (tips 0.3-0.4, pitch <= 3, braced), then sanded flat on a block; check the rest gap again",
+    "T_cap hole drilled D3.1 after curing",
+    "toughened 2K epoxy, 0.1-0.2 glue line, on abraded (P120-240) + IPA-cleaned brass / resin / aluminium; wipe the squeeze-out at the lip bore",
+    "Loctite 222 on F10 (and F4, F8, F12, F15)",
+    "PTFE-compatible grease on the T_cap tape; check the radial play at every S3 service",
+    "a towel / mat under the bare stage",
+    "firmware: no long holds at mid lift (park at lift 0)",
+    "bench pull test of one bonded brass coupon before the gear is bonded"
+   ],
+   "FE": {
+    "dir": "fe_sachta",
+    "results": "fe_sachta/results.json",
+    "h": 0.4,
+    "avg": 0.4,
+    "kfe": 1.04,
+    "allow": {
+     "normal": 8.5,
+     "abuse": 12.9,
+     "bond": 2.7
+    }
+   }
+  }
+ },
+ "deviations": [
+  {
+   "id": "PD1",
+   "item": "F10 joint (lift module -> stage)",
+   "spec": "17.3 / ULOHA 4b: pads (19.5, -31.7) r 3.5 and (8.0, -14.5), dowel (19.5, -27.7), 2 x M2x6 + DIN 125",
+   "built": "pad A (7.0, -15.8) r 3.5; pad B stadium (18.4, -38.0 .. -34.0) r 3.25 with the insert at -34.0 and the dowel D2x5 at -38.0 (3.0 in the pad + 2.0 through the plate); bottom RAIL on the back wall (x -6..16, y 13..15.1, z -41.9..-33.9) with a 3.0 x 1.7 tongue groove (x -4.5..14.5) that takes the vertical loads in compression; washers DIN 433 (4.5); pocket plate x <= 17.0 above z -30.5 (x <= 20.9 below) so the module clears the door-frame magnet pads of T_stred (silhouette x >= 18 above z -29.1) when it is pulled out",
+   "reason": "pad at x 19.5 reaches r 27.5 at the face y 15.1 (> 26.50: the stage must pass the r 26.65 bore); pad (8.0, -14.5) lies under the F11 post (head would sit in it); every screw head behind the servo case is unreachable; DIN 125 (5.0) touches the servo case; two pins / screws alone bear 15 MPa on the 2.0 resin plate at L2"
+  },
+  {
+   "id": "PD2",
+   "item": "lift-servo pocket",
+   "spec": "turret wall + keyhole, bottom-cover end wall x 16..18 with 0.5 PORON, tab post x 0..8 (DIN 562 at x 5..6.3), F11 M2x10 head on the -X side",
+   "built": "closed keyhole (wall to y 31.3, >= 2.0 all round); NO bottom-cover end wall and no PORON part; F11 block x -8.5..-2.5 (merged with the turret wall, 4.7 above the keyhole) with the DIN 562 slot at x -5.45..-4.1 (open +Y); F11 = ISO 7380 M2x6, head + DIN 125 on the +X face of the tab, tool from +X at pan +85",
+   "reason": "with a closed keyhole AND an end wall the servo cannot be inserted (-X is blocked by the end wall, +Y by the closed keyhole); a post at x 0..8 blocks the tab during -X insertion; F11 driven from -X would need the turret wall below the tool, i.e. < 1.3 of resin above the keyhole, which fails L1 (needs ~4.6)"
+  },
+  {
+   "id": "PD3",
+   "item": "stop bridge",
+   "spec": "bridge r 27.6..31.6, stage az 106.5..118.3, z -43.6..-39.9 (3.7 tall)",
+   "built": "bridge r 26.1..31.6, az 102..131.7 over the lug, z -43.6..-36.2 (x -14.5..-6.6) / -37.4 (x -16.9..-14.5), only z >= -41.9 for az < 106.5; one D2.4 key hole along Y at x -10.0, z -38.5 for the F12 hex key; lug roots R1.5 (inner) / R0.8 (contact side)",
+   "reason": "the 3.7 bridge reaches > 8.5 MPa at L8; the spec bridge did not touch the turret wall (0.3..1.5 gap at az 104..106.5); the bridge must stay 1.0 off the ear plate and the arm; the F12 tool path runs through the bridge"
+  },
+  {
+   "id": "PD4",
+   "item": "L_ucho",
+   "spec": "plate x -19.9..-17.9 (2.0), flange y 9.9..11.9, bend R2.0, slot y 11.6..24.3, F12 2 x M2x6 + DIN 125 at x -15.0 / -9.0",
+   "built": "304 stainless 1.5 (preferred option of 17.5): plate x -19.4..-17.9 (keeps the 0.4 arm gap), flange y 9.9..11.4, inner bend R1.5 (= t), bend relief kerf 0.3 at z -36.5..-36.2 (the plate above the flange runs forward to y 9.9 so the slot can start at y 11.6), flange + bend notched down to z -37.7 for x -19.6..-14.5 (arm tip sweep), F12 = 1 x ISO 7380 M2x6 at x -10.0 (no washer: head on steel) + dowel D2x4.5 pressed into the Al foot at x -13.2, slide fit D2.05 in the flange; flat pattern stl/L_ucho_rozvin.dxf (k 0.4)",
+   "reason": "hole -15.0 lies inside the bend zone; the arm tip passes 0.25 above the un-notched flange at mid stroke; DIN 125 (5.0) overhangs the 4.0 flange and hits the back floor at rest; two M2 heads do not fit between the arm notch (x -14.5) and the turret-wall key path (x <= -9.45); metal-metal joint: one screw + dowel passes (rows 21-22)"
+  },
+  {
+   "id": "PD5",
+   "item": "crank pin",
+   "spec": "ISO 8734 2 x 8, x -20.4..-12.4",
+   "built": "2 x 6, x -19.9..-13.9",
+   "reason": "the x8 pin passed 0.5 from the turret lobe and 0.5 from the back-window edge"
+  },
+  {
+   "id": "PD6",
+   "item": "back floor / drum",
+   "spec": "back floor stage az 5..140 out to the walls; drum + lip az 8..140",
+   "built": "back floor plan region y >= 3.1 AND az <= 135; drum shroud az 8.4..140.0 (computed for >= 1.0 to the pinion tip circle at +-90.3); lip from az 27",
+   "reason": "at the hard stops the pinion tip circle crosses the az-5 line at r ~21.6 in the same plane (z -41.9): 0 clearance; the lip must leave room for the FFC riser crease at az 14..24.4"
+  },
+  {
+   "id": "PD7",
+   "item": "P_sachta journal / plate / back wall",
+   "spec": "journal band r 26.37 z -10..-3; plate z -3.5..-2.0 with glue land r 24..26.5; back wall 2.0 for x -6..20",
+   "built": "journal ring r 24.37..26.37 for z -10..-2 (plate edge at r 26.37, glue land r 24..26.37), ribs 2.0 at x 0, +-12.5; back wall 2.0 for x -6..23.2",
+   "reason": "a 26.50 resin plate edge would run without tape in the 26.65 bore; pad B needs a flat face"
+  },
+  {
+   "id": "PD8",
+   "item": "end window + riser groove",
+   "spec": "end window y -6.5..6.5; riser groove at stage az 14 (r 16.7..25.0); bonding land y 0..3.4",
+   "built": "end window y -7.0..3.4; the wall y 3.4..8.5 is the land of the FFC fixed leg (band y 4.0..7.0, x 25.1..25.35); riser groove 0.3 x 3.4 along +X at y 3.8..7.2 from the drum to the end wall, edge round R0.6",
+   "reason": "a radial strip at az 14 meets the end wall at y 6.3 and cannot bend onto it flat; the fixed leg must not lie across the window used by the moving tails"
+  },
+  {
+   "id": "PD9",
+   "item": "FFC lift loop",
+   "spec": "FFC_LIFT2 x 25.1..31.3, y -3.5..3.5, z -41.5..-13.5, r <= 31.7; fixed leg y 0..3",
+   "built": "fixed leg y 4.0..7.0 (bonded z -41.6..-30), U R3.0 (centreline) at z -27.0 + lift/2, outer moving leg x 31.1..31.35, bottom bend R1.0, Z-fold (two 45 deg creases, x 27.2..30.2) to the tails FFC-A y -5.85..-2.85 and FFC-B y -0.85..2.15 at z -38.25 + lift; envelope x 25.1..31.35, y -5.85..7.0, z -41.85..-13.9, r <= 32.12",
+   "reason": "in a rolling loop the fixed leg always lies across the path of the moving end, so the two must be in different Y bands (Z-fold at the moving end, which is static relative to the foot); the ZIF positions (y -6.6..2.9) are outside +-3.5 anyway; r 32.12 is inside PAN_ENV2 (33.4 / 32.2)"
+  },
+  {
+   "id": "PD10",
+   "item": "DPS_krk ZIFs",
+   "spec": "2 x FH19SC-5S-0.5SH 5.4 x 3.0 x 1.0, y -6.4..-1.2 / 0.2..5.4, z -38.0..-37.0",
+   "built": "2 x Hirose FH19C-5S-0.5SH(10) (0.9 high, body 4.5 x 3.85 - catalogue A/D values, UNVERIFIED) UNDER the board z -38.7..-37.8, y -6.6..-2.1 / -1.6..2.9; foot slot y -7.1..6.7",
+   "reason": "z -38.0..-37.0 overlaps the 0.8 board (top -37.0); FH19SC-5S was not found (FH19C-5S exists); the 13.4 board did not fit the -7.4..6.4 slot"
+  },
+  {
+   "id": "PD11",
+   "item": "lift-servo pigtail + connector",
+   "spec": "pads on the top face, Dupont 1x3 2.54, plug parked on the post (x 4..8, y 26.2..28)",
+   "built": "3 pads on the DPS_krk underside, pigtail under the ZIFs, out through the end window between the tails, under the Z-fold through the loop interior, hanging loop to a Molex PicoBlade 1.25 3p inline pair (51047 + 51021) parked LOOSE at x 17.2..22.7, y 17.2..20.5, z -29..-17 (taped to the servo lead with Kapton) - no resin clip",
+   "reason": "the neck bottom covers the whole board top with 0.5 (no wire can leave there); a mated Dupont pair (~2.5 x 7.6 x 23) does not fit inside PAN_ENV2 next to the pocket; the post clip is not at the door at pan +85; a clip on the pocket at x > 18 blocks the module's way out past the door-frame magnet pads"
+  },
+  {
+   "id": "PD12",
+   "item": "F10 torque",
+   "spec": "R2 TORQUE M2_insert 0.05 N m",
+   "built": "0.04 N m for F10",
+   "reason": "bond of the M2 insert (OD 3.2 x 3.0) at 0.05: 4.1 MPa = SF 1.9 on 8 MPa; 0.04 gives SF 2.4"
+  },
+  {
+   "id": "PD13",
+   "item": "pan rolling loop numbers",
+   "spec": "k 0.415, U R 3.2, rotating anchor stage az 14",
+   "built": "k 0.4185 (centre-line radii 16.825 / 23.375 of the 0.25 pair), U centre-line R 3.275, rotating anchor = crease at stage az 14..24.4 (inner run starts at 24.4)",
+   "reason": "length conservation uses the centre lines"
+  },
+  {
+   "id": "PD14",
+   "item": "FFC carrier run",
+   "spec": "carrier ZIFs -> cradle-wall slot (x 17..24, z -51) -> deck slot",
+   "built": "approximate route: vertical through the deck slot at B az 30, +Y at z -50.5 through the cradle-wall slot, stacked run -X at y 20.35..23.35 (1.0 above the F3b bosses), single tails down into the FH12 ZIFs at x -19.45 / -12.35",
+   "reason": "RAM zone; route modelled to budget the length and check clearances, not a binding geometry"
+  },
+  {
+   "id": "PD15",
+   "item": "densities",
+   "spec": "-",
+   "built": "C.DENS['alu'] = 2.70e-3 and C.DENS['stainless'] = 7.93e-3 added at runtime by t4_pan (t4_common.py not edited)",
+   "reason": "parts in Al / 304"
+  },
+  {
+   "id": "PD16",
+   "item": "F12 tool",
+   "spec": "tool paths D4.5",
+   "built": "1.3 hex key (long leg) through a D2.4 key hole in the stop bridge",
+   "reason": "the stop bridge (needed for the lug) lies on the F12 screw axis; a D4.5 channel would cut the bridge below the 8.5 MPa allowable"
+  },
+  {
+   "id": "PD17",
+   "item": "lug / bridge radius",
+   "spec": "lug r 27.6..31.6, bridge r 27.6..31.6, roots R1.5",
+   "built": "lug r 27.8..31.6, bridge r 26.25..31.6, roots R1.0 (inner) / R0.8 (contact side)",
+   "reason": "1.0 to the deck trim r 26.6 and to the static FFC wall (r 25.1, top -43.0) incl. the 0.3 deg overtravel; R1.5 came 0.87 from the wall"
+  }
+ ],
+ "intended_fits": [
+  "foot <-> hub disc 0.15 rest gap (0.10..0.20); ear flange 0.15 over the back floor; F12 head 0.4 over the floor",
+  "36T gear <-> RAM pinion: flank gap ~0.04 (backlash 0.04 per gear in the generator)",
+  "gear bottom on the PTFE washer (contact), gear bore 8.00 on the taped boss 7.96, retention washer 0.10 above the gear",
+  "drum shroud 0.6 over the deck; shroud 0.3 outside the gear tips",
+  "lug faces on the stop pins at -90.0 / +90.0 (contact), engagement 2.6 (2.5 with the 0.1 L1 rise)",
+  "journal r 26.37 + tape 0.13 in the bore r 26.65 (0.15)",
+  "crank pin in the ear slot 0.10 per side; ear <-> arm 0.40",
+  "neck on the guide tapes 0.17 (lands 0.30 bare)",
+  "pocket tongue 2.9 in the 3.0 rail groove (0.05 per side, 0.3 at the ends); pads face y 15.10 = plate face",
+  "turret in the keyhole 0.15 radial; tab of the servo on the F11 block face (contact)",
+  "FFC tails in the ZIFs, pigtail soldered, plug pair in the clip (cables)"
+ ],
+ "firmware": {
+  "pan_soft_limit_deg": 85.0,
+  "pan_hard_stop_deg": 90.0,
+  "crank_working_range_deg": [
+   3.0,
+   177.0
+  ],
+  "park": "lift 0 (crank 3 deg)",
+  "note": "with the lift module out (service) the stage has no hard stop - turn by hand only"
+ },
+ "additions_for_t4_common": "pan2_work/additions_pan_rev2.txt (block 'additions by pan rev2' - NOT inserted into t4_common.py, see notes_for_integrator)",
+ "exported_by": "build_all.py 2026-11-23 18:10:20",
+ "integrator_changes": [
+  "DENS: resin 1.18 -> 1.15 g/cm3 (prescribed for parts.json / K11)",
+  "PAN['GEAR']['lip']['z'] (-42.6, -42.2) -> (-42.6, -42.0): retaining lip of P_koleso 0.6 thick (K10 min feature; was 0.4); its top is 0.1 below the back-sector floor of P_sachta, which turns with it",
+  "t4_pan.mk_koleso: blind dowel holes 0.05 (was 0.15) deeper than the dowels -> floor 0.6 (was 0.5)",
+  "t4_pan.mk_sachta: FPC groove under the apron runs out to the apron edge (removes a 0.3 x 0.2 rim and a feather edge)",
+  "export: every module through t4_obal.export_abs (absolute deflection 0.01); the RAM STLs were relative-deflection before"
+ ],
+ "integrator_rev2_changes": [
+  "t4_pan: lift loop U turned into the y-z plane (strip width along X 25.35..28.35, legs y 0.625 / 6.875, U R 3.125); the crease block CF (z -30..-29.4) is a soft 45 deg fold on the FREE strip (opened for stage removal), CM on the moving end; ffc_riser keeps only the bonded leg -> permanent stage r 26.30 (rev. 2 PAN: U in the x-z plane, outer leg x 31.35, CF in the riser r 29.2)",
+  "t4_pan: pigtail rerouted under the crease block CM, between the U legs and under CF; x <= 27.6 everywhere (was 29.5); valid sweep and bend radius 0.78 > 0.7 at every lift 0..20 step 0.25",
+  "t4_pan: FFC-A 190.3 / FFC-B 178.2 (lift loop incl. CF, Z-fold per band)",
+  "t4_pan: L_ucho plate trimmed 0.5 at the front (fwd_trim, starts at y 10.4): 0.0 -> clear of the B neck back half",
+  "t4_pan_checks: section B envelope lookup vectorised (identical bands); declarations for the y-z lift loop, the collar disc in the bore and the servo bracket at the +-90.3 tolerance pose",
+  "t4_pan: F12 dowel bonded (Loctite 638) in the ear flange, slip fit D2.05 in the foot (was pressed into the foot): the neck cannot pass the stage well / collar-disc slot with a protruding dowel; the lift module brings it in along -Y",
+  "t4_pan: pigtail_tris(lift) = exact tube mesh for the pose checks (OCC mesher hangs on the sweep at lift 15)"
+ ]
+}

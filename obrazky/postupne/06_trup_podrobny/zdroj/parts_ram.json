@@ -1,0 +1,4958 @@
+{
+ "module": "ram",
+ "revision": 2,
+ "generated": "2026-11-22 12:46:04",
+ "frame": "B frame, mm, rest pose",
+ "n_parts": 75,
+ "all_ok": true,
+ "not_ok": [],
+ "removed_parts": [],
+ "deviations": [
+  "T_spodok J1 stop lug r 18.65..21.0 x 5.0 tangential x 4.0 (spec r 17..21 x 4.0): inside r 18.575 it would block the 6805, which goes in from below; tangential 5.0 restores the root section (hand 0.6 N.m: 9.2 MPa <= 12.9).  Stop at +-153.4 deg with the base block az 270 +- 19 (spec 155); base block r 17..21 engages 2.35 radial.",
+  "Base FFC slot = annular sector r 21.1..22.4, B az 74.5..105.5 (spec flat x -6..6, y 21.2..22.5 left 0.71 of plinth skin).",
+  "Bridges cradle <-> columns are full-height walls (z -82.6..-48.2, rev. 1 / spec z -60..-50): the column U below the box closure alone is 16..24 MPa under L5; with the bridge walls the connected section carries it (S rows 42c).",
+  "Carrier PCB notched under the USB-C plug envelope (x -21..-0.5, z -66.5..-58.5): a straight plug overmold (about 6.5 thick, centred on y 20.2) reaches y 16.95, inside the PCB (y 16.5..18.1); behind the notch the cradle wall is 1.9 away.",
+  "F16: 2 screws at the -X pads only (spec 4): the +X pads lie over the plinth ring and the 6805 seat (r 13..20) - no tool path from below once the bearing is bonded.  +X end: bumper + PORON in x, clamped in z by T_most / deck + shims.  F16 heads (ISO 7380 + washer) protrude to z -86.1 at r 26.7..30.5: base top must be <= -86.3 there.",
+  "Cradle front wall 1.69 thick (y -14.243..-12.55) for |x| <= 12.05, z -73..-48.2: the STS3032 case (y <= -14.543) and the STS3215 (y >= -12.35) leave 2.19 between them; spec wall 2.5 would cut 0.51 into the pan servo.",
+  "F4: no washer (the ISO 7380 head bears on the servo's own tab; a DIN 125 D5 washer would overlap the case by 0.25).",
+  "Pan-servo posts x +-(12.05..17.25), y -25.1..-15.05 (spec 11.25..17.25, -24.6..-17.1): 0.3 off the STS3032 case; DIN 562 slot runs through the post in x, 4.7 wide in y (+-0.3 C slot); +X post: window for the servo plug + front leg 1.5.",
+  "Stop-pin posts: tops -48.2 (spec -50.6), pins bonded 8.4 deep (spec 6.0), same pin position / top -44.6.  Post 2 is a block x -32.2..-21.37, y -19..-15.05, z -58.6..-48.2 tied to the -X end wall (a bracket on the free front wall alone: 28 MPa).",
+  "Deck (T_paluba) trim r <= 26.6 for B az 26.2..223.8 (spec 16..232) with a C-ear around pin 1 (from its back side): the lug block sweeps B az 28.3..221.7 below the pin tops, 1.0 clearance = 2.08 deg at r 27.6.",
+  "F3a deck screws at (26, -13.8) and (31, 5) only (spec 4 at (20, +-13.8), (-33.5, +-10)): (20, 13.8) is under the static FFC wall and in the cradle FFC slot; the -X positions are behind the lug sweep (no deck may cross r 27.6..31.6, washers 0.36 from the lug).  The -X end of the deck's back lobe is unscrewed (rests on the +Y wall and the servo top).",
+  "F3b: DIN 7991 M2.5x6 countersunk, flush in the ALUMINIUM T_most (no countersunk head in resin anywhere): ISO 7380 heads on top of T_most would sit in the FFC duct / under the gear tips (r 14..20, z -46.2..-44.3).  Positions (6, 15.95) and (18.5, -15.95) (spec (6, -15.95) collides with the STS3032 case).  T_most outline = hull of circles (not 18 x 36).",
+  "F1 = ISO 7380 M2.5x6 (spec x8: the tip would reach z -75.1, 0.6 into the T_stred boss beyond its insert pilot).",
+  "Carrier PCB x -27..28.6 (spec -23..23), F7 at x -25 / 25.8 (spec +-19: x +19 is under the ESP32-S3-Zero); F7 = M2x5 (x6 tip 0.05 from the STS3215 case).  Bosses fused with the cradle wall / stop post 1.",
+  "Capacitor 470 uF 10 V D8 x 11.5 at x 6..17.5, y 20.2, z -76.8 (spec D10 x 13 at x 6..19 collides with the tub wall); pedestal trough r 4.1 + tie groove 2.8 x 1.2 under the can.",
+  "Base FFC floor slot y 20.6..21.9 (spec 21.2..22.5): plinth skin at x +-6 1.29 (spec gives 0.71).",
+  "Box closure z -51..-34 (spec -52): 1.2 above the amplifier / buck tops (-52.2).",
+  "rev3: T_cap root flare R1.0 as specified (the 36T gear gets a 0.4 x 45 deg chamfer on its LOWER bore edge); hole D3.1.",
+  "rev3: F15 = ISO 7380 M3x8 on a stack of 2 x DIN 125 M3 + DIN 9021 M3 (head seat -40.0, tip -48.0): 1.8 of the 2.0 T_most engaged (1.51 at the shortest screw 7.71); a dry-fitted screw whose tip stands proud of the T_most underside gets one more DIN 125 under its head (K7 calibration row).  The DIN 9021 overlaps the hub lip of P_sachta: positive axial retention of the WELL.",
+  "rev3: pan pinion face 3.0 (z -45.9 .. -42.9; a bought 4.0 pinion is shortened by 1.0 at its TOP face): 1.0 under the stage floor.",
+  "Tie saddle on the cradle back wall: tunnel 2.2 x 1.2 for a 2.0 mm cable tie (spec 2.8 x 1.2 for 2.5 mm): bars 1.2 and 0.7 above the carrier top within the 4.6 between the carrier (-53.5) and the deck seat (-48.2).  Column-web saddles dropped (see TIE_SADDLES).",
+  "Static FFC wall: root fillet R1 on the outer side only; the inner face is the FFC running face (no fillet).",
+  "Spigot notches / tower keep-out = OBAL F1 zone + 0.5 (x +-(25.1..32.9), |y| >= 15.1, z -81..-74.5): the rev. 1 T_stred boss webs reach beyond a r 3.9 cylinder (0.8 mm collision on the real meshes); stop post 1 loses its y > 15.1 part below -74.5.",
+  "Cradle wall FFC slot z -51.3..-49.7 (spec -51..-50) + 0.8 x 45 deg chamfer on the inner top edge: the PAN FFC pair touched the slot edge (0.06 on the meshes) where it turns up to the deck slot.",
+  "Z_naboj_test stop block top -99.3 (rev. 1 -98.3): the lug's R1 root fillets (z -99..-98) must not touch it; the base round's stop block needs the same (top -99.3 .. -100, r 17..21)."
+ ],
+ "additions_ram_rev2": {
+  "J1_POCKET": {
+   "x": [
+    -29.7,
+    16.7
+   ],
+   "y": [
+    -12.55,
+    12.55
+   ],
+   "z": [
+    -83.3,
+    -82.3
+   ]
+  },
+  "J1_PADS": {
+   "x": [
+    [
+     -29.7,
+     -24.5
+    ],
+    [
+     10.7,
+     16.7
+    ]
+   ],
+   "y": [
+    7.35,
+    12.55
+   ],
+   "top": -83.3
+  },
+  "J1_WINDOW": {
+   "x": [
+    -29.7,
+    16.7
+   ],
+   "y": [
+    -12.45,
+    12.45
+   ]
+  },
+  "F16": {
+   "at": [
+    [
+     -27.0,
+     9.85
+    ],
+    [
+     -27.0,
+     -9.85
+    ]
+   ],
+   "hole_d": 2.4,
+   "slot": 0.3,
+   "screw": "ISO 7380 M2x6 + DIN 125 M2"
+  },
+  "BUMPER": {
+   "x": [
+    16.7,
+    18.3
+   ],
+   "y": [
+    -4.0,
+    4.0
+   ],
+   "z": [
+    -83.3,
+    -70.0
+   ]
+  },
+  "PORON_END": {
+   "x": [
+    15.7,
+    16.7
+   ],
+   "y": [
+    -4.0,
+    4.0
+   ],
+   "z": [
+    -80.0,
+    -71.0
+   ]
+  },
+  "FRONT_RECESS": {
+   "x": [
+    -12.05,
+    12.05
+   ],
+   "y_face": -14.243,
+   "z": [
+    -73.0,
+    -48.2
+   ],
+   "tab_x": 16.55,
+   "tab_z": [
+    -56.8,
+    -53.7
+   ]
+  },
+  "J1_LUG": {
+   "r": [
+    18.65,
+    21.0
+   ],
+   "w": 8.0,
+   "z": [
+    -102.0,
+    -98.0
+   ],
+   "az": 90.0,
+   "root_r": 1.0
+  },
+  "SEAT_R": 18.575,
+  "BASE_FFC_SLOT": {
+   "r": [
+    21.1,
+    22.4
+   ],
+   "az": [
+    74.5,
+    105.5
+   ],
+   "z": [
+    -91.0,
+    -82.3
+   ]
+  },
+  "F1": {
+   "at": [
+    [
+     29.0,
+     19.0
+    ],
+    [
+     -29.0,
+     19.0
+    ],
+    [
+     29.0,
+     -19.0
+    ],
+    [
+     -29.0,
+     -19.0
+    ]
+   ],
+   "pad_r": 3.4,
+   "hole_d": 3.2,
+   "cb_d": 6.5,
+   "cb_z": -82.6,
+   "screw": "ISO 7380 M2.5x6 + DIN 125 M2.5",
+   "keepout": {
+    "x": [
+     25.1,
+     32.9
+    ],
+    "y_min": 15.1
+   },
+   "keepout_z": [
+    -81.0,
+    0.0
+   ]
+  },
+  "COL": {
+   "web": [
+    34.4,
+    37.4
+   ],
+   "y": [
+    -9.0,
+    15.0
+   ],
+   "ribs": [
+    [
+     -9.0,
+     -6.5
+    ],
+    [
+     12.5,
+     15.0
+    ]
+   ],
+   "rib_x": 42.0,
+   "rib_top": -30.4,
+   "box_x": [
+    40.0,
+    42.0
+   ],
+   "box_z": [
+    -51.0,
+    -34.0
+   ],
+   "foot_x": [
+    33.0,
+    37.6
+   ],
+   "boss_r": 11.6,
+   "flange_r": 12.8,
+   "flange_x": [
+    37.4,
+    39.1
+   ],
+   "wire_hole": {
+    "d": 4.5,
+    "y": -2.0,
+    "z": -51.0
+   },
+   "bridge_fillet": 1.5,
+   "head_cove": 1.0,
+   "head": {
+    "z": [
+     -38.0,
+     -27.5
+    ],
+    "y": [
+     -14.0,
+     17.0
+    ],
+    "xy_out": [
+     [
+      43.0,
+      -14.0
+     ],
+     [
+      43.0,
+      12.0
+     ],
+     [
+      42.3,
+      16.0
+     ],
+     [
+      41.8,
+      17.0
+     ]
+    ],
+    "x_cut": 38.4,
+    "r_cut": 17.1,
+    "chan": {
+     "x": [
+      38.4,
+      40.0
+     ],
+     "y": [
+      5.0,
+      12.0
+     ],
+     "z": [
+      -40.0,
+      -27.0
+     ]
+    },
+    "plate": {
+     "x_out": 38.4,
+     "x_in_min": 26.0,
+     "r_in": 34.4,
+     "flat_y": null,
+     "y": [
+      -17.0,
+      17.0
+     ],
+     "z": [
+      -38.0,
+      -8.0
+     ],
+     "top_y": 14.0,
+     "wide": {
+      "y": 20.0,
+      "z": [
+       -38.0,
+       -20.0
+      ],
+      "z_back": -16.0
+     },
+     "top_z_end": -12.0
+    }
+   }
+  },
+  "BRIDGES_Z": [
+   -82.6,
+   -48.2
+  ],
+  "PAN_POST": {
+   "x": [
+    12.05,
+    17.25
+   ],
+   "y": [
+    -25.1,
+    -15.05
+   ],
+   "top": -56.5,
+   "leg": {
+    "x": [
+     12.05,
+     16.45
+    ],
+    "y": [
+     -26.5,
+     -25.0
+    ]
+   },
+   "window": {
+    "y": [
+     -25.0,
+     -16.4
+    ],
+    "z": [
+     -72.2,
+     -62.2
+    ]
+   },
+   "nut_slot": {
+    "y_half": 2.35,
+    "z": [
+     -59.35,
+     -58.0
+    ]
+   },
+   "hole_d": 2.3,
+   "slot": 0.3
+  },
+  "STOP_POSTS": {
+   "r": 3.5,
+   "top": -48.2,
+   "p2_z": [
+    -58.6,
+    -48.2
+   ],
+   "pin_hole_d": 3.05,
+   "pin_bond": 8.4,
+   "p2_block": {
+    "x": [
+     -24.7,
+     -17.87
+    ],
+    "y": [
+     -21.06,
+     -15.05
+    ]
+   },
+   "p2_column": {
+    "x": [
+     -24.7,
+     -17.2
+    ],
+    "y": [
+     -23.6,
+     -15.05
+    ],
+    "z_top": -58.6
+   }
+  },
+  "F3A": [
+   [
+    26.0,
+    -11.7
+   ],
+   [
+    30.6,
+    4.0
+   ]
+  ],
+  "F3B": [
+   [
+    6.0,
+    15.95
+   ],
+   [
+    18.5,
+    -15.95
+   ]
+  ],
+  "BOSS": {
+   "r": 3.4,
+   "z": [
+    -52.8,
+    -48.2
+   ],
+   "ins_hole": 3.6,
+   "ins_depth": 4.9,
+   "pilot": 2.8
+  },
+  "F3B_SCREW": "DIN 7991 M2.5x6 countersunk, flush in the aluminium T_most (no head in the FFC duct / under the gear)",
+  "CTRL": {
+   "pcb_x": [
+    -24.9,
+    24.9
+   ],
+   "y": [
+    16.5,
+    18.1
+   ],
+   "z": [
+    -71.5,
+    -53.5
+   ],
+   "f7": [
+    [
+     -18.0,
+     -62.5
+    ],
+    [
+     -4.0,
+     -62.5
+    ]
+   ],
+   "f7_face": 16.5,
+   "screw": "DIN 7991 M2x5 countersunk flush in the FR4 (no washer: head on the PCB, not on resin)",
+   "raise_module": 2.5,
+   "rest_pad": [
+    20.0,
+    -62.5,
+    2.5
+   ]
+  },
+  "CAP": {
+   "d": 8.0,
+   "l": 11.5,
+   "x": [
+    6.0,
+    17.5
+   ],
+   "y": 20.2,
+   "z": -76.8,
+   "pedestal_x": [
+    8.0,
+    15.5
+   ],
+   "half_w": 3.0,
+   "trough_r": 4.1,
+   "groove": [
+    2.8,
+    1.2
+   ]
+  },
+  "TIE_SADDLES": [
+   {
+    "face": [
+     -10.0,
+     15.05,
+     -50.5
+    ],
+    "n": "+y",
+    "along": "x",
+    "h": 4.6,
+    "tun": [
+     1.2,
+     2.2
+    ]
+   }
+  ],
+  "WALL_FFC_SLOT": {
+   "x": [
+    17.0,
+    24.0
+   ],
+   "z": [
+    -51.3,
+    -49.7
+   ]
+  },
+  "DRAINS": [
+   [
+    31.0,
+    -9.0
+   ],
+   [
+    -31.0,
+    -9.0
+   ]
+  ],
+  "BOARD_STANDOFF": 1.5,
+  "VENT_D": 4.0,
+  "CUP_VENTS": [
+   [
+    2.5,
+    0.0,
+    -16.6,
+    -80.0
+   ],
+   [
+    2.0,
+    0.0,
+    24.6,
+    -81.0
+   ],
+   [
+    2.5,
+    38.5,
+    2.7,
+    -79.5
+   ],
+   [
+    2.5,
+    -38.5,
+    2.7,
+    -79.5
+   ]
+  ],
+  "DECK_TRIM": {
+   "r": 26.6,
+   "az": [
+    26.2,
+    223.8
+   ]
+  },
+  "MOST": {
+   "circles": [
+    [
+     0.0,
+     0.0,
+     12.5
+    ],
+    [
+     6.0,
+     15.95,
+     3.0
+    ],
+    [
+     11.0,
+     15.5,
+     2.5
+    ],
+    [
+     18.5,
+     -15.95,
+     3.0
+    ]
+   ],
+   "tap_d": 2.5,
+   "csk": {
+    "d": 2.8,
+    "dk": 5.2,
+    "depth": 1.2
+   }
+  },
+  "CAP_BOSS": {
+   "r": 3.85,
+   "z": [
+    -46.2,
+    -41.8
+   ],
+   "hole_d": 3.1,
+   "edge_r": 0.3,
+   "flare_r": 1.0
+  },
+  "SHIMS": {
+   "strips": [
+    [
+     [
+      -14.3,
+      15.7
+     ],
+     [
+      4.0,
+      8.0
+     ]
+    ],
+    [
+     [
+      -14.3,
+      15.7
+     ],
+     [
+      -8.0,
+      -4.0
+     ]
+    ]
+   ],
+   "z": [
+    -48.3,
+    -48.2
+   ],
+   "c_shim": {
+    "x": [
+     -29.7,
+     -29.5
+    ],
+    "y": [
+     -10.0,
+     10.0
+    ],
+    "z": [
+     -80.0,
+     -52.0
+    ]
+   }
+  },
+  "F15": {
+   "screw": "ISO 7380 M3x8",
+   "length": 8.0,
+   "head": [
+    -40.0,
+    -38.35
+   ],
+   "tip": -48.0,
+   "washer": [
+    1.6,
+    4.5,
+    [
+     -40.8,
+     -40.0
+    ]
+   ],
+   "spacer": [
+    1.6,
+    3.5,
+    0.5
+   ],
+   "spacer_z": [
+    -41.8,
+    -40.8
+   ]
+  }
+ },
+ "roots": [
+  {
+   "part": "T_spodok",
+   "name": "+Y wall / floor",
+   "p": [
+    -3.2,
+    15.05,
+    -82.3
+   ],
+   "u": [
+    0.0,
+    0.7071,
+    0.7071
+   ],
+   "R": 2.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "-Y wall / floor",
+   "p": [
+    -3.2,
+    -15.05,
+    -82.3
+   ],
+   "u": [
+    0.0,
+    -0.7071,
+    0.7071
+   ],
+   "R": 2.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "-X end wall / floor",
+   "p": [
+    -32.2,
+    0.0,
+    -82.3
+   ],
+   "u": [
+    -0.7071,
+    0.0,
+    0.7071
+   ],
+   "R": 2.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "end wall / long wall +1 (inside, R0.5: servo case corner 0.2 away)",
+   "p": [
+    -29.7,
+    12.55,
+    -65.75
+   ],
+   "u": [
+    0.7071,
+    -0.7071,
+    0.0
+   ],
+   "R": 0.5
+  },
+  {
+   "part": "T_spodok",
+   "name": "end wall / long wall -1 (inside, R0.5: servo case corner 0.2 away)",
+   "p": [
+    -29.7,
+    -12.55,
+    -65.75
+   ],
+   "u": [
+    0.7071,
+    0.7071,
+    0.0
+   ],
+   "R": 0.5
+  },
+  {
+   "part": "T_spodok",
+   "name": "col +1 rib / web y -6.5",
+   "p": [
+    37.4,
+    -6.5,
+    -52.0
+   ],
+   "u": [
+    0.7071,
+    0.7071,
+    0.0
+   ],
+   "R": 2.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "col +1 rib / box closure y -6.5",
+   "p": [
+    40.0,
+    -6.5,
+    -42.5
+   ],
+   "u": [
+    -0.7071,
+    0.7071,
+    0.0
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "col +1 rib / web y 12.5",
+   "p": [
+    37.4,
+    12.5,
+    -52.0
+   ],
+   "u": [
+    0.7071,
+    -0.7071,
+    0.0
+   ],
+   "R": 2.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "col +1 rib / box closure y 12.5",
+   "p": [
+    40.0,
+    12.5,
+    -42.5
+   ],
+   "u": [
+    -0.7071,
+    -0.7071,
+    0.0
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "col +1 flange / web",
+   "p": [
+    37.4,
+    3.0,
+    -29.8
+   ],
+   "u": [
+    0.7071,
+    0.0,
+    -0.7071
+   ],
+   "R": 1.5
+  },
+  {
+   "part": "T_spodok",
+   "name": "col +1 foot inner / floor",
+   "p": [
+    33.0,
+    3.0,
+    -82.3
+   ],
+   "u": [
+    -0.7071,
+    0.0,
+    0.7071
+   ],
+   "R": 2.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "col +1 +Y bridge top / column inner face (S1)",
+   "p": [
+    34.4,
+    13.8,
+    -48.2
+   ],
+   "u": [
+    -0.7071,
+    0.0,
+    0.7071
+   ],
+   "R": 1.5
+  },
+  {
+   "part": "T_spodok",
+   "name": "col +1 head overhang / box closure face (S1)",
+   "p": [
+    42.0,
+    3.0,
+    -38.0
+   ],
+   "u": [
+    0.7071,
+    0.0,
+    -0.7071
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "col -1 rib / web y -6.5",
+   "p": [
+    -37.4,
+    -6.5,
+    -52.0
+   ],
+   "u": [
+    -0.7071,
+    0.7071,
+    0.0
+   ],
+   "R": 2.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "col -1 rib / box closure y -6.5",
+   "p": [
+    -40.0,
+    -6.5,
+    -42.5
+   ],
+   "u": [
+    0.7071,
+    0.7071,
+    0.0
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "col -1 rib / web y 12.5",
+   "p": [
+    -37.4,
+    12.5,
+    -52.0
+   ],
+   "u": [
+    -0.7071,
+    -0.7071,
+    0.0
+   ],
+   "R": 2.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "col -1 rib / box closure y 12.5",
+   "p": [
+    -40.0,
+    12.5,
+    -42.5
+   ],
+   "u": [
+    0.7071,
+    -0.7071,
+    0.0
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "col -1 flange / web",
+   "p": [
+    -37.4,
+    3.0,
+    -29.8
+   ],
+   "u": [
+    -0.7071,
+    0.0,
+    -0.7071
+   ],
+   "R": 1.5
+  },
+  {
+   "part": "T_spodok",
+   "name": "col -1 foot inner / floor",
+   "p": [
+    -33.0,
+    3.0,
+    -82.3
+   ],
+   "u": [
+    0.7071,
+    0.0,
+    0.7071
+   ],
+   "R": 2.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "col -1 +Y bridge top / column inner face (S1)",
+   "p": [
+    -34.4,
+    13.8,
+    -48.2
+   ],
+   "u": [
+    0.7071,
+    0.0,
+    0.7071
+   ],
+   "R": 1.5
+  },
+  {
+   "part": "T_spodok",
+   "name": "col -1 head overhang / box closure face (S1)",
+   "p": [
+    -42.0,
+    3.0,
+    -38.0
+   ],
+   "u": [
+    -0.7071,
+    0.0,
+    -0.7071
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "pan post +1 outer / front wall",
+   "p": [
+    17.25,
+    -15.05,
+    -69.4
+   ],
+   "u": [
+    0.7071,
+    -0.7071,
+    0.0
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "pan post +1 inner / front wall",
+   "p": [
+    12.05,
+    -15.05,
+    -77.65
+   ],
+   "u": [
+    -0.7071,
+    -0.7071,
+    0.0
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "pan post +1 outer / floor",
+   "p": [
+    17.25,
+    -20.075,
+    -82.3
+   ],
+   "u": [
+    0.7071,
+    0.0,
+    0.7071
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "pan post -1 outer / front wall",
+   "p": [
+    -17.25,
+    -15.05,
+    -69.4
+   ],
+   "u": [
+    -0.7071,
+    -0.7071,
+    0.0
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "pan post -1 inner / front wall",
+   "p": [
+    -12.05,
+    -15.05,
+    -77.65
+   ],
+   "u": [
+    0.7071,
+    -0.7071,
+    0.0
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "pan post -1 outer / floor",
+   "p": [
+    -17.25,
+    -20.075,
+    -82.3
+   ],
+   "u": [
+    -0.7071,
+    0.0,
+    0.7071
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "stop post 1 / floor",
+   "p": [
+    30.121,
+    11.14,
+    -82.3
+   ],
+   "u": [
+    0.6124,
+    -0.3536,
+    0.7071
+   ],
+   "R": 2.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "post-2 column / floor (front face)",
+   "p": [
+    -20.95,
+    -23.6,
+    -82.3
+   ],
+   "u": [
+    0.0,
+    -0.7071,
+    0.7071
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "post-2 column / floor (-X face)",
+   "p": [
+    -24.7,
+    -19.325,
+    -82.3
+   ],
+   "u": [
+    -0.7071,
+    0.0,
+    0.7071
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "post-2 column / front wall (-X side)",
+   "p": [
+    -24.7,
+    -15.05,
+    -65.25
+   ],
+   "u": [
+    -0.7071,
+    -0.7071,
+    0.0
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "F3a (26,-11.7) side -1 / wall",
+   "p": [
+    22.6,
+    -12.55,
+    -50.5
+   ],
+   "u": [
+    -0.7071,
+    0.7071,
+    0.0
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "F3a (26,-11.7) side +1 / wall",
+   "p": [
+    29.4,
+    -12.55,
+    -50.5
+   ],
+   "u": [
+    0.7071,
+    0.7071,
+    0.0
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "F3a (30.6,4) side -1 / wall",
+   "p": [
+    34.45,
+    0.6,
+    -50.5
+   ],
+   "u": [
+    -0.7071,
+    -0.7071,
+    0.0
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "F3a (30.6,4) side +1 / wall",
+   "p": [
+    34.45,
+    7.4,
+    -50.5
+   ],
+   "u": [
+    -0.7071,
+    0.7071,
+    0.0
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "F3b (6,15.95) side -1 / wall",
+   "p": [
+    2.6,
+    15.05,
+    -50.5
+   ],
+   "u": [
+    -0.7071,
+    0.7071,
+    0.0
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "F3b (6,15.95) side +1 / wall",
+   "p": [
+    9.4,
+    15.05,
+    -50.5
+   ],
+   "u": [
+    0.7071,
+    0.7071,
+    0.0
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "F3b (18.5,-15.95) side -1 / wall",
+   "p": [
+    15.1,
+    -15.05,
+    -50.5
+   ],
+   "u": [
+    -0.7071,
+    -0.7071,
+    0.0
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "F3b (18.5,-15.95) side +1 / wall",
+   "p": [
+    21.9,
+    -15.05,
+    -50.5
+   ],
+   "u": [
+    0.7071,
+    -0.7071,
+    0.0
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "carrier rest pad / wall",
+   "p": [
+    20.0,
+    15.05,
+    -65.0
+   ],
+   "u": [
+    0.0,
+    0.7071,
+    -0.7071
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "F7 standoff x -18.0 / wall",
+   "p": [
+    -18.0,
+    15.05,
+    -66.15
+   ],
+   "u": [
+    0.0,
+    0.7071,
+    -0.7071
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "F7 standoff x -4.0 / wall",
+   "p": [
+    -4.0,
+    15.05,
+    -66.15
+   ],
+   "u": [
+    0.0,
+    0.7071,
+    -0.7071
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "J1 lug side +1 / foot ring bottom",
+   "p": [
+    4.0,
+    19.8,
+    -98.0
+   ],
+   "u": [
+    0.7071,
+    0.0,
+    -0.7071
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_spodok",
+   "name": "J1 lug side -1 / foot ring bottom",
+   "p": [
+    -4.0,
+    19.8,
+    -98.0
+   ],
+   "u": [
+    -0.7071,
+    0.0,
+    -0.7071
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_paluba",
+   "name": "FFC wall outer / deck (az 15..40, where the deck reaches beyond r 26.1)",
+   "p": [
+    23.272,
+    9.403,
+    -46.2
+   ],
+   "u": [
+    0.6556,
+    0.2649,
+    0.7071
+   ],
+   "R": 1.0
+  },
+  {
+   "part": "T_cap",
+   "name": "T_cap root flare",
+   "p": [
+    3.85,
+    0.0,
+    -46.2
+   ],
+   "u": [
+    0.7071,
+    0.0,
+    0.7071
+   ],
+   "R": 1.0
+  }
+ ],
+ "parts": [
+  {
+   "name": "T_spodok",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 56778.22,
+   "bbox": [
+    -44.777,
+    44.777,
+    -30.332,
+    30.332,
+    -102.0,
+    -4.2
+   ],
+   "ok": true,
+   "volume_mesh": 56781.55,
+   "cog": [
+    -0.79,
+    -0.677,
+    -60.144
+   ],
+   "stl": {
+    "file": "stl/T_spodok.stl",
+    "tris": 113678,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 5.68,
+    "md5": "c33394c9ed7b9efbc84d1cc37ce48975"
+   },
+   "watertight": true,
+   "step": null,
+   "step_skipped": "BREP 35 MB (trimmed loft surfaces) -> STEP would exceed 12 MB",
+   "group": "T",
+   "mat": "resin_black",
+   "printed": true,
+   "label_sk": "spodok: kryt, pätka J1, kolíska serva J1, stĺpy ramien, stĺpiky (živica Tough)",
+   "mass_g": 65.3,
+   "build_s": 99.8,
+   "bbox_expected": [
+    -44.77776794935619,
+    44.77776794935619,
+    -30.332782915212928,
+    30.332782915212928,
+    -102.0,
+    -4.199999999999999
+   ],
+   "bbox_ok": true,
+   "assembly_step": "B1",
+   "assembly_dir": "drill / ream, bond inserts, pins, 6805",
+   "print": {
+    "orientation": "cap underside toward the build plate, tilted +15 deg about +X (right-hand: the +Y / back edge rises, u_away = (0, -0.259, 0.966)), RAISED >= 3 mm ON SUPPORTS (the drains must open into the gap)",
+    "u_away": [
+     0.0,
+     -0.2588,
+     0.9659
+    ],
+    "on_plate": false,
+    "supports": "cap underside, plinth / foot-ring bottom, J1 lug; never on the 6805 seat D37.15, the spigot outer face, the cradle inner faces or the column boss faces (fit faces)",
+    "drains": "servo window + 2 x D3 floor drains + floor slots vent the tub; fixer rev2 (M3): D2.5 drain at the +Y end of the pan-servo pocket floor (0, -16.6), D2.0 at the back tub floor (0, 24.6), D2.5 vents into both column-foot bays at (+-38.5, 2.7); the blind D3.05 x 8.7 stop-pin holes are flushed with IPA and blown out before bonding; cup test in K10",
+    "hole_comp": "fit holes modelled at final size, drill / ream after curing",
+    "warp": "thin cradle walls are tied by the end wall, bridges and columns; deck screws pull the tops flat"
+   },
+   "module": "ram",
+   "export_s": 3.3
+  },
+  {
+   "name": "T_paluba",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 2125.95,
+   "bbox": [
+    -25.1,
+    34.1,
+    -17.8,
+    25.1,
+    -48.2,
+    -43.0
+   ],
+   "ok": true,
+   "volume_mesh": 2125.51,
+   "cog": [
+    6.703,
+    9.046,
+    -46.8
+   ],
+   "stl": {
+    "file": "stl/T_paluba.stl",
+    "tris": 3420,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.17,
+    "md5": "28ba144d6a723c4ef1f6a8b4cdbc8bb4"
+   },
+   "watertight": true,
+   "step": "step/T_paluba.step",
+   "group": "T",
+   "mat": "resin_black",
+   "printed": true,
+   "label_sk": "paluba (servisné veko J1): stena a štrbina FFC, ucho kolíka 1",
+   "mass_g": 2.44,
+   "build_s": 0.8,
+   "assembly_step": "T3",
+   "assembly_dir": "-Z, F3a x2 (C-ear over pin 1)",
+   "print": {
+    "orientation": "on edge, plate tilted 70 deg about +Y (right-hand; u_away = (0.940, 0, 0.342)), FFC wall up",
+    "u_away": [
+     0.9397,
+     0.0,
+     0.342
+    ],
+    "on_plate": false,
+    "supports": "straight front / right edges only (never on the top = FFC / PTFE running face)",
+    "drains": "open plate, none needed",
+    "warp": "2.0 plate may bow <= 0.2: pulled flat by F3a, sits on the shims"
+   },
+   "module": "ram",
+   "export_s": 0.1
+  },
+  {
+   "name": "T_cap",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 176.72,
+   "bbox": [
+    -4.85,
+    4.85,
+    -4.85,
+    4.85,
+    -46.2,
+    -41.8
+   ],
+   "ok": true,
+   "volume_mesh": 176.65,
+   "cog": [
+    -0.0,
+    -0.0,
+    -44.067
+   ],
+   "stl": {
+    "file": "stl/T_cap.stl",
+    "tris": 17136,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.86,
+    "md5": "124cc3a5b8341438b289b7612eaccef4"
+   },
+   "watertight": true,
+   "step": "step/T_cap.step",
+   "group": "T",
+   "mat": "resin_black",
+   "printed": true,
+   "label_sk": "čap pan (živica) - lepený na T_most, s PTFE páskou",
+   "mass_g": 0.2,
+   "build_s": 0.1,
+   "bbox_expected": [
+    -4.85,
+    4.85,
+    -4.85,
+    4.85,
+    -46.2,
+    -41.8
+   ],
+   "bbox_ok": true,
+   "assembly_step": "B2",
+   "assembly_dir": "bonded on T_most, centred by a temporary M3",
+   "print": {
+    "orientation": "axis vertical, bottom (bond face) toward the build plate",
+    "u_away": [
+     0.0,
+     0.0,
+     1.0
+    ],
+    "on_plate": false,
+    "supports": "bottom face only (bond face, sanded)",
+    "drains": "through hole D3.1 (rev3: printed D3.1, re-drilled D3.1 after curing)",
+    "warp": "none"
+   },
+   "module": "ram",
+   "export_s": 0.2
+  },
+  {
+   "name": "Z_naboj_test",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 60675.54,
+   "bbox": [
+    -55.0,
+    55.0,
+    -45.0,
+    45.0,
+    -113.5,
+    -90.0
+   ],
+   "ok": true,
+   "volume_mesh": 60671.92,
+   "cog": [
+    -0.0,
+    -0.095,
+    -109.029
+   ],
+   "stl": {
+    "file": "stl/Z_naboj_test.stl",
+    "tris": 4550,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.23,
+    "md5": "4ff308169883f30a4e431b6d2e7e41f7"
+   },
+   "watertight": true,
+   "step": "step/Z_naboj_test.step",
+   "group": "Z",
+   "mat": "resin_black",
+   "printed": true,
+   "label_sk": "skúšobný náboj podstavca (stojan)",
+   "mass_g": 69.77,
+   "build_s": 0.1,
+   "bbox_expected": [
+    -55.0,
+    55.0,
+    -45.0,
+    45.0,
+    -113.5,
+    -90.0
+   ],
+   "bbox_ok": true,
+   "assembly_step": "bench",
+   "assembly_dir": "torso lowered onto it -Z",
+   "print": {
+    "orientation": "plate flat on the build plate",
+    "u_away": [
+     0.0,
+     0.0,
+     1.0
+    ],
+    "on_plate": true,
+    "supports": "none (plate on the plate); counterbore ceiling bridged",
+    "drains": "through bore D8.2",
+    "warp": "110 x 90 plate: raft recommended"
+   },
+   "module": "ram",
+   "export_s": 0.1
+  },
+  {
+   "name": "T_most",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 1645.73,
+   "bbox": [
+    -12.5,
+    21.5,
+    -18.95,
+    18.95,
+    -48.2,
+    -46.2
+   ],
+   "ok": true,
+   "volume_mesh": 1645.77,
+   "cog": [
+    4.803,
+    -0.443,
+    -47.206
+   ],
+   "stl": {
+    "file": "stl/T_most.stl",
+    "tris": 3180,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.16,
+    "md5": "f7a403c8b7b439a0afd0302ca3d61277"
+   },
+   "watertight": true,
+   "step": "step/T_most.step",
+   "group": "T",
+   "mat": "alu",
+   "printed": false,
+   "label_sk": "most čapu T_most, hliník 2,0 (5754-H22 / 6061-T6), závit M3",
+   "mass_g": 4.44,
+   "build_s": 0.08,
+   "source": "custom: aluminium sheet 2.0 EN AW-5754-H22 or 6061-T6 (same sheet as L_ucho), hand cut to the hull outline, drill 2.5 + tap M3 at (0,0), 2 x D2.8 + 90 deg countersink D5.2",
+   "assembly_step": "B2",
+   "assembly_dir": "cut, drill, tap",
+   "module": "ram",
+   "export_s": 0.1
+  },
+  {
+   "name": "servo_J1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 42663.89,
+   "bbox": [
+    -29.5,
+    27.0,
+    -12.35,
+    12.35,
+    -88.1,
+    -48.3
+   ],
+   "ok": true,
+   "volume_mesh": 42663.76,
+   "cog": [
+    -4.828,
+    -0.0,
+    -65.304
+   ],
+   "stl": {
+    "file": "stl/servo_J1.stl",
+    "tris": 2044,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.1,
+    "md5": "dcd5c1a4e2993405382bdd8f1ed098bc"
+   },
+   "watertight": true,
+   "step": "step/servo_J1.step",
+   "group": "T",
+   "mat": "bought",
+   "printed": false,
+   "label_sk": "servo J1 Feetech STS3215 (hriadeľ dole)",
+   "mass_g": 55.0,
+   "build_s": 0.02,
+   "source": "Feetech STS3215 (listings DFRobot / robotshop / openelab): case 45.2 x 24.7 x 35.0 +-0.3, boss D12 x 2.6, 25T spline D5.9; spline length 2.2 and case-hole positions / thread UNVERIFIED - measure the purchased servo",
+   "assembly_step": "T1",
+   "assembly_dir": "-Z into the cradle (pinion through J1_PASS); F16 x2 from below; C 18.00 with podlozka_C_J1",
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "pastorok_J1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 869.06,
+   "bbox": [
+    -27.898,
+    -8.102,
+    -9.995,
+    9.995,
+    -90.0,
+    -86.0
+   ],
+   "ok": true,
+   "volume_mesh": 869.11,
+   "cog": [
+    -18.0,
+    -0.0,
+    -88.0
+   ],
+   "stl": {
+    "file": "stl/pastorok_J1.stl",
+    "tris": 1728,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.09,
+    "md5": "deff686deb377698a921326b49667230"
+   },
+   "watertight": true,
+   "step": "step/pastorok_J1.step",
+   "group": "T",
+   "mat": "brass",
+   "printed": false,
+   "label_sk": "pastorok J1 m1 z18 mosadz, otvor 6 H7, Loctite 638",
+   "mass_g": 7.39,
+   "build_s": 0.15,
+   "source": "brass spur gear m1 18T plain, bore 6 H7, face >= 4 (KHK BSS1-18B or Maedler 263 018 00 - UNVERIFIED shape)",
+   "assembly_step": "B7",
+   "assembly_dir": "on the STS3215 spline, Loctite 638",
+   "module": "ram",
+   "export_s": 0.4
+  },
+  {
+   "name": "lozisko_6805",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 4090.35,
+   "bbox": [
+    -18.5,
+    18.5,
+    -18.5,
+    18.5,
+    -98.0,
+    -91.0
+   ],
+   "ok": true,
+   "volume_mesh": 4089.1,
+   "cog": [
+    0.0,
+    0.0,
+    -94.5
+   ],
+   "stl": {
+    "file": "stl/lozisko_6805.stl",
+    "tris": 1048,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "882f0d6c794abcdea70eccbf0b8dda34"
+   },
+   "watertight": true,
+   "step": "step/lozisko_6805.step",
+   "group": "T",
+   "mat": "bought",
+   "printed": false,
+   "label_sk": "ložisko 6805-2RS 25x37x7 (lepené)",
+   "mass_g": 22.0,
+   "build_s": 0.01,
+   "source": "6805-2RS ISO 15: 25 x 37 x 7; seat D37.15 slide fit + epoxy",
+   "assembly_step": "B1",
+   "assembly_dir": "+Z from below into the D37.15 seat, epoxy",
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "servo_pan",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 7900.9,
+   "bbox": [
+    -16.25,
+    18.75,
+    -27.043,
+    -14.543,
+    -72.7,
+    -42.7
+   ],
+   "ok": true,
+   "volume_mesh": 7900.72,
+   "cog": [
+    0.393,
+    -20.793,
+    -60.473
+   ],
+   "stl": {
+    "file": "stl/servo_pan.stl",
+    "tris": 2090,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.1,
+    "md5": "7681a3038c0d2195990b134d7a7d5fcd"
+   },
+   "watertight": true,
+   "step": "step/servo_pan.step",
+   "group": "T",
+   "mat": "bought",
+   "printed": false,
+   "label_sk": "servo pan Feetech STS3032 (hriadeľ hore)",
+   "mass_g": 21.0,
+   "build_s": 0.03,
+   "source": "Feetech STS3032 (listings): case 23.5 x 12.5 x 23.0, tabs 32.5 x 2.5, holes D2.2 at 28.0, boss D12.4; spline 25T tip D4.95 (UNVERIFIED, check that it is metal)",
+   "assembly_step": "T2",
+   "assembly_dir": "-Z onto the posts, F4 loose",
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "pastorok_pan",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 411.77,
+   "bbox": [
+    -13.842,
+    2.142,
+    -28.774,
+    -12.812,
+    -45.9,
+    -42.9
+   ],
+   "ok": true,
+   "volume_mesh": 411.79,
+   "cog": [
+    -5.85,
+    -20.793,
+    -44.4
+   ],
+   "stl": {
+    "file": "stl/pastorok_pan.stl",
+    "tris": 1728,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.09,
+    "md5": "7b75a85c6f8932fad46930a0015a4cb3"
+   },
+   "watertight": true,
+   "step": "step/pastorok_pan.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "pastorok pan m0,8 z18 oceľ/mosadz, otvor 5 H7, Loctite 638",
+   "mass_g": 3.23,
+   "build_s": 0.17,
+   "source": "m0.8 18T plain (no hub), face 4, bore 5 H7, steel (RS PRO 878-7862) or brass (KHK BSS0.8-18) - UNVERIFIED",
+   "assembly_step": "B7",
+   "assembly_dir": "on the STS3032 spline, Loctite 638",
+   "module": "ram",
+   "export_s": 0.3
+  },
+  {
+   "name": "ptfe_podlozka",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 112.15,
+   "bbox": [
+    -12.0,
+    12.0,
+    -12.0,
+    12.0,
+    -46.2,
+    -45.9
+   ],
+   "ok": true,
+   "volume_mesh": 112.11,
+   "cog": [
+    -0.0,
+    0.0,
+    -46.05
+   ],
+   "stl": {
+    "file": "stl/ptfe_podlozka.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "6dac0de145b582a1d8c8941c2352bcb8"
+   },
+   "watertight": true,
+   "step": "step/ptfe_podlozka.step",
+   "group": "T",
+   "mat": "ptfe",
+   "printed": false,
+   "label_sk": "PTFE podložka 24 x 10 x 0,3",
+   "mass_g": 0.25,
+   "build_s": 0.01,
+   "source": "PTFE sheet 0.3, washer 24 x 10 cut",
+   "assembly_step": "T3",
+   "assembly_dir": "on T_most around T_cap",
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "ptfe_cap",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 9.91,
+   "bbox": [
+    -3.98,
+    3.98,
+    -3.98,
+    3.98,
+    -45.2,
+    -42.1
+   ],
+   "ok": true,
+   "volume_mesh": 9.91,
+   "cog": [
+    -0.0,
+    -0.0,
+    -43.65
+   ],
+   "stl": {
+    "file": "stl/ptfe_cap.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "50a910a9ef1dbae079dd5ccd363f6409"
+   },
+   "watertight": true,
+   "step": "step/ptfe_cap.step",
+   "group": "T",
+   "mat": "ptfe",
+   "printed": false,
+   "label_sk": "PTFE páska 0,13 na čape (Ø7,96)",
+   "mass_g": 0.02,
+   "build_s": 0.01,
+   "source": "PTFE thread-seal / glide tape 0.13",
+   "assembly_step": "B2",
+   "assembly_dir": "wrapped on T_cap",
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "kolik_dorazu_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 84.82,
+   "bbox": [
+    25.59,
+    28.59,
+    11.39,
+    14.39,
+    -56.6,
+    -44.6
+   ],
+   "ok": true,
+   "volume_mesh": 84.79,
+   "cog": [
+    27.09,
+    12.89,
+    -50.6
+   ],
+   "stl": {
+    "file": "stl/kolik_dorazu_1.stl",
+    "tris": 500,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.03,
+    "md5": "e442e914f57c1932af51b9ab55a0a7f3"
+   },
+   "watertight": true,
+   "step": "step/kolik_dorazu_1.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "kolík dorazu pan ISO 8734 3 m6 x 12 (lepený)",
+   "mass_g": 0.67,
+   "build_s": 0.0,
+   "source": "ISO 8734 3 m6 x 12 hardened dowel",
+   "assembly_step": "B1",
+   "assembly_dir": "-Z into the post, epoxy, 24 h",
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "kolik_dorazu_2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 84.82,
+   "bbox": [
+    -22.87,
+    -19.87,
+    -22.56,
+    -19.56,
+    -56.6,
+    -44.6
+   ],
+   "ok": true,
+   "volume_mesh": 84.79,
+   "cog": [
+    -21.37,
+    -21.06,
+    -50.6
+   ],
+   "stl": {
+    "file": "stl/kolik_dorazu_2.stl",
+    "tris": 500,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.03,
+    "md5": "5be76f53e1320b1540bfe8b52fdf177d"
+   },
+   "watertight": true,
+   "step": "step/kolik_dorazu_2.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "kolík dorazu pan ISO 8734 3 m6 x 12 (lepený)",
+   "mass_g": 0.67,
+   "build_s": 0.0,
+   "source": "ISO 8734 3 m6 x 12 hardened dowel",
+   "assembly_step": "B1",
+   "assembly_dir": "-Z into the post, epoxy, 24 h",
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "podlozka_J1_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 12.0,
+   "bbox": [
+    -14.3,
+    15.7,
+    4.0,
+    8.0,
+    -48.3,
+    -48.2
+   ],
+   "ok": true,
+   "volume_mesh": 12.0,
+   "cog": [
+    0.7,
+    6.0,
+    -48.25
+   ],
+   "stl": {
+    "file": "stl/podlozka_J1_1.stl",
+    "tris": 12,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.0,
+    "md5": "80c7c3b387a0cb5b772ac70c2a925e6e"
+   },
+   "watertight": true,
+   "step": "step/podlozka_J1_1.step",
+   "group": "T",
+   "mat": "bought",
+   "printed": false,
+   "label_sk": "PET podložka 0,1 (výška J1)",
+   "mass_g": 0.02,
+   "build_s": 0.0,
+   "source": "PET film 0.1",
+   "assembly_step": "T3",
+   "assembly_dir": "on the STS3215 top",
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "podlozka_J1_2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 12.0,
+   "bbox": [
+    -14.3,
+    15.7,
+    -8.0,
+    -4.0,
+    -48.3,
+    -48.2
+   ],
+   "ok": true,
+   "volume_mesh": 12.0,
+   "cog": [
+    0.7,
+    -6.0,
+    -48.25
+   ],
+   "stl": {
+    "file": "stl/podlozka_J1_2.stl",
+    "tris": 12,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.0,
+    "md5": "535ee1d48a26139d024d8e24345c56ed"
+   },
+   "watertight": true,
+   "step": "step/podlozka_J1_2.step",
+   "group": "T",
+   "mat": "bought",
+   "printed": false,
+   "label_sk": "PET podložka 0,1 (výška J1)",
+   "mass_g": 0.02,
+   "build_s": 0.0,
+   "source": "PET film 0.1",
+   "assembly_step": "T3",
+   "assembly_dir": "on the STS3215 top",
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "podlozka_C_J1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 112.0,
+   "bbox": [
+    -29.7,
+    -29.5,
+    -10.0,
+    10.0,
+    -80.0,
+    -52.0
+   ],
+   "ok": true,
+   "volume_mesh": 112.0,
+   "cog": [
+    -29.6,
+    0.0,
+    -66.0
+   ],
+   "stl": {
+    "file": "stl/podlozka_C_J1.stl",
+    "tris": 12,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.0,
+    "md5": "e9ad0b5b0f6ba39c9a5e935ecbe38ad7"
+   },
+   "watertight": true,
+   "step": "step/podlozka_C_J1.step",
+   "group": "T",
+   "mat": "bought",
+   "printed": false,
+   "label_sk": "PET podložky 2 x 0,1 (osová vzdialenosť J1 = 18,00)",
+   "mass_g": 0.1,
+   "build_s": 0.0,
+   "source": "PET film 0.1 x 2",
+   "assembly_step": "T1",
+   "assembly_dir": "between case -X end and the end wall",
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "pena_J1_celo",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 72.0,
+   "bbox": [
+    15.7,
+    16.7,
+    -4.0,
+    4.0,
+    -80.0,
+    -71.0
+   ],
+   "ok": true,
+   "volume_mesh": 72.0,
+   "cog": [
+    16.2,
+    0.0,
+    -75.5
+   ],
+   "stl": {
+    "file": "stl/pena_J1_celo.stl",
+    "tris": 12,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.0,
+    "md5": "412f0e609b5fd45a6a6b0b44143f230f"
+   },
+   "watertight": true,
+   "step": "step/pena_J1_celo.step",
+   "group": "T",
+   "mat": "bought",
+   "printed": false,
+   "label_sk": "penová podložka PORON 1,0 (čelo serva J1)",
+   "mass_g": 0.05,
+   "build_s": 0.0,
+   "source": "PORON 1.0",
+   "assembly_step": "T1",
+   "assembly_dir": "with the servo",
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "DPS_riadenie",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 3271.43,
+   "bbox": [
+    -24.9,
+    24.9,
+    16.5,
+    24.33,
+    -71.5,
+    -53.5
+   ],
+   "ok": true,
+   "volume_mesh": 3271.45,
+   "cog": [
+    3.074,
+    19.412,
+    -62.535
+   ],
+   "stl": {
+    "file": "stl/DPS_riadenie.stl",
+    "tris": 2468,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.12,
+    "md5": "ad64a0a0b6f136c42a13aa86fb2c4606"
+   },
+   "watertight": true,
+   "step": "step/DPS_riadenie.step",
+   "group": "T",
+   "mat": "bought",
+   "printed": false,
+   "label_sk": "riadiaca doska s ESP32-S3-Zero (USB-C k +X), ZIF Y5B, konektory zbernice",
+   "mass_g": 9.0,
+   "build_s": 0.09,
+   "source": "custom carrier FR4 55.6 x 18 x 1.6 + Waveshare ESP32-S3-Zero (23.5 x 18, Waveshare drawing) + Hirose Panasonic Y5B AYF530535 (5 p 0.5 mm, 0.30 FFC) x2, FH12-10S-1SH(55), 2 x 3-pin 2.50 vertical headers (part numbers UNVERIFIED)",
+   "assembly_step": "T4",
+   "assembly_dir": "-Y through the door, F7 x2",
+   "module": "ram",
+   "export_s": 0.1
+  },
+  {
+   "name": "usb_predlzovac",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 170.97,
+   "bbox": [
+    23.0,
+    28.0,
+    20.95,
+    26.2,
+    -67.25,
+    -57.75
+   ],
+   "ok": true,
+   "volume_mesh": 170.97,
+   "cog": [
+    25.49,
+    22.773,
+    -62.5
+   ],
+   "stl": {
+    "file": "stl/usb_predlzovac.stl",
+    "tris": 28,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.0,
+    "md5": "a982b315fe78b8603673b2e891a6a618"
+   },
+   "watertight": true,
+   "step": "step/usb_predlzovac.step",
+   "group": "T",
+   "mat": "bought",
+   "printed": false,
+   "label_sk": "USB-C predlžovací FPC kábel 90° (samec do ESP32, samica zaparkovaná pri dvierkach)",
+   "mass_g": 2.0,
+   "build_s": 0.01,
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "menic",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 1776.36,
+   "bbox": [
+    -47.7,
+    -38.9,
+    -5.9,
+    11.9,
+    -70.0,
+    -52.2
+   ],
+   "ok": true,
+   "volume_mesh": 1776.39,
+   "cog": [
+    -42.874,
+    3.0,
+    -61.1
+   ],
+   "stl": {
+    "file": "stl/menic.stl",
+    "tris": 1324,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.07,
+    "md5": "7a8e430e583027a27259bc466f4b0909"
+   },
+   "watertight": true,
+   "step": "step/menic.step",
+   "group": "T",
+   "mat": "bought",
+   "printed": false,
+   "label_sk": "menič 5 V Pololu D36V28F5",
+   "mass_g": 2.5,
+   "build_s": 0.04,
+   "source": "Pololu D36V28F5 17.8 x 17.8 (Pololu drawing)",
+   "assembly_step": "T4",
+   "assembly_dir": "+X onto the right web, F14",
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "zosilnovac",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 712.37,
+   "bbox": [
+    38.9,
+    41.9,
+    -5.9,
+    11.9,
+    -71.5,
+    -52.2
+   ],
+   "ok": true,
+   "volume_mesh": 712.38,
+   "cog": [
+    40.076,
+    3.0,
+    -62.32
+   ],
+   "stl": {
+    "file": "stl/zosilnovac.stl",
+    "tris": 1044,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "eab4cc92a92fd10a2151366e8f72104f"
+   },
+   "watertight": true,
+   "step": "step/zosilnovac.step",
+   "group": "T",
+   "mat": "bought",
+   "printed": false,
+   "label_sk": "zosilňovač Adafruit MAX98357A",
+   "mass_g": 1.5,
+   "build_s": 0.02,
+   "source": "Adafruit 3006 MAX98357A 19.3 x 17.8 (Adafruit drawing)",
+   "assembly_step": "T4",
+   "assembly_dir": "-X onto the left web, F14",
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "kondenzator",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 578.05,
+   "bbox": [
+    6.0,
+    17.5,
+    16.2,
+    24.2,
+    -80.8,
+    -72.8
+   ],
+   "ok": true,
+   "volume_mesh": 577.81,
+   "cog": [
+    11.75,
+    20.2,
+    -76.8
+   ],
+   "stl": {
+    "file": "stl/kondenzator.stl",
+    "tris": 500,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.03,
+    "md5": "8f4fb37f5be61d742b4a91c9c2219632"
+   },
+   "watertight": true,
+   "step": "step/kondenzator.step",
+   "group": "T",
+   "mat": "bought",
+   "printed": false,
+   "label_sk": "kondenzátor 470 µF / 10 V Ø8 x 11,5 (sedlo + sťahovačka)",
+   "mass_g": 1.5,
+   "build_s": 0.0,
+   "source": "470 uF 10 V radial D8 x 11.5 (e.g. Panasonic EEU-FR1A471 / Nichicon UPW1A471MPD - size UNVERIFIED)",
+   "assembly_step": "T4",
+   "assembly_dir": "into the saddle, cable tie",
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "Z_koleso_J1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 781.1,
+   "bbox": [
+    -9.995,
+    9.995,
+    -9.898,
+    9.898,
+    -90.0,
+    -86.0
+   ],
+   "ok": true,
+   "volume_mesh": 781.18,
+   "cog": [
+    0.0,
+    0.0,
+    -88.0
+   ],
+   "stl": {
+    "file": "stl/Z_koleso_J1.stl",
+    "tris": 1728,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.09,
+    "md5": "de650584edd3a80fa26e3418b110c84c"
+   },
+   "watertight": true,
+   "step": "step/Z_koleso_J1.step",
+   "group": "Z",
+   "mat": "brass",
+   "printed": false,
+   "label_sk": "centrálne koleso J1 m1 z18, mosadz (závit M8)",
+   "mass_g": 6.64,
+   "build_s": 0.15,
+   "source": "brass spur gear m1 18T, face 4, tapped M8 (dummy only)",
+   "module": "ram",
+   "export_s": 0.3
+  },
+  {
+   "name": "Z_skrutka_M8",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 1821.22,
+   "bbox": [
+    -7.506,
+    7.506,
+    -6.5,
+    6.5,
+    -112.1,
+    -86.0
+   ],
+   "ok": true,
+   "volume_mesh": 1820.79,
+   "cog": [
+    -0.0,
+    -0.0,
+    -101.96
+   ],
+   "stl": {
+    "file": "stl/Z_skrutka_M8.stl",
+    "tris": 524,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.03,
+    "md5": "b616430f097f6059c3d0a06a396ac333"
+   },
+   "watertight": true,
+   "step": "step/Z_skrutka_M8.step",
+   "group": "Z",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka M8x20 - oceľové jadro náboja a hriadeľ spojky",
+   "mass_g": 14.29,
+   "build_s": 0.01,
+   "source": "ISO 4017 M8 x 20",
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "Z_pruzina_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 88.95,
+   "bbox": [
+    -8.0,
+    8.0,
+    -8.0,
+    8.0,
+    -106.8,
+    -106.2
+   ],
+   "ok": true,
+   "volume_mesh": 88.92,
+   "cog": [
+    -0.0,
+    0.0,
+    -106.5
+   ],
+   "stl": {
+    "file": "stl/Z_pruzina_1.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "502a1912c176d397efabf9f602357eb8"
+   },
+   "watertight": true,
+   "step": "step/Z_pruzina_1.step",
+   "group": "Z",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "tanierová pružina 16x8,2x0,4",
+   "mass_g": 0.7,
+   "build_s": 0.01,
+   "source": "DIN 2093 16 x 8.2 x 0.4",
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "Z_pruzina_2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 88.95,
+   "bbox": [
+    -8.0,
+    8.0,
+    -8.0,
+    8.0,
+    -106.2,
+    -105.6
+   ],
+   "ok": true,
+   "volume_mesh": 88.91,
+   "cog": [
+    -0.0,
+    0.0,
+    -105.9
+   ],
+   "stl": {
+    "file": "stl/Z_pruzina_2.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "1e125ce5e0d3bc51a39e8a6a982fdfbb"
+   },
+   "watertight": true,
+   "step": "step/Z_pruzina_2.step",
+   "group": "Z",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "tanierová pružina 16x8,2x0,4",
+   "mass_g": 0.7,
+   "build_s": 0.0,
+   "source": "DIN 2093 16 x 8.2 x 0.4",
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F1_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 53.31,
+   "bbox": [
+    26.65,
+    31.35,
+    16.65,
+    21.35,
+    -84.475,
+    -77.1
+   ],
+   "ok": true,
+   "volume_mesh": 53.29,
+   "cog": [
+    29.0,
+    19.0,
+    -81.75
+   ],
+   "stl": {
+    "file": "stl/skr_F1_1.stl",
+    "tris": 1004,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "ba5d361158f9f0a2099ce7e85e14f5ef"
+   },
+   "watertight": true,
+   "step": "step/skr_F1_1.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka ISO 7380 M2,5x6 (spodok -> stred)",
+   "mass_g": 0.42,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F1",
+    "size": "ISO 7380 M2.5x6",
+    "head": [
+     29.0,
+     19.0,
+     -83.1
+    ],
+    "dir": "+Z",
+    "tool_from": "-Z",
+    "torque": 0.1
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "pd_F1_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 11.27,
+   "bbox": [
+    26.0,
+    32.0,
+    16.0,
+    22.0,
+    -83.1,
+    -82.6
+   ],
+   "ok": true,
+   "volume_mesh": 11.27,
+   "cog": [
+    29.0,
+    19.0,
+    -82.85
+   ],
+   "stl": {
+    "file": "stl/pd_F1_1.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "0ed5ebf225bb3be3f9eaf099a8abc200"
+   },
+   "watertight": true,
+   "step": "step/pd_F1_1.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "podložka DIN 125 M2,5",
+   "mass_g": 0.09,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F1"
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F1_2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 53.31,
+   "bbox": [
+    -31.35,
+    -26.65,
+    16.65,
+    21.35,
+    -84.475,
+    -77.1
+   ],
+   "ok": true,
+   "volume_mesh": 53.29,
+   "cog": [
+    -29.0,
+    19.0,
+    -81.75
+   ],
+   "stl": {
+    "file": "stl/skr_F1_2.stl",
+    "tris": 1004,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "e127cc5a6f74d3acdac5d4160505fd32"
+   },
+   "watertight": true,
+   "step": "step/skr_F1_2.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka ISO 7380 M2,5x6 (spodok -> stred)",
+   "mass_g": 0.42,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F1",
+    "size": "ISO 7380 M2.5x6",
+    "head": [
+     -29.0,
+     19.0,
+     -83.1
+    ],
+    "dir": "+Z",
+    "tool_from": "-Z",
+    "torque": 0.1
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "pd_F1_2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 11.27,
+   "bbox": [
+    -32.0,
+    -26.0,
+    16.0,
+    22.0,
+    -83.1,
+    -82.6
+   ],
+   "ok": true,
+   "volume_mesh": 11.27,
+   "cog": [
+    -29.0,
+    19.0,
+    -82.85
+   ],
+   "stl": {
+    "file": "stl/pd_F1_2.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "e1e1862739691e7df46f0e02ddd2ddc9"
+   },
+   "watertight": true,
+   "step": "step/pd_F1_2.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "podložka DIN 125 M2,5",
+   "mass_g": 0.09,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F1"
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F1_3",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 53.31,
+   "bbox": [
+    26.65,
+    31.35,
+    -21.35,
+    -16.65,
+    -84.475,
+    -77.1
+   ],
+   "ok": true,
+   "volume_mesh": 53.29,
+   "cog": [
+    29.0,
+    -19.0,
+    -81.75
+   ],
+   "stl": {
+    "file": "stl/skr_F1_3.stl",
+    "tris": 1004,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "29b391385bf6c813fdd6f8d1ecfb9401"
+   },
+   "watertight": true,
+   "step": "step/skr_F1_3.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka ISO 7380 M2,5x6 (spodok -> stred)",
+   "mass_g": 0.42,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F1",
+    "size": "ISO 7380 M2.5x6",
+    "head": [
+     29.0,
+     -19.0,
+     -83.1
+    ],
+    "dir": "+Z",
+    "tool_from": "-Z",
+    "torque": 0.1
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "pd_F1_3",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 11.27,
+   "bbox": [
+    26.0,
+    32.0,
+    -22.0,
+    -16.0,
+    -83.1,
+    -82.6
+   ],
+   "ok": true,
+   "volume_mesh": 11.27,
+   "cog": [
+    29.0,
+    -19.0,
+    -82.85
+   ],
+   "stl": {
+    "file": "stl/pd_F1_3.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "2aab167235f0935a2813fedb1c06a407"
+   },
+   "watertight": true,
+   "step": "step/pd_F1_3.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "podložka DIN 125 M2,5",
+   "mass_g": 0.09,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F1"
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F1_4",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 53.31,
+   "bbox": [
+    -31.35,
+    -26.65,
+    -21.35,
+    -16.65,
+    -84.475,
+    -77.1
+   ],
+   "ok": true,
+   "volume_mesh": 53.29,
+   "cog": [
+    -29.0,
+    -19.0,
+    -81.75
+   ],
+   "stl": {
+    "file": "stl/skr_F1_4.stl",
+    "tris": 1004,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "f0b07f7d9886173a6c01024f4814eb81"
+   },
+   "watertight": true,
+   "step": "step/skr_F1_4.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka ISO 7380 M2,5x6 (spodok -> stred)",
+   "mass_g": 0.42,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F1",
+    "size": "ISO 7380 M2.5x6",
+    "head": [
+     -29.0,
+     -19.0,
+     -83.1
+    ],
+    "dir": "+Z",
+    "tool_from": "-Z",
+    "torque": 0.1
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "pd_F1_4",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 11.27,
+   "bbox": [
+    -32.0,
+    -26.0,
+    -22.0,
+    -16.0,
+    -83.1,
+    -82.6
+   ],
+   "ok": true,
+   "volume_mesh": 11.27,
+   "cog": [
+    -29.0,
+    -19.0,
+    -82.85
+   ],
+   "stl": {
+    "file": "stl/pd_F1_4.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "00ae753c6503f93ece5c43d3168d1935"
+   },
+   "watertight": true,
+   "step": "step/pd_F1_4.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "podložka DIN 125 M2,5",
+   "mass_g": 0.09,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F1"
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F3a_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 53.31,
+   "bbox": [
+    23.65,
+    28.35,
+    -14.05,
+    -9.35,
+    -51.7,
+    -44.325
+   ],
+   "ok": true,
+   "volume_mesh": 53.29,
+   "cog": [
+    26.0,
+    -11.7,
+    -47.05
+   ],
+   "stl": {
+    "file": "stl/skr_F3a_1.stl",
+    "tris": 1004,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "824b571620147d8fc4547d1ea0d0555a"
+   },
+   "watertight": true,
+   "step": "step/skr_F3a_1.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka ISO 7380 M2,5x6 (paluba -> spodok)",
+   "mass_g": 0.42,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F3a",
+    "size": "ISO 7380 M2.5x6",
+    "head": [
+     26.0,
+     -11.7,
+     -45.7
+    ],
+    "dir": "-Z",
+    "tool_from": "+Z",
+    "torque": 0.1
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "pd_F3a_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 11.27,
+   "bbox": [
+    23.0,
+    29.0,
+    -14.7,
+    -8.7,
+    -46.2,
+    -45.7
+   ],
+   "ok": true,
+   "volume_mesh": 11.27,
+   "cog": [
+    26.0,
+    -11.7,
+    -45.95
+   ],
+   "stl": {
+    "file": "stl/pd_F3a_1.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "ed499f82553184a1e4b89856ff82581a"
+   },
+   "watertight": true,
+   "step": "step/pd_F3a_1.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "podložka DIN 125 M2,5",
+   "mass_g": 0.09,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F3a"
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "vl_F3a_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 18.85,
+   "bbox": [
+    24.25,
+    27.75,
+    -13.45,
+    -9.95,
+    -52.2,
+    -48.2
+   ],
+   "ok": true,
+   "volume_mesh": 18.84,
+   "cog": [
+    26.0,
+    -11.7,
+    -50.2
+   ],
+   "stl": {
+    "file": "stl/vl_F3a_1.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "c084e19f8edf39be4813d6b379dc7bc7"
+   },
+   "watertight": true,
+   "step": "step/vl_F3a_1.step",
+   "group": "T",
+   "mat": "brass",
+   "printed": false,
+   "label_sk": "závitová vložka M2,5 lepená (spodok)",
+   "mass_g": 0.16,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F3a",
+    "at": [
+     26.0,
+     -11.7,
+     -48.2
+    ]
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F3a_2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 53.31,
+   "bbox": [
+    28.25,
+    32.95,
+    1.65,
+    6.35,
+    -51.7,
+    -44.325
+   ],
+   "ok": true,
+   "volume_mesh": 53.29,
+   "cog": [
+    30.6,
+    4.0,
+    -47.05
+   ],
+   "stl": {
+    "file": "stl/skr_F3a_2.stl",
+    "tris": 1004,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "f67784cce25138d774c76f777bfc1a22"
+   },
+   "watertight": true,
+   "step": "step/skr_F3a_2.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka ISO 7380 M2,5x6 (paluba -> spodok)",
+   "mass_g": 0.42,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F3a",
+    "size": "ISO 7380 M2.5x6",
+    "head": [
+     30.6,
+     4.0,
+     -45.7
+    ],
+    "dir": "-Z",
+    "tool_from": "+Z",
+    "torque": 0.1
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "pd_F3a_2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 11.27,
+   "bbox": [
+    27.6,
+    33.6,
+    1.0,
+    7.0,
+    -46.2,
+    -45.7
+   ],
+   "ok": true,
+   "volume_mesh": 11.27,
+   "cog": [
+    30.6,
+    4.0,
+    -45.95
+   ],
+   "stl": {
+    "file": "stl/pd_F3a_2.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "96c934019ea8d51f2813e6b96bc26ed8"
+   },
+   "watertight": true,
+   "step": "step/pd_F3a_2.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "podložka DIN 125 M2,5",
+   "mass_g": 0.09,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F3a"
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "vl_F3a_2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 18.85,
+   "bbox": [
+    28.85,
+    32.35,
+    2.25,
+    5.75,
+    -52.2,
+    -48.2
+   ],
+   "ok": true,
+   "volume_mesh": 18.84,
+   "cog": [
+    30.6,
+    4.0,
+    -50.2
+   ],
+   "stl": {
+    "file": "stl/vl_F3a_2.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "6f3846553421c51ac0a88ae0d5ddd6c5"
+   },
+   "watertight": true,
+   "step": "step/vl_F3a_2.step",
+   "group": "T",
+   "mat": "brass",
+   "printed": false,
+   "label_sk": "závitová vložka M2,5 lepená (spodok)",
+   "mass_g": 0.16,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F3a",
+    "at": [
+     30.6,
+     4.0,
+     -48.2
+    ]
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F3b_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 37.63,
+   "bbox": [
+    3.5,
+    8.5,
+    13.45,
+    18.45,
+    -52.2,
+    -46.2
+   ],
+   "ok": true,
+   "volume_mesh": 37.61,
+   "cog": [
+    6.0,
+    15.95,
+    -48.633
+   ],
+   "stl": {
+    "file": "stl/skr_F3b_1.stl",
+    "tris": 1130,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.06,
+    "md5": "bac3d8304ace0eb82ede6dc20fa3264b"
+   },
+   "watertight": true,
+   "step": "step/skr_F3b_1.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka DIN 7991 M2,5x6 zápustná (do hliníka T_most)",
+   "mass_g": 0.3,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F3b",
+    "size": "DIN 7991 M2.5x6",
+    "head": [
+     6.0,
+     15.95,
+     -46.2
+    ],
+    "dir": "-Z",
+    "tool_from": "+Z",
+    "torque": 0.1
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "vl_F3b_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 18.85,
+   "bbox": [
+    4.25,
+    7.75,
+    14.2,
+    17.7,
+    -52.2,
+    -48.2
+   ],
+   "ok": true,
+   "volume_mesh": 18.84,
+   "cog": [
+    6.0,
+    15.95,
+    -50.2
+   ],
+   "stl": {
+    "file": "stl/vl_F3b_1.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "375ac3e8eba2dbd031fd8a9bd9a9701c"
+   },
+   "watertight": true,
+   "step": "step/vl_F3b_1.step",
+   "group": "T",
+   "mat": "brass",
+   "printed": false,
+   "label_sk": "závitová vložka M2,5 lepená (spodok)",
+   "mass_g": 0.16,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F3b",
+    "at": [
+     6.0,
+     15.95,
+     -48.2
+    ]
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F3b_2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 37.63,
+   "bbox": [
+    16.0,
+    21.0,
+    -18.45,
+    -13.45,
+    -52.2,
+    -46.2
+   ],
+   "ok": true,
+   "volume_mesh": 37.61,
+   "cog": [
+    18.5,
+    -15.95,
+    -48.633
+   ],
+   "stl": {
+    "file": "stl/skr_F3b_2.stl",
+    "tris": 1130,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.06,
+    "md5": "cf0f9c6db25ced2df1edae2164abea12"
+   },
+   "watertight": true,
+   "step": "step/skr_F3b_2.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka DIN 7991 M2,5x6 zápustná (do hliníka T_most)",
+   "mass_g": 0.3,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F3b",
+    "size": "DIN 7991 M2.5x6",
+    "head": [
+     18.5,
+     -15.95,
+     -46.2
+    ],
+    "dir": "-Z",
+    "tool_from": "+Z",
+    "torque": 0.1
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "vl_F3b_2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 18.85,
+   "bbox": [
+    16.75,
+    20.25,
+    -17.7,
+    -14.2,
+    -52.2,
+    -48.2
+   ],
+   "ok": true,
+   "volume_mesh": 18.84,
+   "cog": [
+    18.5,
+    -15.95,
+    -50.2
+   ],
+   "stl": {
+    "file": "stl/vl_F3b_2.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "539cbc84056bda37cfb02b3dd1c42e28"
+   },
+   "watertight": true,
+   "step": "step/vl_F3b_2.step",
+   "group": "T",
+   "mat": "brass",
+   "printed": false,
+   "label_sk": "závitová vložka M2,5 lepená (spodok)",
+   "mass_g": 0.16,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F3b",
+    "at": [
+     18.5,
+     -15.95,
+     -48.2
+    ]
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F4_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 43.92,
+   "bbox": [
+    -15.75,
+    -12.25,
+    -22.543,
+    -19.043,
+    -64.0,
+    -52.7
+   ],
+   "ok": true,
+   "volume_mesh": 43.91,
+   "cog": [
+    -14.0,
+    -20.793,
+    -57.391
+   ],
+   "stl": {
+    "file": "stl/skr_F4_1.stl",
+    "tris": 1004,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "5051417c7bb588bd5aaba74b7b1a71f3"
+   },
+   "watertight": true,
+   "step": "step/skr_F4_1.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka ISO 7380 M2x10 (servo pan, hlava na úchytke serva)",
+   "mass_g": 0.34,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F4",
+    "size": "ISO 7380 M2x10, no washer (head on the servo's own tab; a D5 washer would overlap the case 0.25)",
+    "head": [
+     -14.0,
+     -20.793,
+     -54.0
+    ],
+    "dir": "-Z",
+    "tool_from": "+Z through the T_stred bore, before the stage",
+    "torque": 0.1
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "mat_F4_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 15.43,
+   "bbox": [
+    -16.0,
+    -12.0,
+    -22.793,
+    -18.793,
+    -59.2,
+    -58.0
+   ],
+   "ok": true,
+   "volume_mesh": 15.43,
+   "cog": [
+    -14.0,
+    -20.793,
+    -58.6
+   ],
+   "stl": {
+    "file": "stl/mat_F4_1.stl",
+    "tris": 520,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.03,
+    "md5": "736f516bfb176b8abc7c8031006f859e"
+   },
+   "watertight": true,
+   "step": "step/mat_F4_1.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "matica DIN 562 M2 štvorhranná",
+   "mass_g": 0.12,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F4"
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F4_2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 43.92,
+   "bbox": [
+    12.25,
+    15.75,
+    -22.543,
+    -19.043,
+    -64.0,
+    -52.7
+   ],
+   "ok": true,
+   "volume_mesh": 43.91,
+   "cog": [
+    14.0,
+    -20.793,
+    -57.391
+   ],
+   "stl": {
+    "file": "stl/skr_F4_2.stl",
+    "tris": 1004,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "ee66b58ca3b68cdbf931608b808c7323"
+   },
+   "watertight": true,
+   "step": "step/skr_F4_2.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka ISO 7380 M2x10 (servo pan, hlava na úchytke serva)",
+   "mass_g": 0.34,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F4",
+    "size": "ISO 7380 M2x10, no washer (head on the servo's own tab; a D5 washer would overlap the case 0.25)",
+    "head": [
+     14.0,
+     -20.793,
+     -54.0
+    ],
+    "dir": "-Z",
+    "tool_from": "+Z through the T_stred bore, before the stage",
+    "torque": 0.1
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "mat_F4_2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 15.43,
+   "bbox": [
+    12.0,
+    16.0,
+    -22.793,
+    -18.793,
+    -59.2,
+    -58.0
+   ],
+   "ok": true,
+   "volume_mesh": 15.43,
+   "cog": [
+    14.0,
+    -20.793,
+    -58.6
+   ],
+   "stl": {
+    "file": "stl/mat_F4_2.stl",
+    "tris": 520,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.03,
+    "md5": "feb2ee35c27d0c522168cfb5fca547c0"
+   },
+   "watertight": true,
+   "step": "step/mat_F4_2.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "matica DIN 562 M2 štvorhranná",
+   "mass_g": 0.12,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F4"
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F7_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 19.02,
+   "bbox": [
+    -19.9,
+    -16.1,
+    13.1,
+    18.1,
+    -64.4,
+    -60.6
+   ],
+   "ok": true,
+   "volume_mesh": 19.0,
+   "cog": [
+    -18.0,
+    15.985,
+    -62.5
+   ],
+   "stl": {
+    "file": "stl/skr_F7_1.stl",
+    "tris": 1130,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.06,
+    "md5": "970db239eb535f4a60f5bda9fd30b2d1"
+   },
+   "watertight": true,
+   "step": "step/skr_F7_1.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka DIN 7991 M2x5 zápustná (v DPS, riadiaca doska)",
+   "mass_g": 0.15,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F7",
+    "size": "DIN 7991 M2x5 (flush in the FR4 countersink)",
+    "head": [
+     -18.0,
+     18.1,
+     -62.5
+    ],
+    "dir": "-Y",
+    "tool_from": "+Y (door, no USB plug in)",
+    "torque": 0.1
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "vl_F7_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 37.7,
+   "bbox": [
+    -20.0,
+    -16.0,
+    12.5,
+    16.5,
+    -64.5,
+    -60.5
+   ],
+   "ok": true,
+   "volume_mesh": 37.68,
+   "cog": [
+    -18.0,
+    14.5,
+    -62.5
+   ],
+   "stl": {
+    "file": "stl/vl_F7_1.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "331f513d24fab2a874058857393577b8"
+   },
+   "watertight": true,
+   "step": "step/vl_F7_1.step",
+   "group": "T",
+   "mat": "brass",
+   "printed": false,
+   "label_sk": "závitová vložka M2x4 OD4,0 lepená (spodok)",
+   "mass_g": 0.32,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F7",
+    "at": [
+     -18.0,
+     16.5,
+     -62.5
+    ]
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F7_2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 19.02,
+   "bbox": [
+    -5.9,
+    -2.1,
+    13.1,
+    18.1,
+    -64.4,
+    -60.6
+   ],
+   "ok": true,
+   "volume_mesh": 19.0,
+   "cog": [
+    -4.0,
+    15.985,
+    -62.5
+   ],
+   "stl": {
+    "file": "stl/skr_F7_2.stl",
+    "tris": 1130,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.06,
+    "md5": "633d6756f3a305aae3e62244b25fa987"
+   },
+   "watertight": true,
+   "step": "step/skr_F7_2.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka DIN 7991 M2x5 zápustná (v DPS, riadiaca doska)",
+   "mass_g": 0.15,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F7",
+    "size": "DIN 7991 M2x5 (flush in the FR4 countersink)",
+    "head": [
+     -4.0,
+     18.1,
+     -62.5
+    ],
+    "dir": "-Y",
+    "tool_from": "+Y (door, no USB plug in)",
+    "torque": 0.1
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "vl_F7_2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 37.7,
+   "bbox": [
+    -6.0,
+    -2.0,
+    12.5,
+    16.5,
+    -64.5,
+    -60.5
+   ],
+   "ok": true,
+   "volume_mesh": 37.68,
+   "cog": [
+    -4.0,
+    14.5,
+    -62.5
+   ],
+   "stl": {
+    "file": "stl/vl_F7_2.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "1b1f49b09f4959384014ec11414d5220"
+   },
+   "watertight": true,
+   "step": "step/vl_F7_2.step",
+   "group": "T",
+   "mat": "brass",
+   "printed": false,
+   "label_sk": "závitová vložka M2x4 OD4,0 lepená (spodok)",
+   "mass_g": 0.32,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F7",
+    "at": [
+     -4.0,
+     16.5,
+     -62.5
+    ]
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "vl_F8_L1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 37.7,
+   "bbox": [
+    34.4,
+    38.4,
+    4.75,
+    8.75,
+    -12.505,
+    -8.505
+   ],
+   "ok": true,
+   "volume_mesh": 37.68,
+   "cog": [
+    36.4,
+    6.75,
+    -10.505
+   ],
+   "stl": {
+    "file": "stl/vl_F8_L1.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "a45967fd363536ea359a9966ae422d35"
+   },
+   "watertight": true,
+   "step": "step/vl_F8_L1.step",
+   "group": "T",
+   "mat": "brass",
+   "printed": false,
+   "label_sk": "závitová vložka M2x4 OD4,0 lepená (náboj ramena)",
+   "mass_g": 0.32,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F8",
+    "at": [
+     38.4,
+     6.750000000000001,
+     -10.50480947161671
+    ]
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "vl_F8_L2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 37.7,
+   "bbox": [
+    34.4,
+    38.4,
+    -6.5,
+    -2.5,
+    -19.0,
+    -15.0
+   ],
+   "ok": true,
+   "volume_mesh": 37.68,
+   "cog": [
+    36.4,
+    -4.5,
+    -17.0
+   ],
+   "stl": {
+    "file": "stl/vl_F8_L2.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "36a690a208f419d6b6ccc47e425c2510"
+   },
+   "watertight": true,
+   "step": "step/vl_F8_L2.step",
+   "group": "T",
+   "mat": "brass",
+   "printed": false,
+   "label_sk": "závitová vložka M2x4 OD4,0 lepená (náboj ramena)",
+   "mass_g": 0.32,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F8",
+    "at": [
+     38.4,
+     -4.5,
+     -17.0
+    ]
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "vl_F8_L3",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 37.7,
+   "bbox": [
+    34.4,
+    38.4,
+    4.75,
+    8.75,
+    -25.495,
+    -21.495
+   ],
+   "ok": true,
+   "volume_mesh": 37.68,
+   "cog": [
+    36.4,
+    6.75,
+    -23.495
+   ],
+   "stl": {
+    "file": "stl/vl_F8_L3.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "6d3d46fcc768dcb8787e9689328cb934"
+   },
+   "watertight": true,
+   "step": "step/vl_F8_L3.step",
+   "group": "T",
+   "mat": "brass",
+   "printed": false,
+   "label_sk": "závitová vložka M2x4 OD4,0 lepená (náboj ramena)",
+   "mass_g": 0.32,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F8",
+    "at": [
+     38.4,
+     6.750000000000001,
+     -23.49519052838329
+    ]
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "vl_F8_P1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 37.7,
+   "bbox": [
+    -38.4,
+    -34.4,
+    4.75,
+    8.75,
+    -12.505,
+    -8.505
+   ],
+   "ok": true,
+   "volume_mesh": 37.68,
+   "cog": [
+    -36.4,
+    6.75,
+    -10.505
+   ],
+   "stl": {
+    "file": "stl/vl_F8_P1.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "21ba9e88bfd4508d44d853f779e08ca9"
+   },
+   "watertight": true,
+   "step": "step/vl_F8_P1.step",
+   "group": "T",
+   "mat": "brass",
+   "printed": false,
+   "label_sk": "závitová vložka M2x4 OD4,0 lepená (náboj ramena)",
+   "mass_g": 0.32,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F8",
+    "at": [
+     -38.4,
+     6.750000000000001,
+     -10.50480947161671
+    ]
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "vl_F8_P2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 37.7,
+   "bbox": [
+    -38.4,
+    -34.4,
+    -6.5,
+    -2.5,
+    -19.0,
+    -15.0
+   ],
+   "ok": true,
+   "volume_mesh": 37.68,
+   "cog": [
+    -36.4,
+    -4.5,
+    -17.0
+   ],
+   "stl": {
+    "file": "stl/vl_F8_P2.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "2ed42fe2431351aa6bbd313091de2af2"
+   },
+   "watertight": true,
+   "step": "step/vl_F8_P2.step",
+   "group": "T",
+   "mat": "brass",
+   "printed": false,
+   "label_sk": "závitová vložka M2x4 OD4,0 lepená (náboj ramena)",
+   "mass_g": 0.32,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F8",
+    "at": [
+     -38.4,
+     -4.5,
+     -17.0
+    ]
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "vl_F8_P3",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 37.7,
+   "bbox": [
+    -38.4,
+    -34.4,
+    4.75,
+    8.75,
+    -25.495,
+    -21.495
+   ],
+   "ok": true,
+   "volume_mesh": 37.68,
+   "cog": [
+    -36.4,
+    6.75,
+    -23.495
+   ],
+   "stl": {
+    "file": "stl/vl_F8_P3.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "e09829b0e7fa35cd32dc42416e7c7069"
+   },
+   "watertight": true,
+   "step": "step/vl_F8_P3.step",
+   "group": "T",
+   "mat": "brass",
+   "printed": false,
+   "label_sk": "závitová vložka M2x4 OD4,0 lepená (náboj ramena)",
+   "mass_g": 0.32,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F8",
+    "at": [
+     -38.4,
+     6.750000000000001,
+     -23.49519052838329
+    ]
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F14_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 31.36,
+   "bbox": [
+    -42.1,
+    -34.8,
+    -5.48,
+    -1.98,
+    -56.12,
+    -52.62
+   ],
+   "ok": true,
+   "volume_mesh": 31.34,
+   "cog": [
+    -39.256,
+    -3.73,
+    -54.37
+   ],
+   "stl": {
+    "file": "stl/skr_F14_1.stl",
+    "tris": 1004,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "052b9a7b6efc1e7165db304410acec4b"
+   },
+   "watertight": true,
+   "step": "step/skr_F14_1.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka M2x6 do plastu (menič), jednorazová",
+   "mass_g": 0.25,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F14",
+    "size": "M2x6 thread-forming",
+    "head": [
+     -40.8,
+     -3.7300000000000004,
+     -54.370000000000005
+    ],
+    "dir": "+X",
+    "tool_from": "-X (side cap off)",
+    "torque": 0.1
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "pd_F14_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 4.75,
+   "bbox": [
+    -40.8,
+    -40.5,
+    -6.23,
+    -1.23,
+    -56.87,
+    -51.87
+   ],
+   "ok": true,
+   "volume_mesh": 4.75,
+   "cog": [
+    -40.65,
+    -3.73,
+    -54.37
+   ],
+   "stl": {
+    "file": "stl/pd_F14_1.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "100b0a2dbba55c6b6b25f09f54a5c3d1"
+   },
+   "watertight": true,
+   "step": "step/pd_F14_1.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "podložka DIN 125 M2",
+   "mass_g": 0.04,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F14"
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F14_2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 31.36,
+   "bbox": [
+    -42.1,
+    -34.8,
+    7.98,
+    11.48,
+    -69.58,
+    -66.08
+   ],
+   "ok": true,
+   "volume_mesh": 31.34,
+   "cog": [
+    -39.256,
+    9.73,
+    -67.83
+   ],
+   "stl": {
+    "file": "stl/skr_F14_2.stl",
+    "tris": 1004,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "fd54a9b09c53ec17189cbf4f4a61b99d"
+   },
+   "watertight": true,
+   "step": "step/skr_F14_2.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka M2x6 do plastu (menič), jednorazová",
+   "mass_g": 0.25,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F14",
+    "size": "M2x6 thread-forming",
+    "head": [
+     -40.8,
+     9.73,
+     -67.83
+    ],
+    "dir": "+X",
+    "tool_from": "-X (side cap off)",
+    "torque": 0.1
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "pd_F14_2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 4.75,
+   "bbox": [
+    -40.8,
+    -40.5,
+    7.23,
+    12.23,
+    -70.33,
+    -65.33
+   ],
+   "ok": true,
+   "volume_mesh": 4.75,
+   "cog": [
+    -40.65,
+    9.73,
+    -67.83
+   ],
+   "stl": {
+    "file": "stl/pd_F14_2.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "00e03b25b1a5c095956a18f2dbdb71f6"
+   },
+   "watertight": true,
+   "step": "step/pd_F14_2.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "podložka DIN 125 M2",
+   "mass_g": 0.04,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F14"
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F14_3",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 31.36,
+   "bbox": [
+    34.8,
+    42.1,
+    -5.1,
+    -1.6,
+    -56.49,
+    -52.99
+   ],
+   "ok": true,
+   "volume_mesh": 31.34,
+   "cog": [
+    39.256,
+    -3.35,
+    -54.74
+   ],
+   "stl": {
+    "file": "stl/skr_F14_3.stl",
+    "tris": 1004,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "204ef8b4e7a5f35144abef8e0035ddc5"
+   },
+   "watertight": true,
+   "step": "step/skr_F14_3.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka M2x6 do plastu (zosilňovač), jednorazová",
+   "mass_g": 0.25,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F14",
+    "size": "M2x6 thread-forming",
+    "head": [
+     40.8,
+     -3.3499999999999996,
+     -54.74
+    ],
+    "dir": "-X",
+    "tool_from": "+X (side cap off)",
+    "torque": 0.1
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "pd_F14_3",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 4.75,
+   "bbox": [
+    40.5,
+    40.8,
+    -5.85,
+    -0.85,
+    -57.24,
+    -52.24
+   ],
+   "ok": true,
+   "volume_mesh": 4.75,
+   "cog": [
+    40.65,
+    -3.35,
+    -54.74
+   ],
+   "stl": {
+    "file": "stl/pd_F14_3.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "40d84519a344bad8f3028887ddc9e0a2"
+   },
+   "watertight": true,
+   "step": "step/pd_F14_3.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "podložka DIN 125 M2",
+   "mass_g": 0.04,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F14"
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F14_4",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 31.36,
+   "bbox": [
+    34.8,
+    42.1,
+    7.6,
+    11.1,
+    -56.49,
+    -52.99
+   ],
+   "ok": true,
+   "volume_mesh": 31.34,
+   "cog": [
+    39.256,
+    9.35,
+    -54.74
+   ],
+   "stl": {
+    "file": "stl/skr_F14_4.stl",
+    "tris": 1004,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "cee6772957e16bfc06da5660bd4fc37b"
+   },
+   "watertight": true,
+   "step": "step/skr_F14_4.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka M2x6 do plastu (zosilňovač), jednorazová",
+   "mass_g": 0.25,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F14",
+    "size": "M2x6 thread-forming",
+    "head": [
+     40.8,
+     9.35,
+     -54.74
+    ],
+    "dir": "-X",
+    "tool_from": "+X (side cap off)",
+    "torque": 0.1
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "pd_F14_4",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 4.75,
+   "bbox": [
+    40.5,
+    40.8,
+    6.85,
+    11.85,
+    -57.24,
+    -52.24
+   ],
+   "ok": true,
+   "volume_mesh": 4.75,
+   "cog": [
+    40.65,
+    9.35,
+    -54.74
+   ],
+   "stl": {
+    "file": "stl/pd_F14_4.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "f4dbfd5f01bcc07a8d38715a771d6b5d"
+   },
+   "watertight": true,
+   "step": "step/pd_F14_4.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "podložka DIN 125 M2",
+   "mass_g": 0.04,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F14"
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F15",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 98.65,
+   "bbox": [
+    -2.85,
+    2.85,
+    -2.85,
+    2.85,
+    -48.0,
+    -38.35
+   ],
+   "ok": true,
+   "volume_mesh": 98.61,
+   "cog": [
+    0.0,
+    -0.0,
+    -41.941
+   ],
+   "stl": {
+    "file": "stl/skr_F15.stl",
+    "tris": 1004,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "909d8d3bfbafcab63a8515a2259b43d2"
+   },
+   "watertight": true,
+   "step": "step/skr_F15.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka ISO 7380 M3x8 (čap pan, do T_most)",
+   "mass_g": 0.77,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F15",
+    "size": "ISO 7380 M3x8",
+    "head": [
+     0.0,
+     0.0,
+     -40.0
+    ],
+    "dir": "-Z",
+    "tool_from": "+Z (through the empty well)",
+    "torque": 0.1
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "pd_F15",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 44.46,
+   "bbox": [
+    -4.5,
+    4.5,
+    -4.5,
+    4.5,
+    -40.8,
+    -40.0
+   ],
+   "ok": true,
+   "volume_mesh": 44.44,
+   "cog": [
+    0.0,
+    -0.0,
+    -40.4
+   ],
+   "stl": {
+    "file": "stl/pd_F15.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "bb00b3993a90b7bf69b8a2449495c5a7"
+   },
+   "watertight": true,
+   "step": "step/pd_F15.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "podložka DIN 9021 M3 (3,2 x 9 x 0,8) – drží šachtu za golier náboja",
+   "mass_g": 0.35,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F15"
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "pd_F15_d1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 15.22,
+   "bbox": [
+    -3.5,
+    3.5,
+    -3.5,
+    3.5,
+    -41.8,
+    -41.3
+   ],
+   "ok": true,
+   "volume_mesh": 15.21,
+   "cog": [
+    -0.0,
+    0.0,
+    -41.55
+   ],
+   "stl": {
+    "file": "stl/pd_F15_d1.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "19b931d527b88f7b93188656bee1f49b"
+   },
+   "watertight": true,
+   "step": "step/pd_F15_d1.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "podložka DIN 125 M3 (3,2 x 7 x 0,5) – dištančná pod DIN 9021",
+   "mass_g": 0.12,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F15"
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "pd_F15_d2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 15.22,
+   "bbox": [
+    -3.5,
+    3.5,
+    -3.5,
+    3.5,
+    -41.3,
+    -40.8
+   ],
+   "ok": true,
+   "volume_mesh": 15.21,
+   "cog": [
+    0.0,
+    -0.0,
+    -41.05
+   ],
+   "stl": {
+    "file": "stl/pd_F15_d2.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "040ab20eae7fa0e4d1947a48981f573a"
+   },
+   "watertight": true,
+   "step": "step/pd_F15_d2.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "podložka DIN 125 M3 (3,2 x 7 x 0,5) – dištančná pod DIN 9021",
+   "mass_g": 0.12,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F15"
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F16_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 31.36,
+   "bbox": [
+    -28.75,
+    -25.25,
+    8.1,
+    11.6,
+    -86.1,
+    -78.8
+   ],
+   "ok": true,
+   "volume_mesh": 31.34,
+   "cog": [
+    -27.0,
+    9.85,
+    -83.256
+   ],
+   "stl": {
+    "file": "stl/skr_F16_1.stl",
+    "tris": 1004,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "ed5ead1756f710d9727a1d3a5e9e3cda"
+   },
+   "watertight": true,
+   "step": "step/skr_F16_1.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka ISO 7380 M2x6 (servo J1, zospodu)",
+   "mass_g": 0.25,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F16",
+    "size": "ISO 7380 M2x6",
+    "head": [
+     -27.0,
+     9.85,
+     -84.8
+    ],
+    "dir": "+Z",
+    "tool_from": "-Z (torso off the base)",
+    "torque": 0.1
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "pd_F16_1",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 4.75,
+   "bbox": [
+    -29.5,
+    -24.5,
+    7.35,
+    12.35,
+    -84.8,
+    -84.5
+   ],
+   "ok": true,
+   "volume_mesh": 4.75,
+   "cog": [
+    -27.0,
+    9.85,
+    -84.65
+   ],
+   "stl": {
+    "file": "stl/pd_F16_1.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "4e6a8890461892699b516f07dbc581c5"
+   },
+   "watertight": true,
+   "step": "step/pd_F16_1.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "podložka DIN 125 M2",
+   "mass_g": 0.04,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F16"
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "skr_F16_2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 31.36,
+   "bbox": [
+    -28.75,
+    -25.25,
+    -11.6,
+    -8.1,
+    -86.1,
+    -78.8
+   ],
+   "ok": true,
+   "volume_mesh": 31.34,
+   "cog": [
+    -27.0,
+    -9.85,
+    -83.256
+   ],
+   "stl": {
+    "file": "stl/skr_F16_2.stl",
+    "tris": 1004,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "659261112d49eddd3de78e464ac7f5ab"
+   },
+   "watertight": true,
+   "step": "step/skr_F16_2.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "skrutka ISO 7380 M2x6 (servo J1, zospodu)",
+   "mass_g": 0.25,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F16",
+    "size": "ISO 7380 M2x6",
+    "head": [
+     -27.0,
+     -9.85,
+     -84.8
+    ],
+    "dir": "+Z",
+    "tool_from": "-Z (torso off the base)",
+    "torque": 0.1
+   },
+   "module": "ram",
+   "export_s": 0.0
+  },
+  {
+   "name": "pd_F16_2",
+   "valid": true,
+   "n_solids": 1,
+   "volume": 4.75,
+   "bbox": [
+    -29.5,
+    -24.5,
+    -12.35,
+    -7.35,
+    -84.8,
+    -84.5
+   ],
+   "ok": true,
+   "volume_mesh": 4.75,
+   "cog": [
+    -27.0,
+    -9.85,
+    -84.65
+   ],
+   "stl": {
+    "file": "stl/pd_F16_2.stl",
+    "tris": 1008,
+    "open_edges": 0,
+    "nonmanifold_edges": 0,
+    "flipped_edges": 0,
+    "deflection_mm": 0.01,
+    "mb": 0.05,
+    "md5": "a2c4d1c78a941ca20e0604af700c018f"
+   },
+   "watertight": true,
+   "step": "step/pd_F16_2.step",
+   "group": "T",
+   "mat": "steel",
+   "printed": false,
+   "label_sk": "podložka DIN 125 M2",
+   "mass_g": 0.04,
+   "build_s": 0.0,
+   "fastener": {
+    "joint": "F16"
+   },
+   "module": "ram",
+   "export_s": 0.0
+  }
+ ],
+ "exported_by": "build_all.py 2026-11-23 18:10:08",
+ "integrator_changes": [
+  "DENS: resin 1.18 -> 1.15 g/cm3 (prescribed for parts.json / K11)",
+  "t4_ram.mk_ram / _column: pilots of F7 and F14 and the 4 cradle F2 insert seats are through holes (were 0.4 .. 0.5 floors)",
+  "export: every module through t4_obal.export_abs (absolute deflection 0.01); the RAM STLs were relative-deflection before",
+  "RAM['DUMMY'] / t4_ram.mk_naboj: Z_naboj_test without the 4 feet - plate flat on the bed (z -113.5 .. -108.5) + pedestal r 22.5 up to z -104 (old plate top), counterbore widened to r 10.5 below z -109.2 with a 45 deg run-out (13 mm socket on the M8 head); FDM overhang 9340 -> about 190 mm2 (ceiling of the counterbore only)"
+ ],
+ "integrator_rev2_changes": [
+  "t4_ram: F1 tower keep-out over the FULL height (was z < -74.5) as a circle r 3.65 around each T_stred boss column + band x 25.1..32.9, |y| 19..40 (stop post 1 wall 1.225 instead of 0.69 with the box); the deck gets the box only on the front bosses",
+  "t4_ram: post 2 = block x -24.7..-17.87 + column x -24.7..-17.2 to the floor merged with the -X pan post; nut slot ends at the post face",
+  "t4_ram: F3a_1 (26, -13.8) -> (26, -11.7) (clear of the STS3215 ear), boss merged into the front wall; deck pad r 4.0",
+  "t4_ram: carrier PCB x -24.9..24.9, no plug notch, ESP32-S3-Zero raised 2.5 on its pin headers, F7 = 2 x DIN 7991 M2x5 flush at (-18 / -4, -62.5) under the plug envelope, rest pad at x 20",
+  "t4_ram: column rib top z -30 -> -30.4 (0.10 from the T_bok socket tube, OBAL X1); column head z -38..-27.5 + shoulder plate x 34.4..38.4, |y| <= 17, z -38..-8 (inner face r 34.5 / flat 34.5 for |y| <= 9.5: T_stred lowering path)",
+  "t4_ram: +X pan-post leg x 12.05..16.45 (was to 16.95: 0.0 plan clearance to the T_stred front relief); cradle-wall FFC notch x 18.9..20.7; insert holes through (ins_depth 4.9, no 0.3 floors)",
+  "t4_ram: T_paluba kept 0.3 off the +X shoulder-plate footprint (|y| >= 9.2: r <= 34.2) - the deck could not be lowered past the plate at T3 (blocked after 8.2 mm); arm-wire hole z -50.5 -> -51.3 (0.23 sliver under the bridge top -> 0.85)"
+ ]
+}

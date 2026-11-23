@@ -1,0 +1,24 @@
+pair: min clearance over the stroke (lift, crank deg, point) | value at lift 0 | penetration
+DPS_krk        x P_sachta         min 0.600 at lift  0.00 (crank    0.0) pt [22.2, 5.3, -37.43] | lift 0: 0.600
+DPS_krk        x ptfe_pasik_7     min 0.470 at lift  0.35 (crank   15.2) pt [22.2, 6.26, -36.86] | lift 0: 0.470
+DPS_krk        x ptfe_pasik_8     min 0.762 at lift 20.00 (crank  180.0) pt [22.2, 4.02, -17.0] | lift 0: -
+L_pata         x P_sachta         min 0.123 at lift  0.00 (crank    0.0) pt [22.07, -9.57, -40.5] | lift 0: 0.123
+L_pata         x pd_F15           min 1.000 at lift  0.00 (crank    0.0) pt [-5.47, 0.6, -40.5] | lift 0: 1.000
+L_pata         x ptfe_pasik_1     min 0.370 at lift  0.00 (crank    0.0) pt [13.55, -9.8, -36.78] | lift 0: 0.370
+L_pata         x ptfe_pasik_2     min 0.370 at lift  0.00 (crank    0.0) pt [-16.5, -9.8, -36.5] | lift 0: 0.370
+L_pata         x ptfe_pasik_3     min 0.370 at lift  0.50 (crank   18.2) pt [11.35, 9.8, -36.92] | lift 0: 0.370
+L_pata         x ptfe_pasik_5     min 0.370 at lift  0.00 (crank    0.0) pt [-22.3, 5.11, -36.99] | lift 0: 0.370
+L_pata         x ptfe_pasik_6     min 0.370 at lift  0.00 (crank    0.0) pt [-22.3, -6.32, -36.99] | lift 0: 0.370
+L_pata         x ptfe_pasik_7     min 0.370 at lift  0.00 (crank    0.0) pt [22.3, 7.06, -36.71] | lift 0: 0.370
+L_pata         x ptfe_pasik_8     min 1.165 at lift 20.00 (crank  180.0) pt [22.3, -7.1, -16.5] | lift 0: -
+L_pata         x skr_F10_B        min 1.250 at lift  3.00 (crank   45.6) pt [17.25, 9.8, -33.5] | lift 0: -
+L_ucho         x P_drziak_serva   min 0.783 at lift  0.00 (crank    0.0) pt [-17.9, 20.46, -40.5] | lift 0: 0.783
+L_ucho         x P_sachta         min 0.140 at lift  0.00 (crank    0.0) pt [-18.27, 10.56, -40.5] | lift 0: 0.140
+cap_kluky      x P_drziak_serva   min 1.000 at lift  0.00 (crank    0.0) pt [-14.38, 23.2, -35.2] | lift 0: 1.000
+cap_kluky      x P_sachta         min 1.000 at lift  7.50 (crank   75.5) pt [-19.9, 12.58, -26.36] | lift 0: -
+cap_kluky      x servo_zdvih      min 1.487 at lift  0.00 (crank    0.0) pt [-13.9, 23.15, -33.2] | lift 0: 1.487
+kolik_F12      x P_sachta         min 1.140 at lift  0.00 (crank    0.0) pt [-13.18, 10.35, -39.5] | lift 0: 1.140
+rameno_zdvih   x P_drziak_serva   min 1.000 at lift  0.00 (crank    0.0) pt [-15.5, 22.39, -36.26] | lift 0: 1.000
+rameno_zdvih   x servo_zdvih      min 0.000 at lift  0.00 (crank    0.0) pt [-15.28, 20.94, -25.01] | lift 0: 0.000 | INSIDE: max depth 0.001 at lift 8.0 (1194 pts)
+skr_F12_1      x P_sachta         min 0.401 at lift  0.00 (crank    0.0) pt [-9.96, 11.4, -40.25] | lift 0: 0.401
+skr_ramena     x servo_zdvih      min 0.000 at lift  0.00 (crank    0.0) pt [-15.3, 21.97, -24.42] | lift 0: 0.000 | INSIDE: max depth 0.000 at lift 17.5 (552 pts)

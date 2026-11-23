@@ -1,3 +1,6 @@
+> **Pozor:** tento dokument opisuje revíziu 2. Revízia 3 (spevnená otočná šachta) mení štyri tlačené diely, niekoľko kúpených
+> dielov, kroky montáže a limity používania – všetko je v `zmeny_rev3.txt` (má prednosť) a podrobne v `zdroj/opravy3.md`.
+
 # NOVA mini – trup T4, revízia 2: návrh
 
 Trup robota NOVA mini pre tlač zo živice (MSLA, Elegoo Saturn 4 Ultra 16K, živica Elegoo Tough). Každé servo sa dá vymeniť,

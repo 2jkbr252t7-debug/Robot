@@ -1,0 +1,52 @@
+rotating: 36 z (-47.2, -2.0) rmax 38.43
+static candidates: ['T_stred', 'T_bok_L', 'T_bok_P', 'T_dvere', 'T_klb_L', 'T_klb_P', 'T_svetlovod', 'T_mriezka', 'T_drziak_led', 'T_drziak_repro', 'reproduktor', 'tesnenie_repro', 'DPS_led', 'vyvod_led', 'magnet_dvierka_1', 'magnet_dvierka_2', 'magnet_zarubna_1', 'magnet_zarubna_2', 'skrutka_klb_L1', 'skrutka_klb_L2', 'skrutka_klb_L3', 'skrutka_klb_P1', 'skrutka_klb_P2', 'skrutka_klb_P3', 'podlozka_led_1', 'skrutka_led_1', 'podlozka_led_2', 'skrutka_led_2', 'podlozka_repro_1', 'skrutka_repro_1', 'podlozka_repro_2', 'skrutka_repro_2', 'T_spodok', 'T_paluba', 'T_cap', 'T_most', 'servo_J1', 'servo_pan', 'pastorok_pan', 'ptfe_podlozka', 'ptfe_cap', 'kolik_dorazu_1', 'kolik_dorazu_2', 'podlozka_J1_1', 'podlozka_J1_2', 'skr_F3a_1', 'pd_F3a_1', 'vl_F3a_1', 'skr_F3a_2', 'pd_F3a_2', 'vl_F3a_2', 'skr_F3b_1', 'vl_F3b_1', 'skr_F3b_2', 'vl_F3b_2', 'vl_F8_L1', 'vl_F8_L2', 'vl_F8_L3', 'vl_F8_P1', 'vl_F8_P2', 'vl_F8_P3', 'skr_F15', 'pd_F15', 'pd_F15_d1', 'pd_F15_d2']
+rot samples 560271 static samples 2632108
+angle -90.0 53.2 s
+angle -75.0 108.1 s
+angle -60.0 133.8 s
+angle -45.0 158.0 s
+angle -30.0 182.9 s
+angle -15.0 206.9 s
+angle 0.0 230.8 s
+angle 15.0 253.5 s
+angle 30.0 276.6 s
+angle 45.0 299.5 s
+angle 60.0 325.6 s
+angle 75.0 349.8 s
+angle 90.0 406.0 s
+
+PAIR SUMMARY within the range -90.0 .. +90.0 (min clearance; inside counts) and at the ends
+L_pata           x pd_F15           min 0.998 at pan  -70.00 pt [-5.47, 0.55, -40.5] | -90: 0.998  0: 1.000  +90: 0.998
+P_drziak_serva   x T_paluba         min 1.100 at pan  -90.00 pt [23.03, 9.69, -41.9] | -90: 1.100  0: 1.100  +90: 1.100
+P_drziak_serva   x T_spodok         min 1.000 at pan  -90.00 pt [24.53, 14.85, -47.2] | -90: 1.000  0:   -    +90: 1.000
+P_drziak_serva   x kolik_dorazu_1   min 0.000 at pan  -90.00 pt [26.16, 14.07, -45.9] | -90: 0.000(in 12, depth 0.01)  0:   -    +90:   -    PEN max depth 0.006 at -90.0
+P_drziak_serva   x kolik_dorazu_2   min 0.000 at pan   90.00 pt [-21.35, -19.56, -45.35] | -90:   -    0:   -    +90: 0.000
+P_drziak_serva   x pastorok_pan     only outside +-90: min 1.000 at 99.5
+P_drziak_serva   x servo_J1         min 1.100 at pan   23.00 pt [-25.39, 11.92, -47.2] | -90:   -    0:   -    +90:   -  
+P_drziak_serva   x skr_F3a_2        only outside +-90: min 0.725 at -100.0
+P_drziak_serva   x vl_F8_P2         min 1.540 at pan   77.00 pt [-32.86, -3.19, -17.0] | -90:   -    0:   -    +90:   -  
+P_sachta         x T_cap            min 0.259 at pan  -10.00 pt [0.66, 3.74, -41.6] | -90: 0.259  0: 0.259  +90: 0.259
+P_sachta         x T_most           min 0.600 at pan  -90.00 pt [10.59, 11.32, -45.6] | -90: 0.600  0: 0.600  +90:   -  
+P_sachta         x T_paluba         min 0.600 at pan  -47.00 pt [0.02, 15.5, -45.6] | -90: 1.100  0: 0.600  +90: 0.600
+P_sachta         x T_stred          min 0.280 at pan  -75.00 pt [19.94, 17.25, -10.0] | -90: 0.280  0: 0.280  +90: 0.280
+P_sachta         x pastorok_pan     min 1.000 at pan  -90.00 pt [-11.72, -23.48, -41.9] | -90: 1.000  0: 1.025  +90: 1.000
+P_sachta         x pd_F15           min 0.120 at pan  -90.00 pt [2.45, -3.59, -40.92] | -90: 0.120  0: 0.120  +90: 0.120
+P_sachta         x pd_F15_d1        min 0.299 at pan  -89.50 pt [3.79, -0.19, -41.37] | -90: 0.300  0: 0.300  +90: 0.300
+P_sachta         x pd_F15_d2        min 0.299 at pan  -89.50 pt [-3.79, 0.19, -41.15] | -90: 0.300  0: 0.300  +90: 0.300
+P_sachta         x ptfe_cap         min 0.262 at pan  -30.00 pt [-3.18, 2.67, -41.9] | -90: 0.262  0: 0.262  +90: 0.262
+P_sachta         x servo_pan        min 1.000 at pan  -90.00 pt [-4.09, -21.36, -41.7] | -90: 1.000  0:   -    +90: 1.000
+P_sachta         x skr_F3b_1        min 0.600 at pan  -74.00 pt [7.06, 13.8, -45.6] | -90:   -    0: 0.600  +90:   -  
+koleso_pan       x T_cap            min 0.097 at pan  -10.00 pt [3.06, 2.57, -45.5] | -90: 0.097  0: 0.098  +90: 0.097
+koleso_pan       x T_most           min 0.300 at pan  -90.00 pt [2.67, 12.24, -45.9] | -90: 0.300  0: 0.300  +90: 0.300
+koleso_pan       x T_paluba         min 0.300 at pan  -90.00 pt [-14.65, 0.96, -45.9] | -90: 0.300  0: 0.300  +90: 0.300
+koleso_pan       x pastorok_pan     min 0.000 at pan  -89.80 pt [-3.33, -14.12, -45.9] | -90: 0.038  0: 0.038  +90: 0.038  PEN max depth 0.180 at 88.9
+koleso_pan       x pd_F15           min 1.463 at pan  -73.00 pt [-0.14, 5.46, -41.9] | -90: 1.463  0: 1.464  +90: 1.464
+koleso_pan       x ptfe_cap         min 0.019 at pan   89.90 pt [1.46, -3.72, -43.56] | -90: 0.019  0: 0.020  +90: 0.019
+koleso_pan       x ptfe_podlozka    min 0.000 at pan  -90.00 pt [-6.21, 8.1, -45.9] | -90: 0.000  0: 0.000  +90: 0.000
+koleso_pan       x skr_F3b_1        min 0.300 at pan  -19.00 pt [5.68, 13.54, -45.9] | -90: 0.300  0: 0.300  +90: 0.300
+pigtail_zdvih    x T_drziak_repro   only outside +-90: min 0.905 at -100.0
+ptfe_pas_capu    x T_stred          min 0.145 at pan  -88.10 pt [16.35, 20.85, -10.0] | -90: 0.145  0: 0.145  +90: 0.145
+servo_zdvih      x T_dvere          min 1.503 at pan   29.00 pt [-0.21, 33.38, -18.3] | -90:   -    0:   -    +90:   -  
+servo_zdvih      x T_spodok         min 1.011 at pan  -39.00 pt [30.87, 12.7, -37.96] | -90: 1.299  0:   -    +90: 1.299
+servo_zdvih      x vl_F8_L2         min 1.178 at pan  -67.00 pt [33.22, -3.28, -18.56] | -90:   -    0:   -    +90:   -  
+servo_zdvih      x vl_F8_L3         min 1.461 at pan  -52.00 pt [32.94, 5.43, -23.54] | -90:   -    0:   -    +90:   -  

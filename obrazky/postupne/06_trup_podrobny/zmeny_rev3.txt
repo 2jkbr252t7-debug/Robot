@@ -1,0 +1,128 @@
+NOVA mini – trup, zmeny rev. 3 (spevnenie otočnej šachty)
+=========================================================
+Prečo: kontrola pevnosti ukázala, že samotné dno šachty (disk nad kolesom) vydrží, slabé boli jeho SPOJE
+(skrutka čapu, prechod dna do stien, rohy okien, uloženie modulu zdvihu, dorazy otáčania). Rev. 3 to opravuje.
+
+1. ČO TREBA VYTLAČIŤ ZNOVA (oproti rev. 2; zistené porovnaním objemu a rozmerov každého STL)
+  - T_paluba.stl – paluba: posunutý výrez pre dorazový výstupok (iný rozsah otáčania výstupku)
+  - T_cap.stl – čap: zaoblený koreň R1; otvor sa VŔTA na Ø3,1 až po vytvrdení
+  - P_sachta.stl – šachta: plné dno, zaoblené rohy okien, hrubší preklad nad oknom +X, rebro a polica pre modul zdvihu, prah pod zadným oknom (opora pätky držiaka)
+  - P_drziak_serva.stl – držiak serva zdvihu: stena pri serve 4 mm, okno pre policu, pätka dosadajúca na prah šachty, šikmá plocha dorazu −90°
+  Ostatné tlačené diely sú bez zmeny (12 dielov – netreba tlačiť).
+
+2. ČO KÚPIŤ / PRIPRAVIŤ INAK
+  - skrutka ISO 7380 M3×8 (namiesto M3×6) – 1 ks (čap otáčania, spoj F15)
+  - podložka DIN 125 M3 (3,2×7×0,5) – 2 ks + 1 ks rezerva; veľká podložka DIN 9021 M3 (3,2×9×0,8) ostáva – 1 ks
+  - kolík ISO 8734 Ø2×6 (namiesto Ø2×5) – 1 ks (kolík F10 v šachte)
+  - pastorok otáčania (m0,8, 18 zubov): kúpený so šírkou 4 mm SKRÁTIŤ na 3,0 mm (zbrúsiť 1 mm z vrchnej strany na pilníku / papieri P120)
+  - koleso 36 zubov: spodnú hranu otvoru zraziť 0,4 mm (záhlbníkom v ruke), ak ju nemá
+  - PTFE páska 0,13: pribudol 8. pásik (na preklad nad oknom +X); nové rozmery pásikov: č. 5: 31,0×2,3 mm; č. 6: 31,0×2,3 mm; č. 7: 31,0×2,0 mm; č. 8: 10,9×4,0 mm – strihať podľa plôšok na novej šachte
+  - L_ucho (nerez): na konci príruby zraziť spodný roh 1,2 mm pilníkom
+  - PTFE pásik na čap T_cap: široký 3,1 mm (bolo 3,5), spodný okraj 1,0 mm nad základňou čapu – nelepiť ho na zaoblenie R1 pri koreni
+  - servo otáčania STS3032 – ZMERAŤ EŠTE PRED TLAČOU P_sachta: výška drážkovaného hriadeľa nad čelom nákružku Ø12,4 (posuvné meradlo).
+    Model počíta s 3,5 mm (údaj z ponúk predajcov, neoverený); koniec hriadeľa je potom 1,0 mm pod novým dnom šachty.
+    Musí byť najviac 4,0 mm (pri 4,3 mm ostáva pod dnom už len 0,2 mm). Ak je hriadeľ dlhší: P_sachta netlačiť, koniec hriadeľa
+    skrátiť jemným pilníkom (servo držať hriadeľom nadol, piliny nesmú do prevodovky) alebo si vyžiadať úpravu modelu dna.
+  - momentový skrutkovač netreba – všetko sa doťahuje končekmi prstov presným skrutkovačom
+
+3. ZMENENÉ KROKY MONTÁŽE A KALIBRÁCIE
+  (B = príprava na stole, T = montáž trupu, S = servis; v zátvorke číslo kroku v montaz_trup.txt rev. 2, ktorý sa tým mení alebo dopĺňa)
+  B2  (krok 2) T_cap: po vytvrdení prevŕtať otvor Ø3,1; nalepiť na T_most húževnatým 2K epoxidom (hliník zdrsniť P120, odmastiť IPA), 24 h.
+  B2b (nový, po kroku 2) SKLADBA F15 (skúška nasucho na stole): cez T_cap do T_most zaskrutkovať M3×8 s podložkou DIN 9021 a pod ňou 2× DIN 125.
+      Po dosadnutí hlavy skrutky NESMIE jej špička vyčnievať pod T_most (priložiť pravítko). Ak vyčnieva, dať tretiu DIN 125 POD HLAVU skrutky.
+      Túto skladbu si zapísať – použije sa v kroku T7.
+  B4a (krok 4) Do šachty vlepiť 2 závitové vložky M2 a kolík Ø2×6 (2,9 mm v šachte, 3,1 mm trčí von).
+      POZOR – otvor pre vložku F10_A (horná z dvoch vložiek) je PRIECHODZÍ až dovnútra šachty, vložka v ňom nemá doraz. Vložku naskrutkovať
+      na skrutku M2 (závit skrutky natrieť voskom) cez rovný pliešok s otvorom Ø2–2,5 (alebo podložku s vonkajším priemerom aspoň 6 mm) priložený
+      na čelo plôšky a pritiahnuť: vložka ostane zarovno s plôškou, nie hlbšie. Lepidlo vytlačené dovnútra šachty hneď zotrieť (je tam vodiaca
+      plocha krku, vôľa 0,2–0,3 mm).
+      Do F10_A patrí LEN skrutka M2×6 – dlhšia by vyčnievala do dráhy krku.
+  B4b (krok 14) Koleso 36T sa lepí pod plné dno šachty: mosadz aj živicu zdrsniť P120–240 a odmastiť, húževnatý 2K epoxid 0,1–0,2 mm,
+      vytlačené lepidlo pri strednom otvore zotrieť. Dno vnútri šachty, kde boli podpery, zarovnať brúsnym papierom na hranolčeku
+      (cez otvor pre krk); medzera pätky sa potom kontroluje v kroku T11.
+  B4c (NOVÝ krok na stole – po vytvrdení B4a, PRED krokom T7; šachta je ešte mimo trupu) DOSADNUTIE PÄTKY DRŽIAKA NA PRAH ŠACHTY.
+      Od tohto dosadnutia závisí pevnosť dorazu −90° (pozri časť 4 a 5); v zloženom trupe sa už skontrolovať nedá.
+      Holý P_drziak_serva (bez serva) nasadiť na šachtu ako v kroku T9 a dotiahnuť obe skrutky F10. Spodná pätka držiaka (koniec −X, pod zadným
+      oknom šachty) sa má čelom opierať o prah šachty – styčná plôška je dlhá 8,9 mm a vysoká 1,25 mm.
+      Šachtu otočiť dnom k sebe, dovnútra šachty (otvorom pre krk) zasvietiť a pozrieť sa zospodu na škáru medzi čelom pätky a čelom prahu:
+      lístok 0,05 mm do nej NESMIE vojsť (ak cez škáru nevidno svetlo, je zatvorená a merať netreba).
+      Ak lístok vojde: čelo pätky natrieť separátorom (vosk alebo tenký film vazelíny), na čelo prahu naniesť tenký film
+      húževnatého 2K epoxidu, držiak nasadiť a dotiahnuť F10, vytlačené lepidlo zotrieť – hlavne z VRCHU prahu a z dna okna (nad nimi prechádza
+      príruba ucha s vôľou 0,15 mm). Po 24 h držiak zložiť a skontrolovať, že vrch prahu je čistý a rovný. PTFE pásku sem NEDÁVAŤ.
+      Pri tej istej skúške priložiť oceľové pravítko hranou na dno šachty cez zadné okno až na prah: prah nesmie byť vyššie ako dno
+      (pravítko sa na ňom nesmie hojdať) – inak vrch prahu zbrúsiť do roviny s dnom.
+  B5b (krok 5) Maticu F11 vhodiť do drážky bloku ZHORA (drážka je zozadu zatvorená). Pri doťahovaní F11 tlačiť servo k stene s otvorom.
+  B5e (krok 5, DOPLNENIE – platí aj pre rev. 2) SKRUTKA F12 SA VKLADÁ UŽ TERAZ: skrutku F12 (M2×6) prestrčiť otvorom Ø2,3 v prírube ucha L_ucho
+      ZOZADU (hlava na strane držiaka, závit trčí dopredu k pätke) ešte PRED zavesením ucha na čap kľuky. Po zavesení ucha a po zasunutí modulu
+      sa už vložiť nedá: za prírubou je len 3,7 mm miesta na skrutku dlhú 7,3 mm a hlava Ø3,5 neprejde otvorom Ø2,4 v držiaku.
+      Skrutka potom v module voľne drží (vôľa 2,4 mm medzi prírubou a držiakom), nevypadne.
+  B7b (krok 7) Pastorok skrátený na 3,0 mm nasadiť na servo otáčania (Loctite 638), ako doteraz.
+  T7  (krok 19) Šachtu spustiť na čap. Cez prázdnu šachtu položiť na vrch čapu 2× DIN 125, na ne DIN 9021 (prekrýva golier dna šachty – drží šachtu,
+      aj keby sa lepený spoj kolesa uvoľnil), skrutka M3×8 + Loctite 222, dotiahnuť končekmi prstov.
+      KONTROLA VÔLE: lístok 0,10 mm medzi podložku DIN 9021 a golier vojde, lístok 0,25 mm nevojde.
+  T9  (krok 21) Modul zdvihu zasunúť dverami rovno dopredu (smer −Y): blok držiaka pod rebro šachty, okno v doske držiaka na policu,
+      otvor v doske na kolík Ø2×6 (koniec kolíka ostane trčať 1,1 mm za doskou pri konci serva – to je zámer, opierka serva).
+      Príruba ucha sa pritom má voľne posúvať nad prahom zadného okna; ak drhne, modul vybrať a vrch prahu zbrúsiť (krok B4c), netlačiť nasilu.
+      SKRUTKA F12 IDE DNU SPOLU S MODULOM (je vložená v uchu, krok B5e): na jej závit dať kvapku Loctite 222 a modul zasúvať, kým mu do dosadnutia
+      nechýbajú asi 3 mm. Imbusom 1,3 cez otvor Ø2,4 v mostíku dorazu pritlačiť skrutku do závitu pätky a otáčať, kým sa nechytí. Potom ďalej
+      otáčať a zároveň modul rukou dotláčať, až doska držiaka dosadne na plôšky šachty (posledné 2,0 mm = asi 5 otáčok; hlava skrutky sa
+      pritom opiera o držiak, preto sa modul bez otáčania skrutky nedá dotlačiť). F12 zatiaľ NEDOŤAHOVAŤ.
+      Potom 2 skrutky F10 (M2×6 + Loctite 222); skrutka F10_A je o 2,8 mm bližšie k servu ako v rev. 2.
+      Dosadnutie spodnej pätky držiaka na prah šachty je vyskúšané už v kroku B4c (tu v trupe sa k nemu lístkom nedá dostať).
+  T11 (krok 23) F12 už len DOTIAHNUŤ imbusom 1,3 cez mostík dorazu (skrutka je v závite od kroku T9; vložiť sa teraz nedá).
+      KALIBRÁCIA MEDZERY PÄTKY KRKU / PARK_DEG: kľuku dať do dolnej úvrate (0°). Medzi pätku krku a dno šachty (cez okno +X) musí vojsť lístok
+      0,10 mm a nesmie vojsť 0,25 mm → vo firmvéri PARK_DEG = 3. Ak 0,10 nevojde, NETLAČIŤ: dvíhať kľuku po 1°, kým lístok vojde, pripočítať 3°
+      a túto hodnotu uložiť ako PARK_DEG. Servo zdvihu sa nikdy nesmie poslať pod PARK_DEG (nekalibrovaný firmvér: 16°).
+  S1  (servis 1 – výmena serva zdvihu; ZMENA PORADIA, platí aj pre rev. 2) Najprv von obe skrutky F10. Potom F12 povoľovať imbusom 1,3 cez mostík:
+      po asi 6 otáčkach (2,4 mm) sa jej hlava oprie o držiak – ďalej povoľovať a zároveň modul ťahať von (ešte 2,0 mm, asi 5 otáčok),
+      kým skrutka nevyjde zo závitu pätky. Skrutka ostane v uchu a vyjde von s modulom. Späť: kroky T9 a T11.
+
+4. PRAVIDLÁ PRE FIRMVÉR A NASTAVENIE SERVA OTÁČANIA
+  - krk v pokoji a pred vypnutím vždy zasunúť (zdvih 0–2 mm); žiadne dlhé státie v polovici zdvihu (teplo serva)
+  - servo zdvihu nikdy pod PARK_DEG
+  - otáčanie hlavy len v rozsahu ±85° (dorazy sú na ±90° a sú iba poistka pre kábel)
+  - servo otáčania STS3032 – uložiť do EEPROM (program Feetech FD alebo knižnica; čísla adries overiť v tabuľke pamäte svojho serva):
+      uhlové limity: stred ± 1934 krokov (= ±85° hlavy; prevod 2 : 1, 4096 krokov na otáčku) – položky „Min / Max Angle Limit“ (adresy 9 a 11)
+      obmedzenie momentu: 15 % – položka „Max Torque“ (adresa 16) = 150 z 1000
+    Dôvod: slabší doraz znesie 0,28 N·m; servo má pri zablokovaní 0,88 N·m na hlave. Pri 15 % je to 0,13 N·m, teda s dvojnásobnou rezervou.
+    POZOR – platí to LEN vtedy, keď spodná pätka držiaka serva zdvihu dosadá na prah šachty (skúška na stole, krok B4c v časti 3).
+    Výpočet toho istého prípadu s otvorenou škárou: doraz −90° znesie len 0,11 N·m (asi 2,2 N rukou na boku hlavy); pri 15 % je namáhanie 15,8 MPa
+    (dovolené 12,9) a pri dvojnásobku 31,6 MPa (pevnosť živice najmenej 25,8 MPa) – držiak môže prasknúť.
+    Malá škára neprekáža: so škárou do 0,10 mm pätka dosadne už pri 0,08 N·m a únosnosť dorazu sa nemení (pri 15 % 9,9 MPa, pri dvojnásobku 12,2 MPa).
+    Od škáry 0,14 mm však pätka nedosadne včas a platia hodnoty pre otvorenú škáru – preto sa v kroku B4c pripúšťa najviac 0,05 mm.
+    Ak sa skúška B4c nerobila alebo škára ostala väčšia: pätku podliať epoxidom podľa B4c (modul zdvihu sa dá vybrať aj z hotového trupu – servis S1).
+    Dovtedy nastaviť Max Torque 5 % (= 50 z 1000) – hlava sa pri ňom možno nepohne – a na doraz −90° ju nikdy netlačiť.
+    Po nastavení vyskúšať na stole, že hlava sa ešte spoľahlivo otáča (neoverené výpočtom).
+
+5. LIMITY POUŽÍVANIA (výpočet MKP na finálnych modeloch; pri týchto silách je v materiáli ešte 2–3-násobná rezerva do zlomenia)
+  - zdvihnutie robota za hlavu, krk zasunutý (ťah nahor): najviac 15 N (≈ 1,5 kg)
+  - ťah za hlavu nahor, krk vysunutý: najviac 23 N (≈ 2,3 kg)
+  - tlak na hlavu nadol, krk zasunutý (pred dosadnutím pätky): najviac 24 N (≈ 2,5 kg)
+  - tlak na hlavu nadol, krk v polovici zdvihu: najviac 22 N (≈ 2,2 kg)
+  - otáčanie hlavy rukou proti servu (doprava): najviac 0,46 N·m, t. j. asi 9,1 N (≈ 0,9 kg) rukou na boku hlavy (rameno 50 mm)
+  Dorazy otáčania (hlava otočená až na doraz a tlačí sa ďalej):
+  - doraz −90°: 0,28 N·m = asi 5,6 N (≈ 0,57 kg) rukou na boku hlavy (rameno 50 mm)
+  - doraz +90°: 0,45 N·m = asi 9,0 N (≈ 0,92 kg) rukou na boku hlavy (rameno 50 mm)
+  Hodnota pre doraz −90° platí pri dosadnutej pätke držiaka na prah šachty (krok B4c); s otvorenou škárou je to len 0,11 N·m = asi 2,2 N (≈ 0,22 kg) rukou.
+  Prakticky: robota prenášať za TRUP, nie za hlavu. Hlavu NIKDY nedotáčať rukou nasilu do krajnej polohy – vypnuté servo sa dá rukou
+  pretočiť už pri 0,1–0,2 N·m, takže na doraz sa dá ľahko naraziť; pri ručnom otáčaní zastať, keď cítiť odpor.
+  S vysunutým krkom na hlavu netlačiť a neťahať – najprv krk zasunúť.
+
+6. TLAČ ZMENENÝCH DIELOV (Elegoo Tough, Saturn 4 Ultra)
+  - P_sachta: vrchnou doskou (strana s veľkým otvorom pre krk) k platforme, os zvislo, zdvihnutá na podperách aspoň 3 mm.
+    Podpery: na vrchnej doske a na vnútornej ploche dna (hroty 0,3–0,4 mm, rozstup do 3 mm) – stopy po nich na dne potom zarovnať.
+    Nikdy nie na vonkajšom prstenci Ø52,7, na vodiacich plôškach a na plášti bubna.
+    Šachta má teraz ZATVORENÉ dno: pri tlači je to „vedierko“ otvorené k platforme, NIE prísavka (prísavka by bola otvorená k fólii vane).
+    Živica z neho vytečie zadným oknom, spodnou časťou okna +X (prahy sú v úrovni dna, aj nový prah pod zadným oknom je zarovno s dnom)
+    a stredným otvorom Ø7,6; vzduch ide otvorom pre krk (diel je zdvihnutý 3 mm). Otvory Ø2,5 vo vrchnej doske nechať voľné (vrecká prstenca).
+  - P_drziak_serva: plochou doskou (strana k šachte) priamo na platforme; ľahké podpery len pod mostíkom dorazu, NIE na plochách dorazu
+    a nie na čele pätky. Otvory Ø2,05 (kolík) a Ø2,3 po vytvrdení prečistiť vrtákom.
+    Po vytvrdení odrezať skalpelom dve tenké „pierka“ (hrubé 0–0,5 mm, dlhé asi 4 mm) na zadnej strane dosky pri okrúhlom otvore pre nákružok serva
+    (nad a pod stredom otvoru, kde vybranie r 6,65 prechádza do otvoru r 6,05) – inak sa odlomia pri zasúvaní serva. Ostrú hranu na ústí otvoru
+    F10_A (pretína ju zrazenie hornej hrany dosky) zľahka zraziť. Obe plochy dorazu na spodnom výstupku NEBRÚSIŤ a nezrážať.
+  - P_sachta, prah zadného okna (aj nový prah pod ním): tlačí sa ako previs na podperách. Jeho VRCH po tlači zarovnať brúsnym papierom na hranolčeku
+    do roviny s dnom, rovnako ako dno (smie ubudnúť najviac 0,2 mm); nad ním prechádza príruba ucha s vôľou len 0,15 mm. Kontrola: krok B4c.
+    ČELO prahu (plôška, o ktorú sa opiera pätka držiaka) nebrúsiť.
+  - T_cap: otvor vŕtať Ø3,1 až po vytvrdení. T_paluba: ako v rev. 2.
+
+Podrobnosti a čísla: opravy3.md, T4_spec.md kap. 17.17.

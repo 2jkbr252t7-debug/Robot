@@ -1,0 +1,48 @@
+others: ['T_stred', 'magnet_zarubna_1', 'magnet_zarubna_2', 'T_spodok', 'T_paluba', 'T_most', 'servo_J1', 'ptfe_podlozka', 'podlozka_J1_1', 'skr_F3b_1', 'vl_F3b_1', 'P_sachta', 'L_pata', 'koleso_pan', 'DPS_krk', 'ptfe_pasik_3', 'ptfe_pasik_5', 'vl_F10_A', 'vl_F10_B', 'kolik_F10']
+pair: min clearance on the way (t > 0.3) | at t = 0 | deepest penetration on the way
+L_ucho         x L_pata           way min 0.500 at t  0.40 pt [-16.4, 10.3, -37.93] | t0: 0.100
+L_ucho         x P_sachta         way min 0.140 at t  0.40 pt [-18.27, 10.96, -40.5] | t0: 0.140
+P_drziak_serva x P_sachta         way min 0.100 at t  0.40 pt [-7.96, 15.5, -41.75] | t0: 0.000
+P_drziak_serva x T_paluba         way min 1.100 at t  0.40 pt [-16.28, 18.78, -41.9] | t0: 1.100
+P_drziak_serva x T_stred          way min 0.550 at t 17.00 pt [-4.54, 33.8, -13.3] | t0: -
+P_drziak_serva x kolik_F10        way min 0.025 at t  0.40 pt [16.61, 15.72, -38.65] | t0: 0.025
+P_drziak_serva x vl_F10_A         way min 0.400 at t  0.40 pt [2.65, 15.5, -14.97] | t0: 0.000
+P_drziak_serva x vl_F10_B         way min 0.400 at t  0.40 pt [16.47, 15.5, -34.5] | t0: 0.000
+kolik_F12      x L_pata           way min 0.025 at t  0.40 pt [-13.66, 9.33, -37.61] | t0: 0.000
+kolik_F12      x P_sachta         way min 1.140 at t  3.50 pt [-13.18, 10.54, -39.5] | t0: 1.140
+matica_F11     x T_stred          way min 1.100 at t 10.50 pt [-5.02, 34.05, -13.85] | t0: -
+podl_F11       x T_stred          way min 0.602 at t 11.00 pt [0.15, 34.14, -13.35] | t0: -
+servo_zdvih    x P_sachta         way min 0.472 at t  0.40 pt [-2.5, 17.5, -13.45] | t0: 0.100
+servo_zdvih    x T_stred          way min 0.700 at t  5.00 pt [-2.25, 34.06, -13.45] | t0: -
+servo_zdvih    x kolik_F10        way min 0.401 at t  0.40 pt [16.0, 17.5, -38.03] | t0: 0.401
+
+F12 screw path along +y, module seated:
+  t   0.0: L_pata: 1129 pts inside, depth 0.20
+  t   0.5: L_pata: 1033 pts inside, depth 0.20
+  t   1.0: L_pata: 889 pts inside, depth 0.20
+  t   1.5: L_pata: 745 pts inside, depth 0.20
+  t   2.0: L_pata: 649 pts inside, depth 0.20
+  t   2.5: P_drziak_serva: 250 pts inside, depth 0.10; L_pata: 505 pts inside, depth 0.20
+  t   3.0: P_drziak_serva: 508 pts inside, depth 0.55; L_pata: 409 pts inside, depth 0.20
+  t   4.0: P_drziak_serva: 987 pts inside, depth 0.55; L_pata: 169 pts inside, depth 0.20
+  t   5.0: P_drziak_serva: 987 pts inside, depth 0.55
+  t   6.0: P_drziak_serva: 987 pts inside, depth 0.55
+  t   7.0: P_drziak_serva: 987 pts inside, depth 0.55
+  t   8.0: P_drziak_serva: 987 pts inside, depth 0.55
+  t  10.0: P_drziak_serva: 987 pts inside, depth 0.55
+  t  15.0: P_drziak_serva: 987 pts inside, depth 0.55
+  t  20.0: free
+  t  25.0: free
+
+free radius about the F10 screw axes for y = head .. 70 (all parts except the screw / washer themselves and the door):
+  F10_A axis x 4.20 z -15.80, head back y 18.70:
+     free radius 2.052 limited by P_drziak_serva at y 18.8 (nearest point [4.2, 17.1, -16.95])
+     free radius 2.500 limited by servo_zdvih at y 18.8 (nearest point [4.2, 18.8, -18.3])
+     free radius 2.600 limited by skr_F11 at y 21.5 (nearest point [1.6, 21.5, -15.8])
+     free radius 3.050 limited by T_stred at y 33.7 (nearest point [4.2, 33.7, -12.75])
+     free radius 3.900 limited by podl_F11 at y 20.8 (nearest point [0.3, 20.8, -15.8])
+  F10_B axis x 18.00 z -33.30, head back y 18.35:
+     free radius 2.000 limited by servo_zdvih at y 18.5 (nearest point [16.0, 18.45, -33.3])
+     free radius 2.052 limited by P_drziak_serva at y 18.5 (nearest point [16.98, 16.75, -33.82])
+     free radius 3.168 limited by pigtail_zdvih at y 18.7 (nearest point [20.11, 18.65, -30.94])
+     free radius 3.927 limited by P_sachta at y 18.5 (nearest point [16.03, 15.1, -33.86])

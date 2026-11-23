@@ -340,14 +340,19 @@ DECL1 = {
     ("rameno_zdvih", "servo_zdvih"): (0.0, "arm on the spline"), ("rameno_zdvih", "skr_ramena"): (0.0, "arm screw"),
     ("rameno_zdvih", "cap_kluky"): (0.0, "pin pressed in the arm"), ("cap_kluky", "skr_ramena"): (0.3, "-"),
     ("L_ucho", "skr_ramena"): (0.35, "arm screw flush with the arm face: = the 0.4 ear <-> arm gap"),
-    ("L_ucho", "P_drziak_serva"): (0.95, "ear 1.0 off the stop bridge (design value)"),
+    ("L_ucho", "P_drziak_serva"): (0.75, "ear 1.0 off the stop bridge, 0.78 off the R1.5 step fillet between the low and the high bridge (rev3 LD3; "
+                                         "both are parts of the lift module, relative motion = lift only)"),
     ("DPS_krk", "P_sachta"): (0.45, "board inside the neck footprint: 0.6 to the +X end land, the neck (0.30 / 0.17) guides first"),
     ("cap_kluky", "L_ucho"): (0.09, "pin in the ear slot 0.10 per side"), ("rameno_zdvih", "L_ucho"): (0.35, "ear <-> arm side gap 0.4"),
     # integrator rev2: lift loop as a y-z U (free legs 0.25 off the end wall face, crease block CF on the bonded leg)
     ("pigtail_zdvih", "ffc_riser"): (0.25, "pigtail beside / under the crease block CF and the bonded leg (cable on cable)"),
-    ("pigtail_zdvih", "P_sachta"): (0.8, "pigtail 1.1 off the end-wall face, runs under the window edge"),
+    ("P_sachta", "ffc_A_krk"): (0.75, "rev3 (v8): R2.0 top corners of the +X end window - the FFC-A tail passes 0.82 under the -Y corner at lift 20 "
+                                      "(both on the stage, relative motion = lift only; flexible strip)"),
+    ("P_sachta", "ffc_B_krk"): (0.75, "rev3 (v8): same at the +Y top corner (0.89 at lift 20)"),
+    ("pigtail_zdvih", "P_sachta"): (0.15, "rev3: the stage floor now lies under the foot slot - the pigtail (flexible, D1.4) runs inside the 4.0 foot "
+                                          "thickness 0.35 above the floor (the modelled spline sags 0.3); 1.1 off the end-wall face, under the window edge"),
 }
-for i in range(1, 8):
+for i in range(1, 9):
     DECL1[("L_pata", f"ptfe_pasik_{i}")] = (0.3, "foot (19.6 x 44.6) 0.37 to the tapes, inside the neck footprint")
     DECL1[("DPS_krk", f"ptfe_pasik_{i}")] = (0.4, "board inside the neck footprint (neck guided at 0.17)")
     DECL1[("krk_predna_polovica", f"ptfe_pasik_{i}")] = (0.15, "neck on the guide tapes 0.17")
@@ -358,7 +363,14 @@ DECL2 = {
     ("koleso_pan", "ptfe_podlozka"): (0.0, "gear runs on the PTFE thrust washer (contact)"),
     ("koleso_pan", "ptfe_cap"): (0.0, "gear bore on the taped boss (0.02 radial)"),
     ("koleso_pan", "T_cap"): (0.0, "gear bore around the boss (0.13 tape)"),
-    ("koleso_pan", "pd_F15"): (0.05, "retention washer 0.10 above the gear top (axial play)"),
+    ("koleso_pan", "pd_F15"): (0.05, "retention washer above the gear (rev3: it bears on the hub lip of the well)"),
+    # rev3 (R3-1 / R3-2): pivot stack inside the hub lip of the well - declared running fits of the pan bearing
+    ("P_sachta", "pd_F15"): (0.10, "DIN 9021 over the hub lip: axial play 0.12 (0.10 .. 0.25), washer in the lip recess r 4.9 (0.4 radial)"),
+    ("P_sachta", "pd_F15_d1"): (0.25, "spacer washers r 3.5 in the lip bore r 3.80 (0.30 radial)"), ("P_sachta", "pd_F15_d2"): (0.25, "same"),
+    ("P_sachta", "T_cap"): (0.2, "lip bore r 4.15 around the T_cap top (0.30 radial); lip nose 0.2 above the T_cap top"),
+    ("P_sachta", "ptfe_cap"): (0.2, "same (taped boss)"),
+    ("koleso_pan", "pd_F15_d1"): (0.45, "spacer washer r 3.5 above the gear bore r 4.0"), ("koleso_pan", "pd_F15_d2"): (0.7, "same"),
+    ("L_pata", "pd_F15"): (0.99, "foot hole r 5.5 around the DIN 9021 r 4.5: 1.00 by design (STL chords 0.002)"),
     ("koleso_pan", "pastorok_pan"): (0.0, "mesh - checked in C3 with the rotating pinion"),
     ("P_sachta", "pastorok_pan"): (1.0, "-"),
     ("koleso_pan", "T_paluba"): (0.25, "gear teeth 0.3 over the deck (stack 17.1: PTFE washer 0.3 only r 5..12)"),
@@ -388,6 +400,9 @@ DECL2 = {
     ("P_drziak_serva", "T_paluba"): (0.85, "lug 1.0 off the deck C-ear at the nominal stops +-90.0; 0.87 only at the +-90.3 tolerance pose "
                                            "(pin position +-0.15 = +-0.29 deg)"),
 }
+DECL2[("P_sachta", "servo_pan")] = (0.99, "rev3 (R3-3): floor underside relieved 0.2 over the STS3032 spline tip - designed at exactly 1.00 (the check "
+                                           "measures 0.999x on the 0.01 STL)")
+DECL2[("P_drziak_serva", "T_spodok")] = (0.99, "module bottom -41.9 vs T_spodok: designed at exactly 1.00 (0.999x on the 0.01 STL; unchanged since round 1)")
 DECL2 = {frozenset(k): v for k, v in DECL2.items()}
 
 if "C" in SECT:
@@ -687,12 +702,17 @@ if "F" in SECT:
           hit |= h
       free = float((~hit).mean())
       per = [round(float((~hit[i * len(door):(i + 1) * len(door)]).mean()), 3) for i in range(len(tgtp))]
-      F3s[pan] = dict(line_of_sight=round(free, 3), per_target=per, blockers=blockers)
-      F3 = dict(status="PASS" if free >= 0.8 else "FAIL", line_of_sight=round(free, 3), per_target=per, pan=pan, blockers=blockers,
+      # rev3 (R3-3 b, recorded in opravy3.md): the stage now has a CLOSED floor (z -41.9 .. -40.65) - a ZIF mouth cannot be seen from below it.
+      # The criterion counts the door points ABOVE the floor underside (the rev. 2 number over the whole opening is still reported)
+      up = np.tile(door[:, 2] > C.R3["FLOOR"]["z"][0], len(tgtp)); free_up = float((~hit[up]).mean())
+      F3s[pan] = dict(line_of_sight=round(free, 3), line_of_sight_above_floor=round(free_up, 3), per_target=per, blockers=blockers)
+      F3 = dict(status="PASS" if free_up >= 0.8 else "FAIL", line_of_sight=round(free, 3), per_target=per, pan=pan, blockers=blockers,
                 note="121 points on the door opening (x -26..26, z -70..-14, y 40) to 10 points on the two ZIF mouths, stage at pan +85, "
                      "door off; obstacles: every static RAM / OBAL part (T_stred rev. 1 STL), the stage and the lift module")
     best = max(F3s, key=lambda k: F3s[k]["line_of_sight"])
-    F3 = dict(status="PASS" if F3s[90.0]["line_of_sight"] >= 0.8 else "FAIL", plug_pan=90.0,
+    F3 = dict(status="PASS" if F3s[90.0]["line_of_sight_above_floor"] >= 0.8 else "FAIL", plug_pan=90.0,
+              criterion="rev3: >= 0.8 of the lines from the door points ABOVE the stage floor underside (z > -41.9); rev. 2 (open-bottom stage): >= 0.8 "
+                        "of all 121 door points - with the closed floor of R3-3 (b) that number is reported only (line_of_sight)",
               by_pan=F3s, note="121 door points (x -26..26, z -70..-14, y 40) to 10 points on the two ZIF mouths; obstacles: every static "
                                "RAM / OBAL part, the stage and the lift module; the FFC being plugged is not an obstacle.  Procedure "
                                "(integrator rev2, 17.15): the FFCs are plugged with the stage turned BY HAND to the +90 stop (the lug "
@@ -796,28 +816,43 @@ DECL_THIN = {
         ("back floor / hub disc 1.25 (compression on the gear) and 0.95 over the 0.3 FFC groove (fixer rev2: up to z -40.4 = the floor top "
          "edge at the FFC under-run arc r 16.72)", lambda p: p[2] < -40.4, 0.9),
         ("journal ring 2.0 with the 0.5 lead-in chamfer; top plate 1.5 (collar-disc glue land)", lambda p: p[2] > -10.1, 1.45),
-        ("rail lips 1.5 / 2.0 around the 2.0 tongue groove", lambda p: p[1] > 12.9 and p[2] < -36.3 and -6.1 < p[0] < 16.1, 1.45),
+        ("rev3: mounting plateau 2.1 on the back wall (0.15 face recess between the contact zones), 0.7 edge chamfer under the down-stop nose", lambda p: p[1] > 12.9 and -6.6 < p[0] < 22.0, 1.45),
         ("insert / dowel / pilot holes in the r 3.25 .. 3.5 pads", lambda p: p[1] > 10.9 and p[2] > -37.4 and p[0] > 3.0, 1.0),
         ("end-wall edge round R0.6 at the FFC wrap; window jambs", lambda p: p[0] > 23.0, 1.2),
+        ("rev3 (v9): R1.5 fillet between the raised sill (curb z -39.5) of the +X end window and its jamb y 3.4 - ray across the run-out of the fillet strip",
+         lambda p: p[0] > 22.9 and 1.5 < p[1] < 3.6 and -39.6 < p[2] < -37.9, 0.25),
+        ("rev3: R1 floor root at the end walls and corners (wall 1.6 / corner 1.5 + fillet run-out)", lambda p: (abs(p[0]) > 22.9 or _r(p) > 23.0) and -40.7 < p[2] < -39.0, 1.5),
+        ("rev3 (R3-2): hub lip under the DIN 9021 - lip 0.98 thick, retention nose 0.68 x 0.35 (FE row 'hub ring / lip'; fail-safe rows)", lambda p: _r(p) < 5.2 and p[2] > -42.0, 0.6),
+        ("rev3 (R3-3): 0.2 relief of the floor underside over the spline-tip annulus r 18 .. 25.2 (floor 1.05), relief rim", lambda p: p[2] < -41.6 and 17.9 < _r(p) < 25.0, 0.65),
+        ("rev3: feather edge where that relief (r 25.2) runs out through the end faces (-X: |y| < 2.5; +X: y -2.3 .. -3.5 at az 357; 0.2 high): deburr",
+         lambda p: p[2] < -41.6 and _r(p) >= 25.0, 0.0),        # round 1d: the +X end was missing from the declaration (same feature)
+        ("rev3 (R3-7): toe of the R1.0 roof / back-wall fillet strip beyond the roof edge r 16.7 (feather < 0.1, x 9.6 .. 10.3): deburr", lambda p: 9.0 < p[0] < 10.4 and 12.9 < p[1] < 14.1 and -40.7 < p[2] < -39.6, 0.05),
+        ("rev3: 0.2 skin closing the D4.1 insert hole of F10_A on the well side inside the guide band (unloaded: pierce it or leave it; the insert stops short of it)",
+         lambda p: abs(p[0] - C.R3["F10_A"][0]) < 2.3 and p[1] < 10.6 and abs(p[2] - C.R3["F10_A"][1]) < 2.3, 0.15),
     ],
     "P_drziak_serva": [
-        ("plate 2.0 / tongue 1.5 x 1.9 in the rail groove", lambda p: p[1] < 17.2, 1.45),
+        ("rev3: feather edge of the keyhole scallop (r 6.65, y < 17.4) where it meets the keyhole r 6.05 inside the turret wall: deburr",
+         lambda p: -10.6 < p[0] < -5.4 and 17.3 < p[1] < 18.2 and -27.6 < p[2] < -20.8, 0.0),
+        ("rev3: 0.65 skin between the D2.4 F12 key hole and the pocket bottom relief z -40.35 (unloaded)", lambda p: -11.3 < p[0] < -8.7 and p[1] < 17.3 and p[2] < -39.5, 0.6),
+        ("v10 (LD7): plate-root fin under the plate at the sole (taper 1.45 -> 0.75 thick, blunt end at x -5.0 with an R1.5 run-out; attached to the sole "
+         "and to the plate above; 0.15 bottom relief over the FFC lip)", lambda p: -8.4 < p[0] < -3.3 and p[1] < 17.3 and p[2] < -40.3, 0.7),
+        ("rev3: plate 2.0 (keyhole scallop 0.55 deep beside the turret wall; window of the down stop, bottom chord 4.15)", lambda p: p[1] < 17.2, 1.2),
         ("F11 block walls 1.6 (+X, in compression under the nut) / 3.05 (-X) beside the through nut slot", lambda p: -8.6 < p[0] < -2.4 and p[2] > -18.6, 1.0),
-        ("turret wall 2.0 around the keyhole", lambda p: -8.6 < p[0] < -6.4, 1.6),
+        ("rev3: turret wall 4.0 (inner face 0.2 back except the corner pad) around the keyhole", lambda p: -10.6 < p[0] < -6.4, 1.6),
         ("bridge around the D2.4 key holes (1.1 above)", lambda p: p[2] < -35.0 and p[0] < -6.5, 1.0),
-        ("F10 holes D2.3 in the 2.0 plate: 1.35 to the plate top (A) / plate edge (B)", lambda p: 15.0 < p[1] < 17.2 and (abs(p[0] - 7.0) < 3.0 or abs(p[0] - 18.4) < 3.0), 1.3),
+        ("F10 holes D2.3 in the 2.0 plate: 1.35 to the plate top (A) / plate edge (B)", lambda p: 15.0 < p[1] < 17.2 and (abs(p[0] - C.R3["F10_A"][0]) < 3.0 or abs(p[0] - 18.0) < 3.4), 1.3),
         ("lug root fillets", lambda p: p[2] < -42.0, 0.5),
     ],
 }
 ROOTS = [
     ("P_sachta", "F10 pads r 3.5 / 3.25 on the back wall", "R1.0 (revolved / extruded flare)", True),
-    ("P_sachta", "rail top to the back wall", "R1.0 (fillet strip)", True),
+    ("P_sachta", "rev3: mounting plateau / pad-B box / ledge rib to the back wall; ledge rib bottom to the plateau face", "R1.0 (fillet strips)", True),
     ("P_sachta", "hub disc to the front wall, back floor to the back wall and the +X pillar (inside the well)", "R1.0 (fillet strips)", True),
     ("P_sachta", "well inner vertical corners", "R2.5", True),
     ("P_sachta", "ribs to the top plate / ring / walls", "R0 - ribs support the journal only (declared)", False),
-    ("P_sachta", "drum shroud to the back floor", "R0 - cable guide, unloaded (declared)", False),
+    ("P_sachta", "rev3 (R3-7): drum shroud roof to the back wall", "R1.0 (fillet strip); the shroud hangs under a full roof r <= 16.7 (no free arch)", True),
     ("P_drziak_serva", "lug inner side to the bridge underside", "R1.5", True),
-    ("P_drziak_serva", "tongue / plate (both long edges, L2 bending root)", "R0.5 (fixer rev2 S2; the rail groove mouth is chamfered 0.8)", True),
+    ("P_drziak_serva", "rev3: down-stop nose / plate (L2 bearing root)", "R0.6 (fillet strip; the plateau edge is chamfered 0.7)", True),
     ("P_drziak_serva", "lug contact (CW) side to the bridge underside", "R0.8 (pin 1 top is only 1.0 below the bridge)", True),
     ("P_drziak_serva", "turret wall / plate junction behind the case corner", "R0 - the servo case corner occupies it (declared Z3.3 exception)", False),
     ("P_drziak_serva", "block (F11 post) / plate", "R0 - the servo tab sits in the corner (declared)", False),
@@ -878,30 +913,68 @@ if "H" in SECT:
         v = value * kt
         rows.append(dict(n=n, feature=feature, load_case=case, cls=cls, stress=round(v, 2), limit=round(limit, 1),
                          margin=round(limit / v, 2) if v else 99.0, verdict="OK" if v <= limit else "FAIL", basis=basis, kt=kt))
-    G = R2["GEAR_PAN"]; m = G["m"]; b = G["face"]; rp36 = m * 36 / 2 / 1000.0
-    Y36 = 0.377
+    G = R2["GEAR_PAN"]; m = G["m"]; b = G.get("mesh_width", G["face"]); rp36 = m * 36 / 2 / 1000.0     # rev3 (R3-3 b): mesh width 3.0
+    Y36 = 0.377; Y18 = 0.309
+    R3 = C.R3
     T3, T8 = 0.6, 2 * 0.441
     for case, T_ in (("L3 0.6 N m", T3), ("L8 stall 0.88 N m", T8)):
         Ft = T_ / rp36
-        row(1, "36T brass gear tooth (Lewis, b 4.0, Y 0.377)", case, "metal", Ft / (b * m * Y36), 100.0, basis="brass C3604 100 MPa (assumed, UNVERIFIED)")
-    rr = np.linspace(4.0, 15.2, 400); A_ann = 0.0; Mom = 0.0
-    for r0, r1 in zip(rr[:-1], rr[1:]):
-        rm = (r0 + r1) / 2; dA = 2 * math.pi * rm * (r1 - r0)
-        if 6.5 <= rm <= 12.6:
-            A_ann += dA; Mom += dA * rm
-        elif 12.6 < rm <= 15.2:
-            az0 = math.degrees(math.asin(min(1.0, P2["FLOOR"]["y_min"] / rm))); frac = max(0.0, P2["FLOOR"]["az_max"] - az0) / 360.0
-            A_ann += dA * frac; Mom += dA * frac * rm
-    row(2, f"36T gear epoxy bond under the hub disc + floor (A {A_ann:.0f} mm2)", "L8 0.88 N m", "epoxy", T8 * 1000.0 / Mom, AL["epoxy"],
-        basis="tau = T / sum(r dA)")
-    row(3, "same bond, L1 x 2 = 30 N (stage pulled up through the gear), x 3 peel", "L1 x 2", "epoxy", 30.0 / A_ann * 3.0, AL["epoxy"])
-    St = R2["STOP"]; Lg = P2["POCKET"]["lug"]; Bq = P2["POCKET"]["bridge"]
-    for case, T_, cls, lim in (("L3 0.6 N m (hand)", T3, "abuse", AL["abuse"]), ("L8 stall 0.88 N m", T8, "normal", AL["normal"])):
-        F = T_ * 1000.0 / St["pin_r"]
+        row(1, f"36T brass gear tooth (Lewis, mesh width {b}, Y 0.377)", case, "metal", Ft / (b * m * Y36), 100.0, basis="brass C3604 100 MPa (assumed, UNVERIFIED); rev3: the pinion face is 3.0 (top -42.9)")
+        row(1, f"18T pinion tooth (Lewis, face {b}, Y 0.309)", case, "metal", Ft / (b * m * Y18), 100.0,
+            basis="rated as BRASS C3604 100 MPa (assumed, UNVERIFIED) - a steel pinion (preferred) has >= 2 x this margin")
+    # rev3: bond = gear top face inside the root circle r 13.35 under the floor (whole well outline |y| <= 12.6) and the hub lip (r >= 4.15)
+    gx = np.arange(-13.4, 13.41, 0.05); GX, GY = np.meshgrid(gx, gx, indexing="ij"); GR = np.hypot(GX, GY)
+    bm = (GR <= 13.35) & (GR >= R3["LIP"]["r_low"]) & (np.abs(GY) <= P2["WELL"]["yb"])
+    A_ann = float(bm.sum()) * 0.05 ** 2; Mom = float((GR[bm]).sum()) * 0.05 ** 2
+    row(2, f"36T gear epoxy bond under the floor + hub lip (A {A_ann:.0f} mm2 inside the root circle; rev. 2 had 387.8, not 442)", "L8 0.88 N m", "epoxy",
+        T8 * 1000.0 / Mom, AL["epoxy"], basis="mean tau = T / sum(r dA); the LOCAL peaks (0.6 mm average) are the K12 FE rows")
+    row(3, "same bond under L1 x 2: the well is held by the DIN 9021 on its hub lip (R3-2) - the bond carries only the gear weight (0.2 N)", "L1 x 2",
+        "epoxy", 0.2 / A_ann, AL["epoxy"], basis="no axial head load passes the bond; self-equilibrated peel from the floor bending: K12 FE rows")
+    St = R2["STOP"]; Lg = P2["POCKET"]["lug"]; Bq = P2["POCKET"]["bridge"]; Sh_ = P2["RAIL"]["shelf"]
+    # LD2: the pan servo stalling into a hard stop is a FAULT (firmware range +-85, stops +-90) = abuse 12.9, like the L3 hand twist
+    for case, T_, cls, lim in (("L3 0.6 N m (hand, into a stop)", T3, "abuse", AL["abuse"]), ("L8 stall 0.88 N m into a stop (fault)", T8, "abuse", AL["abuse"])):
+        # rev3 (R3-5): planar stop faces normal to x: the pin reaction acts along x, F = T / y_contact (the larger of the two stops)
+        F = T_ * 1000.0 / min(C.R3["STOP"]["contact_y"])                       # ccw stop (pin 2): plane normal to x, force along +x
         zf = (Lg["z"][0] + St["pin_top"]) / 2
-        lt = math.radians(Lg["az"][1] - Lg["az"][0]) * 29.6; br = Lg["r"][1] - Lg["r"][0]
-        row(4, "stop lug root at z -43.6 (R1.5 inner / R0.8 contact side)", case, cls, 6 * F * (Lg["z"][1] - zf) / (br * lt ** 2), lim, kt=1.6,
-            basis=f"F {F:.1f} N at z {zf:.1f}; M / Z, Kt 1.6")
+        cwf = C.R3["STOP"].get("cw_face")
+        # v10b (LD7): cw face = plane through p, normal n (38 deg from +x): the lug is 5.49 long along x at the contact radius
+        lt = (cwf["p"][0] if cwf else Lg["face_x"][1]) - Lg["face_x"][0]; br = Lg["r"][1] - Lg["r"][0]
+        LG3 = C.R3["LUG"]
+        s_root = 6 * F * (Lg["z"][1] - zf) / (br * lt ** 2)
+        row(4, f"LD3 stop lug root at z -43.6, ccw stop (block {lt:.2f} along x x {br:.1f} radial; R{LG3['root_in']} inner root, "
+               f"R{LG3['root_face']} at both pin faces = tangent at the pin top)", case, cls,
+            s_root, lim, kt=1.6, basis=f"pin force F {F:.1f} N along x at z {zf:.1f}, lever {Lg['z'][1] - zf:.2f}; Z = {br:.1f} x {lt:.2f}^2 / 6 = {br * lt ** 2 / 6:.1f} mm3; "
+                                       f"Kt 1.6 (R1.0 on a 5.2 section); FE: K12 row 'stop lug + low bridge'")
+        if cwf:
+            Fc = T_ * 1000.0 / cwf["lever"]; Fcx, Fcy = Fc * cwf["n"][0], Fc * cwf["n"][1]; lev = Lg["z"][1] - zf
+            row(4, f"LD3 stop lug root at z -43.6, cw stop (v10b: face turned {cwf['phi']:.0f} deg; pin force {Fc:.1f} N = {Fcx:.1f} along -x + {Fcy:.1f} along -y)", case, cls,
+                6 * Fcx * lev / (br * lt ** 2) + 6 * Fcy * lev / (lt * br ** 2), lim, kt=1.6,
+                basis=f"biaxial bending of the {lt:.2f} x {br:.1f} root block, lever {lev:.2f}: Zy {br * lt ** 2 / 6:.1f}, Zx {lt * br ** 2 / 6:.1f} mm3; Kt 1.6 (R1.0 / R1.5 roots)")
+        # LD3: the -X part of the lug hangs under the 2.1 low bridge beyond the end face of the high bridge (x -16.9): the tensile part of the
+        # root bending block there is carried by the low bridge as a cantilever to the step (R1.5)
+        xs_ = Bq["high"][0][0][0]; a_ = xs_ - Lg["face_x"][0]; tb_ = Bq["z_low_top"] - Bq["z"][0]
+        xx = np.linspace(0.0, a_, 400); sg = np.clip(s_root * (1 - 2 * xx / lt), 0.0, None)
+        N_ = float(np.trapezoid(sg, xx)) * br; e_ = a_ - float(np.trapezoid(sg * xx, xx) / max(np.trapezoid(sg, xx), 1e-9))
+        row(4, f"LD3 low bridge {tb_:.1f} x {Bq['r'][1] - Bq['r'][0]:.2f} over the -X part of the lug: cantilever to the R{LG3['step_r']} step at x {xs_}", case, cls,
+            6 * N_ * e_ / ((Bq["r"][1] - Bq["r"][0]) * tb_ ** 2), lim, kt=1.4,
+            basis=f"tension resultant of the lug root block beyond the step {N_:.1f} N at {e_:.2f} from it (pin 2 pushing +x); Kt 1.4 (R1.5 on 2.1)")
+        # stop moment about z in the pocket plate: the pin force acts along x at y_contact, the x reaction (F10 dowel) at the plate plane
+        ypm = sum(P2["POCKET"]["plate"]["y"]) / 2; tp_ = P2["POCKET"]["plate"]["y"][1] - P2["POCKET"]["plate"]["y"][0]
+        hp_ = P2["POCKET"]["plate"]["z"][1] - Sh_["pocket_bottom"]
+        for nm_, yc_ in (("cw stop (pin 1)", C.R3["STOP"]["contact_y"][0]), ("ccw stop (pin 2)", C.R3["STOP"]["contact_y"][1])):
+            Fq = T_ * 1000.0 / yc_; Mz = Fq * (yc_ - ypm); how = f"M = {Fq:.1f} N x {yc_ - ypm:.2f} = {Mz:.0f} N mm"
+            if cwf and nm_.startswith("cw"):
+                # v10b (LD7): the oblique pin force (Fx, Fy) at p; the y component presses the sole onto the curb - the plate has to carry only
+                # the moment of the force about the -X end of the seat (curb / sole pad) at the plate mid-plane
+                Fq = T_ * 1000.0 / cwf["lever"]; xe = C.R3["CURB"]["pad_x"][0]
+                Mz = Fq * cwf["n"][0] * (cwf["p"][1] - ypm) - Fq * cwf["n"][1] * (cwf["p"][0] - xe)
+                how = (f"pin force {Fq:.1f} N turned {cwf['phi']:.0f} deg: M about the -X end of the curb seat (x {xe}) = {Fq * cwf['n'][0]:.1f} x {cwf['p'][1] - ypm:.2f} - "
+                       f"{Fq * cwf['n'][1]:.1f} x {cwf['p'][0] - xe:.2f} = {Mz:.0f} N mm (v9, plane normal to x, no curb: {T_ * 1000.0 / yc_ * (yc_ - ypm):.0f})")
+            row(29, f"pocket plate {tp_:.1f} x {hp_:.1f}: out-of-plane bending by the stop moment about z, {nm_}: {how} "
+                    f"(no fastener can be placed at the -X end; a roof beam over the servo is blocked by the door lintel, K7)", case, cls,
+                6 * Mz / (hp_ * tp_ ** 2), lim, kt=2.0,
+                basis="NOMINAL over the full plate height, Kt 2.0 at the unfilleted corner to the turret wall (servo case corner); the 3-D FE row "
+                      "'P_drziak_serva plate' is the reference -> USAGE LIMIT of the pan stops (opravy3.md, LD7)")
         h0, h1 = Bq["z"][0], -36.2; wb = Bq["r"][1] - Bq["r"][0]; dh = Bq["key_holes"]["d"]; zh = Bq["key_holes"]["z"]
         zs = np.linspace(h0, h1, 800); dz = zs[1] - zs[0]
         wz = np.where(np.abs(zs - zh) < dh / 2, 0.0, wb)
@@ -909,29 +982,56 @@ if "H" in SECT:
         cmax = max(h1 - zc, zc - h0)
         row(5, "stop bridge section through the F12 key hole D2.4", case, cls, F * (zc - zf) * cmax / I_ + F / A_, lim, kt=1.3,
             basis=f"I {I_:.0f} mm4, A {A_:.1f} mm2, lever {zc - zf:.2f}; Kt 1.3")
-        row(6, "stop pin D3 bearing on the lug (2.5 engaged incl. L1 rise)", case, cls, F / (3.0 * 2.5), lim)
-        Fx = F * abs(math.sin(math.radians(Lg["az"][0])))
-        row(7, "pocket -> stage: in-plane stop force on the F10 dowel D2 (2.0 in the plate)", case, cls, Fx / (2.0 * 2.0), lim,
-            basis=f"F_x {Fx:.1f} N (tangential force at az 118.3); the moment about Z goes into the pads (compression) and F10 tension")
+        row(6, "stop pin D3 bearing on the lug (2.5 engaged incl. L1 rise)", case, cls, max(F, T_ * 1000.0 / cwf["lever"] if cwf else 0.0) / (3.0 * 2.5), lim)
+        if cwf:                                   # v10b (LD7): the sole on the curb (compression only): y component of the cw pin force + the tilt share
+            Fc = T_ * 1000.0 / cwf["lever"]; Ac = C.R3["CURB"]; a_c = M.fe_bearing()["curb_y"]
+            row(6, f"LD7 sole of the module on the sill curb of the well ({a_c:.1f} mm2, compression only): y component of the cw pin force x 1.5 (tilt about x)", case, cls,
+                1.5 * Fc * cwf["n"][1] / a_c, lim, basis="nominal bearing; the FE contact row 'sill curb' is the reference")
+        # rev3 (R3-5): planar stop faces normal to x - the pin reaction acts along x: F_x = T / y_contact (larger of the two stops)
+        Fx = T_ * 1000.0 / min(C.R3["STOP"]["contact_y"]); Db = P2["RAIL"]["dowel"]; eng_p = Db["boss_y"] - P2["POCKET"]["plate"]["y"][0]
+        row(7, f"pocket -> stage: stop reaction along x on the F10 dowel D2 ({eng_p:.1f} in the pocket, {P2['F10']['dowel_depth']} in the well pad)", case, cls,
+            max(Fx / (2.0 * eng_p), Fx / (2.0 * P2["F10"]["dowel_depth"])), lim,
+            basis=f"F_x {Fx:.1f} N (rev3: stop faces = planes normal to x, no pull-off component); the moments go into the plateau (compression), "
+                  f"the ledge / floor stops and F10 tension - K12 FE rows")
     F30 = 30.0
     kh = P2["POCKET"]["keyhole"][0][0] * 2
-    row(8, "turret keyhole bearing (boss D11.8 on the 2.0 wall)", "L2 30 N lift 20 / L1 x 2", "normal", F30 / (kh * 2.0), AL["normal"])
-    Bk = P2["POCKET"]["block"]; bxw = Bk["x"][1] - Bk["x"][0]; bz = Bk["z"][1] - Bk["z"][0]
-    row(9, "turret wall + F11 block above the keyhole (6.0 x 4.7, plate + far keyhole wall hold both ends)", "L1 x 2 30 N up", "normal",
-        6 * F30 * (M.YL - 17.1) / (bxw * bz ** 2) / 2.0, AL["normal"], kt=1.3)
-    row(10, "turret wall root at the plate (R0, declared): in-plane bending of the 2.0 x 28.6 root", "L2 30 N + crank offset couple 55 N",
-        "notch", 6 * (F30 + 55.0) * (M.YL - 17.1) / (2.0 * 28.6 ** 2), AL["notch"])
-    row(11, "F11 DIN 562 nut bearing in the block slot (half the servo load)", "L1 x 2 / L2", "normal", 0.5 * F30 / (4.0 * 4.0 - 3.14), AL["normal"])
-    Ra = P2["RAIL"]; lr = Ra["x"][1] - Ra["x"][0]
-    q = (F30 * (16.0 + 19.0) / 22.0) / (lr / 3)
-    lev = (Ra["y"][1] - P2["POCKET"]["tongue"]["y"][0]) / 2 + (P2["POCKET"]["tongue"]["y"][0] - Ra["groove"]["y"][0])
-    for nm, t_ in (("lower", Ra["groove"]["z"][0] - Ra["z"][0]), ("upper", Ra["z"][1] - Ra["groove"]["z"][1])):
-        row(12 if nm == "lower" else 13, f"rail {nm} lip {t_:.1f} thick (module moment end reaction over 1/3 rail, lever {lev:.2f})",
-            "L2 30 N lift 20" if nm == "lower" else "L1 x 2 30 N", "normal", 6 * q * lev / t_ ** 2, AL["normal"], kt=1.3)
-    tgz = P2["POCKET"]["tongue"]["z"][1] - P2["POCKET"]["tongue"]["z"][0]
-    rt = P2["FIX2"]["tongue_root_r"]
-    row(13, f"pocket tongue {tgz:.1f} x 1.5 (cantilever from the plate, R{rt} roots - fixer rev2 S2; Kt 1.6 for r/d {rt / tgz:.2f})",
-        "L2 30 N lift 20", "normal", 6 * q * 0.75 / tgz ** 2, AL["normal"], kt=1.6)
+    Tu = P2["POCKET"]["turret"]; tw_ = Tu["x"][1] - Tu["x"][0]; Bk = P2["POCKET"]["block"]; Ns = P2["POCKET"]["nut_slot"]
+    arm_pin = 18.65 + (Tu["x"][0] + Tu["x"][1]) / 2; zh_ = C.LIFT_CASE["z"][1] + C.MG90S["tab"]["hole"]
+    T1 = F30 * arm_pin / (zh_ - (C.LIFT_CASE["z"][0] + 1.25)); T2 = F30 * arm_pin / (zh_ - P2["F10"]["dowel"][1])
+    row(8, f"turret keyhole bearing (boss D11.8 on the {tw_:.1f} wall): the keyhole carries the pin force, the couple goes along x (LD1)", "L1 x 2 / L2 30 N", "normal",
+        F30 / (kh * tw_), AL["normal"], basis=f"servo couple about y = 30 N x {arm_pin:.2f}: L1 -> F11 tension {T1:.1f} N + case corner on the wall; "
+                                              f"L2 -> tab on the block + case end on the proud F10 dowel {T2:.1f} N")
+    wn_ = Bk["x"][1] - Ns["x"][1]; Ln_ = Ns["y"][1] - Ns["y"][0]; hb_ = Bk["z"][1] - Bk["z"][0]
+    row(9, f"F11 block: {wn_:.1f} wall under the nut, held at both ends of the closed slot (span {Ln_:.1f}, height {hb_:.1f})", "L1 x 2 30 N up", "normal",
+        6 * (T1 * Ln_ / 8) / (hb_ * wn_ ** 2), AL["normal"], kt=1.5, basis=f"F11 tension {T1:.1f} N at mid span, fixed ends M = T L / 8; Kt 1.5 (slot corners)")
+    wpy = C.R3["WALL_PAD"]["y_end"] - P2["POCKET"]["plate"]["y"][1]
+    row(10, f"MG90S lower case corner on the wall pad next to the plate (L1 couple; {wpy:.1f} x 2.5 strip, bearing)", "L1 x 2 30 N up", "normal", T1 / (wpy * 2.5), AL["normal"])
+    row(11, "F11 DIN 562 nut bearing on the +X wall of its slot (L1 couple)", "L1 x 2", "normal", T1 / (4.0 * 4.0 - 3.14), AL["normal"])
+    SS = C.R3["SERVO_SEAT"]; dwl = P2["F10"]["dowel_depth"]; lev = SS["dowel_proud"] / 2 + (ypl_ := (P2["POCKET"]["plate"]["y"][1] - P2["POCKET"]["plate"]["y"][0])) / 2
+    row(11, f"L2 couple: MG90S case end on the proud end of the F10 dowel (D2 x {SS['dowel_proud']} proud, gap {SS['end_gap']}); dowel in the 2.0 plate / prying in the "
+            f"well pad ({dwl} deep)", "L2 30 N lift 20 (abuse, LD2)", "abuse", max(T2 / (2.0 * ypl_), 6 * T2 * lev / (2.0 * dwl ** 2)), AL["abuse"],
+        basis=f"T {T2:.1f} N; plate hole {T2 / (2.0 * ypl_):.1f}; well pad 6 M / (d L^2) = {6 * T2 * lev / (2.0 * dwl ** 2):.1f} with M = T x {lev:.2f}")
+    # rev3 (R3-5): no tongue / groove.  Rocking of the module about the F10 dowel: the -X reaction goes UP into the ledge rib (L1) or
+    # DOWN onto the plateau top through the pocket nose (L2); hand rows (bearing / web); the 3-D FE values are the K12 rows 'rail / ledge'
+    Ra = P2["RAIL"]; Lr, Sh = Ra["ledge"], Ra["shelf"]; xd = P2["F10"]["dowel"][0]; ypl = P2["POCKET"]["plate"]["y"]
+    xl = sum(Lr["x"]) / 2; Rend = F30 * (xd + 18.65) / (xd - xl); Rdow = Rend - F30
+    Al = (Lr["x"][1] - Lr["x"][0]) * (Lr["y_end"] - Lr["bear_y0"])
+    row(12, f"ledge rib (up stop): bearing of the pocket block top on the rib bottom (A {Al:.1f} mm2; -X reaction {Rend:.1f} N = 30 N x "
+            f"{xd + 18.65:.2f} / {xd - xl:.2f})", "L1 x 2 30 N", "normal", Rend / Al, AL["normal"], basis="compression; gap 0.10 before contact")
+    tw = Lr["x"][1] - Lr["x"][0]; hw = Lr["z"][1] - Lr["z"][0]; arm = (Lr["bear_y0"] + Lr["y_end"]) / 2 - P2["WELL"]["yb2"]
+    row(12, f"ledge rib web {tw:.1f} x {hw:.2f} at the back wall (hangs under the top plate; cantilever estimate, lever {arm:.2f}, R{Lr['root_r']} roots)",
+        "L1 x 2 30 N", "normal", 6 * Rend * arm / (tw * hw ** 2), AL["normal"], kt=1.5, basis="the top plate carries it too (conservative)")
+    dn_y = Sh["y_end"] - (ypl[0] + Sh["root_r"] + 0.2); sxa, sxb = Sh["x"][0] + Sh["edge_chamfer"], Sh["x"][1] - Sh["notch_r"] - 0.15; xs_ = (sxa + sxb) / 2
+    Rdn = F30 * (xd + 18.65) / (xd - xs_); Af = (sxb - sxa) * dn_y
+    row(13, f"down stop: ceiling of the plate window on the well shelf z {Sh['z_top']} (bearing {sxb - sxa:.2f} x {dn_y:.2f} = {Af:.1f} mm2; -X reaction {Rdn:.1f} N = 30 N x "
+            f"{xd + 18.65:.2f} / {xd - xs_:.2f})", "L2 30 N (lift 0-2 normal; lift 20 abuse)",
+        "normal", Rdn / Af, AL["normal"], basis="rated against the NORMAL allowable (covers the chain path at lift 0 before the foot lands); gap 0.10 before contact")
+    hs = Sh["z_top"] - Sh.get("z_bot", P2["R3"]["FLOOR"]["z"][1]); ws = Sh["x"][1] - Sh["x"][0]; arm_s = (ypl[0] + Sh["root_r"] + 0.2 + Sh["y_end"]) / 2 - ypl[0]
+    row(13, f"shelf {ws:.1f} x {hs:.2f} high on the plateau face (ledge inside the plate window): bending at its root (lever {arm_s:.2f}, R{Sh['root_r']} root)", "L2 30 N", "normal",
+        6 * Rdn * arm_s / (ws * hs ** 2), AL["normal"], kt=2.0, basis="LD1 (b): hand calc of the supporting section with the stop reaction")
+    Db = Ra["dowel"]; eng_p = Db["boss_y"] - ypl[0]; eng_w = P2["F10"]["dowel_depth"]
+    row(13, f"F10 dowel D2: vertical reaction {Rdow:.1f} N in the pocket ({eng_p:.1f} engaged) / in the well pad ({eng_w} deep)", "L1 x 2 / L2 30 N", "normal",
+        max(Rdow / (2.0 * eng_p), Rdow / (2.0 * eng_w)), AL["normal"], basis="projected bearing")
     oi, li = C.INSERTS["M2"][:2]
     row(14, f"F10 insert bond (M2 x {li} x OD {oi}, fixer rev2), L1 share 15 N", "L1 x 2", "epoxy", 15.0 / (math.pi * oi * li), AL["epoxy"])
     pre = R2_FIX["TQ_DESIGN"] / (0.2 * 0.002)
@@ -939,7 +1039,7 @@ if "H" in SECT:
             f"1.5 x preload <= epoxy 8 MPa)", "L7", "epoxy 8 / 1.5", pre / (math.pi * oi * li), R2_FIX["EPOXY_MPA"] / R2_FIX["PULLOUT_FACTOR"])
     Aw = math.pi / 4 * (4.2 ** 2 - 2.3 ** 2)
     row(27, "F10 DIN 433 washer (OD 4.2 at its lower tolerance) on the P_drziak_serva plate at the design case", "L7", "crush (short-term)",
-        pre / Aw, R2_FIX["CRUSH_MPA"], basis="relaxation harmless: the module is located by the F10 dowel + tongue / rail")
+        pre / Aw, R2_FIX["CRUSH_MPA"], basis="relaxation harmless: the module is located by the F10 dowel + ledge rib / nose")
     An = 16.0 - math.pi
     row(28, "F11 DIN 562 nut on the block slot at the design case", "L7", "crush (short-term)", pre / An, R2_FIX["CRUSH_MPA"],
         basis="the MG90S is held by the closed pocket; the block between nut and tab is in compression")
@@ -967,7 +1067,7 @@ if "H" in SECT:
     nfail = [r for r in rows if r["verdict"] == "FAIL"]
     put("H_strength", dict(status="PASS" if not nfail else "FAIL", rows=rows, allowables=AL,
                            fails=[(r["n"], r["feature"], r["load_case"], r["stress"], r["limit"]) for r in nfail],
-                           note="hand calculations on the rev. 2 geometry (no FE in this run); Kt per row; lug / bridge / T_cap need the K12 FE"))
+                           note="hand calculations on the rev. 3 geometry; Kt per row; the 3-D FE rows of the well (fe_sachta/results.json) are added by K12"))
     for r in rows:
         say(f"H  {r['n']:2d} {r['feature'][:72]:72s} {r['load_case'][:20]:20s} {r['stress'] if r['stress'] is not None else '-':>8} / "
             f"{r['limit'] if r['limit'] is not None else '-':>6} -> {r['verdict']}")

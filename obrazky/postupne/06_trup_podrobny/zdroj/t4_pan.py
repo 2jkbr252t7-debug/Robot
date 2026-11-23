@@ -30,6 +30,8 @@ import build123d as bd                                # noqa: E402
 from build123d import Vector                          # noqa: E402
 
 R2 = C.R2
+R3 = C.R3                                             # rev3 (sachta): T4_rev3_sachta_plan.md, spec 17.17
+FLOOR_VARIANT = os.environ.get("NOVA_FLOOR_VARIANT", R3["FLOOR"]["variant"])     # 'floor' (b, built) | 'lens' (a, FE comparison only)
 C.DENS.setdefault("alu", 2.70e-3)                     # runtime addition only (t4_common.py is NOT edited) - see notes
 C.DENS.setdefault("stainless", 7.93e-3)
 YL, ZL = C.Y_LIFT, C.Z_LIFT                           # lift servo shaft axis (along X): y 23.2, z -24.2
@@ -65,8 +67,8 @@ DRUM_AZ = _drum_az()
 
 PAN2 = dict(
     # ---- P_sachta (slim well) -------------------------------------------------------------------------------------
-    WELL=dict(xi=23.5, yi=11.0, ri=2.5, xo=25.1, yf=-12.6, yb=12.6, yb2=13.0, yb2_x=(-6.0, 23.2), r_max=26.50,
-              z_top=-2.0, plate_z=(-3.5, -2.0)),
+    WELL=dict(xi=23.5, yi=11.0, ri=R3["CORNER_RI"], xo=25.1, yf=-12.6, yb=12.6, yb2=13.0, yb2_x=(-6.5, 23.2), r_max=26.50,
+              z_top=-2.0, plate_z=(-3.5, -2.0)),             # rev3 (R3-6): inner corners R2.5 -> R3.0
     RING=dict(r_in=24.37, r=26.37, z=(-10.0, -2.0), chamfer=0.5),        # journal ring (resin) + tape 0.13 = r 26.50
     RIBS=dict(x=(-12.5, 0.0, 12.5), t=2.0, z=(-10.0, -3.45)),
     HUB=dict(r=(6.5, 12.6), z=(-41.9, -40.65)),
@@ -75,15 +77,15 @@ PAN2 = dict(
     DRUM=dict(r=(15.5, 16.7), az=DRUM_AZ, z=(-45.6, -41.9), end_r=0.6, lip_r=(16.7, 17.5), lip_z=(-42.5, -41.9),
               lip_az0=27.0),
     LANDS=dict(h=0.70, tape=0.13, z=(-38.0, -4.0), lead=0.7, front_x=((13.0, 17.0), (-17.0, -13.0)), back_x=((10.0, 15.0),),
-               back_up=dict(x=(-17.0, -13.0), z=(-10.4, -4.0)), endm_y=((4.9, 8.4), (-8.4, -4.9)), endp_y=((4.9, 8.4),)),
+               back_up=dict(x=(-17.0, -13.0), z=(-10.4, -4.0)), endm_y=R3["WIN"]["land_endm"], endp_y=R3["WIN"]["land_endp"]),   # rev3: end lands clear of the corner arcs
     WIN_BACK=dict(x=(-20.9, -6.5), z_top=-10.9),
     WIN_END=dict(x=(23.3, 25.4), y=(-7.0, 3.4), z=(-40.9, -15.0)),       # dev: y -6.5..6.5 -> -7.0..3.4 (FFC fixed leg land)
     GROOVE=dict(y=(3.3, 7.2), x=(15.0, 25.6), depth=0.3, edge_r=0.6),     # FFC riser groove under the back floor (along +X)
     PAD_FACE=15.10, ROOT_R=1.0,
-    PAD_A=dict(x=7.0, z=-15.8, r=3.65),                                   # dev: F10 positions; fixer rev2 (S5): r 3.5 -> 3.65 (wall 1.6 at D4.1)
+    PAD_A=dict(x=R3["F10_A"][0], z=R3["F10_A"][1], r=3.65),              # v9: F10_A x 7.0 -> 4.2 (see t4_common R3["F10_A"])                                   # dev: F10 positions; fixer rev2 (S5): r 3.5 -> 3.65 (wall 1.6 at D4.1)
     PAD_B=dict(x=18.4, z=(-38.0, -34.0), r=3.25),                         # stadium: dowel (z -38.0) + insert (z -34.0)
-    F10=dict(A=(7.0, -15.8), B=(18.0, -33.3), dowel=(18.4, -38.0), dowel_d=2.0, dowel_hole=2.05, dowel_depth=3.0,
-             dowel_len=5.0, torque=0.10),
+    F10=dict(A=R3["F10_A"], B=(18.0, -33.3), dowel=R3["RAIL"]["dowel"]["xz"], dowel_d=2.0, dowel_hole=2.05, dowel_depth=2.9,   # v7: dowel x 18.4 -> 17.4
+             dowel_len=R3["RAIL"]["dowel"]["len"], torque=0.10),                      # rev3 (R3-9 / S11): dowel hole 3.0 -> 2.9 deep (skin to the well 1.1 -> 1.2)
     #   fixer rev2 (S5, lead decision): fingertip design case 0.10 N.m -> M2 x 4 x OD 4.0 inserts in D4.1 holes THROUGH the 4.0 back wall
     #   (flush with the pad face, 0.1 short of the well face); F10_B (18.4, -34.0) -> (18.0, -33.3): web 1.64 to the dowel hole and 1.73 to
     #   the r 26.50 stage trim at the pad face (round pad r 3.65 added to the dowel stadium PAD_B)
@@ -93,19 +95,21 @@ PAN2 = dict(
     #   plate 1.65 under it, compression only);
     #   the screw is driven with a 1.3 hex PRECISION screwdriver (blade 1.5 across corners) - a D4.5 shaft would touch the servo case
     F10_B_CB=dict(d=4.8, depth=0.35, z_low=-35.62),   # step bottom 0.07 under the washer, 1.36 to the dowel hole; tip 0.05 short of the well face
-    RAIL=dict(x=(-6.0, 16.0), y=(13.0, 15.1), z=(-41.9, -33.9),           # new: bottom rail (tongue groove) for the pocket
-              groove=dict(x=(-4.5, 14.5), y=(13.5, 15.2), z=(-39.4, -36.4))),
+    #   rev3 (R3-5): the rail block sits HIGH on the back wall (z -34 .. -20, lips 5.0), closed groove 4.0 x 2.5 deep (0.4 into the 2.0
+    #   wall: 1.6 left over the 4.0 groove height, declared), groove bottom corners R0.8; + bottom stop pad C (y contact only)
+    RAIL=dict(R3["RAIL"]),
     # ---- lift module (P_drziak_serva) -----------------------------------------------------------------------------
-    POCKET=dict(plate=dict(x=(-8.5, 17.0), y=(15.1, 17.1), z=(-41.9, -13.3), low=dict(x=(16.9, 20.9), z=(-41.9, -30.5))),
-                tongue=dict(x=(-4.2, 14.2), y=(13.6, 15.1), z=(-39.35, -36.45)),
-                turret=dict(x=(-8.5, -6.5), y=(15.1, 31.3), z=(-41.9, -13.3), far_top=dict(y=28.0, z=-17.0)),
-                block=dict(x=(-8.5, -2.5), y=(15.1, 28.0), z=(-18.0, -13.3)),
-                nut_slot=dict(x=(-5.45, -4.1), y=(21.15, 28.5), z=(-18.5, -12.8)),
+    POCKET=dict(plate=dict(x=(R3["RAIL"]["plate_x0"], 17.0), y=(15.1, 17.1), z=(-41.9, -13.3), low=dict(x=(16.9, 20.9), z=(-41.9, -30.5))),   # rev3: plate to x -10.5 (T root of the turret wall)
+                tongue=None,                                          # rev3 (R3-5): no tongue - ledge rib (up) / nose on the plateau top (down) / dowel
+                turret=dict(x=R3["TURRET"]["x"], y=(15.1, 31.3), z=(-41.9, -13.3), far_top=dict(y=28.0, z=-17.0)),   # v8: wall 4.0
+                block=dict(x=(R3["TURRET"]["x"][0], -2.5), y=(15.1, 28.0), z=(-18.0, -13.3)),
+                nut_slot=dict(x=(-5.45, -4.1), y=R3["NUT_SLOT"]["y"], z=R3["NUT_SLOT"]["z"]),               # v8: closed at +Y (nut dropped in from above)
                 keyhole=[(6.05, (23.2, -24.2)), (3.05, (23.2, -29.8))],
-                bridge=dict(r=(26.25, 31.6), az=(102.0, 131.7), z=(-43.6, -36.2), x_max=-6.6, z_low_top=-41.5, low_az0=106.5,
+                bridge=dict(r=(26.25, 31.6), az=(102.0, R3["STOP"]["lug_az"][1]), z=(-43.6, -36.2), x_max=-6.6, z_low_top=-41.5, low_az0=106.5,   # rev3: to az 134.9 (over the whole lug)
                             high=[((-16.9, -14.5), -37.4), ((-14.5, -6.6), -36.2)],      # tops: 1.0 under the arm tip / crank pin at BDC
                             key_holes=dict(x=(-10.0,), z=-38.5, d=2.4)),                 # F12 1.3 hex key along Y through the bridge
-                lug=dict(r=(27.8, 31.6), az=(118.3, 131.7), z=(-47.2, -43.6), root_in=1.0, root_cw=0.8),
+                lug=dict(r=(27.8, 31.6), az=R3["STOP"]["lug_az"], z=(-47.2, -43.6), root_in=R3["LUG"]["root_in"], root_cw=R3["LUG"]["root_face"],
+                         face_x=(R3["STOP"]["face_x_ccw"], R3["STOP"]["face_x_cw"]), cw_corner_y=R3["STOP"]["cw_corner_y"]),   # rev3 (R3-5): planar stop faces normal to x
                 clip=dict(plate_x=(20.9, 23.4), z=(-30.5, -18.0), ribs_x=((16.5, 17.1), (22.8, 23.4)), rib_y=(17.1, 20.6),
                           shelf_z=(-30.5, -29.0), notch_x=(19.0, 20.9))),
     # ---- crank / ear / foot ------------------------------------------------------------------------------------------
@@ -116,7 +120,8 @@ PAN2 = dict(
              slot_z=(-35.30, -33.10), chamfer=1.5, holes_x=(-10.0,), hole_z=-38.5, hole_d=2.3, k_factor=0.4,
              dowel=dict(x=-13.2, z=-38.5, hole=2.05, foot_hole=2.05, foot_depth=3.0, len=4.5),   # integrator rev2: bonded in the ear, slip in the foot
              notch=dict(x=(-19.6, -14.5), z_top=-37.7),                                   # arm tip clearance at mid stroke
-             fwd_trim=0.5),     # integrator rev2: plate above the relief kerf starts at y 10.4 (0.05 into the B neck back half at y 9.9)
+             fwd_trim=0.5,      # integrator rev2: plate above the relief kerf starts at y 10.4 (0.05 into the B neck back half at y 9.9)
+             end_chamfer=R3["EAR"]["end_chamfer"]),   # rev3 (R3-4): flange end, lower corner 1.2 x 45 deg (R1.5 sill / jamb fillet of the back window)
     FOOT=dict(slot=dict(x=(9.0, 22.3), y=(-7.1, 6.7)), taps_x=(-10.0,), tap_z=-38.5, tap_d=1.6, tap_depth=7.0),
     # ---- electronics ---------------------------------------------------------------------------------------------------
     DPS=dict(x=(9.2, 22.2), y=(-6.9, 6.5), z=(-37.8, -37.0),
@@ -136,14 +141,15 @@ PAN2 = dict(
     FIX2=dict(
         journal_r=26.365,           # G1: every P_sachta surface in the PTFE band z -10.7 .. -1.9 at r <= 26.365 (was: 8 lands at 26.50)
         journal_z=(-10.7, -1.9),
-        vents=dict(d=2.5, xy=[(sx * 6.25, sy * 18.0) for sx in (1, -1) for sy in (1, -1)] +
+        vents=dict(d=2.5, xy=[(6.25, 18.0), (6.25, -18.0), (-9.3, 18.0), (-6.25, -18.0)] +      # rev3: (-6.25, 18) -> (-9.3, 18): clear of the ledge rib
                    [(sx * 16.0, sy * 15.3) for sx in (1, -1) for sy in (1, -1)], z=(-3.6, -1.9)),   # M2: 8 vents through the top plate
         lip_trim=None,       # m1: the P_sachta trim (run 1: y >= 15.12 left 0.02; y >= 15.0 cut slivers into the drum shroud top) is replaced
                              # by a 0.35 x 0.15 rebate on the back-bottom edge of the P_drziak_serva plate (pocket_rebate below)
-        pocket_rebate=dict(x=(-9.0, 9.5), y=(15.0, 17.2), z=(-42.0, -41.75)),   # plate bottom -41.9 -> -41.75 over the drum shroud / lip tops
+        pocket_rebate=dict(R3["SHROUD"]["plate_relief"]),   # rev3 (R3-7): plate bottom -40.45 over the shroud roof (was -41.75 over the shroud / lip tops)
         tongue_root_r=0.5, groove_chamfer=0.8,                          # S2: R0.5 tongue roots, 0.8 x 45 deg chamfer on the groove mouth
         ear_relief_d=1.0,                                               # S4: D1.0 drilled at the inner end of the bend-relief kerf
         under_r=16.72),                                                 # m2: FFC under-run starts on the arc r 16.72 (outside the shroud)
+    R3=R3,                                                              # rev3 (sachta) numbers: t4_common.R3 (part of the cache hash)
 )
 P2 = PAN2
 
@@ -332,6 +338,12 @@ def _land_x(y0, y1, side, z0, z1):
     return prism_y([(xb, z0 - d), (xf, z0), (xf, z1 - L["lead"]), (xb, z1 + 0.15)], y0, y1)
 
 
+def _land_x_taper(y_end, sgn_y, side, z0, z1):
+    """rev3: 45 deg run-out (in plan) of an end-wall land at its y end - no 0.7 step beside the thin corner arc / the window jamb"""
+    L = P2["LANDS"]; xi = P2["WELL"]["xi"]; xf = side * (xi - L["h"]); xb = side * (xi + 0.15); t = R3["WIN"]["land_taper"]
+    return prism_z([(xb, y_end - sgn_y * 0.02), (xf, y_end - sgn_y * 0.02), (xf, y_end), (xb, y_end + sgn_y * t)], z0, z1 - L["lead"])
+
+
 def _pad_round(x, z, r, y0, y1, R):
     """cylindrical pad along +Y with an exact R root flare on the plane y = y0"""
     prof = [(0.0, y0 - 0.05), (r + R, y0 - 0.05), (r + R, y0)] + \
@@ -353,12 +365,80 @@ def _pad_stadium(x, z0, z1, r, y0, y1, R):
     return one(fuse([a, b, mid]))
 
 
+def _stadium_y(xr, zr, y0, y1, end_r, edge_r=0.0, square_x0=False):
+    """slot in the x-z plane extruded y0 .. y1: full-round end(s) of radius end_r (= half the height), optionally a SQUARE end at xr[0];
+    the edge of the y0 face rounded with edge_r"""
+    zc = (zr[0] + zr[1]) / 2; hz = (zr[1] - zr[0]) / 2
+    P = [C.box(xr[0] + (0.0 if square_x0 else end_r), xr[1] - end_r, y0, y1, zc - hz, zc + hz), C.cyl_y(end_r, y0, y1, xr[1] - end_r, zc)]
+    if not square_x0:
+        P.append(C.cyl_y(end_r, y0, y1, xr[0] + end_r, zc))
+    s = one(fuse(P)).clean()
+    if edge_r > 0:
+        s = bd.fillet(s.edges().group_by(bd.Axis.Y)[0], edge_r)
+    return s
+
+
+def _floor_plan(z0, z1, variant=None):
+    """plan region of the stage floor as a prism z0 .. z1.
+    'floor' (rev3, R3-3 b): the whole well outline (r <= 26.50) - the pan pinion is 1.0 lower (top -42.90);
+    'lens'  (rev. 2 region, R3-3 a): back sector (y >= 3.3, az <= 135) + hub disc r 12.6."""
+    W, H, F = P2["WELL"], P2["HUB"], P2["FLOOR"]
+    trim = C.cyl_z(W["r_max"], z0 - 1, z1 + 1)
+    full = one(prism_z(well_outline_pts(), z0, z1) & trim)
+    if (variant or FLOOR_VARIANT) == "floor":
+        return full
+    a = math.radians(F["az_max"]); y0 = F["y_min"]
+    reg = prism_z([(y0 / math.tan(a), y0), (40.0, y0), (40.0, 40.0), (40.0 / math.tan(a), 40.0)], z0 - 0.5, z1 + 0.5)
+    return one(fuse([one(full & reg), C.cyl_z(H["r"][1], z0, z1)]))
+
+
+def _shroud_roof(z0, z1):
+    """rev3 (R3-7): floor-level roof over the whole drum-shroud top (r <= 16.7, y >= 12.0, stage az 20 .. 137) - no free arch"""
+    S = R3["SHROUD"]
+    sec = sector(0.0, S["roof_r"], S["roof_az"][0], S["roof_az"][1], z0, z1, 2.0)
+    return one(sec & C.box(-30.0, 30.0, S["roof_y_min"], 30.0, z0 - 1, z1 + 1))
+
+
+def _bands():
+    """rev3 (R3-6): guide band - front, back and -X walls 2.3 thick (inner face at land level) from z -17.5 up to the top plate, running
+    out to zero toward the corner arcs in plan, 45 deg lead below and run-out on top (the +X wall: _lintel)"""
+    Bd = R3["BAND"]; L = P2["LANDS"]; xi, yi = P2["WELL"]["xi"], P2["WELL"]["yi"]; z0, z1 = Bd["z"]; ld = Bd["lead"]; h = L["h"]
+    out = []
+    for sy in (-1, 1):                                    # front / back wall
+        ya, yb = sy * (yi + 0.15), sy * (yi - h)
+        plan = prism_z([(-Bd["x_end"], ya), (-Bd["x_full"], yb), (Bd["x_full"], yb), (Bd["x_end"], ya)], z0 - ld - 0.5, z1 + ld + 0.5)
+        prof = prism_x([(ya, z0 - ld - 0.15), (yb, z0), (yb, z1), (ya, z1 + ld + 0.15)], -Bd["x_end"] - 0.5, Bd["x_end"] + 0.5)
+        out.append(one(plan & prof))
+    xa, xb = -(xi + 0.15), -(xi - h)                      # -X end wall
+    plan = prism_z([(xa, -Bd["y_end"]), (xb, -Bd["y_full"]), (xb, Bd["y_full"]), (xa, Bd["y_end"])], z0 - ld - 0.5, z1 + ld + 0.5)
+    prof = prism_y([(xa, z0 - ld - 0.15), (xb, z0), (xb, z1), (xa, z1 + ld + 0.15)], -Bd["y_end"] - 0.5, Bd["y_end"] + 0.5)
+    out.append(one(plan & prof))
+    return out
+
+
+def _lintel():
+    """rev3 (R3-4): +X end wall 2.3 thick (inner face x 22.8 = land level) above and beside the end-window top.  In plan the
+    thickening runs out to zero toward both corner arcs (full for |y| <= 6.2, zero at |y| 7.7: no step at the thin corners);
+    45 deg lead at the lower end of the jamb strips and run-out on top (the foot / neck cannot catch)."""
+    Wn = R3["WIN"]; Lt = Wn["lintel"]; xi = P2["WELL"]["xi"]; x0, x1 = Lt["x_in"], xi + 0.15
+    y0, y1 = Lt["y"]; yf = Lt["y_full"]; zj = Lt["jamb_z"]; ld = Lt["lead"]; z0, z1 = Lt["z"]
+    plan = prism_z([(x1, y0), (x0, -yf), (x0, yf), (x1, y1)], zj - ld - 0.5, z1 + ld + 0.5)
+    prof = prism_y([(x1, zj - ld - 0.15), (x0, zj), (x0, z1), (x1, z1 + ld + 0.15)], y0 - 0.5, y1 + 0.5)
+    return [one(plan & prof)]
+
+
 def mk_sachta():
-    W, Rg, Rb, H, F, D = P2["WELL"], P2["RING"], P2["RIBS"], P2["HUB"], P2["FLOOR"], P2["DRUM"]
+    """P_sachta rev. 3 (T4_rev3_sachta_plan.md): floor over the whole well (R3-3 b) with R1 roots all round, hub lip under the
+    retention washer (R3-2), windows with R1.5 corners (R3-4), +X lintel 2.3, inner corners R3.0 (R3-6), rail block high on the
+    back wall + stop pad C (R3-5), roof over the drum shroud (R3-7)."""
+    W, Rg, Rb, D = P2["WELL"], P2["RING"], P2["RIBS"], P2["DRUM"]
+    Fl, Lp, Wn = R3["FLOOR"], R3["LIP"], R3["WIN"]
     xi, yi, ri, xo = W["xi"], W["yi"], W["ri"], W["xo"]
-    zt = W["z_top"]; zp0 = W["plate_z"][0]; zf = P2["EDGE"]["front"]
+    zt = W["z_top"]; zp0 = W["plate_z"][0]; fz0, fz1 = Fl["z"]; Rr = Fl["root_r"]
+    full = FLOOR_VARIANT == "floor"
+    zf = fz0 if full else P2["EDGE"]["front"]                       # lower edge of the walls
     trim = C.cyl_z(W["r_max"], -50, 5)
-    # ---- walls: outer outline (trimmed r 26.50) minus the inner rounded rectangle, z -40.9 .. -2.0
+    # ---- walls: outer outline (trimmed r 26.50) minus the inner rounded rectangle (vertical corners R3.0)
     outer = one(prism_z(well_outline_pts(), zf, zt) & trim)
     inner = C.rbox(-xi, xi, -yi, yi, zf - 1, zt + 1, ri, "z")
     walls = one(outer - inner)
@@ -371,75 +451,141 @@ def mk_sachta():
         for s in (1, -1):
             ya, yb = sorted((s * (yi + 0.5), s * (Rg["r_in"] + 0.6)))
             ribs.append(C.box(x - Rb["t"] / 2, x + Rb["t"] / 2, ya, yb, Rb["z"][0], zp0 + 0.05))
-    body = one(one(fuse([walls, ring, plate] + ribs)) - inner)         # the ring must not reach into the well corners (neck r 24.46)
-    # ---- guide lands (PTFE strip seats)
+    # rev3 (R3-6): ring continued down to z -16.7 over the front half + the three front ribs with it
+    Rx = R3["RING_EXT"]; ez0, ez1 = Rx["z"]; ch2 = Rx["chamfer"]
+    ring_ext = bd.revolve(bd.Face(bd.Wire.make_polygon([Vector(r_, 0, z_) for r_, z_ in
+                          [(Rg["r_in"], ez0), (Rg["r"] - ch2, ez0), (Rg["r"], ez0 + ch2), (Rg["r"], ez1), (Rg["r_in"], ez1)][::-1]], close=True)),
+                          axis=bd.Axis.Z, revolution_arc=Rx["az"][1] - Rx["az"][0])
+    ring_ext = bd.Rot(0, 0, Rx["az"][0]) * ring_ext
+    if ring_ext.volume < 0:                                             # orientation of the revolved profile
+        raise RuntimeError("ring_ext inverted")
+    ribs += [C.box(x - Rb["t"] / 2, x + Rb["t"] / 2, -(Rg["r_in"] + 0.6), -(yi + 0.5), ez0, Rb["z"][0] + 0.05) for x in Rb["x"]]
+    body = one(one(fuse([walls, ring, ring_ext, plate] + ribs)) - inner)   # the ring must not reach into the well corners (neck r 24.46)
+    # ---- guide lands (PTFE strip seats) + R3-4 lintel / jamb thickening of the +X end wall
     L = P2["LANDS"]; lz0, lz1 = L["z"]
     lands = [_land_y(a, b, -1, lz0, lz1) for a, b in L["front_x"]] + [_land_y(a, b, 1, lz0, lz1) for a, b in L["back_x"]]
     lands.append(_land_y(*L["back_up"]["x"], 1, *L["back_up"]["z"]))
     lands += [_land_x(a, b, -1, lz0, lz1) for a, b in L["endm_y"]] + [_land_x(a, b, 1, lz0, lz1) for a, b in L["endp_y"]]
-    body = one(fuse([body] + lands))
-    # ---- windows: back (ear / flange / crank) and +X end (FFC tails + pigtail, narrowed beside the fixed-leg land)
-    Wb, We = P2["WIN_BACK"], P2["WIN_END"]
-    body = one(cut(body, [C.box(*Wb["x"], yi - 0.5, W["yb2"] + 0.5, -45, Wb["z_top"]),
-                          C.box(*We["x"], *We["y"], -45, We["z"][1])]))
-    # ---- back floor (y >= 3.1, az <= 135) out to the walls + hub disc ring, z -41.9 .. -40.65
-    fz0, fz1 = F["z"]
-    a = math.radians(F["az_max"]); y0 = F["y_min"]
-    reg = prism_z([(y0 / math.tan(a), y0), (40.0, y0), (40.0, 40.0), (40.0 / math.tan(a), 40.0)], fz0 - 0.5, fz1 + 0.5)
-    floor = one(one(prism_z(well_outline_pts(), fz0, fz1) & trim & reg) - C.cyl_z(H["r"][0], fz0 - 1, fz1 + 1))   # keep r < 6.5 open (T_cap, F15)
-    hub = C.tube_z(H["r"][1], H["r"][0], *H["z"])
-    # walls of the back sector go down to -41.9 (the floor region covers the walls there; back window cut again below)
-    body = one(fuse([body, floor, hub]))
-    body = one(body - C.box(Wb["x"][0], Wb["x"][1], yi + 0.01, W["yb2"] + 0.5, fz1, Wb["z_top"]))   # floor stays under the window
-    # ---- drum shroud r 15.5 .. 16.7 hanging from the back floor + FFC retaining lip (from lip_az0)
+    for side, rng in ((-1, L["endm_y"]), (1, L["endp_y"])):          # rev3: 45 deg run-outs at both y ends of the end-wall lands
+        for a, b in rng:
+            lands += [_land_x_taper(b, 1, side, lz0, lz1), _land_x_taper(a, -1, side, lz0, lz1)]
+    body = one(fuse([body] + lands + _lintel() + _bands()))
+    if not full:                                                     # R3-3 a (comparison only): lower front wall 2.3 thick
+        Lw = Fl["lens_wall"]
+        body = one(fuse([body, prism_x([(-yi - 0.05, zf), (Lw["y_in"], zf), (Lw["y_in"], Lw["z_top"]), (-yi - 0.05, Lw["z_top"] + 0.75)], -Lw["x"], Lw["x"])]))
+    # ---- windows, first cut (straight down through the wall edge; rounded R1.5 top corners): back (ear / flange / crank), +X end (FFC)
+    Wb, We = Wn["back"], Wn["end"]; cr = Wn["corner_r"]; yb2 = W["yb2"]
+    win_b = lambda z0: C.rbox(Wb["x"][0], Wb["x"][1], yi - 1.2, yb2 + 0.5, z0, Wb["z"][1], cr, "y")
+    win_e = lambda z0: C.rbox(We["x"][0] - 0.6, We["x"][1], We["y"][0], We["y"][1], z0, We["z"][1], cr, "x")
+    body = one(cut(body, [win_b(-46.0), win_e(-46.0)]))
+    # ---- floor z -41.9 .. -40.65 (+ roof over the drum shroud) and its R1 root fillets against every wall inner face
+    floor = _floor_plan(fz0, fz1)
+    roof = _shroud_roof(fz0, fz1)
+    cav = C.rbox(-xi, xi, -yi, yi, fz1, fz1 + 3.0, ri, "z")
+    cav_f = bd.fillet(cav.edges().group_by(bd.Axis.Z)[0], Rr)       # cavity with rounded bottom edges
+    slab = C.rbox(-xi - 0.03, xi + 0.03, -yi - 0.03, yi + 0.03, fz1 - 0.03, fz1 + Rr, ri + 0.03, "z")
+    root = one(one(slab - cav_f) & _floor_plan(fz1 - 0.5, fz1 + Rr + 0.5))
+    if not full:                                                     # lens wall root (R0.5: the foot edge y -9.8 lands 0.5 away)
+        Lw = Fl["lens_wall"]
+        root = one(fuse([root, one(fillet_strip((-8.0, Lw["y_in"], fz1), (8.0, Lw["y_in"], fz1), (0, 1, 0), (0, 0, 1), Lw["root_r"]) & C.cyl_z(P2["HUB"]["r"][1], fz1 - 1, fz1 + 2))]))
+    body = one(fuse([body, floor, roof, root]))
+    # ---- drum shroud r 15.5 .. 16.7 under the floor / roof + FFC retaining lip (from lip_az0)
     a0, a1 = D["az"]; dz0, dz1 = D["z"]
     shroud = tube_sector(D["r"][1], D["r"][0], a0, a1, dz0, dz1 + 0.05)
     lip = tube_sector(D["lip_r"][1], D["lip_r"][0] - 0.05, D["lip_az0"], a1, D["lip_z"][0], D["lip_z"][1] + 0.05)
     body = one(fuse([body, shroud, lip]))
-    # ---- rail (tongue groove for the pocket) + F10 pads with R1 root flares on the back wall face y 13.0
-    Ra, Pa, Pb = P2["RAIL"], P2["PAD_A"], P2["PAD_B"]; pf = P2["PAD_FACE"]; Rr = P2["ROOT_R"]; yb2 = W["yb2"]
-    rail = C.box(Ra["x"][0], Ra["x"][1], yb2 - 0.3, Ra["y"][1], *Ra["z"])
-    padA = _pad_round(Pa["x"], Pa["z"], Pa["r"], yb2, pf, Rr)
-    padB = _pad_stadium(Pb["x"], Pb["z"][0], Pb["z"][1], Pb["r"], yb2, pf, Rr)
-    padB = one(fuse([padB, _pad_round(P2["F10"]["B"][0], P2["F10"]["B"][1], P2["PAD_B2"]["r"], yb2, pf, Rr)]))   # fixer rev2: insert B pad
-    rail_root = fillet_strip((Ra["x"][0], yb2, Ra["z"][1]), (Ra["x"][1], yb2, Ra["z"][1]), (0, 1, 0), (0, 0, 1), Rr)
-    body = one(fuse([body, rail, padA, padB, rail_root]))
-    # ---- root fillets R1: hub disc / floor top against the wall inner faces (inside the well)
-    zr = fz1
-    roots = [fillet_strip((-6.0, -yi, zr), (6.0, -yi, zr), (0, 1, 0), (0, 0, 1), Rr),               # hub disc - front wall
-             fillet_strip((Wb["x"][1], yi, zr), (xi - ri, yi, zr), (0, -1, 0), (0, 0, 1), Rr),      # floor - back wall
-             fillet_strip((xi, We["y"][1] + 0.2, zr), (xi, yi - ri, zr), (-1, 0, 0), (0, 0, 1), Rr)]  # floor - +X pillar
-    body = one(fuse([body] + roots))
+    # ---- R3-5: mounting plateau on the back wall (pads A / B / C inside it), ledge rib (up stop of the lift module) under the top plate
+    Ra, Pa, Pb = P2["RAIL"], P2["PAD_A"], P2["PAD_B"]; pf = P2["PAD_FACE"]; Pr = P2["ROOT_R"]; Rf = Ra["root_r"]
+    (rx0, rx1), (rz0_, rz1_) = Ra["x"], Ra["z"]; Pc = Ra["pad_c"]; Pbx = Ra["padb_box"]; Lr = Ra["ledge"]
+    rail = fuse([C.box(rx0, rx1, yb2 - 0.3, Ra["y"][1], rz0_, rz1_), C.box(Pbx["x"][0] - 0.05, Pbx["x"][1], yb2 - 0.3, Ra["y"][1], *Pbx["z"])])
+    padA = _pad_round(Pa["x"], Pa["z"], Pa["r"], yb2, pf, Pr)
+    padB = _pad_stadium(Pb["x"], Pb["z"][0], Pb["z"][1], Pb["r"], yb2, pf, Pr)
+    padB = one(fuse([padB, _pad_round(P2["F10"]["B"][0], P2["F10"]["B"][1], P2["PAD_B2"]["r"], yb2, pf, Pr)]))
+    padC = C.box(Pc["x"][0], Pc["x"][1], yb2 - 0.3, pf, Pc["z"][0], Pc["z"][1])
+    ledge = C.box(Lr["x"][0], Lr["x"][1], yi + 0.5, Lr["y_end"], Lr["z"][0], Lr["z"][1] + 0.05)       # web under the top plate (z -3.5)
+    fs = [fillet_strip((Lr["x"][1], yb2, rz1_), (rx1, yb2, rz1_), (0, 1, 0), (0, 0, 1), Rf),          # plateau top / wall
+          fillet_strip((rx1, yb2, Pbx["z"][1]), (rx1, yb2, rz1_), (0, 1, 0), (1, 0, 0), Rf),          # +X end / wall (above the pad-B box)
+          fillet_strip((rx1, yb2, Pbx["z"][1]), (Pbx["x"][1], yb2, Pbx["z"][1]), (0, 1, 0), (0, 0, 1), Rf),   # pad-B box top / wall
+          fillet_strip((Lr["x"][1], yb2, rz1_), (Lr["x"][1], yb2, Lr["z"][1]), (0, 1, 0), (1, 0, 0), Lr["root_r"]),   # ledge rib +X face / wall
+          fillet_strip((max(Lr["x"][0], rx0), pf, Lr["z"][0]), (Lr["x"][1], pf, Lr["z"][0]), (0, 0, -1), (0, 1, 0), Lr["root_r"]),   # rib bottom / plateau face: R1.0 root of the up stop
+          fillet_strip((W["yb2_x"][0], yb2, fz1), (10.3, yb2, fz1), (0, 1, 0), (0, 0, 1), R3["SHROUD"]["root_r"]),   # roof / wall (R3-7)
+          fillet_strip((Lr["x"][1], yb2, rz1_), (Lr["x"][1], pf, rz1_), (1, 0, 0), (0, 0, 1), Rf)]                 # v8: plateau top / ledge rib +X face
+    body = one(fuse([body, ledge]))
+    body = one(fuse([body, rail, padA, padB, padC] + fs))
+    # down stop (round 1): shelf on the plateau face beside the jamb, standing on the shroud roof (z -40.65 .. -36.0, to y 17.0); R0.5 root
+    # between its top and the plateau face, 0.7 chamfer on its -X top edge (R0.8 notch corner of the pocket plate)
+    Sh = Ra["shelf"]; sx0, sx1 = Sh["x"]; sz1 = Sh["z_top"]; ec = Sh["edge_chamfer"]
+    shelf = C.box(sx0, sx1, yb2 - 0.3, Sh["y_end"], Sh["z_bot"], sz1)
+    shelf = one(shelf - prism_y([(sx0 - 0.05, sz1 - ec - 0.05), (sx0 - 0.05, sz1 + 0.05), (sx0 + ec + 0.05, sz1 + 0.05)], yb2 - 1.0, Sh["y_end"] + 1.0))
+    ec2 = Sh["notch_r"] + 0.15                                                                       # +X top edge: clears the R0.8 notch corner
+    zb_s = Sh["z_bot"]                                                                               # v8: bottom edges chamfered too (window bottom corners R0.8)
+    shelf = one(shelf - prism_y([(sx0 - 0.05, zb_s + 0.55), (sx0 - 0.05, zb_s - 0.05), (sx0 + 0.55, zb_s - 0.05)], yb2 - 1.0, Sh["y_end"] + 1.0))
+    shelf = one(shelf - prism_y([(sx1 + 0.05, zb_s + 0.55), (sx1 + 0.05, zb_s - 0.05), (sx1 - 0.55, zb_s - 0.05)], yb2 - 1.0, Sh["y_end"] + 1.0))
+    shelf = one(shelf - prism_y([(sx1 + 0.05, sz1 - ec2 - 0.05), (sx1 + 0.05, sz1 + 0.05), (sx1 - ec2 - 0.05, sz1 + 0.05)], yb2 - 1.0, Sh["y_end"] + 1.0))
+    body = one(fuse([body, shelf, fillet_strip((sx0 + ec, pf, sz1), (sx1 - ec2, pf, sz1), (0, 1, 0), (0, 0, 1), Sh["root_r"])]))
+    Cb = R3.get("CURB")
+    if Cb:                                                                                     # v10 (LD7): floor-level curb under the back window = bearing of the module sole (cw stop)
+        cx0, cx1 = Cb["x"]
+        body = one(fuse([body, C.box(cx0, cx1, W["yb"] - 0.3, pf, Cb["z"][0], Cb["z"][1]),
+                         fillet_strip((cx0, W["yb"], Cb["z"][0]), (cx0, W["yb"], Cb["z"][1]), (-1, 0, 0), (0, 1, 0), Cb["root_r"])]))
+    if We.get("sill_z") is not None:                                                           # v9: curb = raised sill of the +X end window at the pillar foot
+        body = one(fuse([body, C.box(xi - 0.02, xo, We["sill_y0"], We["y"][1] + 0.05, fz1 - 0.05, We["sill_z"])]))
     body = one(body & trim)                                                                    # every surface r <= 26.50
     Fx = P2["FIX2"]
     body = one(body - C.tube_z(40.0, Fx["journal_r"], *Fx["journal_z"]))   # fixer G1: journal band r <= 26.365 at EVERY azimuth (tape 0.13 -> 26.495)
     body = one(body - C.tube_z(40.0, D["lip_r"][1] + 0.05, fz0 - 8.0, fz0))                  # nothing below z -41.9 outside the drum
-    # ---- cuts: windows again (fillet strips / pads must not close them), groove + edge round, inserts, dowel, pilots
+    # ---- second cut: windows above the floor (root fillets / pads must not close them), then the R1.5 sill / jamb fillets
+    above = C.box(-30.0, 30.0, -30.0, 30.0, fz1 + 0.01, 0.0)
+    zs_e = We.get("sill_z", fz1); ys0 = We.get("sill_y0", We["y"][0] - 1.0)                     # v8 / v9: raised sill (curb) of the +X end window for y >= ys0
+    above_e = fuse([C.box(-30.0, 30.0, ys0, 30.0, zs_e, 0.0), C.box(-30.0, 30.0, -30.0, ys0, fz1 + 0.01, 0.0)])
+    body = one(cut(body, [one(win_b(fz1 - 2 * cr) & above), one(win_e(fz1 - 2 * cr) & above_e)]))
+    sill = [fillet_strip((Wb["x"][1], yi - 0.03, fz1), (Wb["x"][1], W["yb"], fz1), (-1, 0, 0), (0, 0, 1), cr)]     # jamb x -6.5 / sill
+    if full:
+        sill += [fillet_strip((Wb["x"][0], yi - 0.03, fz1), (Wb["x"][0], W["yb"], fz1), (1, 0, 0), (0, 0, 1), cr),  # jamb x -20.9 / sill
+                 fillet_strip((xi - 0.03, We["y"][0], fz1), (xo, We["y"][0], fz1), (0, 1, 0), (0, 0, 1), cr),        # end window jambs / sill
+                 fillet_strip((xi - 0.03, ys0, fz1), (xo, ys0, fz1), (0, -1, 0), (0, 0, 1), 1.0),                    # v9: floor / end face of the curb
+                 fillet_strip((xi - 0.03, We["y"][1], zs_e), (xo, We["y"][1], zs_e), (0, -1, 0), (0, 0, 1), cr)]
+    # v8: larger top corners (added material in the R1.5 corners): end window R2.0, back window -X top corner R2.5
+    rt = We.get("top_r", cr); rb = Wb.get("top_mx_r", cr)
+    if rt > cr:                                                                                 # clipped to the wall + lintel profile (nothing proud inside)
+        prof_e = one(fuse([C.box(xi, xo, -9.0, 9.0, We["z"][1] - 3.0, We["z"][1] + 0.5)] + _lintel()))
+        sill += [one(fillet_strip((xi - 0.75, We["y"][0], We["z"][1]), (xo, We["y"][0], We["z"][1]), (0, 1, 0), (0, 0, -1), rt) & prof_e),
+                 one(fillet_strip((xi - 0.75, We["y"][1], We["z"][1]), (xo, We["y"][1], We["z"][1]), (0, -1, 0), (0, 0, -1), rt) & prof_e)]
+    if rb > cr:
+        sill.append(fillet_strip((Wb["x"][0], yi, Wb["z"][1]), (Wb["x"][0], W["yb"], Wb["z"][1]), (1, 0, 0), (0, 0, -1), rb))
+    body = one(one(fuse([body] + sill)) & trim)
+    # ---- cuts: FFC groove under the floor + edge round, rail groove (R0.8 bottom corners, 0.6 mouth chamfers), inserts, dowel, vents
     G = P2["GROOVE"]; gz1 = fz0 + G["depth"]
-    N = [C.box(*Wb["x"], yi - 0.5, W["yb2"] + 0.5, fz1 + 0.01, Wb["z_top"]),
-         C.box(*We["x"], *We["y"], -45, We["z"][1]),
-         one(C.box(G["x"][0], G["x"][1], G["y"][0], G["y"][1], fz0 - 0.5, gz1) - C.cyl_z(D["r"][1], fz0 - 1.0, gz1 + 1.0))]   # outside the shroud
+    N = [one(C.box(G["x"][0], G["x"][1], G["y"][0], G["y"][1], fz0 - 0.5, gz1) - C.cyl_z(D["r"][1], fz0 - 1.0, gz1 + 1.0))]   # outside the shroud
     er = G["edge_r"]
     N.append(prism_y([(xo + 0.05, gz1 - 0.05), (xo + 0.05, gz1 + er)] + arc_pts((xo - er, gz1 + er), er, 0, -90, 15) +
                      [(xo - er, gz1 - 0.05)], G["y"][0], G["y"][1]))
-    Rgv = Ra["groove"]
-    N.append(C.box(*Rgv["x"], *Rgv["y"], *Rgv["z"]))
+    # plateau face recessed 0.15 except the contact zones: pad A, pad B, a mid band and the pad C zone (flatness of the print)
+    fr = Ra["face_recess"]; bz = Ra["band_z"]
+    rec = fuse([C.box(rx0 - 0.05, rx1 + 0.05, pf - fr, pf + 0.5, rz0_ - 1.2, rz1_ + 1.2), C.box(Pbx["x"][0] - 0.1, Pbx["x"][1] + 0.5, pf - fr, pf + 0.5, Pbx["z"][0] - 1.0, Pbx["z"][1] + 1.2)])
+    keep = [C.box(rx0 - 2, rx1 + 1, pf - fr - 0.1, pf + 1, bz[0], bz[1]), C.cyl_y(Pa["r"], pf - fr - 0.1, pf + 1, Pa["x"], Pa["z"]),
+            C.box(Pc["x"][0] - 2, Pc["x"][1], pf - fr - 0.1, pf + 1, Pc["z"][0] - 2, Pc["z"][1]),
+            C.box(Sh["x"][0] - 0.5, Sh["x"][1] + 0.5, pf - fr - 0.1, pf + 1, Sh["z_bot"] - 0.6, Sh["z_top"] + 1.0),      # v8: no recess step under the shelf root
+            C.cyl_y(P2["PAD_B2"]["r"], pf - fr - 0.1, pf + 1, P2["F10"]["B"][0], P2["F10"]["B"][1]),
+            C.cyl_y(Pb["r"], pf - fr - 0.1, pf + 1, Pb["x"], Pb["z"][0]), C.cyl_y(Pb["r"], pf - fr - 0.1, pf + 1, Pb["x"], Pb["z"][1]),
+            C.box(Pb["x"] - Pb["r"], Pb["x"] + Pb["r"], pf - fr - 0.1, pf + 1, Pb["z"][0], Pb["z"][1]),
+            C.box(Lr["x"][0] - 1, Lr["x"][1] + Lr["root_r"] + 0.05, pf - fr - 0.1, pf + 1, Lr["z"][0] - 0.05, 0.0)]
+    keep += [C.box(Ra[k]["x"][0] - (2 if k == "pad_d" else 0), Ra[k]["x"][1], pf - fr - 0.1, pf + 1, Ra[k]["z"][0], Ra[k]["z"][1] + 2) for k in ("pad_d", "pad_e")]   # v7
+    N.append(one(cut(one(rec), keep)))
+    # ---- R3-3: 0.2 relief of the floor underside over the annulus swept by the tip of the STS3032 spline (modelled 0.2 proud of the pinion)
+    Sr = Fl["spline_relief"]
+    if full:
+        N.append(sector(Sr["r"][0], Sr["r"][1], Sr["az"][0], Sr["az"][1], fz0 - 0.5, fz0 + Sr["depth"], 2.0))
     for (x, z) in (P2["F10"]["A"], P2["F10"]["B"]):
-        N.append(C.cyl_y(R2["INSERT_HOLES"]["M2"]["hole"] / 2, yi - 0.5, pf + 0.5, x, z))   # fixer rev2: D4.1 through (M2 x 4 x OD 4.0 insert)
+        N.append(C.cyl_y(R2["INSERT_HOLES"]["M2"]["hole"] / 2, yi - 1.0, pf + 0.5, x, z))   # fixer rev2: D4.1 through (M2 x 4 x OD 4.0 insert);
+        #   round 1d (K4): from y 10.0 - F10_A sits in the guide-band zone (inner face y 10.3) since v9 and its hole ended 0.2 short of that face (a 0.2 skin)
     dx, dz = P2["F10"]["dowel"]
     N.append(C.cyl_y(P2["F10"]["dowel_hole"] / 2, pf - P2["F10"]["dowel_depth"], pf + 0.5, dx, dz))
-    # ---- fixer rev2: M2 vents (8 x D2.5 through the top plate into the pockets ring / ribs / walls - no suction cup when printed
-    # top plate toward the build plate on supports; hidden under the collar disc), m1 lip bump under the pocket plate, S2 groove
-    # mouth chamfers (room for the R0.5 tongue roots of P_drziak_serva)
     V = Fx["vents"]
     N += [C.cyl_z(V["d"] / 2, *V["z"], x, y) for x, y in V["xy"]]
-    Lt = Fx["lip_trim"]
-    if Lt:
-        N.append(one(C.box(-20.0, 20.0, Lt["y_min"], 20.0, *Lt["z"]) & C.cyl_z(Lt["r"][1], Lt["z"][0] - 1, Lt["z"][1] + 1)))
-    ch = Fx["groove_chamfer"]; gy1 = Ra["y"][1]
-    for zg, sg in ((Rgv["z"][1], 1), (Rgv["z"][0], -1)):
-        N.append(prism_x([(gy1 + 0.05, zg - sg * 0.05), (gy1 - ch, zg - sg * 0.05), (gy1 - ch, zg), (gy1 + 0.05, zg + sg * (ch + 0.05))],
-                         Rgv["x"][0], Rgv["x"][1]))
+    # ---- R3-2: bore of the hub lip (r 4.15 over the T_cap top, nose r 3.80 above it) + washer recess r 4.9 down to the lip top -40.92
+    N.append(revolve_z([(0.0, fz0 - 1.0), (Lp["r_low"], fz0 - 1.0), (Lp["r_low"], Lp["z_step"]), (Lp["r_in"], Lp["z_step"]), (Lp["r_in"], Lp["z_top"]),
+                        (Lp["recess_r"], Lp["z_top"]), (Lp["recess_r"], fz1 + 2.0), (0.0, fz1 + 2.0)]))
     return one(cut(body, N)).clean()
 
 
@@ -450,7 +596,11 @@ def mk_koleso():
     G = R2["GEAR_PAN"]; z0, z1 = G["plane"]
     phase = PAN_AZ % (360.0 / 36)                       # a tooth faces the pinion (tooth gap of the pinion faces the axis)
     body = prism_z(gear_profile(G["m"], G["z"][1], phase, 0.04), z0, z1)
-    return one(body - C.cyl_z(G["gear"]["bore"] / 2, z0 - 0.5, z1 + 0.5)).clean()
+    rb = G["gear"]["bore"] / 2; c = R3["PIVOT"]["gear_bore_chamfer"]
+    # rev3 (R3-9): the LOWER bore edge is chamfered 0.4 x 45 deg (room for the R1.0 root of T_cap; break it by hand with a countersink
+    # if the bought gear has none)
+    cham = revolve_z([(0.0, z0 - 0.2), (rb + c + 0.2, z0 - 0.2), (rb, z0 + c), (0.0, z0 + c)])
+    return one(body - C.cyl_z(rb, z0 - 0.5, z1 + 0.5) - cham).clean()
 
 
 # =====================================================================================================================
@@ -486,7 +636,6 @@ def _keyhole_yz(grow=0.0):
 def mk_drziak():
     Q = P2["POCKET"]; pl, tg, tu, bl, ns = Q["plate"], Q["tongue"], Q["turret"], Q["block"], Q["nut_slot"]
     S = [C.box(*pl["x"], *pl["y"], *pl["z"]), C.box(*pl["low"]["x"], *pl["y"], *pl["low"]["z"]),
-         C.box(*tg["x"], *tg["y"], *tg["z"]),
          C.box(*tu["x"], tu["y"][0], tu["y"][1], tu["z"][0], tu["far_top"]["z"]),
          C.box(*tu["x"], tu["y"][0], tu["far_top"]["y"], tu["far_top"]["z"] - 0.1, tu["z"][1]),
          C.box(*bl["x"], *bl["y"], *bl["z"])]
@@ -495,42 +644,114 @@ def mk_drziak():
     secb = sector(B["r"][0], B["r"][1], B["az"][0], B["az"][1], -41.9, -30.0)
     br = [one(secb & C.box(x0, x1, 0, 40, -41.95, ztop)) for (x0, x1), ztop in B["high"]]
     brl = sector(B["r"][0], B["r"][1], B["low_az0"], B["az"][1], B["z"][0], B["z_low_top"])
-    lug = sector(Lg["r"][0], Lg["r"][1], Lg["az"][0], Lg["az"][1], Lg["z"][0], Lg["z"][1] + 0.05)
-    # lug roots: R1.5 on the inner side (arc r 27.6, under the bridge), R0.8 on the CW contact side (pin 1 clearance)
+    # rev3 (R3-5): lug = annulus piece between the two stop planes x = face_x (ccw, pin 2 at pan +90) and x = face_x (cw, pin 1 at -90);
+    # the outer cw corner beyond the contact line is cut back at 45 deg (>= 1.0 to the deck C-ear behind pin 1)
+    xf0, xf1 = Lg["face_x"]; slab = C.box(xf0, xf1, 0.0, 40.0, Lg["z"][0] - 1.0, Lg["z"][1] + 1.0)
+    cwf = R3["STOP"].get("cw_face")
+    if cwf:                                     # v10b (LD7): cw face = plane tangent to pin 1, normal turned phi from +x toward +y
+        (nx_, ny_), (px_, py_) = cwf["n"], cwf["p"]; tx_, ty_ = ny_, -nx_
+        hp = prism_z([(px_ + 40 * tx_, py_ + 40 * ty_), (px_ - 40 * tx_, py_ - 40 * ty_), (px_ - 40 * tx_ - 60 * nx_, py_ - 40 * ty_ - 60 * ny_),
+                      (px_ + 40 * tx_ - 60 * nx_, py_ + 40 * ty_ - 60 * ny_)], Lg["z"][0] - 1.0, Lg["z"][1] + 1.0)
+        slab = one(C.box(xf0, 0.0, 0.0, 40.0, Lg["z"][0] - 1.0, Lg["z"][1] + 1.0) & hp)
+        lug = one(sector(Lg["r"][0], Lg["r"][1], Lg["az"][0] - 6.0, Lg["az"][1] + 1.5, Lg["z"][0], Lg["z"][1] + 0.05, 1.0) & slab)
+    else:
+        lug = one(sector(Lg["r"][0], Lg["r"][1], Lg["az"][0] - 1.5, Lg["az"][1] + 1.5, Lg["z"][0], Lg["z"][1] + 0.05, 1.0) & slab)
+        yc = Lg["cw_corner_y"]
+        lug = one(lug - prism_z([(xf1 + 0.1, yc), (xf1 + 0.1, yc + 3.0), (xf1 - 3.0, yc + 3.0)], Lg["z"][0] - 1.0, Lg["z"][1] + 1.0))
+    # lug roots: R1.0 on the inner side (arc r 27.8, under the bridge), R0.8 at the top of the cw contact face (pin 1 clearance)
     ri = Lg["r"][0]; R1 = Lg["root_in"]; zb = Lg["z"][1]
     prof = [(ri + 0.03, zb + 0.03), (ri - R1, zb + 0.03)] + \
            [(ri - R1 + R1 * math.cos(math.radians(t)), zb - R1 + R1 * math.sin(math.radians(t))) for t in np.linspace(90, 0, 9)] + \
            [(ri + 0.03, zb - R1)]
     wq = bd.Wire.make_polygon([Vector(rr, 0, zz) for rr, zz in prof], close=True)
-    root_in = bd.revolve(bd.Face(wq), axis=bd.Axis.Z, revolution_arc=Lg["az"][1] - Lg["az"][0])
-    root_in = bd.Rot(0, 0, Lg["az"][0]) * root_in
-    a = math.radians(Lg["az"][0]); e = (math.cos(a), math.sin(a), 0.0); t_cw = (math.sin(a), -math.cos(a), 0.0)
+    root_in = bd.revolve(bd.Face(wq), axis=bd.Axis.Z, revolution_arc=Lg["az"][1] - Lg["az"][0] + 3.0)
     rc = Lg["root_cw"]
-    ro_ = Lg["r"][1] - 0.06
-    root_cw = fillet_strip((ri * e[0], ri * e[1], zb), (ro_ * e[0], ro_ * e[1], zb), t_cw, (0, 0, -1), rc)
-    S += br + [brl, lug, root_in, root_cw]
-    # fixer rev2 S2: R0.5 root fillets along the two long tongue / plate edges (bending root under L2; was R0)
-    Rt = P2["FIX2"]["tongue_root_r"]; yp = tg["y"][1]
-    S += [fillet_strip((tg["x"][0], yp, tg["z"][1]), (tg["x"][1], yp, tg["z"][1]), (0, 0, 1), (0, -1, 0), Rt),
-          fillet_strip((tg["x"][0], yp, tg["z"][0]), (tg["x"][1], yp, tg["z"][0]), (0, 0, -1), (0, -1, 0), Rt)]
+    if cwf:
+        root_in = bd.revolve(bd.Face(wq), axis=bd.Axis.Z, revolution_arc=Lg["az"][1] - Lg["az"][0] + 9.0)
+        # v10d: clipped at the azimuth of the lug nose (az 117.6) - the strip ran on past the nose as a feather (pan check G)
+        root_in = one((bd.Rot(0, 0, Lg["az"][0] - 6.0) * root_in) & slab & sector(0.0, 40.0, Lg["az"][0], B["az"][1] - 0.06, -60.0, 0.0))
+        root_cw = one(fillet_strip((px_ + 4 * tx_, py_ + 4 * ty_, zb), (px_ - 4 * tx_, py_ - 4 * ty_, zb), (nx_, ny_, 0), (0, 0, -1), rc)
+                      & sector(Lg["r"][0], Lg["r"][1], Lg["az"][0], Lg["az"][1], -60.0, 0.0))        # v10d: only along the lug itself (no strip past the nose)
+    else:
+        root_in = one((bd.Rot(0, 0, Lg["az"][0] - 1.5) * root_in) & slab & sector(0.0, 40.0, Lg["az"][0] - 3.0, B["az"][1] - 0.06, -60.0, 0.0))   # v9: inside the lug sector of PAN_ENV2
+        ya = math.sqrt(ri ** 2 - xf1 ** 2)
+        root_cw = fillet_strip((xf1, ya, zb), (xf1, yc, zb), (1, 0, 0), (0, 0, -1), rc)
+    # v7 (LD3): R1.0 root at the ccw pin face too (was sharp), R1.5 between the low bridge top and the -X end face of the high bridge
+    brl_plan = sector(B["r"][0], B["r"][1], B["low_az0"], B["az"][1], -60.0, 0.0)
+    root_ccw = one(fillet_strip((xf0, 15.0, zb), (xf0, 30.0, zb), (-1, 0, 0), (0, 0, -1), rc) & sector(Lg["r"][0], Lg["r"][1], Lg["az"][0], Lg["az"][1] - 0.1, -60.0, 0.0))
+    xs = B["high"][0][0][0]; sr = R3["LUG"]["step_r"]
+    step = one(fillet_strip((xs, 15.0, B["z_low_top"]), (xs, 32.0, B["z_low_top"]), (-1, 0, 0), (0, 0, 1), sr) & brl_plan)
+    S += br + [brl, lug, root_in, root_cw, root_ccw, step]
+    # rev3 (R3-5): no tongue.  Plate extended to x -10.5: the turret wall stands on it as a T (R1.0 root on its outer side); dowel boss
+    # behind the low plate (D2 x 8 dowel: 5.1 engaged in the pocket)
+    Rj = R3["RAIL"]; Db = Rj["dowel"]; dxw, dzw = P2["F10"]["dowel"]
+    if pl["x"][0] < tu["x"][0] - 0.01:          # plate fin beyond the wall (round 1; v8: the wall itself reaches x -10.5)
+        S.append(fillet_strip((tu["x"][0], pl["y"][1], pl["z"][0]), (tu["x"][0], pl["y"][1], pl["z"][1]), (-1, 0, 0), (0, 1, 0), Rj["plate_root_r"]))
+    # v7: no dowel boss (it blocked the insertion of the MG90S along -X)
+    # round 1 (FE v4, L8): the stop force bent the 2.0 turret wall about its T root (67 .. 157 MPa at h 0.6).  Solid sole under the crank
+    # (x -14.5 .. -6.5, z <= -36.2) from the plate plane to the stop bridge: the stop force reaches the plate as in-plane shear
+    So = R3["SOLE"]
+    S.append(one(C.box(So["x"][0], So["x"][1], pl["y"][0], 40.0, pl["z"][0], So["z_top"]) & C.cyl_z(B["r"][1], -60.0, 0.0)))
+    Se = R3.get("SOLE_EXT")
+    if Se:                                      # v10b (LD7): sole continued to x -16.9 under the crank arm (top -37.4 = the high bridge there)
+        S.append(one(C.box(Se["x"][0], Se["x"][1] + 0.02, pl["y"][0], 40.0, pl["z"][0], Se["z_top"]) & C.cyl_z(B["r"][1], -60.0, 0.0)))
+    # v8: R1.0 between the sole top and the -X face of the (4.0) turret wall; R0.3 under the block against the wall and the plate
+    sr_ = R3["SOLE_ROOT_R"]; zs = So["z_top"]; yp1 = pl["y"][1]; br_ = R3["BLOCK_ROOT_R"]
+    S += [fillet_strip((tu["x"][0], pl["y"][0], zs), (tu["x"][0], 26.5, zs), (-1, 0, 0), (0, 0, 1), sr_),
+          fillet_strip((tu["x"][1], yp1, bl["z"][0]), (tu["x"][1], bl["y"][1], bl["z"][0]), (1, 0, 0), (0, 0, -1), br_),
+          fillet_strip((tu["x"][1], yp1, bl["z"][0]), (bl["x"][1], yp1, bl["z"][0]), (0, 1, 0), (0, 0, -1), br_)]
     body = one(fuse(S))
     # ---- cuts: keyhole (closed), F10 holes + dowel hole, F11 hole + nut slot, tool notches in the bridge, wire notch
     N = [prism_x(_keyhole_yz(0.0), tu["x"][0] - 1.0, tu["x"][1] + 1.0)]
+    # rev3: block top-front edge chamfered (the R1.0 root of the ledge rib; bearing on the block top starts at y 16.4)
+    bc = R3["RAIL"]["ledge"]["block_chamfer"]; yb0 = pl["y"][0]; zt_ = bl["z"][1]
+    N.append(prism_x([(yb0 - 0.05, zt_ - bc - 0.05), (yb0 - 0.05, zt_ + 0.05), (yb0 + bc + 0.05, zt_ + 0.05)], pl["x"][0] - 0.5, pl["x"][1] + 0.5))
+    # rev3: the keyhole r 6.05 is tangent to the plate back face (0.05 ligament = a 0-degree cusp, FE hot spot of the pocket): the plate back
+    # face is scalloped concentric with the keyhole (r 6.65: 0.55 deep, 5.3 wide) from the -X edge to x -5.5, spherical run-out
+    Sc = R3["KEYHOLE_SCALLOP"]; (r1_, c1_) = Q["keyhole"][0]
+    N.append(C.cyl_x(Sc["r"], Sc["x"][0], Sc["x"][1], c1_[0], c1_[1]) & C.box(-30, 30, 0, pl["y"][1] + 0.3, -60, 0))
+    N.append((bd.Pos(Sc["x"][1], c1_[0], c1_[1]) * bd.Sphere(Sc["r"])) & C.box(-30, 30, 0, pl["y"][1] + 0.3, -60, 0))
+    # rev3: the keyhole (r 6.05) is tangent to the plate back face y 17.1 (0.05 left): the 0-degree cusp between the hole and the plate is
+    # opened into an R0.5 relief groove along x (found by the FE as the hot spot of the pocket under the keyhole load)
+    if R3["KEYHOLE_RELIEF"]:
+        kr = R3["KEYHOLE_RELIEF"]["r"]; (r1, c1) = Q["keyhole"][0]
+        N.append(C.cyl_x(kr, tu["x"][0] - 1.0, tu["x"][1] + 1.0, pl["y"][1] + 0.05, c1[1]))
     for (x, z) in (P2["F10"]["A"], P2["F10"]["B"]):
         N.append(C.cyl_y(2.3 / 2, pl["y"][0] - 3.0, pl["y"][1] + 0.5, x, z))
+    # round 1 (FE v5, L2): down stop.  The plate is notched over the shelf of the well (x -6.5 .. 0.2, bottom edge z -35.9 = 0.10 over the
+    # shelf top); front-bottom edge chamfered 0.7 (R0.5 root of the shelf), R0.8 in the +X notch corner
+    Sh = Rj["shelf"]; nx0, nx1 = Sh["notch_x"]; wz0, nz = Sh["window_z"]; nr = Sh["notch_r"]; cf = Sh["root_r"] + 0.2
+    ya_, yb_ = pl["y"][0] - 1.0, pl["y"][1] + 1.0
+    win = C.box(nx0, nx1, pl["y"][0] - 0.5, pl["y"][1] + 0.5, wz0, nz)
+    for (xc, zc, n1, n2) in ((nx1, nz, (-1, 0, 0), (0, 0, -1)), (nx0, nz, (1, 0, 0), (0, 0, -1)), (nx1, wz0, (-1, 0, 0), (0, 0, 1)), (nx0, wz0, (1, 0, 0), (0, 0, 1))):
+        win = one(win - fillet_strip((xc, ya_, zc), (xc, yb_, zc), n1, n2, nr))
+    N.append(win)
+    N.append(prism_x([(pl["y"][0] - 0.05, nz - 0.05), (pl["y"][0] - 0.05, nz + cf), (pl["y"][0] + cf, nz - 0.05)], nx0 + nr, nx1 - nr))     # ceiling front edge (R0.5 shelf root)
     Rb = P2["FIX2"]["pocket_rebate"]                                                       # fixer rev2 (m1): clear the drum shroud / lip top
-    N.append(C.box(*Rb["x"], *Rb["y"], *Rb["z"]))                                         # (z <= -41.85, y <= 15.12) by 0.1
+    if R3.get("PLATE_RELIEF_CUT"):              # v10b: oblique relief (plan polygon) - the plate root at the sole stays whole down to z -41.9
+        rel = prism_z(list(R3["PLATE_RELIEF_CUT"]), Rb["z"][0], Rb["z"][1])
+        Ro = R3.get("PLATE_RELIEF_RUNOUT")
+        if Ro:                                  # v10c: R1.5 between the blunt end face of the fin (x -5.0) and the plate underside
+            rel = one(rel - fillet_strip((Ro["x"], Ro["y"][0], Rb["z"][1]), (Ro["x"], Ro["y"][1], Rb["z"][1]), (1, 0, 0), (0, 0, -1), Ro["r"]))
+        N.append(rel)
+        if R3.get("LIP_RELIEF"):                # v10d: 0.10 over the top of the FFC retaining lip (K2)
+            N.append(C.cyl_z(R3["LIP_RELIEF"]["r"], Rb["z"][0], R3["LIP_RELIEF"]["z"]))
+    else:
+        N.append(C.box(*Rb["x"], *Rb["y"], *Rb["z"]))                                     # (z <= -41.85, y <= 15.12) by 0.1
     cb = P2["F10_B_CB"]; xb_, zb_ = P2["F10"]["B"]                                        # fixer rev2: washer step at F10_B, OPEN to the
     N.append(C.box(xb_ - cb["d"] / 2, pl["low"]["x"][1] + 0.6, pl["y"][1] - cb["depth"], pl["y"][1] + 0.5,  # +X edge and the low-plate top
                    cb["z_low"], pl["low"]["z"][1] + 0.05))                                # (no thin rim; 1.65 of plate under the washer)
     dx, dz = P2["F10"]["dowel"]
-    N.append(C.cyl_y(P2["F10"]["dowel_hole"] / 2, tg["y"][0] - 2.0, pl["y"][1], dx, dz))          # through the 2.0 plate (ends at the shelf)
+    N.append(C.cyl_y(P2["F10"]["dowel_hole"] / 2, pl["y"][0] - 2.0, pl["y"][1] + 0.5, dx, dz))    # v7: through the 2.0 plate (dowel D2 x 6, 1.1 proud behind)
     zt = C.LIFT_CASE["z"][1]; zh = zt + C.MG90S["tab"]["hole"]
     N.append(C.cyl_x(2.3 / 2, ns["x"][0] - 0.6, bl["x"][1] + 0.5, YL, zh))
     N.append(C.box(*ns["x"], *ns["y"], *ns["z"]))
     Kh = B["key_holes"]
     for x in Kh["x"]:
         N.append(C.cyl_y(Kh["d"] / 2, 15.0, 40.0, x, Kh["z"]))
+    Wp = R3["WALL_PAD"]; xw = tu["x"][1]                                                    # v9: wall face 0.2 back except the corner pad at the plate
+    N += [C.box(xw - Wp["recess"], xw + 0.02, pl["y"][1], tu["y"][1] + 0.1, Wp["z_top"], bl["z"][0] - R3["BLOCK_ROOT_R"] - 0.05),
+          C.box(xw - Wp["recess"], xw + 0.02, Wp["y_end"], tu["y"][1] + 0.1, tu["z"][0] - 0.05, Wp["z_top"] + 0.01)]
     return one(cut(body, N)).clean()
 
 
@@ -590,6 +811,8 @@ def mk_ucho(lift=0.0):
     N.append(C.cyl_y(Dw["hole"] / 2, y0 - 0.5, y0 + t + 0.5, Dw["x"], Dw["z"]))
     N.append(C.box(Nt["x"][0], Nt["x"][1], y0 - 0.5, yb, Nt["z_top"], fz1 + 0.01))      # flange + bend lowered under the arm sweep
     N.append(C.cyl_x(P2["FIX2"]["ear_relief_d"] / 2, x0 - 0.5, x1 + 0.5, yb, sum(E["relief_z"]) / 2))   # fixer S4: D1.0 at the kerf end
+    ec = E["end_chamfer"]; xe = E["flange_x_end"]                                # rev3 (R3-4): flange end, lower corner (sill fillet R1.5)
+    N.append(prism_y([(xe - ec, fz0 - 0.05), (xe + 0.05, fz0 - 0.05), (xe + 0.05, fz0 + ec)], y0 - 0.5, y0 + t + 0.5))
     s = one(cut(body, N)).clean()
     return s if lift == 0 else bd.Pos(0, 0, lift) * s
 
@@ -610,7 +833,8 @@ def ear_flat_pattern():
                (u_b1, rz1), (u_b1, rz0), (0.0, fz1)]
     # the relief kerf between the bend zone and the forward plate part is the cut (u_b1 - fwd .. u_b1, rz0 .. rz1)
     nz = E["notch"]["z_top"]; u_n0 = xe - E["notch"]["x"][1]
-    outline = [(0.0, fz0), (u_end, fz0), (u_end, z1 - ch), (u_end - ch, z1), (u_b1 - fwd, z1), (u_b1 - fwd, rz1),
+    ec = E["end_chamfer"]
+    outline = [(0.0, fz0 + ec), (ec, fz0), (u_end, fz0), (u_end, z1 - ch), (u_end - ch, z1), (u_b1 - fwd, z1), (u_b1 - fwd, rz1),
                (u_b1, rz1), (u_b1, nz), (u_n0, nz), (u_n0, fz1), (0.0, fz1)]
     holes = [(xe - hx, E["hole_z"], E["hole_d"] / 2) for hx in E["holes_x"]] + [(xe - E["dowel"]["x"], E["dowel"]["z"], E["dowel"]["hole"] / 2)]
     sy0, sy1 = E["slot_y"]; hw = E["slot_w"] / 2; zc = (E["slot_z"][0] + E["slot_z"][1]) / 2
@@ -905,6 +1129,8 @@ def ptfe_parts():
     a, b = L["back_up"]["x"]; strips.append((a + 0.5, b - 0.5, yl - t, yl, L["back_up"]["z"][0] + 0.2, z1))
     strips += [(-xl, -xl + t, a + 0.25, b - 0.25, z0, z1) for a, b in L["endm_y"]]
     strips += [(xl - t, xl, a + 0.25, b - 0.25, z0, z1) for a, b in L["endp_y"]]
+    Tp = R3["WIN"]["lintel"]["tape"]; xl3 = R3["WIN"]["lintel"]["x_in"]              # rev3: the lintel of the +X end window is a guide land too
+    strips.append((xl3 - t, xl3, Tp["y"][0], Tp["y"][1], Tp["z"][0], Tp["z"][1]))
     for i, s in enumerate(strips, 1):
         out[f"ptfe_pasik_{i}"] = C.box(*s)
     return out
@@ -942,7 +1168,7 @@ def fasteners(lift=0.0):
             joint="F10", size="brass knurled insert M2 x 4 x OD 4.0, bonded (hole D4.1 through the 4.0 wall; fixer rev2)")
     dx, dz = P2["F10"]["dowel"]
     add("kolik_F10", C.cyl_y(1.0, pf - P2["F10"]["dowel_depth"], pf - P2["F10"]["dowel_depth"] + P2["F10"]["dowel_len"], dx, dz),
-        "P", "steel", "kolík Ø2x5 ISO 8734 (lepený v šachte)", joint="F10", size="ISO 8734 2 m6 x 5 (bonded 3.5 in the pad)")
+        "P", "steel", "kolík Ø2x8 ISO 8734 (lepený v šachte)", joint="F10", size="ISO 8734 2 m6 x 8 (bonded 2.9 in the pad, 5.1 slip fit in the pocket; rev3)")
     zt = C.LIFT_CASE["z"][1]; zh = zt + C.MG90S["tab"]["hole"]; ns = P2["POCKET"]["nut_slot"]
     add("podl_F11", washer(2.2, 5.0, 0.3, (0.0, YL, zh), "x", 1), "P", "steel", "podložka DIN 125 M2", joint="F11", size="DIN 125 2.2x5x0.3")
     add("skr_F11", iso7380(2.0, 6.0, (0.3, YL, zh), "x", -1), "P", "steel", "skrutka ISO 7380 M2x6 (úchyt serva zdvihu)",
@@ -975,11 +1201,14 @@ PRINT = {   # fixer rev2 (M2 / K10): print records of the two PAN resin parts (c
                                  "top-plate vents must open into the gap below the part)", u_away=(0.0, 0.0, -1.0), on_plate=False,
                      supports="top plate face r >= 24 (collar-disc glue land, sanded) and the plate face inside the ring; never on the journal "
                               "ring r 26.37, the guide lands or the drum shroud faces",
-                     drains="8 x D2.5 vents through the top plate into the ring / rib pockets (fixer rev2 M2); the well is open at the bottom",
+                     drains="8 x D2.5 vents through the top plate into the ring / rib pockets (fixer rev2 M2); rev3: the well has a closed floor - in "
+                            "this orientation it is a bucket open toward the build plate: it empties through the back window and the -Y part of the "
+                            "+X end window (both sills level with the floor top) and through the D7.6 hub bore; vented by the neck opening of the "
+                            "top plate (part raised >= 3 mm) - no suction cup",
                      warp="journal ring tied by the top plate + ribs; sand the journal to fit (PTFE tape)"),
     "P_drziak_serva": dict(orientation="back plate (y 15.1 face) ON the build plate", u_away=(0.0, 1.0, 0.0), on_plate=True,
                            supports="none on the plate face; light supports under the bridge / lug overhangs (not on the lug contact faces)",
-                           drains="open pocket, no closed cavity", warp="none (small part)"),
+                           drains="open pocket, no closed cavity (rev3: the F11 nut slot and the plate window are through openings)", warp="none (small part)"),
 }
 METAL = {
     "L_ucho": (mk_ucho, "L", "stainless", "ucho pätky – nerez 304 1,5 ohýbané (výkres DXF; len nerez 304, nie 5754)"),
@@ -1071,6 +1300,94 @@ def expected_bbox():
     }
 
 
+def fe_design():
+    """interface description of the stage for the FE harness (fe_sachta/fe_design.py); written to fe_sachta/design.json at export"""
+    Ra, Pa, Pb, Pc = P2["RAIL"], P2["PAD_A"], P2["PAD_B"], P2["RAIL"]["pad_c"]
+    A, B = P2["F10"]["A"], P2["F10"]["B"]; dx, dz = P2["F10"]["dowel"]; hi = R2["INSERT_HOLES"]["M2"]["hole"] / 2
+    Lp = R3["LIP"]; L = P2["LANDS"]; Lg = P2["POCKET"]["lug"]; Wn = R3["WIN"]; Lr, Sh = Ra["ledge"], Ra["shelf"]; pl = P2["POCKET"]["plate"]
+    padB_shapes = [("stadium", Pb["x"], Pb["z"][0], Pb["z"][1], Pb["r"]), ("circle", B[0], B[1], P2["PAD_B2"]["r"], 0.0)]
+    bl_ = P2["POCKET"]["block"]; ns_ = P2["POCKET"]["nut_slot"]; tu_ = P2["POCKET"]["turret"]; Lc = C.LIFT_CASE
+    zh_ = Lc["z"][1] + C.MG90S["tab"]["hole"]; lx = (max(Lr["x"][0], bl_["x"][0]), min(Lr["x"][1], bl_["x"][1]))
+    return dict(
+        name=f"rev3-{FLOOR_VARIANT}", floor_variant=FLOOR_VARIANT,
+        faces=[dict(name="padA_y", kind="both", shape=("circle", A[0], A[1], Pa["r"], hi)),
+               dict(name="padB_y", kind="both", shape=padB_shapes[0], plus=[padB_shapes[1]],
+                    minus=[("circle", B[0], B[1], hi, 0.0), ("circle", dx, dz, P2["F10"]["dowel_hole"] / 2, 0.0)]),
+               dict(name="rail_y", kind="neg", shape=("box", Ra["x"][0], Ra["x"][1], Ra["band_z"][0], Ra["band_z"][1])),
+               dict(name="padC_y", kind="neg", shape=("box", Pc["x"][0], Pc["x"][1], Pc["z"][0], Pc["z"][1])),
+               dict(name="curb_y", kind="neg", shape=("box", R3["CURB"]["pad_x"][0], R3["CURB"]["pad_x"][1], R3["CURB"]["z"][0], R3["CURB"]["z"][1])),   # v10 (LD7)
+               dict(name="padD_y", kind="neg", shape=("box", Ra["pad_d"]["x"][0], Ra["pad_d"]["x"][1], Ra["pad_d"]["z"][0], bl_["z"][1])),
+               dict(name="padE_y", kind="neg", shape=("box", Ra["pad_e"]["x"][0], Ra["pad_e"]["x"][1], Ra["pad_e"]["z"][0], Ra["pad_e"]["z"][1]))],
+        tongues=[],
+        zstops=[dict(name="ledge_up_z", x=list(lx), y=(Lr["bear_y0"], Lr["y_end"]), z=Lr["z"][0] - Lr["gap"] / 2, kind="pos", gap=Lr["gap"]),
+                dict(name="shelf_dn_z", x=[Sh["x"][0] + Sh["edge_chamfer"], Sh["x"][1] - Sh["notch_r"] - 0.15], y=(pl["y"][0] + Sh["root_r"] + 0.2, Sh["y_end"]), z=Sh["z_top"] + Sh["gap"] / 2, kind="neg", gap=-Sh["gap"])],
+        dowel=dict(c=(dx, dz), r=1.45, y=(P2["PAD_FACE"] - P2["F10"]["dowel_depth"] - 0.3, Ra["dowel"]["boss_y"] + 0.2)),
+        # MG90S seat (LD1 / R3["SERVO_SEAT"]): load patches of the x couple.  arm = crank-pin load line .. keyhole wall centre
+        servo=dict(arm_pin=round(18.65 + (tu_["x"][0] + tu_["x"][1]) / 2, 2), z_tab=round(zh_, 2),
+                   tab_face=dict(x=bl_["x"][1], y=(Lc["y"][0], bl_["y"][1]), z=(Lc["z"][1], bl_["z"][1] - 0.15)),            # L2: tab pressed on the block (+X face)
+                   nut_wall=dict(x=ns_["x"][1], y=(YL - 2.0, YL + 2.0), z=(zh_ - 2.0, zh_ + 2.0)),                           # L1: F11 nut on the +X wall of its slot
+                   corner=dict(x=tu_["x"][1], y=(Lc["y"][0], R3["WALL_PAD"]["y_end"]), z=(Lc["z"][0], Lc["z"][0] + 2.5)),    # L1: lower case corner on the wall pad next to the plate (v9)
+                   endstop=dict(c=(dx, dz), r=1.6, y=(pl["y"][0], pl["y"][1]))),                                              # L2: far case end on the dowel -> plate hole wall
+        lug=dict(planes=dict(cw=(dict(x=R3["STOP"]["cw_face"]["p"][0], y=R3["STOP"]["cw_face"]["p"][1], d=tuple(R3["STOP"]["cw_face"]["n"]) + (0.0,))
+                                 if R3["STOP"].get("cw_face") else dict(x=Lg["face_x"][1], y=R3["STOP"]["contact_y"][0], d=(1.0, 0.0, 0.0))),
+                             ccw=dict(x=Lg["face_x"][0], y=R3["STOP"]["contact_y"][1], d=(-1.0, 0.0, 0.0))),
+                 r=Lg["r"], z=(-47.3, R2["STOP"]["pin_top"]), pin_r=R2["STOP"]["pin_r"]),
+        axial=dict(kind="well_lip", z=Lp["z_top"], r=(Lp["r_in"], R3["PIVOT"]["washer_r"])),
+        lands=dict(front=[list(v) for v in L["front_x"]], back=[list(v) for v in L["back_x"]],
+                   back_up=dict(x=list(L["back_up"]["x"]), z_min=L["back_up"]["z"][0] + 0.2),
+                   endm=[list(v) for v in L["endm_y"]], endp=[list(v) for v in L["endp_y"]], yi=P2["WELL"]["yi"], xi=P2["WELL"]["xi"], h=L["h"],
+                   endp_hi=dict(y=list(Wn["lintel"]["tape"]["y"]), z_min=Wn["lintel"]["z"][0] - 0.05)),
+        hub=dict(r=(6.6, 12.5), z_top=R3["FLOOR"]["z"][1]),
+        keyhole=dict(c=(YL, ZL), r=(5.6, 6.6), x=(tu_["x"][0] - 0.1, tu_["x"][1] + 0.1), lobe=(YL, ZL - C.MG90S["lobe"][1])),
+        spots=dict(win_end=dict(y=list(Wn["end"]["y"]), z_top=Wn["end"]["z"][1]),
+                   win_back=dict(x=list(Wn["back"]["x"]), z_top=Wn["back"]["z"][1], z_sill=Wn["back"]["z"][0]),
+                   rail=dict(x=(Ra["x"][0] - 0.1, Ra["padb_box"]["x"][1] + 0.6), z=(Ra["padb_box"]["z"][0] - 0.4, Lr["z"][1])),
+                   sharp=[] if FLOOR_VARIANT == "floor" else ["corner_floor"]),
+        bearing=fe_bearing())
+
+
+def fe_bearing():
+    """LD1 (a): engaged areas of the joint contacts (mm2) for the nominal bearing-pressure rows of fe_sachta/post.py"""
+    Ra = P2["RAIL"]; Lr, Sh, Pc = Ra["ledge"], Ra["shelf"], Ra["pad_c"]; pl = P2["POCKET"]["plate"]; Q = P2["POCKET"]
+    hi = R2["INSERT_HOLES"]["M2"]; Pa, Pb = P2["PAD_A"], P2["PAD_B"]; Db = Ra["dowel"]; bl, ns = Q["block"], Q["nut_slot"]
+    Lc = C.LIFT_CASE; S = C.MG90S
+    sx = (Sh["x"][0] + Sh["edge_chamfer"], Sh["x"][1] - Sh["notch_r"] - 0.15); sy = (pl["y"][0] + Sh["root_r"] + 0.2, Sh["y_end"])
+    a_padB = math.pi * Pb["r"] ** 2 + 2 * Pb["r"] * (Pb["z"][1] - Pb["z"][0]) + 0.35 * math.pi * P2["PAD_B2"]["r"] ** 2 \
+        - math.pi * (hi["hole"] / 2) ** 2 - math.pi * (P2["F10"]["dowel_hole"] / 2) ** 2
+    zkey = Q["keyhole"][0][1][1]; zh = Lc["z"][1] + S["tab"]["hole"]
+    out = dict(
+        ledge_up_z=round((min(Lr["x"][1], bl["x"][1]) - max(Lr["x"][0], bl["x"][0])) * (Lr["y_end"] - Lr["bear_y0"]), 2),
+        shelf_dn_z=round((sx[1] - sx[0]) * (sy[1] - sy[0]), 2),
+        dowel=dict(d=P2["F10"]["dowel_d"], well=P2["F10"]["dowel_depth"], pocket=round(Db["boss_y"] - pl["y"][0], 2)),
+        rail_y=round((Ra["x"][1] - Ra["x"][0]) * (Ra["band_z"][1] - Ra["band_z"][0]), 1),
+        padC_y=round((Pc["x"][1] - Pc["x"][0]) * (Pc["z"][1] - Pc["z"][0]), 1),
+        # sill curb seat (LD7): sole front face z -41.9 .. -40.65 minus the strip relieved over the FFC lip (r <= 17.6, below -41.75; v10d)
+        curb_y=round((R3["CURB"]["pad_x"][1] - R3["CURB"]["pad_x"][0]) * (R3["CURB"]["z"][1] - R3["CURB"]["z"][0])
+                     - (max(0.0, R3["CURB"]["pad_x"][1] + math.sqrt(R3["LIP_RELIEF"]["r"] ** 2 - pl["y"][0] ** 2)) * (R3["LIP_RELIEF"]["z"] - R3["CURB"]["z"][0])
+                        if R3.get("LIP_RELIEF") else 0.0), 1),
+        padD_y=round((Ra["pad_d"]["x"][1] - Ra["pad_d"]["x"][0]) * (bl["z"][1] - Ra["pad_d"]["z"][0]), 1),
+        padE_y=round((Ra["pad_e"]["x"][1] - Ra["pad_e"]["x"][0]) * (pl["z"][1] - Ra["pad_e"]["z"][0]), 1),
+        padA_y=round(math.pi * (Pa["r"] ** 2 - (hi["hole"] / 2) ** 2), 1), padB_y=round(a_padB, 1),
+        insert=dict(od=hi["od"], len=hi["l"]),
+        stop=dict(d=R2["STOP"]["pin_d"], engaged=round(R2["STOP"]["pin_top"] - Q["lug"]["z"][0], 2)),
+        # MG90S in the pocket: boss D11.8 in the keyhole of the 2.0 turret wall; the servo couple about y is reacted ALONG x:
+        #   L1 (pin up):   F11 tension (nut on the +X wall of the slot) + lower case corner on the turret wall, arm = tab hole .. case bottom
+        #   L2 (pin down): tab face on the block (+X face) + far end of the case on the END STOP of the low plate, arm = tab hole .. end-stop centre
+        keyhole=dict(d=2 * S["boss_r"], t=Q["turret"]["x"][1] - Q["turret"]["x"][0]),
+        f11=dict(arm_pin=round(18.65 + (Q["turret"]["x"][0] + Q["turret"]["x"][1]) / 2, 2),     # crank-pin load line x -18.65 .. keyhole wall centre
+                 arm_x_couple=round(zh - Lc["z"][0], 2), nut_area=round(4.0 * 4.0 - math.pi * 1.15 ** 2, 2),
+                 resin_len=round(bl["x"][1] - ns["x"][1], 2)),
+        seat=dict(area=round((bl["x"][1] - Lc["x"][0]) * (bl["y"][1] - Lc["y"][0]) - (ns["x"][1] - ns["x"][0]) * (bl["y"][1] - ns["y"][0]), 1),
+                  gap=round(bl["z"][0] - Lc["z"][1], 2)))
+    SS = R3["SERVO_SEAT"]; dz_ = P2["F10"]["dowel"][1]
+    # L2 couple: tab face on the block (area) + far case end on the proud end of the dowel (line contact d x proud); the dowel then pries in
+    # its holes: plate 2.0 (force) and well pad (couple force x lever over the bonded depth: p = 6 M / (d L^2))
+    out["endstop"] = dict(gap=SS["end_gap"], proud=SS["dowel_proud"], arm=round(zh - dz_, 2), d=P2["F10"]["dowel_d"],
+                          tab_area=round((bl["z"][1] - 0.15 - Lc["z"][1]) * (bl["y"][1] - Lc["y"][0]) - math.pi * 1.15 ** 2, 1),
+                          lever=round(SS["dowel_proud"] / 2 + (pl["y"][1] - pl["y"][0]) / 2, 2))
+    return out
+
+
 SOURCES = {
     "koleso_pan": "plain spur gear m0.8 z36, 20 deg, face 4.0, d 28.8 / da 30.4, bore 8.00 H7, brass C3604 (KHK BSS0.8-36 class / "
                   "McMaster brass 0.8 mod / Accu 0.8MOD - shape and bore UNVERIFIED; if hubbed: hub faced off, bored 8 H7 on a lathe). "
@@ -1094,14 +1411,14 @@ SOURCES = {
     "L_pata": "aluminium flat bar 20 x 4 (EN AW-6060 / 6061 / 5754), cut 44.6, filed to 19.6; 2 x M2 tapped (drill 1.6 x 7, thread 5)",
     "ptfe_pas_capu": "PTFE tape 0.13 x 7 x 167 on the journal ring (r 26.37 -> 26.50), z -10 .. -3",
 }
-for _i in range(1, 8):
+for _i in range(1, 9):
     SOURCES[f"ptfe_pasik_{_i}"] = "PTFE tape 0.13 on the guide land (neck gap 0.30 bare / 0.17 taped)"
 ASSEMBLY = {
     "P_sachta": ("B4", "inserts F10 + dowel bonded, PTFE tapes; 36T gear bonded under the hub disc on the deck set (centred by the taped boss)"),
     "koleso_pan": ("B4", "epoxy on the gear top face, gear tips centred in the drum shroud with a 0.3 shim strip, 24 h"),
     "ffc_par": ("B4", "rotating anchor (Kapton + epoxy dot) at stage az 14..24, riser + groove + fixed leg bonded flat (z -41.6 .. -30)"),
     "P_drziak_serva": ("B5 / T8", "MG90S inserted along -X (turret through the closed keyhole), F11; ear hung on the pin; module -Y "
-                                  "through the door (tongue into the rail, dowel), F10 A/B"),
+                                  "through the door along -Y: block under the ledge rib, nose over the plateau top, F10 dowel pushed in from +Y, F10 A/B"),
     "L_pata": ("B6", "drilled, slotted, tapped; bonded to the FRONT neck half only"),
     "DPS_krk": ("B6", "neck wires + pigtail soldered on the bench, board bonded into the foot slot"),
     "L_ucho": ("T8 / T11", "hung on the crank pin before the module goes in; F12 x 2 with a 1.3 hex key through the D2.4 key holes of the bridge"),
@@ -1191,6 +1508,8 @@ def main(argv):
             if os.path.exists(f):
                 os.remove(f)
     fp = write_ear_dxf(os.path.join(HERE, "stl", "L_ucho_rozvin.dxf"))
+    os.makedirs(os.path.join(HERE, "fe_sachta"), exist_ok=True)
+    json.dump(fe_design(), open(os.path.join(HERE, "fe_sachta", "design.json"), "w"), indent=1)
     extra = {}
     fx = os.path.join(HERE, "pan2_work", "parts_pan_extra.json")
     if os.path.exists(fx):

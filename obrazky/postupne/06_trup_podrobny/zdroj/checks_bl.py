@@ -203,7 +203,7 @@ if "K2" in ARGS:
 HEAD_PARTS = ["hlava_skrupina", "ram_displeja", "displej", "pena_displeja", "drziak_displeja", "magnety", "usi", "led_kruzky",
               "led_dosky", "oci_len_vizualizacia", "usko_kryt", "usko_lozisko", "paka", "klzny_kruzok"]      # group H of B/build.py
 STAGE_PARTS = ["golier_kotuc", "P_sachta", "ptfe_pas_capu", "ptfe_pasik_1", "ptfe_pasik_2", "ptfe_pasik_3", "ptfe_pasik_4",
-               "ptfe_pasik_5", "ptfe_pasik_6", "ptfe_pasik_7"]                                                # turn with the head (pan), rev. 2
+               "ptfe_pasik_5", "ptfe_pasik_6", "ptfe_pasik_7", "ptfe_pasik_8"]                                                # turn with the head (pan), rev. 2
 
 
 def run_K9():

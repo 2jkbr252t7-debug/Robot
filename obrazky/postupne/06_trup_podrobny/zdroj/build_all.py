@@ -139,6 +139,9 @@ def main(argv):
         mdoc["n_parts"] = len(out_mod)
         mdoc["all_ok"] = all(r["ok"] for r in out_mod); mdoc["not_ok"] = [r["name"] for r in out_mod if not r["ok"]]
         mdoc["exported_by"] = "build_all.py " + time.strftime("%Y-%m-%d %H:%M:%S")
+        if mod == "pan" and hasattr(M, "fe_design"):              # rev3 (sachta): joint description for the FE harness of the CURRENT build
+            os.makedirs(os.path.join(HERE, "fe_sachta"), exist_ok=True)
+            json.dump(M.fe_design(), open(os.path.join(HERE, "fe_sachta", "design.json"), "w"), indent=1)
         json.dump(mdoc, open(mj, "w"), indent=1, ensure_ascii=False)
     # files in stl/ and step/ that belong to no part: deleted (exports of parts that no longer exist)
     names = {r["name"] for r in recs}
@@ -168,7 +171,7 @@ def main(argv):
                stl=dict(deflection_mm=O.STL_LIN, angular_rad=O.STL_ANG, note="absolute chord deflection"),
                step_rule=f"STEP written only below {C.INTEG['STEP_MAX_MB']:.0f} MB; step = null for loft-derived parts",
                step_null=[r["name"] for r in recs if not r.get("step")], step_over_limit_on_disk=step_big, orphan_files_removed=orphans,
-               revision=2, printed_material="Elegoo Tough resin (all printed parts), 1.15 g/cm3",
+               revision=2, revision_sachta=3, printed_material="Elegoo Tough resin (all printed parts), 1.15 g/cm3",
                mass_by_group_g=mass, parts=recs)
     json.dump(doc, open(pj, "w"), indent=1, ensure_ascii=False)
     annotate()

@@ -1,3 +1,8 @@
+!!! POZOR – tento návod je pre REVÍZIU 2. Pre revíziu 3 (spevnená otočná šachta) platí navyše súbor zmeny_rev3.txt a má PREDNOSŤ.
+    Menia sa kroky 2, 4, 5, 7, 14, 19, 21, 23 a servis 1 (skrutka čapu M3×8 s podložkami, plné dno šachty, nový krok B4c na stole,
+    iné nastavenie serva otáčania). Skrutka F12 sa vkladá do ucha už v kroku 5 – po zasunutí modulu zdvihu sa vložiť nedá
+    (platí aj pre rev. 2; kroky 21, 23 a servis 1 nižšie to ešte popisujú po starom). Najprv si prečítaj zmeny_rev3.txt.
+
 NOVA mini – TRUP T4, revízia 2 (všetko tlačené zo živice, servis každého serva) – MONTÁŽNY POSTUP
 Rozmery v mm. Súradnice: Z hore, predok −Y, pravá strana robota −X (pri pohľade spredu je vľavo), vrch trupu z = 4.
 „Zdvih“ = výška krku nad pokojom: 0 = krk úplne dole (pokoj), 20 = úplne hore. Otočenie hlavy (pan) 0° = hlava dopredu,

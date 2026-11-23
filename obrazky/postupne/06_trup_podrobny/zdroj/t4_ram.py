@@ -25,6 +25,7 @@ from build123d import Vector                          # noqa: E402
 
 C.DENS.setdefault("alu", 2.70e-3)                     # aluminium 5754 / 6061 (T_most); integrator: add to DENS
 R2 = C.R2
+R3 = C.R3                                             # rev3 (sachta): pivot stack, T_cap root R1.0 / hole D3.1, pan pinion face 3.0
 ZF, ZB = C.Z_FLOOR, C.Z_BOT                           # -82.3 floor top, -84.5 cap underside
 ZD0, ZD1 = R2["STACK"]["deck"]                        # -48.2 / -46.2  deck (and T_most) plate
 CR = R2["CRADLE"]
@@ -141,16 +142,23 @@ RAM2 = dict(
     CUP_VENTS=[(2.5, 0.0, -16.6, -80.0), (2.0, 0.0, 24.6, -81.0), (2.5, 38.5, 2.7, -79.5), (2.5, -38.5, 2.7, -79.5)],
     #   (d, x, y, z_top): +15 deg about +X puts the +Y end of every floor lowest -> each vent sits at the +Y end of its cup
     # ---- deck / bridge / boss ------------------------------------------------------------------------------------------------
-    DECK_TRIM=dict(r=R2["DECK_TRIM"]["r"], az=(26.2, 223.8)),
+    DECK_TRIM=dict(r=R2["DECK_TRIM"]["r"], az=R3["STOP"]["deck_trim_az"]),
+    #   rev3 (R3-5): the stop faces of the lug are planes normal to x - the lug now sweeps B az 26.9..224.9 below the pin tops; the trim
+    #   starts on the radial line through pin 1 (25.4: the C-ear still backs the pin on its loaded half), >= 1.0 to the lug face at -90
     #   spec az 16..232: the lug block (stage az 118.3..131.7) sweeps B az 28.3..221.7 below the pin tops; 1.0 at r 27.6 =
     #   2.08 deg -> 26.2..223.8 lets the deck embrace pin 1 from its back side (C-ear, > 180 deg)
     MOST=dict(circles=[(0.0, 0.0, 12.5), (6.0, 15.95, 3.0), (11.0, 15.5, 2.5), (18.5, -15.95, 3.0)], tap_d=2.5,
               csk=dict(d=2.8, dk=5.2, depth=1.2)),
-    CAP_BOSS=dict(r=R2["PIVOT"]["boss_d"] / 2, z=R2["PIVOT"]["boss_z"], hole_d=R2["PIVOT"]["boss_hole"], edge_r=0.3, flare_r=0.6),
-    #   flare R0.6 (spec R1.0): R1.0 reaches r 4.14 at the gear bottom -45.9 > bore r 4.0
+    CAP_BOSS=dict(r=R2["PIVOT"]["boss_d"] / 2, z=R2["PIVOT"]["boss_z"], hole_d=R2["PIVOT"]["boss_hole"], edge_r=0.3, flare_r=R3["PIVOT"]["cap_root_r"]),
+    #   rev3 (R3-9 / S8): root flare R1.0 (was R0.6) - it reaches r 4.14 at the gear bottom -45.9, so the LOWER bore edge of the 36T gear is
+    #   chamfered 0.4 x 45 deg (t4_pan.mk_koleso; by hand with a countersink if the bought gear has none); hole D3.1 (was 3.4; B4)
     SHIMS=dict(strips=[((-14.3, 15.7), (4.0, 8.0)), ((-14.3, 15.7), (-8.0, -4.0))], z=R2["STACK"]["shim"],
                c_shim=dict(x=(XE, S15["x"][0]), y=(-10.0, 10.0), z=(-80.0, -52.0))),
-    F15=dict(screw="ISO 7380 M3x6", head=R2["PIVOT"]["head_z"], tip=-47.0, washer=(1.6, 4.5, R2["PIVOT"]["washer_z"])),
+    #   rev3 (R3-1 / R3-2): ISO 7380 M3x8; stack on T_cap = 2 x DIN 125 M3 (spacers) + DIN 9021 M3 (retention washer over the hub lip
+    #   of P_sachta) + head; tip -48.0 (1.8 of the 2.0 T_most, 0.2 above its underside, 0.3 above the STS3215)
+    F15=dict(screw=R3["PIVOT"]["screw"], length=R3["PIVOT"]["screw_len"], head=R2["PIVOT"]["head_z"], tip=R3["PIVOT"]["tip_z"],
+             washer=(1.6, R3["PIVOT"]["washer_r"], R2["PIVOT"]["washer_z"]), spacer=(1.6, R3["PIVOT"]["spacer_r"], R3["PIVOT"]["spacer_t"]),
+             spacer_z=R3["PIVOT"]["spacer_z"]),
 )
 DEVIATIONS = [
     "T_spodok J1 stop lug r 18.65..21.0 x 5.0 tangential x 4.0 (spec r 17..21 x 4.0): inside r 18.575 it would block the 6805, "
@@ -186,9 +194,11 @@ DEVIATIONS = [
     "pedestal trough r 4.1 + tie groove 2.8 x 1.2 under the can.",
     "Base FFC floor slot y 20.6..21.9 (spec 21.2..22.5): plinth skin at x +-6 1.29 (spec gives 0.71).",
     "Box closure z -51..-34 (spec -52): 1.2 above the amplifier / buck tops (-52.2).",
-    "T_cap root flare R0.6 (spec R1.0): R1.0 reaches r 4.14 at the gear bottom z -45.9 (bore r 4.0).",
-    "F15 ISO 7380 M3x6: engages only 0.8 of the 2.0 T_most (1.6 threads, strip about 700 N vs 230 N max) - x8 would hit the "
-    "J1 servo top.  Torque 0.08 N.m (spec 0.12): T_cap sustained compression 3.6 MPa <= 4.3.",
+    "rev3: T_cap root flare R1.0 as specified (the 36T gear gets a 0.4 x 45 deg chamfer on its LOWER bore edge); hole D3.1.",
+    "rev3: F15 = ISO 7380 M3x8 on a stack of 2 x DIN 125 M3 + DIN 9021 M3 (head seat -40.0, tip -48.0): 1.8 of the 2.0 T_most engaged "
+    "(1.51 at the shortest screw 7.71); a dry-fitted screw whose tip stands proud of the T_most underside gets one more DIN 125 under "
+    "its head (K7 calibration row).  The DIN 9021 overlaps the hub lip of P_sachta: positive axial retention of the WELL.",
+    "rev3: pan pinion face 3.0 (z -45.9 .. -42.9; a bought 4.0 pinion is shortened by 1.0 at its TOP face): 1.0 under the stage floor.",
     "Tie saddle on the cradle back wall: tunnel 2.2 x 1.2 for a 2.0 mm cable tie (spec 2.8 x 1.2 for 2.5 mm): bars 1.2 and 0.7 above the carrier top within the 4.6 between the carrier (-53.5) and the deck seat (-48.2).  Column-web saddles dropped (see TIE_SADDLES).",
     "Static FFC wall: root fillet R1 on the outer side only; the inner face is the FFC running face (no fillet).",
     "Spigot notches / tower keep-out = OBAL F1 zone + 0.5 (x +-(25.1..32.9), |y| >= 15.1, z -81..-74.5): the rev. 1 T_stred "
@@ -483,7 +493,7 @@ def mk_servo_pan():
 def mk_pastorok_pan():
     """plain spur gear m0.8 18T (da 16.0, d 14.4), face 4.0 (z -45.9..-41.9), bore D5.00 H7 on the STS3032 spline (Loctite
     638).  A tooth GAP faces the pan axis (the 36T of PAN has a tooth at B az 254.3 at pan 0: PAN phase 4.3 + 10 k)."""
-    z0, z1 = R2["GEAR_PAN"]["plane"]
+    z0, z1 = R2["GEAR_PAN"].get("pinion_plane", R2["GEAR_PAN"]["plane"])     # rev3 (R3-3 b): pinion top -42.9 (mesh width 3.0)
     to_axis = math.degrees(math.atan2(-PAX[1], -PAX[0]))
     g = gear_solid(C.M_PAN, C.T_PAN[0], z0, z1, PAX[0], PAX[1], to_axis + 10.0)
     return one(g - C.cyl_z(R2["GEAR_PAN"]["pinion"]["bore"] / 2, z0 - 0.5, z1 + 0.5, *PAX))
@@ -1023,7 +1033,8 @@ def mk_most():
 
 
 def mk_cap():
-    """T_cap: resin boss D7.70 x 4.40 (z -46.2..-41.8), D3.4 hole, top edges R0.3, root flare R0.6; bonded on T_most"""
+    """T_cap: resin boss D7.70 x 4.40 (z -46.2..-41.8), D3.1 hole (drilled after curing), top edges R0.3, root flare R1.0 (rev3);
+    bonded on T_most"""
     B = RAM2["CAP_BOSS"]
     z0, z1 = B["z"]
     c = C.cyl_z(B["r"], z0, z1)
@@ -1126,11 +1137,18 @@ def fasteners():
         add(f"skr_F14_{i}", screw_btn("M2tf", 6, (xa + 0.3, y, z), "x", -1), "steel", "skrutka M2x6 do plastu (zosilňovač), jednorazová",
             joint="F14", size="M2x6 thread-forming", head=(xa + 0.3, y, z), dir="-X", tool_from="+X (side cap off)", torque=R2["TORQUE"]["M2_thread_forming"])
         add(f"pd_F14_{i}", washer("M2", (xa, y, z), "x", -1), "steel", "podložka DIN 125 M2", joint="F14")
-    # F15 pivot: DIN 9021 M3 on T_cap, ISO 7380 M3x6 into the tapped T_most
-    hz = R2["PIVOT"]["head_z"][0]; wz = R2["PIVOT"]["washer_z"]
-    add("skr_F15", screw_btn("M3", 6, (0.0, 0.0, hz), "z", -1), "steel", "skrutka ISO 7380 M3x6 (čap pan, do T_most)",
-        joint="F15", size="ISO 7380 M3x6", head=(0.0, 0.0, hz), dir="-Z", tool_from="+Z (through the empty well)", torque=C.FIX2["TQ_DESIGN"])
-    add("pd_F15", one(C.cyl_z(4.5, *wz) - C.cyl_z(1.6, wz[0] - 0.2, wz[1] + 0.2)), "steel", "podložka DIN 9021 M3 (3,2 x 9 x 0,8)", joint="F15")
+    # F15 pivot (rev3): 2 x DIN 125 M3 (spacers) + DIN 9021 M3 (retention washer over the hub lip of the well) on T_cap,
+    # ISO 7380 M3x8 into the tapped T_most
+    F5 = RAM2["F15"]; hz = F5["head"][0]; wz = F5["washer"][2]; L15 = int(F5["length"])
+    add("skr_F15", screw_btn("M3", L15, (0.0, 0.0, hz), "z", -1), "steel", f"skrutka ISO 7380 M3x{L15} (čap pan, do T_most)",
+        joint="F15", size=f"ISO 7380 M3x{L15}", head=(0.0, 0.0, hz), dir="-Z", tool_from="+Z (through the empty well)", torque=C.FIX2["TQ_DESIGN"])
+    add("pd_F15", one(C.cyl_z(F5["washer"][1], *wz) - C.cyl_z(1.6, wz[0] - 0.2, wz[1] + 0.2)), "steel",
+        "podložka DIN 9021 M3 (3,2 x 9 x 0,8) – drží šachtu za golier náboja", joint="F15")
+    ri_, ro_, ts_ = F5["spacer"]
+    for i in (1, 2):
+        za = F5["spacer_z"][0] + (i - 1) * ts_
+        add(f"pd_F15_d{i}", one(C.cyl_z(ro_, za, za + ts_) - C.cyl_z(ri_, za - 0.2, za + ts_ + 0.2)), "steel",
+            "podložka DIN 125 M3 (3,2 x 7 x 0,5) – dištančná pod DIN 9021", joint="F15")
     # F16 J1 servo (from below, the 2 -X pads)
     for i, (x, y) in enumerate(RAM2["F16"]["at"], 1):
         add(f"skr_F16_{i}", screw_btn("M2", 6, (x, y, ZB - 0.3), "z", 1), "steel", "skrutka ISO 7380 M2x6 (servo J1, zospodu)",
@@ -1231,7 +1249,8 @@ def expected_bbox():
     D = DUMMY
     return {
         "T_spodok": (-a, a, -b, b, RAM2["J1_LUG"]["z"][0], SHZ + C.R_COL_STOP[1]),
-        "T_cap": (-RAM2["CAP_BOSS"]["r"] - 0.6, RAM2["CAP_BOSS"]["r"] + 0.6, -RAM2["CAP_BOSS"]["r"] - 0.6, RAM2["CAP_BOSS"]["r"] + 0.6,
+        "T_cap": (-RAM2["CAP_BOSS"]["r"] - RAM2["CAP_BOSS"]["flare_r"], RAM2["CAP_BOSS"]["r"] + RAM2["CAP_BOSS"]["flare_r"],
+                  -RAM2["CAP_BOSS"]["r"] - RAM2["CAP_BOSS"]["flare_r"], RAM2["CAP_BOSS"]["r"] + RAM2["CAP_BOSS"]["flare_r"],
                   *RAM2["CAP_BOSS"]["z"]),
         "Z_naboj_test": (-D["plate"][0] / 2, D["plate"][0] / 2, -D["plate"][1] / 2, D["plate"][1] / 2, D["feet_z"], R2["J1"]["gear_plane"][0]),
     }
@@ -1368,7 +1387,7 @@ PRINT = {
                      warp="2.0 plate may bow <= 0.2: pulled flat by F3a, sits on the shims"),
     "T_cap": dict(orientation="axis vertical, bottom (bond face) toward the build plate", u_away=(0.0, 0.0, 1.0), on_plate=False,
                   supports="bottom face only (bond face, sanded)",
-                  drains="through hole D3.4", warp="none"),
+                  drains="through hole D3.1 (rev3: printed D3.1, re-drilled D3.1 after curing)", warp="none"),      # fix-back after overenie3 (V9): the string still said D3.4 (rev. 2)
     "Z_naboj_test": dict(orientation="plate flat on the build plate", u_away=(0.0, 0.0, 1.0), on_plate=True, supports="none (plate on the plate); counterbore ceiling bridged",
                          drains="through bore D8.2", warp="110 x 90 plate: raft recommended"),
 }

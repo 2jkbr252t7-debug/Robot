@@ -197,7 +197,7 @@ def se_margin(P, a, b, n):
     return C.se_r(a, b, n, np.arctan2(P[:, 1], P[:, 0])) - np.hypot(P[:, 0], P[:, 1])
 
 
-PIVOT_PARTS = ("T_cap", "ptfe_cap", "pd_F15", "skr_F15", "ptfe_podlozka")
+PIVOT_PARTS = ("T_cap", "ptfe_cap", "pd_F15", "pd_F15_d1", "pd_F15_d2", "skr_F15", "ptfe_podlozka")     # rev3: + 2 x DIN 125 M3 spacers
 LATE = {"usb_predlzovac": "plugged into the ESP32-S3-Zero at T5c, AFTER T_stred (fixer rev2 M1)"}
 #   fixer rev2 (B1): the pan pinion is bonded on the bench (B7b) and IS present when T_stred comes down - it passes the T_stred lip through
 #   the relief r 8.35 about the pinion axis (t4_obal step stred_pinion); its margin = 8.35 - distance to the axis (exact lowering: K7 T5)
@@ -225,7 +225,18 @@ def env_lug(P):
     St = R2["STOP"]; r = np.hypot(P[:, 0], P[:, 1]); az = np.degrees(np.arctan2(P[:, 1], P[:, 0])) % 360
     r0, r1 = St["lug"]["r"]
     z = P[:, 2]
-    a_lo = np.where(z < St["bridge"]["z"][0], St["lug"]["az"][0], St["bridge"]["az"][0]) - 90.0
+    # rev3 (fixer 1d, opravy3.md "criteria"): the cw stop face of the lug is a PLANE (R3-5; v10b: turned 38 deg), not a radial face: its
+    # azimuth depends on the radius.  The rev. 2 model swept the single value lug az[0] at every radius (it reported 0.73 to the deck trim
+    # on the v9 lug, where the real mesh has 0.95 at -90.3).  The lug zone now uses the plane; the ccw end keeps the conservative single azimuth.  Cross-check on the real meshes: pan_checks C2 (P_drziak_serva <-> T_paluba)
+    rr_ = np.clip(r, r0, r1); cwf = C.R3["STOP"].get("cw_face")
+    if cwf:                                       # v10b (LD7): cw face = plane through p with normal n (38 deg from +x); its point at radius r
+        (nx_, ny_), (px_, py_) = cwf["n"], cwf["p"]; tx_, ty_ = ny_, -nx_; pt_ = px_ * tx_ + py_ * ty_
+        s_ = -pt_ - np.sqrt(np.maximum(pt_ ** 2 - (px_ ** 2 + py_ ** 2 - rr_ ** 2), 0.0))
+        az_face = np.degrees(np.arctan2(py_ + s_ * ty_, px_ + s_ * tx_))
+    else:
+        xf = C.R3["STOP"]["face_x_cw"]
+        az_face = np.degrees(np.arctan2(np.sqrt(np.maximum(rr_ ** 2 - xf ** 2, 0.0)), xf))
+    a_lo = np.where(z < St["bridge"]["z"][0], az_face, St["bridge"]["az"][0]) - 90.0
     a_hi = St["lug"]["az"][1] + 90.0
     inaz = (az >= a_lo) & (az <= a_hi)
     inz = (z >= St["lug"]["z"][0]) & (z <= St["bridge"]["z"][1])
@@ -331,10 +342,28 @@ def check_C(parts):
             continue
         lo, hi = bbox(parts[n]["shape"])
         piv[n] = dict(r=round(max(abs(lo[0]), abs(hi[0]), abs(lo[1]), abs(hi[1])), 3), z_top=round(hi[2], 3))
+        if n == "T_cap":
+            # rev3 (fixer 1d): T_cap has the R1.0 ROOT FILLET of R3-9 at its base (r 3.85 -> 4.85 over z -46.2 .. -45.2, below / inside the 0.4
+            # chamfer of the gear bore).  The "r <= 4.5" rule is about the part of the boss that stands inside the gear bore / lip bore:
+            # it is evaluated above the fillet; the fillet is checked against the chamfered gear bore at the gear's lower face
+            Pc_ = pts_fine(parts, n); rc_ = np.hypot(Pc_[:, 0], Pc_[:, 1]); zg = R2["GEAR_PAN"]["plane"][0]
+            zf_ = lo[2] + C.R3["PIVOT"]["cap_root_r"]
+            piv[n]["r_base"] = piv[n]["r"]; piv[n]["r"] = round(float(rc_[Pc_[:, 2] >= zf_ - 1e-6].max()), 3)
+            piv[n]["r_at_gear_face"] = round(float(rc_[Pc_[:, 2] >= zg - 1e-6].max()), 3)
+            piv[n]["gear_chamfer_r"] = round(R2["GEAR_PAN"]["gear"]["bore"] / 2 + C.R3["PIVOT"]["gear_bore_chamfer"], 3)   # 0.4 x 45 deg at the lower face
     res["pivot"] = piv
-    hub_r = R2["STACK"]["hub_disc_r"][0]
-    verdict("C6_pivot_interface", all(v["r"] <= 4.501 and v["z_top"] <= -39.349 for v in piv.values()),
-            f"{piv}; washer r 4.5 -> hub disc ring r {hub_r}: {hub_r - 4.5:.2f}; F15 head r 2.85 -> foot hole r 5.5: 2.65; head top -39.35 -> neck -36.5: 2.85")
+    # rev3 (R3-1 / R3-2): M3x8 on 2 x DIN 125 + DIN 9021; the DIN 9021 (r 4.5) overlaps the hub lip of the well (r_in 3.80) and lies in
+    # its recess r 4.90; head top -38.35 (-37.85 with the calibration washer): >= 1.0 under the LANDED neck bottom -36.65
+    P3 = C.R3["PIVOT"]; L3 = C.R3["LIP"]; zh = P3["head_z"][1]; zc = P3["cal_head_top"]
+    verdict("C6_pivot_interface", all(v["r"] <= 4.501 and v["z_top"] <= zh + 0.001 for v in piv.values()) and zc <= -36.5 - 0.15 - 1.0 + 1e-9
+            and piv["T_cap"]["r_at_gear_face"] <= piv["T_cap"]["gear_chamfer_r"] - 0.05
+            and L3["recess_r"] - P3["washer_r"] >= 0.3 and P3["washer_r_min"] - L3["r_in"] >= 0.5 and L3["r_in"] - P3["spacer_r"] >= 0.29,
+            f"{piv}; DIN 9021 r 4.5 (min {P3['washer_r_min']}) over the hub lip r_in {L3['r_in']}: overlap {P3['washer_r'] - L3['r_in']:.2f} "
+            f"(min {P3['washer_r_min'] - L3['r_in']:.2f} at the washer's lower OD, {L3['overlap_min']} with 0.25 eccentricity), recess r {L3['recess_r']}: "
+            f"{L3['recess_r'] - P3['washer_r']:.2f} radial; spacers r {P3['spacer_r']} in the lip bore: {L3['r_in'] - P3['spacer_r']:.2f}; washer r 4.5 -> "
+            f"foot hole r 5.5: 1.00; head top {zh} -> neck -36.5: {-36.5 - zh:.2f}; with the calibration washer {zc}: {-36.65 - zc:.2f} under the landed neck; "
+            f"T_cap: r {piv['T_cap']['r']} above its R1.0 root fillet (base r {piv['T_cap']['r_base']}), fillet r {piv['T_cap']['r_at_gear_face']} at the gear's "
+            f"lower face inside the 0.4 x 45 deg bore chamfer r {piv['T_cap']['gear_chamfer_r']} (rev3 criterion, fixer 1d)")
     P = pts(parts, "pastorok_pan"); r = np.hypot(P[:, 0], P[:, 1]); m = (r >= 15.4) & (r <= 17.6)
     az = np.degrees(np.arctan2(P[m, 1], P[m, 0])) % 360
     D = R2["DRUM"]["az"]; lo, hi = D[0] - 90.0, D[1] + 90.0
@@ -347,12 +376,20 @@ def check_C(parts):
         lo, hi = bbox(parts[n]["shape"]); c = (lo + hi) / 2
         rr = math.hypot(c[0], c[1]); a = math.degrees(math.atan2(c[1], c[0])) % 360
         half = math.degrees(math.asin(St["pin_d"] / 2 / rr))
-        stop = (a + half) - St["lug"]["az"][0] if k == 0 else (a - half) - St["lug"]["az"][1]
+        # rev3: planar stop faces x = face_x (stage frame): pin 1 meets the cw face when its stage x = face + r_pin, pin 2 the ccw face at face - r_pin
+        xf = St["lug"]["face_x"][1] + St["pin_d"] / 2 if k == 0 else St["lug"]["face_x"][0] - St["pin_d"] / 2
+        az_s = math.degrees(math.acos(max(-1.0, min(1.0, xf / rr))))             # stage azimuth of the pin at contact (y > 0 side)
+        cwf = C.R3["STOP"].get("cw_face")
+        if k == 0 and cwf:                       # v10b (LD7): cw face = plane through p with unit normal n: contact when (c - p).n = r_pin
+            pn = cwf["p"][0] * cwf["n"][0] + cwf["p"][1] * cwf["n"][1]
+            az_s = cwf["phi"] + math.degrees(math.acos(max(-1.0, min(1.0, (St["pin_d"] / 2 + pn) / rr))))
+        stop = ((a - az_s + 180.0) % 360.0) - 180.0
         rowp.append(dict(name=n, r=round(rr, 3), az=round(a, 2), top=round(hi[2], 3), stop_at_pan=round(stop, 2)))
     res["stop_pins"] = rowp
     ok = all(abs(p["r"] - 30.0) < 0.02 and abs(p["top"] - St["pin_top"]) < 0.01 for p in rowp) and \
         abs(rowp[0]["stop_at_pan"] + 90) < 0.1 and abs(rowp[1]["stop_at_pan"] - 90) < 0.1
-    verdict("C8_stop_pins", ok, f"{rowp} (lug faces stage az 118.3 / 131.7)")
+    verdict("C8_stop_pins", ok, f"{rowp} (rev3: ccw stop face = plane x {St['lug']['face_x'][0]} in the stage frame; cw face = plane through {C.R3['STOP']['cw_face']['p']} with its normal "
+                            f"{C.R3['STOP']['cw_face']['phi']} deg from +x, v10b / LD7)")
     OUT["C"] = res
 
 
@@ -405,11 +442,11 @@ def check_D(parts):
     row("FFC wall thickness (az 90)", thickness(Dk, (0.0, 24.3, -44.0), (0, 1, 0)), 1.6, 0.005)
     row("C J1", float(np.hypot(*C.J1_AX)), 18.00, 1e-6)
     row("C pan (PAN_AX)", float(np.hypot(*M.PAX)), 21.600, 0.001)
-    lo, hi = bbox(parts["pastorok_pan"]["shape"]); row("pan pinion plane bottom", lo[2], -45.9, 1e-3); row("pan pinion plane top", hi[2], -41.9, 1e-3)
+    lo, hi = bbox(parts["pastorok_pan"]["shape"]); row("pan pinion plane bottom", lo[2], -45.9, 1e-3); row("pan pinion plane top (rev3: face 3.0)", hi[2], R2["GEAR_PAN"].get("pinion_plane", R2["GEAR_PAN"]["plane"])[1], 1e-3)
     lo, hi = bbox(parts["pastorok_J1"]["shape"]); row("J1 pinion plane bottom", lo[2], -90.0, 1e-3); row("J1 pinion plane top", hi[2], -86.0, 1e-3)
     lo, hi = bbox(parts["ptfe_podlozka"]["shape"]); row("PTFE washer top", hi[2], -45.9, 1e-3)
     lo, hi = bbox(parts["T_cap"]["shape"]); row("T_cap top", hi[2], -41.8, 1e-3)
-    lo, hi = bbox(parts["skr_F15"]["shape"]); row("F15 head top", hi[2], -39.35, 1e-3)
+    lo, hi = bbox(parts["skr_F15"]["shape"]); row("F15 head top", hi[2], R2["PIVOT"]["head_z"][1], 1e-3); row("F15 tip (0.2 inside the 2.0 T_most, 0.3 above the STS3215)", lo[2], R2["PIVOT"]["tip_z"], 1e-3)
     lo, hi = bbox(parts["servo_pan"]["shape"]); row("pan servo top of the boss (= pinion bottom - 0.3)", -46.2 if hi[2] > -46.21 else None, -46.2, 1e-3)
     row("T_cap + tape diameter (gear bore 8.00)", 2 * (RV["CAP_BOSS"]["r"] + 0.13), 7.96, 1e-3, "radial 0.02")
     st = R2["STACK"]
@@ -739,15 +776,30 @@ def check_S(parts):
     # fixer rev2 (lead decision S5): F15 at the fingertip design case 0.10 N.m (M3, K 0.2 -> 167 N).  The preload is pure compression of
     # the T_cap: rated against the short-term crush 25.8; creep relaxation only opens the stage axial play by microns (the stage is held
     # axially by the head / DIN 9021 washer, positively).  Root under L8: tension side = bending - preload (worst: preload fully relaxed)
-    Pf15 = C.FIX2["TQ_DESIGN"] / (0.2 * 0.003); Acap = math.pi * (3.85 ** 2 - 1.7 ** 2); Zcap = math.pi * (7.7 ** 4 - 3.4 ** 4) / (32 * 7.7)
-    row("S06", "T_cap compression under the F15 preload (crush; creep only adds axial play)", f"F15 {C.FIX2['TQ_DESIGN']} N.m fingertip",
-        f"A {Acap:.1f}", Pf15 / Acap, C.FIX2["CRUSH_MPA"], f"preload {Pf15:.0f} N")
-    row("S06b", "T_cap root: radial mesh 65 N x 2.3, tension side (preload relaxed to 0 = worst)", "L8", f"Z {Zcap:.1f}", 65 * 2.3 / Zcap * 1.2,
-        A_N, "Kt 1.2 (R0.6); with the preload present the root stays in compression")
+    P3 = C.R3["PIVOT"]; L3 = C.R3["LIP"]; dh = RV["CAP_BOSS"]["hole_d"]; rfl = RV["CAP_BOSS"]["flare_r"]
+    Pf15 = C.FIX2["TQ_DESIGN"] / (0.2 * 0.003); Acap = math.pi * (P3["spacer_r"] ** 2 - (dh / 2) ** 2); Zcap = math.pi * (7.7 ** 4 - dh ** 4) / (32 * 7.7)
+    row("S06", "T_cap compression under the F15 preload through the D7 spacers (crush; creep LOWERS the washer: the 0.12 axial play shrinks "
+               "0.03-0.05 - rev3 S8: initial play >= 0.12)", f"F15 {C.FIX2['TQ_DESIGN']} N.m fingertip", f"A {Acap:.1f}", Pf15 / Acap, C.FIX2["CRUSH_MPA"],
+        f"preload {Pf15:.0f} N; sustained {Pf15 / Acap:.1f} MPa > 4.3 -> relaxes, T_cap is located by its bond + the F15 shank in D{dh}")
+    row("S06e", "T_cap compression if F15 is driven with a normal screwdriver (0.3 N.m, 500 N)", "L7 over-torque (B1)", f"A {Acap:.1f}", 500.0 / Acap,
+        C.FIX2["CRUSH_MPA"], "short-term crush", info=True)
+    ktc = 1.5                                              # shoulder fillet in bending, r/d = 1.0 / 7.7 = 0.13, D/d 1.26 (Peterson)
+    row("S06b", f"T_cap root R{rfl}: radial mesh 65 N x 2.3, tension side (preload relaxed to 0 = worst)", "L8", f"Z {Zcap:.1f}", 65 * 2.3 / Zcap * ktc,
+        A_N, f"Kt {ktc} (R{rfl}, r/d {rfl / 7.7:.2f}; rev. 2: R0.6 with Kt 1.2 was under-rated - sachta_a S8: Kt 1.75 -> 6.07); with the preload the root stays in compression")
     row("S06b2", "T_cap root: radial mesh 65 N x 2.3 + full preload, compression side", "L8 + 0.10 N.m", f"Z {Zcap:.1f}",
-        65 * 2.3 / Zcap * 1.2 + Pf15 / Acap, C.FIX2["CRUSH_MPA"], "compression only (crush)")
-    row("S06c", "pivot journal on PTFE tape D7.96 x 4.0", "L8", "31.8 mm2", 65.0 / (7.96 * 4.0), 5.0, "Z3.8 sliding limit 5")
-    row("S06d", "T_cap bond on T_most (radial 65 N)", "L8", "53 mm2", 65.0 / (math.pi * (4.45 ** 2 - 1.7 ** 2)), A_EP, "epoxy")
+        65 * 2.3 / Zcap * ktc + Pf15 / Acap, C.FIX2["CRUSH_MPA"], "compression only (crush)")
+    Lj = (RV["CAP_BOSS"]["z"][1] - RV["CAP_BOSS"]["edge_r"]) - (RV["CAP_BOSS"]["z"][0] + rfl)
+    row("S06c", f"pivot journal on PTFE tape D7.96 x {Lj:.1f} (above the R{rfl} root)", "L8", f"{7.96 * Lj:.1f} mm2", 65.0 / (7.96 * Lj), 5.0, "Z3.8 sliding limit 5")
+    Ab = math.pi * ((3.85 + rfl) ** 2 - (dh / 2) ** 2)
+    row("S06d", "T_cap bond on T_most (radial 65 N; toughened 2K epoxy on abraded Al)", "L8", f"{Ab:.0f} mm2", 65.0 / Ab, A_EP, "epoxy; slop of the "
+        f"shank in D{dh} if the bond fails: {(dh - 2.874) / 2:.2f} (was 0.26 in D3.4)")
+    # rev3 (R3-2): positive axial retention of the WELL - DIN 9021 on the hub lip
+    Aov = math.pi * (P3["washer_r_min"] ** 2 - L3["r_in"] ** 2)
+    row("R3-2a", f"hub lip of P_sachta under the DIN 9021 (overlap r {L3['r_in']}..{P3['washer_r_min']}, washer at its lower OD)", "L1 x 2 (30 N)",
+        f"{Aov:.1f} mm2", 30.0 / Aov, A_N, "bearing on resin; the well is held without the gear bond")
+    tl = L3["z_top"] - (-41.9)
+    row("R3-2b", f"hub lip {tl:.2f} thick: shear at the washer edge r 4.5", "L1 x 2 (30 N)", f"{2 * math.pi * 4.5 * tl:.1f} mm2", 30.0 / (2 * math.pi * 4.5 * tl) / 0.6, A_N, "tau / 0.6")
+    row("R3-2c", "DIN 9021 M3 (0.8 steel) overhanging the D7 spacers by 1.0", "L1 x 2 (30 N)", "t 0.8", 6 * (30.0 / (2 * math.pi * 3.5)) * 0.8 / 0.8 ** 2, 200.0, "steel washer bending")
     P2SEC = {}
     A_, B_ = np.array(RV["F3B"][0]), np.array(RV["F3B"][1]); dv = B_ - A_
     dist = abs(dv[0] * (-A_[1]) - dv[1] * (-A_[0])) / np.linalg.norm(dv)
@@ -756,7 +808,17 @@ def check_S(parts):
         f"{Ft:.0f} N per screw, wall-top reaction {Rc:.0f} N")
     row("A7b", "+Y wall top under T_most (2.5 x 6 contact)", "L1 x 2", "15 mm2", Rc / 15.0, A_N)
     row("A7c", f"T_most Al 2.0 bending (30 N x {dist:.1f}, b 25)", "L1 x 2", "Z 16.7", 30.0 * dist / 16.7, 80.0, "Al: yield 130 (5754-H22) / 1.6")
-    row("A7d", "F15 M3 in T_most, 0.8 engaged (strip about 700 N): load as % of strip x 0.8", f"{C.FIX2['TQ_DESIGN']} N.m + L1", "-", (Pf15 + 30.0) / 700.0 * 80.0, 80.0)
+    # rev3 (R3-1, S1 / B1): ISO 7380 M3x8 on the 1.0 + 0.8 stack: tip -48.0; engagement 1.80 nominal, 1.51 at the shortest screw (8 - 0.29);
+    # thread run-in 0.35 (0.5 P screw point + 0.1 hole chamfer); internal-thread strip = 5.547 mm2/mm x 0.6 Rm (FED-STD-H28, as sachta_a)
+    for alloy, rm in P3["al_rm"].items():
+        for tag, eng in (("nominal", P3["engagement_nominal"]), ("shortest screw", P3["engagement_min"])):
+            Le = eng - P3["thread_runin"]; strip = P3["strip_area_per_mm"] * Le * P3["strip_tau_factor"] * rm
+            row("A7d", f"F15 M3x8 thread in T_most {alloy}: {eng:.2f} engaged ({tag}), {Le:.2f} effective after the 0.35 run-in -> strip {strip:.0f} N; "
+                       f"demand = fingertip preload {Pf15:.0f} N + L1 x 2 30 N", f"{C.FIX2['TQ_DESIGN']} N.m + L1 x 2", f"margin {strip / (Pf15 + 30.0):.2f} (need >= 2)",
+                Pf15 + 30.0, strip / 2.0, "allowable = strip force / 2 (plan R3-1: strip margin >= 2)")
+    Le = P3["engagement_min"] - P3["thread_runin"]; strip = P3["strip_area_per_mm"] * Le * P3["strip_tau_factor"] * P3["al_rm"]["5754-H22"]
+    row("A7e", f"F15 driven with a normal screwdriver 0.3 N.m (500 N) on the worst thread (5754-H22, {Le:.2f} effective): strip {strip:.0f} N", "L7 over-torque (B1)",
+        f"margin {strip / 500.0:.2f}", 500.0, strip, "information: the T_cap end face crushes at about 0.47 N.m first", info=True)
     for case, F, allow in (("L3 hand 0.6 N.m (abuse)", 20.0, A_A), ("L8 servo stall 0.88 N.m at the stage", 29.0, A_N)):
         row("S05a", "pin 1 bearing in the deck C-ear (2.0 x D3)", case, "6 mm2", F / 6.0, allow)
         row("S05b", "deck C-ear ligaments (2 x 2.0 x 2.95)", case, "11.8 mm2", F / 11.8, allow)
