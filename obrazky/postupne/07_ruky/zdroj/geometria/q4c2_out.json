@@ -1,0 +1,67 @@
+[
+ {
+  "case": "S1",
+  "ori": "shaft up the arm",
+  "best_cz": -21.9,
+  "u_centre": 0.304,
+  "margin": 2.297
+ },
+ {
+  "case": "S1",
+  "ori": "shaft fore-aft",
+  "best_cz": -21.9,
+  "u_centre": 0.304,
+  "margin": 2.001
+ },
+ {
+  "case": "S2",
+  "ori": "shaft up the arm",
+  "best_cz": -22.3,
+  "u_centre": 0.31,
+  "margin": -0.106,
+  "kt": 1.02,
+  "kw": 1.02,
+  "k_both": 1.01
+ },
+ {
+  "case": "S2",
+  "ori": "shaft fore-aft",
+  "best_cz": -22.3,
+  "u_centre": 0.31,
+  "margin": 0.025
+ },
+ {
+  "case": "S3",
+  "ori": "shaft up the arm",
+  "best_cz": -22.6,
+  "u_centre": 0.314,
+  "margin": -0.021,
+  "kt": 1.01,
+  "kw": 1.01,
+  "k_both": 1.01
+ },
+ {
+  "case": "S3",
+  "ori": "shaft fore-aft",
+  "best_cz": -22.6,
+  "u_centre": 0.314,
+  "margin": -0.295,
+  "kt": 1.06,
+  "kw": 1.04,
+  "k_both": 1.03
+ },
+ {
+  "case": "S4",
+  "ori": "shaft up the arm",
+  "best_cz": -20.8,
+  "u_centre": 0.289,
+  "margin": 2.508
+ },
+ {
+  "case": "S4",
+  "ori": "shaft fore-aft",
+  "best_cz": -20.3,
+  "u_centre": 0.282,
+  "margin": 3.558
+ }
+]

@@ -1,0 +1,83 @@
+{
+ "V_solid": 33679.62742589584,
+ "V_shell": 10829.208,
+ "m_shell": 12.9950496,
+ "cg": [
+  65.52550214043532,
+  2.232565610124146,
+  -31.64352049208332
+ ],
+ "r_cg": 14.663616468826106,
+ "drop_cg": 14.643520492083319,
+ "I_gmm2": 8835.9394022744,
+ "alpha": 100.53096491487338,
+ "wmax": 12.566370614359172,
+ "rows": [
+  {
+   "servo_g": 6.0,
+   "layout": "A on axis",
+   "mass_total_g": 22.0,
+   "hold_Nm": 0.00187,
+   "hold_kgcm": 0.019,
+   "I_kgm2": 8.835939402274401e-06,
+   "inertial_Nm": 0.00089,
+   "peak_Nm": 0.00276,
+   "peak_kgcm": 0.028
+  },
+  {
+   "servo_g": 6.0,
+   "layout": "B 14 mm below",
+   "mass_total_g": 22.0,
+   "hold_Nm": 0.00269,
+   "hold_kgcm": 0.027,
+   "I_kgm2": 1.00119394022744e-05,
+   "inertial_Nm": 0.00101,
+   "peak_Nm": 0.0037,
+   "peak_kgcm": 0.038
+  },
+  {
+   "servo_g": 10.0,
+   "layout": "A on axis",
+   "mass_total_g": 26.0,
+   "hold_Nm": 0.00187,
+   "hold_kgcm": 0.019,
+   "I_kgm2": 8.835939402274401e-06,
+   "inertial_Nm": 0.00089,
+   "peak_Nm": 0.00276,
+   "peak_kgcm": 0.028
+  },
+  {
+   "servo_g": 10.0,
+   "layout": "B 14 mm below",
+   "mass_total_g": 26.0,
+   "hold_Nm": 0.00324,
+   "hold_kgcm": 0.033,
+   "I_kgm2": 1.0795939402274401e-05,
+   "inertial_Nm": 0.00109,
+   "peak_Nm": 0.00433,
+   "peak_kgcm": 0.044
+  },
+  {
+   "servo_g": 14.0,
+   "layout": "A on axis",
+   "mass_total_g": 30.0,
+   "hold_Nm": 0.00187,
+   "hold_kgcm": 0.019,
+   "I_kgm2": 8.835939402274401e-06,
+   "inertial_Nm": 0.00089,
+   "peak_Nm": 0.00276,
+   "peak_kgcm": 0.028
+  },
+  {
+   "servo_g": 14.0,
+   "layout": "B 14 mm below",
+   "mass_total_g": 30.0,
+   "hold_Nm": 0.00379,
+   "hold_kgcm": 0.039,
+   "I_kgm2": 1.15799394022744e-05,
+   "inertial_Nm": 0.00116,
+   "peak_Nm": 0.00496,
+   "peak_kgcm": 0.051
+  }
+ ]
+}

@@ -1,0 +1,976 @@
+{
+ "servo": {
+  "candidates": [
+   {
+    "name": "Feetech SCS0009 (SC-0090-C001 single shaft / SC-0090-C013 dual shaft); rebrands Waveshare SC09, DFRobot SER0059, Seeed 100067882",
+    "control": "Serial bus, TTL half-duplex, Feetech SCS protocol (0xFF 0xFF ID LEN INSTR PARAM CHK; 16-bit values BIG-endian). 38.4 kbps to 1 Mbps, factory default 1 Mbps, default ID 1, IDs 0-253 (254 broadcast). Can share the existing STS3032 line (see bus_notes). Servo mode or continuous (motor) mode.",
+    "voltage": "4.0-7.4 V (Feetech, Seeed). Waveshare wiki: 4-6 V; an Amazon copy of the wiki: 4.8-8.4 V. 5 V is inside every quoted range.",
+    "torque": "Stall 2.3 kg.cm (0.226 N.m) @ 6 V; 1.89 kg.cm @ 4.8 V (Babsco). Rated 0.70-0.75 kg.cm @ 6 V (0.65 @ 4.8 V). Estimate @ 5 V: about 1.95 kg.cm = 0.19 N.m stall, about 0.07 N.m rated. Speed 0.10 s/60 deg @ 6 V, 0.125 s/60 deg @ 4.8 V. Stall current 1.0 A @ 6 V.",
+    "travel": "300 deg (0-1023, 10-bit, 0.293 deg per step). Stack-chan uses 0-200 deg with 100 deg as centre.",
+    "mass_g": "13.2 +/- 1 (Feetech CN page, Seeed). 12.5 +/- 0.2 (Feetech EN page, DFRobot SER0059). Shops list 9-13.5.",
+    "case_mm": "23.2 x 12.1 x 25.25 (Feetech A/B/C). Waveshare SC09: 23.2 x 12.0 x 25.5. Digitec lists the SC09 as 23.2 x 12.0 x 28.6. Some shops: 23.2 x 12.5 x 22. NO source says whether 25.25 is the case alone or includes the shaft. The repo model (nova/cad/neck.py) takes 25.25 as the case height along the shaft, with no ears. A 32.6 x 12.15 x 32.45 bounding box from a third-party STEP probably includes the horn. Mounting: two holes of about 2 mm. Whether it has side ears is unconfirmed (repo assumption: no ears). Ear span: n/a or unknown.",
+    "shaft": "Offset from the nearer end: not published. The repo neck model uses about 6.05 from the end on the width centreline (corner radius 18.19 from the axis). Boss diameter and height: not published. Spline: 20T / OD 3.95 mm (Feetech spec table, Waveshare). The Feetech description text says 25T, and one vendor says 20T / 4.8 mm. Shaft length above the boss: not published. The C013 / SC09 is dual-shaft (an idler shaft coaxial on the opposite face; its size is not published). Waveshare's wiki has a STEP and a DXF that would settle all of this, but I could not open them.",
+    "gears_bearing": "Metal gears (Feetech table: copper + steel), ratio 1:416 (Atelier de Khalil), cored motor. Output support is a SLIDING bearing (bushing), not a ball bearing (Waveshare SC09 page).",
+    "feedback_protection": "Feedback: position (10-bit pot/encoder), speed, load, input voltage, temperature. Waveshare SC memory map: max torque at EEPROM address 16, copied to torque limit at RAM address 48 on power-up; unload-condition bitmask at address 19 (voltage, overheat, overload bits; e.g. 4+1=5); overload holding and threshold registers. One third-party project says the SC09 has no torque-limit register (conflict). EEPROM lock must be opened before writes. Torque can be switched off by command (torque enable at address 40). Back-drivable unpowered: no maker statement. With a 1:416 train it can be forced, but it is stiff, and the hand load goes through the gear teeth. The Waveshare ST3215 manual notes that multi-stage reduction makes hand rotation difficult.",
+    "sources": [
+     "https://www.feetechrc.com/6v-23kg-serial-bus-steering-gear_65522.html",
+     "https://docs.atelierdekhalil.com/zig-animatronic/robot/head_and_neck/servomotor-feetech-scs0009-datasheet/",
+     "https://pages.switch-science.com/comparison/files/feetech/serial-scs/SCS0009_datasheet.pdf",
+     "https://www.seeedstudio.com/Feetech-SCS0009-Servo-p-6535.html",
+     "https://shop.babsco.com/feetech-sc-009-6v-2-3kg-micro-servo",
+     "https://www.waveshare.com/wiki/SC09_Servo",
+     "https://www.waveshare.com/sc09-servo.htm",
+     "https://docs.waveshare.com/Memory_Map_Explanation/SC_Servo_Memory_Map_Explanation",
+     "https://www.dfrobot.com/product-2570.html",
+     "https://robotopian.com/products/feetech-scs0009-servo-motor",
+     "https://www.digitec.ch/en/s1/product/waveshare-sc09-23kg-serial-bus-servo-development-boards-kits-36641477",
+     "https://github.com/stack-chan/stack-chan/blob/develop/case/README.md",
+     "https://marathon-os.com/library/feetech-scs0009-3d-engineering-design-6814a2d0fcc7c6ee36fcf742"
+    ],
+    "confidence": "high for electrical, protocol, torque and 23.2 x 12.1 footprint (manufacturer pages). LOW for the case height along the shaft and for the shaft, boss and spline geometry (no drawing could be opened; sources conflict).",
+    "notes": "The only bus servo under 15 g that is protocol-compatible with the STS3032 line. Along-shaft depth needed: 25.25 to about 28.6 if 25.25 is the case; about 21-25.25 if 25.25 includes the shaft. It does NOT fit the 13 mm option. It fits the 21 mm option only if the case is 21 mm or less (unknown). It fits 23-25 mm only if the case is 25 mm or less with the spline protruding into the torso side. The dual-shaft C013 idler can carry the arm on the far side. The repo already plans 4x SCS0009 (docs/SPEC.md E6).",
+    "price": "Waveshare SC09 USD 8.99 (qty from 8.39). SCS0009 USD 9 (Seeed sheet) to 15.99-19 (resellers). Switch Science JPY 1,738."
+   },
+   {
+    "name": "Feetech STS3032 (C001 single shaft; C036 double shaft) - already on the bus",
+    "control": "Serial bus, TTL half-duplex, Feetech STS/SMS protocol (same framing as SCS, 16-bit values LITTLE-endian). 38.4 kbps to 1 Mbps, default 1 Mbps, default ID 1.",
+    "voltage": "4.8-6 V (most listings). Some listings: 4-7.4 V. The repo feeds it 5 V.",
+    "torque": "Stall 4.5 kg.cm (0.44 N.m) @ 6 V; 3.5 kg.cm @ 4.8 V. Rated 1.5 kg.cm @ 6 V. Estimate @ 5 V: about 3.7 kg.cm = 0.36 N.m stall. 0.09 s/60 deg @ 6 V.",
+    "travel": "360 deg, 4096 steps (12-bit magnetic encoder; one C001 listing says potentiometer, which conflicts). Servo, motor and step modes.",
+    "mass_g": "20 (C001); 20.6 +/- 1 (C036).",
+    "case_mm": "Feetech A/B/C: 23.2 x 12.1 x 28.5 (C001). C036 listings: 23 x 12 x 27.5, or 32 x 12 x 27.5 (32 is probably over the ears). Repo listing-based model (T4_spec.md, medium confidence): case 23.5 x 12.5 x 23.0; tabs 32.5 long x 2.5 thick, 16.2 above the bottom; holes 2.2 mm at 28.0; boss 12.4 dia x 3.5. Total to spline top about 28.5 (Feetech C) or 30.0 (repo model).",
+    "shaft": "Repo model: shaft about 5.9 from the nearer end (case x +/-11.75, axis at -5.85). Boss 12.4 dia x 3.5. Spline 25T, tip diameter 4.95 (listings), modelled 3.5 long (UNVERIFIED). C036 has a second coaxial shaft.",
+    "gears_bearing": "Metal (copper + steel), coreless motor. Bearing type not stated in the results.",
+    "feedback_protection": "Position, speed, load, voltage and temperature feedback. STS register map has torque limit and protection registers (lock register at 55). Torque-off by command makes Feetech STS servos back-drivable; LeRobot leader arms use STS3215 this way, with lower-ratio variants chosen for easier hand moving.",
+    "sources": [
+     "https://shop.babsco.com/feetech-sts3032-4-5kg-compact-smart-servo-c001",
+     "https://shop.babsco.com/feetech-sts3032-4-5kg-double-shaft-servo-c036",
+     "https://rcdrone.top/products/feetech-sts3032-servo-motor",
+     "https://www.zennixtek.com/products/feetech-sts-3032-c001-servo-motor",
+     "https://www.robotshop.com/products/feetech-6v-45-kg-serial-bus-servo",
+     "https://www.mintlify.com/huggingface/lerobot/motors/feetech",
+     "/home/user/Robot/obrazky/postupne/06_trup_podrobny/zdroj/T4_spec.md"
+    ],
+    "confidence": "medium (several consistent shop listings; no drawing opened)",
+    "notes": "Twice the SCS0009 torque, but 20 g and about 23 mm case plus 5.5-7 mm of boss and spline along the shaft. It fits only the 23-25 mm option with the spline reaching into the torso. Already proven on this bus at 5 V.",
+    "price": "USD 41.66 (RobotShop), 40 (C036, aifitlab), 61 (rcdrone); JPY 4,862 (Switch Science)."
+   },
+   {
+    "name": "Feetech SCS2332 (metal-case micro bus servo, 3.5 kg.cm)",
+    "control": "Serial bus TTL, SCS protocol (same family as SCS0009).",
+    "voltage": "not found (SCS family 4.8-7.4 V typical)",
+    "torque": "3.5 kg.cm (listing title)",
+    "travel": "not found (SCS: 300 deg / 1024 steps typical)",
+    "mass_g": "listed 9 +/- 0.2 (implausible for a metal case; unverified)",
+    "case_mm": "23.2 x 12.1 x 28.5 (one marketplace listing)",
+    "shaft": "not found",
+    "gears_bearing": "two ball bearings, coreless (listing)",
+    "feedback_protection": "position, temperature, load, speed and voltage feedback (listing title)",
+    "sources": [
+     "https://feixiang668.en.made-in-china.com/product/rswJqTodwOhb/China-Feetech-Scs2332m-Micro-All-Metal-Case-3-5kg-Cm-Serial-Control-Bus-Servo-Ttl.html"
+    ],
+    "confidence": "low (one marketplace listing)",
+    "notes": "Possible stronger SCS-protocol alternative in the same footprint as STS3032. Too tall for 13 or 21 mm."
+   },
+   {
+    "name": "KST X08 V6.0 (wing servo, 8 mm thick; variants X08H horizontal tabs, X08N no tabs, X08 Plus higher torque)",
+    "control": "PWM, digital (no bus)",
+    "voltage": "3.8-8.4 V (rated 7.4 V)",
+    "torque": "Stall 1.40 kgf.cm @ 3.8 V, 2.20 @ 6.0 V, 2.80 @ 8.4 V (KST technical spec). Estimate @ 5 V: about 1.85 kgf.cm = 0.18 N.m. Speed 0.15 s/60 deg @ 6 V, 0.09 @ 8.4 V. X08 Plus: up to 5.3 kgf.cm @ 8.4 V.",
+    "travel": "not found in results (typical wing servo about 90-120 deg)",
+    "mass_g": "8 +/- 10 % (KST); one document 9; Hyperflight 8.9",
+    "case_mm": "23.5 (L) x 8 (W, thin) x 16.8 (H, along the shaft) +/- 0.2 (KST). Helidirect: housing height 16.6. Maximum envelope with arm: 29.5 x 8.0 x 25.0 (vendor). X08 Plus listing: 23.5 x 8 x 16.8 (27.1). Tab span: not found.",
+    "shaft": "Shaft runs along the 16.8 mm H dimension: perpendicular to the thin 8 mm dimension and to the 23.5 length. In a wing the servo lies flat (8 mm across the wing) and the shaft points sideways. Spline 15T, 4 mm (KST sheet). Offset from the end, boss, and shaft height above the case: not found.",
+    "gears_bearing": "Metal (steel) gears, coreless motor. Bearing and case material not confirmed.",
+    "feedback_protection": "Potentiometer, internal only. No external feedback or torque limit. Soft-start (final-modellbau title).",
+    "sources": [
+     "https://cdn.shopify.com/s/files/1/0570/1766/3541/files/X08_V6.0_Technical_Specifcation.pdf",
+     "https://openelab.io/products/kst-x08-metalgear-digital-microservo",
+     "https://www.helidirect.com/products/kst-x08-v6-0-hv-servo",
+     "https://www.buddyrc.com/products/kst-x08-v6-0-hv-servo",
+     "https://hoelleinshop.com/en/products/servo-kst-x08-plus-v6-hv-f3j-f5j-23-5x8x16-8-27-1mm-8g-53ncm",
+     "https://www.amainhobbies.com/kst-x08-v6.0-aluminum-micro-coreless-digital-metal-gear-servo-kst-x08-v6/p1648194"
+    ],
+    "confidence": "high for case, torque and spline (KST sheet via search); low for shaft position and height",
+    "notes": "Shaft along the shoulder axis: needs 16.8 plus boss and spline, about 20-21 total. Fits the 21 mm option tightly and 23-25 mm comfortably. Laid flat with the 8 mm along the axis it fits the 13 mm option, but then the shaft is perpendicular to the shoulder axis and needs a m0.5 bevel or miter pair. Needs a PWM GPIO.",
+    "price": "not checked"
+   },
+   {
+    "name": "KST X06 V6.0 (X06H horizontal tabs, X06N no tabs)",
+    "control": "PWM, digital",
+    "voltage": "3.8-8.4 V (rated 6.0 V)",
+    "torque": "0.80 kgf.cm @ 3.8 V, 1.50 @ 6.0 V, 1.80 @ 8.4 V (V6.0 datasheet). Estimate @ 5 V: about 1.2 kgf.cm = 0.12 N.m. Speed 0.12 / 0.08 / 0.07 s/60 deg.",
+    "travel": "not found",
+    "mass_g": "6 +/- 10 %",
+    "case_mm": "20 x 7 (thin) x 16.6 (along the shaft) +/- 0.2. Total height and tab span: not found.",
+    "shaft": "Along the 16.6 dimension, perpendicular to the 7 mm thin dimension. Spline, offset and boss: not found.",
+    "gears_bearing": "Hardened steel gears, coreless. Some shops say aluminium case.",
+    "feedback_protection": "Potentiometer, internal only",
+    "sources": [
+     "https://stgaws.robu.in/wp-content/uploads/2024/02/X06_V6.0_Technical_Specifcation.pdf",
+     "https://openelab.com/products/kst-x06-v6-0-hv",
+     "https://openelab.com/products/kst-x06h-v6-0-hv",
+     "https://servodatabase.com/servo/kst/x06"
+    ],
+    "confidence": "medium-high (KST datasheet via search)",
+    "notes": "The thinnest metal-gear option found. Same orientation remarks as the X08. Laid flat it takes 7 mm along the axis.",
+    "price": "not checked"
+   },
+   {
+    "name": "EMAX ES9251 II (2.5 g class)",
+    "control": "PWM, digital",
+    "voltage": "4.5-6.0 V",
+    "torque": "0.25 kg.cm @ 4.8 V, 0.30 @ 6 V (some listings 0.27 @ 4.8 V). Estimate @ 5 V: about 0.026 N.m. Speed 0.08-0.09 s/60 deg @ 4.8 V.",
+    "travel": "not found (pulse figure quoted as 1500-1900 us 'pulse traveling')",
+    "mass_g": "2.5 (most); 4.0 in some listings. Version II uses a 6 mm coreless motor instead of 4 mm; TinyCircuits lists 3.6 g for it.",
+    "case_mm": "18.02 x 7.91 x 16.8 (L x W x H). Mounting hole spacing 21.9. 'Mounting depth' 10.15, from the underside of the horn arm to the case bottom (unmannedtechshop DE).",
+    "shaft": "Along H (16.8), perpendicular to the 7.9 mm thin dimension. Spline, offset and boss: not found.",
+    "gears_bearing": "Plastic gears, coreless motor",
+    "feedback_protection": "internal pot only",
+    "sources": [
+     "https://www.unmannedtechshop.co.uk/de/products/emax-es9251-ii-2-5g-digital-servo",
+     "https://tinycircuits.com/products/emax_2_5g_servo",
+     "https://robotistan.com/emax-es9251Ⅱ-plastic-gear-digital-micro-servo-motor",
+     "https://servodatabase.com/servo/emax/es9251"
+    ],
+    "confidence": "medium (shop listings, consistent case size)",
+    "notes": "Holds the arm (needs 0.01 N.m) with only about 2.5x margin. Plastic gears will strip under hand pushes. Shaft-along-axis depth is about 17-19, so it does not fit 13 mm.",
+    "price": "not checked"
+   },
+   {
+    "name": "EMAX ES9052MD (and ES9052MDHV)",
+    "control": "PWM, digital",
+    "voltage": "3.8-6.0 V (HV version 5.0-8.4 V)",
+    "torque": "Conflict: 0.65 kg.cm max @ 6 V (GetFPV) vs 1.3 kg.cm @ 6 V (Aloft). HV: 1.0-1.4 kg.cm @ 6 V. Estimate @ 5 V: 0.05-0.11 N.m. Speed 0.09 s/60 deg @ 6 V.",
+    "travel": "160 deg max",
+    "mass_g": "4.8-5.5 (HV 5.8)",
+    "case_mm": "Conflicting listings: 19.9 x 8.8 x 23.1 (servodatabase, GetFPV HV); 19.9 x 8.8 x 26.35 (Aloft); 25.5 x 19.9 x 8.3 (GetFPV); 20.07 x 8.89 x 23.11 (elektronicavoorjou). Ear span: not found.",
+    "shaft": "Inferred along the 23 mm dimension, perpendicular to the 8.8 mm thin width (slim standard layout). Spline 15T. Offset and boss: not found.",
+    "gears_bearing": "Metal gears",
+    "feedback_protection": "internal pot only",
+    "sources": [
+     "https://www.getfpv.com/electronics/servos/emax-metal-gear-digital-servo-es9052md.html",
+     "https://alofthobbies.com/products/emax-es9052",
+     "https://elektronicavoorjou.nl/en/product/emax-es9052md-mini-servo/",
+     "https://servodatabase.com/servo/emax/es9052m",
+     "https://www.getfpv.com/planes/emax-md-hv-servo-es9052mdhv.html"
+    ],
+    "confidence": "low-medium (shops disagree on size and torque)",
+    "notes": "Too tall along the shaft for 13 or 21 mm unless laid flat with a bevel pair.",
+    "price": "not checked"
+   },
+   {
+    "name": "EMAX ES9051 (4.1-4.3 g, discontinued)",
+    "control": "PWM, digital",
+    "voltage": "4.0-5.5 V",
+    "torque": "0.8 kg.cm @ 4.8 V, about 0.08 N.m @ 5 V. Speed 0.09 s/60 deg.",
+    "travel": "not found",
+    "mass_g": "4.1-4.3",
+    "case_mm": "19.74 x 8.34 x 23.25 (8.32 in one listing)",
+    "shaft": "Inferred along the 23.25 dimension. Spline, offset and boss: not found.",
+    "gears_bearing": "Plastic gears",
+    "feedback_protection": "internal pot only",
+    "sources": [
+     "https://www.motorobit.com/emax-es9051-digital-mini-servo-motor-en",
+     "https://alofthobbies.com/products/emax-es9051-servo-0-8kg-11-11-oz-in-09-sec-4-1-grams",
+     "https://www.readymaderc.com/products/details/emax-es9051-4-3g-digital-mini-servo"
+    ],
+    "confidence": "medium",
+    "notes": "Discontinued. Same slim layout as the ES9052MD.",
+    "price": "not checked"
+   },
+   {
+    "name": "GH-S37D 3.7 g digital (also Pololu 'sub-micro 3.7 g' #1053 and Power HD DSP33, both discontinued)",
+    "control": "PWM, digital, 1000-2000 us",
+    "voltage": "3.6-4.8 V (most listings). Zbotic: 4.8-7.2 V; Rotorama: 4.8-6 V. 5 V is ABOVE the most common rating.",
+    "torque": "0.6 kg.cm @ 3.6 V, 0.8 kg.cm @ 4.8 V, about 0.08 N.m. Pololu 3.7 g: 0.4 kg.cm @ 6 V. DSP33: 0.35 kg.cm @ 6 V.",
+    "travel": "90 deg standard (cannot rotate continuously)",
+    "mass_g": "3.7 (Rotorama listing: 5). DSP33: 3.",
+    "case_mm": "20 x 8.75 x 22 (Rotorama: 20 x 9 x 22). Pololu 3.7 g: 20.2 x 8.5 x 20.2. DSP33: 20 x 8.7 x 22.",
+    "shaft": "Along the 22 dimension. Spline and offset not found.",
+    "gears_bearing": "Plastic gears, coreless",
+    "feedback_protection": "none external",
+    "sources": [
+     "https://evelta.com/mini-micro-3-7g-digital-servo-with-accessories/",
+     "https://zbotic.in/product/micro-servo-37g-gh-s37d-90-degree/",
+     "https://www.rotorama.com/product/s37d",
+     "https://www.pololu.com/product/1053/specs",
+     "https://www.pololu.com/product/2141/specs"
+    ],
+    "confidence": "low-medium (conflicting voltage)",
+    "notes": "Weak, plastic, and near its voltage limit at 5 V. Not recommended.",
+    "price": "not checked"
+   },
+   {
+    "name": "EMAX ES08MA II (12 g metal gear)",
+    "control": "PWM, analog (HV version is digital)",
+    "voltage": "4.8-6.0 V (HV 6.0-8.4 V)",
+    "torque": "1.6 kg.cm @ 4.8 V, 2.0 @ 6 V (one listing 1.5 / 1.8). Estimate @ 5 V: about 0.16 N.m. Speed 0.12 / 0.10 s/60 deg.",
+    "travel": "not found",
+    "mass_g": "12",
+    "case_mm": "23 x 11.5 x 24 (HV: 24 x 11.9 x 24). Whether 24 includes the shaft: unknown. Ear span: not found.",
+    "shaft": "Spline: not found",
+    "gears_bearing": "Metal gears",
+    "feedback_protection": "none external",
+    "sources": [
+     "https://www.getfpv.com/electronics/servos/emax-es08ma-ii-12g-mini-metal-gear-analog-servo-for-rc-model.html",
+     "https://elektronicavoorjou.nl/en/product/emax-es08ma-ii-mini-servo",
+     "https://wrekd.com/products/emax-es08ma-ii-12g-analog-metal-gear-servo"
+    ],
+    "confidence": "medium",
+    "notes": "Conventional 9-12 g layout; along-shaft depth about 24-29. The query's 32 mm length is wrong (listings say 23).",
+    "price": "not checked"
+   },
+   {
+    "name": "TowerPro MG90S (and clones)",
+    "control": "PWM, analog",
+    "voltage": "4.8-6 V",
+    "torque": "1.8 kg.cm @ 4.8 V, 2.2 @ 6 V (TowerPro); clones lower. Estimate @ 5 V: about 0.18 N.m. Waveshare WS-MG90S: 2.0 / 2.8.",
+    "travel": "about 180 deg (some clones have no mechanical stop)",
+    "mass_g": "13.4 (TowerPro); 12.2 (Waveshare)",
+    "case_mm": "Case 22.4-22.8 x 12.0-12.4 x 22.7-22.8 (bottom to gear-face top). Ear span 31.8-32.5, hole spacing 27.7-28. Ear plane 18.5 above the bottom (Hobby Components F) vs about 21-24 on the user's drawing. Top of spline 28.4; top of fitted horn 32.1.",
+    "shaft": "Shaft 5.9 from the nearer end. Turret 11.8 dia x 6.0 with a second lobe r 2.9 at 5.6 (repo E2 model from photos, estimate). Spline 21T, 4.8 mm, horn screw M2.5 (some units 20T / 4.9 or 25T: measure). Spline height about 3.",
+    "gears_bearing": "Metal gears. Bearing: not confirmed in results.",
+    "feedback_protection": "None. Cheap units can be turned by hand. No published side-load rating.",
+    "sources": [
+     "https://www.servodatabase.com/servo/towerpro/mg90s",
+     "https://forum.hobbycomponents.com/viewtopic.php?p=5079",
+     "https://www.tinytronics.nl/product_files/000263_Data_Sheet_of_MG90S_Analog_Servo_Motor.pdf",
+     "https://forums.parallax.com/discussion/comment/1477537",
+     "/home/user/Robot/obrazky/postupne/03_koncept_otocny_krk/B_rozpracovane/rozmery_elektroniky.md"
+    ],
+    "confidence": "medium (several consistent listings plus the user's drawing)",
+    "notes": "Current repo power budget assumes 2x MG90S for the arms. About 28.4 mm along the shaft, so it fits only the 23-25 mm option if the spline enters the torso.",
+    "price": "not checked"
+   },
+   {
+    "name": "TowerPro SG90 (and clones)",
+    "control": "PWM, analog",
+    "voltage": "4.8-6 V (often run at 5 V)",
+    "torque": "1.8 kg.cm @ 4.8 V (TowerPro), about 0.18 N.m @ 5 V; clones are often lower",
+    "travel": "about 180 deg",
+    "mass_g": "9",
+    "case_mm": "Case 22.2-23.1 x 11.8-12.2. TowerPro sheet: 23.1 x 12.2 x 29.0 (incl. shaft). TA0132: body 22.7 x 12.1 x 27.1, envelope 32.4 x 12.1 x 30.7. Kjell drawing values (unlabelled): 32.0, 22.8, 26.7, 15.6, 12.4, 15.8, 14.2. Ear span about 32-32.4.",
+    "shaft": "Spline 21T (M5Stack) or 20T (Yahboom). Offset about 5.9 by analogy with the MG90S (not sourced).",
+    "gears_bearing": "Plastic gears, bushing",
+    "feedback_protection": "none",
+    "sources": [
+     "https://bit.nkust.edu.tw/~csshieh/teach/111A/mc/datasheet/SG90.pdf",
+     "https://www.auselectronicsdirect.com.au/assets/brochures/TA0132.pdf",
+     "https://www.kjell.com/globalassets/mediaassets/701916_87897_datasheet_en.pdf",
+     "https://docs.m5stack.com/en/accessory/sg90_servo?id=product-features",
+     "https://servodatabase.com/servo/yahboom/sg90"
+    ],
+    "confidence": "medium",
+    "notes": "Plastic gears strip under hand pushes. 27-29 mm along the shaft.",
+    "price": "not checked"
+   },
+   {
+    "name": "Feetech FS90 / FS90-FB (with position-feedback wire) / FS90MG",
+    "control": "PWM, analog (FS90-FB adds an analog position-feedback wire; FS90MG is digital, 12.7 g)",
+    "voltage": "4.8-6 V (signal works with 3.3 V or 5 V)",
+    "torque": "1.3 kg.cm @ 4.8 V, 1.5 @ 6 V. Estimate @ 5 V: about 0.13 N.m. Speed 0.12 / 0.10 s/60 deg.",
+    "travel": "about 120 deg for 900-2100 us",
+    "mass_g": "9 (FS90), 13 (FS90-FB)",
+    "case_mm": "23.2 x 12.5 x 22.0 (Pololu table and Feetech A/B/C). Addicore height 27.3, probably including the shaft. Other shops: 22.5 x 12.1 x 29.7.",
+    "shaft": "Spline 20T, 4.8 mm (Feetech FS90-C sheet) vs 21T, 4.8 mm (Pololu wheels for FS90R): conflict. Offset and boss not found.",
+    "gears_bearing": "Plastic gears",
+    "feedback_protection": "FS90-FB: analog pot voltage out, so a hand push can be detected. No torque limit.",
+    "sources": [
+     "https://www.pololu.com/product/2818",
+     "https://www.pololu.com/file/0J1435/FS90-specs.pdf",
+     "https://www.pololu.com/product/3436",
+     "https://www.addicore.com/FS90-Mini-Servo-p/ad113.htm",
+     "https://www.switchelectronics.co.uk/products/fs90mg-mini-12-7g-digital-servo-feetech"
+    ],
+    "confidence": "medium-high for the FS90 (Pololu plus the Feetech sheet)",
+    "notes": "FS90-FB is the cheapest PWM option that reports position to an ESP32 ADC pin.",
+    "price": "not checked"
+   },
+   {
+    "name": "Feetech FT90M (digital metal-gear micro; same envelope class as the SCS0009)",
+    "control": "PWM, digital",
+    "voltage": "4.8-6 V",
+    "torque": "1.9 kg.cm @ 4.8 V, 2.3 @ 6 V, about 0.19 N.m @ 5 V",
+    "travel": "not found",
+    "mass_g": "13.5",
+    "case_mm": "23.3 x 12.1 x 25.5 (L x W x H)",
+    "shaft": "not found",
+    "gears_bearing": "Metal gears",
+    "feedback_protection": "none external",
+    "sources": [
+     "https://pro.maplin.co.uk/products/ft90m-micro-13-5g-digital-servo-feetech"
+    ],
+    "confidence": "low (one listing)",
+    "notes": "Size and torque match the SCS0009 almost exactly. Probably the same mechanics, as the PWM twin of the SCS0009.",
+    "price": "not checked"
+   },
+   {
+    "name": "DFRobot 9 g clutch servo SER0049 (180 deg), SER0050 (2 kg, 180 deg), 300 deg version (product-2118); also Bambu Lab PG001 (180 deg) / PG002 (360 deg)",
+    "control": "PWM 500-2500 us",
+    "voltage": "4.8-6 V",
+    "torque": "DFRobot: stall 1.6 kgf.cm @ 4.8 V, 2.0 @ 6 V; rated 0.45 / 0.55. Farnell: stall above 1.2 kg @ 6 V; rated 0.32 / 0.40. Bambu: stall 1.0 kgf.cm or more @ 4.8 V. Estimate @ 5 V: 0.10-0.16 N.m. CLUTCH SLIP TORQUE NOT PUBLISHED.",
+    "travel": "180 +/- 10 deg or 300 deg (Bambu PG002: 360 deg)",
+    "mass_g": "about 9-15 (Galaxus: 15)",
+    "case_mm": "23 x 12 x 27.3 (L x W x H, DFRobot 300 deg). Galaxus: 32.5 x 12 x 27.3, probably over the ears.",
+    "shaft": "not found",
+    "gears_bearing": "Built-in slip clutch in the gear train. Bambu: iron-core motor.",
+    "feedback_protection": "The clutch slips or resets when the arm is forced by hand or by a mechanism. Electronic stall cutoff after 5 s blocked. Stall current 0.7 / 0.8 A (DFRobot), 0.55 / 0.65 A (Bambu).",
+    "sources": [
+     "https://www.dfrobot.com/product-2120.html",
+     "https://dfrobot.com/product-2118.html",
+     "https://core-electronics.com.au/9g-180-clutch-servo.html",
+     "https://il.farnell.com/dfrobot/ser0050/clutch-servo-motor-2kg-180-deg/dp/3974115",
+     "https://www.galaxus.ch/en/s1/product/dfrobot-9g-180-servo-with-slipping-clutch-development-boards-kits-24896855",
+     "https://asia.store.bambulab.com/en/products/9g-servo-motor-with-clutch-protection",
+     "https://community.dfrobot.com/makelog-308491.html"
+    ],
+    "confidence": "medium",
+    "notes": "The only off-the-shelf micro servo found with a built-in clutch made for hand-forcing. PWM only, no feedback, 27.3 along the shaft.",
+    "price": "Bambu Lab USD 4.99 / EUR 5.19; DFRobot not checked"
+   },
+   {
+    "name": "ROBOTIS Dynamixel XL-320 (listed so it is not dropped silently)",
+    "control": "TTL multidrop, Dynamixel Protocol 2.0: cannot share the Feetech line",
+    "voltage": "6-8.4 V (7.4 V nominal)",
+    "torque": "0.39 N.m @ 7.4 V",
+    "travel": "300 deg",
+    "mass_g": "16.7",
+    "case_mm": "24 x 36 x 27",
+    "shaft": "proprietary horn",
+    "gears_bearing": "plastic",
+    "feedback_protection": "position, temperature, load, voltage",
+    "sources": [
+     "https://emanual.robotis.com/docs/en/dxl/x/xl320/"
+    ],
+    "confidence": "high",
+    "notes": "Rejected: different protocol, needs more than 5 V, too big. Hiwonder bus servos were also checked: none under 15 g (lightest HX-12H 36 g), and their packet header is 0x55 0x55, so they are incompatible with Feetech."
+   }
+  ],
+  "small_parts": [
+   {
+    "item": "(a) Neodymium disc magnets D3x2 and D4x2, pull force in contact and at a 0.3-0.5 mm gap",
+    "finding": "D3x2. N52 listing: about 0.36 kg = 3.5 N to steel, axial, 80 C max. supermagnete S-03-02-N (N48): 300 g = 2.94 N, shear only 59 g = 0.58 N. D4x2. supermagnete S-04-02-N (N45, no N52 stock found): 420 g = 4.12 N, shear 85 g = 0.83 N, 0.19 g. N52 estimate about 4.8-5 N (force scales with Br^2). K&J D21B-N52 (3.18 x 1.59): 0.56 lb = 2.5 N. Gap values were not readable (K&J and supermagnete publish curves as images only). My own image-charge model, Br 1.45 T, was checked against the 3.5 N contact figure (model gives 3.9 N). Magnet to thick steel: D3x2 keeps about 58 % at 0.2 mm, 46 % at 0.3, 36 % at 0.4, 30 % at 0.5 (about 1.6 N at 0.3, 1.05 N at 0.5). D4x2 keeps 63 % / 51 % / 42 % / 36 % (about 2.4 N at 0.3, 1.7 N at 0.5). Magnet to identical magnet at gap g behaves like magnet to steel at g/2: D3x2 about 66 % at 0.3 and 51 % at 0.5; D4x2 about 70 % and 57 %. Shear (sliding) holding is about 20 % of the pull. Thin steel and paint reduce all of these. Script: /tmp/claude-0/-home-user-Robot/e2af8646-c6f1-5ece-963d-7005cfdf5589/scratchpad/mag.py",
+    "sources": [
+     "https://yourmagnets.net/product/neodymium-magnet-round-3mm-diameter-2mm-height-n52",
+     "https://www.supermagnete.nl/eng/disc-magnets-neodymium/disc-magnet-3mm-2mm_S-03-02-N",
+     "https://www.supermagnete.de/eng/disc-magnets-neodymium/disc-magnet-4mm-2mm_S-04-02-N",
+     "https://www.kjmagnetics.com/d21b-n52-neodymium-disc-magnet",
+     "https://kjmagnetics.com/calculator.asp"
+    ]
+   },
+   {
+    "item": "(b) Spring-loaded pogo pins about D1-1.5 for a rotating 3-ring contact",
+    "finding": "Mill-Max 0906 series: 2 A continuous / 3 A peak (per-part sheets up to 5-6 A derated), 20 mOhm max, max stroke 0.055 in = 1.40 mm (mid-stroke 0.70), life 100,000 to 1,000,000 cycles at mid-stroke. Mill-Max 0914: mounting hole 0.737 mm, tail 0.635, mid-stroke 1.14, full stroke 2.29. Mill-Max 0985: 2 A, 15 g initial / 50 g working force. Same Sky CPG-61-SMT-B: barrel 1.5 mm, height 7.5, stroke 2 mm, 10,000 cycles. TE pogo / contact-pad family: 1.5 mm diameter, up to 1 A, 10,000 mating cycles. All ratings are for AXIAL mating cycles, not for sliding on a rotating ring; no sliding-wear data was found. No maker report was found of a Feetech or Dynamixel TTL bus running through pogo-on-ring contacts. DIY slip-ring builders use 2 wipers per ring for continuity. Commercial slip rings routinely carry UART and I2C (OSH Park slip-ring board). Dynamixel Protocol 2.0 flags a fault for gaps over 1.5 ms, so contact dropouts show up as bus errors; the advice found is to check with a logic analyzer.",
+    "sources": [
+     "https://www.mill-max.com/sites/default/files/external/catalog/2020-08/023-028.pdf",
+     "https://sg.element14.com/mill-max/0906-3-15-20-75-14-11-0/spring-loaded-pin-2a-5-51mm/dp/2751178",
+     "https://www.mouser.in/new/mill-max/mill-max-0914-Series/",
+     "https://www.mouser.in/new/mill-max/mill-max-0985-receptacle/",
+     "https://www.sameskydevices.com/product/interconnect/connectors/pogo-pins/cpg-61-smt-b",
+     "https://www.te.com/content/dam/te-com/documents/consumer-devices/global/contact-pad-pogo-pin-brochure-en.pdf",
+     "https://forums.parallax.com/discussion/comment/1162213",
+     "https://store.oshpark.com/products/slip-ring-interface-high-current",
+     "https://docs.bit-bots.de/meta/manual/tutorials/lowlevel.html"
+    ]
+   },
+   {
+    "item": "(c) Miniature slip rings with 3-4 wires",
+    "finding": "Smallest found. Senring 6.5 mm OD, 8 wires, 1 A, 12 mm body length (Tinytronics). MOFLON MMC118: 5.9 mm OD, 2/4/6/8 A options (circuit count and length not shown). JINPAT LPMS-04A super-miniature capsule: 1-4 circuits, 2 A; the series OD starts at 5.5 mm (exact OD and length not shown). Adafruit 775: 12 mm OD, 6 wires, 2 A at 240 V, 6 in 26 AWG leads; the 12-wire version is 20 mm long. Senring SNM012B-06: 12 mm, 6 channels, 2 A. Moog SRA-73540 is 'smallest package', 2 A per ring (size not shown). Capsule rings have no through-bore, so they must sit on the axis on the side away from the servo output, e.g. at the dual-shaft idler side.",
+    "sources": [
+     "https://www.tinytronics.nl/shop/en/cables-and-connectors/connectors/slip-rings/slip-ring-6.5mm-diameter-8-wires-1a",
+     "https://www.directindustry.com/prod/moflon/product-113143-2413002.html",
+     "https://www.directindustry.com/prod/jinpat-electronics-co-ltd/product-144799-1682552.html",
+     "https://core-electronics.com.au/miniature-slip-ring-12mm-diameter-6-wires-max-240v-at-2a.html",
+     "https://voltshop.net/senring-snm012b-6-channel-2a-capsule-slip-ring",
+     "https://www.moog.com/products/slip-rings/commercial-industrial-slip-rings/compact-slip-ring-capsules/sra-73540.html"
+    ]
+   },
+   {
+    "item": "(d) Module 0.5 spur gears 14-24T and m0.5 bevel / miter pairs",
+    "finding": "Spur gears. KHK SS0.5 (carbon steel, unhardened, JIS N8) exists as SS0.5-20B and SS0.5-24B. Misumi row for SS0.5-20B: PD 10, OD 11, value 4 (probably face width), other unlabelled values 11/5/11/16 (hub and lengths, unconfirmed). Larger SS0.5 sizes have face 5, bore 6. KHK BSS0.5 brass spur: bore 4, face 3. KHK DS0.5 molded POM: e.g. 50T face 3, bore 5; a DS0.5-15 exists. KHK SSS0.5-10 / -12 are pinion shafts. Miter / bevel gears. KHK DM0.5-20 injection-molded POM (Duracon M90-44) miter, 1:1: bore 3, PD 10, OD 10.71, about USD 3.6-4.9. The category row also says face 3.5, but that row looks mixed with m0.8. McMaster acetal m0.5 20T miter: face 2.5, overall width 8, bore 3. KHK DB0.5-4020 molded bevel (2:1): bore 4, face 2.5. RS PRO POM m0.5 mitre 20T bore 3 (RS 521-6036) and 16T bore 3 (RS 182-7986, pack of 5). RS PRO POM m0.5 bevel 20T bore 3, 2:1 with a 40T (RS 521-6092). RCT (DE) milled brass bevel pairs in m0.5 and m1.0, 20 deg pressure angle, sold as matched pairs only. No stock steel m0.5 miter was found (KHK SM and SMA-SMC start at m1).",
+    "sources": [
+     "https://www.khkgears.us/id/SS0.5-20B",
+     "https://jp.misumi-ec.com/vona2/detail/221004936827/",
+     "https://www.khkgears.us/catalog/category/injection_molded_miter_gears_dm",
+     "https://uk.misumi-ec.com/vona2/detail/221004937198",
+     "https://www.khkgears.us/id/DB0.5-4020",
+     "https://uk.rs-online.com/web/p/mitre-bevel-gears/5216036",
+     "https://uk.rs-online.com/web/p/mitre-bevel-gears/1827986",
+     "https://uk.rs-online.com/web/p/mitre-bevel-gears/5216092",
+     "https://rct-online.de/en/drive-elements/bevel-gears/30954/bevel-gear-made-of-brass-milled",
+     "https://www.mcmaster.com/sprockets/plastic-miter-gears/"
+    ]
+   },
+   {
+    "item": "(e) Thin-section ball bearings about 20-22 bore or 27 OD",
+    "finding": "6704 / 61704 = 20 x 27 x 4 (ZZ, 2RS, stainless S6704, flanged F6704). Prices: about 1.8 (CN bulk, currency not stated); USD 5.99-19.99 (VXB MR6704-2RS); USD 13.27 (Enduro on eBay); AUD 18.95 (Enduro ABEC3); AUD 67.59 (stainless 2RS); USD 58-105 (NTN industrial). 6705 / 61705 = 25 x 32 x 4: USD 3.53 (SKDIN F6705ZZ), USD 4.28 (stainless S6705ZZ), GBP 5.57 ex VAT (Simply Bearings 61705, GBP 3.90 at 999+), USD 8.49 for 2 (Newegg). Standard sizes for reference (dimensions only; prices not searched): 6804 / 61804 = 20 x 32 x 7; 6703 = 17 x 23 x 4; 6803 = 17 x 26 x 5. The repo already uses 6703, 61805 and 6805.",
+    "sources": [
+     "https://www.mcmaster.com/products/bearings/bearing-trade-number~6704",
+     "https://vxb.com/products/mr6704-2rs-ball-bearing-double-sealed-bore-dia-20m",
+     "https://www.mtbdirect.com.au/products/enduro-6704-20-x-27-x-4mm-bearing-standard-abec-3-bearing",
+     "https://minibearings.com.au/products/20x27x4-ball-s67042rs",
+     "https://www.skdin.com/products/productid-F6705ZZ",
+     "https://www.simplybearings.co.uk/products/61705-eu",
+     "https://www.newegg.com/p/325-003X-018K0"
+    ]
+   },
+   {
+    "item": "(f) Extra-flexible AWG30 / AWG32 wire and ready-made 3-pin JST-SH / PicoBlade pigtails",
+    "finding": "Hobby 30 AWG silicone wire: 11 x 0.08 mm tinned copper, OD 0.8 (Adafruit; SparkFun buyer measured 0.8; Maplin says 1.0 with 0.35 insulation), 331 Ohm/km, 200 C, about 0.8 A. NO published flex-life figure. High-flex wire makers (Rubadue KinetaFlex with 40/44 AWG base strands, Pelican) publish no cycle counts either; ask for test data. For scale, micro-coax data: I-PEX 44 AWG about 500k cycles at 5 mm bend radius, 28k at 2 mm; Samtec 32 AWG twinax 8,000 cycles at +/-90 deg on a 7/8 in mandrel; Alpha 32 AWG micro-coax OD 1.118, minimum bend radius 10x OD. JST-SH 3-pin pigtails: Pololu 28 AWG UL1571, 1 A / 50 V, pin 1 black; single-ended 12 / 30 / 75 cm and female-female 10 / 16 / 25 / 40 / 63 cm (category 348, e.g. #5511, #5513). RS / JST pre-crimped SH leads 150 and 300 mm, 0.08 mm2 (28 AWG); the housing accepts 32-28 AWG, but no 32 AWG ready-made lead was found. Molex PicoBlade 3-pin female-female: 15134-0300 (50 mm, 1 A, about GBP 2.84), -0302 (150 mm), -0303 (300 mm), 600 mm also stocked.",
+    "sources": [
+     "https://adafruit.com/products/2051",
+     "https://www.sparkfun.com/products/13071",
+     "https://pro.maplin.co.uk/products/red-silicone-lead-wire-30awg-11-0-08mm-price-per-metre",
+     "https://rubadue.com/products/kinetaflex",
+     "https://www.i-pex.com/product/micro-coaxial_twinax/bend-flex-and-twist-rqmnts",
+     "https://suddendocs.samtec.com/notesandwhitepapers/ttf-32100-xx-01_datasheet.pdf",
+     "https://www.pololu.com/category/348/3-pin-jst-sh-style-cables",
+     "https://uk.rs-online.com/web/p/crimped-wire/3116675",
+     "https://www.molex.com/en-us/products/part-detail/151340300",
+     "https://www.rapidonline.com/molex-151340300-picoblade-cable-assembly-3-pins-1-25mm-spacing-05-2962"
+    ]
+   },
+   {
+    "item": "(g) Servo saver / slip clutch for micro servos; miniature torque limiters and friction hinges around 0.05-0.25 N.m",
+    "finding": "Built-in clutch micro servos: DFRobot SER0049 / SER0050 / 300 deg and Bambu PG001 / PG002 (see candidates); slip torque not published. DAGU servo clutches replace the horn and are a few mm thicker (2008-era, availability unknown). Kimbrough servo savers are for car-size servos, with a spline tree for Futaba / JR / Hitec. No stock micro-servo friction saver with a rated torque was found. Friction hinges: Reell PHA 8 mm is the smallest Reell part at 0.28-0.65 N.m; LEECO QM7B minimum 0.2 N.m; LEECO CT10 constant-torque series exists (torque not shown); unbranded 0.1 N.m nickel-plated friction positioning hinge with 10 mm hole spacing (low confidence); Sugatsune HG-TS free-stop 0-180 deg (torque not shown). Torque limiters: Origin (JP) dia 4 bore with standard 0.1 / 0.2 / 0.3 N.m; R+W ball-detent from 3 mm bore and from 0.1 N.m; Sankyo TF friction type from 0.3 N.m; Misumi TT from 0.2 N.m but only for 8-50 mm shafts; Bernstein 4-971 / 4-972 are 0.1 / 0.2 N.m bit adapters. Ball-detent units last about 1,000-2,000 overloads; friction types tolerate repeated slipping better.",
+    "sources": [
+     "https://www.dfrobot.com/product-2120.html",
+     "https://asia.store.bambulab.com/en/products/9g-servo-motor-with-clutch-protection",
+     "https://community.robotshop.com/forum/t/servo-clutches-from-dagu/3916",
+     "https://amainhobbies.com/kimbrough-large-small-end-servo-saver-kim123/p123009",
+     "https://reell.com/products/friction-hinge",
+     "https://directindustry.com/prod/leeco-technologies-corporation/product-70889-2686938.html",
+     "https://www.newegg.com/p/2YN-00A1-01B44",
+     "https://pr.mono.ipros.com/en/s_origin/product/detail/2001532813",
+     "https://www.designworldonline.com/precision-torque-limiter-with-clamping-hub/",
+     "https://my.misumi-ec.com/vona2/detail/221005682972/",
+     "https://www.machinedesign.com/news/whats-inside/article/21832671/long-lasting-torque-limiter"
+    ]
+   }
+  ],
+  "bus_notes": "YES, an SCS0009 (SCS series) can share the half-duplex TTL line with the STS3032 (STS series) at 5 V. Electrical: both are 3-wire servos (V+ / GND / DATA) on one bidirectional TTL data line. SCS0009 runs on 4-7.4 V and the STS3032 on 4.8-6 V, so the shared 5 V rail suits both. Budget stall current: SCS0009 1.0 A at 6 V (less at 5 V), plus the STS3032 (the repo budget assumes 1.0 A). Protocol: same framing on both, 0xFF 0xFF ID LEN INSTR PARAMS CHECKSUM, with the same PING / READ / WRITE / SYNC instructions. Differences: (1) 16-bit byte order: SCS is big-endian, STS little-endian. A position sent with the wrong class is byte-swapped garbage. (2) Memory table: ID at address 5, torque enable 40, goal position 42 (time 44, speed 46) and present position 56 are the same in both. The EEPROM lock is 48 on SCS and 55 on STS; the sync-write block starts at 42 on SCS and 41 on STS (STS has acceleration at 41). Position range is 0-1023 over 300 deg on SCS and 0-4095 over 360 deg on STS. (3) A PING cannot tell the series apart, so firmware must know which ID is which series. Library: the Feetech SCServo Arduino library (FTServo; Parallax and SCServo_Linux forks) has classes SCSCL for the SCS series (End = 1, big-endian) and SMS_STS for STS / SMS (End = 0, little-endian), both derived from SCSerial. Create one object of each and point both at the same HardwareSerial (pSerial = &Serial1). Calls are sequential on the half-duplex line, so they do not collide. One project switches the End flag on a single object at runtime instead. Baud: both are 38.4 kbps to 1 Mbps, factory default 1,000,000 (the SCS15 datasheet confirms 1 Mbps for the SCS family). Leave both at 1 Mbps; the baud register takes a code, not a rate. IDs: both ship as ID 1, range 0-253, 254 = broadcast. Before connecting them together, give each servo a unique ID: connect it alone, unlock the EEPROM (SCS address 48, STS address 55), write address 5, lock again (Feetech FD software or the library's unLockEprom / writeByte / LockEprom). Passive 3-pin Y-split: electrically just parallel wiring. It needs only unique IDs, the same baud on all servos, a common GND, and a supply rated for both stall currents. Keep stubs short at 1 Mbps (tens of cm is normal for these daisy-chains). The ESP32-S3 side still needs the existing half-duplex arrangement (tri-state buffer or one-wire UART mode); nothing extra per servo. Not compatible on this line: Dynamixel (Protocol 2.0 header 0xFF 0xFF 0xFD 0x00, CRC16) and Hiwonder / LewanSoul (header 0x55 0x55).",
+  "conflicts": [
+   "SCS0009 height: Feetech A/B/C gives 23.2 x 12.1 x 25.25; Waveshare SC09 gives 23.2 x 12.0 x 25.5; Digitec gives 23.2 x 12.0 x 28.6; Alibaba and AliExpress give 22 x 12 x 21 and 22.5 x 11.8 x 22. No source says whether 25.25 is the case alone or includes the spline and idler shaft. Feetech's C convention is itself unclear: for STS3032, C = 28.5 versus a listing-based case of 23.0 (so C includes the shaft); for FS90, C = 22 versus Addicore 27.3 (so C excludes it). The repo neck model treats 25.25 as the case. MEASURE, or get the Waveshare STEP / DXF.",
+   "SCS0009 spline: 20T / OD 3.95 (Feetech spec table, Waveshare) vs 25T (Feetech description text) vs 20T / 4.8 mm (one vendor).",
+   "SCS0009 mass: 13.2 +/- 1 (Feetech CN, Seeed) vs 12.5 +/- 0.2 (Feetech EN, DFRobot SER0059) vs 9-11 (shops).",
+   "SCS0009 rated torque: 0.70 vs 0.75 kg.cm @ 6 V. Voltage: 4-7.4 V (Feetech) vs 4-6 V (Waveshare wiki) vs 4.8-8.4 V (Amazon copy of the wiki).",
+   "SC09 / SCS0009 torque-limit register: present at addresses 16 and 48 (Waveshare SC memory map) vs 'not present on SC09' (third-party ST3215 / DXL MIDI project).",
+   "SCS0009 mounting: 'two 2 mm holes' (listing) vs 'print 3 mm holes' (AliExpress review); ears are unconfirmed (repo assumes none).",
+   "STS3032 size: 23.2 x 12.1 x 28.5 (C001) vs 23 x 12 x 27.5 vs 32 x 12 x 27.5 (C036, probably over the ears); repo listing-based model 23.5 x 12.5 x 23.0 case plus 3.5 boss plus 3.5 spline = 30.0 total. Encoder: 12-bit magnetic (most listings) vs 'potentiometer 360/4096' (one C001 listing). Voltage: 4.8-6 vs 4-7.4 V.",
+   "KST X08 housing height 16.8 (KST sheet) vs 16.6 (Helidirect); weight 8 vs 8.9 vs 9 g.",
+   "EMAX ES9052MD: 6 V torque 0.65 kg.cm (GetFPV) vs 1.3 kg.cm (Aloft); size 19.9 x 8.8 x 23.1 vs 19.9 x 8.8 x 26.35 vs 25.5 x 19.9 x 8.3; weight 4.8 vs 5.5 g.",
+   "EMAX ES9251 II weight 2.5 g vs 4.0 g (v2 changed from a 4 mm to a 6 mm coreless motor); torque 0.25 vs 0.27 kg.cm @ 4.8 V.",
+   "GH-S37D voltage 3.6-4.8 V (most) vs 4.8-7.2 V (Zbotic) vs 4.8-6 V (Rotorama, which also says 5 g and 20 x 9 x 22).",
+   "FS90 spline 20T / 4.8 (Feetech FS90-C sheet) vs 21T / 4.8 (Pololu wheels for FS90R); FS90 height 22.0 (Pololu, Feetech) vs 27.3 (Addicore) vs 29.7 (Switch Electronics).",
+   "MG90S spline 21T vs 20T vs 25T between makers and clones; ear plane 18.5 (Hobby Components) vs about 21 (user drawing).",
+   "SG90 spline 21T (M5Stack) vs 20T (Yahboom); height 29.0 (TowerPro) vs 27.1 (TA0132 body) vs 31 (with horn).",
+   "DFRobot clutch servo stall torque 1.6 / 2.0 kgf.cm @ 4.8 / 6 V (DFRobot, Core Electronics) vs above 1.2 kg @ 6 V with rated 0.32 / 0.40 (Farnell, Galaxus DS-S006L).",
+   "EMAX ES08MA II length: the query says 32, all listings say 23 (32-32.5 is likely the ear span). Torque 1.6 / 2.0 vs 1.5 / 1.8 kg.cm.",
+   "KHK DM0.5-20 face width: 3.5 (KHK category row, which looks mixed with m0.8) vs 2.5 (McMaster acetal m0.5 20T miter, which may not be the KHK part)."
+  ],
+  "summary": "Short version: no servo found fits the 13 mm depth with its shaft on the shoulder axis. The SCS0009 can share the existing bus with the STS3032, but its case height along the shaft is still unconfirmed and must be measured before choosing between the 21 mm and 23–25 mm options. Every candidate's stall torque is below a hand push (about 0.3–1 N·m at the 72 mm arm), so a slip clutch is needed in every option.\n\nAccess limits: WebFetch was blocked for files.seeedstudio.com and www.switch-science.com, so I stopped fetching. All web data comes from search-result text. No manufacturer PDF, drawing or STEP could be opened (Feetech SCS0009 / STS3032 sheets, Waveshare SC09 STEP and DXF, KST X08 PDF). The GitHub tool only reaches this project's repo. To get exact SCS0009 shaft and boss geometry, allow www.waveshare.com and files.waveshare.com for the SC09 STEP / DXF, or measure a purchased unit.\n\nDepth along the shaft (critical):\n- 13 mm: nothing fits shaft-along-axis. The smallest case heights are about 16.6–16.8 mm: KST X06 V6 (20×7×16.6, 6 g, 1.5 kgf·cm at 6 V), KST X08 V6 (23.5×8×16.8, 8 g, 2.2 kgf·cm at 6 V, about 0.18 N·m at 5 V, metal gears, 15T 4 mm spline) and EMAX ES9251 II (18×7.9×16.8, 2.5 g, plastic, only 0.026 N·m).\n  - On these 'wing' servos the shaft runs along the 16.6–16.8 mm dimension, perpendicular to the thin 7–8 mm dimension.\n  - Laid flat (thin side along the shoulder axis, 7–8 mm deep), they fit 13 mm, but the shaft then points perpendicular to the axis and a module 0.5 miter pair is needed. Stock options are KHK DM0.5-20 POM (bore 3, outside diameter 10.71) and RS PRO POM 16T/20T.\n- 21 mm: KST X08 or X06 shaft-along-axis, about 20–21 mm with spline (spline height not confirmed). The SCS0009 fits only if its 25.25 mm figure includes the shaft.\n- 23–25 mm: SCS0009 (if 25.25 is the case alone, the spline must reach into the torso side), STS3032 (about 28.5 total), MG90S (28.4 to the spline top) and the DFRobot clutch servo (27.3).\n\nBus: the SCS0009 (same part as Waveshare SC09 and DFRobot SER0059; about USD 9–19, 13 g, 0.19 N·m stall at 5 V) is the only bus servo under 15 g that can share the STS3032 line. Both default to 1 Mbps and ID 1, so one must be given a new ID first. Their 16-bit byte order differs (SCSCL and SMS_STS classes on one serial port); a passive Y-split needs only unique IDs and the same baud. Its output runs in a sliding bushing on a 1:416 metal gear train. No Hiwonder or DFRobot bus servo under 15 g with a compatible protocol was found, and Dynamixel uses a different protocol.\n\nHand pushes: every candidate stalls at 0.03–0.36 N·m at 5 V. The only off-the-shelf micro servos with a clutch made for hand-forcing are the DFRobot SER0049/SER0050 and Bambu PG001/PG002 9 g servos (PWM only; slip torque not published). The smallest stock torque limiters found are a 4 mm bore part from Origin (0.1/0.2/0.3 N·m) and R+W ball-detent units from 3 mm bore and 0.1 N·m. Friction hinges start at about 0.2 N·m (Reell PHA 0.28–0.65 N·m; an unbranded 0.1 N·m hinge, low confidence).\n\nMagnet forces at a gap are my own estimates from a simple model; the contact values match the vendor figures within about 10 %. The model script is /tmp/claude-0/-home-user-Robot/e2af8646-c6f1-5ece-963d-7005cfdf5589/scratchpad/mag.py.\n\nExisting repo data on the MG90S, STS3032 and SCS0009 was cross-checked with:\n- /home/user/Robot/obrazky/postupne/03_koncept_otocny_krk/B_rozpracovane/rozmery_elektroniky.md\n- /home/user/Robot/obrazky/postupne/06_trup_podrobny/zdroj/T4_spec.md\n- /home/user/Robot/nova/cad/neck.py"
+ },
+ "geo": {
+  "frames": "The T3 scene frame and frame B are the same frame, so the mapping is the identity. Both have the same origin (x = y = 0 on the torso axis, torso top / collar top at z = +4) and the same axes (Z up, front = -Y, robot left = +X). Evidence: T3 build_scene computes x_sh = 46.7556 from shape.prof at drop 21 and y 3, while T4 uses X_SH = 46.756 (difference 0.0004 mm). SH_Y = 3.0 in both. ZS = TOP - 21 = -17.0, which equals T4 SH_Z. Z_BOT = -84.5 and the base top Z_BASE_TOP = -86.0 are the same in both, and the desk (underside of the base feet) is at -116.5. I rebuilt T3 arm_xf literally and compared it with my own transform: maximum difference 0.00037 mm. In both frames the shoulder axis is the line parallel to X through (y 3.0, z -17.0).\nLeft arm at rest in frame B (right arm = mirror x -> -x):\n- arm-local attach point A_loc = (-ht(0.22) + 5, 0, -72*0.22) = (-6.507, 0, -15.84).\n- world attach point = (55.756, 3.000, -17.000). It lies exactly ON the shoulder axis, 9.0 mm outboard of the torso skin (X_SH 46.756) and 3.0 mm inboard of the T_klb end face (58.756).\n- arm long axis (world) = (0.208, -0.051, -0.977): 12.36 deg from vertical, tip outward, 3.0 deg forward.\n- local thickness axis = (0.978, 0.011, 0.208). Local width axis = (0, 0.999, -0.052).\n- pebble top tip (local 0,0,0) = (58.828, 3.882, -0.176), 16.8 mm above the axis. Bottom tip (local 0,0,-72) = (73.797, 0.196, -70.506), radius 53.58 mm from the axis.\n- the centre of the u_att station is at (62.121, 3.071, -15.649), 1.35 mm ABOVE the axis, because the 6.5 mm attach offset is rotated by the 12 deg splay.\n- pebble bounding box: x 49.50..78.67, y -14.32..19.63, z -70.71..+0.87. The innermost point is x 49.50 at (y 3.45, z -8.38), 8.6 mm above the axis.\n- base: flat top at z -86.0 (flat where the inset from the outline is >= 13, about |x| <= 60, |y| <= 43). The 146 x 112 superellipse outline (n 4.4) is reached 15 mm lower, at z -101. Desk plane z -116.5.",
+  "pebble_table": [
+   {
+    "u": 0.05,
+    "dist_below_axis_mm": -13.31,
+    "thickness_mm": 20.11,
+    "width_mm": 25.67,
+    "x_inner": 50.56,
+    "x_outer": 70.6
+   },
+   {
+    "u": 0.1,
+    "dist_below_axis_mm": -9.79,
+    "thickness_mm": 22.08,
+    "width_mm": 29.72,
+    "x_inner": 49.54,
+    "x_outer": 71.9
+   },
+   {
+    "u": 0.15,
+    "dist_below_axis_mm": -6.27,
+    "thickness_mm": 22.81,
+    "width_mm": 31.75,
+    "x_inner": 49.62,
+    "x_outer": 72.82
+   },
+   {
+    "u": 0.2,
+    "dist_below_axis_mm": -2.76,
+    "thickness_mm": 23.02,
+    "width_mm": 32.84,
+    "x_inner": 50.11,
+    "x_outer": 73.57
+   },
+   {
+    "u": 0.2078,
+    "dist_below_axis_mm": -2.21,
+    "thickness_mm": 23.02,
+    "width_mm": 32.96,
+    "x_inner": 50.2,
+    "x_outer": 73.68
+   },
+   {
+    "u": 0.22,
+    "dist_below_axis_mm": -1.35,
+    "thickness_mm": 23.01,
+    "width_mm": 33.11,
+    "x_inner": 50.37,
+    "x_outer": 73.84
+   },
+   {
+    "u": 0.25,
+    "dist_below_axis_mm": 0.76,
+    "thickness_mm": 22.95,
+    "width_mm": 33.38,
+    "x_inner": 50.8,
+    "x_outer": 74.23
+   },
+   {
+    "u": 0.3,
+    "dist_below_axis_mm": 4.28,
+    "thickness_mm": 22.73,
+    "width_mm": 33.55,
+    "x_inner": 51.62,
+    "x_outer": 74.84
+   },
+   {
+    "u": 0.3104,
+    "dist_below_axis_mm": 5.01,
+    "thickness_mm": 22.67,
+    "width_mm": 33.56,
+    "x_inner": 51.8,
+    "x_outer": 74.96
+   },
+   {
+    "u": 0.35,
+    "dist_below_axis_mm": 7.79,
+    "thickness_mm": 22.44,
+    "width_mm": 33.5,
+    "x_inner": 52.5,
+    "x_outer": 75.44
+   },
+   {
+    "u": 0.4,
+    "dist_below_axis_mm": 11.31,
+    "thickness_mm": 22.13,
+    "width_mm": 33.32,
+    "x_inner": 53.4,
+    "x_outer": 76
+   },
+   {
+    "u": 0.45,
+    "dist_below_axis_mm": 14.82,
+    "thickness_mm": 21.75,
+    "width_mm": 33.08,
+    "x_inner": 54.32,
+    "x_outer": 76.54
+   },
+   {
+    "u": 0.5,
+    "dist_below_axis_mm": 18.34,
+    "thickness_mm": 21.3,
+    "width_mm": 32.74,
+    "x_inner": 55.27,
+    "x_outer": 77.03
+   },
+   {
+    "u": 0.55,
+    "dist_below_axis_mm": 21.86,
+    "thickness_mm": 20.75,
+    "width_mm": 32.26,
+    "x_inner": 56.27,
+    "x_outer": 77.47
+   },
+   {
+    "u": 0.6,
+    "dist_below_axis_mm": 25.37,
+    "thickness_mm": 20.09,
+    "width_mm": 31.59,
+    "x_inner": 57.33,
+    "x_outer": 77.86
+   },
+   {
+    "u": 0.65,
+    "dist_below_axis_mm": 28.89,
+    "thickness_mm": 19.32,
+    "width_mm": 30.71,
+    "x_inner": 58.45,
+    "x_outer": 78.18
+   },
+   {
+    "u": 0.7,
+    "dist_below_axis_mm": 32.41,
+    "thickness_mm": 18.4,
+    "width_mm": 29.58,
+    "x_inner": 59.63,
+    "x_outer": 78.43
+   },
+   {
+    "u": 0.75,
+    "dist_below_axis_mm": 35.92,
+    "thickness_mm": 17.33,
+    "width_mm": 28.14,
+    "x_inner": 60.9,
+    "x_outer": 78.61
+   },
+   {
+    "u": 0.8,
+    "dist_below_axis_mm": 39.44,
+    "thickness_mm": 16.05,
+    "width_mm": 26.32,
+    "x_inner": 62.26,
+    "x_outer": 78.67
+   },
+   {
+    "u": 0.85,
+    "dist_below_axis_mm": 42.96,
+    "thickness_mm": 14.5,
+    "width_mm": 23.99,
+    "x_inner": 63.76,
+    "x_outer": 78.59
+   },
+   {
+    "u": 0.9,
+    "dist_below_axis_mm": 46.47,
+    "thickness_mm": 12.53,
+    "width_mm": 20.87,
+    "x_inner": 65.47,
+    "x_outer": 78.28
+   },
+   {
+    "u": 0.95,
+    "dist_below_axis_mm": 49.99,
+    "thickness_mm": 9.72,
+    "width_mm": 16.24,
+    "x_inner": 67.55,
+    "x_outer": 77.5
+   }
+  ],
+  "key_numbers": [
+   {
+    "name": "Table conventions (pebble_table)",
+    "value": "dist_below_axis = ZS - z of the station centre-line point (negative = above the axis). x_inner / x_outer = entry and exit x of the line parallel to X through that centre-line point. Thickness = 2*ht(u), width = 2*hw(u).",
+    "how": "Analytic pebble from shape.arm_profile + se_r (n 2.3), mapped by the replicated arm_xf. Entry/exit found by an analytic inside test on a 40001-point x grid (resolution 0.002 mm). Station-normal values (points +-ht on the local x axis) differ by about 0.5 mm and are stored in q2_table.json (x_in_st, x_out_st)."
+   },
+   {
+    "name": "Thickest station",
+    "value": "u 0.2078: 2*ht = 23.02 mm (nominal ARM_T 24.5 is never reached). Centre 2.21 mm above the axis.",
+    "how": "Maximum of 2*ht over 200001 u samples."
+   },
+   {
+    "name": "Widest station",
+    "value": "u 0.3104: 2*hw = 33.56 mm (nominal ARM_W 35.0). Centre 5.01 mm below the axis.",
+    "how": "Same scan."
+   },
+   {
+    "name": "Pebble on the shoulder axis",
+    "value": "Inner skin x 50.642, outer skin x 74.092 (23.45 mm across). Inside of a 2.0 mm wall: x 52.686 .. 72.060. Deepest point on the axis 11.49 mm from the skin, at x 62.41.",
+    "how": "Signed distance along the axis line, step 0.002 mm. Distance = KD-tree on a 0.15 mm analytic surface cloud; sign from the analytic inside test. Accuracy about +-0.01 mm."
+   },
+   {
+    "name": "T_klb_L planes from the STL",
+    "value": "Neck face x 38.6. Seat shoulder x 40.6 (r 10.9..13.5). Body r 13.5 up to x 50.156, then a round-off to r 12.7. Step face x 50.956 (ring r 11.48..12.70). D22 journal r 11.0 from x 51.556 to 57.956, chamfer to r 10.2. Magnet-pocket floor x 56.656. END FACE x 58.756 (r 4.02..10.20). Counterbore floor x 45.0, bush bore to x 44.0.",
+    "how": "Triangles with |n_x| > 0.999 grouped by x; r_max(x) histogram of the STL vertices in 0.25 mm bins."
+   },
+   {
+    "name": "Depth of T_klb inside the pebble",
+    "value": "The end face x 58.756 lies 8.11 mm inside the pebble inner skin (measured on the axis).",
+    "how": "58.756 - 50.642."
+   },
+   {
+    "name": "Free depth along the axis from the present end face 58.756",
+    "value": "13.30 mm to the inside of a 2.0 outer wall (15.34 mm to the outer skin).",
+    "how": "72.060 - 58.756 (and 74.092 - 58.756)."
+   },
+   {
+    "name": "Free depth if T_klb is cut at x 50.9",
+    "value": "21.16 mm to the inside of a 2.0 outer wall (23.19 mm to the outer skin). The cut face would be only 0.26 mm inside the skin on the axis.",
+    "how": "72.060 - 50.9."
+   },
+   {
+    "name": "Pebble inner skin around the axis (x of first entry on lines parallel to X at radius r)",
+    "value": "r 0: 50.65. r 4: 49.91..51.55. r 8: 49.51..52.55. r 11.0: 49.70 (up, az 86) .. 53.44 (az 210). r 12.7: 50.21 .. 54.35. r 13.5: 50.64 .. 54.87. r 16: 52.92 .. 58.47. (az 0 = back +Y, 90 = up, 180 = front, 270 = down.) The skin facing the torso is strongly curved: lowest x above the axis, highest below and to the sides.",
+    "how": "Ray scans with 0.005 mm steps at 2 deg azimuth increments (q3.py)."
+   },
+   {
+    "name": "Exposed D22 journal at rest",
+    "value": "About 15.5 % of the D22 journal surface is outside the pebble: x 51.56..53.4 on the lower, front and back sides (the pebble skin covers only the upper ~120 deg sector).",
+    "how": "Pebble signed distance at 0.15 mm samples of the journal r 11.0 (q8.py)."
+   },
+   {
+    "name": "Rotation about the shoulder axis preserves x",
+    "value": "The splay makes the long axis sweep a cone of half-angle 77.6 deg about X. Every point keeps its x, so the lateral reach is constant: max x 78.67 (at u about 0.80). Bottom tip x 73.80.",
+    "how": "Analytic; checked over the sweep (q5)."
+   }
+  ],
+  "servo_fit": [
+   {
+    "case_name": "S1 19.9x8.8x21.0 (shaft 4.7)",
+    "layout": "A(a): shaft on the axis, case from x 59.056 (present end face + 0.3), length down the arm (best orientation)",
+    "fits": false,
+    "margin_or_shortfall_mm": "-8.93",
+    "note": "The outer face at x 80.06 goes through the 2.0-inset skin. Fixes: thickness scale kt 1.40 (+9.2 mm thickness, all outward under the T3 attach rule), or move the pebble out 2 mm and kt 1.32 (+7.4 mm). Moving outward alone never works: the case's inner end then leaves the skin. Case pointing up / fore-aft: -11.7 / -11.8."
+   },
+   {
+    "name_placeholder": "",
+    "case_name": "S2 23.2x12.2x22.7 (shaft 5.9)",
+    "layout": "A(a)",
+    "fits": false,
+    "margin_or_shortfall_mm": "-11.03",
+    "note": "Needs kt 1.52 (+12.0 mm thickness). Moving outward does not help. Up / fore-aft: -14.2 / -14.6."
+   },
+   {
+    "case_name": "S3 23.0x12.0x24.0 (shaft 6.0)",
+    "layout": "A(a)",
+    "fits": false,
+    "margin_or_shortfall_mm": "-12.30",
+    "note": "Needs kt 1.56 (+12.9 mm thickness). Up / fore-aft: -15.3 / -15.6."
+   },
+   {
+    "case_name": "S4 20.2x8.5x15.5 (shaft 4.5)",
+    "layout": "A(a)",
+    "fits": false,
+    "margin_or_shortfall_mm": "-3.52",
+    "note": "Needs kt 1.16 (+3.7 mm thickness), or move the pebble out 2 mm and kt 1.08 (+1.8 mm). The 13.3 mm free depth is less than the case height of every case."
+   },
+   {
+    "case_name": "S1 / S2 / S3 / S4",
+    "layout": "A(b): T_klb cut at x 50.9, case from x 51.2",
+    "fits": false,
+    "margin_or_shortfall_mm": "Inner end sticks out of the skin by 3.3 / 4.1 / 4.0 / 3.4 (case down) or 1.1 / 3.1 / 2.8 / 1.5 (case up)",
+    "note": "The flat case face is only 0.56 mm inside the curved inner skin on the axis; at the case corners the skin is at x 53..55. Outer-face-only margins (case down): S1 -1.29, S2 -3.47, S3 -4.72, S4 +4.08. So in (b) the binding side is the torso side, not the outer wall."
+   },
+   {
+    "case_name": "S4",
+    "layout": "A-flush: shaft on the axis, case face pushed out until flush with the inner skin (case length down the arm)",
+    "fits": true,
+    "margin_or_shortfall_mm": "+0.64",
+    "note": "Case x 54.76..70.26. Requires T_klb to end at x <= 54.46, i.e. the D22 journal shortened from 6.4 mm to <= 2.9 mm (or removed). Collides with the present T_klb by 4.0."
+   },
+   {
+    "case_name": "S1 / S2 / S3",
+    "layout": "A-flush (same rule)",
+    "fits": false,
+    "margin_or_shortfall_mm": "-4.64 / -7.58 / -8.75",
+    "note": "Thickness needed: kt 1.22 / 1.38 / 1.42 (+5.1 / +8.8 / +9.7 mm). The T_klb cut x is then about 54.5 / 55.6 / 55.6."
+   },
+   {
+    "case_name": "S4",
+    "layout": "B: shaft parallel to the axis, d below it on the arm line, case flush with the inner skin (no inner wall); wall required >= 3 mm from the window face",
+    "fits": true,
+    "margin_or_shortfall_mm": "+0.69 (d 10, case reaching up past the axis); +0.54 at d 13; +0.28 at d 16",
+    "note": "Best: d 10, case x 54.44..69.94. It covers the axis, so it collides with the present D22 journal (-4.3) and needs T_klb cut at 50.9 (clearance 3.5). With the case hanging down from the shaft (clear of the axis): -0.34 at d 10 (kt 1.02, +0.5 mm), -0.78 at d 13, -1.30 at d 16 (kt 1.08, +1.8 mm). Clearance to the present T_klb in that orientation: -1.11 at d 10, -0.16 at d 13, +0.99 at d 16."
+   },
+   {
+    "case_name": "S1 / S2 / S3",
+    "layout": "B",
+    "fits": false,
+    "margin_or_shortfall_mm": "-4.61 / -7.52 / -8.70 (best: d 10, case up)",
+    "note": "The outer face is the limit. Needed kt 1.22 / 1.38 / 1.42 (+5.1 / +8.8 / +9.7 mm). Hanging-down orientation is worse: -5.65 / -8.65 / -9.80. Margins fall by about 0.1 mm per mm of extra d."
+   },
+   {
+    "case_name": "S1",
+    "layout": "C: flat case, thin W along the arm thickness, 2.0 walls both sides",
+    "fits": true,
+    "margin_or_shortfall_mm": "+2.30 (shaft up the arm), +2.00 (shaft fore-aft)",
+    "note": "Best centre at u about 0.30 (local z -21.9); the centre can sit anywhere in u 0.22..0.59. Nearest shaft exit to the shoulder axis, shaft up the arm: 5.32 mm while staying >= 1.5 mm from the present T_klb, 2.81 mm with T_klb cut at 50.9. Shaft fore-aft near the upper case end: 14.6 / 8.5 mm."
+   },
+   {
+    "case_name": "S2",
+    "layout": "C",
+    "fits": false,
+    "margin_or_shortfall_mm": "-0.11 (shaft up); +0.03 (shaft fore-aft, single position only)",
+    "note": "Shaft up: needs kt or kw 1.02 (+0.5 mm). Fore-aft: fits only at u 0.31, shaft exit 11.4 mm from the axis, and only with T_klb cut at 50.9. No position keeps 1.5 mm from the present T_klb."
+   },
+   {
+    "case_name": "S3",
+    "layout": "C",
+    "fits": false,
+    "margin_or_shortfall_mm": "-0.02 (shaft up); -0.30 (shaft fore-aft)",
+    "note": "Shaft up: 1 % growth (kt or kw 1.01) suffices. Fore-aft: kt 1.06 or kw 1.04 (kt = kw 1.03). Best centre u 0.31."
+   },
+   {
+    "case_name": "S4",
+    "layout": "C",
+    "fits": true,
+    "margin_or_shortfall_mm": "+2.51 (shaft up), +3.56 (shaft fore-aft)",
+    "note": "Centre anywhere in u 0.17..0.63. Shaft exit nearest to the axis: 4.60 mm with the present T_klb (>= 1.5 clearance), 2.60 mm with T_klb cut at 50.9. Fore-aft with the shaft near the upper end: 6.75 / 2.76 mm."
+   }
+  ],
+  "clearances": [
+   {
+    "pair": "pebble vs T_bok_L (side cap), sweep -45..+135",
+    "min_mm": "1.90",
+    "at": "Arm +135 deg. Cap surface just below the socket at (49.0, 5.85, -30.7), r 14.0 from the axis. Drops below 2.0 above about +131.5 deg. 4.67 at rest, >= 4.67 from -45 to +70, 3.95 at +90. Outward shift of the pebble: +1.0 -> 2.81, +2.0 -> 3.74."
+   },
+   {
+    "pair": "pebble vs T_stred",
+    "min_mm": ">= 16.45",
+    "at": "All angles. T_stred max x 33.05, pebble min x 49.50, and x does not change during the swing."
+   },
+   {
+    "pair": "pebble vs T_klb_L shoulder / body (x <= 51.3, r >= 11.2)",
+    "min_mm": "-1.29 (OVERLAP)",
+    "at": "Every arm angle (-1.27..-1.29, because T_klb is axisymmetric). At rest: T_klb x 50.48..51.05, r 11.2..13.2 (step face 50.956 and its round-off), az 36..138 (upper side), deepest at (51.05, 4.12, -5.85). Pebble region: u 0.03..0.11, inner side. Clearing it needs the pebble 1.33 mm further out (0 gap), 1.8 mm (0.48 gap) or 2.0 mm (0.67 gap); alternatively a counterbore of about D28 in the pebble inner face."
+   },
+   {
+    "pair": "pebble vs base top",
+    "min_mm": "15.25 vertical (any J1); 16.90 true 3-D distance at J1 = 0",
+    "at": "Arm -3 deg (pointing straight down). Lowest pebble point z -70.75 at (72.52, 3.0); base top plane z -86.0."
+   },
+   {
+    "pair": "pebble vs desk plane z -116.5",
+    "min_mm": "45.75",
+    "at": "Arm -3 deg."
+   },
+   {
+    "pair": "pebble vs head + neck (variant B), all 20 poses",
+    "min_mm": "9.26",
+    "at": "lift 0, tilt 4, pan 0, arm +135 deg; head shell (hlava_skrupina) at (52.5, -14.5, 16.7)."
+   },
+   {
+    "pair": "lateral / radial reach",
+    "min_mm": "max x 78.67 (constant over the sweep); bottom tip x 73.80",
+    "at": "Base half-width 73.0, so at J1 = 0 the arm overhangs the base outline by 5.7 mm in x. Largest radius from the J1 axis: 90.87 at arm +85 deg. Bottom tip: (73.8, 38.85, -56.82) at -45, (73.8, -50.51, -14.2) at +90, (73.8, -32.85, 22.82) at +135."
+   }
+  ],
+  "arm_head_limits": [
+   {
+    "head_pose": "lift 0, tilt 0, pan 0",
+    "max_arm_angle_deg": "+135 (full); -45 also free",
+    "note": "Min 9.66 at +135, hlava_skrupina"
+   },
+   {
+    "head_pose": "lift 0, tilt 0, pan +45",
+    "max_arm_angle_deg": "+135 (full)",
+    "note": "Min 13.10 at +55, ram_displeja (display frame corner over the arm top)"
+   },
+   {
+    "head_pose": "lift 0, tilt 0, pan +85",
+    "max_arm_angle_deg": "+135 (full)",
+    "note": "No head or neck point beyond x 40, so the distance is > 9.5 everywhere"
+   },
+   {
+    "head_pose": "lift 0, tilt 0, pan -45",
+    "max_arm_angle_deg": "+135 (full)",
+    "note": "Min 14.32 at +135, hlava_skrupina"
+   },
+   {
+    "head_pose": "lift 0, tilt 0, pan -85",
+    "max_arm_angle_deg": "+135 (full)",
+    "note": "Nothing beyond x 40 (distance > 9.5)"
+   },
+   {
+    "head_pose": "lift 0, tilt 4 (firmware down limit), pan 0",
+    "max_arm_angle_deg": "+135 (full)",
+    "note": "Min 9.26 at +135, hlava_skrupina. This is the global minimum."
+   },
+   {
+    "head_pose": "lift 0, tilt 4, pan +45",
+    "max_arm_angle_deg": "+135 (full)",
+    "note": "Min 11.06 at +55, ram_displeja"
+   },
+   {
+    "head_pose": "lift 0, tilt 4, pan +85",
+    "max_arm_angle_deg": "+135 (full)",
+    "note": ">= 20 (capped)"
+   },
+   {
+    "head_pose": "lift 0, tilt 4, pan -45",
+    "max_arm_angle_deg": "+135 (full)",
+    "note": "Min 15.97 at +135, hlava_skrupina"
+   },
+   {
+    "head_pose": "lift 0, tilt 4, pan -85",
+    "max_arm_angle_deg": "+135 (full)",
+    "note": "Nothing beyond x 40"
+   },
+   {
+    "head_pose": "lift 20, tilt 0, pan 0 / +45 / -45",
+    "max_arm_angle_deg": "+135 (full)",
+    "note": ">= 20 (capped) for all three"
+   },
+   {
+    "head_pose": "lift 20, tilt 0, pan +85 / -85",
+    "max_arm_angle_deg": "+135 (full)",
+    "note": "Nothing beyond x 40"
+   },
+   {
+    "head_pose": "lift 20, tilt 40 (firmware down limit), pan 0",
+    "max_arm_angle_deg": "+135 (full)",
+    "note": "Min 12.64 at +135, hlava_skrupina"
+   },
+   {
+    "head_pose": "lift 20, tilt 40, pan +45",
+    "max_arm_angle_deg": "+135 (full)",
+    "note": "Min 9.79 at arm -20, ram_displeja lower-back corner at (51.9, 12.3, 8.0) above the arm top"
+   },
+   {
+    "head_pose": "lift 20, tilt 40, pan +85",
+    "max_arm_angle_deg": "+135 (full)",
+    "note": ">= 20 (capped)"
+   },
+   {
+    "head_pose": "lift 20, tilt 40, pan -45 / -85",
+    "max_arm_angle_deg": "+135 (full)",
+    "note": "Nothing beyond x 40"
+   }
+  ],
+  "mass_torque": [
+   {
+    "item": "Solid pebble volume",
+    "value": "33,680 mm3",
+    "note": "Analytic superellipse area 4ab*G(1+1/n)^2/G(1+2/n) integrated over u; a 0.2 mm voxel sum gives 33,678."
+   },
+   {
+    "item": "Shell with 2.0 mm wall (true normal offset)",
+    "value": "10,829 mm3 = 10.83 cm3 -> 13.00 g at 1.2 g/cm3",
+    "note": "Voxels of 0.2 mm with signed distance in -2..0."
+   },
+   {
+    "item": "Shell centre of gravity (rest pose)",
+    "value": "(65.53, 2.23, -31.64): 14.64 mm below the axis, 14.66 mm radially from it",
+    "note": "Voxel integration in frame B."
+   },
+   {
+    "item": "Moment of inertia of the shell about the shoulder axis",
+    "value": "8,836 g*mm2 = 8.84e-6 kg*m2",
+    "note": "Sum of m*((y-3)^2 + (z+17)^2)."
+   },
+   {
+    "item": "Motion 90 deg in 0.25 s, triangular velocity profile",
+    "value": "alpha 100.5 rad/s2; peak omega 12.57 rad/s = 120 rpm (0.083 s per 60 deg)",
+    "note": "alpha = 4*theta/T^2, omega_peak = 2*theta/T. The peak speed is at or above the no-load speed of typical micro servos (0.08..0.12 s/60deg), so speed limits before torque does."
+   },
+   {
+    "item": "Layout A (servo on the axis) + 3 g at the axis; servo 6 / 10 / 14 g",
+    "value": "Holding torque, arm horizontal: 0.0019 N*m (0.019 kg*cm). Inertial torque I*alpha: 0.00089 N*m. Worst case sum: 0.0028 N*m (0.028 kg*cm), the same for all three servo masses.",
+    "note": "Arm total 22 / 26 / 30 g. If the servo case is treated as a box rotating about its shaft, inertia grows by 402 / 863 / 1256 g*mm2 (4.6 / 9.8 / 14.2 %), i.e. at most +0.00013 N*m."
+   },
+   {
+    "item": "Layout B (servo 14 mm below the axis) + 3 g at the axis; servo 6 / 10 / 14 g",
+    "value": "Holding: 0.0027 / 0.0032 / 0.0038 N*m. I*alpha: 0.0010 / 0.0011 / 0.0012 N*m. Worst sum: 0.0037 / 0.0043 / 0.0050 N*m (0.038 / 0.044 / 0.051 kg*cm).",
+    "note": "Servo treated as a point mass. Even the worst case is about 1/30 of a 1.5 kg*cm micro servo's stall torque."
+   }
+  ],
+  "surprises": [
+   "The approved pebble already OVERLAPS the frozen T_klb shoulder by 1.29 mm: the step-face ring x 50.956 (r 11.5..12.7) and its round-off to r 13.5 at x 50.16. The overlap is on the upper inner side of the arm (pebble u 0.03..0.11) and stays at 1.27..1.29 mm at every arm angle because T_klb is axisymmetric. It disappears if the pebble moves 1.33 mm outward (1.8 mm for a 0.5 mm gap), or with a counterbore of about D28 in the arm's inner face.",
+   "The attach point IS on the shoulder axis (55.756, 3, -17), 3.0 mm inboard of the T_klb end face. Because of the 12 deg splay, the pebble's own u_att station centre is 1.35 mm above the axis, and the inner skin on the axis is at x 50.64 instead of 50.76.",
+   "The arm-interface plane (T_klb end face 58.756) is buried 8.11 mm inside the pebble. On the axis only 13.3 mm remain to a 2.0 mm outer wall, less than any listed servo height (15.5..24.0). So layout A is impossible with the frozen interface.",
+   "The inner skin facing the torso is strongly curved around the axis: x 49.5 at 8.6 mm above the axis, about 53.4 at r 11 below or at the sides, 54.9 at r 13.5 front and back. A flat case face at x 51.2 (T_klb cut at 50.9) sticks out of the arm by 1.1..4.1 mm. The working variant is a case flush with the skin at x about 54.5..55, which needs T_klb to end at about x 54.5 (D22 journal at most 2.9 mm long).",
+   "About 15 % of the D22 journal (x 51.56..53.4, lower, front and back) stays visible in the gap between torso and arm. The pebble covers it only on the upper side.",
+   "The real maximum thickness is 23.02 mm (u 0.208) and the real maximum width 33.56 mm (u 0.310), not the nominal 24.5 / 35.0.",
+   "Clearance to the side cap T_bok_L drops to 1.90 mm at +135 deg (below 2.0 above about +131.5 deg). The cause is the torso bulge below the socket meeting the swung-back top of the pebble. At rest the clearance is 4.67 mm.",
+   "The head never limits the arm: in all 20 pan / lift / tilt poses the full -45..+135 range keeps at least 9.26 mm to the head and neck. With pan +45 the closest feature is the display frame corner, not the shell.",
+   "Rotation about the X-parallel axis keeps x, so the arm's lateral reach (x 78.67) is constant. At J1 = 0 the arm overhangs the base outline (half-width 73.0) by 5.7 mm. The tip reaches up to 90.9 mm from the J1 axis at about +85 deg.",
+   "Torque is negligible: 0.003..0.005 N*m worst case. The 90 deg / 0.25 s demand is a speed requirement (about 0.083 s per 60 deg peak) that most micro servos only just meet.",
+   "In layout C, S1 and S4 fit easily (wall margin 2.0..3.6 mm). S2 and S3 miss by only 0.02..0.30 mm (1..6 % growth). This is the only layout where the larger cases come close to fitting without major growth."
+  ],
+  "summary": "All numbers come from small numpy scripts in /tmp/claude-0/gapwf/fin/R1/geo (armgeo.py, q12, q3, q3a_klb, q4_common, q4a2, q4b2, q4b3, q4b4, q4c, q4c2, q5, q6, q6c, q7, q8). Nothing under T3, T4 or B was modified. Authoritative outputs: q2_table.json, q4a_out.json, q4b2_out.json, q4b3_S4S3_out.json, q4b4_out.json, q4c_out.json, q4c2_out.json, q5_out.json, q6_out.json, q6c_out.json, q7_out.json. Two earlier outputs were renamed *_SUPERSEDED_*: their kt bisection assumed monotonic behaviour and was invalid, and their strict inner-wall criterion was replaced.\n\nMethod: the approved pebble is evaluated analytically (shape.arm_profile with section exponent 2.3) and placed by a literal copy of T3 arm_xf (it matches my transform within 0.0004 mm). Signed distance uses a KD-tree on a 0.15 mm analytic surface cloud, with the sign from the analytic inside test (about +-0.01 mm). The T4 and B STLs are loaded with vlib and surface-sampled at 0.12..0.8 mm. The sweep is a rigid rotation about the line parallel to X through (3, -17). Head poses follow K9: tilt about X through (0, -3.5), then lift, then pan; the neck gets lift and pan only.\n\nKey results:\n1. T3 frame = frame B (identity).\n2. The pebble spans x 50.64..74.09 on the axis; real maxima are 23.02 thick (u 0.208) and 33.56 wide (u 0.310).\n3. The T_klb end face is 8.11 mm deep inside the pebble. Free depth to a 2.0 wall: 13.30 mm (present end face) or 21.16 mm (cut at 50.9).\n4. Servos:\n   - Layout A with the frozen interface: nothing fits. S4 needs +3.7 mm thickness; S1/S2/S3 need +9.2/+12.0/+12.9 mm.\n   - Layout A with T_klb cut at 50.9: the case pokes out of the curved inner skin.\n   - S4 fits on the axis only if T_klb ends at x <= 54.46 (case flush with the skin, margin +0.64).\n   - Layout B: only S4 fits (d 10, needs the T_klb cut); S1/S2/S3 need +5.1/+8.8/+9.7 mm.\n   - Layout C (flat): S1 and S4 fit (margin 2.0..3.6, shaft exit 4.6..5.3 mm from the axis with the present T_klb); S2/S3 miss by 0.02..0.30 mm.\n5. Clearances: side cap 1.90 at +135 (4.67 at rest); T_stred >= 16.45; T_klb shoulder OVERLAP 1.29 at all angles; base top 15.25 (16.90 true); desk 45.75; lateral reach x 78.67, constant.\n6. The head never limits the arm (min 9.26 mm in all 20 poses).\n7. 2.0 mm shell: 13.0 g, CG 14.66 mm from the axis, I = 8836 g*mm2. Worst torque 0.0028 N*m (A) to 0.0050 N*m (B, 14 g); the speed demand (120 rpm peak) is the real constraint.\n8. Main surprises: the approved pebble overlaps the frozen T_klb shoulder (fix: move the pebble out >= 1.33 mm, or add a counterbore), and the attach point sits on the axis but 8 mm deep inside the arm."
+ }
+}

@@ -1,0 +1,234 @@
+[
+ {
+  "lift": 0.0,
+  "tilt": 0.0,
+  "pan": 0,
+  "min_clear": 9.66,
+  "at_arm": 135,
+  "part": "hlava_skrupina",
+  "head_pt": [
+   52.3,
+   -13.0,
+   17.2
+  ]
+ },
+ {
+  "lift": 0.0,
+  "tilt": 0.0,
+  "pan": 45,
+  "min_clear": 13.47,
+  "at_arm": 0,
+  "part": "ram_displeja",
+  "head_pt": [
+   47.7,
+   13.5,
+   9.2
+  ]
+ },
+ {
+  "lift": 0.0,
+  "tilt": 0.0,
+  "pan": 85,
+  "min_clear": 1000000000.0,
+  "at_arm": null,
+  "part": null,
+  "head_pt": null
+ },
+ {
+  "lift": 0.0,
+  "tilt": 0.0,
+  "pan": -45,
+  "min_clear": 14.32,
+  "at_arm": 135,
+  "part": "hlava_skrupina",
+  "head_pt": [
+   48.3,
+   -18.0,
+   19.3
+  ]
+ },
+ {
+  "lift": 0.0,
+  "tilt": 0.0,
+  "pan": -85,
+  "min_clear": 1000000000.0,
+  "at_arm": null,
+  "part": null,
+  "head_pt": null
+ },
+ {
+  "lift": 0.0,
+  "tilt": 4.0,
+  "pan": 0,
+  "min_clear": 9.26,
+  "at_arm": 135,
+  "part": "hlava_skrupina",
+  "head_pt": [
+   52.5,
+   -14.5,
+   16.7
+  ]
+ },
+ {
+  "lift": 0.0,
+  "tilt": 4.0,
+  "pan": 45,
+  "min_clear": 11.41,
+  "at_arm": 0,
+  "part": "ram_displeja",
+  "head_pt": [
+   48.5,
+   13.1,
+   7.3
+  ]
+ },
+ {
+  "lift": 0.0,
+  "tilt": 4.0,
+  "pan": 85,
+  "min_clear": 20.0,
+  "at_arm": 90,
+  "part": "ram_displeja",
+  "head_pt": [
+   40.0,
+   36.5,
+   76.9
+  ]
+ },
+ {
+  "lift": 0.0,
+  "tilt": 4.0,
+  "pan": -45,
+  "min_clear": 15.97,
+  "at_arm": 135,
+  "part": "hlava_skrupina",
+  "head_pt": [
+   46.9,
+   -18.7,
+   20.0
+  ]
+ },
+ {
+  "lift": 0.0,
+  "tilt": 4.0,
+  "pan": -85,
+  "min_clear": 1000000000.0,
+  "at_arm": null,
+  "part": null,
+  "head_pt": null
+ },
+ {
+  "lift": 20.0,
+  "tilt": 0.0,
+  "pan": 0,
+  "min_clear": 20.0,
+  "at_arm": 90,
+  "part": "hlava_skrupina",
+  "head_pt": [
+   40.3,
+   -26.0,
+   29.1
+  ]
+ },
+ {
+  "lift": 20.0,
+  "tilt": 0.0,
+  "pan": 45,
+  "min_clear": 20.0,
+  "at_arm": 90,
+  "part": "hlava_skrupina",
+  "head_pt": [
+   40.1,
+   9.9,
+   28.1
+  ]
+ },
+ {
+  "lift": 20.0,
+  "tilt": 0.0,
+  "pan": 85,
+  "min_clear": 1000000000.0,
+  "at_arm": null,
+  "part": null,
+  "head_pt": null
+ },
+ {
+  "lift": 20.0,
+  "tilt": 0.0,
+  "pan": -45,
+  "min_clear": 20.0,
+  "at_arm": 90,
+  "part": "hlava_skrupina",
+  "head_pt": [
+   40.1,
+   -5.5,
+   54.1
+  ]
+ },
+ {
+  "lift": 20.0,
+  "tilt": 0.0,
+  "pan": -85,
+  "min_clear": 1000000000.0,
+  "at_arm": null,
+  "part": null,
+  "head_pt": null
+ },
+ {
+  "lift": 20.0,
+  "tilt": 40.0,
+  "pan": 0,
+  "min_clear": 12.64,
+  "at_arm": 135,
+  "part": "hlava_skrupina",
+  "head_pt": [
+   52.7,
+   -29.5,
+   19.8
+  ]
+ },
+ {
+  "lift": 20.0,
+  "tilt": 40.0,
+  "pan": 45,
+  "min_clear": 10.43,
+  "at_arm": 0,
+  "part": "ram_displeja",
+  "head_pt": [
+   51.2,
+   12.2,
+   7.7
+  ]
+ },
+ {
+  "lift": 20.0,
+  "tilt": 40.0,
+  "pan": 85,
+  "min_clear": 20.0,
+  "at_arm": 90,
+  "part": "hlava_skrupina",
+  "head_pt": [
+   40.1,
+   36.0,
+   29.7
+  ]
+ },
+ {
+  "lift": 20.0,
+  "tilt": 40.0,
+  "pan": -45,
+  "min_clear": 1000000000.0,
+  "at_arm": null,
+  "part": null,
+  "head_pt": null
+ },
+ {
+  "lift": 20.0,
+  "tilt": 40.0,
+  "pan": -85,
+  "min_clear": 1000000000.0,
+  "at_arm": null,
+  "part": null,
+  "head_pt": null
+ }
+]

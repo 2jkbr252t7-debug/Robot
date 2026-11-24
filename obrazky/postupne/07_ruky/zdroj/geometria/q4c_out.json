@@ -1,0 +1,422 @@
+{
+ "C": [
+  [
+   {
+    "case": "S1",
+    "ori": "shaft up the arm",
+    "fits": true,
+    "n_centres": 557,
+    "centre_z_range": [
+     -42.5,
+     -15.5
+    ],
+    "best_klb_now": {
+     "case": "S1",
+     "ori": "shaft up the arm",
+     "centre_local": [
+      2.0,
+      0.0,
+      -29.0
+     ],
+     "shaft_exit_world": [
+      64.63,
+      -2.29,
+      -17.56
+     ],
+     "dist_axis": 5.32,
+     "wall_margin": 0.1,
+     "klb_clear_now": 1.57,
+     "klb_clear_cut": 9.43,
+     "u_range": [
+      0.257,
+      0.549
+     ]
+    },
+    "best_klb_cut": {
+     "case": "S1",
+     "ori": "shaft up the arm",
+     "centre_local": [
+      0.0,
+      3.0,
+      -26.0
+     ],
+     "shaft_exit_world": [
+      62.05,
+      0.84,
+      -15.2
+     ],
+     "dist_axis": 2.81,
+     "wall_margin": 0.027,
+     "klb_clear_now": -1.01,
+     "klb_clear_cut": 6.85,
+     "u_range": [
+      0.215,
+      0.507
+     ]
+    }
+   },
+   {
+    "case": "S1",
+    "ori": "shaft fore-aft, near top end",
+    "fits": true,
+    "n_centres": 391,
+    "centre_z_range": [
+     -41.5,
+     -15.5
+    ],
+    "best_klb_now": {
+     "case": "S1",
+     "ori": "shaft fore-aft, near top end",
+     "centre_local": [
+      1.0,
+      0.0,
+      -33.0
+     ],
+     "shaft_exit_world": [
+      67.76,
+      -8.55,
+      -36.78
+     ],
+     "dist_axis": 22.91,
+     "wall_margin": 0.364,
+     "klb_clear_now": 1.54,
+     "klb_clear_cut": 9.39,
+     "u_range": [
+      0.32,
+      0.597
+     ]
+    },
+    "best_klb_cut": {
+     "case": "S1",
+     "ori": "shaft fore-aft, near top end",
+     "centre_local": [
+      0.0,
+      1.0,
+      -17.0
+     ],
+     "shaft_exit_world": [
+      63.45,
+      -6.74,
+      -21.41
+     ],
+     "dist_axis": 10.7,
+     "wall_margin": 0.067,
+     "klb_clear_now": -2.55,
+     "klb_clear_cut": 5.09,
+     "u_range": [
+      0.098,
+      0.374
+     ]
+    }
+   },
+   {
+    "case": "S1",
+    "ori": "shaft fore-aft, near bottom end",
+    "fits": true,
+    "n_centres": 391,
+    "centre_z_range": [
+     -41.5,
+     -15.5
+    ],
+    "best_klb_now": {
+     "case": "S1",
+     "ori": "shaft fore-aft, near bottom end",
+     "centre_local": [
+      1.0,
+      0.0,
+      -33.0
+     ],
+     "shaft_exit_world": [
+      65.58,
+      -8.01,
+      -26.53
+     ],
+     "dist_axis": 14.56,
+     "wall_margin": 0.364,
+     "klb_clear_now": 1.54,
+     "klb_clear_cut": 9.39,
+     "u_range": [
+      0.32,
+      0.597
+     ]
+    },
+    "best_klb_cut": {
+     "case": "S1",
+     "ori": "shaft fore-aft, near bottom end",
+     "centre_local": [
+      0.0,
+      2.0,
+      -22.5
+     ],
+     "shaft_exit_world": [
+      62.41,
+      -5.49,
+      -16.58
+     ],
+     "dist_axis": 8.5,
+     "wall_margin": 0.524,
+     "klb_clear_now": -1.62,
+     "klb_clear_cut": 6.23,
+     "u_range": [
+      0.174,
+      0.451
+     ]
+    }
+   }
+  ],
+  [
+   {
+    "case": "S2",
+    "ori": "shaft up the arm",
+    "fits": false
+   },
+   {
+    "case": "S2",
+    "ori": "shaft fore-aft, near top end",
+    "fits": true,
+    "n_centres": 1,
+    "centre_z_range": [
+     -22.5,
+     -22.5
+    ],
+    "best_klb_now": null,
+    "best_klb_cut": {
+     "case": "S2",
+     "ori": "shaft fore-aft, near top end",
+     "centre_local": [
+      0.0,
+      0.0,
+      -22.5
+     ],
+     "shaft_exit_world": [
+      64.69,
+      -8.9,
+      -27.13
+     ],
+     "dist_axis": 15.62,
+     "wall_margin": 0.014,
+     "klb_clear_now": -3.63,
+     "klb_clear_cut": 4.23,
+     "u_range": [
+      0.151,
+      0.474
+     ]
+    }
+   },
+   {
+    "case": "S2",
+    "ori": "shaft fore-aft, near bottom end",
+    "fits": true,
+    "n_centres": 1,
+    "centre_z_range": [
+     -22.5,
+     -22.5
+    ],
+    "best_klb_now": null,
+    "best_klb_cut": {
+     "case": "S2",
+     "ori": "shaft fore-aft, near bottom end",
+     "centre_local": [
+      0.0,
+      0.0,
+      -22.5
+     ],
+     "shaft_exit_world": [
+      62.32,
+      -8.31,
+      -15.99
+     ],
+     "dist_axis": 11.36,
+     "wall_margin": 0.014,
+     "klb_clear_now": -3.63,
+     "klb_clear_cut": 4.23,
+     "u_range": [
+      0.151,
+      0.474
+     ]
+    }
+   }
+  ],
+  [
+   {
+    "case": "S3",
+    "ori": "shaft up the arm",
+    "fits": false
+   },
+   {
+    "case": "S3",
+    "ori": "shaft fore-aft, near top end",
+    "fits": false
+   },
+   {
+    "case": "S3",
+    "ori": "shaft fore-aft, near bottom end",
+    "fits": false
+   }
+  ],
+  [
+   {
+    "case": "S4",
+    "ori": "shaft up the arm",
+    "fits": true,
+    "n_centres": 823,
+    "centre_z_range": [
+     -45.5,
+     -12.5
+    ],
+    "best_klb_now": {
+     "case": "S4",
+     "ori": "shaft up the arm",
+     "centre_local": [
+      2.0,
+      1.0,
+      -25.5
+     ],
+     "shaft_exit_world": [
+      64.47,
+      -1.6,
+      -16.86
+     ],
+     "dist_axis": 4.6,
+     "wall_margin": 0.078,
+     "klb_clear_now": 1.56,
+     "klb_clear_cut": 9.42,
+     "u_range": [
+      0.247,
+      0.462
+     ]
+    },
+    "best_klb_cut": {
+     "case": "S4",
+     "ori": "shaft up the arm",
+     "centre_local": [
+      0.0,
+      3.0,
+      -25.0
+     ],
+     "shaft_exit_world": [
+      62.41,
+      0.4,
+      -16.89
+     ],
+     "dist_axis": 2.6,
+     "wall_margin": 0.208,
+     "klb_clear_now": -0.5,
+     "klb_clear_cut": 7.36,
+     "u_range": [
+      0.24,
+      0.455
+     ]
+    }
+   },
+   {
+    "case": "S4",
+    "ori": "shaft fore-aft, near top end",
+    "fits": true,
+    "n_centres": 1938,
+    "centre_z_range": [
+     -49.0,
+     -13.5
+    ],
+    "best_klb_now": {
+     "case": "S4",
+     "ori": "shaft fore-aft, near top end",
+     "centre_local": [
+      3.0,
+      1.0,
+      -23.0
+     ],
+     "shaft_exit_world": [
+      67.71,
+      -4.29,
+      -27.14
+     ],
+     "dist_axis": 12.49,
+     "wall_margin": 0.264,
+     "klb_clear_now": 1.53,
+     "klb_clear_cut": 9.39,
+     "u_range": [
+      0.179,
+      0.46
+     ]
+    },
+    "best_klb_cut": {
+     "case": "S4",
+     "ori": "shaft fore-aft, near top end",
+     "centre_local": [
+      0.0,
+      3.0,
+      -16.0
+     ],
+     "shaft_exit_world": [
+      63.32,
+      -1.97,
+      -21.03
+     ],
+     "dist_axis": 6.39,
+     "wall_margin": 0.224,
+     "klb_clear_now": -2.44,
+     "klb_clear_cut": 5.0,
+     "u_range": [
+      0.082,
+      0.363
+     ]
+    }
+   },
+   {
+    "case": "S4",
+    "ori": "shaft fore-aft, near bottom end",
+    "fits": true,
+    "n_centres": 1938,
+    "centre_z_range": [
+     -49.0,
+     -13.5
+    ],
+    "best_klb_now": {
+     "case": "S4",
+     "ori": "shaft fore-aft, near bottom end",
+     "centre_local": [
+      3.0,
+      1.0,
+      -23.5
+     ],
+     "shaft_exit_world": [
+      65.48,
+      -3.74,
+      -16.69
+     ],
+     "dist_axis": 6.75,
+     "wall_margin": 0.235,
+     "klb_clear_now": 1.64,
+     "klb_clear_cut": 9.49,
+     "u_range": [
+      0.186,
+      0.467
+     ]
+    },
+    "best_klb_cut": {
+     "case": "S4",
+     "ori": "shaft fore-aft, near bottom end",
+     "centre_local": [
+      0.0,
+      5.0,
+      -23.0
+     ],
+     "shaft_exit_world": [
+      62.45,
+      0.24,
+      -17.03
+     ],
+     "dist_axis": 2.76,
+     "wall_margin": 0.438,
+     "klb_clear_now": -1.4,
+     "klb_clear_cut": 6.45,
+     "u_range": [
+      0.179,
+      0.46
+     ]
+    }
+   }
+  ]
+ ]
+}
