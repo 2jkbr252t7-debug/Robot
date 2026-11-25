@@ -1,0 +1,19 @@
+{
+ "img1": [
+  "• Pri osi ramena (z −17) je medzi stĺpom a servom zdvihu krku\n  len 1,0 mm; nad kĺbom 4 mm; otvor v T_klb má len Ø 8–10.",
+  "• Najväčšie voľné miesta vedľa ramena sú úzke štrbiny pod\n  bočným krytom: 7 × 7 × 38 mm vpredu, 7 × 8 × 33 mm vzadu.",
+  "• Spolu s predným rohom (servo by išlo dnu až po T_stred,\n  zboku): najväčší kváder 16 × 8 × 25 mm.",
+  "• SCS0009 (telo 23,2 × 12,1 × 21,5): 228 natočení na ľavej\n  strane + 72 v celom trupe – nezmestí sa nikde. Najbližšie je\n  ľavý predný roh, chýba 1,4 mm (bočný kryt, T_stred, T_spodok,\n  servo otáčania hlavy).",
+  "• MG90S a STS3032 (tiež 228 natočení) – tiež nie.",
+  "• KST X06 (20 × 7 × 16,6, len 120°, bez spätnej väzby) sa do\n  rohu zmestí s rezervou 1,5 mm – ale k osi ramena je to 40 mm\n  a cestu zatarasí stĺp a objímka bočného krytu.",
+  "• Pravá strana je takmer zrkadlová; menič napätia a doraz\n  hlavy tam miesto ešte zmenšujú."
+ ],
+ "img2": [
+  "• Telo SCS0009: x 34,4 … 55,9 mm – z trupu trčí 9,1 mm\n  (povrch trupu na osi je v x 46,8).",
+  "• Rohy tela sú 18,3 mm od osi (s krytom 20,0): čierny kĺb\n  by mal Ø 40 namiesto Ø 27 a otvor v bočnom kryte by sa\n  zväčšil z r 14 na r 20,5.",
+  "• Ruku treba aj tak posunúť von o 8,1 mm (pri tele 25,25 mm\n  o 11,9 mm). V1 so servom v ruke: 10,5 mm / 14,3 mm.",
+  "• Stĺp T_spodok by sa v osi prerezal: ostane najviac 63 %\n  jeho šírky → napätie v hlave stĺpa ≥ 1,6× (dnes do 7,8 MPa\n  pri limite 8,5 → nad limit; ručný odhad).",
+  "• Znova tlačiť: T_spodok (celý trup rozobrať), T_klb_L/P,\n  T_bok_L/P + nový čierny kryt serva na každej strane.",
+  "• Záver: horšie ako v1 – ušetrí sa len 2,4 mm posunu ruky."
+ ]
+}

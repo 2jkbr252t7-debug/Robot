@@ -1,0 +1,28 @@
+{
+ "SCS0009 case 23.2x12.1x21.5": {
+  "opt_T5": {
+   "orientations": 228,
+   "feasible": 0,
+   "rows": [],
+   "least_overlap_mm3": 101.3,
+   "least_overlap_orient": "dimL||z psi105",
+   "least_overlap_centre": [
+    28.4,
+    -22.9,
+    -52.9
+   ]
+  },
+  "cons_T5": {
+   "orientations": 228,
+   "feasible": 0,
+   "rows": [],
+   "least_overlap_mm3": 261.4,
+   "least_overlap_orient": "random116",
+   "least_overlap_centre": [
+    29.9,
+    -22.6,
+    -51.6
+   ]
+  }
+ }
+}

@@ -1,0 +1,260 @@
+{
+ "A": {
+  "feasible": "no",
+  "answer_sk": "Nie. Servo, ktoré otočí rukou aspoň o 180° (SCS0009, MG90S ani STS3032), sa do trupu nezmestí. Meral som to na hotovom trupe T4 s krkom a hlavou: mriežka 0,5 mm, otáčanie hlavy ±90,3°, zdvih krku 0–20 mm, vôľa 1,0 mm k pohyblivým a 0,3 mm k pevným dielom. Pri osi ramena je medzi stĺpom a servom zdvihu krku len 1,0 mm. Najväčší voľný kváder pri ramene má 13 × 7,5 × 14 mm a pod bočnými krytmi sú iba štrbiny hlboké 7–8 mm. Telo SCS0009 (aspoň 23,2 × 12,1 × 21,5 mm) som skúšal v 228 natočeniach a nezmestí sa nikde. Najbližšie je ľavý predný roh, kde chýba 1,4 mm, a aj odtiaľ je k osi ramena 40 mm. Servo priamo na osi ramena by z trupu trčalo 9,1 mm a ruka by sa aj tak musela posunúť von o 8,1 mm (v1: 10,5 mm). Navyše by sa musel prerezať stĺp a znova vytlačiť spodok trupu, oba kĺby a oba bočné kryty. Zmestí sa len krídlové servo KST X06, ktoré má rozsah iba 120° a nehlási polohu, a k osi by potrebovalo 40 mm dlhé lanko cez stĺp a objímku krytu. Odporúčam preto ostať pri v1: servo v ruke, ruka posunutá o 10,5–14 mm podľa výšky tela serva a trup bez zmeny.",
+  "free_space": [
+   {
+    "region": "Left shoulder axis: gap between the column inner face and the pan/lift sweep",
+    "bounds": "x 33.4–34.4 at y ≈ −10…+10, z −40.9…−11.5 (column inner face x 34.4, PAN_ENV2 r 33.4 for z −40.9…−17)",
+    "usable_box": "none (gap 1.03 mm exact, K3; the voxel map shows 0.5–0.7 because it is ~0.6 mm conservative there)",
+    "notes": "This is the lift-servo corner (r 33.38) swept by pan ±90. Nothing can go between the stage and the column. map2.py validation + T4 K3."
+   },
+   {
+    "region": "A: front-left, inside the side cap, in front of the column (x ≥ 33)",
+    "bounds": "x 33.0–47.5, y −28.5…−14.0, z −81.5…−4.0; 6.2 cm³ (opt 7.0); thickest inscribed sphere Ø10.6",
+    "usable_box": "7.0 × 7.0 × 38.5 at x 33–40, y −23…−16, z −75…−36.5 (opt 7 × 8 × 38.5)",
+    "notes": "A thin slab between the T_stred band edge and the T_bok_L wall, only 7–8 mm deep in x. Not on the T_stred lowering path. pockets.py"
+   },
+   {
+    "region": "B: back-left, inside the side cap, behind the column",
+    "bounds": "x 33.0–47.0, y 15.0–28.5, z −81.5…−4.5; 5.0 cm³; thickest Ø9.9",
+    "usable_box": "7.0 × 8.0 × 33.0 at x 33–40, y 16–24, z −73…−40",
+    "notes": "A thin slab like A. The door frame and pin 1 are next to it. pockets.py"
+   },
+   {
+    "region": "C: front-left corner inside the T_stred band (x 15–33)",
+    "bounds": "x 15–33, y −36…−12, z −81.5…0; 15.3 cm³ (only 3.9 cm³ if the part must be fitted before T5)",
+    "usable_box": "8.0 × 11.0 × 30.0 at x 20–28, y −31…−20, z −72…−42 (before T5: 7 × 8 × 10)",
+    "notes": "Most of it lies on the T_stred lowering path: the F1 boss of T_stred at (29, −19), z −81…−72, sweeps x 25.6–32.4, y ≤ −15.6 at every z. A part placed here goes in after T5 from the open side and blocks T_stred removal (S5a). pockets.py"
+   },
+   {
+    "region": "E: A + C joined (front-left corner, part fitted after T5 from the side)",
+    "bounds": "x 15–48, y −36…−12, z −81.5…0; 22.6 cm³ (opt 26.7); thickest Ø15.0 (opt 16.0)",
+    "usable_box": "16.0 × 8.0 × 25.0 at x 21.5–37.5, y −26.5…−18.5, z −67…−42 (opt 14 × 8 × 34)",
+    "notes": "This is the best region in the torso for a servo. The SCS0009 case misses here by 1.38 mm (exact). The KST X06 fits with 1.53 mm margin. exact_multi.py, search_c.py"
+   },
+   {
+    "region": "D: back-left corner inside the T_stred band",
+    "bounds": "x 15–33, y 12–36, z −81.5…0; 10.3 cm³ (before T5: 1.9 cm³)",
+    "usable_box": "7 × 7 × 13.5 at x 26–33, y 20–27, z −57…−43.5 (before T5: none ≥ 7)",
+    "notes": "Hemmed in by the door frame, the USB extension, pin 1 post and the F1 boss lowering path. pockets.py"
+   },
+   {
+    "region": "F: T_klb centre bore (bush deleted in rev. 2)",
+    "bounds": "x 38.6–47.5, r ≤ 4.0 (D8.05) / r ≤ 5.1 (D10.2 recess) about (y 3, z −17); 0.38 cm³",
+    "usable_box": "4.5 × 6.5 × 6.0",
+    "notes": "Usable only for a shoulder shaft (Ø ≤ 8) through the joint, not for a servo. pockets.py"
+   },
+   {
+    "region": "G: above the shoulder joint, under the torso top (z > −6)",
+    "bounds": "x 28–39, y −20…24, z −6…0.5; 0.86 cm³; thickest Ø4.0",
+    "usable_box": "4.5 × 17.5 × 1.5",
+    "notes": "Between the collar tube r 30.6, the T_bok top and T_klb. pockets.py"
+   },
+   {
+    "region": "J: side cap below the shoulder, next to the column web (|y| < 15)",
+    "bounds": "x 37.5–49.5, y −14…15, z −84.5…−31; 6.1 cm³; thickest Ø6.5",
+    "usable_box": "8.5 × 4.5 × 34",
+    "notes": "Holds the box closure, the amplifier (x 38.9–41.9) and the head flanges. The right side holds the buck converter (x −47.7…−38.9). pockets.py"
+   },
+   {
+    "region": "H: lower torso next to the J1 servo +X end (largest single block in the torso)",
+    "bounds": "x 16.5–34, y −12.5…12.5, z −84…−48; 8.1 cm³ (opt 10.1); thickest Ø14.8",
+    "usable_box": "13.0 × 20.0 × 14.5 at x 19–32, y −12…8, z −81.5…−67 (opt 14 × 21 × 15)",
+    "notes": "Below the J1 bus-plug zone and not on any assembly path. It is too small for a 12.1 × 21.5 × 23.2 case and lies 50–65 mm below the shoulder axis, with the column web, box closure and amplifier in between. pockets.py"
+   },
+   {
+    "region": "I: behind the carrier board (door zone)",
+    "bounds": "x −25…25, y 24–37, z −82…−12; 17.8 cm³, but only 3.0 cm³ if fitted before T5",
+    "usable_box": "37.0 × 9.0 × 20.5 at x −18.5…18.5, y 25–34, z −69.5…−49",
+    "notes": "Lies on the T_stred lowering path (door ledge) and is the door access to the carrier ZIFs, plugs and USB. Its thickness of 9 mm is less than 12.1. A KST X06 would fit at (0, 28…31, −60). pockets.py, search_b_full"
+   },
+   {
+    "region": "Whole torso and right side",
+    "bounds": "interior 531 cm³; free with clearances 130.0 cm³ (1 039 707 voxels), fragmented",
+    "usable_box": "left shoulder zone (x ≥ 20, z ≥ −48): 12.5 × 7.5 × 14 at x 24.5–37, y −26…−18.5, z −48…−34; right: 10.5 × 5.5 × 23 at x −30.5…−20, y −27…−21.5, z −39.5…−16.5; no box with all sides ≥ 12 mm at shoulder height on either side",
+    "notes": "86 % of free voxels are mirror-symmetric. The right side is smaller: the buck converter on the right column and the stop-pin-2 post (front right, x −24.7…−17.2) take room. map1.py, map2.py, pockets.py"
+   }
+  ],
+  "layouts": [
+   {
+    "id": "a_direct_drive_on_axis",
+    "description": "Servo fixed in the torso with its output spline on the shoulder axis. The case is pushed inward as far as the pan/lift sweep allows. The arm becomes a passive shell on the spline plus a bearing on a black servo housing.",
+    "servo": "SCS0009 (case 21.5 or 25.25 – UNVERIFIED). Also computed: MG90S, STS3032, KST X06",
+    "transmission": "none (direct 1:1)",
+    "fits": false,
+    "geometry": "Shaft on the axis (y 3, z −17). Case inner end x 34.40 (PAN_ENV2 r 33.4 + 1.0 at y ≈ 0–3), output face x 55.90, spline top x 59.65. The case section 23.2 × 12.1 has the shaft 5.9 mm from one end, so its corners sit at r 18.33 from the axis; with a 1.2 wall the housing reaches r 20.03. The case sticks out 9.14 mm past the shell surface (X_SH 46.756) and the housing 10.3 mm. The orientation of the long side (φ 0/90/180) does not change the result. Required arm shift so the arm swept −45…+135 clears the housing by 0.5: SCS0009 case 21.5 → 8.12 mm; case 25.25 → 11.87; MG90S → 9.32 (spline top 62.8); STS3032 → 9.61 (spline top 64.4); KST X06 → 3.21 (120° only). layout_a.py",
+    "clearances": "Case inner end to the lift-servo sweep: exactly 1.0, no margin. Housing to the swept arm: 0.5 after the shift; at dx 0 the housing overlaps the approved arm. The side-cap socket r 14.0 is too small for the case corners (needs ≥ 20.5).",
+    "torso_parts_changed": [
+     "T_spodok: column boss r 11.6 and shoulder plate x 34.4–38.4 cut for the case; F8 insert pattern moves. Reprint of the whole merged frame and full torso teardown (J1 and pan servos, deck, carrier, pins, bonded inserts).",
+     "T_klb_L / T_klb_P: replaced by a servo housing with an arm bearing",
+     "T_bok_L / T_bok_P: socket r 14.0 → about r 20.5, new seat flange",
+     "2 new black servo housings"
+    ],
+    "arm_changes": "Arm moves out 8.1 mm (SCS0009 case 21.5) to 11.9 mm (case 25.25). It becomes a passive shell: hub on the spline with a centre screw, plus a bearing ring on the housing. The 0.12–0.15 N·m slip clutch sits in the arm hub between spline and arm. Removal: centre screw out, arm off along +X.",
+    "visible_change": "A black housing of about Ø40 (or a 25.6 × 14.5 off-centre block), about 12 mm long, between torso and arm, instead of today's Ø27 × ~4 mm joint. Bigger opening in the white side caps. The arm sits 8–12 mm further out, about the same as v1.",
+    "pros": [
+     "Cable is static (nothing flexes across the joint)",
+     "White arm shape unchanged",
+     "Saves 2.4 mm of shift against v1 with the same servo",
+     "Servo reachable from outside after removing the arm"
+    ],
+    "cons": [
+     "Does not meet the goal: the arm still moves out 8.1–11.9 mm",
+     "Needs reprints of T_spodok (largest print, 56.8 cm³), 2 × T_klb, 2 × T_bok and new housings",
+     "Column is cut at shoulder level. Hand estimate: at best 63 % of its 34 mm width remains (φ 90/270); φ 0 leaves 41 %, φ 180 leaves 23 %. Stress rises at least 1.6×. The column alone is already at 8.65–9.87 MPa against an 8.5 allowable (z −26…−11).",
+     "Housing is bulkier than v1's joint cover",
+     "No clearance margin to the lift-servo sweep"
+    ],
+    "risks": [
+     "If 25.25 mm is the case height, the shift is 11.9 mm, about the same as v1 (10.5–14.3)",
+     "Column fracture when the robot is lifted by an arm",
+     "Arm radial loads reach the servo's plain output bushing unless the housing bearing is accurate"
+    ]
+   },
+   {
+    "id": "b1_bus_servo_beside_column_with_gears_or_belt",
+    "description": "SCS0009, MG90S or STS3032 placed beside or below the column, with the shaft parallel to the shoulder axis (or any orientation for a bevel or cord drive), driving a short shoulder shaft in a redesigned T_klb.",
+    "servo": "SCS0009 / MG90S / STS3032",
+    "transmission": "m0.5–0.8 spur gears, GT2/MXL belt or cord (a 300° SCS0009 would allow up to 1.6:1)",
+    "fits": false,
+    "geometry": "No position was found for the bare case box anywhere in the torso. Search: 228 orientations (9 axis families × 12 turns + 120 random) over the left half for SCS0009, MG90S and STS3032 (search_c.py); 72 axis-family orientations over the full torso for SCS0009 (search_b.py). Both conservative and optimistic maps were used, with the servo fitted after T5 from the side (the most generous case). Smallest voxel overlap (optimistic): SCS0009 101 mm³, MG90S 127, STS3032 166, all in the left front corner. Exact check of the closest SCS0009 pose: centre (29.98, −21.26, −61.59), long side vertical, shaft along (−0.967, −0.254, 0.011). Worst margin −1.38 mm: T_bok_L −1.38, T_stred −1.29, T_spodok −1.29, servo_pan −1.07 (exact_multi.py). Even if it fitted, the shaft is about 40 mm from the shoulder axis: one m0.5 pair would need 2 × 79T (Ø40.6), and the belt corridor is blocked (layout c). Low position (pocket H, 13 × 20 × 14.5, x 19–32, z −81.5…−67): the case needs 21.5 and 23.2, which do not fit in 20 and 14.5. The shoulder axis is 50–65 mm away, behind the column web, box closure and amplifier.",
+    "clearances": "−1.38 mm at best: about 1.1 mm interference into the side-cap wall and the T_stred front wall",
+    "torso_parts_changed": [
+     "Would need a bigger exterior shell (T_bok_L/P, T_stred), which is not acceptable",
+     "Plus T_spodok, T_klb and T_bok for any transmission path"
+    ],
+    "arm_changes": "None (the arm would stay where approved) – but the servo does not fit",
+    "visible_change": "None possible without changing the approved exterior",
+    "pros": [
+     "Static cable, approved arm position and bus feedback – if it fitted"
+    ],
+    "cons": [
+     "Does not fit anywhere: 1.4 mm short against the exterior walls in the best corner",
+     "Best corner is 40 mm from the axis, and the transmission path is blocked by the column head and side-cap socket",
+     "A servo in the front corner sits on the T_stred lowering path and blocks T_stred removal (S5a)"
+    ],
+    "risks": [
+     "n/a – rejected on geometry"
+    ]
+   },
+   {
+    "id": "c_KST_X06_corner_cord",
+    "description": "Thin wing servo KST X06 in the left front corner (pocket E), fitted after T5 from the open side. A cord or thin belt runs from it to a drum on a new shoulder shaft inside a redesigned T_klb. The arm stays where approved.",
+    "servo": "KST X06 (20 × 7 × 16.6 mm, PWM, 120°, no feedback). The only candidate that fits.",
+    "transmission": "Dyneema cord or thin belt, servo drum r 6 → shoulder drum r 4 (1:1.5 step-up, 120° → 180°), centre distance 39.6 mm. Shaft Ø5–8 steel through the T_klb bore; the arm hub stays on the Ø22 journal.",
+    "fits": false,
+    "geometry": "KST centre (29.17, −22.48, −55.58); axes L (−0.155, −0.137, 0.978), W (0.191, −0.976, −0.106), shaft H (0.969, 0.171, 0.177). Exact worst margin +1.53 mm beyond 0.3/1.0; the limits are T_bok_L, T_spodok and T_stred (exact_multi.py kst). Feasible in 17/228 orientations (conservative) and 29/228 (optimistic), all within x 25–38, y −27…−18, z −63…−46 (search_c.py). Output about (40.3, −21.1, −48.5). Cord corridor (pulleys r 3 / r 5): every plane x 34–47 has at least 139 of 371 mm² blocked. At x 39.5–43: T_spodok column head 57 mm², T_bok_L 24–48, T_klb 67–91. At x 43.5: T_bok_L 47.5 + T_klb 91.5, and the path cuts 1.46 mm into the 2.2 mm side-cap wall. GT2 corridor (r 5 / r 8): at least 310 of 656 mm² blocked (layout_b.py).",
+    "clearances": "Servo case +1.53 mm. The transmission does not fit: it needs either the T_spodok head flange trimmed (x ≤ 43) or the side-cap wall thinned to about 0.7 mm at x 43.5.",
+    "torso_parts_changed": [
+     "T_klb_L / T_klb_P: new, with shoulder shaft, 2 small bearings and cord drum. This also removes the 1.3 mm overlap of the approved arm.",
+     "T_bok_L / T_bok_P: socket and seat flange cut for the cord; wall locally thinned",
+     "T_spodok: only if the cord runs at x ≤ 43 (head flange trim → reprint). The KST needs a bonded bracket or drilled screw holes in the cradle front wall."
+    ],
+    "arm_changes": "Position unchanged (approved place). The arm is a passive shell on the Ø22 journal as today, coupled to the shoulder shaft at the end face x 58.756. Slip clutch: cord slip on the drum (capstan) or a friction hub on the shaft, set to 0.12–0.15 N·m at the arm (≤ 0.08 N·m at the KST). Removal: one screw on the shaft end, arm off.",
+    "visible_change": "None outside if the drum stays inside the side cap and the joint keeps Ø27",
+    "pros": [
+     "Arm stays exactly where approved",
+     "Static cable",
+     "Exterior unchanged",
+     "Column is not cut if the cord passes at x ≈ 43.5"
+    ],
+    "cons": [
+     "Only 120°, so a 1:1.5 step-up is needed: lower stiffness and resolution",
+     "PWM servo, not on the bus, no position or load feedback; extra wiring to the ESP32",
+     "40 mm cord drive needs tensioning; creep and slip cause zero drift, so it must be calibrated at every power-up",
+     "The KST sits on the T_stred lowering path: it goes in after T5, and T_stred (S5a: pan-servo and carrier service) cannot come off until the KST is removed",
+     "Side cap must come off for service",
+     "Reprints: 2 × T_klb and 2 × T_bok (plus T_spodok if the cord passes the column head)"
+    ],
+    "risks": [
+     "Side-cap wall about 0.7 mm locally, or a trimmed column head flange. The flange was added to pass L5, so trimming weakens the column (not quantified).",
+     "Cord wear and stretch",
+     "KST torque at 5 V is about 0.12 N·m, so about 0.08 N·m at the arm – still about 20× the 0.004 N·m needed"
+    ]
+   }
+  ],
+  "recommended": "none",
+  "comparison_with_v1": "v1 (servo in the arm, shaft on the axis) needs no torso reprint: the joint takes only a bush and springs. The arm must move out 10.50 mm for a 21.5 mm SCS0009 case and 14.25 mm for a 25.25 mm case (re-checked with the dd2 method, v1_recheck.py). The visible black joint grows from about 4 mm to 15–18 mm, and the base must be about 190 mm wide. v1's weak point: the 3 wires flex across the joint in a half-turn loop on r 11–14, with unverified life (bench test of 10 000 cycles).\n\nTorso direct drive (a) keeps the cable static but still moves the arm out 8.1–11.9 mm, saving only 2.4 mm. It costs a reprint of T_spodok (full torso teardown), 2 × T_klb, 2 × T_bok and new housings. It also cuts the column at shoulder level (stress at least 1.6×, column already over its allowable when alone), and its Ø40 housing is bulkier than v1's joint cover. So it is worse than v1.\n\nNo bus servo (SCS0009 / MG90S / STS3032) fits beside or below the column in any orientation; the best miss is 1.4 mm against the exterior walls.\n\nThe only torso option that keeps the arm in place (c, KST X06 plus a 40 mm cord) trades a lot away. It has 120° with a 1:1.5 step-up, no feedback and no bus, and it drifts. It also needs new T_klb and T_bok parts, a thinned side-cap wall or a trimmed column head, and it blocks T_stred removal.\n\nHonest balance: v1 has a real but testable risk (wire flex life) and a visible arm shift. Every torso layout either shifts the arm too or gives up range, feedback and robustness, and all of them need several torso parts reprinted. v1 stays the better choice. If the wire flex life fails its test, the fallback is a 3-ring slip contact in the v1 joint, not a torso servo.",
+  "numbers_checked": [
+   "map1.py: grid 0.5 mm over x −53…53, y −41…41, z −85…4.5. Interior 4 247 608 voxels (531 cm³), static 1 893 753, swept 1 172 247, free with clearances 1 039 707 (130.0 cm³, fragmented). Moving set: P + B collar disc + FFC riser swept continuously over pan −90.3…+90.3 (0.5° bins); L + B neck/cable/tilt parts lifted 0–20 and swept the same way; crank posed at lift 0–20 (0.5 steps); FFC lift loop and pigtail posed at 1.25 steps; pan FFC duct reserved analytically.",
+   "map2.py validation: voxel sweep r_max 33.99 vs PAN_ENV2 33.4 (z −40.9…−17), 33.74 vs 32.2 (−17…−11.5), 27.23 vs 26.5 (above −11.5), so the map is about 0.6 mm conservative next to the stage. Column-to-sweep voxel distance 0.5 (L) / 0.71 (P) against the exact K3 value of 1.03.",
+   "map2.py: left shoulder zone (x ≥ 20, z ≥ −48) largest box 12.5 × 7.5 × 14 at x 24.5–37, y −26…−18.5, z −48…−34. With assembly paths removed: 8.5 × 11.5 × 8.5 at x 33.5–42, y −21…−9.5, z −47.5…−39. Right side: 10.5 × 5.5 × 23. No box with all sides ≥ 12 mm on either side.",
+   "map3.py: rotated-fit necessary test (core extent / needed). SCS0009 at shoulder height: 7.7 / 14.5 (conservative), 20.0 / 14.5 (optimistic, left front corner only). Right shoulder: 7.2 and 9.9 / 14.5.",
+   "search_b.py (left half) + search_b_full.json (full torso): SCS0009, 72 axis-family orientations × 3 masks: 0 feasible. KST X06: 8–17 feasible, in the left front corner and the door zone only.",
+   "search_c.py: 228 orientations, left half. SCS0009 0/228 (least overlap 101 mm³ optimistic, 261 conservative). search_c_all.json: MG90S 0/228 (127 / 314 mm³), STS3032 0/228 (166 / 374 mm³), KST X06 29/228 optimistic and 17/228 conservative.",
+   "exact_fit.py + exact_multi.py (exact STL distances, PAN_ENV2 with lug and lift-module sectors, 4 Nelder–Mead starts): SCS0009 best worst margin −1.377 mm at (29.98, −21.26, −61.59); KST X06 +1.529 mm at (29.17, −22.48, −55.58).",
+   "layout_a.py: direct drive, x_in 34.40, out face 55.90, 9.14 beyond X_SH 46.756, corner r 18.33 (housing 20.03). Arm shift: SCS0009 21.5 → 8.12; SCS0009 25.25 → 11.87; MG90S → 9.32; STS3032 → 9.61; KST X06 → 3.21. Identical for φ 0/90/180.",
+   "v1_recheck.py (R1/navrh/dd2.py method): v1 shift 10.50 mm (case 21.5) and 14.25 mm (case 25.25)",
+   "layout_b.py: KST output (40.31, −21.06, −48.51), centre distance to the shoulder axis 39.6 mm. Cord corridor at least 139/371 mm² blocked in every plane x 34–47; GT2 at least 310/656. A single m0.5 pair would be 2 × 79T, Ø40.6.",
+   "Inline check with t4_common.clearance_to_shell: the cord corridor at x 43.5 enters the 2.2 mm side-cap wall by 1.46 mm (x 42: 0.32; x 44: 1.85)",
+   "pockets.py: named pockets A–J (see free_space). Mirror check: 891 178 of 1 039 707 free voxels are symmetric.",
+   "Column hand estimate (Zw = w·t²/6, t = 4 fixed at x 34.4–38.4, w = 34 for y −17…17): a 12.1 mm case footprint leaves at most 21.3 mm (63 %), so stress is at least 1.6×. Base values are T4_spec 17.15 item 5: 8.65–9.87 MPa at z −26…−11, allowable 8.5.",
+   "Images (Slovak labels, DejaVu Sans, made by render2d.py): /tmp/claude-0/gapwf/fin/R1/trup_servo/obr/01_volne_miesto_v_trupe.png (free-space sections), /tmp/claude-0/gapwf/fin/R1/trup_servo/obr/02_servo_na_osi_ramena.png (layout a), /tmp/claude-0/gapwf/fin/R1/trup_servo/obr/03_servo_vedla_stlpa_prevod.png (layout b/c)"
+  ],
+  "not_checked": [
+   "Real SCS0009 case height (21.5 or 25.25, UNVERIFIED), boss and spline geometry, ears and cable exit. Every case is modelled as a bare box, so the real space needed is larger (output boss, horn, tabs, wires). The 'does not fit' results are therefore lower bounds, not borderline.",
+   "Column strength with a cut (layout a) or a trimmed head flange (layout c): hand estimate only, no FE",
+   "KST X06 mounting tabs and screw-tool access, cable route to the carrier, and the exact effect on the K7 tool paths. Only T5 lowering, the S1 lift-module path, the side-cap and joint insertion paths and the amp/buck paths were used as assembly masks.",
+   "Head tilt poses: head parts above z +4 were not swept. The head only enters the torso through the collar opening r < 26.5, which is inside the stage sweep anyway.",
+   "FFC lift loop and pigtail were posed at 1.25 mm lift steps; the pan FFC rolling loop was represented by its duct annulus r 15.2–25.1, z −46.2…−41.9",
+   "In layout a, the arm-to-housing check used the arm outer surface at 7.5° swing steps; the arm's own internal hub and bearing were not designed",
+   "The right side was only covered by the voxel map, mirror statistics and the full-width search; the exact pose optimisation was run on the left side only",
+   "Cord tension, creep and slip-torque values; gear tooth strength; stiffness of the KST 1:1.5 step-up",
+   "Whether a bus servo smaller than SCS0009 exists (not in podklady_ruky.json; not searched)",
+   "v1's wire flex life (unchanged open point of v1)"
+  ]
+ },
+ "B": {
+  "images": [
+   {
+    "path": "/home/user/Robot/obrazky/postupne/07_ruky/obrazky/v1_spredu_porovnanie.png",
+    "title_sk": "NOVA mini · ruky – návrh v1: porovnanie spredu",
+    "shows": "Two front orthographic panels at the same scale (1000 px renders, 4 px/mm): the whole robot (T4 torso, B head/neck at pan 0 / lift 0, T3 base slab, both arms at rest). Left panel 'schválené (servo sa nezmestí)': pebble at dx 0. Right panel 'návrh v1: ruka o 12 mm ďalej, dlhší čierny kĺb': pebble at dx 12 with the new black joint cover. Each panel has a dimension line for the base ('podstavec 146 – zatiaľ len tvar') and for the overall width: 157 mm approved vs 181 mm v1 (arm extremes at x ±78.67 / ±90.67). Panel B also has a '+12 mm' dimension and a dashed line where the approved arm ended. Labels point to the black joint (~4 mm today) and to the new cover. The footer gives the arm data (72 / 23.0 / 33.6), says 12 mm is illustrative (11–14) and recommends a base of at least ~190 mm.",
+    "looked_at": true,
+    "issues": "The front views were re-rendered at exposure -0.1 (white about 200/255, no clipping; only the emissive light bars and eyes reach 255). In front view the new black joint is visibly bulkier than the T_klb: the hub is r 15.6 against the body's r 13.5, and the servo pod reaches about 20 mm below the axis. I made the labelled joint anchor point at the right arm (shown left in the image) so the leaders stay clear of the '+12' dimension."
+   },
+   {
+    "path": "/home/user/Robot/obrazky/postupne/07_ruky/obrazky/v1_rez_ramenom.png",
+    "title_sk": "NOVA mini · ruky – návrh v1: rez ľavým ramenom",
+    "shows": "Section through the plane y = 3, viewed from the front (+X to the right), 1100 px render with coloured cut faces: orange = white resin, blue shades = black resin (T_klb light blue, cover navy, bush teal, column grey-blue), violet = servo, grey = metal, red = O-ring. Visible parts: torso shell T_bok/T_stred, column boss (T_spodok), T_klb, spacer ring, 2 disc springs, spline bush, servo boss + spline, cover hub with bearing sleeve, O-ring, cable chamber with the 3 wires (red / black / yellow) coming from the T_klb groove and wrapping to the top channel, connector, servo case, inner and outer shells with 2.0 walls, 0.5 seam, servo bed stop, magnet boss and black tip insert. The approved arm position is drawn dashed. Three dimension rows: 'dnes len 13,3 mm voľného miesta', 'servo potrebuje ~21,5 + 0,3 mm', 'v1: 25,3 mm (ruka o 12 mm ďalej)', plus 'posun 12'. There are 23 leader labels, and the footer covers the unverified dimensions, the spacer and the cable route.",
+    "looked_at": true,
+    "issues": "The frame is x 27–95, z -67..+17 instead of 30..85 / -60..+5: at dx 12 the outer wall reaches x 90.7, and the dimension rows need room above the arm. The bottom ~4 mm of the arm (z < -67) is cut off. Even after shortening the labels, several left-column leaders still cross each other near the joint (dense area). The wires were placed at y ≈ 3.4, just behind the cut, so they show whole instead of cut. The servo case is a plain block (internals unknown)."
+   },
+   {
+    "path": "/home/user/Robot/obrazky/postupne/07_ruky/obrazky/v1_rozlozena_ruka.png",
+    "title_sk": "NOVA mini · ruky – návrh v1: rozložená ľavá ruka",
+    "shows": "Perspective view from front-left-above (1600 px), exploded along the shoulder axis (dash line), with torso and collar/neck stub. 13 numbered parts in assembly order: 1 spacer ring, 2 disc springs, 3 spline bush, 4 T_klb (pulled off the torso), 5 O-ring, 6 joint cover with cable chamber, 7 servo SCS0009, 8 JST-SH connector, 9 inner shell with servo bed and magnet bosses, 10 black tip insert, 11 four inner-shell magnets, 12 four outer-shell magnets, 13 outer shell. A two-column legend and an assembly-sequence footer follow.",
+    "looked_at": true,
+    "issues": "T_klb is NOT shown sitting on the torso as the task asked. Instead it is pulled out by 54 mm, because the bush (flange Ø10 > bore Ø8.05) and the springs can only go in from the inboard side, under T_klb. Drawing them outboard of a mounted T_klb would show an impossible assembly order. Seen from the torso side, the cover is a curved black 'scoop' (pod trimmed by the pebble). The connector and O-ring are small at this scale. Screws are not modelled (stated in the footer)."
+   },
+   {
+    "path": "/home/user/Robot/obrazky/postupne/07_ruky/obrazky/v1_rozsah_pohybu.png",
+    "title_sk": "NOVA mini · ruky – návrh v1: rozsah pohybu ruky",
+    "shows": "Side orthographic view from +X (robot faces left), head at pan 0 / lift 0. It is a composite: torso/head/base/right arm render + left arm ghosts at −45°, +90°, +135° (42% alpha, blue tint and outline) + left arm solid at 0°. On top: the shoulder axis point, dashed direction lines, and a red range arc −45…+135 with arrowheads. Labels: angles, 'os ramena (y 3, z −17)', and 'hlava ruke nezavadzia: biela ruka min. 20 mm (pri +135°), kryt kĺbu min. 13 mm (v každej polohe)'. The footer gives the torso clearances and the earlier 9.3 mm figure for all head poses at the approved position.",
+    "looked_at": true,
+    "issues": "The head-clearance numbers were computed only for the head pose shown (pan 0, lift 0, tilt 0): pebble ≥ 20.5 mm (at +135°), joint cover ≥ 13.7 mm (axisymmetric hub, the same at every angle). They are not a full pan/lift/tilt sweep for v1; the label text is therefore different from the suggested 'min. 9 mm', which belongs to the approved position over all head poses (that figure is quoted in the footer). Ghosts get no torso shadows (composited)."
+   },
+   {
+    "path": "/home/user/Robot/obrazky/postupne/07_ruky/obrazky/v1_hero.png",
+    "title_sk": "NOVA mini · ruky – návrh v1",
+    "shows": "Perspective hero (1400 × 1680, 56 samples) of the whole robot on the T3 base, studio rig and shadow catcher as in t4_scene.py. The right arm is at rest, the left arm raised to +90° (forward), and the head turned +20° toward it. The camera is from the front-left (+X side). Two labels: the joint cover on the raised arm, and 'dlhší čierny kĺb (~16 mm namiesto ~4)' on the right arm.",
+    "looked_at": true,
+    "issues": "The raised arm points toward the camera's side, so it reads as a forward-pointing pebble rather than a full profile. The shadow catcher's faint full-frame tint is removed by feathering the alpha at the border."
+   }
+  ],
+  "scene_script": "/tmp/claude-0/gapwf/fin/R1/img_v1/work/v1_scene.py (Blender/Cycles scene, shots front_A, front_B, rez, rozlozena, rozsah, hero; it imports T4/B STL read-only, rebuilds the T3 base slab and the T3 pebble from T3/shape.py, and builds the shells by bisect + solidify + EXACT booleans). The concept parts come from /tmp/claude-0/gapwf/fin/R1/img_v1/work/parts_v1.py (build123d, STL in work/stl, wire paths in work/v1_data.json). Shared numbers are in /tmp/claude-0/gapwf/fin/R1/img_v1/work/v1geo.py (pure numpy, armgeo placement with dx). Sheets (Pillow, Inter font) are made by /tmp/claude-0/gapwf/fin/R1/img_v1/work/v1_sheets.py and sheetlib.py. Run logs: work/render_final.sh, render_final2.sh, final/log_*.txt. Clearance check: work/chk_head.py -> chk_head.json; collision check: work/chk_parts.py. Final PNGs are also in /tmp/claude-0/gapwf/fin/R1/img_v1/.",
+  "model_assumptions": [
+   "Left arm placement is armgeo.to_world with dx = 12 (att x = 46.756 + 9 + 12, splay 12°, swing 3°); the right arm is the x-mirror. Swings use armgeo.swing (rotation about X through y 3, z -17). Checked: room from the T_klb end face to the inner side of the outer wall on the axis is 13.30 mm at dx 0 and 25.30 mm at dx 12; arm x extremes are 78.67 / 90.67 (widths 157 / 181).",
+   "Servo SCS0009 is a box 21.5 (X) × 12.1 × 23.2 (along the arm), shaft 5.9 from the upper end, case inner face x 59.056, outer face x 80.556, boss Ø7 × 1.0 (x 58.06–59.06, inside the T_klb bore r 4.025), spline Ø3.95 × 3.0 (x 55.06–58.06). Its case is 1.6 mm from the inner side of the outer wall at the top corners. The case lies 2.5 (top) to 8.5 mm (bottom) outboard of the white inner skin, which the cover must enclose (dd2.py gives a minimum shift of 10.5 mm for this case).",
+   "Spline bush: flange Ø10 × 2 at x 42.0–44.0 against the T_klb step, shaft Ø8 from x 44.0 to 57.85 (shortened from 58.75 so the servo boss has 0.2 mm clearance), 20-tooth star bore 3.25 deep, spline engagement ~2.8 mm.",
+   "Disc springs 10 × 5.2 × 0.4: two in series at a working height of 1.15 (x 40.85–42.0). An extra spacer ring Ø9.9/5.4 × 2.4 (x 38.45–40.85) fills the rest of the recess up to the column boss face x 38.4. The spacer is NOT in NAVRH_ruky.md.",
+   "Joint cover (rotates with the arm), my geometry: a hub r 15.6 from x 51.2 to 59.0 with a bearing sleeve r 11.06–12.6 from x 52.0 to 59.0 (journal contact ~6 mm, x 52.0–57.96). The cable chamber is an annulus r 12.6–14.2 from x 51.2 to 57.2 around the sleeve, open toward the T_klb step face. The O-ring (CS 1.0, ID 21, 0.05 squeeze) sits in a groove in the sleeve at x 52.5–53.8. The servo pod is a rounded rectangle b ±8.2, a −15.6…+20 (Z' up 15.6 to down 20 from the axis), from x 56.0 to the pebble skin (trimmed by the pebble with a Blender EXACT boolean), with a cavity of case + 0.3 plus a wire pocket above the case. A wire channel Z' 12.75–14.15 at the top runs from the chamber into the pod. Clearance: 0.053 mm to T_klb (bore vs journal), 1.78 mm to T_bok_L.",
+   "Wires: 3 × Ø0.6 run from the T_klb groove (az 270, bottom) into the chamber, half a turn at r 13.4 through the back (+Y) to the top channel, into the arm, to a JST-SH 3p connector at x 65.5–71, Z' 7.2–10.4 above the case. A short servo lead goes to the case top end; the real cable exit of the SCS0009 is unknown.",
+   "White arm: the exact T3 pebble mesh (arm_points 150 × 220), split at local x = ±0.25 (0.5 seam), with a 2.0 solidify wall. The tip insert uses the T3 plane at u 0.86. The inner shell has a hole of the cavity outline. Servo bed plates b ±6.35–7.95 plus a stop plate at a 17.5–19.1 are conforming meshes from skin + 1.0 to the seam. Four magnet pairs Ø3 × 2 sit in bosses r 2.2 at u 0.16 / 0.66, 3.5 mm inside the seam outline (checked inside the pebble with 0.4 inset).",
+   "Head at lift 0 = raw B STL; pan rotates head, neck and collar disc about the Z axis (hero pan +20 toward +X). The base is the T3 slab (top z -86, floor z -116.5), unchanged.",
+   "Exposure -0.1 (section -0.35), with the t4_scene light rig; camera-relative lights for the ortho and exploded shots, the fixed rig for the hero."
+  ],
+  "notes": "All five images were rendered, composed with Slovak labels (Inter font, diacritics checked visually), looked at, fixed and copied to /home/user/Robot/obrazky/postupne/07_ruky/obrazky/ (v1_spredu_porovnanie.png, v1_rez_ramenom.png, v1_rozlozena_ruka.png, v1_rozsah_pohybu.png, v1_hero.png). Nothing in T3/T4/B was modified, and the new folder is not committed.\n\nFindings the parent should pass on (honest-model issues):\n(1) The written proposal leaves a gap in the spring recess. The Ø10.2 recess runs from the column boss face x 38.4 to the step x 44.0 (5.6 mm). A 2 mm flange plus 2 springs (~1.15–1.4 mm) leaves ~2.4 mm, so the model adds a 2.4 mm spacer ring. The alternatives are a 4.4 mm flange or 4 springs.\n(2) If the cable chamber is placed axially beside the bearing on the 6.4 mm journal, the plain bearing is only ~3.4 mm long, and the spline also sits at the same x, so the arm would rock. I moved the chamber radially outside a full-length sleeve (journal contact ~6 mm). That makes the black hub r 15.6, larger than the T_klb body r 13.5.\n(3) The case sticks out of the white skin by 2.5–8.5 mm, and the cable must leave the chamber at the top for a half-turn wrap. Together these mean the black pod is a sizeable block: from the hub down to ~20 mm below the axis and up to z ≈ -1.4 (the arm top is at +0.9). The visible black joint is ~16 mm long and about 36 mm tall in front view.\n(4) The bush must end at x ≤ 57.85 because the servo boss (Ø7 × 1) enters the T_klb bore mouth, so the spline engagement is only ~2.8 mm. With the case at 21.5 the outer-wall margin is 1.6 mm, so dx 12 is just enough; dd2 gives a 14.25 mm shift for a 25.25 case.\n(5) The exploded view shows T_klb pulled out for the same reason, an assembly-honesty deviation from the brief.\n(6) v1 clearances at head pan 0 / lift 0 / tilt 0: pebble to head ≥ 20.5 mm (at +135), cover to head ≥ 13.7 mm, pebble to torso ≥ 13.3 mm, cover hub to T_bok cap 1.78 mm (constant). A full pan/lift/tilt sweep for v1 was not run.\n(7) The servo dimensions, cable exit, screw bosses and the 3 × M2 cover screws are concept-only or unmodelled, as noted on the images.\n\nThe user's side question ('nezmestí sa servo do trupu?', can the servo fit in the torso) was not investigated in this step. The images reflect only proposal v1 (servo in the arm)."
+ }
+}

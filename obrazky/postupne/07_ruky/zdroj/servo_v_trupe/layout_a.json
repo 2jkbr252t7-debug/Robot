@@ -1,0 +1,146 @@
+{
+ "method": "LAYOUT (a) - servo STATIC in the torso, output shaft ON the shoulder axis (direct drive), arm = passive shell on the\nservo output (+ a bearing).  Question: with the case pushed as far INWARD as the pan / lift sweep allows (1.0 clearance to\nPAN_ENV2), how far does it still stick out of the torso, and how far must the approved arm move outward so that its swept volume\n(-45..+135 about the shoulder axis) clears the static case housing (case + 1.2 resin wall on the sides and the output face) by 0.5?\nCase model: L along the long side, shaft s from one end (on the width centre line), W across, Hc along the shaft; orientation\nphi = direction of the long side (from the shaft toward the far end) in the y-z plane, measured from +Y toward +Z.\nAlso: radius of the case corners about the axis (-> new opening in the side cap T_bok, socket today r 14.0) and the column\nmaterial that the case removes.  Writes layout_a.json.",
+ "x_surface_on_axis": 46.756,
+ "results": {
+  "SCS0009, case 21.5 (if 25.25 incl. shaft)": {
+   "best": {
+    "phi": 0.0,
+    "x_in": 34.4,
+    "case_out_face": 55.9,
+    "spline_top": 59.65,
+    "beyond_shell_mm": 9.14,
+    "corner_r": 18.33,
+    "corner_r_housing": 20.03,
+    "arm_shift_needed": 8.12
+   },
+   "all": [
+    {
+     "phi": 0.0,
+     "x_in": 34.4,
+     "case_out_face": 55.9,
+     "spline_top": 59.65,
+     "beyond_shell_mm": 9.14,
+     "corner_r": 18.33,
+     "corner_r_housing": 20.03,
+     "arm_shift_needed": 8.12
+    },
+    {
+     "phi": 90.0,
+     "x_in": 34.4,
+     "case_out_face": 55.9,
+     "spline_top": 59.65,
+     "beyond_shell_mm": 9.14,
+     "corner_r": 18.33,
+     "corner_r_housing": 20.03,
+     "arm_shift_needed": 8.12
+    },
+    {
+     "phi": 180.0,
+     "x_in": 34.4,
+     "case_out_face": 55.9,
+     "spline_top": 59.65,
+     "beyond_shell_mm": 9.14,
+     "corner_r": 18.33,
+     "corner_r_housing": 20.03,
+     "arm_shift_needed": 8.12
+    }
+   ]
+  },
+  "SCS0009, case 25.25": {
+   "best": {
+    "phi": 0.0,
+    "x_in": 34.4,
+    "case_out_face": 59.65,
+    "spline_top": 63.0,
+    "beyond_shell_mm": 12.89,
+    "corner_r": 18.33,
+    "corner_r_housing": 20.03,
+    "arm_shift_needed": 11.87
+   },
+   "all": [
+    {
+     "phi": 0.0,
+     "x_in": 34.4,
+     "case_out_face": 59.65,
+     "spline_top": 63.0,
+     "beyond_shell_mm": 12.89,
+     "corner_r": 18.33,
+     "corner_r_housing": 20.03,
+     "arm_shift_needed": 11.87
+    }
+   ]
+  },
+  "MG90S (case 22.7, spline top 28.4)": {
+   "best": {
+    "phi": 0.0,
+    "x_in": 34.4,
+    "case_out_face": 57.1,
+    "spline_top": 62.8,
+    "beyond_shell_mm": 10.34,
+    "corner_r": 17.97,
+    "corner_r_housing": 19.67,
+    "arm_shift_needed": 9.32
+   },
+   "all": [
+    {
+     "phi": 0.0,
+     "x_in": 34.4,
+     "case_out_face": 57.1,
+     "spline_top": 62.8,
+     "beyond_shell_mm": 10.34,
+     "corner_r": 17.97,
+     "corner_r_housing": 19.67,
+     "arm_shift_needed": 9.32
+    }
+   ]
+  },
+  "STS3032 (case 23.0 + boss 3.5 + spline 3.5)": {
+   "best": {
+    "phi": 0.0,
+    "x_in": 34.4,
+    "case_out_face": 57.4,
+    "spline_top": 64.4,
+    "beyond_shell_mm": 10.64,
+    "corner_r": 18.68,
+    "corner_r_housing": 20.38,
+    "arm_shift_needed": 9.61
+   },
+   "all": [
+    {
+     "phi": 0.0,
+     "x_in": 34.4,
+     "case_out_face": 57.4,
+     "spline_top": 64.4,
+     "beyond_shell_mm": 10.64,
+     "corner_r": 18.68,
+     "corner_r_housing": 20.38,
+     "arm_shift_needed": 9.61
+    }
+   ]
+  },
+  "KST X06 (20 x 7 x 16.6, shaft ~5)": {
+   "best": {
+    "phi": 0.0,
+    "x_in": 34.4,
+    "case_out_face": 51.0,
+    "spline_top": 55.0,
+    "beyond_shell_mm": 4.24,
+    "corner_r": 15.4,
+    "corner_r_housing": 17.1,
+    "arm_shift_needed": 3.21
+   },
+   "all": [
+    {
+     "phi": 0.0,
+     "x_in": 34.4,
+     "case_out_face": 51.0,
+     "spline_top": 55.0,
+     "beyond_shell_mm": 4.24,
+     "corner_r": 15.4,
+     "corner_r_housing": 17.1,
+     "arm_shift_needed": 3.21
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,1320 @@
+{
+ "free_cons_cm3": 130.0,
+ "free_opt_cm3": 168.6,
+ "free_conservative": {
+  "SCS0009 (23.2x12.1x21.5)": {
+   "rotated": {
+    "L_shoulder x>=20 z>=-48": {
+     "core_components": 6,
+     "largest_core_extent_mm": 7.7,
+     "needed_mm": 14.5,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       21.8,
+       26.2
+      ],
+      [
+       -27.8,
+       -23.8
+      ],
+      [
+       -47.8,
+       -41.2
+      ]
+     ]
+    },
+    "P_shoulder x<=-20 z>=-48": {
+     "core_components": 2,
+     "largest_core_extent_mm": 7.2,
+     "needed_mm": 14.5,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       -36.2,
+       -32.8
+      ],
+      [
+       -21.8,
+       -18.8
+      ],
+      [
+       -47.2,
+       -40.8
+      ]
+     ]
+    },
+    "lower torso z<-48": {
+     "core_components": 6,
+     "largest_core_extent_mm": 26.5,
+     "needed_mm": 14.5,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -16.2,
+       6.8
+      ],
+      [
+       25.2,
+       30.8
+      ],
+      [
+       -67.2,
+       -55.2
+      ]
+     ]
+    },
+    "whole torso": {
+     "core_components": 12,
+     "largest_core_extent_mm": 26.5,
+     "needed_mm": 14.5,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -16.2,
+       6.8
+      ],
+      [
+       25.2,
+       30.8
+      ],
+      [
+       -67.2,
+       -55.2
+      ]
+     ]
+    }
+   },
+   "axis_aligned": {
+    "x21.5 y12.1 z23.2": null,
+    "x23.2 y21.5 z12.1": null,
+    "x12.1 y23.2 z21.5": null,
+    "x12.1 y21.5 z23.2": null,
+    "x21.5 y23.2 z12.1": null,
+    "x23.2 y12.1 z21.5": null
+   }
+  },
+  "SCS0009 25.25 case": {
+   "rotated": {
+    "L_shoulder x>=20 z>=-48": {
+     "core_components": 6,
+     "largest_core_extent_mm": 7.7,
+     "needed_mm": 17.2,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       21.8,
+       26.2
+      ],
+      [
+       -27.8,
+       -23.8
+      ],
+      [
+       -47.8,
+       -41.2
+      ]
+     ]
+    },
+    "P_shoulder x<=-20 z>=-48": {
+     "core_components": 2,
+     "largest_core_extent_mm": 7.2,
+     "needed_mm": 17.2,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       -36.2,
+       -32.8
+      ],
+      [
+       -21.8,
+       -18.8
+      ],
+      [
+       -47.2,
+       -40.8
+      ]
+     ]
+    },
+    "lower torso z<-48": {
+     "core_components": 6,
+     "largest_core_extent_mm": 26.5,
+     "needed_mm": 17.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -16.2,
+       6.8
+      ],
+      [
+       25.2,
+       30.8
+      ],
+      [
+       -67.2,
+       -55.2
+      ]
+     ]
+    },
+    "whole torso": {
+     "core_components": 12,
+     "largest_core_extent_mm": 26.5,
+     "needed_mm": 17.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -16.2,
+       6.8
+      ],
+      [
+       25.2,
+       30.8
+      ],
+      [
+       -67.2,
+       -55.2
+      ]
+     ]
+    }
+   },
+   "axis_aligned": {
+    "x12.1 y23.2 z25.2": null,
+    "x23.2 y25.2 z12.1": null,
+    "x25.2 y23.2 z12.1": null,
+    "x23.2 y12.1 z25.2": null,
+    "x25.2 y12.1 z23.2": null,
+    "x12.1 y25.2 z23.2": null
+   }
+  },
+  "MG90S (22.8x12.2x22.7)": {
+   "rotated": {
+    "L_shoulder x>=20 z>=-48": {
+     "core_components": 3,
+     "largest_core_extent_mm": 7.7,
+     "needed_mm": 14.9,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       21.8,
+       26.2
+      ],
+      [
+       -27.8,
+       -24.2
+      ],
+      [
+       -47.8,
+       -41.2
+      ]
+     ]
+    },
+    "P_shoulder x<=-20 z>=-48": {
+     "core_components": 1,
+     "largest_core_extent_mm": 5.1,
+     "needed_mm": 14.9,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       -36.2,
+       -33.2
+      ],
+      [
+       -21.2,
+       -18.8
+      ],
+      [
+       -45.2,
+       -40.8
+      ]
+     ]
+    },
+    "lower torso z<-48": {
+     "core_components": 7,
+     "largest_core_extent_mm": 19.3,
+     "needed_mm": 14.9,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -16.2,
+       0.2
+      ],
+      [
+       25.2,
+       30.2
+      ],
+      [
+       -67.2,
+       -55.2
+      ]
+     ]
+    },
+    "whole torso": {
+     "core_components": 10,
+     "largest_core_extent_mm": 23.5,
+     "needed_mm": 14.9,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       21.8,
+       32.2
+      ],
+      [
+       -27.8,
+       -22.2
+      ],
+      [
+       -63.8,
+       -41.2
+      ]
+     ]
+    }
+   },
+   "axis_aligned": {
+    "x22.7 y12.2 z22.8": null,
+    "x22.8 y12.2 z22.7": null,
+    "x12.2 y22.8 z22.7": null,
+    "x22.7 y22.8 z12.2": null,
+    "x12.2 y22.7 z22.8": null,
+    "x22.8 y22.7 z12.2": null
+   }
+  },
+  "STS3032 (23.5x12.5x23)": {
+   "rotated": {
+    "L_shoulder x>=20 z>=-48": {
+     "core_components": 2,
+     "largest_core_extent_mm": 6.3,
+     "needed_mm": 15.2,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       21.8,
+       25.8
+      ],
+      [
+       -27.8,
+       -24.2
+      ],
+      [
+       -47.8,
+       -43.2
+      ]
+     ]
+    },
+    "P_shoulder x<=-20 z>=-48": {
+     "core_components": 2,
+     "largest_core_extent_mm": 4.3,
+     "needed_mm": 15.2,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       -36.2,
+       -33.8
+      ],
+      [
+       -20.8,
+       -18.8
+      ],
+      [
+       -44.2,
+       -40.8
+      ]
+     ]
+    },
+    "lower torso z<-48": {
+     "core_components": 6,
+     "largest_core_extent_mm": 17.1,
+     "needed_mm": 15.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -15.2,
+       -0.2
+      ],
+      [
+       25.2,
+       30.2
+      ],
+      [
+       -66.8,
+       -55.2
+      ]
+     ]
+    },
+    "whole torso": {
+     "core_components": 9,
+     "largest_core_extent_mm": 21.2,
+     "needed_mm": 15.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       21.8,
+       31.8
+      ],
+      [
+       -27.8,
+       -22.2
+      ],
+      [
+       -63.2,
+       -43.2
+      ]
+     ]
+    }
+   },
+   "axis_aligned": {
+    "x12.5 y23.5 z23.0": null,
+    "x23.0 y23.5 z12.5": null,
+    "x23.5 y23.0 z12.5": null,
+    "x12.5 y23.0 z23.5": null,
+    "x23.0 y12.5 z23.5": null,
+    "x23.5 y12.5 z23.0": null
+   }
+  },
+  "KST X06 (20x7x16.6)": {
+   "rotated": {
+    "L_shoulder x>=20 z>=-48": {
+     "core_components": 3,
+     "largest_core_extent_mm": 43.0,
+     "needed_mm": 16.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       20.2,
+       42.8
+      ],
+      [
+       -31.2,
+       -12.8
+      ],
+      [
+       -47.8,
+       -9.2
+      ]
+     ]
+    },
+    "P_shoulder x<=-20 z>=-48": {
+     "core_components": 2,
+     "largest_core_extent_mm": 43.6,
+     "needed_mm": 16.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -43.2,
+       -20.2
+      ],
+      [
+       -31.2,
+       -12.8
+      ],
+      [
+       -47.8,
+       -12.2
+      ]
+     ]
+    },
+    "lower torso z<-48": {
+     "core_components": 8,
+     "largest_core_extent_mm": 83.2,
+     "needed_mm": 16.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -40.8,
+       40.8
+      ],
+      [
+       19.2,
+       33.8
+      ],
+      [
+       -78.2,
+       -48.2
+      ]
+     ]
+    },
+    "whole torso": {
+     "core_components": 10,
+     "largest_core_extent_mm": 83.7,
+     "needed_mm": 16.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -40.8,
+       40.8
+      ],
+      [
+       19.2,
+       33.8
+      ],
+      [
+       -78.2,
+       -33.2
+      ]
+     ]
+    }
+   },
+   "axis_aligned": {
+    "x20.0 y7.0 z16.6": [
+     0.0,
+     28.0,
+     -62.0
+    ],
+    "x7.0 y16.6 z20.0": null,
+    "x7.0 y20.0 z16.6": null,
+    "x20.0 y16.6 z7.0": null,
+    "x16.6 y20.0 z7.0": null,
+    "x16.6 y7.0 z20.0": [
+     0.5,
+     29.5,
+     -60.0
+    ]
+   }
+  }
+ },
+ "free_conservative_thickest_mm": {
+  "L_shoulder x>=20 z>=-48": 14.9,
+  "P_shoulder x<=-20 z>=-48": 13.5,
+  "lower torso z<-48": 15.0,
+  "whole torso": 15.0
+ },
+ "free_optimistic": {
+  "SCS0009 (23.2x12.1x21.5)": {
+   "rotated": {
+    "L_shoulder x>=20 z>=-48": {
+     "core_components": 3,
+     "largest_core_extent_mm": 20.0,
+     "needed_mm": 14.5,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       20.8,
+       37.8
+      ],
+      [
+       -28.2,
+       -17.2
+      ],
+      [
+       -47.8,
+       -37.8
+      ]
+     ]
+    },
+    "P_shoulder x<=-20 z>=-48": {
+     "core_components": 4,
+     "largest_core_extent_mm": 9.9,
+     "needed_mm": 14.5,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       -37.8,
+       -31.2
+      ],
+      [
+       -22.2,
+       -17.2
+      ],
+      [
+       -47.8,
+       -39.8
+      ]
+     ]
+    },
+    "lower torso z<-48": {
+     "core_components": 8,
+     "largest_core_extent_mm": 36.5,
+     "needed_mm": 14.5,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -18.2,
+       14.8
+      ],
+      [
+       24.8,
+       31.2
+      ],
+      [
+       -69.8,
+       -53.8
+      ]
+     ]
+    },
+    "whole torso": {
+     "core_components": 11,
+     "largest_core_extent_mm": 36.5,
+     "needed_mm": 14.5,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -18.2,
+       14.8
+      ],
+      [
+       24.8,
+       31.2
+      ],
+      [
+       -69.8,
+       -53.8
+      ]
+     ]
+    }
+   },
+   "axis_aligned": {
+    "x21.5 y12.1 z23.2": null,
+    "x23.2 y21.5 z12.1": null,
+    "x12.1 y23.2 z21.5": null,
+    "x12.1 y21.5 z23.2": null,
+    "x21.5 y23.2 z12.1": null,
+    "x23.2 y12.1 z21.5": null
+   }
+  },
+  "SCS0009 25.25 case": {
+   "rotated": {
+    "L_shoulder x>=20 z>=-48": {
+     "core_components": 3,
+     "largest_core_extent_mm": 20.0,
+     "needed_mm": 17.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       20.8,
+       37.8
+      ],
+      [
+       -28.2,
+       -17.2
+      ],
+      [
+       -47.8,
+       -37.8
+      ]
+     ]
+    },
+    "P_shoulder x<=-20 z>=-48": {
+     "core_components": 4,
+     "largest_core_extent_mm": 9.9,
+     "needed_mm": 17.2,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       -37.8,
+       -31.2
+      ],
+      [
+       -22.2,
+       -17.2
+      ],
+      [
+       -47.8,
+       -39.8
+      ]
+     ]
+    },
+    "lower torso z<-48": {
+     "core_components": 8,
+     "largest_core_extent_mm": 36.5,
+     "needed_mm": 17.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -18.2,
+       14.8
+      ],
+      [
+       24.8,
+       31.2
+      ],
+      [
+       -69.8,
+       -53.8
+      ]
+     ]
+    },
+    "whole torso": {
+     "core_components": 11,
+     "largest_core_extent_mm": 36.5,
+     "needed_mm": 17.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -18.2,
+       14.8
+      ],
+      [
+       24.8,
+       31.2
+      ],
+      [
+       -69.8,
+       -53.8
+      ]
+     ]
+    }
+   },
+   "axis_aligned": {
+    "x12.1 y23.2 z25.2": null,
+    "x23.2 y25.2 z12.1": null,
+    "x25.2 y23.2 z12.1": null,
+    "x23.2 y12.1 z25.2": null,
+    "x25.2 y12.1 z23.2": null,
+    "x12.1 y25.2 z23.2": null
+   }
+  },
+  "MG90S (22.8x12.2x22.7)": {
+   "rotated": {
+    "L_shoulder x>=20 z>=-48": {
+     "core_components": 2,
+     "largest_core_extent_mm": 20.0,
+     "needed_mm": 14.9,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       20.8,
+       37.8
+      ],
+      [
+       -28.2,
+       -17.2
+      ],
+      [
+       -47.8,
+       -37.8
+      ]
+     ]
+    },
+    "P_shoulder x<=-20 z>=-48": {
+     "core_components": 3,
+     "largest_core_extent_mm": 9.9,
+     "needed_mm": 14.9,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       -37.8,
+       -31.2
+      ],
+      [
+       -22.2,
+       -17.2
+      ],
+      [
+       -47.8,
+       -39.8
+      ]
+     ]
+    },
+    "lower torso z<-48": {
+     "core_components": 8,
+     "largest_core_extent_mm": 36.0,
+     "needed_mm": 14.9,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -17.8,
+       14.8
+      ],
+      [
+       24.8,
+       31.2
+      ],
+      [
+       -69.8,
+       -53.8
+      ]
+     ]
+    },
+    "whole torso": {
+     "core_components": 9,
+     "largest_core_extent_mm": 36.0,
+     "needed_mm": 14.9,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -17.8,
+       14.8
+      ],
+      [
+       24.8,
+       31.2
+      ],
+      [
+       -69.8,
+       -53.8
+      ]
+     ]
+    }
+   },
+   "axis_aligned": {
+    "x22.7 y12.2 z22.8": null,
+    "x22.8 y12.2 z22.7": null,
+    "x12.2 y22.8 z22.7": null,
+    "x22.7 y22.8 z12.2": null,
+    "x12.2 y22.7 z22.8": null,
+    "x22.8 y22.7 z12.2": null
+   }
+  },
+  "STS3032 (23.5x12.5x23)": {
+   "rotated": {
+    "L_shoulder x>=20 z>=-48": {
+     "core_components": 4,
+     "largest_core_extent_mm": 10.6,
+     "needed_mm": 15.2,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       29.2,
+       36.8
+      ],
+      [
+       -22.8,
+       -18.2
+      ],
+      [
+       -47.8,
+       -40.2
+      ]
+     ]
+    },
+    "P_shoulder x<=-20 z>=-48": {
+     "core_components": 2,
+     "largest_core_extent_mm": 9.2,
+     "needed_mm": 15.2,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       -37.2,
+       -31.2
+      ],
+      [
+       -22.2,
+       -17.8
+      ],
+      [
+       -47.8,
+       -39.8
+      ]
+     ]
+    },
+    "lower torso z<-48": {
+     "core_components": 6,
+     "largest_core_extent_mm": 34.3,
+     "needed_mm": 15.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -17.2,
+       13.8
+      ],
+      [
+       24.8,
+       31.2
+      ],
+      [
+       -69.2,
+       -54.2
+      ]
+     ]
+    },
+    "whole torso": {
+     "core_components": 7,
+     "largest_core_extent_mm": 34.3,
+     "needed_mm": 15.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -17.2,
+       13.8
+      ],
+      [
+       24.8,
+       31.2
+      ],
+      [
+       -69.2,
+       -54.2
+      ]
+     ]
+    }
+   },
+   "axis_aligned": {
+    "x12.5 y23.5 z23.0": null,
+    "x23.0 y23.5 z12.5": null,
+    "x23.5 y23.0 z12.5": null,
+    "x12.5 y23.0 z23.5": null,
+    "x23.0 y12.5 z23.5": null,
+    "x23.5 y12.5 z23.0": null
+   }
+  },
+  "KST X06 (20x7x16.6)": {
+   "rotated": {
+    "L_shoulder x>=20 z>=-48": {
+     "core_components": 5,
+     "largest_core_extent_mm": 44.7,
+     "needed_mm": 16.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       20.2,
+       43.2
+      ],
+      [
+       -31.8,
+       -12.2
+      ],
+      [
+       -47.8,
+       -7.2
+      ]
+     ]
+    },
+    "P_shoulder x<=-20 z>=-48": {
+     "core_components": 5,
+     "largest_core_extent_mm": 45.5,
+     "needed_mm": 16.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -43.8,
+       -20.2
+      ],
+      [
+       -31.8,
+       -12.2
+      ],
+      [
+       -47.8,
+       -7.2
+      ]
+     ]
+    },
+    "lower torso z<-48": {
+     "core_components": 8,
+     "largest_core_extent_mm": 84.6,
+     "needed_mm": 16.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -41.8,
+       41.8
+      ],
+      [
+       18.8,
+       34.2
+      ],
+      [
+       -78.8,
+       -48.2
+      ]
+     ]
+    },
+    "whole torso": {
+     "core_components": 12,
+     "largest_core_extent_mm": 102.7,
+     "needed_mm": 16.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -46.2,
+       45.2
+      ],
+      [
+       -32.2,
+       8.8
+      ],
+      [
+       -77.2,
+       -6.8
+      ]
+     ]
+    }
+   },
+   "axis_aligned": {
+    "x20.0 y7.0 z16.6": [
+     0.0,
+     29.0,
+     -59.0
+    ],
+    "x7.0 y16.6 z20.0": null,
+    "x7.0 y20.0 z16.6": null,
+    "x20.0 y16.6 z7.0": null,
+    "x16.6 y20.0 z7.0": null,
+    "x16.6 y7.0 z20.0": [
+     0.5,
+     30.5,
+     -58.5
+    ]
+   }
+  }
+ },
+ "free_optimistic_thickest_mm": {
+  "L_shoulder x>=20 z>=-48": 15.8,
+  "P_shoulder x<=-20 z>=-48": 14.8,
+  "lower torso z<-48": 16.0,
+  "whole torso": 16.0
+ },
+ "free_opt_minus_assembly": {
+  "SCS0009 (23.2x12.1x21.5)": {
+   "rotated": {
+    "L_shoulder x>=20 z>=-48": {
+     "core_components": 1,
+     "largest_core_extent_mm": 0.5,
+     "needed_mm": 14.5,
+     "can_fit_rotated": false,
+     "core_bounds": null
+    },
+    "P_shoulder x<=-20 z>=-48": {
+     "core_components": 1,
+     "largest_core_extent_mm": 0.5,
+     "needed_mm": 14.5,
+     "can_fit_rotated": false,
+     "core_bounds": null
+    },
+    "lower torso z<-48": {
+     "core_components": 3,
+     "largest_core_extent_mm": 10.9,
+     "needed_mm": 14.5,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       24.2,
+       27.8
+      ],
+      [
+       -6.2,
+       3.2
+      ],
+      [
+       -75.8,
+       -72.8
+      ]
+     ]
+    },
+    "whole torso": {
+     "core_components": 5,
+     "largest_core_extent_mm": 10.9,
+     "needed_mm": 14.5,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       24.2,
+       27.8
+      ],
+      [
+       -6.2,
+       3.2
+      ],
+      [
+       -75.8,
+       -72.8
+      ]
+     ]
+    }
+   },
+   "axis_aligned": {
+    "x21.5 y12.1 z23.2": null,
+    "x23.2 y21.5 z12.1": null,
+    "x12.1 y23.2 z21.5": null,
+    "x12.1 y21.5 z23.2": null,
+    "x21.5 y23.2 z12.1": null,
+    "x23.2 y12.1 z21.5": null
+   }
+  },
+  "SCS0009 25.25 case": {
+   "rotated": {
+    "L_shoulder x>=20 z>=-48": {
+     "core_components": 1,
+     "largest_core_extent_mm": 0.5,
+     "needed_mm": 17.2,
+     "can_fit_rotated": false,
+     "core_bounds": null
+    },
+    "P_shoulder x<=-20 z>=-48": {
+     "core_components": 1,
+     "largest_core_extent_mm": 0.5,
+     "needed_mm": 17.2,
+     "can_fit_rotated": false,
+     "core_bounds": null
+    },
+    "lower torso z<-48": {
+     "core_components": 3,
+     "largest_core_extent_mm": 10.9,
+     "needed_mm": 17.2,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       24.2,
+       27.8
+      ],
+      [
+       -6.2,
+       3.2
+      ],
+      [
+       -75.8,
+       -72.8
+      ]
+     ]
+    },
+    "whole torso": {
+     "core_components": 5,
+     "largest_core_extent_mm": 10.9,
+     "needed_mm": 17.2,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       24.2,
+       27.8
+      ],
+      [
+       -6.2,
+       3.2
+      ],
+      [
+       -75.8,
+       -72.8
+      ]
+     ]
+    }
+   },
+   "axis_aligned": {
+    "x12.1 y23.2 z25.2": null,
+    "x23.2 y25.2 z12.1": null,
+    "x25.2 y23.2 z12.1": null,
+    "x23.2 y12.1 z25.2": null,
+    "x25.2 y12.1 z23.2": null,
+    "x12.1 y25.2 z23.2": null
+   }
+  },
+  "MG90S (22.8x12.2x22.7)": {
+   "rotated": {
+    "L_shoulder x>=20 z>=-48": {
+     "core_components": 0,
+     "largest_core_extent_mm": 0.5,
+     "needed_mm": 14.9,
+     "can_fit_rotated": false,
+     "core_bounds": null
+    },
+    "P_shoulder x<=-20 z>=-48": {
+     "core_components": 0,
+     "largest_core_extent_mm": 0.5,
+     "needed_mm": 14.9,
+     "can_fit_rotated": false,
+     "core_bounds": null
+    },
+    "lower torso z<-48": {
+     "core_components": 3,
+     "largest_core_extent_mm": 10.9,
+     "needed_mm": 14.9,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       24.2,
+       27.8
+      ],
+      [
+       -6.2,
+       3.2
+      ],
+      [
+       -75.8,
+       -72.8
+      ]
+     ]
+    },
+    "whole torso": {
+     "core_components": 3,
+     "largest_core_extent_mm": 10.9,
+     "needed_mm": 14.9,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       24.2,
+       27.8
+      ],
+      [
+       -6.2,
+       3.2
+      ],
+      [
+       -75.8,
+       -72.8
+      ]
+     ]
+    }
+   },
+   "axis_aligned": {
+    "x22.7 y12.2 z22.8": null,
+    "x22.8 y12.2 z22.7": null,
+    "x12.2 y22.8 z22.7": null,
+    "x22.7 y22.8 z12.2": null,
+    "x12.2 y22.7 z22.8": null,
+    "x22.8 y22.7 z12.2": null
+   }
+  },
+  "STS3032 (23.5x12.5x23)": {
+   "rotated": {
+    "L_shoulder x>=20 z>=-48": {
+     "core_components": 0,
+     "largest_core_extent_mm": 0.5,
+     "needed_mm": 15.2,
+     "can_fit_rotated": false,
+     "core_bounds": null
+    },
+    "P_shoulder x<=-20 z>=-48": {
+     "core_components": 0,
+     "largest_core_extent_mm": 0.5,
+     "needed_mm": 15.2,
+     "can_fit_rotated": false,
+     "core_bounds": null
+    },
+    "lower torso z<-48": {
+     "core_components": 1,
+     "largest_core_extent_mm": 10.6,
+     "needed_mm": 15.2,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       24.2,
+       27.8
+      ],
+      [
+       -6.2,
+       2.8
+      ],
+      [
+       -75.8,
+       -72.8
+      ]
+     ]
+    },
+    "whole torso": {
+     "core_components": 1,
+     "largest_core_extent_mm": 10.6,
+     "needed_mm": 15.2,
+     "can_fit_rotated": false,
+     "core_bounds": [
+      [
+       24.2,
+       27.8
+      ],
+      [
+       -6.2,
+       2.8
+      ],
+      [
+       -75.8,
+       -72.8
+      ]
+     ]
+    }
+   },
+   "axis_aligned": {
+    "x12.5 y23.5 z23.0": null,
+    "x23.0 y23.5 z12.5": null,
+    "x23.5 y23.0 z12.5": null,
+    "x12.5 y23.0 z23.5": null,
+    "x23.0 y12.5 z23.5": null,
+    "x23.5 y12.5 z23.0": null
+   }
+  },
+  "KST X06 (20x7x16.6)": {
+   "rotated": {
+    "L_shoulder x>=20 z>=-48": {
+     "core_components": 5,
+     "largest_core_extent_mm": 17.7,
+     "needed_mm": 16.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       34.2,
+       43.8
+      ],
+      [
+       -23.2,
+       -12.2
+      ],
+      [
+       -47.8,
+       -35.2
+      ]
+     ]
+    },
+    "P_shoulder x<=-20 z>=-48": {
+     "core_components": 4,
+     "largest_core_extent_mm": 17.7,
+     "needed_mm": 16.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       -43.8,
+       -33.2
+      ],
+      [
+       -23.2,
+       -12.2
+      ],
+      [
+       -47.8,
+       -35.2
+      ]
+     ]
+    },
+    "lower torso z<-48": {
+     "core_components": 16,
+     "largest_core_extent_mm": 33.1,
+     "needed_mm": 16.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       19.2,
+       30.8
+      ],
+      [
+       -9.2,
+       9.2
+      ],
+      [
+       -78.8,
+       -51.8
+      ]
+     ]
+    },
+    "whole torso": {
+     "core_components": 20,
+     "largest_core_extent_mm": 41.3,
+     "needed_mm": 16.2,
+     "can_fit_rotated": true,
+     "core_bounds": [
+      [
+       34.2,
+       45.2
+      ],
+      [
+       -24.2,
+       -10.8
+      ],
+      [
+       -75.2,
+       -35.8
+      ]
+     ]
+    }
+   },
+   "axis_aligned": {
+    "x20.0 y7.0 z16.6": null,
+    "x7.0 y16.6 z20.0": null,
+    "x7.0 y20.0 z16.6": null,
+    "x20.0 y16.6 z7.0": null,
+    "x16.6 y20.0 z7.0": null,
+    "x16.6 y7.0 z20.0": null
+   }
+  }
+ },
+ "free_opt_minus_assembly_thickest_mm": {
+  "L_shoulder x>=20 z>=-48": 12.1,
+  "P_shoulder x<=-20 z>=-48": 12.1,
+  "lower torso z<-48": 15.7,
+  "whole torso": 15.7
+ }
+}

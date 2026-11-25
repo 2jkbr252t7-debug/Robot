@@ -1,0 +1,1163 @@
+{
+ "validation": {
+  "z -47.2..-41.9": {
+   "PAN_ENV2_r": 17.5,
+   "voxel_sweep_r_max": 33.74
+  },
+  "z -41.9..-40.9": {
+   "PAN_ENV2_r": 26.5,
+   "voxel_sweep_r_max": 33.99
+  },
+  "z -40.9..-17.0": {
+   "PAN_ENV2_r": 33.4,
+   "voxel_sweep_r_max": 33.99
+  },
+  "z -17.0..-11.5": {
+   "PAN_ENV2_r": 32.2,
+   "voxel_sweep_r_max": 33.74
+  },
+  "z -11.5..4.0": {
+   "PAN_ENV2_r": 26.5,
+   "voxel_sweep_r_max": 27.23
+  },
+  "min_dist_T_spodok_column_L_to_sweep_voxel_centres": 0.5,
+  "min_dist_T_spodok_column_P_to_sweep_voxel_centres": 0.71,
+  "note": "voxel distances are between voxel centres (0.5 grid): true surface distances differ by up to +-0.43; the K3 exact value is 1.03 (lift servo <-> left column)"
+ },
+ "components": [
+  {
+   "variant": "free",
+   "region": "L_shoulder (x>=20, z>=-48)",
+   "volume_mm3": 18596,
+   "bounds_xyz": [
+    20.0,
+    48.5,
+    -35.0,
+    35.0,
+    -48.0,
+    0.0
+   ],
+   "centroid": [
+    31.7,
+    -3.8,
+    -30.2
+   ],
+   "thickest_mm": 12.0,
+   "bordered_by": [
+    "T_stred",
+    "T_bok_L",
+    "T_dvere",
+    "T_drziak_led",
+    "podlozka_led_1",
+    "skrutka_led_1",
+    "T_spodok",
+    "T_paluba",
+    "T_most",
+    "skr_F3a_1",
+    "pd_F3a_1",
+    "skr_F3a_2",
+    "pd_F3a_2",
+    "skr_F3b_2"
+   ]
+  },
+  {
+   "variant": "free",
+   "region": "L_shoulder (x>=20, z>=-48)",
+   "volume_mm3": 375,
+   "bounds_xyz": [
+    39.0,
+    47.5,
+    -1.5,
+    7.5,
+    -21.5,
+    -12.5
+   ],
+   "centroid": [
+    42.3,
+    3.0,
+    -17.0
+   ],
+   "thickest_mm": 7.0,
+   "bordered_by": [
+    "T_klb_L",
+    "T_spodok"
+   ]
+  },
+  {
+   "variant": "free",
+   "region": "L_shoulder (x>=20, z>=-48)",
+   "volume_mm3": 250,
+   "bounds_xyz": [
+    38.0,
+    39.5,
+    -5.5,
+    11.5,
+    -48.0,
+    -31.5
+   ],
+   "centroid": [
+    38.8,
+    3.4,
+    -42.8
+   ],
+   "thickest_mm": 2.0,
+   "bordered_by": [
+    "T_bok_L",
+    "T_spodok"
+   ]
+  },
+  {
+   "variant": "free",
+   "region": "P_shoulder (x<=-20, z>=-48)",
+   "volume_mm3": 17889,
+   "bounds_xyz": [
+    -48.5,
+    -20.0,
+    -35.0,
+    35.0,
+    -48.0,
+    0.0
+   ],
+   "centroid": [
+    -31.9,
+    -3.6,
+    -30.3
+   ],
+   "thickest_mm": 13.0,
+   "bordered_by": [
+    "T_stred",
+    "T_bok_P",
+    "T_dvere",
+    "T_drziak_led",
+    "podlozka_led_2",
+    "skrutka_led_2",
+    "T_spodok",
+    "kolik_dorazu_2",
+    "vl_F8_P1"
+   ]
+  },
+  {
+   "variant": "free",
+   "region": "P_shoulder (x<=-20, z>=-48)",
+   "volume_mm3": 361,
+   "bounds_xyz": [
+    -47.5,
+    -39.0,
+    -1.5,
+    7.5,
+    -21.5,
+    -12.5
+   ],
+   "centroid": [
+    -42.3,
+    3.0,
+    -17.0
+   ],
+   "thickest_mm": 6.6,
+   "bordered_by": [
+    "T_klb_P",
+    "T_spodok"
+   ]
+  },
+  {
+   "variant": "free",
+   "region": "P_shoulder (x<=-20, z>=-48)",
+   "volume_mm3": 154,
+   "bounds_xyz": [
+    -39.0,
+    -38.0,
+    -5.5,
+    11.5,
+    -48.0,
+    -38.0
+   ],
+   "centroid": [
+    -38.5,
+    3.0,
+    -43.3
+   ],
+   "thickest_mm": 1.0,
+   "bordered_by": [
+    "T_spodok"
+   ]
+  },
+  {
+   "variant": "free",
+   "region": "lower torso (z<-48)",
+   "volume_mm3": 79315,
+   "bounds_xyz": [
+    -49.5,
+    49.5,
+    -36.0,
+    37.0,
+    -84.5,
+    -48.0
+   ],
+   "centroid": [
+    3.2,
+    1.5,
+    -63.7
+   ],
+   "thickest_mm": 15.0,
+   "bordered_by": [
+    "T_stred",
+    "T_bok_L",
+    "T_bok_P",
+    "T_dvere",
+    "T_drziak_repro",
+    "reproduktor",
+    "vyvod_repro",
+    "skrutka_repro_3",
+    "T_spodok",
+    "T_paluba",
+    "T_most",
+    "servo_J1",
+    "servo_pan",
+    "DPS_riadenie"
+   ]
+  },
+  {
+   "variant": "free",
+   "region": "lower torso (z<-48)",
+   "volume_mm3": 374,
+   "bounds_xyz": [
+    -29.0,
+    16.0,
+    -11.5,
+    11.5,
+    -84.5,
+    -84.0
+   ],
+   "centroid": [
+    -4.2,
+    -0.0,
+    -84.2
+   ],
+   "thickest_mm": 1.0,
+   "bordered_by": [
+    "T_spodok",
+    "servo_J1",
+    "pd_F16_1",
+    "pd_F16_2"
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "L_shoulder (x>=20, z>=-48)",
+   "volume_mm3": 9430,
+   "bounds_xyz": [
+    20.0,
+    48.5,
+    -28.5,
+    28.5,
+    -48.0,
+    0.0
+   ],
+   "centroid": [
+    36.2,
+    -4.2,
+    -31.5
+   ],
+   "thickest_mm": 10.6,
+   "bordered_by": [
+    "T_stred",
+    "T_bok_L",
+    "T_spodok",
+    "T_paluba",
+    "T_most",
+    "skr_F3a_1",
+    "pd_F3a_1",
+    "skr_F3a_2",
+    "pd_F3a_2",
+    "skr_F3b_2",
+    "vl_F8_L1",
+    "vl_F8_L2"
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "L_shoulder (x>=20, z>=-48)",
+   "volume_mm3": 375,
+   "bounds_xyz": [
+    39.0,
+    47.5,
+    -1.5,
+    7.5,
+    -21.5,
+    -12.5
+   ],
+   "centroid": [
+    42.3,
+    3.0,
+    -17.0
+   ],
+   "thickest_mm": 7.0,
+   "bordered_by": [
+    "T_klb_L",
+    "T_spodok"
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "L_shoulder (x>=20, z>=-48)",
+   "volume_mm3": 250,
+   "bounds_xyz": [
+    38.0,
+    39.5,
+    -5.5,
+    11.5,
+    -48.0,
+    -31.5
+   ],
+   "centroid": [
+    38.8,
+    3.4,
+    -42.8
+   ],
+   "thickest_mm": 2.0,
+   "bordered_by": [
+    "T_bok_L",
+    "T_spodok"
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "L_shoulder (x>=20, z>=-48)",
+   "volume_mm3": 189,
+   "bounds_xyz": [
+    20.0,
+    25.5,
+    18.5,
+    25.5,
+    -17.0,
+    0.0
+   ],
+   "centroid": [
+    23.6,
+    22.6,
+    -7.1
+   ],
+   "thickest_mm": 3.6,
+   "bordered_by": [
+    "T_stred"
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "P_shoulder (x<=-20, z>=-48)",
+   "volume_mm3": 8051,
+   "bounds_xyz": [
+    -48.5,
+    -27.5,
+    -28.5,
+    28.5,
+    -48.0,
+    0.0
+   ],
+   "centroid": [
+    -38.3,
+    -2.1,
+    -32.6
+   ],
+   "thickest_mm": 10.6,
+   "bordered_by": [
+    "T_stred",
+    "T_bok_P",
+    "T_spodok",
+    "vl_F8_P1"
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "P_shoulder (x<=-20, z>=-48)",
+   "volume_mm3": 793,
+   "bounds_xyz": [
+    -25.5,
+    -20.0,
+    -25.5,
+    -18.5,
+    -48.0,
+    0.0
+   ],
+   "centroid": [
+    -22.8,
+    -23.0,
+    -23.2
+   ],
+   "thickest_mm": 4.0,
+   "bordered_by": [
+    "T_stred",
+    "T_spodok",
+    "kolik_dorazu_2"
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "P_shoulder (x<=-20, z>=-48)",
+   "volume_mm3": 361,
+   "bounds_xyz": [
+    -47.5,
+    -39.0,
+    -1.5,
+    7.5,
+    -21.5,
+    -12.5
+   ],
+   "centroid": [
+    -42.3,
+    3.0,
+    -17.0
+   ],
+   "thickest_mm": 6.6,
+   "bordered_by": [
+    "T_klb_P",
+    "T_spodok"
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "P_shoulder (x<=-20, z>=-48)",
+   "volume_mm3": 186,
+   "bounds_xyz": [
+    -25.5,
+    -20.0,
+    18.5,
+    25.5,
+    -17.0,
+    0.0
+   ],
+   "centroid": [
+    -23.6,
+    22.6,
+    -7.0
+   ],
+   "thickest_mm": 3.6,
+   "bordered_by": [
+    "T_stred"
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "P_shoulder (x<=-20, z>=-48)",
+   "volume_mm3": 154,
+   "bounds_xyz": [
+    -39.0,
+    -38.0,
+    -5.5,
+    11.5,
+    -48.0,
+    -38.0
+   ],
+   "centroid": [
+    -38.5,
+    3.0,
+    -43.3
+   ],
+   "thickest_mm": 1.0,
+   "bordered_by": [
+    "T_spodok"
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "lower torso (z<-48)",
+   "volume_mm3": 19459,
+   "bounds_xyz": [
+    16.5,
+    49.5,
+    -29.0,
+    29.0,
+    -84.5,
+    -48.0
+   ],
+   "centroid": [
+    34.2,
+    -1.7,
+    -65.3
+   ],
+   "thickest_mm": 14.8,
+   "bordered_by": [
+    "T_stred",
+    "T_bok_L",
+    "T_spodok",
+    "T_paluba",
+    "T_most",
+    "servo_J1",
+    "zosilnovac",
+    "skr_F3a_1",
+    "vl_F3a_1",
+    "skr_F14_3",
+    "skr_F14_4",
+    "ffc_static"
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "lower torso (z<-48)",
+   "volume_mm3": 12101,
+   "bounds_xyz": [
+    -49.5,
+    -31.5,
+    -29.0,
+    29.0,
+    -84.5,
+    -48.0
+   ],
+   "centroid": [
+    -39.9,
+    -2.0,
+    -63.1
+   ],
+   "thickest_mm": 11.4,
+   "bordered_by": [
+    "T_stred",
+    "T_bok_P",
+    "T_spodok",
+    "menic",
+    "skr_F14_1",
+    "skr_F14_2",
+    "pd_F14_2"
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "lower torso (z<-48)",
+   "volume_mm3": 8868,
+   "bounds_xyz": [
+    -26.5,
+    25.5,
+    15.5,
+    27.0,
+    -82.0,
+    -48.0
+   ],
+   "centroid": [
+    -3.5,
+    22.1,
+    -66.1
+   ],
+   "thickest_mm": 9.0,
+   "bordered_by": [
+    "T_stred",
+    "T_spodok",
+    "T_paluba",
+    "T_most",
+    "DPS_riadenie",
+    "usb_predlzovac",
+    "kondenzator",
+    "skr_F7_1",
+    "skr_F7_2",
+    "ffc_A_nosic",
+    "ffc_B_nosic",
+    "ffc_static"
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "lower torso (z<-48)",
+   "volume_mm3": 4892,
+   "bounds_xyz": [
+    -23.0,
+    26.5,
+    -29.0,
+    -15.0,
+    -84.5,
+    -48.0
+   ],
+   "centroid": [
+    8.0,
+    -21.5,
+    -67.5
+   ],
+   "thickest_mm": 8.0,
+   "bordered_by": [
+    "T_stred",
+    "T_drziak_repro",
+    "vyvod_repro",
+    "T_spodok",
+    "T_paluba",
+    "T_most",
+    "servo_pan",
+    "skr_F3b_2",
+    "skr_F4_1",
+    "skr_F4_2"
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "lower torso (z<-48)",
+   "volume_mm3": 374,
+   "bounds_xyz": [
+    -29.0,
+    16.0,
+    -11.5,
+    11.5,
+    -84.5,
+    -84.0
+   ],
+   "centroid": [
+    -4.2,
+    -0.0,
+    -84.2
+   ],
+   "thickest_mm": 1.0,
+   "bordered_by": [
+    "T_spodok",
+    "servo_J1",
+    "pd_F16_1",
+    "pd_F16_2"
+   ]
+  }
+ ],
+ "largest_boxes": [
+  {
+   "variant": "free",
+   "region": "L_shoulder (x>=20, z>=-48)",
+   "min_dim_mm": 0.0,
+   "size_xyz": [
+    12.5,
+    7.5,
+    14.0
+   ],
+   "volume_mm3": 1312,
+   "at_xyz": [
+    [
+     24.5,
+     37.0
+    ],
+    [
+     -26.0,
+     -18.5
+    ],
+    [
+     -48.0,
+     -34.0
+    ]
+   ]
+  },
+  {
+   "variant": "free",
+   "region": "L_shoulder (x>=20, z>=-48)",
+   "min_dim_mm": 7.0,
+   "size_xyz": [
+    13.0,
+    7.0,
+    14.0
+   ],
+   "volume_mm3": 1274,
+   "at_xyz": [
+    [
+     24.0,
+     37.0
+    ],
+    [
+     -26.0,
+     -19.0
+    ],
+    [
+     -48.0,
+     -34.0
+    ]
+   ]
+  },
+  {
+   "variant": "free",
+   "region": "L_shoulder (x>=20, z>=-48)",
+   "min_dim_mm": 12.0,
+   "box": null
+  },
+  {
+   "variant": "free",
+   "region": "P_shoulder (x<=-20, z>=-48)",
+   "min_dim_mm": 0.0,
+   "size_xyz": [
+    10.5,
+    5.5,
+    23.0
+   ],
+   "volume_mm3": 1328,
+   "at_xyz": [
+    [
+     -30.5,
+     -20.0
+    ],
+    [
+     -27.0,
+     -21.5
+    ],
+    [
+     -39.5,
+     -16.5
+    ]
+   ]
+  },
+  {
+   "variant": "free",
+   "region": "P_shoulder (x<=-20, z>=-48)",
+   "min_dim_mm": 7.0,
+   "size_xyz": [
+    8.0,
+    7.0,
+    18.0
+   ],
+   "volume_mm3": 1008,
+   "at_xyz": [
+    [
+     -30.0,
+     -22.0
+    ],
+    [
+     -28.5,
+     -21.5
+    ],
+    [
+     -39.5,
+     -21.5
+    ]
+   ]
+  },
+  {
+   "variant": "free",
+   "region": "P_shoulder (x<=-20, z>=-48)",
+   "min_dim_mm": 12.0,
+   "box": null
+  },
+  {
+   "variant": "free",
+   "region": "lower torso (z<-48)",
+   "min_dim_mm": 0.0,
+   "size_xyz": [
+    33.5,
+    9.5,
+    20.5
+   ],
+   "volume_mm3": 6524,
+   "at_xyz": [
+    [
+     -18.5,
+     15.0
+    ],
+    [
+     24.5,
+     34.0
+    ],
+    [
+     -69.5,
+     -49.0
+    ]
+   ]
+  },
+  {
+   "variant": "free",
+   "region": "lower torso (z<-48)",
+   "min_dim_mm": 7.0,
+   "size_xyz": [
+    37.0,
+    9.0,
+    20.5
+   ],
+   "volume_mm3": 6826,
+   "at_xyz": [
+    [
+     -18.5,
+     18.5
+    ],
+    [
+     25.0,
+     34.0
+    ],
+    [
+     -69.5,
+     -49.0
+    ]
+   ]
+  },
+  {
+   "variant": "free",
+   "region": "lower torso (z<-48)",
+   "min_dim_mm": 12.0,
+   "size_xyz": [
+    13.0,
+    20.0,
+    14.5
+   ],
+   "volume_mm3": 3770,
+   "at_xyz": [
+    [
+     19.0,
+     32.0
+    ],
+    [
+     -12.0,
+     8.0
+    ],
+    [
+     -81.5,
+     -67.0
+    ]
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "L_shoulder (x>=20, z>=-48)",
+   "min_dim_mm": 0.0,
+   "size_xyz": [
+    8.5,
+    11.5,
+    8.5
+   ],
+   "volume_mm3": 831,
+   "at_xyz": [
+    [
+     33.5,
+     42.0
+    ],
+    [
+     -21.0,
+     -9.5
+    ],
+    [
+     -47.5,
+     -39.0
+    ]
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "L_shoulder (x>=20, z>=-48)",
+   "min_dim_mm": 7.0,
+   "size_xyz": [
+    9.0,
+    11.0,
+    8.5
+   ],
+   "volume_mm3": 842,
+   "at_xyz": [
+    [
+     33.5,
+     42.5
+    ],
+    [
+     -20.5,
+     -9.5
+    ],
+    [
+     -47.5,
+     -39.0
+    ]
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "L_shoulder (x>=20, z>=-48)",
+   "min_dim_mm": 12.0,
+   "box": null
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "P_shoulder (x<=-20, z>=-48)",
+   "min_dim_mm": 0.0,
+   "size_xyz": [
+    9.5,
+    10.5,
+    8.5
+   ],
+   "volume_mm3": 848,
+   "at_xyz": [
+    [
+     -42.5,
+     -33.0
+    ],
+    [
+     -20.0,
+     -9.5
+    ],
+    [
+     -47.5,
+     -39.0
+    ]
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "P_shoulder (x<=-20, z>=-48)",
+   "min_dim_mm": 7.0,
+   "size_xyz": [
+    10.0,
+    10.0,
+    8.5
+   ],
+   "volume_mm3": 850,
+   "at_xyz": [
+    [
+     -43.0,
+     -33.0
+    ],
+    [
+     -19.5,
+     -9.5
+    ],
+    [
+     -47.5,
+     -39.0
+    ]
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "P_shoulder (x<=-20, z>=-48)",
+   "min_dim_mm": 12.0,
+   "box": null
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "lower torso (z<-48)",
+   "min_dim_mm": 0.0,
+   "size_xyz": [
+    13.5,
+    20.5,
+    13.0
+   ],
+   "volume_mm3": 3598,
+   "at_xyz": [
+    [
+     19.0,
+     32.5
+    ],
+    [
+     -12.0,
+     8.5
+    ],
+    [
+     -80.0,
+     -67.0
+    ]
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "lower torso (z<-48)",
+   "min_dim_mm": 7.0,
+   "size_xyz": [
+    13.0,
+    20.0,
+    14.5
+   ],
+   "volume_mm3": 3770,
+   "at_xyz": [
+    [
+     19.0,
+     32.0
+    ],
+    [
+     -12.0,
+     8.0
+    ],
+    [
+     -81.5,
+     -67.0
+    ]
+   ]
+  },
+  {
+   "variant": "free_minus_assembly",
+   "region": "lower torso (z<-48)",
+   "min_dim_mm": 12.0,
+   "size_xyz": [
+    13.0,
+    20.0,
+    14.5
+   ],
+   "volume_mm3": 3770,
+   "at_xyz": [
+    [
+     19.0,
+     32.0
+    ],
+    [
+     -12.0,
+     8.0
+    ],
+    [
+     -81.5,
+     -67.0
+    ]
+   ]
+  }
+ ],
+ "servo_fits_axis_aligned": [
+  {
+   "variant": "free",
+   "servo": "SCS0009 case 23.2x12.1x21.5 (case height UNVERIFIED; 25.25 incl. shaft)",
+   "orientations": {
+    "x23.2 y21.5 z12.1": null,
+    "x12.1 y21.5 z23.2": null,
+    "x21.5 y12.1 z23.2": null,
+    "x21.5 y23.2 z12.1": null,
+    "x23.2 y12.1 z21.5": null,
+    "x12.1 y23.2 z21.5": null
+   },
+   "fits_anywhere": false
+  },
+  {
+   "variant": "free",
+   "servo": "SCS0009 if 25.25 is the case",
+   "orientations": {
+    "x23.2 y25.2 z12.1": null,
+    "x12.1 y25.2 z23.2": null,
+    "x25.2 y12.1 z23.2": null,
+    "x25.2 y23.2 z12.1": null,
+    "x23.2 y12.1 z25.2": null,
+    "x12.1 y23.2 z25.2": null
+   },
+   "fits_anywhere": false
+  },
+  {
+   "variant": "free",
+   "servo": "MG90S case 22.8x12.2x22.7 (no ears)",
+   "orientations": {
+    "x22.8 y22.7 z12.2": null,
+    "x12.2 y22.7 z22.8": null,
+    "x22.7 y12.2 z22.8": null,
+    "x22.7 y22.8 z12.2": null,
+    "x22.8 y12.2 z22.7": null,
+    "x12.2 y22.8 z22.7": null
+   },
+   "fits_anywhere": false
+  },
+  {
+   "variant": "free",
+   "servo": "STS3032 case 23.5x12.5x23.0",
+   "orientations": {
+    "x23.5 y23.0 z12.5": null,
+    "x12.5 y23.0 z23.5": null,
+    "x23.0 y12.5 z23.5": null,
+    "x23.0 y23.5 z12.5": null,
+    "x23.5 y12.5 z23.0": null,
+    "x12.5 y23.5 z23.0": null
+   },
+   "fits_anywhere": false
+  },
+  {
+   "variant": "free",
+   "servo": "KST X06 case 20x7x16.6",
+   "orientations": {
+    "x20.0 y16.6 z7.0": null,
+    "x7.0 y16.6 z20.0": null,
+    "x16.6 y7.0 z20.0": {
+     "n_positions": 1384,
+     "example_centre": [
+      0.5,
+      29.5,
+      -60.0
+     ],
+     "centre_range": [
+      [
+       -18.0,
+       33.5
+      ],
+      [
+       -24.0,
+       31.5
+      ],
+      [
+       -65.5,
+       -52.0
+      ]
+     ]
+    },
+    "x16.6 y20.0 z7.0": null,
+    "x20.0 y7.0 z16.6": {
+     "n_positions": 2574,
+     "example_centre": [
+      0.0,
+      28.0,
+      -62.0
+     ],
+     "centre_range": [
+      [
+       -8.5,
+       31.5
+      ],
+      [
+       -19.5,
+       32.0
+      ],
+      [
+       -65.5,
+       -57.5
+      ]
+     ]
+    },
+    "x7.0 y20.0 z16.6": null
+   },
+   "fits_anywhere": true
+  },
+  {
+   "variant": "free_minus_assembly",
+   "servo": "SCS0009 case 23.2x12.1x21.5 (case height UNVERIFIED; 25.25 incl. shaft)",
+   "orientations": {
+    "x23.2 y21.5 z12.1": null,
+    "x12.1 y21.5 z23.2": null,
+    "x21.5 y12.1 z23.2": null,
+    "x21.5 y23.2 z12.1": null,
+    "x23.2 y12.1 z21.5": null,
+    "x12.1 y23.2 z21.5": null
+   },
+   "fits_anywhere": false
+  },
+  {
+   "variant": "free_minus_assembly",
+   "servo": "SCS0009 if 25.25 is the case",
+   "orientations": {
+    "x23.2 y25.2 z12.1": null,
+    "x12.1 y25.2 z23.2": null,
+    "x25.2 y12.1 z23.2": null,
+    "x25.2 y23.2 z12.1": null,
+    "x23.2 y12.1 z25.2": null,
+    "x12.1 y23.2 z25.2": null
+   },
+   "fits_anywhere": false
+  },
+  {
+   "variant": "free_minus_assembly",
+   "servo": "MG90S case 22.8x12.2x22.7 (no ears)",
+   "orientations": {
+    "x22.8 y22.7 z12.2": null,
+    "x12.2 y22.7 z22.8": null,
+    "x22.7 y12.2 z22.8": null,
+    "x22.7 y22.8 z12.2": null,
+    "x22.8 y12.2 z22.7": null,
+    "x12.2 y22.8 z22.7": null
+   },
+   "fits_anywhere": false
+  },
+  {
+   "variant": "free_minus_assembly",
+   "servo": "STS3032 case 23.5x12.5x23.0",
+   "orientations": {
+    "x23.5 y23.0 z12.5": null,
+    "x12.5 y23.0 z23.5": null,
+    "x23.0 y12.5 z23.5": null,
+    "x23.0 y23.5 z12.5": null,
+    "x23.5 y12.5 z23.0": null,
+    "x12.5 y23.5 z23.0": null
+   },
+   "fits_anywhere": false
+  },
+  {
+   "variant": "free_minus_assembly",
+   "servo": "KST X06 case 20x7x16.6",
+   "orientations": {
+    "x20.0 y16.6 z7.0": null,
+    "x7.0 y16.6 z20.0": null,
+    "x16.6 y7.0 z20.0": null,
+    "x16.6 y20.0 z7.0": null,
+    "x20.0 y7.0 z16.6": null,
+    "x7.0 y20.0 z16.6": null
+   },
+   "fits_anywhere": false
+  }
+ ],
+ "seconds": 74
+}

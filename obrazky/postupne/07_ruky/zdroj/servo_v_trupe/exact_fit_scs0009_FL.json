@@ -1,0 +1,61 @@
+{
+ "case": [
+  23.2,
+  12.1,
+  21.5
+ ],
+ "start": [
+  28.4,
+  -22.9,
+  -52.9,
+  0.2055,
+  -1.561,
+  0.2055
+ ],
+ "start_worst": -8.54,
+ "opt_pose": {
+  "centre": [
+   31.07,
+   -23.1,
+   -60.36
+  ],
+  "rotvec": [
+   0.1857,
+   -1.4885,
+   0.196
+  ],
+  "axes_world": {
+   "L": [
+    0.072,
+    0.016,
+    0.997
+   ],
+   "W": [
+    -0.243,
+    0.97,
+    0.002
+   ],
+   "H (shaft)": [
+    -0.967,
+    -0.243,
+    0.074
+   ]
+  }
+ },
+ "opt_worst_margin": -1.39,
+ "per_part": {
+  "T_bok_L": -1.39,
+  "T_stred": -1.29,
+  "servo_pan": -0.62,
+  "T_spodok": 0.33,
+  "T_paluba": 0.4,
+  "T_most": 0.82,
+  "vl_F3b_2": 1.99,
+  "skr_F3b_2": 2.2
+ },
+ "parts_with_vertices_inside_case": [
+  "T_bok_L"
+ ],
+ "n_eval": 105,
+ "note": "margin = clearance minus the required 0.3 (static) / 1.0 (moving); >= 0 means the case fits"
+}

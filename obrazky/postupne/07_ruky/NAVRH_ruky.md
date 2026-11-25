@@ -14,6 +14,8 @@ mm, Z hore, predok −Y, ľavá strana robota +X, os ramena je rovnobežná s X 
 * **Ruka sa odsunie od trupu o asi 11–14 mm.** Presná hodnota sa určí po zmeraní serva.
   * Biela ruka ostáva presne taká, akú si schválil, len ďalej od trupu.
   * Medzi trupom a rukou bude vidno dlhší čierny kĺb, asi 15–18 mm namiesto dnešných ~4 mm, podobne ako na R01 / R08.
+    Spredu je kryt kĺbu vysoký asi 36 mm (siaha ~20 mm pod os ramena, lebo v ňom je časť serva), pozri obrázok
+    `obrazky/v1_spredu_porovnanie.png`.
 * **Ruka sa točí na čiernom čape Ø22 ramenného kĺbu T_klb.**
   * Servo cez drážkované puzdro prenáša iba krútiaci moment.
   * Váhu ruky, údery a ťahanie nesie čap, nie servo.
@@ -45,7 +47,7 @@ Preskúmané a zamietnuté možnosti:
 |---|---|
 | tenké krídlové servo (KST X06) na osi, ruka posunutá len o 5 mm | iba 120° (ruka napr. −20…+100°), PWM bez spätnej väzby, iné zapojenie |
 | servo naležato v ruke + kužeľové kolieska 1:1, ruka na mieste | hriadeľ serva je pri jednom konci tela, servo vyčnieva ~2,6 mm z boku ruky (ruka by musela byť ~5 mm širšia); +4 diely, vôľa v zuboch, zuby treba chrániť spojkou ešte slabšou |
-| servo v trupe, ruka iba škrupina | v trupe nie je miesto (vedľa stĺpa je šachta krku a servo zdvihu, 1 mm vôľa) |
+| servo v trupe, ruka iba škrupina | **zmerané na hotovom trupe** (mriežka 0,5 mm, otáčanie hlavy ±90°, zdvih krku 0–20): pri osi ramena je medzi stĺpom a servom zdvihu krku len 1,0 mm; najväčší voľný kváder pri ramene 13 × 7,5 × 14 mm. SCS0009 / MG90S / STS3032 sa nezmestia nikde (228 natočení; najbližšie ľavý predný roh, chýba 1,4 mm, a je 40 mm od osi). Servo na osi by z trupu trčalo 9,1 mm, ruka by sa aj tak posúvala o 8,1 mm a znova by sa tlačil celý spodok trupu, oba kĺby a oba bočné kryty. Zmestí sa len KST X06 (120°) s 40 mm lankom cez stĺp. Obrázky `obrazky/servo_v_trupe_*.png` |
 | ruka hrubšia namiesto posunu (23 → 34–37 mm) | mení tvar ruky viac ako posun; pri posune sa biela ruka nemení vôbec |
 | STS3032 (ako na otáčaní hlavy) | je vyššie (≈ 28,5 mm s hriadeľom) a ťažšie (20 g), posun ruky by bol ešte väčší |
 
@@ -63,11 +65,16 @@ Preskúmané a zamietnuté možnosti:
    * odporúčam vytlačiť 2–3 skúšobné puzdrá s rôznou vôľou a vybrať to, ktoré ide nasunúť rukou bez kývania
 3. **Trecia spojka**
    * za prírubou 2 tanierové pružinky 10 × 5,2 × 0,4 v rade (bežný rozmer), doladenie podložkami 0,1 mm
+   * vybranie v T_klb je od čela stĺpa po osadenie dlhé 5,6 mm: príruba 2 mm + pružinky ~1,2 mm ho nevyplnia, preto treba
+     dištančný krúžok ~2,4 mm (alebo hrubšiu prírubu, alebo 4 pružinky) – presne sa určí v CAD
+   * puzdro musí končiť ~0,9 mm pod čelom T_klb (x ≤ 57,85), lebo do ústia otvoru vojde nákružok serva
    * opierajú sa o čelo stĺpa a tlačia prírubu na osadenie v T_klb
    * keď sa ruka zatlačí silou nad ≈ 0,12–0,15 N·m, puzdro sa v T_klb pretočí
    * hodnotu treba nastaviť na stole: ruku vodorovne, na koniec zavesiť závažie ~250 g, má prešmyknúť
 4. **Kryt kĺbu** (tlačený, Tough, čierny; otáča sa s rukou)
-   * klzne na čape Ø22, vôľa 0,05–0,10 mm, tenká vrstva maziva s PTFE
+   * klzne na čape Ø22 celou dĺžkou (~6 mm), vôľa 0,05–0,10 mm, tenká vrstva maziva s PTFE
+   * komôrka pre kábel je okolo tohto puzdra (nie vedľa neho), aby uloženie ostalo dlhé – kryt má preto pri trupe
+     Ø ~31 mm (T_klb má Ø27)
    * v otvore tenký O-krúžok: berie vôľu (ruka nerapoce) a drží ruku osovo na čape
    * vnútri komôrka pre kábel (pozri časť 5)
    * na vonkajšej strane objíma tú časť serva, ktorá nie je v bielej ruke
@@ -173,6 +180,7 @@ Servis serva: vonkajšia škrupina dole → rozpojiť konektor → ruku stiahnu�
 |---|---|---|
 | servo Feetech SCS0009 / Waveshare SC09 | 2 | ~9–19 USD/ks |
 | tanierová pružinka 10 × 5,2 × 0,4 | 4 (+ rezerva) | + podložky 10 × 5,2 × 0,1 na doladenie |
+| dištančný krúžok Ø9,9 / 5,4 × ~2,4 (tlačený) | 2 | vypĺňa vybranie v T_klb pod pružinkami |
 | O-krúžok pre čap Ø22 (presný rozmer po CAD) | 2 | NBR |
 | závitová vložka M2 (lepená) | 2 × (3 + 2) | ako v trupe |
 | skrutka M2 × 6 | 2 × 5 | |
@@ -211,8 +219,19 @@ Servis serva: vonkajšia škrupina dole → rozpojiť konektor → ruku stiahnu�
 2. **Kalibrácia automaticky s kolíkom** (odporúčam; jedna dierka Ø1,5 do T_klb) – alebo len ručne v aplikácii.
 3. **Kryt kĺbu čierny** ako na R08 – alebo biely, aby ruka vyzerala dlhšia.
 
+## 14. Obrázky (koncept, nie výkres na tlač)
+
+* `obrazky/v1_spredu_porovnanie.png` – spredu: schválené vs. návrh v1, celková šírka 157 → 181 mm
+* `obrazky/v1_rez_ramenom.png` – rez ľavým ramenom so všetkými dielmi kĺbu
+* `obrazky/v1_rozlozena_ruka.png` – rozložená ruka, poradie montáže
+* `obrazky/v1_rozsah_pohybu.png` – rozsah −45…+135° a vôľa k hlave
+* `obrazky/v1_hero.png` – celý robot, ľavá ruka zdvihnutá
+* `obrazky/servo_v_trupe_1_volne_miesto.png`, `_2_na_osi_ramena.png`, `_3_vedla_stlpa.png` – zmerané voľné miesto v trupe
+  a prečo sa servo do trupu nezmestí
+
 Zdroje údajov: `zdroj/podklady_ruky.json` (servá, drobné diely, zbernica – s odkazmi), `zdroj/geometria/`
-(prepočty tvaru ruky voči trupu; `dd2.py` = potrebný posun ruky pre jednotlivé servá).
+(prepočty tvaru ruky voči trupu; `dd2.py` = potrebný posun ruky pre jednotlivé servá), `zdroj/servo_v_trupe/` a
+`zdroj/analyza_servo_v_trupe.json` (meranie voľného miesta v trupe), `zdroj/obrazky_v1/` (skripty obrázkov).
 Hlavné webové zdroje: Waveshare SC09 – https://www.waveshare.com/sc09-servo.htm a https://www.waveshare.com/wiki/SC09_Servo;
 Feetech SCS0009 – https://www.feetechrc.com/6v-23kg-serial-bus-steering-gear_65522.html;
 KST X06 V6.0 (rozsah ±60°) – https://stgaws.robu.in/wp-content/uploads/2024/02/X06_V6.0_Technical_Specifcation.pdf.
