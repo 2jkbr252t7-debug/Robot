@@ -1,0 +1,37 @@
+sweep model 21470949 20s
+sweep  SERVO            {'min': 1.91, 'at': [32.95, -1.7, -45.0], 'by': 'lower bound'} 23s
+sweep  SERVO_cable      {'min': 23.23, 'at': [37.0, -14.3, -63.5], 'by': 'lower bound'} 24s
+sweep  ROT_V_coupler    {'min': 1.71, 'at': [35.0, 3.1, -37.1], 'by': 'lower bound'} 25s
+sweep  ROT_V_shaft      {'min': 4.21, 'at': [37.5, 3.1, -20.92], 'by': 'lower bound'} 26s
+sweep  ROT_V_pinion     {'min': 1.32, 'at': [34.6, 2.6, -23.03], 'by': 'servo_zdvih'} 35s
+sweep  ROT_A_gear       {'min': 7.96, 'at': [41.39, 0.72, -18.26], 'by': 'lower bound'} 35s
+sweep  ROT_A_shaft      {'min': 8.01, 'at': [41.39, 1.73, -18.27], 'by': 'lower bound'} 36s
+sweep  BRG_B1           {'min': 2.71, 'at': [36.01, 3.2, -23.85], 'by': 'lower bound'} 37s
+sweep  BRG_A1           {'min': 11.16, 'at': [44.55, 1.94, -18.7], 'by': 'lower bound'} 38s
+sweep  BRG_A2           {'min': '>4', 'at': None, 'by': None} 38s
+sweep  STAT_boss        {'min': 1.02, 'at': [34.4, -0.02, -28.82], 'by': 'servo_zdvih'} 48s
+sweep  STAT_tongue      {'min': 1.33, 'at': [34.62, 2.6, -26.55], 'by': 'servo_zdvih'} 55s
+sweep  SCR_F3a2_T4      {'min': 2.31, 'at': [30.55, 4.09, -44.3], 'by': 'lower bound'} 56s
+sweep  SCR_F3a2_K3      {'min': 0.0, 'at': [24.37, 13.41, -44.6], 'by': 'P_drziak_serva'} 66s
+sweep  INS_F3a2_K3      {'min': 1.07, 'at': [24.46, 12.46, -48.2], 'by': 'P_drziak_serva'} 73s
+static model 3528623 126s
+static SERVO            {'min': 0.77, 'at': [45.05, -17.85, -49.3], 'nearest': {'T_bok_L': 0.77, 'T_spodok': 1.9, 'T_paluba': 1.95}}
+static SERVO_cable      {'min': 5.03, 'at': [41.0, -17.3, -66.5], 'nearest': {'T_bok_L': 5.03}}
+static ROT_V_coupler    {'min': 4.0, 'at': [43.0, 3.0, -37.0], 'nearest': {'T_bok_L': 4.0, 'T_paluba': 4.59}}
+static ROT_V_shaft      {'min': 0.0, 'at': [40.0, 3.0, -31.0], 'nearest': {'T_bok_L': 0.0}}
+static ROT_V_pinion     {'min': 3.52, 'at': [39.1, 7.41, -23.35], 'nearest': {'T_bok_L': 3.52}}
+static ROT_A_gear       {'min': 5.35, 'at': [42.58, 8.27, -13.59], 'nearest': {'T_bok_L': 5.35}}
+static ROT_A_shaft      {'min': '>6', 'at': [41.39, 3.0, -17.0], 'nearest': {}}
+static BRG_B1           {'min': 1.43, 'at': [39.1, 6.0, -26.35], 'nearest': {'T_bok_L': 1.43}}
+static BRG_A1           {'min': '>6', 'at': [44.55, 5.0, -17.0], 'nearest': {}}
+static BRG_A2           {'min': '>6', 'at': [48.55, 5.0, -17.0], 'nearest': {}}
+static STAT_boss        {'min': 0.0, 'at': [39.1, -0.12, -5.0], 'nearest': {'T_bok_L': 0.0}}
+static STAT_tongue      {'min': 0.46, 'at': [39.1, 7.4, -26.85], 'nearest': {'T_bok_L': 0.46}}
+static SCR_F3a2_T4      {'min': 0.0, 'at': [29.86, 5.68, -46.2], 'nearest': {'T_paluba': 0.0}}
+static SCR_F3a2_K3      {'min': 0.0, 'at': [24.58, 10.2, -46.2], 'nearest': {'T_paluba': 0.0}}
+static INS_F3a2_K3      {'min': 0.0, 'at': [23.21, 11.14, -48.2], 'nearest': {'T_paluba': 0.0, 'T_spodok': 0.01}}
+lower {'SERVO': 0.25, 'SERVO_cable': 4.75, 'ROT_V_coupler': 10.73, 'ROT_V_shaft': 12.37, 'ROT_V_pinion': 10.3, 'ROT_A_gear': 10.54, 'ROT_A_shaft': 11.38, 'BRG_B1': 11.68, 'BRG_A1': 14.18, 'BRG_A2': 18.09, 'STAT_boss': 2.25, 'STAT_tongue': 10.3, 'SCR_F3a2_T4': 9.25, 'SCR_F3a2_K3': 3.29, 'INS_F3a2_K3': 3.99}
+s1 {'SERVO': 13.72, 'SERVO_cable': 39.81, 'ROT_V_coupler': 17.51, 'ROT_V_shaft': 20.0, 'ROT_V_pinion': 18.44, 'ROT_A_gear': 24.21, 'ROT_A_shaft': 25.7, 'BRG_B1': 18.89, 'BRG_A1': 27.79, 'BRG_A2': 31.28, 'STAT_boss': 14.13, 'STAT_tongue': 17.43, 'SCR_F3a2_T4': 12.38, 'SCR_F3a2_K3': 2.83, 'INS_F3a2_K3': 6.71}
+cap removal {'SERVO': {'margin': 0.53, 'at': [45.05, -17.85, -49.55]}, 'SERVO_cable': {'margin': 5.47, 'at': [41.0, -17.3, -66.5]}, 'ROT_V_coupler': {'margin': 4.78, 'at': [42.98, 3.4, -37.0]}, 'ROT_V_shaft': {'margin': -1.4, 'at': [40.5, 3.0, -32.36]}, 'ROT_V_pinion': {'margin': None, 'at': None}, 'BRG_B1': {'margin': None, 'at': None}, 'STAT_boss': {'margin': -0.0, 'at': [39.1, 14.6, -17.0]}, 'STAT_tongue': {'margin': -2.3, 'at': [41.4, -0.56, -26.85]}, 'SCR_F3a2_T4': {'margin': 15.79, 'at': [32.95, 4.0, -44.4]}, 'SCR_F3a2_K3': {'margin': 22.03, 'at': [25.21, 12.29, -44.4]}, 'INS_F3a2_K3': {'margin': 23.13, 'at': [24.64, 12.1, -48.2]}}
+servo insertion {'SERVO': {'margin': 1.9, 'at': [31.05, 12.55, -51.48]}, 'SERVO_cable': {'margin': 11.0, 'at': [26.0, -15.05, -63.83]}, 'ROT_V_coupler': {'margin': 11.91, 'at': [24.24, 6.5, -43.35]}}
+done 166s

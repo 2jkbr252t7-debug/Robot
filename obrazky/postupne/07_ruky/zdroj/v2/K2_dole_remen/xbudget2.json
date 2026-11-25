@@ -1,0 +1,832 @@
+{
+ "note": "K2 x-budget, both sides, two map variants (see concept.md).  For a LOW servo with its output shaft parallel to the\nshoulder axis (plain belt / cord between parallel shafts) the pulley plane must be the same at both ends.\nShoulder end: outer face of the pulley plane xb1 <= value at which a disc r_f about (y 3, z -17) clears the side-cap wall\n(true 2.2 offset of the approved outer surface) by 0.5 (xbudget.json A).  Servo end: case [x_face - H, x_face] with\nx_face = xb1 - w - 0.3.  Here: for each side / variant / pulley option the LARGEST case depth H_max that fits anywhere\nin the lower torso (z <= -48), for the SCS0009 section 23.2 x 12.1 and the KST X06 section 20 x 7 (both orientations,\nshaft on the width centre, 5.9 / 5.0 from one end).  Writes xbudget2.json",
+ "rows": [
+  {
+   "side": "L",
+   "variant": "as_reserved",
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 39.63,
+   "servo": "SCS0009",
+   "x_in_min": 28.0,
+   "H_max": 11.63,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -9.45,
+    "shaft_z": -68.25
+   }
+  },
+  {
+   "side": "L",
+   "variant": "as_reserved",
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 39.63,
+   "servo": "KST_X06",
+   "x_in_min": 19.0,
+   "H_max": 20.63,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -6.75,
+    "shaft_z": -73.75
+   }
+  },
+  {
+   "side": "L",
+   "variant": "as_reserved",
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 39.07,
+   "servo": "SCS0009",
+   "x_in_min": 28.0,
+   "H_max": 11.07,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -9.45,
+    "shaft_z": -68.25
+   }
+  },
+  {
+   "side": "L",
+   "variant": "as_reserved",
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 39.07,
+   "servo": "KST_X06",
+   "x_in_min": 19.0,
+   "H_max": 20.07,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -6.75,
+    "shaft_z": -73.75
+   }
+  },
+  {
+   "side": "L",
+   "variant": "as_reserved",
+   "pulley": "GT2 3 mm + flanges 4.6",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 38.03,
+   "servo": "SCS0009",
+   "x_in_min": 28.0,
+   "H_max": 10.03,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -9.45,
+    "shaft_z": -68.25
+   }
+  },
+  {
+   "side": "L",
+   "variant": "as_reserved",
+   "pulley": "GT2 3 mm + flanges 4.6",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 38.03,
+   "servo": "KST_X06",
+   "x_in_min": 19.0,
+   "H_max": 19.03,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -6.75,
+    "shaft_z": -73.75
+   }
+  },
+  {
+   "side": "L",
+   "variant": "as_reserved",
+   "pulley": "GT2 3 mm + flanges 4.6",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 37.47,
+   "servo": "SCS0009",
+   "x_in_min": 28.0,
+   "H_max": 9.47,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -9.45,
+    "shaft_z": -68.25
+   }
+  },
+  {
+   "side": "L",
+   "variant": "as_reserved",
+   "pulley": "GT2 3 mm + flanges 4.6",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 37.47,
+   "servo": "KST_X06",
+   "x_in_min": 19.0,
+   "H_max": 18.47,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -6.75,
+    "shaft_z": -73.75
+   }
+  },
+  {
+   "side": "L",
+   "variant": "as_reserved",
+   "pulley": "GT2 6 mm + flanges 7.6",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 35.03,
+   "servo": "SCS0009",
+   "x_in_min": 26.5,
+   "H_max": 8.53,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -8.95,
+    "shaft_z": -75.75
+   }
+  },
+  {
+   "side": "L",
+   "variant": "as_reserved",
+   "pulley": "GT2 6 mm + flanges 7.6",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 35.03,
+   "servo": "KST_X06",
+   "x_in_min": 19.0,
+   "H_max": 16.03,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -6.75,
+    "shaft_z": -77.75
+   }
+  },
+  {
+   "side": "L",
+   "variant": "as_reserved",
+   "pulley": "GT2 6 mm + flanges 7.6",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 34.47,
+   "servo": "SCS0009",
+   "x_in_min": 26.5,
+   "H_max": 7.97,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -8.95,
+    "shaft_z": -75.75
+   }
+  },
+  {
+   "side": "L",
+   "variant": "as_reserved",
+   "pulley": "GT2 6 mm + flanges 7.6",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 34.47,
+   "servo": "KST_X06",
+   "x_in_min": 19.0,
+   "H_max": 15.47,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -6.75,
+    "shaft_z": -77.75
+   }
+  },
+  {
+   "side": "L",
+   "variant": "optimistic",
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 39.63,
+   "servo": "SCS0009",
+   "x_in_min": 26.5,
+   "H_max": 13.13,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -17.45,
+    "shaft_z": -63.75
+   }
+  },
+  {
+   "side": "L",
+   "variant": "optimistic",
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 39.63,
+   "servo": "KST_X06",
+   "x_in_min": 16.5,
+   "H_max": 23.13,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -6.75,
+    "shaft_z": -65.25
+   }
+  },
+  {
+   "side": "L",
+   "variant": "optimistic",
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 39.07,
+   "servo": "SCS0009",
+   "x_in_min": 26.5,
+   "H_max": 12.57,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -17.45,
+    "shaft_z": -63.75
+   }
+  },
+  {
+   "side": "L",
+   "variant": "optimistic",
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 39.07,
+   "servo": "KST_X06",
+   "x_in_min": 16.5,
+   "H_max": 22.57,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -6.75,
+    "shaft_z": -65.25
+   }
+  },
+  {
+   "side": "L",
+   "variant": "optimistic",
+   "pulley": "GT2 3 mm + flanges 4.6",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 38.03,
+   "servo": "SCS0009",
+   "x_in_min": 18.5,
+   "H_max": 19.53,
+   "at": {
+    "orient": "L_z",
+    "sense": 1,
+    "shaft_y": -2.25,
+    "shaft_z": -75.45
+   }
+  },
+  {
+   "side": "L",
+   "variant": "optimistic",
+   "pulley": "GT2 3 mm + flanges 4.6",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 38.03,
+   "servo": "KST_X06",
+   "x_in_min": 16.5,
+   "H_max": 21.53,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -6.75,
+    "shaft_z": -65.25
+   }
+  },
+  {
+   "side": "L",
+   "variant": "optimistic",
+   "pulley": "GT2 3 mm + flanges 4.6",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 37.47,
+   "servo": "SCS0009",
+   "x_in_min": 18.5,
+   "H_max": 18.97,
+   "at": {
+    "orient": "L_z",
+    "sense": 1,
+    "shaft_y": -3.75,
+    "shaft_z": -75.45
+   }
+  },
+  {
+   "side": "L",
+   "variant": "optimistic",
+   "pulley": "GT2 3 mm + flanges 4.6",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 37.47,
+   "servo": "KST_X06",
+   "x_in_min": 16.5,
+   "H_max": 20.97,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -6.75,
+    "shaft_z": -65.25
+   }
+  },
+  {
+   "side": "L",
+   "variant": "optimistic",
+   "pulley": "GT2 6 mm + flanges 7.6",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 35.03,
+   "servo": "SCS0009",
+   "x_in_min": 18.5,
+   "H_max": 16.53,
+   "at": {
+    "orient": "L_z",
+    "sense": 1,
+    "shaft_y": -5.75,
+    "shaft_z": -75.45
+   }
+  },
+  {
+   "side": "L",
+   "variant": "optimistic",
+   "pulley": "GT2 6 mm + flanges 7.6",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 35.03,
+   "servo": "KST_X06",
+   "x_in_min": 16.5,
+   "H_max": 18.53,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -6.75,
+    "shaft_z": -65.25
+   }
+  },
+  {
+   "side": "L",
+   "variant": "optimistic",
+   "pulley": "GT2 6 mm + flanges 7.6",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 34.47,
+   "servo": "SCS0009",
+   "x_in_min": 18.5,
+   "H_max": 15.97,
+   "at": {
+    "orient": "L_z",
+    "sense": 1,
+    "shaft_y": -5.75,
+    "shaft_z": -75.45
+   }
+  },
+  {
+   "side": "L",
+   "variant": "optimistic",
+   "pulley": "GT2 6 mm + flanges 7.6",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 34.47,
+   "servo": "KST_X06",
+   "x_in_min": 16.5,
+   "H_max": 17.97,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -6.75,
+    "shaft_z": -65.25
+   }
+  },
+  {
+   "side": "R",
+   "variant": "as_reserved",
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 39.63,
+   "servo": "SCS0009",
+   "x_in_min": 33.0,
+   "H_max": 6.63,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -13.95,
+    "shaft_z": -71.25
+   }
+  },
+  {
+   "side": "R",
+   "variant": "as_reserved",
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 39.63,
+   "servo": "KST_X06",
+   "x_in_min": 33.0,
+   "H_max": 6.63,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -14.75,
+    "shaft_z": -73.75
+   }
+  },
+  {
+   "side": "R",
+   "variant": "as_reserved",
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 39.07,
+   "servo": "SCS0009",
+   "x_in_min": 33.0,
+   "H_max": 6.07,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -13.95,
+    "shaft_z": -71.25
+   }
+  },
+  {
+   "side": "R",
+   "variant": "as_reserved",
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 39.07,
+   "servo": "KST_X06",
+   "x_in_min": 33.0,
+   "H_max": 6.07,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -14.75,
+    "shaft_z": -73.75
+   }
+  },
+  {
+   "side": "R",
+   "variant": "as_reserved",
+   "pulley": "GT2 3 mm + flanges 4.6",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 38.03,
+   "servo": "SCS0009",
+   "x_in_min": 33.0,
+   "H_max": 5.03,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -13.95,
+    "shaft_z": -71.25
+   }
+  },
+  {
+   "side": "R",
+   "variant": "as_reserved",
+   "pulley": "GT2 3 mm + flanges 4.6",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 38.03,
+   "servo": "KST_X06",
+   "x_in_min": 33.0,
+   "H_max": 5.03,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -14.75,
+    "shaft_z": -73.75
+   }
+  },
+  {
+   "side": "R",
+   "variant": "as_reserved",
+   "pulley": "GT2 3 mm + flanges 4.6",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 37.47,
+   "servo": "SCS0009",
+   "x_in_min": 33.0,
+   "H_max": 4.47,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -13.95,
+    "shaft_z": -71.25
+   }
+  },
+  {
+   "side": "R",
+   "variant": "as_reserved",
+   "pulley": "GT2 3 mm + flanges 4.6",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 37.47,
+   "servo": "KST_X06",
+   "x_in_min": 33.0,
+   "H_max": 4.47,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -14.75,
+    "shaft_z": -73.75
+   }
+  },
+  {
+   "side": "R",
+   "variant": "as_reserved",
+   "pulley": "GT2 6 mm + flanges 7.6",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 35.03,
+   "servo": "SCS0009",
+   "x_in_min": 33.0,
+   "H_max": 2.03,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -13.95,
+    "shaft_z": -71.25
+   }
+  },
+  {
+   "side": "R",
+   "variant": "as_reserved",
+   "pulley": "GT2 6 mm + flanges 7.6",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 35.03,
+   "servo": "KST_X06",
+   "x_in_min": 33.0,
+   "H_max": 2.03,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -14.75,
+    "shaft_z": -73.75
+   }
+  },
+  {
+   "side": "R",
+   "variant": "as_reserved",
+   "pulley": "GT2 6 mm + flanges 7.6",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 34.47,
+   "servo": "SCS0009",
+   "x_in_min": 33.0,
+   "H_max": 1.47,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -13.95,
+    "shaft_z": -71.25
+   }
+  },
+  {
+   "side": "R",
+   "variant": "as_reserved",
+   "pulley": "GT2 6 mm + flanges 7.6",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 34.47,
+   "servo": "KST_X06",
+   "x_in_min": 33.0,
+   "H_max": 1.47,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -14.75,
+    "shaft_z": -73.75
+   }
+  },
+  {
+   "side": "R",
+   "variant": "optimistic",
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 39.63,
+   "servo": "SCS0009",
+   "x_in_min": 33.0,
+   "H_max": 6.63,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -19.45,
+    "shaft_z": -59.75
+   }
+  },
+  {
+   "side": "R",
+   "variant": "optimistic",
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 39.63,
+   "servo": "KST_X06",
+   "x_in_min": 25.5,
+   "H_max": 14.13,
+   "at": {
+    "orient": "L_z",
+    "sense": 1,
+    "shaft_y": -20.75,
+    "shaft_z": -63.75
+   }
+  },
+  {
+   "side": "R",
+   "variant": "optimistic",
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 39.07,
+   "servo": "SCS0009",
+   "x_in_min": 33.0,
+   "H_max": 6.07,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -19.95,
+    "shaft_z": -58.75
+   }
+  },
+  {
+   "side": "R",
+   "variant": "optimistic",
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 39.07,
+   "servo": "KST_X06",
+   "x_in_min": 25.5,
+   "H_max": 13.57,
+   "at": {
+    "orient": "L_z",
+    "sense": 1,
+    "shaft_y": -20.75,
+    "shaft_z": -63.75
+   }
+  },
+  {
+   "side": "R",
+   "variant": "optimistic",
+   "pulley": "GT2 3 mm + flanges 4.6",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 38.03,
+   "servo": "SCS0009",
+   "x_in_min": 33.0,
+   "H_max": 5.03,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -20.45,
+    "shaft_z": -61.25
+   }
+  },
+  {
+   "side": "R",
+   "variant": "optimistic",
+   "pulley": "GT2 3 mm + flanges 4.6",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 38.03,
+   "servo": "KST_X06",
+   "x_in_min": 25.5,
+   "H_max": 12.53,
+   "at": {
+    "orient": "L_z",
+    "sense": 1,
+    "shaft_y": -20.75,
+    "shaft_z": -63.75
+   }
+  },
+  {
+   "side": "R",
+   "variant": "optimistic",
+   "pulley": "GT2 3 mm + flanges 4.6",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 37.47,
+   "servo": "SCS0009",
+   "x_in_min": 33.0,
+   "H_max": 4.47,
+   "at": {
+    "orient": "L_y",
+    "sense": 1,
+    "shaft_y": -20.95,
+    "shaft_z": -60.25
+   }
+  },
+  {
+   "side": "R",
+   "variant": "optimistic",
+   "pulley": "GT2 3 mm + flanges 4.6",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 37.47,
+   "servo": "KST_X06",
+   "x_in_min": 25.5,
+   "H_max": 11.97,
+   "at": {
+    "orient": "L_z",
+    "sense": 1,
+    "shaft_y": -20.75,
+    "shaft_z": -63.75
+   }
+  },
+  {
+   "side": "R",
+   "variant": "optimistic",
+   "pulley": "GT2 6 mm + flanges 7.6",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 35.03,
+   "servo": "SCS0009",
+   "x_in_min": 32.5,
+   "H_max": 2.53,
+   "at": {
+    "orient": "L_z",
+    "sense": 1,
+    "shaft_y": -21.25,
+    "shaft_z": -60.95
+   }
+  },
+  {
+   "side": "R",
+   "variant": "optimistic",
+   "pulley": "GT2 6 mm + flanges 7.6",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 35.03,
+   "servo": "KST_X06",
+   "x_in_min": 25.5,
+   "H_max": 9.53,
+   "at": {
+    "orient": "L_z",
+    "sense": 1,
+    "shaft_y": -20.75,
+    "shaft_z": -63.75
+   }
+  },
+  {
+   "side": "R",
+   "variant": "optimistic",
+   "pulley": "GT2 6 mm + flanges 7.6",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 34.47,
+   "servo": "SCS0009",
+   "x_in_min": 32.5,
+   "H_max": 1.97,
+   "at": {
+    "orient": "L_z",
+    "sense": 1,
+    "shaft_y": -21.25,
+    "shaft_z": -60.95
+   }
+  },
+  {
+   "side": "R",
+   "variant": "optimistic",
+   "pulley": "GT2 6 mm + flanges 7.6",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 34.47,
+   "servo": "KST_X06",
+   "x_in_min": 25.5,
+   "H_max": 8.97,
+   "at": {
+    "orient": "L_z",
+    "sense": 1,
+    "shaft_y": -20.75,
+    "shaft_z": -63.75
+   }
+  }
+ ],
+ "need": {
+  "SCS0009_case_depth": [
+   21.5,
+   25.25
+  ],
+  "KST_X06": [
+   16.6,
+   "+ spline/boss ~3 UNVERIFIED"
+  ],
+  "MG90S": 22.7
+ }
+}

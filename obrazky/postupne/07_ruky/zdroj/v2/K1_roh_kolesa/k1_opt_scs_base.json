@@ -1,0 +1,249 @@
+{
+ "servo": "scs",
+ "var": "",
+ "case": [
+  23.2,
+  12.1,
+  21.5,
+  5.9,
+  ""
+ ],
+ "best": {
+  "margin": -1.62,
+  "x_face": 48.83,
+  "y": -7.42,
+  "z": -61.45,
+  "phi_deg": 0.0,
+  "out_dir": "+X",
+  "d_axis": 45.65
+ },
+ "feasible_closest": null,
+ "top": [
+  {
+   "margin": -1.62,
+   "x_face": 48.83,
+   "y": -7.42,
+   "z": -61.45,
+   "phi_deg": 0.0,
+   "out_dir": "+X",
+   "d_axis": 45.65
+  },
+  {
+   "margin": -1.63,
+   "x_face": 43.4,
+   "y": 3.98,
+   "z": -72.24,
+   "phi_deg": 180.0,
+   "out_dir": "+X",
+   "d_axis": 55.25
+  },
+  {
+   "margin": -1.63,
+   "x_face": 43.39,
+   "y": -7.43,
+   "z": -72.12,
+   "phi_deg": 0.0,
+   "out_dir": "+X",
+   "d_axis": 56.1
+  },
+  {
+   "margin": -1.63,
+   "x_face": 44.01,
+   "y": -7.42,
+   "z": -72.46,
+   "phi_deg": 0.0,
+   "out_dir": "+X",
+   "d_axis": 56.43
+  },
+  {
+   "margin": -1.63,
+   "x_face": 42.22,
+   "y": 3.97,
+   "z": -72.29,
+   "phi_deg": 180.0,
+   "out_dir": "+X",
+   "d_axis": 55.3
+  },
+  {
+   "margin": -1.63,
+   "x_face": 42.22,
+   "y": -7.43,
+   "z": -72.35,
+   "phi_deg": 0.0,
+   "out_dir": "+X",
+   "d_axis": 56.32
+  },
+  {
+   "margin": -1.64,
+   "x_face": 41.0,
+   "y": 3.98,
+   "z": -72.27,
+   "phi_deg": 180.0,
+   "out_dir": "+X",
+   "d_axis": 55.27
+  },
+  {
+   "margin": -1.64,
+   "x_face": 44.02,
+   "y": 3.96,
+   "z": -72.66,
+   "phi_deg": 180.0,
+   "out_dir": "+X",
+   "d_axis": 55.67
+  },
+  {
+   "margin": -1.64,
+   "x_face": 43.58,
+   "y": 3.96,
+   "z": -72.3,
+   "phi_deg": 180.0,
+   "out_dir": "+X",
+   "d_axis": 55.31
+  },
+  {
+   "margin": -1.64,
+   "x_face": 40.61,
+   "y": 3.96,
+   "z": -72.47,
+   "phi_deg": 180.0,
+   "out_dir": "+X",
+   "d_axis": 55.48
+  },
+  {
+   "margin": -1.64,
+   "x_face": 43.74,
+   "y": -7.44,
+   "z": -72.44,
+   "phi_deg": 0.0,
+   "out_dir": "+X",
+   "d_axis": 56.41
+  },
+  {
+   "margin": -2.05,
+   "x_face": 39.42,
+   "y": -21.16,
+   "z": -58.23,
+   "phi_deg": 279.1,
+   "out_dir": "+X",
+   "d_axis": 47.79
+  },
+  {
+   "margin": -2.06,
+   "x_face": 40.54,
+   "y": -9.95,
+   "z": -70.07,
+   "phi_deg": 141.6,
+   "out_dir": "+X",
+   "d_axis": 54.62
+  },
+  {
+   "margin": -2.06,
+   "x_face": 39.85,
+   "y": -18.15,
+   "z": -64.16,
+   "phi_deg": 324.4,
+   "out_dir": "+X",
+   "d_axis": 51.68
+  },
+  {
+   "margin": -2.06,
+   "x_face": 39.58,
+   "y": -18.12,
+   "z": -63.62,
+   "phi_deg": 321.7,
+   "out_dir": "+X",
+   "d_axis": 51.18
+  },
+  {
+   "margin": -2.06,
+   "x_face": 41.2,
+   "y": -9.75,
+   "z": -70.25,
+   "phi_deg": 138.8,
+   "out_dir": "+X",
+   "d_axis": 54.76
+  },
+  {
+   "margin": -2.06,
+   "x_face": 40.78,
+   "y": -17.58,
+   "z": -63.42,
+   "phi_deg": 318.8,
+   "out_dir": "+X",
+   "d_axis": 50.78
+  },
+  {
+   "margin": -2.06,
+   "x_face": 40.64,
+   "y": -18.2,
+   "z": -63.76,
+   "phi_deg": 322.0,
+   "out_dir": "+X",
+   "d_axis": 51.34
+  },
+  {
+   "margin": -2.06,
+   "x_face": 41.01,
+   "y": -9.78,
+   "z": -70.29,
+   "phi_deg": 139.1,
+   "out_dir": "+X",
+   "d_axis": 54.8
+  },
+  {
+   "margin": -2.06,
+   "x_face": 40.03,
+   "y": -18.78,
+   "z": -63.42,
+   "phi_deg": 322.5,
+   "out_dir": "+X",
+   "d_axis": 51.27
+  },
+  {
+   "margin": -2.06,
+   "x_face": 42.31,
+   "y": -16.62,
+   "z": -63.71,
+   "phi_deg": 316.1,
+   "out_dir": "+X",
+   "d_axis": 50.66
+  },
+  {
+   "margin": -2.06,
+   "x_face": 39.49,
+   "y": -9.75,
+   "z": -70.26,
+   "phi_deg": 144.7,
+   "out_dir": "+X",
+   "d_axis": 54.77
+  },
+  {
+   "margin": -2.06,
+   "x_face": 40.73,
+   "y": -9.99,
+   "z": -70.08,
+   "phi_deg": 136.1,
+   "out_dir": "+X",
+   "d_axis": 54.65
+  },
+  {
+   "margin": -2.06,
+   "x_face": 42.57,
+   "y": -8.69,
+   "z": -71.33,
+   "phi_deg": 136.1,
+   "out_dir": "+X",
+   "d_axis": 55.57
+  },
+  {
+   "margin": -2.06,
+   "x_face": 41.02,
+   "y": -9.99,
+   "z": -70.08,
+   "phi_deg": 136.1,
+   "out_dir": "+X",
+   "d_axis": 54.65
+  }
+ ],
+ "note": "margin = clearance - required (0.3 static, 1.0 moving), voxel EDT, +-0.25 accuracy"
+}

@@ -1,0 +1,8 @@
+arm pts coarse / fine 20152 183708 1s
+coarse dx0 done 22s
+0.0 {'gap_rest': 3.78, 'min_gap': 1.45, 'at_deg': 135.0, 'arm_point_world': [49.9, 5.73, -27.16], 'arm_skin_x_on_axis': 50.64} 44s
+-0.5 {'gap_rest': 3.29, 'min_gap': 0.96, 'at_deg': 135.0, 'arm_point_world': [49.39, 5.65, -27.09], 'arm_skin_x_on_axis': 50.14} 64s
+-1.0 {'gap_rest': 2.8, 'min_gap': 0.47, 'at_deg': 135.0, 'arm_point_world': [48.9, 5.81, -27.23], 'arm_skin_x_on_axis': 49.64} 83s
+-1.5 {'gap_rest': 2.31, 'min_gap': -0.11, 'at_deg': 135.0, 'arm_point_world': [48.41, 5.23, -26.89], 'arm_skin_x_on_axis': 49.14} 99s
+-2.0 {'gap_rest': 1.82, 'min_gap': -0.52, 'at_deg': 135.0, 'arm_point_world': [47.88, 5.91, -27.14], 'arm_skin_x_on_axis': 48.64} 115s
+-3.0 {'gap_rest': 0.84, 'min_gap': -1.5, 'at_deg': 135.0, 'arm_point_world': [46.89, 5.65, -27.09], 'arm_skin_x_on_axis': 47.64} 142s

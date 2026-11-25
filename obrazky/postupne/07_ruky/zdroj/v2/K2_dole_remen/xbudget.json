@@ -1,0 +1,400 @@
+{
+ "A_xb1_max": {
+  "wall2.2_rf4.5": 43.05,
+  "wall2.2_rf5.0": 42.93,
+  "wall2.2_rf6.0": 42.66,
+  "wall2.2_rf7.0": 42.37,
+  "wall2.2_rf8.0": 42.04,
+  "wall1.2_rf4.5": 44.08,
+  "wall1.2_rf5.0": 43.96,
+  "wall1.2_rf6.0": 43.7,
+  "wall1.2_rf7.0": 43.41,
+  "wall1.2_rf8.0": 43.1
+ },
+ "C_budget": [
+  {
+   "H_case": 21.5,
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 39.63,
+   "x_in_required": 18.13,
+   "margin strict (T_stred path blocked)": -9.87,
+   "best strict (T_stred path blocked)": [
+    28.0,
+    "L_along_y",
+    -1,
+    1.9,
+    -68.2
+   ],
+   "margin after_T5 (servo fitted after T_stred, from the side)": -9.87,
+   "best after_T5 (servo fitted after T_stred, from the side)": [
+    28.0,
+    "L_along_y",
+    -1,
+    -8.1,
+    -59.8
+   ],
+   "margin after_T5 + J1 plug zone shrunk to z >= -57.3": -9.87,
+   "best after_T5 + J1 plug zone shrunk to z >= -57.3": [
+    28.0,
+    "L_along_y",
+    -1,
+    -8.1,
+    -59.8
+   ]
+  },
+  {
+   "H_case": 21.5,
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 39.07,
+   "x_in_required": 17.57,
+   "margin strict (T_stred path blocked)": -10.43,
+   "best strict (T_stred path blocked)": [
+    28.0,
+    "L_along_y",
+    -1,
+    1.9,
+    -68.2
+   ],
+   "margin after_T5 (servo fitted after T_stred, from the side)": -10.43,
+   "best after_T5 (servo fitted after T_stred, from the side)": [
+    28.0,
+    "L_along_y",
+    -1,
+    -8.6,
+    -58.8
+   ],
+   "margin after_T5 + J1 plug zone shrunk to z >= -57.3": -10.43,
+   "best after_T5 + J1 plug zone shrunk to z >= -57.3": [
+    28.0,
+    "L_along_y",
+    -1,
+    -8.6,
+    -58.8
+   ]
+  },
+  {
+   "H_case": 21.5,
+   "pulley": "GT2 3 mm belt + 0.8 flanges",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 38.03,
+   "x_in_required": 16.53,
+   "margin strict (T_stred path blocked)": -11.47,
+   "best strict (T_stred path blocked)": [
+    28.0,
+    "L_along_y",
+    -1,
+    1.9,
+    -68.2
+   ],
+   "margin after_T5 (servo fitted after T_stred, from the side)": -11.47,
+   "best after_T5 (servo fitted after T_stred, from the side)": [
+    28.0,
+    "L_along_y",
+    -1,
+    -9.1,
+    -60.8
+   ],
+   "margin after_T5 + J1 plug zone shrunk to z >= -57.3": -11.47,
+   "best after_T5 + J1 plug zone shrunk to z >= -57.3": [
+    28.0,
+    "L_along_y",
+    -1,
+    -9.1,
+    -60.8
+   ]
+  },
+  {
+   "H_case": 21.5,
+   "pulley": "GT2 3 mm belt + 0.8 flanges",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 37.47,
+   "x_in_required": 15.97,
+   "margin strict (T_stred path blocked)": -12.03,
+   "best strict (T_stred path blocked)": [
+    28.0,
+    "L_along_y",
+    -1,
+    1.9,
+    -68.2
+   ],
+   "margin after_T5 (servo fitted after T_stred, from the side)": -12.03,
+   "best after_T5 (servo fitted after T_stred, from the side)": [
+    28.0,
+    "L_along_y",
+    -1,
+    -9.6,
+    -60.2
+   ],
+   "margin after_T5 + J1 plug zone shrunk to z >= -57.3": -12.03,
+   "best after_T5 + J1 plug zone shrunk to z >= -57.3": [
+    28.0,
+    "L_along_y",
+    -1,
+    -9.6,
+    -60.2
+   ]
+  },
+  {
+   "H_case": 21.5,
+   "pulley": "GT2 6 mm belt + flanges",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 35.03,
+   "x_in_required": 13.53,
+   "margin strict (T_stred path blocked)": -12.97,
+   "best strict (T_stred path blocked)": [
+    26.5,
+    "L_along_y",
+    -1,
+    2.4,
+    -75.8
+   ],
+   "margin after_T5 (servo fitted after T_stred, from the side)": -12.97,
+   "best after_T5 (servo fitted after T_stred, from the side)": [
+    26.5,
+    "L_along_y",
+    -1,
+    2.4,
+    -75.8
+   ],
+   "margin after_T5 + J1 plug zone shrunk to z >= -57.3": -12.97,
+   "best after_T5 + J1 plug zone shrunk to z >= -57.3": [
+    26.5,
+    "L_along_y",
+    -1,
+    2.4,
+    -75.8
+   ]
+  },
+  {
+   "H_case": 21.5,
+   "pulley": "GT2 6 mm belt + flanges",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 34.47,
+   "x_in_required": 12.97,
+   "margin strict (T_stred path blocked)": -13.53,
+   "best strict (T_stred path blocked)": [
+    26.5,
+    "L_along_y",
+    -1,
+    2.4,
+    -75.8
+   ],
+   "margin after_T5 (servo fitted after T_stred, from the side)": -13.53,
+   "best after_T5 (servo fitted after T_stred, from the side)": [
+    26.5,
+    "L_along_y",
+    -1,
+    2.4,
+    -75.8
+   ],
+   "margin after_T5 + J1 plug zone shrunk to z >= -57.3": -13.53,
+   "best after_T5 + J1 plug zone shrunk to z >= -57.3": [
+    26.5,
+    "L_along_y",
+    -1,
+    2.4,
+    -75.8
+   ]
+  },
+  {
+   "H_case": 25.25,
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 39.63,
+   "x_in_required": 14.38,
+   "margin strict (T_stred path blocked)": -13.62,
+   "best strict (T_stred path blocked)": [
+    28.0,
+    "L_along_y",
+    -1,
+    1.9,
+    -68.2
+   ],
+   "margin after_T5 (servo fitted after T_stred, from the side)": -13.62,
+   "best after_T5 (servo fitted after T_stred, from the side)": [
+    28.0,
+    "L_along_y",
+    -1,
+    -8.1,
+    -59.8
+   ],
+   "margin after_T5 + J1 plug zone shrunk to z >= -57.3": -13.62,
+   "best after_T5 + J1 plug zone shrunk to z >= -57.3": [
+    28.0,
+    "L_along_y",
+    -1,
+    -8.1,
+    -59.8
+   ]
+  },
+  {
+   "H_case": 25.25,
+   "pulley": "Dyneema drum 3.0",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 39.07,
+   "x_in_required": 13.82,
+   "margin strict (T_stred path blocked)": -14.18,
+   "best strict (T_stred path blocked)": [
+    28.0,
+    "L_along_y",
+    -1,
+    1.9,
+    -68.2
+   ],
+   "margin after_T5 (servo fitted after T_stred, from the side)": -14.18,
+   "best after_T5 (servo fitted after T_stred, from the side)": [
+    28.0,
+    "L_along_y",
+    -1,
+    -8.6,
+    -58.8
+   ],
+   "margin after_T5 + J1 plug zone shrunk to z >= -57.3": -14.18,
+   "best after_T5 + J1 plug zone shrunk to z >= -57.3": [
+    28.0,
+    "L_along_y",
+    -1,
+    -8.6,
+    -58.8
+   ]
+  },
+  {
+   "H_case": 25.25,
+   "pulley": "GT2 3 mm belt + 0.8 flanges",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 38.03,
+   "x_in_required": 12.78,
+   "margin strict (T_stred path blocked)": -15.22,
+   "best strict (T_stred path blocked)": [
+    28.0,
+    "L_along_y",
+    -1,
+    1.9,
+    -68.2
+   ],
+   "margin after_T5 (servo fitted after T_stred, from the side)": -15.22,
+   "best after_T5 (servo fitted after T_stred, from the side)": [
+    28.0,
+    "L_along_y",
+    -1,
+    -9.1,
+    -60.8
+   ],
+   "margin after_T5 + J1 plug zone shrunk to z >= -57.3": -15.22,
+   "best after_T5 + J1 plug zone shrunk to z >= -57.3": [
+    28.0,
+    "L_along_y",
+    -1,
+    -9.1,
+    -60.8
+   ]
+  },
+  {
+   "H_case": 25.25,
+   "pulley": "GT2 3 mm belt + 0.8 flanges",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 37.47,
+   "x_in_required": 12.22,
+   "margin strict (T_stred path blocked)": -15.78,
+   "best strict (T_stred path blocked)": [
+    28.0,
+    "L_along_y",
+    -1,
+    1.9,
+    -68.2
+   ],
+   "margin after_T5 (servo fitted after T_stred, from the side)": -15.78,
+   "best after_T5 (servo fitted after T_stred, from the side)": [
+    28.0,
+    "L_along_y",
+    -1,
+    -9.6,
+    -60.2
+   ],
+   "margin after_T5 + J1 plug zone shrunk to z >= -57.3": -15.78,
+   "best after_T5 + J1 plug zone shrunk to z >= -57.3": [
+    28.0,
+    "L_along_y",
+    -1,
+    -9.6,
+    -60.2
+   ]
+  },
+  {
+   "H_case": 25.25,
+   "pulley": "GT2 6 mm belt + flanges",
+   "r_f": 5.0,
+   "xb1": 42.93,
+   "x_face": 35.03,
+   "x_in_required": 9.78,
+   "margin strict (T_stred path blocked)": -16.72,
+   "best strict (T_stred path blocked)": [
+    26.5,
+    "L_along_y",
+    -1,
+    2.4,
+    -75.8
+   ],
+   "margin after_T5 (servo fitted after T_stred, from the side)": -16.72,
+   "best after_T5 (servo fitted after T_stred, from the side)": [
+    26.5,
+    "L_along_y",
+    -1,
+    2.4,
+    -75.8
+   ],
+   "margin after_T5 + J1 plug zone shrunk to z >= -57.3": -16.72,
+   "best after_T5 + J1 plug zone shrunk to z >= -57.3": [
+    26.5,
+    "L_along_y",
+    -1,
+    2.4,
+    -75.8
+   ]
+  },
+  {
+   "H_case": 25.25,
+   "pulley": "GT2 6 mm belt + flanges",
+   "r_f": 7.0,
+   "xb1": 42.37,
+   "x_face": 34.47,
+   "x_in_required": 9.22,
+   "margin strict (T_stred path blocked)": -17.28,
+   "best strict (T_stred path blocked)": [
+    26.5,
+    "L_along_y",
+    -1,
+    2.4,
+    -75.8
+   ],
+   "margin after_T5 (servo fitted after T_stred, from the side)": -17.28,
+   "best after_T5 (servo fitted after T_stred, from the side)": [
+    26.5,
+    "L_along_y",
+    -1,
+    2.4,
+    -75.8
+   ],
+   "margin after_T5 + J1 plug zone shrunk to z >= -57.3": -17.28,
+   "best after_T5 + J1 plug zone shrunk to z >= -57.3": [
+    26.5,
+    "L_along_y",
+    -1,
+    2.4,
+    -75.8
+   ]
+  }
+ ]
+}

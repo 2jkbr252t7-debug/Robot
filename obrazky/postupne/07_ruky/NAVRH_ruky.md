@@ -1,237 +1,174 @@
-# NOVA mini – ruky a ramenné kĺby: návrh (len text, bez modelov)
+# NOVA mini – ruky v2: servá v trupe, ruky tesne pri trupe
 
-Stav 24. 11. 2026. Čísla vychádzajú z prepočtu schváleného tvaru ruky (T3) proti hotovému trupu (T4 rev. 3)
-a z údajov výrobcov a obchodov. Čo je len odhad alebo neoverené, je tak označené. Súradnice ako na trupe:
-mm, Z hore, predok −Y, ľavá strana robota +X, os ramena je rovnobežná s X a ide bodom (y 3, z −17).
+Stav 25. 11. 2026. Je to koncept: čísla sú prepočítané na hotovom trupe T4 rev. 3 a na schválenom tvare ruky T3. Ešte to nie je
+model na tlač. Neoverené veci sú tak označené.
+Súradnice: mm, Z hore, predok −Y, ľavá strana robota +X. Os ramena je rovnobežná s X a ide bodom (y 3, z −17). Čísla
+platia pre ľavú stranu; pravá je zrkadlová a bola prepočítaná zvlášť.
+
+Pôvodný návrh v1 so servom v ruke je zamietnutý (`NAVRH_ruky_v1_zamietnute.md`).
 
 ## 1. Zhrnutie
 
-* **Pohon:** v každej ruke jedno sériové servo **Feetech SCS0009** (rovnaké ako Waveshare SC09), hriadeľ priamo na osi
-  ramena, **bez ozubených koliesok**.
-  * Je na tej istej zbernici ako servo otáčania hlavy.
-  * Hlási polohu aj záťaž, otočí sa o 300°, má kovové prevody.
-  * Stojí asi 9–19 USD.
-* **Ruka sa odsunie od trupu o asi 11–14 mm.** Presná hodnota sa určí po zmeraní serva.
-  * Biela ruka ostáva presne taká, akú si schválil, len ďalej od trupu.
-  * Medzi trupom a rukou bude vidno dlhší čierny kĺb, asi 15–18 mm namiesto dnešných ~4 mm, podobne ako na R01 / R08.
-    Spredu je kryt kĺbu vysoký asi 36 mm (siaha ~20 mm pod os ramena, lebo v ňom je časť serva), pozri obrázok
-    `obrazky/v1_spredu_porovnanie.png`.
-* **Ruka sa točí na čiernom čape Ø22 ramenného kĺbu T_klb.**
-  * Servo cez drážkované puzdro prenáša iba krútiaci moment.
-  * Váhu ruky, údery a ťahanie nesie čap, nie servo.
-* **Poistka proti preťaženiu:** trecia spojka v puzdre prešmykne pri ≈ 0,12–0,15 N·m, t. j. asi 2–3 N na konci ruky.
-  Prevody serva nikdy nedostanú viac, ako znesú.
-* **Kábel:** 3 tenké silikónové vodiče s voľnou pol-otáčkou okolo čapu v uzavretej komôrke (ohyb na polomere ~11 mm).
-  Pri pohybe ruky sa len navíjajú a odvíjajú, nikde sa neťahajú ani nelámu na ostrej hrane.
-* **Trup sa netlačí znova:**
-  * T_klb ostáva, pod neho sa len vloží puzdro s pružinkami (3 skrutky povoliť, vložiť, dotiahnuť).
-  * Elektronika sa nemení – rozbočovač zbernice J_BUS_5 pre ruky je v pláne trupu už teraz.
-  * Voliteľne jedna dierka Ø1,5 do T_klb pre kolík automatickej kalibrácie; dá sa vyvŕtať aj do vytlačeného dielu.
+* **Servo každej ruky je v trupe.** Ruka je len pasívna biela škrupina bez elektroniky, kábla a serva.
+* **Ruka je o 1,0 mm bližšie k trupu** ako v schválenom tvare.
+  * Medzera v pokoji je **3,7 mm** (doteraz 4,7 mm). Spredu je viditeľná medzera 2,7 mm.
+  * Pri pohybe od −45° do +135° je medzera všade **aspoň 1,0 mm** (najtesnejšie pri +135°).
+  * Bližšie to už nejde: každý ďalší milimeter by ruke zobral asi 13° pohybu nahor.
+* **Z kĺbu je vidno len tenký čierny krúžok Ø13** a čierny kotúč zapustený 1 mm v pôvodnom otvore bočného krytu.
+  Starý vyčnievajúci kĺb T_klb (Ø27) zmizne.
+* **Pohon:** servo **Feetech SCS0009** (rovnaké ako Waveshare SC09) stojí v trupe pod ramenom, výstupom nahor.
+  Ruku otáča **jediný pár malých kužeľových koliesok** (16 a 24 zubov, mosadz, mazané). Nie je to sada koliesok.
+* **Vonkajšok trupu, hlava, krk, otáčanie hlavy aj zdvih ostávajú bez zmeny.**
+* **Znova sa tlačí:** dno trupu T_spodok (nové stĺpy s kapsou pre servo), paluba T_paluba (orezaný okraj), oba bočné kryty
+  T_bok_L / T_bok_P (len malý zárez vnútri) a dve nové čierne zátky namiesto T_klb_L / T_klb_P.
 
-## 2. Prečo to nejde tak, ako bolo pôvodne zamýšľané
+## 2. Prečo nie servo priamo na osi ruky (bez koliesok)
 
-Pôvodný zámer bol servo v ruke s hriadeľom na osi a ruku tesne pri trupe. Prepočet ukázal tieto prekážky:
+Najprv som skúšal presne to. Nejde to bez toho, aby ruka odišla od trupu:
 
-* **Málo miesta na osi:** medzi čelom T_klb (x 58,8) a vnútrom vonkajšej steny ruky (stena 2 mm) ostáva len
-  **13,3 mm**.
-  * Najnižšie servá s kovovými prevodmi sú „krídlové“ KST X06 / X08. Ich telo má 16,6–16,8 mm a podľa výrobcu
-    sa otočia len o ±60° = 120°.
-  * Servá s rozsahom ≥ 180° majú telo 21–25 mm (SCS0009, MG90S, ES9052MD …).
-* **Ruka zasahuje do kĺbu:** schválená ruka zasahuje 1,3 mm do čierneho kĺbu T_klb (horná vnútorná strana, okolo
-  stupňa čapu). Posunutím ruky von to zmizne samo.
-* **Skutočné rozmery ruky:** hrúbka je 23,0 mm (nie 24,5) a šírka 33,6 mm (nie 35); skutočná dĺžka je 72 mm.
+* Na osi ramena je od dráhy, kadiaľ sa pri otáčaní hlavy pohybuje servo zdvihu krku (+1 mm vôľa), po povrch trupu len
+  **12,4 mm** (vpravo 12,7 mm).
+* Servo SCS0009 potrebuje pozdĺž svojho hriadeľa asi **25–26 mm** (telo 21,5 + výstup s drážkovaním).
+* Servo by preto trčalo 9–13 mm z trupu a ruka by sa musela odsunúť o rovnaký kus. To je presne to, čo nechceš.
+* Nepomôže ani úplné odstránenie modulu zdvihu: na osi by bolo stále len 19,3 mm, lebo tam ostáva otáčajúca sa šachta krku.
 
-Preskúmané a zamietnuté možnosti:
+Iné cesty, ktoré som prepočítal a ktoré nejdú:
 
-| možnosť | prečo nie |
-|---|---|
-| tenké krídlové servo (KST X06) na osi, ruka posunutá len o 5 mm | iba 120° (ruka napr. −20…+100°), PWM bez spätnej väzby, iné zapojenie |
-| servo naležato v ruke + kužeľové kolieska 1:1, ruka na mieste | hriadeľ serva je pri jednom konci tela, servo vyčnieva ~2,6 mm z boku ruky (ruka by musela byť ~5 mm širšia); +4 diely, vôľa v zuboch, zuby treba chrániť spojkou ešte slabšou |
-| servo v trupe, ruka iba škrupina | **zmerané na hotovom trupe** (mriežka 0,5 mm, otáčanie hlavy ±90°, zdvih krku 0–20): pri osi ramena je medzi stĺpom a servom zdvihu krku len 1,0 mm; najväčší voľný kváder pri ramene 13 × 7,5 × 14 mm. SCS0009 / MG90S / STS3032 sa nezmestia nikde (228 natočení; najbližšie ľavý predný roh, chýba 1,4 mm, a je 40 mm od osi). Servo na osi by z trupu trčalo 9,1 mm, ruka by sa aj tak posúvala o 8,1 mm a znova by sa tlačil celý spodok trupu, oba kĺby a oba bočné kryty. Zmestí sa len KST X06 (120°) s 40 mm lankom cez stĺp. Obrázky `obrazky/servo_v_trupe_*.png` |
-| ruka hrubšia namiesto posunu (23 → 34–37 mm) | mení tvar ruky viac ako posun; pri posune sa biela ruka nemení vôbec |
-| STS3032 (ako na otáčaní hlavy) | je vyššie (≈ 28,5 mm s hriadeľom) a ťažšie (20 g), posun ruky by bol ešte väčší |
-
-## 3. Ako je kĺb poskladaný (od trupu von)
-
-1. **T_klb (hotový, čierny, pevne priskrutkovaný ku stĺpu)**
-   * čap Ø22 dlhý 6,4 mm
-   * v strede otvor Ø8,05 hlboký 14,75 mm
-   * za ním vybranie Ø10,2 dlhé 5,4 mm, ktoré uzatvára čelo stĺpa trupu
-   * na spodku drážka pre kábel (už v trupe)
-2. **Drážkované puzdro** (tlačené, Tough, čierne; 1 kus na ruku)
-   * hriadeľ Ø8 v otvore T_klb, príruba Ø10 × 2 vo vybraní
-   * vnútri drážkovanie pre hriadeľ serva: podľa výrobcu 20 zubov, Ø3,95 – overiť na kúpenom serve
-   * drážkovanie s malou radiálnou vôľou (≈ 0,15 mm), aby servo nenieslo bočné sily
-   * odporúčam vytlačiť 2–3 skúšobné puzdrá s rôznou vôľou a vybrať to, ktoré ide nasunúť rukou bez kývania
-3. **Trecia spojka**
-   * za prírubou 2 tanierové pružinky 10 × 5,2 × 0,4 v rade (bežný rozmer), doladenie podložkami 0,1 mm
-   * vybranie v T_klb je od čela stĺpa po osadenie dlhé 5,6 mm: príruba 2 mm + pružinky ~1,2 mm ho nevyplnia, preto treba
-     dištančný krúžok ~2,4 mm (alebo hrubšiu prírubu, alebo 4 pružinky) – presne sa určí v CAD
-   * puzdro musí končiť ~0,9 mm pod čelom T_klb (x ≤ 57,85), lebo do ústia otvoru vojde nákružok serva
-   * opierajú sa o čelo stĺpa a tlačia prírubu na osadenie v T_klb
-   * keď sa ruka zatlačí silou nad ≈ 0,12–0,15 N·m, puzdro sa v T_klb pretočí
-   * hodnotu treba nastaviť na stole: ruku vodorovne, na koniec zavesiť závažie ~250 g, má prešmyknúť
-4. **Kryt kĺbu** (tlačený, Tough, čierny; otáča sa s rukou)
-   * klzne na čape Ø22 celou dĺžkou (~6 mm), vôľa 0,05–0,10 mm, tenká vrstva maziva s PTFE
-   * komôrka pre kábel je okolo tohto puzdra (nie vedľa neho), aby uloženie ostalo dlhé – kryt má preto pri trupe
-     Ø ~31 mm (T_klb má Ø27)
-   * v otvore tenký O-krúžok: berie vôľu (ruka nerapoce) a drží ruku osovo na čape
-   * vnútri komôrka pre kábel (pozri časť 5)
-   * na vonkajšej strane objíma tú časť serva, ktorá nie je v bielej ruke
-   * priskrutkovaný k vnútornej škrupine ruky 3 skrutkami M2 do lepených mosadzných vložiek
-5. **Servo SCS0009:** telo pevne v lôžku vnútornej škrupiny (2 skrutky cez telo serva), hriadeľ v drážkovanom puzdre.
-6. **Biela ruka – 3 diely ako na R09 / R10 / R11**
-   * vnútorná škrupina: nosná, s lôžkom serva a výstupkami pre skrutky
-   * vonkajšia škrupina: kryt; drží na 4 magnetoch Ø3 × 2 a vodiacom leme ako dvierka trupu, dá sa zložiť bez náradia
-   * čierna vložka špičky: nalepená
-   * stena 2,0 mm, šev 0,5 mm ako na trupe
-
-## 4. Pohyb, sily, hmotnosť
-
-* **Rozsah:** −45° (dozadu) … +135° (dopredu a hore).
-  * Hlava ruke nezavadzia v žiadnej polohe: najmenej 9,3 mm, prepočítané pri otočení hlavy ±85°, zdvihu 0 / 20 mm a
-    krajných náklonoch. Po posunutí ruky von je vôľa ešte väčšia.
-  * K trupu je najbližšie pri +135° (1,9 mm dnes, po posune viac). K podstavcu je 15 mm.
-* **Hmotnosť jednej ruky:** ≈ 33 g (škrupina 13 g, servo 13 g, kryt kĺbu a drobnosti ~7 g).
-* **Potrebný moment:** ≈ 0,004 N·m (držať ruku vodorovne + rozbehnúť ju o 90° za 0,25 s).
-  * Servo má pri 5 V ≈ 0,19 N·m pri zablokovaní, teda rezerva je asi 45-násobná.
-  * Obmedzením je skôr rýchlosť: ruka prejde 90° asi za 0,3 s.
-* **Zatlačenie rukou:** do ≈ 2–3 N na konci ruky drží, nad tým prešmykne spojka. Servo ani prevody tým netrpia.
-* **Pevnosť (ručný odhad, overí sa v CAD):**
-  * biela stena pri 10 N na špičke: < 1 MPa
-  * 3 skrutky M2 medzi krytom kĺbu a rukou: ≈ 30 N na skrutku pri 10 N na špičke – v limite lepených vložiek
-  * čap pri zdvihnutí robota za ruku: ≈ 30 N na hrane uloženia – v poriadku
-* **Stĺp trupu:** posun ruky predĺži rameno sily pri zdvíhaní robota za jednu ruku asi 1,4-krát.
-  * Limit stĺpa klesne z 15 N na ≈ 10–11 N (odhad, prepočíta sa).
-  * Celý robot bude vážiť rádovo 1 kg (odhad), preto ho **za ruky nedvíhať**. Nosiť sa má za trup, ako pri hlave.
-
-## 5. Kábel (aby sa nič neodtrhlo)
-
-* **Vodiče:** 3 vodiče AWG30, silikónová izolácia (veľmi ohybné).
-  * Idú zo stĺpa trupu drážkou v spodku T_klb (už existuje) do komôrky v kryte kĺbu.
-  * Tam obtáčajú čap asi pol otáčky voľne, potom vchádzajú do ruky.
-* **Pri pohybe ruky** o 180° sa v komôrke navinie alebo odvinie asi 35 mm vodiča na polomere 11–14 mm.
-  * To je ohyb s polomerom 14-krát väčším, než je hrúbka vodiča.
-  * Vodič sa nikde neťahá a neohýba na ostrej hrane.
-* **Oba konce voľného úseku sú prilepené** (Kapton + kvapka lepidla): v drážke T_klb a pri vstupe do ruky.
-  Pohybuje sa len úsek v komôrke.
-* **Konektor JST-SH 3-pin je vo vnútri ruky:**
-  * pri servise sa zloží vonkajšia škrupina, rozpojí konektor a ruka sa stiahne z čapu
-  * vodič z trupu ostane v drážke a nič sa nevyťahuje cez trup
-* **Neoverené:** životnosť vodiča v komôrke. Odporúčam skúšku na stole – 10 000 pohybov −45…+135 (firmvér to
-  urobí cez noc) a potom skontrolovať vodiče.
-
-## 6. Elektronika a firmvér
-
-* **Zapojenie:** obe SCS0009 na zbernicu 5 V cez rozbočovač J_BUS_5, ako je v pláne trupu. Spolu s nimi je tam servo
-  otáčania hlavy STS3032.
-* **ID a trieda v knižnici:**
-  * každé servo dostane pred zapojením vlastné ID (napr. ruka vpravo 3, vľavo 4; z výroby majú všetky ID 1)
-  * všetky ostávajú na 1 Mbit/s
-  * SCS0009 je zo série SCS a v knižnici Feetech má inú triedu (SCSCL) ako STS3032 (SMS_STS) – iné poradie bajtov
-  * obe triedy idú cez ten istý sériový port, firmvér musí vedieť, ktoré ID je ktorej série
-* **Prúd:**
-  * SCS0009 pri zablokovaní ≈ 0,8–1 A
-  * v EEPROM nastaviť obmedzenie momentu na ~50 % (adresa 16 podľa tabuľky pamäte Waveshare – overiť) – stále 20× viac,
-    ako ruka potrebuje
-  * firmvér nemá hýbať oboma rukami naplno súčasne so zdvihom a otáčaním hlavy; menič 5 V má 3,2 A
-* **Spätná väzba:** robot cez záťaž serva „cíti“, keď mu niekto drží alebo tlačí ruku, a môže na to reagovať
-  (povoliť, zasmiať sa …).
-* **Rozsah vo firmvéri:** −45…+135° od kalibrovanej nuly.
-
-## 7. Nula ruky (kalibrácia)
-
-Ak spojka prešmykne, ruka sa voči servu pootočí a firmvér to nevie. Ponúkam dve riešenia:
-
-* **Automatická (odporúčam):**
-  * oceľový kolík Ø1,5 × 4 sa vlepí do dierky v stupni T_klb (prstenec pri čape)
-  * kryt kĺbu má vnútri výstupok, ktorý o kolík narazí pri −50°
-  * pri zapnutí pôjde ruka pomaly dozadu s obmedzeným momentom; keď záťaž stúpne a poloha sa nemení, firmvér si
-    zapíše nulu
-  * servo pritom nemusí spojku prekonať – stačí, že ruka zastane na kolíku a firmvér si prečíta polohu serva
-  * presné miesto dierky (mimo výstupu drážky pre kábel na spodku) určí CAD; stena okolo nej je skrytá v trupe
-  * T_klb sa netlačí znova, dierka sa dá vyvŕtať aj do vytlačeného dielu podľa šablóny
-* **Ručná:** v aplikácii „kalibrácia rúk“ – servá idú do polohy „ruky dole“ a ty ich rukou dotočíš zvislo
-  (spojka prešmykne).
-
-## 8. Tlač (Elegoo Tough, Saturn 4 Ultra 16K)
-
-* **Biele škrupiny:** otvorenou stranou nahor, šikmo ~30°, podpery len zvnútra. Sú to otvorené misky, takže živica
-  vytečie.
-* **Kryt kĺbu a puzdro:** čierna živica. Otvor pre čap a drážkovanie bez podpier; po vytvrdení prečistiť a skúsiť
-  na skúšobnom kuse.
-* **Vložky M2:** lepené ako na trupe (otvor = priemer vložky + 0,1), nie zatavené.
-
-## 9. Montáž a servis (stručne)
-
-1. Trup: povoliť 3 skrutky T_klb, vložiť pružinky + puzdro do vybrania, T_klb dotiahnuť (rovnako na oboch stranách).
-2. Servo: nastaviť ID a obmedzenie momentu, nasadiť do lôžka vo vnútornej škrupine a priskrutkovať.
-3. Kryt kĺbu: priskrutkovať k vnútornej škrupine (3 × M2), vložiť O-krúžok.
-4. Kábel z trupu vložiť do komôrky v kryte (pol otáčky), zapojiť konektor v ruke.
-5. Ruku nasunúť na čap tak, aby hriadeľ serva vošiel do puzdra (pootočiť, kým zapadne).
-6. Nasadiť vonkajšiu škrupinu (magnety).
-7. Kalibrácia (časť 7).
-
-Servis serva: vonkajšia škrupina dole → rozpojiť konektor → ruku stiahnuť z čapu → povoliť 2 skrutky serva.
-
-## 10. Diely na obe ruky (odhad)
-
-| čo | ks | poznámka |
+| Koncept | Výsledok | Prečo |
 |---|---|---|
-| servo Feetech SCS0009 / Waveshare SC09 | 2 | ~9–19 USD/ks |
-| tanierová pružinka 10 × 5,2 × 0,4 | 4 (+ rezerva) | + podložky 10 × 5,2 × 0,1 na doladenie |
-| dištančný krúžok Ø9,9 / 5,4 × ~2,4 (tlačený) | 2 | vypĺňa vybranie v T_klb pod pružinkami |
-| O-krúžok pre čap Ø22 (presný rozmer po CAD) | 2 | NBR |
-| závitová vložka M2 (lepená) | 2 × (3 + 2) | ako v trupe |
-| skrutka M2 × 6 | 2 × 5 | |
-| magnet N52 Ø3 × 2 | 2 × 8 | 4 páry na škrupinu |
-| vodič AWG30 silikón | ~0,6 m | 3 farby |
-| konektor JST-SH 3-pin, pár | 2 | |
-| oceľový kolík Ø1,5 × 4 | 2 | len pre automatickú kalibráciu |
-| tlačené diely | 2 × 5 | vnútorná + vonkajšia škrupina, vložka špičky, kryt kĺbu, puzdro |
+| K1 – servo v rohu trupu + čelné kolesá | nedá sa (1,5/10) | Servo s hriadeľom rovnobežným s osou ruky sa v trupe nezmestí nikde, chýba 1,6–2,1 mm, aj keby sa odstránil celý stĺp. Bolo by 46–58 mm od osi, takže by bolo treba medzikoleso Ø30–40 alebo 4 kolesá. |
+| K2 – servo dole + remeň alebo lanko | nedá sa (2/10) | Tiež potrebuje servo ležať rovnobežne s osou; zmestí sa telo najviac 19,5 mm (treba 21,5). Vľavo by vošlo do konektorov J1, vpravo nie je miesto vôbec. |
+| priamy pohon na osi | nedá sa bez odsunutia ruky | pozri vyššie |
+| **K3 – servo stojí pod ramenom + jeden kužeľový pár** | **vybrané (8/10)** | Jediné, čo sa zmestí, a ruka môže ísť dokonca bližšie. |
 
-## 11. Čo to znamená pre ďalšie diely
+**K hluku:** každé malé servo má vo vnútri vlastnú prevodovku. Väčšinu zvuku robí ona. Jeden mazaný mosadzný pár
+sa točí pomaly (ruka nepotrebuje rýchlosť) a pridá k tomu málo. Hlasitosť som nemeral, je to odhad.
 
-* **Trup:** žiadna nová tlač; doplní sa krok montáže (puzdro + pružinky pod T_klb) a voliteľne dierka pre kolík.
-* **Podstavec:**
-  * ruky budú siahať do x ≈ ±90–93 mm (doteraz ±79)
-  * aby nič neprečnievalo ako na R01, podstavec by mal mať šírku ≥ ~190 mm
-  * rozhodne sa pri návrhu podstavca
-* **Hlava a krk:** bez zmeny (vôľa k rukám sa ešte zväčší).
+## 3. Ako je to poskladané (ľavá strana)
 
-## 12. Neoverené – zmerať pred kreslením v CAD
+Pozri `obrazky/v2_rez_ramenom.png` a `obrazky/v2_rameno_rozlozene.png`.
 
-1. **SCS0009:**
-   * skutočná výška tela bez hriadeľa – podľa nej je posun ruky 11 alebo 14 mm
-   * priemer a výška nákružku hriadeľa
-   * počet zubov drážkovania (20 vs 25 – pramene sa líšia)
-   * či má telo uši alebo len 2 diery
-   * výkres Waveshare / Feetech sa mi nepodarilo otvoriť (sieť ich blokuje), stačí zmerať kúpené servo posuvným meradlom
-2. **Moment spojky s tanierovými pružinkami:** nastaviť a zmerať na stole.
-3. **Životnosť vodičov v komôrke:** skúška 10 000 pohybov.
-4. **Stĺp trupu pri zdvíhaní za ruku po posunutí:** prepočet v CAD.
-5. **Rozsah otáčania SCS0009 a správanie pri obmedzení momentu:** skúška na stole (300° podľa výrobcu).
+1. **Servo** SCS0009 bez montážnych uší (odrežú sa). Stojí výstupom hore v uzavretej kapse nového stĺpa.
+   * Os výstupu je zvislá, x 39, y 3, teda presne pod osou ramena.
+   * Telo x 32,95…45,05, y −14,3…8,9, z −66,5…−45,0. Zmestí sa aj vyššie telo (25,25 mm).
+   * Sedí na pásikoch PORON 0,5 mm a drží ho spojka hore a zacvaknutá plastová západka dole.
+2. **Spojka**: orezaná páka serva + mosadzné puzdro, skrutka M2 zboku.
+3. **Zvislý hriadeľ Ø3** (oceľ h6) v ložisku **MR63** v jazýčku stĺpa.
+4. **Kužeľový pastorok 16 z** (m 0,5, mosadz) prilepený na hornom konci (Loctite 638).
+5. **Kužeľové koleso 24 z** na **hriadeli ruky Ø4** (oceľ h6). Prevod 1,5 : 1: 300° serva = 200° ruky (treba 180°),
+   presnosť asi 0,2°.
+6. **Čierna zátka** (nová, namiesto T_klb), v ktorej je celé ozubenie ukryté.
+   * Dve ložiská **MR74** nesú hriadeľ ruky, poistný krúžok drží hriadeľ.
+   * Zátka je pripevnená 3× M2 so zapustenou hlavou do mosadzných vložiek a vystredená 2 kolíkmi Ø2.
+   * Drží bočný kryt rovnako ako doteraz T_klb.
+   * Jej čelo je 1 mm pod povrchom trupu.
+7. **Krúžok Ø13** na zátke. Na ňom je ložisko **6700** v náboji ruky: **ruka sa točí na ňom, nie na hriadeli.**
+   Hriadeľ prenáša len krútiaci moment.
+8. **Trecia spojka** na konci hriadeľa: podložka s plôškou, mosadzná príruba ruky, podložka, tanierová pružina 8×4,2×0,3,
+   podložka, skrutka M2. Prekĺzne pri **0,06 N·m** (asi 1,2 N na konci ruky). Ruka sama potrebuje 0,004 N·m.
+9. **Vonkajší kryt ruky** drží na magnetoch, skrutky nie sú vidieť.
 
-## 13. Rozhodnutia pre teba
+Kábel serva je **pevne v trupe**: ide drážkou v nohe stĺpa dole k rozbočke J_BUS_5. Nič neprechádza cez kĺb, takže
+sa nemá čo pretrhnúť ani prekrútiť.
 
-1. **Ruku odsunúť o ~12 mm s dlhším čiernym kĺbom** (odporúčam; biela ruka ostáva) – alebo radšej hrubšia ruka
-   (34–37 mm namiesto 23 mm), alebo krídlové servo s rozsahom len 120°.
-2. **Kalibrácia automaticky s kolíkom** (odporúčam; jedna dierka Ø1,5 do T_klb) – alebo len ručne v aplikácii.
-3. **Kryt kĺbu čierny** ako na R08 – alebo biely, aby ruka vyzerala dlhšia.
+## 4. Zmeny v trupe
 
-## 14. Obrázky (koncept, nie výkres na tlač)
+| Diel | Zmena | Tlačí sa znova |
+|---|---|---|
+| T_spodok | Nové ramenné stĺpy na oboch stranách: nosná hlava s okienkom pre pastorok, jazýček s MR63, zadná a predná noha, vzpera, priečka, podložka pod servo, západka, drážka pre kábel. Do nôh sa zlepia 2 oceľové tyčinky Ø3 na stranu. Skrutka paluby F3a_2 sa presúva na (29,5; 4,0). Menič napätia ide na dno pod ľavú kapsu. | áno |
+| T_paluba | Ľavý okraj orezaný na x ≤ 31 (okrem malého výbežku okolo novej skrutky). | áno |
+| T_bok_L, T_bok_P | Len malý zárez vnútri na spodku objímky (x 39,0…41,2), aby sa kryt dal nasunúť cez zvislý hriadeľ. Zvonka bez zmeny. | áno |
+| T_klb_L, T_klb_P | Nahradí ich nová čierna zátka (zatka_L / zatka_P). | nové diely |
+| zosilňovač MAX98357A | Odchádza zo stĺpa: najlepšie priamo na dosku DPS_riadenie, inak za nosič pri dvierkach. | nie (presun) |
+| T_stred, T_dvere, otáčanie a zdvih hlavy, krk, hlava | bez zmeny | nie |
 
-* `obrazky/v1_spredu_porovnanie.png` – spredu: schválené vs. návrh v1, celková šírka 157 → 181 mm
-* `obrazky/v1_rez_ramenom.png` – rez ľavým ramenom so všetkými dielmi kĺbu
-* `obrazky/v1_rozlozena_ruka.png` – rozložená ruka, poradie montáže
-* `obrazky/v1_rozsah_pohybu.png` – rozsah −45…+135° a vôľa k hlave
-* `obrazky/v1_hero.png` – celý robot, ľavá ruka zdvihnutá
-* `obrazky/servo_v_trupe_1_volne_miesto.png`, `_2_na_osi_ramena.png`, `_3_vedla_stlpa.png` – zmerané voľné miesto v trupe
-  a prečo sa servo do trupu nezmestí
+Pohyblivé časti krku majú od nového stĺpa vždy aspoň 1,0 mm (vľavo 1,02, vpravo 1,40). Stredný pás T_stred sa dá
+stále nasadiť zhora (vôľa 0,55 mm).
 
-Zdroje údajov: `zdroj/podklady_ruky.json` (servá, drobné diely, zbernica – s odkazmi), `zdroj/geometria/`
-(prepočty tvaru ruky voči trupu; `dd2.py` = potrebný posun ruky pre jednotlivé servá), `zdroj/servo_v_trupe/` a
-`zdroj/analyza_servo_v_trupe.json` (meranie voľného miesta v trupe), `zdroj/obrazky_v1/` (skripty obrázkov).
-Hlavné webové zdroje: Waveshare SC09 – https://www.waveshare.com/sc09-servo.htm a https://www.waveshare.com/wiki/SC09_Servo;
-Feetech SCS0009 – https://www.feetechrc.com/6v-23kg-serial-bus-steering-gear_65522.html;
-KST X06 V6.0 (rozsah ±60°) – https://stgaws.robu.in/wp-content/uploads/2024/02/X06_V6.0_Technical_Specifcation.pdf.
+## 5. Pevnosť (zatiaľ len ručný výpočet)
+
+* Zaťaženie ako pri trupe (záťaž L5): 10 N na konci ruky pri +135°.
+* **Stĺp:** nohy stĺpa by bez výstuže mali 10,8 MPa pri dovolených 8,5 MPa. S dvoma oceľovými tyčinkami Ø3 na
+  stranu majú **3,8 MPa**; spodná časť stĺpa (profil C) má 4,6–4,8 MPa.
+* **Koliesko:** pri prekĺznutí spojky 38 / 30 MPa v mosadzi, čo je v poriadku. Pri bežnom chode asi 6 MPa.
+* **Krúžok Ø13:** asi 5,5 MPa. **Skrutky zátky:** asi 53 N na skrutku.
+* **Výpočet MKP stĺpa ešte nie je urobený.** Treba ho urobiť pred tlačou, rovnako ako pri šachte krku.
+
+## 6. Ochrana a nula ruky
+
+* Keď niekto ruku zatlačí alebo do nej narazí, **prekĺzne trecia spojka**. Servo ani zuby sa nepoškodia.
+* Servo má navyše v pamäti obmedzený moment (≤ 30 %) a teplotu (65 °C). Rozsah ruky je −45° až +135°.
+* **Nula ruky:**
+  * Pri zapnutí a po neočakávanom náraze ide ruka slabou silou (15 %) na skrytý doraz pri −50°.
+  * Servo podľa záťaže spozná, že narazilo, a uloží si nulu.
+  * Ak by to nestačilo, dá sa doplniť magnet a Hallov snímač v pevnej zátke, opäť bez pohyblivých káblov.
+
+## 7. Montáž a servis
+
+Montáž ľavej strany (pravá je zrkadlová), pri sňatom bočnom kryte:
+
+1. Na stole: do jazýčka vlepiť MR63. Do zátky dať 2× MR74, hriadeľ s kolesom a poistný krúžok (zostava „kazeta“).
+2. Zvislý hriadeľ vsunúť zdola cez MR63 a pastorok naň prilepiť v prípravku na podložke 0,5 mm.
+3. Hriadeľ nadvihnúť o 4,5 mm.
+4. Servo so spojkou zasunúť zboku do kapsy a kábel vložiť do drážky.
+5. Hriadeľ spustiť do spojky a dotiahnuť skrutku.
+6. Nasadiť bočný kryt; prejde cez hriadeľ vďaka zárezu.
+7. Zasunúť zátku: koleso zapadne, kolíky ju vystredia. Dotiahnuť 3× M2 a vôľu ozubenia nastaviť podložkami.
+8. Nasadiť ruku so 6700 na krúžok, potom spojku (pružina, podložky, skrutka) a kryt ruky na magnety.
+
+**Výmena serva trvá asi 10 minút:**
+
+1. Kryt ruky dole, povoliť skrutku, ruku zložiť.
+2. Vybrať zátku a zložiť bočný kryt.
+3. Povoliť spojku a nadvihnúť hriadeľ.
+4. Servo vysunúť zboku.
+
+Krk, hlava ani stredný pás sa nerozoberajú.
+
+## 8. Diely na obe ruky
+
+| Diel | Ks | Poznámka |
+|---|---|---|
+| servo Feetech SCS0009 / Waveshare SC09 | 2 | sériová zbernica, spätná väzba polohy a záťaže |
+| kužeľový pár m0,5 16 z / 24 z, mosadz, priame zuby | 2 páry | ak sa nezoženie: pár 16/16 (1 : 1), hriadeľ ruky Ø3, spojka ≤ 0,04 N·m |
+| hriadeľ Ø3 h6, oceľ, ~21 mm, s plôškou | 2 | zvislý |
+| hriadeľ Ø4 h6, oceľ, ~19 mm, s osadením na Ø3 a závitom M2 v konci | 2 | treba ho dať vysústružiť alebo upraviť |
+| ložisko MR63ZZ (3×6×2,5) | 2 | |
+| ložisko MR74ZZ (4×7×2,5) | 4 | |
+| ložisko 6700ZZ (10×15×4) | 2 | v náboji ruky |
+| tanierová pružina DIN 2093 8×4,2×0,3 + 3 podložky (1 s plôškou) | 2 sady | trecia spojka |
+| poistný krúžok na Ø4, skrutka M2 do konca hriadeľa | 2 + 2 | |
+| skrutka M2 DIN 7991 + mosadzná vložka M2 (vonkajší Ø 3,2) | 6 + 6 | zátky |
+| kolík Ø2 h6 | 4 | vystredenie zátok |
+| oceľová tyčinka Ø3 (strieborná oceľ) | 4 | výstuž nôh stĺpov, lepené |
+| mosadzné puzdro + červík M2 | 2 | spojka na výstupe serva |
+| PORON 0,5 mm, magnety Ø3×2 | podľa potreby, 8 | servo; kryty rúk |
+
+## 9. Neoverené – zmerať alebo dorobiť pred tlačou
+
+* Zmerať skutočné servo: výšku tela (21,5 alebo 25,25; zmestí sa oboje), polohu výstupu, na ktorej strane vychádza kábel
+  a šírku po odrezaní uší.
+* Zohnať kužeľový pár 16/24 m0,5 v mosadzi a overiť jeho skutočné rozmery proti modelu.
+* Výpočet MKP nového stĺpa s oceľovými tyčinkami.
+* Nastaviť a zmerať spojku: 1,0–1,4 N na 50 mm, pružinovou váhou.
+* Presun zosilňovača a meniča napätia; skontrolovať, či menič pod kapsou serva nehreje.
+* Presný CAD všetkých zmenených dielov a znova celá sada kontrol trupu K1–K13, vrátane montáže a nového náboja ruky.
+
+## 10. Rozhodnutia pre teba (nie sú nutné hneď)
+
+* **Farba zátky:** čierna (ako schválený kĺb T4), alebo biela, aby bol vidieť len tmavý krúžok a škára.
+  Navrhujem čiernu.
+* **Ako blízko:** ruka o 1,0 mm bližšie (medzera 3,7 mm, plný rozsah do +135°), alebo o 1,5 mm (medzera 3,2 mm, ale
+  ruka len do +122°). Navrhujem 1,0 mm.
+
+## 11. Obrázky (koncept, nie výkres na tlač)
+
+* `obrazky/v2_spredu.png` – celý robot spredu a detail medzery pri ramene.
+* `obrazky/v2_rez_ramenom.png` – rez ramenom: servo, hriadeľ, kolieska, zátka, ložiská, spojka.
+* `obrazky/v2_vnutro_trupu.png` – kde je servo v trupe a ako blízko je otáčanie hlavy.
+* `obrazky/v2_rameno_rozlozene.png` – rozložené rameno s poradím montáže.
+* `obrazky/v2_hero.png` – robot so zdvihnutou rukou.
+* `obrazky/porovnanie_konceptov.png` – K1, K2, priamy pohon a K3 vedľa seba.
+* `obrazky/v1_*.png`, `obrazky/servo_v_trupe_*.png` – staršie obrázky v1 a meranie voľného miesta (len na porovnanie).
+
+Výpočty a skripty: `zdroj/v2/` (K1, K2, K3, výber s prepočtom, obrázky) a `zdroj/v2/vysledok_vyberu.json`.

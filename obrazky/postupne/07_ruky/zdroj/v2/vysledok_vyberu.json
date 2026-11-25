@@ -1,0 +1,455 @@
+{
+ "concepts": [
+  {
+   "key": "K1",
+   "dir": "/tmp/claude-0/gapwf/fin/R1/K1_roh_kolesa",
+   "c": {
+    "name_sk": "K1 – servo v rohu trupu + čelné ozubené kolesá (nedá sa)",
+    "summary_sk": "K1 sa do trupu nedá. Pre čelné kolesá musí hriadeľ serva ležať rovnobežne s osou ramena. Servo SCS0009 sa tak nezmestí nikde v trupe, ani keď z trupu odstránim celý stĺp, kĺb ramena, zosilňovač a vnútro bočného krytu: najmenej chýba 1,6 mm, v prednom ľavom rohu 2,1 mm. Aj najbližšie polohy sú 40–58 mm od osi ramena, takže by bolo treba medzikoleso s priemerom 30–40 mm alebo 4 kolesá – presne ten hlučný mechanizmus, ktorý nechceš. Priamy pohon (servo priamo na osi, bez kolies) tiež nejde: medzi stĺpom (1 mm od otáčajúceho sa krku) a rukou je pozdĺž osi len 16,2 mm, kým SCS0009 potrebuje asi 25 mm. Servo by preto trčalo 9,1 mm z trupu a ruka by sa musela odsunúť o 8,1 mm (o 12 mm, ak je telo serva 25,25 mm). Pre každú pasívnu ruku platí: ruka sa môže priblížiť o 1,0 mm, medzera v pokoji je potom 3,7 mm a v celom rozsahu ostane aspoň 1,0 mm.",
+    "servo": "Target: Feetech SCS0009 (bus, 300°, position and load feedback, 23.2 x 12.1 x 21.5 case, 25.25 including the shaft). It does NOT fit with its shaft parallel to X, which a spur train to the X-parallel shoulder axis needs. MG90S and STS3032 are larger and fail too. KST X06 (20 x 7 x 16.6, PWM, 120°, no external feedback) fits only far from the axis (see transmission), and no workable train exists from there. No servo is proposed.",
+    "servo_position": "No feasible pose exists, left or right.\nObstacle model (k1_hard.py on R1 map1.npz, 0.5 mm): every changeable part was REMOVED for this test. That means the T_spodok column above z -78 (web, ribs, head, shoulder plate, box closure, boss), T_klb_L with its screws and inserts, the T_bok_L socket tube and seat flange (r <= 18.5 about the axis), the amplifier, F14 and F3a_2.\nKept: shell walls (+0.3), J1 servo and cradle, pan servo (its pinion is tied to B azimuth 254.3 ± ~5° by the P_sachta FFC shroud, spec 17.2.3), deck, carrier, front stack, F1/F3b bosses, and the pan/lift/neck sweep (+1.0).\n(1) FFT erosion, bare case, 24 roll angles about X: 0 positions. Same result with the pan servo also removed (variant p) and on the mirrored right side (variant R). With pan servo + carrier + USB + capacitor + deck rim removed (pcd), 2 poses appear, both with the output at x 19.75 inside the neck-rotation zone, 47.5 / 57.6 mm from the axis, so they are useless for a train.\n(2) 4-DOF optimisation with signed distances (k1_opt.py, ±0.25), shaft exactly ‖ X.\n- Best in the front-left corner: output face x 39.4, shaft (y -21.16, z -58.23), roll 279°, case x 17.9..40.0, y -28.1..-12.5, z -76.3..-51.4. Worst margin -2.05 mm, against the pan servo, J1 cradle wall, T_stred front wall, T_bok_L wall and the F1_3 / F3b_2 bosses. The shaft is 47.8 mm from the shoulder axis.\n- Best in the whole left half: output x 48.8, shaft (-7.42, -61.45), roll 0°. Margin -1.62 mm, against the J1 servo end, T_spodok cradle / pin-1 post and the T_bok_L wall. Shaft 45.7 mm from the axis; the other near-best poses are 55–56 mm away.\nRoot cause: at the case front face (y -27.5) the corner offers only 18.5 mm along X (pan servo x 18.75 to the rounded wall x ≈ 37.5), against the 21.5 + 0.6 needed. At shoulder height the band between the neck sweep (r 33.4 + 1) and the wall is only 10–13 mm.",
+    "transmission": "None feasible.\nGear-plane room (k1_plane.py, column, joint and amplifier removed, 0.5 mm to static included): the largest shoulder-gear tip radius on the axis is 12.2 (slab x 36.25..39.25), 10.6 (38.5..41.5 and 39.5..42.5), 10.3 (40.5..43.5), 7.8 (41.5..44.5) and 4.1 (42.5..45.5). The plane x 39.5..42.5 is a free egg shape y -23..+20 down to z -78.\nEvery candidate servo shaft is 40–58 mm from the axis. A single pair would need r_shoulder + r_pinion = 40–58 with r_shoulder <= 10.6, which is impossible. One idler needs a Ø30–40 idler; otherwise 4 gears are needed.\nKST X06 is the only body that fits with its shaft ‖ X and a pinion (k1_fit.py K, pinion tip r 6.5). It fits only at the floor, shaft (3.25 or -6.75, -70.75), 53.8 / 54.6 mm from the axis, or with its gear plane at x >= 45.25, where the shoulder gear could be at most r 4.1.\nFor the floor pose, k1_train.py searched m0.5 and m0.6 with all tooth counts and both idler sides:\n- 0 solutions with the 1.5 step-up that a 120° servo needs for 180°;\n- with a 0.65 reduction (useless for a KST), 26T / 75–76T idler (Ø39) / 38–40T.\nConclusion: no 2- or 3-gear spur train exists. Arm range achieved: n/a.",
+    "shoulder_shaft_and_bearings": "Not designed, because K1 is infeasible. The would-be layout for any passive arm driven from the torso, for reference only: a Ø6 h6 steel shaft along X from x ≈ 34.5 to the arm hub. Two 686-2RS (6x13x5) bearings, one in the column boss (x 34.4..39.4) and one in a new black joint ring filling the existing r 14 socket of T_bok (x ≈ 41.5..46.5), about 7 mm apart. The arm hub is clamped on the shaft end at x ≈ 47.7..53 inside the arm.",
+    "clutch_and_protection": "Not designed (K1 infeasible). Would-be: a friction slip clutch in the arm hub (wave spring + steel/brass friction washers on the shaft, 0.10–0.15 N.m at the arm), plus the servo EEPROM torque limit, so that the clutch also protects the gears. With a KST and a 1.5 step-up the clutch would have to be <= 0.08 N.m at the arm (0.12 N.m KST stall / 1.5).",
+    "arm_attachment_and_gap": "Drive-independent result, valid for every passive-arm concept (k1_arm.py, approved pebble via armgeo.to_world(dx), swept -45..+135° in 1° steps, against the outer skin of T_bok_L and T_stred, joint not counted; results in arm.log):\n- dx 0: 4.67 at rest / min 1.90 at +135°\n- dx -0.5: 4.19 / 1.45\n- dx -1.0: 3.70 / 1.00 at +135°, full range at >= 1.0\n- dx -1.5: 3.22 / 0.56 (>= 1.0 only up to +121°)\n- dx -2.0: 2.73 / 0.13 (+112° at 1.0, +123° at 0.5)\n- dx -2.5: 2.25 / -0.30 (+103°)\nRecommendation: dx = -1.0 (inner skin on the axis 49.64; on-axis gap to the cap surface 46.76 is 2.9). Each further mm costs about 10–15° of upward range.\nFixing and visible part (would-be): the arm hub is clamped on the shaft with one hidden screw and comes off along +X. The only visible black part is a Ø ~12 collar about 2.9 mm long, plus the flush ring in the existing r 14 socket. For K1 itself: n/a.",
+    "feedback_and_homing": "n/a (no feasible servo position). With the only fitting body (KST X06, PWM) there would be no external position or load feedback. After any clutch slip an arm-side reference (hall sensor + magnet on the shaft, or a gentle drive into a hard stop) would be required.",
+    "cable": "n/a. Any torso-mounted servo would have a static cable to J_BUS_5 (Y-split) through the column wire hole (y -2.0, z -51.0), with nothing flexing across the joint.",
+    "torso_changes": [
+     {
+      "part": "T_spodok",
+      "change": "K1 would need the whole column above z -78 removed and rebuilt around a gear plane at x 39.5..42.5 (web, ribs, head, shoulder plate, box closure, boss). Even then the servo does not fit, so this is not proposed.",
+      "reprint": true
+     },
+     {
+      "part": "T_klb_L / T_klb_P",
+      "change": "would be replaced by a bearing ring + shaft (any passive-arm concept)",
+      "reprint": true
+     },
+     {
+      "part": "T_bok_L / T_bok_P",
+      "change": "inside only: socket tube and seat flange around the axis removed or reshaped (any passive-arm concept)",
+      "reprint": true
+     },
+     {
+      "part": "zosilnovac / menic (amplifier / buck)",
+      "change": "would have to move away from the column webs",
+      "reprint": false
+     },
+     {
+      "part": "servo_pan (STS3032) / DPS_riadenie",
+      "change": "Removing them was tested: it still gives no usable K1 pose. The pan pinion azimuth is fixed to 254.3 ± ~5° by the P_sachta FFC shroud, so the pan servo cannot move away.",
+      "reprint": false
+     }
+    ],
+    "assembly_and_service": "n/a, K1 rejected. Note for any servo placed in the front-left corner: it lies on the T_stred lowering path (the F1_3 boss sweeps x 25.6..32.4, y <= -15.6). It would have to be fitted from the side after T5 and removed before S5a.",
+    "strength": "No K1 mechanism exists to rate. Hand estimates for the would-be train:\n- Shoulder gear: at most r 10 pitch (m0.5 40T, tip 10.5). At a 0.15 N.m clutch, Ft = 15 N. Lewis with b 3, Y ≈ 0.35 gives 15 / (3·0.5·0.35) ≈ 29 MPa, above long-term POM (~20 MPa), so brass would be needed at the shoulder, giving a noisier metal-POM mesh.\n- Idler Ø30–40: same tooth force, cantilevered on a pin bracket where the column web used to be.\n- Column: removing the web / box closure for the gear plane takes away the section that carries arm load L5 (rev. 2 column rows were 7.65 MPa max only with the full head + plate + box closure, spec 17.16-9). A new load path would be needed. Not computed.",
+    "verification": [
+     "k1_hard.py: K1 obstacle model (hard / move / changeable) for x >= -2 from R1 map1.npz + kmap.npz; variants p, pcd and R (mirrored right side). Changeable voxels: 181 297 (base).",
+     "k1_fit.py (FFT erosion, 0.5 mm, clearance 0.3 static / 1.0 moving + 0.25), SCS0009 bare case 23.2 x 12.1 x 21.5, shaft ‖ X, 24 rolls: 0 positions in base, p and R; pcd: 2 positions (output x 19.75, 47.5 / 57.6 mm from the axis).",
+     "Validation of the erosion: an axis-aligned 20 x 12 x 10 box fits (366 centres around (29, -6, -72.5)) and a 10 mm cube fits in 37 201, so the method finds free space where it exists.",
+     "k1_opt.py (4 DOF, signed voxel EDT, ±0.25, 100 688 coarse poses + 160 Nelder-Mead runs): best worst margin -1.62 mm (output x 48.8, shaft y -7.42 z -61.45, 45.7 mm from the axis); front-left corner -2.05 mm (shaft y -21.16 z -58.23, 47.8 mm). Limiting parts listed in servo_position.",
+     "k1_anyfit.py: SCS0009 bare case in 15 orientations (axis-aligned + 45° rolls): only 'z 90' (shaft ‖ Z, upright) fits, 1 079 centres. k1_upright.py: centre x 38.2..41.2, y -7.2..7.2, z -66.2..-54.8; with a 1.2 pocket wall + spline: 0.",
+     "k1_fit.py K (KST X06 20 x 7 x 16.6, shaft ‖ X): bare case fits up to 37.9 mm from the axis. With a pinion tip r 6.5, only x_face <= 42 at (3.25 / -6.75, -70.75), 53.8 / 54.6 mm, or x_face 44.75 at 39.3 mm (gear plane x >= 45.25).",
+     "k1_plane.py: max shoulder-gear tip radius on the axis 12.17 (x 36.25..39.25), 10.59 (38.5..41.5 and 39.5..42.5), 10.30 (40.5..43.5), 7.76 (41.5..44.5), 4.12 (42.5..45.5). Image img/plane_39.5_42.5.png.",
+     "k1_train.py: KST at the floor (53.75 mm): 0 three-gear solutions with step-up >= 1.5. With ratio >= 0.65, 219 solutions, all with a 75–76T idler (tip r 19.25–19.5).",
+     "k1_arm.py (armgeo pebble vs T_bok_L / T_stred outer skin, 115 377 samples, 1° steps): dx 0 4.67 / 1.90 (reproduces R1 q5: 4.67 / 1.898); dx -1.0 3.70 / 1.00; dx -1.5 3.22 / 0.56; dx -2.0 2.73 / 0.13; dx -2.5 2.25 / -0.30 (arm.log).",
+     "Direct drive: R1 layout_a.json reused (x_in 34.40 = PAN_ENV2 r 33.4 + 1.0, confirmed by spec 17.16-9; output face 55.9, 9.14 beyond X_SH 46.756; arm shift 8.12 for a 21.5 case, 11.87 for 25.25).",
+     "img/K1_prehlad.png: Slovak overview (section z -58 with the closest pose and its colliding points, gear plane x 39.5..42.5 with the shoulder axis and distances)."
+    ],
+    "risks": [
+     "K1 cannot be built: no SCS0009 / MG90S / STS3032 pose with the shaft ‖ X; the best miss is 1.6 mm with every changeable part already removed.",
+     "Even if the 1.6–2.1 mm were found (e.g. by thinning walls below the 1.2 local minimum), the shaft would be 46–48 mm from the axis. That needs a Ø30–40 idler or 4 gears, which is the noisy multi-gear train the user rejected.",
+     "The front-left corner lies on the T_stred lowering path (F1_3 boss), so any servo there must go in after T5 and come out before S5a.",
+     "Removing the column for the gear plane removes the L5 load path of the shoulder; a replacement structure is not analysed."
+    ],
+    "unverified": [
+     "Real SCS0009 case height (21.5 assumed; 25.25 would make every result worse), ears and cable exit (modelled as a bare box, so 'does not fit' is a lower bound).",
+     "Voxel accuracy ±0.25 mm. The misses (1.6 / 2.1 mm) are well beyond it, but the closest poses were not re-checked against exact STL triangles.",
+     "Upright SCS0009 under the shoulder (centre x 38.2..41.2, y -7.2..7.2, z -66..-55): found by voxel erosion only, without a holder. Useful for a bevel / belt / cord concept (not K1). A rough hand check of a m0.5 miter pair there shows margins of about 0–1 mm against the neck sweep and the cap socket; not verified.",
+     "KST X06 shaft offset and boss (5 mm from the end assumed) and its travel (datasheet value not found).",
+     "Arm-gap table excludes the new joint ring; the ring must sit inside the 2.9 mm on-axis gap at dx -1.0.",
+     "Right side: only the bare-case erosion was run (0 positions); the optimiser was run on the left only."
+    ],
+    "self_score": {
+     "look": 3,
+     "robustness": 2,
+     "simplicity": 2,
+     "function": 1,
+     "rework_cost": 2
+    },
+    "feasible": false,
+    "work_dir": "/tmp/claude-0/gapwf/fin/R1/K1_roh_kolesa"
+   }
+  },
+  {
+   "key": "K2",
+   "dir": "/tmp/claude-0/gapwf/fin/R1/K2_dole_remen",
+   "c": {
+    "name_sk": "K2 – servo dole v trupe + remeň / lanko k ramenu (nerealizovateľné)",
+    "summary_sk": "Koncept K2 sa nedá postaviť. Remeň alebo lanko spája len rovnobežné hriadele, takže servo musí ležať s hriadeľom v osi X a obe remenice musia byť v tej istej rovine. Pri ramene je medzi otáčaním hlavy a stenou bočného krytu len 10,1 mm, preto rovina remeňa končí najďalej na x 42,9 a telo serva by siahalo až po x 16,5, kde je servo J1. Vľavo je miesto najviac pre 19,5 mm telo serva, a to aj po zmenšení zóny konektorov J1 (SCS0009 potrebuje 21,5 až 25,25 mm). Vpravo je miesto najviac pre 6,6 mm. Priamy pohon nejde z toho istého dôvodu: na osi ramena je len 10,1 mm a SCS0009 by z trupu trčalo 9,1 mm.",
+    "servo": "Intended: Feetech SCS0009 (bus, on the J_BUS_5 Y-split). It does not fit with its shaft parallel to X anywhere below the deck. Best case on the LEFT, with every optimistic assumption, gives 19.5 mm for the case along the shaft; the servo needs 21.5 (unverified) to 25.25. On the RIGHT the most is 6.6 mm. A KST X06 (16.6 along the shaft, PWM, 120 deg, no feedback) would fit on the left only (H_max 19.0-20.6 with the plug zone as reserved). It cannot fit on the right (H_max <= 14.1), so it is not a solution either. MG90S (22.7) and STS3032 (23.0) are worse than the SCS0009.",
+    "servo_position": "Left, best optimistic pose (xbudget2.json; GT2 3 mm belt, 12T shoulder pulley). Shaft +X at (x 38.03, y -2.25, z -75.45), 23.2 side along Z. Case x 16.53-38.03, y -8.3-3.8, z -81.35-58.15. The case would overlap the J1 bumper wall (available start x 18.5, so 1.97 short). It would also overlap the RESERVED J1 plug zone (x 15.7-27, |y| <= 8, z -66.3...-48.3) by 8.2 in z, so this pose is only possible if that zone is cut to z >= -57.3 (unverified connector geometry). With the plug zone as reserved the best start is x 26.5-28.0 (H_max 8.0-11.6). Right side: the J1 STS3215 (x -29.5...15.7) and its end wall (to x -32.2) fill the whole lower torso inboard of the right belt plane. The front and back corners hold stop pin 2, the F1 bosses / T_stred lowering path, the pan servo and the carrier. Best case start |x| 32.5-33.0, so H_max <= 6.6. No pose exists on the right.",
+    "transmission": "Intended: closed GT2 belt, 3 mm wide, 2 mm pitch, 12T/12T (PD 7.64), ratio 1:1. Centre distance about 58.7 from (y -2.25, z -75.45) to (3, -17). Length 2C + pi*PD = 141.4, so a stock 140/142 loop with the servo seat slotted +-1 for tension. Belt plane x 38.33-42.93, through a hollow left column. Backlash at the arm would be belt stretch only (about 0.3-0.5 deg, estimate). Arm range would be -45...+135 = 180 deg of servo travel (SCS0009 has 300).\n\nWhy this plane is forced: a pulley disc about the shoulder axis must clear the side-cap wall (true 2.2 offset of the approved surface) by 0.5. That puts the outer pulley face at x <= 42.93 (r_f 5), 42.37 (r_f 7) or 42.04 (r_f 8); a 1.2 local wall gives +1.0. The inner limit is the pan/lift sweep +1.0 at x 34.4. A Dyneema cord drum (3.0 wide) moves the plane outward. Then the servo pose hits the shell bottom and is worse: H_max 13.1 in the optimistic variant, 11.6 as reserved.\n\nA quarter-twist belt or cord would let the servo lie shaft-across. It was rejected: the twist gives about 4-6 deg fleet angles over the about 50 mm span (hand estimate), which a toothed belt cannot run and a cord only with groove wear. Redirect idlers would mean 4 more pulleys and bearings, against the \"fewest moving parts\" request.",
+    "shoulder_shaft_and_bearings": "Intended: steel shaft D5 h6, about 24 long, from x 34.9 into the arm hub at about x 56. Inner bearing MR105ZZ (5x10x4) in the column boss at x 34.9-38.9, inner lip ring at 34.4. 12T pulley at x 38.33-42.93 with a set screw on a D-flat. The outer bearing has no room in the column: the side-cap inner wall is at x 44.52 on the axis. So it would be an MR105ZZ in a boss on the inner face of T_bok_L at x 43.5-46.76, which makes the removable cap carry the arm loads. The cap needs a hole of about r 5.5 plus a thin black ring, flush, r <= 7.",
+    "clutch_and_protection": "Intended: there is no axial room for a clutch inside (34.4-44.5 holds bearing, pulley and bearing), so the clutch goes in the arm hub. A disc spring DIN 2093 8x4.2x0.3 presses 2 steel/PTFE friction washers onto a collar on the shaft end. Slip at 0.12 N.m (shims 0.1), set by the centre screw M2.5. This is below the servo stall at the arm (0.19 N.m at 1:1) and 30x the holding need (0.004 N.m). At slip the belt tension difference is 0.12/0.00382 = 31 N on the 3 mm belt (at or above its rating, unverified), so tooth skip is possible before the clutch slips. That is a further weakness of the small 12T pulley that the x-budget forces.",
+    "arm_attachment_and_gap": "Common to all in-torso concepts (armgap.py, armgap.json). Measured: approved T3 pebble vs the approved torso exterior (analytic outer surface) with the side cap closed around the shaft. Only a flush black ring r <= 7 remains; the old T_klb (r 13.5, protruding 12 mm) is gone.\n- dx 0: arm skin on the axis at x 50.64, i.e. 3.88 from the surface. Gap at rest 3.78; minimum 1.45 at +135, at arm point (49.9, 5.7, -27.2), 10.5 mm from the axis.\n- dx -0.5: rest 3.29, minimum 0.96 at +135.\n- dx -1.0: rest 2.80, minimum 0.47 at +135 (>= 1.0 only up to +115).\n- dx -2.0: rest 1.82 (>= 1.0 only up to +80).\n- dx -3.0: rest 0.84.\nRecommendation: dx -0.45 gives 3.3 at rest and 1.0 at +135. Or dx -1.0 with the range cut to -45...+115 gives 2.8 at rest. The older 4.67 / 1.90 figures were measured to the T_bok_L mesh, which has the r 14 socket hole.\nIntended fixing for K2: arm hub on the D5 shaft end over the clutch stack, centre screw M2.5 from the outer face under a white snap plug, removal along +X. Visible parts: black ring of about Ø12 flush with the cap, and the D5 shaft (black-oxide) in the gap.",
+    "feedback_and_homing": "Intended: SCS0009 position (0.29 deg/step) and load feedback on the bus. Hidden hard stop after the clutch: a steel pin on the arm hub inner face runs in an arc slot of the black ring, -48...+138. Homing: drive at 20 % torque toward -48. When the load reading jumps (pin on the stop), that position is the arm zero. This re-syncs the arm after any clutch slip. Firmware limits -45...+135.",
+    "cable": "This would be the only real advantage of K2. The servo is static, so the cable is 3 wires of about 80 mm straight to the J_BUS_5 Y-split on DPS_riadenie (x -7.5...-0.5, z -71.5...-67), with no moving loop. The right arm has no position at all.",
+    "torso_changes": [
+     {
+      "part": "T_spodok",
+      "change": "Left column rebuilt as a hollow belt channel at x 38-43. Box closure, head flanges and ribs reshaped. Window about 13 x 24 through the column web/foot for the servo case. Servo cradle with a slotted seat (belt tension). J1 bumper post cut to a 1.2 wall. J1 plug reservation reduced to z >= -57.3 (J1 cable re-routed). MR105 seat in the shoulder boss; F8 inserts removed. Right side: no solution.",
+      "reprint": true
+     },
+     {
+      "part": "T_bok_L / T_bok_P (inside only)",
+      "change": "r 14 socket replaced by a closed wall with an r 5.5 shaft hole, an MR105 boss on the inner face and a flush black ring. Optional local wall thinning to 1.2 at the pulley.",
+      "reprint": true
+     },
+     {
+      "part": "T_klb_L / T_klb_P",
+      "change": "Deleted (no protruding joint).",
+      "reprint": false
+     },
+     {
+      "part": "zosilnovac (amplifier)",
+      "change": "Moved off the left column web, which lies on the belt plane.",
+      "reprint": false
+     },
+     {
+      "part": "new bought parts",
+      "change": "2 x GT2 12T 3 mm pulleys bore 5, GT2 3 mm closed belt 140/142, D5 shaft, 2 x MR105ZZ, disc spring + friction washers, SCS0009.",
+      "reprint": false
+     }
+    ],
+    "assembly_and_service": "Intended: the servo and belt go in after T_stred, from the open left side with the side cap off; they block nothing in the T_stred path because the plan places them outside it in the optimistic variant.\nService (servo swap): pull the arm off (centre screw), remove the side cap along +X, slip the belt off the 12T shoulder pulley, loosen the slotted servo seat, and draw the servo out along +X through the column window into the open side. Re-tension, refit, then home by stop.\nNot reachable for the right arm (no position).",
+    "strength": "Hand estimates, valid only if the concept fitted:\n- Belt: at the 0.12 N.m clutch on a 12T pulley (r_p 3.82) the tension difference is 31 N. The 3 mm GT2 allowable working tension is about 25-35 N (UNVERIFIED), so the margin is about 1 and tooth skip is possible. Six teeth in mesh at 180 deg wrap give about 5 N per tooth.\n- Shaft: D5 steel under L5 (10 N along X at the arm tip, about 56 mm below the axis) sees 0.56 N.m, so sigma = 32M/(pi d^3) = 46 MPa against about 400 MPa yield.\n- Bearings: with a 0.56 N.m couple over an 8.5 mm span, the MR105 reactions are about 66 N against C0r about 0.28 kN (UNVERIFIED).\n- Outer seat in the 2.2 side-cap wall: 66 N / (10 x 2.2) = 3.0 MPa, under the 6 MPa sustained limit. But the cap is a removable shell and its clamping would carry arm loads.\n- Column: a 13 x 24 window next to the J1 servo in a column whose L5 rows were already at about 7.65 MPa with the full section. It would need a new K12 FE and very likely fails without a metal frame.",
+    "verification": [
+     "Shoulder-end belt-plane limit: xbudget.py (part A) bisects the pulley-disc plane against C.clearance_to_shell (true 2.2 offset of the approved surface) with 0.5 clearance. Result xb1_max = 43.05 / 42.93 / 42.66 / 42.37 / 42.04 for r_f 4.5 / 5 / 6 / 7 / 8; with a 1.2 wall 44.08 / 43.96 / 43.70 / 43.41 / 43.10 (xbudget.json).",
+     "Free length on the shoulder axis: direct.py gives the inner wall at x 44.52, outer surface 46.756, sweep limit 34.40, free 10.12. Servo output face for direct drive: SCS0009 55.90 (9.14 out of the surface; 12.89 if the case is 25.25), MG90S 10.34 out, STS3032 10.64 out, KST X06 4.24 out (direct.json).",
+     "Largest servo case depth along the shaft: xbudget2.py, hard map (map1 static minus the movable parts) with distance re-computed, clearance 0.55 static incl. voxel half, 1.25 moving incl. half, sliding window over both orientations, both senses, z <= -48. LEFT as reserved (T_stred path blocked): SCS0009 H_max 11.63 (Dyneema r5), 10.03 (GT2-3 r5), 9.47 (GT2-3 r7), 8.53 (GT2-6). LEFT optimistic (J1 plug zone cut to z >= -57.3, bumper post thinned to 1.2, T_stred path ignored): 19.53 (GT2-3 r5), 18.97 (GT2-3 r7), 16.53 (GT2-6), 13.13 (Dyneema, shell bottom). RIGHT: <= 6.63 for the SCS0009 in every variant; KST X06 <= 14.13 (xbudget2.json, xbudget2.log).",
+     "Available case start next to J1: row check of the free map at y 0. Free from x 19.0 (bumper post, |y| <= 4, z <= -70) and 16.5 elsewhere along the J1 case end. Blocked to x 26.5 for y >= 8.9 (stop-pin-1 rib) and to x 28.0 for z >= -66.3, |y| <= 8 (J1 plug reservation x 15.7-27, measured from the servo_J1 STL: x 27.0, y +-8, z -66.3...-48.3).",
+     "Arm gap vs dx: armgap.py checks the arm pebble inner-half cloud (0.6 mm coarse, 0.2 mm fine) swung -45...+135 against the KD-tree of the analytic torso outer cloud (0.16 mm), signed by inside_outer. dx 0: rest 3.78, min 1.45 at +135, arm skin on axis 50.64. dx -0.5: 3.29 / 0.96. dx -1: 2.80 / 0.47 (>= 1.0 up to +115). dx -2: 1.82 / -0.52. dx -3: 0.84 / -1.49 (armgap.json).",
+     "Evidence image (Slovak): obr_rozpocet.py draws img/k2_rozpocet_x.png, section y -2.25 of the voxel map with the required case, belt plane and shoulder pulley drawn in."
+    ],
+    "risks": [
+     "Concept is geometrically impossible: the right arm has no position at all, and the left misses by >= 2.0 mm even with every optimistic assumption.",
+     "Forcing it would need the J1 plug zone squeezed (unverified connector and cable geometry) and a window through the already marginal left shoulder column next to the J1 servo.",
+     "The 12T GT2 pulley that the x-budget forces is below the usual minimum. Belt fatigue and tooth skip are possible at the clutch torque.",
+     "The outer shaft bearing would sit in the removable side cap, so the cap would carry arm loads and alignment would depend on cap seating."
+    ],
+    "unverified": [
+     "SCS0009 case depth along the shaft (21.5 vs 25.25). The concept fails for both values.",
+     "J1 STS3215 connector and cable-bend envelope. The optimistic variant assumes it can be cut to z >= -57.3.",
+     "KST X06 boss/spline height and real travel (120 deg).",
+     "GT2 3 mm belt working-tension rating and 12T minimum pulley rule; MR105ZZ load ratings.",
+     "Arm gap uses the analytic outer surface and the analytic pebble. Real edge breaks, seam lips and print tolerance are not included (about +-0.1).",
+     "Quarter-twist fleet angle of 4-6 deg is a hand estimate, not a script."
+    ],
+    "self_score": {
+     "look": 8,
+     "robustness": 3,
+     "simplicity": 4,
+     "function": 1,
+     "rework_cost": 2
+    },
+    "feasible": false,
+    "work_dir": "/tmp/claude-0/gapwf/fin/R1/K2_dole_remen"
+   }
+  },
+  {
+   "key": "K3",
+   "dir": "/tmp/claude-0/gapwf/fin/R1/K3_preusporiadanie",
+   "c": {
+    "name_sk": "K3 – servo stojí v trupe pod ramenom, rukou otáča jeden kužeľový pár",
+    "summary_sk": "Priamy pohon (servo priamo na osi ramena) sa do trupu nezmestí. Na osi ramena je od otáčajúceho sa serva zdvihu krku (r 33,4 plus vôľa 1,0, teda x 34,3) po vonkajší povrch trupu (x 46,8) len 12,5 mm. Servo SCS0009 pritom potrebuje pozdĺž hriadeľa aspoň 21,5 mm tela a 3,75 mm drážkovania, takže by z trupu trčalo 9 mm. Nepomohlo by ani úplné odstránenie modulu zdvihu, lebo ostáva otáčajúca sa šachta krku (r 26,5 + 1,0) a voľných by bolo len 19,3 mm. Preto servo stojí v trupe pod ramenom (hriadeľ hore, x 39, z −66,5…−45) a tenký hriadeľ Ø3 ide hore k jedinému kužeľovému páru. Pár má 16/24 zubov, je z mosadze a mazaný, točí sa pomaly, a preto je tichý; otáča hriadeľom ruky. Ruka je pasívna biela škrupina na ložisku 6700, ktoré sedí na čiernom krúžku Ø13 – to je jediné, čo z kĺbu vidno. Kábel serva ostáva pevne v trupe a ruka môže ísť o 1 mm bližšie k trupu: medzera je 3,7 mm a minimum 0,9 mm pri +135° (vôľa 1,0 mm platí do +130°). Hlava, krk, otáčanie hlavy aj zdvih ostávajú bez zmeny. Znova sa tlačí spodok trupu, oba bočné kryty (malý vnútorný zárez), paluba a nové čierne zátky namiesto kĺbov. Pred zatlačením rukou chráni trecia spojka v ruke (0,06 N·m); keď prekĺzne, ruka si polohu znova nájde jemným dorazom.",
+    "servo": "Feetech SCS0009 (= Waveshare SC09): serial bus on the same line as the pan servo (J_BUS_5 Y-split), position + load + temperature feedback, 300 deg, metal gears, ~0.19 N·m stall at 5 V, ~13 g. Assumed case 23.2 x 12.1 x 21.5 (height UNVERIFIED; 25.25 also checked on the left), shaft 5.9 from one end on the width centreline. Ears assumed SG90-like: span 32.3, 2.5 thick, 4.3–6.8 below the top (UNVERIFIED); an earless clamp is the fallback. One servo per arm, mounted STATIC in the torso, so its cable never crosses a joint.",
+    "servo_position": "LEFT, frame B: standing upright, shaft +Z on the vertical drive axis x 39.0, y 3.0. That line meets the shoulder axis at O = (39, 3, −17). The case is rotated about Z by theta 270 deg so the long side points to the front: case x 32.95…45.05, y −14.3…8.9, z −66.5…−45.0. Boss Ø7 z −45…−44, spline to z −40.25. Ears at z −51.8…−49.3 rest on shelves of the new column (back y 8.9…13.45, front y −18.85…−14.3), M2 screws in holes slotted ±0.3 so the servo self-aligns to the shaft at assembly. RIGHT: exact mirror x → −x (x −45.05…−32.95). The right side is tighter in the voxel search (margin ≈0.05 at the screening threshold), but the exact check is fine: 1.35 to the swept stage parts, 0.75 to the J1 cradle end wall x −32.2, 0.53 to T_bok_P. On the right the buck converter must move out (see torso_changes), and the deck screws at the left column must move. The search (fit_vert.py/fit_vert2.py) shows no standing pose with the top above z ≈ −43…−44: higher up, the case (12.1 thick) would enter the lift-servo sweep (x < 34.3), and at y −14 the cap wall curls in to x ≈ 44.8.",
+    "transmission": "Exactly ONE straight bevel pair at 90 deg, apex O = (39, 3, −17).\n\nPinion (vertical): m0.5, 16T, d 8.0, face 2.4, delta 33.7 deg, hubless, bonded (Loctite 638) on the Ø3 vertical shaft. Heel pitch circle at z −23.0, toe tip z −20.82, envelope x 34.58…43.42 (r ≤ 4.42 about the vertical axis).\n\nGear (on the arm drive shaft): m0.5, 24T, d 12.0, delta 56.3 deg. Teeth face −X; heel pitch plane x 43.0, crown x 42.58 (r 6.28), back x 44.02. Bonded or pinned on the Ø4 arm drive shaft.\n\nCone distance 7.21; ratio 1.5 : 1. The servo's 300 deg gives the arm 200 deg; the arm needs 180 deg (−45…+135), so 10 deg are left at each end. Resolution 0.195 deg at the arm.\n\nMaterial: brass pair, or steel pinion + brass gear, lightly greased. At ≤ 1–2 rev/s it is quiet; the servo's own metal gear train dominates the noise. POM only if the clutch is ≤ 0.04 N·m.\n\nMounting distances are set only by shims, because both axial thrusts point away from the apex:\n- pinion down: 0.5 shim onto the MR63 inner race;\n- gear outward: shims onto the MR74 inner race.\n\nBacklash at the arm: ~0.5–0.8 deg (pair) plus the servo's own backlash.\n\nWhy not direct / belt / cord:\n- Direct drive misses by ≥ 9 mm (≥ 2.2 mm even without the lift module).\n- A belt or cord needs a servo with its shaft along X, which does not fit (K1, K2).\n- A quarter-twist cord is not reliable.\n- A multi-gear train was not needed.",
+    "shoulder_shaft_and_bearings": "Vertical drive:\n- Ø3 h6 steel shaft, z −41 … −20.8 (20.2 long), D-flat at the bottom.\n- Upper bearing B1 = MR63ZZ (3×6×2.5) at z −26.35…−23.85, seated in a 'tongue' of the new column boss (T_spodok): bore Ø6 with a Ø5 shoulder below, because the pinion thrust is downward.\n- Lower end: a coupler on the servo spline (supplied round horn trimmed to Ø8 + brass/resin sleeve with a D-bore and an M2 grub screw, or bonded), r 4.0, z −44…−37.\n- The servo bushing + B1 are the two supports; slotted ears align the servo to B1 at assembly.\n\nArm drive:\n- Ø4 steel shaft, x 41.39…61.5 (dx 0), M2 tapped end.\n- Two MR74ZZ (4×7×2.5) at x 44.55…47.05 and 48.55…51.05, inside the new black plug cartridge, so the mesh stays aligned even with the arm removed. E-clip behind A2.\n\nThe arm is NOT carried by the shaft. The plug has a static black ring Ø13 that crosses the gap into the arm and ends in a Ø10 seat (x 54…58 at dx 0). A 6700ZZ (10×15×4) in the arm hub runs on that seat, so the shaft carries torque only.\n\nThe plug is centred by a 300 deg C-spigot (r 8.25, x 37.6…38.6) in the column boss bore r 8.3. The pinion bearing and the gear axis are therefore both referenced to the same printed part, T_spodok.",
+    "clutch_and_protection": "Friction slip clutch inside the arm hub at the shaft end, stacked as: steel washer on the shaft D-flat | brass hub flange of the arm | steel washer | 1 disc spring (DIN 2093 8×4.2×0.3–0.4 class, force UNVERIFIED) | washer | M2 screw into the shaft end. With 2 faces, r_mean 3.6, mu ≈ 0.12 (lightly greased), the preload is ≈ 69 N for T_slip = 0.06 N·m (1.2 N at 50 mm). It is set with shims and checked with a spring scale: 1.0–1.4 N at 50 mm. The arm needs only 0.004 N·m, so the margin is ~15×.\n\nThe clutch sits between the arm and the gears. It therefore also limits the tooth load when the servo drives against a blocked arm, so the m0.5 teeth never see more than T_slip. Lewis gives 38 MPa (pinion) and 30 MPa (gear) at 0.06 N·m, versus 63/51 MPa at 0.10 and 95/76 MPa at 0.15 N·m. The 0.10–0.15 N·m in the brief is therefore NOT usable with m0.5 bevels; 0.06 is the design value.\n\nFirmware: SCS torque limit ≤ 30 %, temperature 65 °C, soft limits −45…+130 deg (at dx −1.0).",
+    "arm_attachment_and_gap": "The arm is a passive white shell with no electronics. Its inner shell has a hole r 7.0 around the static black ring Ø13 (constant 0.5 seam, because the ring is coaxial), a hub with the 6700 seat (Ø15, x 54…58 relative to dx 0), and the clutch stack. A check of the pebble interior shows that r 11 with a 1.2 wall fits from x ≈ 54 inward of the arm skin. The outer arm cover is held by magnets (as v1).\n\nRemoval: cover off → M2 screw → washers + spring → pull the arm off the ring (the 6700 stays in the arm).\n\nVisible parts:\n- the approved black socket disc (r 13.5 in the cap's r 14 notch, as T4), now recessed 1.0 below the approved surface;\n- the black ring Ø13 across the gap.\nNothing else is visible. T4's T_klb body Ø27 protruding to x 50.96 is gone.\n\nGap, from armgap_k3.py: approved pebble swung −45…+135 against the whole analytic torso surface, plug face recessed 1.0.\n\n| dx | gap at rest | minimum (at +135) | range with ≥ 1.0 |\n|---|---|---|---|\n| 0 (approved) | 4.63 | 1.78 | full |\n| −0.5 | 4.14 | 1.32 | full |\n| −1.0 (recommended) | 3.66 | 0.86 | to +130 |\n| −1.5 | 3.18 | 0.41 | to +115 |\n\nWith a flush plug face (no recess): dx 0 → 3.78 / 1.45; dx −1.0 → 2.80 / 0.47.\n\nTrade-off: dx −1.0 with firmware +130 keeps ≥ 1.0 everywhere; dx −0.5 keeps ≥ 1.3 over the full −45…+135.",
+    "feedback_and_homing": "The SCS0009 reports absolute position (10 bit over 300 deg), load, temperature and voltage over the bus, so the arm angle is servo angle / 1.5 + offset.\n\nThe clutch can slip on a hand push, and then the offset changes. Homing (at power-up, and whenever the load register shows an unexpected peak during free motion):\n- set the torque limit to 15 % (0.043 N·m at the arm, below the 0.06 clutch, so the clutch does not slip during homing);\n- drive slowly to a hard stop at −50 deg: a lug in the arm hub hits a pin on the end of the static ring, hidden inside the arm;\n- detect the stall from load/position and store the new offset (~1 s).\n\nOptional instead of the stop: a magnet in the arm hub + a hall sensor in the static plug (wires stay static).",
+    "cable": "The servo cable is static, and nothing crosses the shoulder joint. Route: from the servo's front-bottom end (y ≈ −17, z ≈ −64), down the front post of the new column, along the J1 cradle to the J_BUS_5 Y-split on the carrier, ≈ 100–130 mm, held by cable-tie saddles on the column (as T4 M16). The right side is mirrored. The arm contains no wires at all.",
+    "torso_changes": [
+     {
+      "part": "T_spodok",
+      "change": "Both shoulder columns are replaced. Hollow inner boss about the arm axis, r 8.3…12.8, x ±34.4…38.4, with the T4 stop ring (r 11.6…12.8, x ±38.4…39.1). The B1 tongue (MR63 seat Ø6 with a Ø5 shoulder, Ø4 shaft hole) sits at z −26.85…−24.05 around (±39, 3). 3 bonded M2 inserts at r 10.2 for the plug, and a C-bore r 8.3 for the plug spigot. Back leg y 9.5…15.5 and front post y −21…−14.6, both x ±34.4…42. Servo ear shelves at z −51.8 (slotted M2). Strut from the front post to the boss. Floor pad for the buck under the left servo. Cable saddles. Deleted: old column web, ribs, box closure, F14 bosses. F3a_2 deck screw (30.6, 4.0) moves to ≈ (23.0, 11.5), merged into the cradle back wall / pin-1 post (not re-checked exactly).",
+      "reprint": true
+     },
+     {
+      "part": "T_paluba",
+      "change": "Left lobe trimmed to x ≤ 31.0 (1.96 to the servo); F3a_2 hole moved with the screw.",
+      "reprint": true
+     },
+     {
+      "part": "T_bok_L / T_bok_P",
+      "change": "Notch at 6 o'clock in the inner end of the socket tube and seat flange, x ±37.0…41.0, y 1…5, z −34…−28, open toward the centre so the cap slides over the Ø3 vertical shaft (the exact check showed 0.0 clearance without it). Exterior, seams, socket r 14 and seat flange are otherwise unchanged.",
+      "reprint": true
+     },
+     {
+      "part": "T_klb_L / T_klb_P",
+      "change": "Replaced by a new black plug cartridge. Same envelope inside the socket as T4 (neck r 11.0 x 38.6…40.6, body r 13.5). Face recessed 1.0 below the approved surface. Gear cavity r 6.8 to x 44.55; C-slot at 6 o'clock (|y−3| ≤ 5, x < 44) for the pinion and tongue. Seats for 2× MR74ZZ. Ring Ø13 to x 53.5 then a Ø10 seat x 53.5…58 for the 6700. 300 deg C-spigot r 8.25. 3× countersunk M2 from the face; the plug still clamps the cap's seat flange as in T4.",
+      "reprint": true
+     },
+     {
+      "part": "zosilnovac (MAX98357A)",
+      "change": "Removed from the left column (the arm servo is there). Preferred: integrate the MAX98357A on the carrier DPS_riadenie. Otherwise piggyback the breakout on the back of the carrier: fit found at x −9.7…9.7, y 25.8…30.3, z −71.9…−54.1 (door zone, installed after T5 through the door; check that it does not shadow the ZIF/USB).",
+      "reprint": false
+     },
+     {
+      "part": "menic (Pololu D36V28F5)",
+      "change": "Removed from the right column. Lies flat under the LEFT arm servo on the T_spodok floor: box 17.8 × 17.8 × 10.3 incl. standoffs, centre x 28–29.5, y −3…0, z −76…−73. Fit found off the T_stred lowering path.",
+      "reprint": false
+     },
+     {
+      "part": "T_stred, T_dvere, pan stage (P), lift module (L), neck + head (B), carrier position, speaker, LED parts",
+      "change": "Unchanged. Pan servo, stage gear, lift servo, ear, foot and FFC are untouched, so no new strength analysis is needed there.",
+      "reprint": false
+     }
+    ],
+    "assembly_and_service": "Bench:\n1. Bond the MR63ZZ into the column tongue from above.\n2. Bond the pinion on the Ø3 shaft in a jig.\n3. Build the plug cartridge: 2× MR74ZZ, Ø4 shaft with the 24T gear at the measured mounting distance (shims to A1), e-clip behind A2.\n\nIn the torso, with the side cap still off (before T13):\n4. Slide the servo in from the side onto the shelves; screws loose. Put the coupler on the spline.\n5. Drop the shaft + 0.5 shim + pinion from above through the MR63 into the coupler; lock the coupler.\n6. Tighten the ear screws while turning the shaft by hand, so the servo self-aligns to the bearing.\n7. Route the cable to J_BUS_5.\n8. T13: fit T_bok_L along −X; its notch passes the shaft.\n9. T13b: insert the plug cartridge from outside along −X. The gear engages the pinion and the spigot centres in the boss bore; fit 3× M2. The plug also clamps the cap as in T4. Set backlash with shims under the flange.\n10. Fit the arm: 6700 in the hub, slide onto the ring, clutch stack, M2 screw, arm cover on magnets.\n\nSame for the right side; the buck and amp go in before T13 / through the door.\n\nServo replacement, without touching the neck, head, T_stred, pan stage or lift (≈ 10 min):\n- arm cover → M2 → arm off;\n- 3 plug screws → cartridge out;\n- T_bok off along +X;\n- release the coupler, lift shaft + pinion ~5 mm (free space above in the boss cavity);\n- 2 ear screws → servo out sideways.\n\nPrintability (Elegoo Tough, Saturn 4 Ultra 211×118×220):\n- T_spodok: ≈ 90×61×96, as T4.\n- Plug: ≈ Ø27×20 + ring; print on its axis so the bearing seats are round; supports only on the inner flange.\n- Bearings are bonded (Loctite 641) or a light press.",
+    "strength": "Hand estimates, from strength.py → strength.json; clutch T_slip = 0.06 N·m.\n\nBevel teeth (Lewis at mean module 0.417, face 2.4, Ft = 12 N):\n- pinion 37.8 MPa (Y 0.317, z_v 19.2), gear 30.3 MPa (Y 0.395) → brass (≈100 MPa static) is OK;\n- POM is OK only up to ≈ 0.04 N·m (25 MPa);\n- at 0.10 / 0.15 N·m: 63 / 95 MPa → too high;\n- normal motion (0.01 N·m): 6 MPa.\n\nMesh forces at slip: Ft 12 N, pinion radial 3.6 / axial 2.4 N, gear radial 2.4 / axial 3.6 N.\n\nShafts:\n- vertical Ø3: torque 40 N·mm → tau 7.5 MPa; bending 52 N·mm → 19.6 MPa;\n- arm Ø4: tau 4.8 MPa, sigma 9.7 MPa.\n\nBearings at slip: MR63 ≈ 16 N radial / 2.4 N axial; MR74 (A1) ≈ 20 N / 3.6 N. All far below catalogue C0 (~0.1–0.15 kN).\n\nResin parts:\n- Static ring (Ø13/Ø7) under a 10 N side push at the 6700: 0.52 MPa at the root, 0.43 MPa at the Ø10 seat neck.\n- 10 N pushed along X at the arm tip (600 N·mm) → ≈ 59 N in the 6700/A1 couple; acceptable for occasional pushes. Before that the arm touches the torso (1–4 mm gap).\n- Column legs (two 7.6×6 legs, 10 N at the shoulder, 65 mm lever, no help from the shell): 7.2 / 5.7 MPa bending → below the Tough resin limit for occasional loads. It needs an FE check (like T4 K12), because the old 3 mm web + box closure is replaced by two legs and a hollow boss.\n\nServo: stall at the arm 0.285 N·m; homing torque 0.043 N·m at the arm; holding need 0.004 N·m.",
+    "verification": [
+     "Direct-drive budget (envparts.py, real STL, pan ±90.3, lift 0..20): swept radius at the left shoulder window (B az −10..25) is 33.38 (lift servo MG90S) for z −42..−18, 33.01 for −18..−16, 29.9 for −16..−13, 26.5 above −12. At the right shoulder (az 155..200) it is 33.0 for z −42..−17, 31.7 / 30.6 up to −10, 26.5 above. Free length on the arm axis to the outer skin (x 46.76): 12.5 mm left, 12.9 right. Without the lift module: 19.26. SCS0009 needs ≥ 21.5 + 3.75 → direct drive impossible.",
+     "Torso outer surface x on y=3 (t4_common.x_surface): z −17 46.76, −23 47.87, −30 49.08, −45 51.20, −60 52.43. This is why the servo must sit low.",
+     "Standing-servo search (fit_vert.py / fit_vert2.py on k3map.npz: 0.5 mm voxels, ds ≥ 0.3+0.25, dm ≥ 1.0+0.25; removable parts deleted): with ears and xs 39 it fits only with the case extending forward (theta 260–272). Highest top z −43…−44 (left) / −46 (right). Left at top −45: margins 0.50 hard / 1.27 move. Right: 0.06 / 0.05 (screening).",
+     "Exact clearances to the pan/lift sweep (verify_exact.py: my points rotated over ±90.3 in 0.5 deg against 2.09 M surface samples of every P/L/B moving part, L parts lifted 0..20 in 0.5 steps, crank/FFC/pigtail posed):\n- LEFT: coupler 1.74, pinion 1.32, MR63 2.74, servo 1.05, column boss 1.02 (T4 column was 1.00), tongue 1.33, vertical shaft > 4;\n- RIGHT: coupler 2.10, pinion 1.72, MR63 3.10, servo 1.35, boss 1.39, tongue 1.71.",
+     "Exact clearances to kept static T4 parts (0.2 mm surface samples):\n- LEFT: servo–T_bok_L 0.53, servo–T_spodok 1.88, servo–T_paluba (trimmed) 1.96, tongue–T_bok_L seat flange 0.47, MR63–T_bok_L 1.43, pinion–T_bok_L 3.52, gear–T_bok_L 5.35, coupler–T_bok_L 4.0;\n- RIGHT: servo–T_bok_P 0.53, tongue 0.47, MR63 1.43, servo–J1 cradle end wall 0.75 (geometric);\n- the vertical Ø3 shaft crosses the T_bok socket tube/seat flange at 6 o'clock (0.0) → notch in T_bok_L/P (listed);\n- boss–T_bok seat flange 0.0 is the intended T4 contact at the stop ring.",
+     "Mutual clearances of the new parts (verify_exact.py): vertical shaft–gear 0.89, vertical shaft–arm shaft 2.03, pinion–arm shaft 1.82, pinion–MR63 0.50 (shim), pinion–boss 0.59, pinion–tongue 0.70, gear–A1 0.53, gear–tongue 0.78, gear–MR63 0.82. Contacts by design (bores/seats) are skipped. The plug cavity r 6.8 vs gear r 6.28 → 0.52, and A1 face 44.55 vs gear back 44.02 → 0.53, are by construction.",
+     "Assembly paths (map1 arrays): the servo stays ≥ 0.5 from the T_stred lowering path; the only conflict with the side-cap +X removal path is the vertical shaft (handled by the notch); the plug cartridge comes out along +X with the gear disengaging axially.",
+     "Arm gap (armgap_k3.py: approved pebble via armgeo, swung −45..+135 in 5 deg steps / 1 deg above 120, against the analytic outer surface, plug face recessed 1.0):\n- dx 0: 4.63 / 1.78;\n- dx −0.5: 4.14 / 1.32;\n- dx −1.0: 3.66 / 0.86 (≥ 1.0 to +130);\n- dx −1.5: 3.18 / 0.41;\n- flush plug: dx 0 3.78 / 1.45 (matches K2), dx −1.0 2.80 / 0.47.",
+     "Arm hub room: armgeo.inside_local with a 1.2 inset; a full circle r 11 about the axis is inside the pebble for x ≥ 54 (dx-relative), so a 6700 (Ø15) + hub (r ≤ 9.5) + clutch at x 54..61 fit.",
+     "Electronics relocation (k3after.py → electronics_fit.json): after adding all new parts, 133.5 cm3 is free. Buck 17.8×17.8×10.3 fits flat under the left servo, off the T_stred path (centre x 28–29.5, y −3..0, z −76..−73). Amp 19.3×17.8×4.5 fits only behind the carrier (door zone) or on other T_stred-path spots. No 17.8 board fits under the right servo (the J1 servo reaches x −29.5)."
+    ],
+    "risks": [
+     "SCS0009 dimensions are not measured (case height 21.5 vs 25.25, ears, shaft offset 5.9). The right side is the tighter one in the voxel screening (exact 1.35 / 0.53 / 0.75); measure a real servo before printing.",
+     "Availability of a stock m0.5 16/24 straight bevel pair (ratio 1.5). Fallback: 1:1 m0.5 16T miter (servo 300 deg = arm 300 deg) with a Ø3 arm shaft (the pinion toe comes 0.9 below the shaft).",
+     "The clutch is limited to ≈ 0.06 N·m by the m0.5 teeth: the arm slips at ≈ 1.2 N at 50 mm. This is safe but feels soft; homing after slips is mandatory.",
+     "Bonded pinion/gear on smooth shafts and shim-set mounting distances need careful assembly. The bevel needs backlash checking (rocking) after every service.",
+     "The new column is two legs + a hollow boss instead of a web + box closure. Stiffness/strength need an FE check (T4 K12 equivalent); the hand estimate is 7 MPa at 10 N.",
+     "3 M2 plug screws at r 10.2 now carry the arm and clamp the cap (as T4 F8, new insert positions).",
+     "The notch in the T_bok seat flange at 6 o'clock slightly reduces the clamped ring (≈ 330 deg remain).",
+     "Electronics: the amp must go onto/behind the carrier (door zone, may shadow connectors), and the buck goes under the left servo (heat near J1). Both are fit-checked only as boxes.",
+     "The vertical drive has 2 supports (servo bushing + MR63) with a rigid coupler; alignment relies on the slotted ears tightened with the shaft in place."
+    ],
+    "unverified": [
+     "SCS0009 case height (21.5 assumed), ear geometry, shaft offset, spline 20T Ø3.95 length",
+     "Exact part numbers / dimensions of the m0.5 16/24 bevel pair (face 2.4, heel/back geometry modelled from standard proportions)",
+     "Disc spring force for the clutch preload ≈ 69 N, and friction coefficient 0.12",
+     "Bearing load ratings (catalogue order of magnitude only)",
+     "F3a_2 deck screw relocation to ≈ (23.0, 11.5) – not re-checked against the J1 plug zone / deck outline",
+     "Amp position behind the carrier vs carrier ZIF/USB access; buck thermal behaviour under the left servo",
+     "Column leg / hollow boss strength (no FE); arm moment carried by the 6700 + MR74 couple",
+     "Plug C-spigot, screw and key layout – drawn as numbers, not modelled in CAD; plug envelope assumed equal to the verified T4 T_klb envelope inside the socket",
+     "Exact arm-hub geometry inside the pebble beyond the r 11 / 1.2-wall test; arm hole r 7.0 seam on the curved inner skin"
+    ],
+    "self_score": {
+     "look": 8,
+     "robustness": 7,
+     "simplicity": 6,
+     "function": 8,
+     "rework_cost": 6
+    },
+    "feasible": true,
+    "work_dir": "/tmp/claude-0/gapwf/fin/R1/K3_preusporiadanie (concept.md, img/K3_rez_rameno.png, k3_parts.py, verify_exact.py → verify_L.json / verify_R.json, armgap_k3.py → armgap_k3.json, fit_vert*.py, k3map.py, k3after.py → electronics_fit.json, strength.py → strength.json)"
+   }
+  }
+ ],
+ "judge": {
+  "winner": "K3 with the judge's fixes: an earless SCS0009 standing in a closed pocket of a new steel-rod-reinforced shoulder column in T_spodok, driving one m0.5 16/24 straight bevel pair to a passive arm on a static black ring. Also: plug fastening re-laid out, deck screw F3a_2 moved to (29.5, 4.0), arm placed at dx −1.0.",
+  "reasons": "K3 is the only concept that can be built.\n\nDirect drive (servo shaft = arm axis) is impossible. I measured it with my own moving model, which follows the pan model in T4 checks.py: pan ±90.3, lift 0..20, crank, FFC loops and lifted neck parts.\n- On the left arm axis the swept radius is 33.38 (lift servo MG90S). With the 1.0 clearance the inner limit is x 34.38. The torso outer surface is at x 46.756, so 12.37 mm are free (10.14 to the inner wall).\n- Right side: 12.74 mm free. Without the whole lift module the left side would still have only 19.26 mm.\n- The SCS0009 needs about 26 mm on the axis (21.5 case + 1.0 boss + 3.75 spline). It would stick out 9–13 mm and the arm would move out by the same amount. The user rejected that.\n\nK1 (spur gears) and K2 (belt / cord) both need the servo shaft parallel to X. My own box erosion on the K3 obstacle map confirms that this never fits. The map has the column, joint, amplifier and buck removed and uses 0.3 static / 1.0 moving clearance. A 21.5 × 12.1 × 23.2 case has 0 positions in both rolls. The longest case that fits along X is about 19.5. So K1 and K2 are not feasible, and K1 would also need a multi-gear train.\n\nK3 uses one slow, greased bevel pair (2 gears) behind a slip clutch. Of the transmissions that fit, it has the fewest moving parts and is quiet, and the servo cable stays static. I reproduced most K3 geometry numbers exactly. These are confirmed:\n- bevel envelopes;\n- sweep clearances: pinion 1.32/1.66, boss 1.02/1.40, coupler 1.71/2.06, tongue 1.33/1.66 (left/right);\n- T_stred lowering path 0.55;\n- tongue to cap 0.46;\n- arm gap: K3 was slightly pessimistic. I get 3.70 / 1.00 at dx −1.0 over the full range.\n\nBut K3 has real defects, which I fixed and re-verified:\n- (a) Servo ears on leg shelves cannot be assembled: the ears overlap the legs above the shelves and the back-ear screw sits under the boss stop ring. The front ear corner is only 0.29 from T_bok_L and lies on the cap removal path (−0.06). Fix: earless servo in a pocket. Result: 1.76 to the cap, ≥ 0.8 on the cap path, 0.3 on the slide-in path.\n- (b) The relocated deck screw F3a_2 at (23.0, 11.5) is hit by the rotating lift-servo holder P_drziak_serva (0.0 mm). (29.5, 4.0) gives 2.31.\n- (c) The plug screw inserts at r 10.2 break into the r 8.3 boss bore, and the screw holes break through the r 11 plug neck.\n- (d) The K3 column hand calculation left out the 0.72 N·m arm-length moment of T4 load L5. Its two legs reach 8.9–10.9 MPa against 8.5 allowed. A C-channel plus 2 × Ø3 steel rods gives ≤ 4.9 MPa (hand calculation; FE still needed).\n- (e) The back leg top touches the cap socket tube.\n- (f) The front-leg inboard extension is 0.25 from the T_stred path.\n\nThe fixes are small and keep the exterior, head, neck, pan stage and lift module unchanged.\n\nAll scripts and results are in /tmp/claude-0/gapwf/fin/R1/vyber: mov.py, geo.py, variants.py, chk.py, paths.py, armgap.py, ddrive.py, k12fit.py, legs2.py, column_calc.py, hub.py, plus the *.json and *.log files.",
+  "ranking": [
+   {
+    "key": "K3",
+    "score": 8,
+    "verdict": "WINNER after fixes. The only buildable concept. Standing SCS0009 + one quiet m0.5 bevel pair + clutch, static servo cable, bus feedback, 200 deg of arm travel. Exterior, head, neck, pan and lift are untouched. Gap 3.70 at rest / >= 1.0 over -45..+135. The geometry is confirmed by independent exact checks. The servo mounting, plug fastening, deck screw and column strength had errors; they are fixed in final_design and the column still needs FE."
+   },
+   {
+    "key": "K2",
+    "score": 2,
+    "verdict": "Not feasible, and I confirmed it independently: no SCS0009 with its shaft parallel to X fits (max ~19.5 of 21.5). The belt would be quiet, but there is no left position without cutting the J1 connector zone, no right position at all, and a 12T pulley at its tooth-skip limit."
+   },
+   {
+    "key": "K1",
+    "score": 1.5,
+    "verdict": "Not feasible for the same reason (shaft parallel to X does not fit). Even if it fitted, the shaft would be 46-58 mm from the axis, which needs a Ø30-40 idler or 4 gears: the noisy gear train the user rejected."
+   }
+  ],
+  "recheck": [
+   {
+    "claim": "Direct drive impossible: free length on the arm axis 12.5 mm left (sweep r 33.38 + 1.0 to the surface x 46.76), 19.3 mm without the lift module",
+    "my_number": "Left 12.37 (r_max 33.38 servo_zdvih, x_in 34.38), right 12.74 (33.01 P_drziak_serva), 19.26 without the lift module (ddrive.json)",
+    "ok": true
+   },
+   {
+    "claim": "K1/K2: an SCS0009 with its shaft parallel to X fits nowhere in the torso",
+    "my_number": "Box erosion on k3map (removable parts deleted, 0.3/1.0 clearance): 0 positions for 21.5×12.1×23.2 in both rolls; longest case that fits ≈19.5 (k12fit.py)",
+    "ok": true
+   },
+   {
+    "claim": "Bevel 16/24 m0.5 envelope: pinion x 34.58..43.42, toe z −20.82; gear crown x 42.58 r 6.28, back x 44.02",
+    "my_number": "Identical from my own bevel formulas (geo.py)",
+    "ok": true
+   },
+   {
+    "claim": "Pinion to pan/lift sweep 1.32 L / 1.72 R",
+    "my_number": "1.32 L (servo_zdvih) / 1.66 R",
+    "ok": true
+   },
+   {
+    "claim": "Boss 1.02 L / 1.39 R; coupler 1.74 / 2.10; tongue 1.33 / 1.71; B1 2.74 / 3.10",
+    "my_number": "Boss 1.02 / 1.40; coupler 1.71 / 2.06; tongue 1.33 / 1.66; B1 2.71 / 3.06",
+    "ok": true
+   },
+   {
+    "claim": "Servo to sweep 1.05 L (by ffc_par) / 1.35 R",
+    "my_number": "≥1.91 L (K3's 1.05 came from rotating the static FFC tail of ffc_par rigidly; the T4 pan model uses ffc_riser + fpc_loop(pan)); 1.35 R (P_drziak_serva)",
+    "ok": true
+   },
+   {
+    "claim": "Servo to T_bok_L 0.53",
+    "my_number": "0.29 at the front-ear outboard corner (45.05, −18.85, −49.3), below the 0.3 limit. With a 1.0×45° ear chamfer 0.77; earless 1.76",
+    "ok": false
+   },
+   {
+    "claim": "Side-cap removal path: only the vertical shaft conflicts",
+    "my_number": "Shaft 0.0 (socket tube inner end x 39.1..41.0, |y−3|<2, z −33..−28: notch needed). The front ear corner also blocks it (−0.06 cell test / 0.0 ray test; earless >0.8). Tongue 0.47 OK",
+    "ok": false
+   },
+   {
+    "claim": "Servo off the T_stred lowering path by ≥0.5",
+    "my_number": "0.55 (exact ray test, T5 group withdrawn +Z)",
+    "ok": true
+   },
+   {
+    "claim": "Right servo to J1 cradle end wall 0.75",
+    "my_number": "0.56 (T_spodok)",
+    "ok": true
+   },
+   {
+    "claim": "Arm gap at dx −1.0, plug recessed 1.0: 3.66 at rest / 0.86 at +135 (≥1.0 to +130)",
+    "my_number": "3.70 / 1.00 at +135 (≥1.0 over the full range; min at the cap rim r 14). K3 kept the 13.5..14 seam annulus at surface height. dx −0.5: 4.19/1.45; dx −1.5: 3.22/0.56 (≥1.0 to +122)",
+    "ok": true
+   },
+   {
+    "claim": "Arm hub: circle r 11 inside the pebble for x ≥ 54 (dx 0)",
+    "my_number": "r 8.75 at x 54, 11.25 at x 55 (dx 0; inset 1.2): the 6700 must sit 0.5 further out (x 53.5..57.5 at dx −1)",
+    "ok": false
+   },
+   {
+    "claim": "Column (two 7.6×6 legs) 7.2 / 5.7 MPa",
+    "my_number": "With T4 L5 (10 N along X at the 72 mm tip, arm at +135, Kt 1.3) the K3 legs reach 8.9 MPa (z −48) and 10.9 MPa (z −66.5), allowed 8.5. Judge column: C-channel 4.6–4.8 MPa, legs at z −48..−40 10.8 MPa without rods, ≤3.8 MPa with 2× Ø3 steel rods",
+    "ok": false
+   },
+   {
+    "claim": "Deck screw F3a_2 relocated to (23.0, 11.5) (not re-checked)",
+    "my_number": "Head swept by P_drziak_serva: 0.0 mm. (29.5, 4.0) gives 2.31 and 9.25 to the T_stred path",
+    "ok": false
+   },
+   {
+    "claim": "Plug fixed by 3× M2 inserts at r 10.2 in the boss r 8.3..12.8",
+    "my_number": "An insert OD 4 at r 10.2 spans r 8.2..12.2 (breaks into the r 8.3 bore); a Ø2.4 hole at r 10.2 reaches r 11.4 > plug neck r 11",
+    "ok": false
+   },
+   {
+    "claim": "Servo ears on shelves of legs y 9.5..15.5 / −21..−14.6, slid in from the side, screws from above",
+    "my_number": "Ears (y 8.9..13.45 / −18.85..−14.3) overlap the legs, so they cannot pass the legs above the shelves. The back-ear screw axis x 39 lies under the boss and stop ring (x ≤ 39.1)",
+    "ok": false
+   },
+   {
+    "claim": "Lewis 37.8 / 30.3 MPa at a 0.06 N·m clutch",
+    "my_number": "38.2 / 30.3 MPa (Ft 12 N at gear r_m 5.0, m_m 0.417, Y 0.314 / 0.396)",
+    "ok": true
+   },
+   {
+    "claim": "A 25.25 mm tall case also fits",
+    "my_number": "Yes: sweep ≥1.91 L / 1.35 R, static unchanged; bottom at z −70.25, so the buck below must stay with its top ≤ −70.6",
+    "ok": true
+   }
+  ],
+  "required_fixes": [
+   "SERVO MOUNT: cut the SCS0009 mounting ears off flush. The servo sits in a closed pocket of the new column: back leg face y 9.2, front leg face y −14.6, inboard web x 32.65, floor pad top z −66.8. Use 0.5 PORON strips on the leg faces and the pad (0.3 gap after compression). It slides in along −X with the cap off and is held by the coupler on the vertical shaft plus a printed snap tab at the outboard bottom edge. Reason: the K3 ears-on-shelves layout cannot be assembled and the front ear is 0.29 from T_bok_L. Verified: 1.76 to T_bok_L, ≥0.8 on the cap path, 0.3 on the slide-in path, 0.55 to the T_stred path. Fallback if the ears are kept: 1.0×45° chamfer on both ear tips (0.77 / 0.76).",
+   "COLUMN STRENGTH: a C-channel below the deck (back leg x 31.5..41.5, web x 30.5..32.65, front leg x 34.4..41.5) plus 2× Ø3 silver-steel rods bonded in Ø3.05 holes: back leg at (±38.0, 12.35), z −78..−32; front leg at (±38.0, −17.3), z −78..−47; inserted from the T_spodok underside. Hand calculation for T4 L5 with the arm moment: ≤4.9 MPa (C) and ≤3.8 MPa (legs with rods) against 8.5 allowed. FE (K12 rows L5/L6) is required before printing.",
+   "BACK LEG TOP: above z −33 keep the leg at x ≤ 38.4 (inboard of the cap socket tube inner end x 39.0). At x 41.5 it touches T_bok_L (0.01) and its removal path (0.0).",
+   "FRONT LEG: x 34.4..41.5 only, with no inboard extension (x < 34.4 at y −20 is 0.25 from the F1_3 T_stred path). Add a cable slot open toward +X at the servo cable end (x 37..41.5, y −17.6..−14.6, z −66.8..−63.2), or in the back leg if the cable leaves at the output end.",
+   "PLUG / BOSS FASTENING: make the boss solid r ≤ 12.8 except a 6 o'clock slot |y−3| ≤ 5.0 from z −24.55 up to z −15.5, open to +X, for the pinion (and its lift during service), plus a Ø4 shaft hole. Fix the plug with 3× M2 DIN 7991 at r 9.0 at 12, 4 and 8 o'clock into M2 brass inserts OD 3.2, and locate it with 2× Ø2 h6 dowels at r 9.0 at 10 and 2 o'clock. This replaces K3's r 10.2 inserts and the r 8.25 spigot, which break through the walls.",
+   "DECK SCREW F3a_2: move it to (29.5, 4.0) with its insert boss merged into the left web. Sweep 2.31, T_stred path 9.25, J1 plug zone 0.75. K3's (23.0, 11.5) is hit by P_drziak_serva (0.0). T_paluba is trimmed to x ≤ 31.0 except a lobe r 3.15 around the new hole, which reaches x 32.65 (0.3 to the servo).",
+   "T_bok_L / T_bok_P NOTCH: at the inner end of the socket tube and seat flange at 6 o'clock: x ±39.0..41.2, |y−3| ≤ 2.0, z −33.5..−27.5, open toward the torso centre (through the tube end), so the cap slides over the Ø3 vertical shaft. It is inside only and invisible.",
+   "LEFT WEB BOTTOM at z ≥ −70.5, so the relocated buck converter (top −70.85) fits under the pocket. On the right side the web is the existing J1 cradle end wall, thickened to x −32.65.",
+   "ARM HUB: move the 6700ZZ 0.5 mm outward (x 53.5..57.5 at dx −1.0) for a 1.2 hub wall. The clutch stack must react on a Ø4→Ø3 step of the arm shaft at x ≈ 57.5, not on bearing A2.",
+   "ARM PLACEMENT dx −1.0 with the plug face recessed 1.0 (seam 0.5). Firmware range −45..+135; K3's +130 limit is not needed (≥1.00 mm over the full range).",
+   "ASSEMBLY of the vertical drive: the shaft and pinion cannot be dropped in from above (blocked by the boss and stop ring). The shaft goes up through B1 from below with the servo out. The pinion is bonded on top in a jig on a 0.5 shim. For servo insertion and removal the shaft is lifted 4.5 mm (pinion into the boss slot up to z −16.3), with the plug cartridge out."
+  ],
+  "final_design": "NOVA mini – arm drive v2 (judge-final: K3 + fixes). Frame B: mm, Z up, front −Y, robot left +X. Values are for the LEFT side; the RIGHT side is the mirror x→−x and was verified separately.\n\n0. LOOK\n- Torso shells, seams and the arm pebble are unchanged.\n- The arm is passive (no electronics) and sits 1.0 mm closer than T3/T4 (dx −1.0). The arm inner skin on the axis is at x 49.65.\n- Visible joint: only the black plug face (r 13.5) in the existing r 14 cap socket, recessed 1.0 below the approved surface (it follows the surface; 0.5 seam), and a black ring Ø13 (r 6.5) crossing the 3.9 mm on-axis gap into a Ø14 hole in the arm's inner skin (0.5 seam).\n- The old protruding T_klb (Ø27 out to x 50.96) is gone.\n- Gap arm to torso at rest: 3.70 (T4: 4.67), at the cap rim near (49.3, 1.4, −30.9). Minimum over −45..+135: 1.00 at +135. At −45: 3.33 (to the plug face).\n- Three black M2 countersunk heads on the recessed plug face are largely hidden behind the arm.\n\n1. SERVO\n- Feetech SCS0009 (Waveshare SC09): serial bus on the J_BUS_5 Y-split, 300°, position/load/temperature feedback, about 0.19 N·m. Mounting ears cut off flush.\n- Standing with the output up on the vertical drive axis (x 39.0, y 3.0). That line meets the shoulder axis at the apex O = (39, 3, −17).\n- Case x 32.95..45.05, y −14.3..8.9, z −66.5..−45.0 (long side toward the front; output 5.9 from the back end). Boss Ø7 z −45..−44, 20T spline to z −40.25.\n- A 25.25 case height also fits (bottom z −70.25).\n- Static cable, 100–130 mm, from the cable end through the leg slot, down the leg and along the J1 cradle to J_BUS_5 on DPS_riadenie. Nothing crosses the joint.\n\n2. POCKET + SHOULDER COLUMN (T_spodok; replaces the T4 column web, ribs, box closure, head plate and F14 bosses)\n- (a) Boss: r ≤ 12.8 about the shoulder axis, x 34.4..38.4. Inner face x 34.4 = sweep r 33.4 + 1.0; sweep clearance 1.02 L / 1.40 R.\n  - Stop ring r 11.6..12.8, x 38.4..39.1 (clamps the T_bok seat flange, as in T4).\n  - Solid, except a 6 o'clock slot |y−3| ≤ 5.0 from z −24.55 up to −15.5, open toward +X (pinion space), and a Ø4 hole for the vertical shaft.\n  - 3× M2 brass inserts (OD 3.2) at r 9.0 at 12, 4 and 8 o'clock; 2× Ø2 dowel holes at r 9.0 at 10 and 2 o'clock.\n- (b) Tongue (B1 housing): ring r 3.0..4.4 about (39, 3), z −26.85..−24.05, x 34.6..43.4, cantilevered from the boss. Ø6 bore with a Ø5 shoulder below; bottom hole Ø4. Clearances: 1.33 to the sweep, 0.46 to T_bok_L.\n- (c) Back leg: x 34.4..41.5, y 9.2..15.5.\n  - It runs from the kept T4 column foot (z −78..−72) up to z −33, then narrows to x 34.4..38.4 and merges into the boss at z ≈ −26.\n  - Below the deck (z −70.5..−48.8) it widens inboard to x 31.5.\n- (d) Front leg: x 34.4..41.5, y −20.0..−14.6, z −78..−44.5. Cable slot x 37..41.5, y −17.6..−14.6, z −66.8..−63.2, open to +X.\n  - Strut x 34.4..38.4, y −20..−9, from z −44.5 over the servo top (0.5) up into the boss at z ≈ −25 (0.7 to T_bok_L).\n- (e) Web (left only): x 30.5..32.65, y −14.6..9.2, z −70.5..−48.8 (0.3 under the deck). It carries the F3a_2 M2.5 insert boss at (29.5, 4.0). On the right, the web is the J1 cradle end wall thickened to x −32.65.\n- (f) Floor pad: x 32.65..44.0, y −14.6..9.2, z −69.0..−66.8. 0.5 PORON on the pad and on both leg faces. Printed snap tab at the outboard bottom edge.\n- (g) Rods: 2× Ø3 silver-steel rods per side, bonded in Ø3.05 holes drilled from the underside:\n  - back leg at (38.0, 12.35), z −78..−32;\n  - front leg at (38.0, −17.3), z −78..−47.\n\n3. TRANSMISSION (exactly one straight bevel pair, Σ 90°, apex O)\n- Pinion (vertical): m0.5, 16T, d 8.0, face 2.4, δ 33.7°. Brass, hub turned off, bonded with Loctite 638 on the Ø3 shaft. Envelope r ≤ 4.42, heel root z −23.35, crown z −22.72, toe tip z −20.82.\n- Gear (on the arm shaft): m0.5, 24T, d 12.0, δ 56.3°, brass. Teeth face −X. Heel pitch plane x 43.0, crown x 42.58 r 6.28, toe tip x 41.39, back x 44.02.\n- Ratio 1.5: servo 300° gives the arm 200° (180° needed). Resolution 0.195°.\n- Lightly greased. Below about 2 rev/s it is quieter than the servo's own gear train.\n- Mounting distances set by shims only: the pinion thrust goes down onto the MR63 inner race through a 0.5 shim; the gear thrust goes outward onto the MR74 A1 inner race.\n- Fallback if 16/24 is not available: 16/16 miter (1:1), Ø3 arm shaft, clutch ≤ 0.04 N·m.\n\n4. SHAFTS / BEARINGS\n- Vertical shaft: Ø3 h6 steel, z −41..−20.82, D-flat at the bottom.\n  - B1 = MR63ZZ (3×6×2.5) at z −26.35..−23.85 in the tongue.\n  - Lower end in a clamp coupler on the servo spline: trimmed horn + brass sleeve, r 4.0, z −44..−37, D-bore, M2 grub screw facing +X.\n- Arm shaft: Ø4 h6 steel, x 41.39..60.5 (at dx −1). Ø4→Ø3 step at x ≈ 57.5, M2 tapped end.\n  - A1 / A2 = MR74ZZ (4×7×2.5) at x 44.55..47.05 and 48.55..51.05, in the plug. E-clip behind A2.\n- The arm is NOT carried by the shaft: the shaft transmits torque only.\n\n5. PLUG CARTRIDGE (new zatka_L / zatka_P, black Elegoo Tough, replaces T_klb_L / T_klb_P)\n- Neck r 11.0 at x 38.6..40.6. Body r 13.5 up to the face (approved surface − 1.0).\n- Gear cavity r 6.8 up to x 44.55. 6 o'clock slot |y−3| ≤ 5.0 for x < 44.0, open toward −X (pinion, tongue, B1, vertical shaft pass through it).\n- MR74 seats. Fixed by 3× M2 DIN 7991 at r 9.0 and 2× Ø2 dowels into the boss. It clamps the T_bok seat flange against the stop ring, as in T4.\n- Ring r 6.5 (Ø13) from the face out to x 52.5 (dx −1), then a Ø10 seat x 52.5..57.5.\n- Printed on its axis.\n\n6. ARM HUB + PROTECTION\n- 6700ZZ (10×15×4) in the arm hub at x 53.5..57.5 (dx −1), running on the ring seat. Room in the pebble: r 11.25 at x 54.\n- Friction clutch at the shaft end, in this order: steel washer (D-flat, against the Ø4/Ø3 step) | brass hub flange of the arm | steel washer | disc spring DIN 2093 8×4.2×0.3 | washer | M2 screw into the shaft end.\n- Slip torque 0.06 N·m (1.2 N at 50 mm; about 69 N preload, μ 0.12, 2 faces, r_m 3.6), set with shims. The arm needs 0.004 N·m.\n- The arm outer cover is held on magnets.\n- Homing: a hidden lug in the hub hits a pin on the ring end at −50°. Torque limit 15 % (0.043 N·m at the arm, below the clutch), stall detected from load, offset stored. Done at power-up and after any unexpected load peak.\n- Firmware: torque limit ≤ 30 %, 65 °C, arm range −45..+135.\n\n7. OTHER TORSO CHANGES\n- T_bok_L/P: inner notch x ±39.0..41.2, |y−3| ≤ 2.0, z −33.5..−27.5 (socket-tube inner end plus seat flange at 6 o'clock). Exterior unchanged.\n- T_paluba: left lobe trimmed to x ≤ 31.0 except a lobe r 3.15 around the new F3a_2 hole at (29.5, 4.0).\n- Amplifier MAX98357A: off the left column. Preferred: integrate it on DPS_riadenie. Alternative: piggyback at x −9.7..9.7, y 25.8..30.3, z −71.9..−54.1 behind the carrier (door zone; box fit only).\n- Buck Pololu D36V28F5: off the right column, flat on the left floor under the pocket. Centre x 28–29.5, y −3..0, z ≈ −76, box 17.8×17.8×10.3, top ≤ −70.85.\n- Unchanged: T_stred, T_dvere, pan stage, lift module, neck and head.\n\n8. ASSEMBLY / SERVICE\n- Bench: bond the MR63 into the tongue; build the plug cartridge (2× MR74, arm shaft with the bonded gear at the measured mounting distance, e-clip).\n- In the torso, with the side cap off:\n  1. Insert the Ø3 shaft from below through B1.\n  2. Bond the pinion on a 0.5 shim in a jig.\n  3. Lift the shaft 4.5 mm.\n  4. Slide the servo (coupler on its spline) in along −X; the cable goes into the leg slot.\n  5. Lower the shaft into the coupler and tighten the grub screw from +X.\n  6. Fit T_bok along −X; its notch passes the shaft.\n  7. Insert the plug cartridge along −X (gear engages, dowels, 3× M2), then set the backlash with shims.\n  8. Fit the arm (6700, clutch stack, screw, cover).\n- Servo swap, about 10 min: arm cover, screw, arm off; plug out; cap off (+X); loosen the coupler; lift the shaft; slide the servo out along +X. The neck, head, T_stred, pan stage and lift module are not touched.\n\n9. VERIFIED CLEARANCES (judge, exact)\n- Moving parts L / R: pinion 1.32 / 1.66, coupler 1.71 / 2.06, B1 2.71 / 3.06, servo ≥ 1.91 / 1.35, boss 1.02 / 1.40, tongue 1.33 / 1.66, legs ≥ 2.2 / 1.7, web 4.9 / 1.3.\n- Static: servo–T_bok 1.76, tongue–T_bok 0.46, B1–T_bok 1.43, pinion 3.52, gear 5.35, servo–J1 cradle (R) 0.56, strut 0.70, web–deck 0.30.\n- Paths: T_stred lowering ≥ 0.55; cap removal ≥ 0.47 (shaft notched); servo slide-in 0.30.\n\n10. STRENGTH (hand)\n- Bevel Lewis at 0.06 N·m: 38 / 30 MPa (brass OK); normal running about 6 MPa.\n- Column under L5 (10 N at the 72 mm tip, arm at +135, Kt 1.3): C-channel 4.6–4.8 MPa; legs at z −48..−40 3.8 MPa with the rods (10.8 without).\n- Ring root 0.72 N·m: about 5.5 MPa. Plug screws about 53 N each.\n- FE is pending.",
+  "torso_parts_to_reprint": [
+   "T_spodok: new shoulder columns on both sides (solid boss with a 6 o'clock pinion slot, B1 tongue, M2 inserts and dowel holes at r 9.0, back and front legs, strut, web, floor pad, snap tab, cable slot, rod holes Ø3.05), F3a_2 insert moved to (29.5, 4.0), F14 bosses removed, buck pad on the left floor, cable saddles",
+   "T_paluba: left lobe trimmed to x ≤ 31.0 with a local lobe r 3.15 around the new F3a_2 hole at (29.5, 4.0)",
+   "T_bok_L: inner notch at the 6 o'clock end of the socket tube and seat flange (x 39.0..41.2, |y−3| ≤ 2.0, z −33.5..−27.5); exterior unchanged",
+   "T_bok_P: mirror of T_bok_L",
+   "NEW zatka_L (plug cartridge, black; replaces T_klb_L)",
+   "NEW zatka_P (plug cartridge, black; replaces T_klb_P)",
+   "(not torso, new anyway) arm inner shells / hubs L+R: Ø14 hole, 6700 seat, brass clutch flange, homing lug"
+  ],
+  "arm_gap": "Arm at dx −1.0 (1.0 mm toward the torso compared with T3/T4; inner skin on the axis x 49.65); plug face recessed 1.0 inside the existing r 14 socket, 0.5 seam.\n- Gap at rest: 3.70 mm (T4: 4.67), at the cap rim near (49.3, 1.4, −30.9).\n- Minimum over the swing −45..+135 (1° steps): 1.00 mm at +135°, at the socket rim (49.0, 5.9, −30.7).\n- At −45°: 3.33 (to the recessed plug face). ≥1.0 everywhere, so the full range is allowed.\n- Visible joint: recessed black plug disc Ø27 plus a black ring Ø13 spanning the 3.9 mm on-axis gap; 0.5 seam to the arm's Ø14 hole.\n- Alternatives (judge, armgap.py):\n  - dx −0.5: 4.19 / 1.45;\n  - dx −1.5: 3.22 / 0.56 (≥1.0 only to +122°);\n  - flush plug at dx −1.0: 2.80 / 0.47 (worse: the arm's convex face nearly touches a flush disc).\n- Each further mm toward the torso costs about 13° of upward range.",
+  "summary_sk": "Víťazom je koncept K3 s mojimi opravami. Servo SCS0009 stojí vnútri trupu pod ramenom a ruku otáča jediný pár malých kužeľových koliesok (16/24 zubov, mosadz, mazané, pomalé, a preto tiché). Ruka je pasívna biela škrupina bez elektroniky. Priamy pohon (servo priamo na osi ruky, bez koliesok) som premeral sám a nejde: na osi je od otáčajúceho sa serva zdvihu krku po povrch trupu len 12,4 mm (vpravo 12,7 mm), kým servo potrebuje asi 26 mm. Trčalo by teda 9–13 mm z trupu a o toľko by sa musela odsunúť aj ruka; ani bez celého modulu zdvihu by na osi nebolo viac ako 19,3 mm. Remeň ani čelné kolesá (K1, K2) tiež nejdú: servo ležiace rovnobežne s osou ruky sa podľa mojej nezávislej kontroly nezmestí v trupe nikde (najviac sa zmestí 19,5 mm namiesto 21,5 mm). Kľúčové čísla K3 som overil vlastnými výpočtami: kolieska, hriadele a servo majú od otáčajúceho sa krku a zdvihu všade aspoň 1,0 mm. Našiel som však aj chyby a opravil ich: servo s ušami sa nedalo zasunúť a predné ucho bolo len 0,29 mm od bočného krytu, preto servo bez uší sedí v uzavretej kapse nového stĺpa. Presunutá skrutka paluby by narážala do otáčajúceho sa držiaka serva zdvihu, takže ide na novú polohu (29,5; 4,0), a skrutky zátky dostali nové rozloženie. K3 navyše v pevnostnom odhade vynechal páku dĺžky ruky; nohy stĺpa preto dostanú oceľové tyčinky Ø3 (vychádza okolo 4 MPa namiesto 11 MPa), čo ešte treba potvrdiť výpočtom MKP. Znova sa tlačí spodok trupu (nové stĺpy s kapsou serva, ložisko, jazýček), orezaná paluba, oba bočné kryty (len malý zárez vnútri) a dve nové čierne zátky namiesto kĺbov; vonkajšok, hlava, krk, otáčanie hlavy aj zdvih ostávajú bez zmeny. Ruka ide o 1,0 mm bližšie k trupu: medzera v pokoji je 3,7 mm (doteraz 4,67 mm) a v celom rozsahu −45° až +135° ostáva aspoň 1,0 mm. Z kĺbu vidno len zapustený čierny kotúč v pôvodnom otvore a tenký čierny krúžok Ø13. Pred zatlačením rukou chráni trecia spojka v ruke (0,06 N·m) a po prekĺznutí si servo polohu znova nájde jemným dorazom; kábel serva ostáva pevne v trupe. Otvorené ostáva: zmerať skutočné servo (výška tela, strana kábla), zohnať pár koliesok 16/24 m0,5 (náhrada je 16/16), pevnostný výpočet MKP stĺpa, presun zosilňovača a meniča a celý model v CAD so všetkými kontrolami.",
+  "open_items": [
+   "Measure a real SCS0009: case height (21.5 vs 25.25 incl. shaft; both fit), output offset 5.9, spline length, which end the cable exits (decides which leg gets the cable slot), real case width after cutting the ears off.",
+   "Source the m0.5 16T/24T straight bevel pair in brass with the pinion hub turnable off. Fallback: 16/16 miter (1:1, Ø3 arm shaft, clutch ≤ 0.04 N·m). Confirm the face width and back-cone geometry against the modelled envelope (pinion r ≤ 4.42, gear r ≤ 6.28).",
+   "FE of the new shoulder column (K12 rows L5/L6, both sides) including the Ø3 steel rods, the tongue and the boss slot; hand calculation only so far. The side cap's possible load share is not counted.",
+   "Clutch: disc spring force (about 69 N) and friction μ for 0.06 N·m; set with shims, check with a spring scale (1.0–1.4 N at 50 mm).",
+   "Electronics: integrate the MAX98357A on DPS_riadenie (preferred) or the behind-carrier piggyback (box fit only; check ZIF/USB access through the door); buck converter heat under the left servo pocket.",
+   "Build the exact CAD of the plug cartridge, pocket column, T_bok notch and deck trim, then re-run the full T4 checks K1–K13 (incl. K7 assembly rows for the new servo/shaft procedure and K10 cup test) and the arm-hub geometry inside the pebble.",
+   "Homing by hard stop vs. optional magnet + hall sensor in the static plug (no moving wires); firmware handling of clutch slip.",
+   "Cosmetic choice for the user: plug in black (as the approved T4 joint) or a one-piece white plug so only the dark gap and seam remain visible; and dx −1.0 (full +135° range) vs dx −1.5 (3.2 mm gap, +122° max)."
+  ]
+ },
+ "images": {
+  "images": [
+   {
+    "path": "/home/user/Robot/obrazky/postupne/07_ruky/obrazky/v2_spredu.png",
+    "title_sk": "NOVA mini · ruky v2: pohľad spredu",
+    "shows": "Front orthographic Cycles render of the whole robot: T4 torso exterior, head and neck B at pan 0, both passive arms at rest at dx −1.0, the new black plugs with the Ø13 ring instead of T_klb, and the T3 base labelled 'podstavec 146 mm – zatiaľ len tvar'. Dimensions: overall width 155 mm (approved shape 157 mm). A 2.7× zoomed detail panel of the left shoulder (its own render) shows that only the black Ø13 ring is visible, with the front-view gap dimension of 2.7 mm. Slovak text gives the three gap numbers: 2.7 mm seen from the front (approved 3.7), 3.7 mm true minimum at rest (T4: 4.7), and at least 1.0 mm over −45…+135°.",
+    "looked_at": true,
+    "issues": "Fixed during review: the canvas was cut off at the bottom; the zoom factor is now computed (2.7×) instead of hard-coded; one Slovak sentence was reworded. Note: the 2.7 mm is the silhouette gap measured in the projection (nums.py), not a 3D distance. The text states both numbers."
+   },
+   {
+    "path": "/home/user/Robot/obrazky/postupne/07_ruky/obrazky/v2_rez_ramenom.png",
+    "title_sk": "NOVA mini · ruky v2: rez ľavým ramenom",
+    "shows": "Orthographic section in the plane y = 3, through both the shoulder axis and the servo axis, viewed from the front. Cap colours by material. It shows T_bok_L, the new column (boss with the pinion window, tongue with MR63, legs, web, pad with PORON), the standing SCS0009, the coupler, the Ø3 vertical shaft, the 16T pinion and 24T gear (real tooth meshes), the Ø4 arm shaft, 2× MR74 in the plug, the plug recessed 1 mm with the Ø13 ring, the 6700 on the ring seat, the arm hub, the clutch stack, the arm shells and seam, and the buck converter on the floor. An orange tinted zone with a dashed boundary marks the swept space of the neck and lift servo (PAN_ENV2), with a '≥ 1,0' clearance mark. There are 23 Slovak leader labels. The footer explains why direct drive is impossible (12.5 mm available vs ~25 mm needed, so the servo would protrude 9 mm), the 1.5 ratio (servo 300° gives the arm 200°, resolution 0.2°), and the clutch at 0.06 N·m.",
+    "looked_at": true,
+    "issues": "Fixed: crossing leader lines on the right side (some anchors moved, gear label moved to the left column); added the tint for the moving zone. The remaining leader lines are clean. The arm hub is drawn as a simple white boss trimmed by the pebble; this is a concept shape."
+   },
+   {
+    "path": "/home/user/Robot/obrazky/postupne/07_ruky/obrazky/v2_vnutro_trupu.png",
+    "title_sk": "NOVA mini · ruky v2: kde je servo v trupe",
+    "shows": "Perspective cut-away from the front-left, above. Not shown: T_bok_L, the front of T_stred (only y > 8 is kept), the head and neck, and the left arm. Shown: the modified T_spodok with the new left column (strut, front leg, cable slot), the standing left servo with coupler and vertical shaft, the plug with the ring and shaft stub, the buck converter flat on the floor, the trimmed deck, the pan stage at 0° (P_sachta, gear, pan servo), the right arm behind, and a translucent orange copy of the lift servo, holder and arm at the pan angle closest to the column (−61°, x 33.38) with the label 'od stĺpa 1,0 mm'. Leader anchors are ray-cast visible points.",
+    "looked_at": true,
+    "issues": "Fixed: the first version had several wrong anchors (labels pointing at the wrong parts). Anchors are now computed by ray casting from the Blender camera. Labels for J1 and DPS were dropped because those parts are not visible from this viewpoint. The white shape at the left is the right arm and is labelled as such. The ghost is partly hidden behind the column, which is why its leader crosses P_sachta."
+   },
+   {
+    "path": "/home/user/Robot/obrazky/postupne/07_ruky/obrazky/v2_rameno_rozlozene.png",
+    "title_sk": "NOVA mini · ruky v2: rozložené ľavé rameno",
+    "shows": "Perspective exploded view of the left shoulder with numbered badges in assembly order. 1 column with MR63, 2 pinion in place, 3 vertical shaft, 4 coupler (horn + brass sleeve + grub screw), 5 servo with cable. 6 arm shaft with bonded 24T gear and shim, drawn below the axis line. Along the axis: 7 A1 MR74, 8 plug with ring and 3× M2, 9 A2, 10 e-clip, 11 6700, 12 D-flat washer, 13 inner arm shell with hub and brass flange, 14–17 washer / disc spring / washer / M2 screw (the clutch), 18 magnets, 19 outer cover. A two-column legend and a short Slovak assembly sequence are included.",
+    "looked_at": true,
+    "issues": "Fixed: the anchor for badge 13 was in empty space; it is now ray-cast. Small M2 screws and inserts are not all shown, and the sheet says so."
+   },
+   {
+    "path": "/home/user/Robot/obrazky/postupne/07_ruky/obrazky/v2_hero.png",
+    "title_sk": "NOVA mini · ruky v2",
+    "shows": "Perspective hero (Cycles, 64 samples) with a floor shadow. Left arm raised +90° (forward), head turned 20° toward it, base slab included. One note points at the visible part of the left joint above the raised arm root: 'kĺb: čierny krúžok Ø13 a zapustená zátka'.",
+    "looked_at": true,
+    "issues": "Fixed: the note box first overlapped the head and now sits clear of it. The right-shoulder ring cannot be seen from this camera, so the right shoulder is not labelled."
+   },
+   {
+    "path": "/home/user/Robot/obrazky/postupne/07_ruky/obrazky/porovnanie_konceptov.png",
+    "title_sk": "NOVA mini · ruky v2: porovnanie konceptov (servá v trupe)",
+    "shows": "One sheet with four cards of 2D schematics drawn to scale in Pillow from the real data (t4_common x_surface / prof, PAN_ENV2, concept positions). K1: side section at x = 41 with the closest corner servo pose (k1_opt: shaft at y −21.16, z −58.23, phi 279°) and the 3-gear train (idler Ø33), marked 'NEDÁ SA', score 1.5/10. K2: front schematic with the servo lying along X overlapping the J1 servo and its connector zone (red hatch) and the belt, 'NEDÁ SA', 2/10. The user's question as an extra card: servo directly on the arm axis, protruding 9.1 mm, arm 8–12 mm farther out, 'NEDÁ SA (bez odsunutia ruky)'. K3: front section with the standing servo, the bevel pair and the arm 1 mm closer, green border, 'VYBRANÉ', 8/10. Each card has a short Slovak explanation; the footer states why K3 wins and which parts are reprinted.",
+    "looked_at": true,
+    "issues": "Fixed: overlapping or clipped view labels and the dimension text in the direct-drive card. The direct-drive card is an addition beyond K1/K2/K3, because the user asked about direct drive. K1 and K2 are schematic, not exact sections (the K2 collision is in X, so it is drawn in a front view)."
+   }
+  ],
+  "scene_script": "/tmp/claude-0/gapwf/fin/R1/img_v2/work/v2_scene.py",
+  "notes": "All six concept images are made, checked with Read, and copied to /home/user/Robot/obrazky/postupne/07_ruky/obrazky/ (v2_spredu, v2_rez_ramenom, v2_vnutro_trupu, v2_rameno_rozlozene, v2_hero, porovnanie_konceptov). Copies are also in /tmp/claude-0/gapwf/fin/R1/img_v2/. Nothing was committed. T3, T4 and B were only read.\n\nPipeline, all under /tmp/claude-0/gapwf/fin/R1/img_v2/work:\n- g2.py: shared numbers of the judge-final design, plus a numpy straight-bevel tooth mesher whose envelopes match the judge's numbers: pinion x 34.58..43.42, z −23.36..−20.82; gear x 41.39..44.04, r ≤ 6.25.\n- parts_v2.py (build123d): concept solids of the left side in assembly position, all valid, written to stl/. The column (boss with the 6 o'clock window, tongue, legs, strut, web, pad, snap tab, rod / insert / dowel holes, cable slot) and the plug (cut by the surface 1.0 mm under x_surface) are built here, together with the drive and clutch parts and the torso cutters.\n- v2_scene.py (Blender, shots: prep, front, detail, rez, vnutro, rozlozene, hero). The prep shot caches the boolean-modified T4 meshes in stl_mod/: T_spodok with the old columns and F14 removed plus a buck recess, T_paluba trimmed, and the T_bok_L/P notch. Captions are placed on points that are actually visible to the camera (ray-cast).\n- render_final.sh: final render settings.\n- v2_sheets.py and v2_koncepty.py: the Pillow sheets.\n- nums.py → nums.json: width and gap numbers.\n\nNew numbers measured here:\n- Overall width at dx −1 is 155.3 mm (approved 157.3).\n- Front-view silhouette gap is 2.75 mm at z −15 (approved 3.75). It is not the same as the 3D minimum of 3.70; the front sheet states both.\n- The lift servo comes closest to the left column at pan −61°, reaching x 33.38 (the T4 STL vertices). The judge text said −57°.\n\nInconsistencies in the final design found while modelling, worth passing on:\n1. The front-leg rod Ø3 at (38.0, −17.3), z −78..−47, crosses the specified cable slot (x 37..41.5, y −17.6..−14.6, z −66.8..−63.2), so the cable path hits the rod. Either the slot or the rod end needs to move.\n2. The buck box (x 19.85..37.65, y −10.4..7.4, z −81.15..−70.85) intersects the kept T4 column foot / floor material at about x 34..37.65, z −81..−72. The \"buck pad\" in T_spodok must include a recess there; I cut one for the images.\n\nIllustration simplifications:\n- Strut polygon, snap tab, hub/lug shapes and the cable route are my interpretation of the given extents.\n- The amplifier is shown as integrated on the board (module omitted).\n- The right column is the mirrored left one plus a thickened cradle wall. The mirrored left-only web and F3a boss end up inside the J1 cradle; they are not visible in any image.\n- Arm shells are 1.6 mm thick and the magnets are reused from v1."
+ }
+}

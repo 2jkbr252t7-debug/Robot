@@ -1,0 +1,38 @@
+{
+ "outer_surface_x": 46.756,
+ "inner_wall_x": 44.52,
+ "sweep_limit_x": 34.4,
+ "free_length": 10.12,
+ "servos": {
+  "SCS0009 (case 21.5 opt.)": {
+   "case_depth": 21.5,
+   "output_face_x": 55.9,
+   "sticks_out_of_surface": 9.14,
+   "spline_top_x": 59.65
+  },
+  "SCS0009 (case 25.25)": {
+   "case_depth": 25.25,
+   "output_face_x": 59.65,
+   "sticks_out_of_surface": 12.89,
+   "spline_top_x": 63.4
+  },
+  "MG90S": {
+   "case_depth": 22.7,
+   "output_face_x": 57.1,
+   "sticks_out_of_surface": 10.34,
+   "spline_top_x": 62.8
+  },
+  "STS3032": {
+   "case_depth": 23.0,
+   "output_face_x": 57.4,
+   "sticks_out_of_surface": 10.64,
+   "spline_top_x": 64.4
+  },
+  "KST X06": {
+   "case_depth": 16.6,
+   "output_face_x": 51.0,
+   "sticks_out_of_surface": 4.24,
+   "spline_top_x": 54.0
+  }
+ }
+}

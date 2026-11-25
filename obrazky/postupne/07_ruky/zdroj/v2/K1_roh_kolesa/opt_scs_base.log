@@ -1,0 +1,14 @@
+coarse evaluations 100688 194s
+optimised 160 236s
+{
+ "best": {
+  "margin": -1.62,
+  "x_face": 48.83,
+  "y": -7.42,
+  "z": -61.45,
+  "phi_deg": 0.0,
+  "out_dir": "+X",
+  "d_axis": 45.65
+ },
+ "feasible_closest": null
+}

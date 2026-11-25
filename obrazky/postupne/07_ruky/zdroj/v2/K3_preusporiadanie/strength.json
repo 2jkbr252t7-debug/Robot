@@ -1,0 +1,126 @@
+{
+ "gear": {
+  "m": 0.5,
+  "z": [
+   16,
+   24
+  ],
+  "ratio": 1.5,
+  "face": 2.4,
+  "Re": 7.211,
+  "mean_module": 0.417,
+  "rm": [
+   3.334,
+   5.002
+  ],
+  "z_virtual": [
+   19.2,
+   43.3
+  ],
+  "Y": [
+   0.317,
+   0.395
+  ]
+ },
+ "lewis": [
+  {
+   "T_arm_Nm": 0.01,
+   "Ft_N": 2.0,
+   "sigma_pinion_MPa": 6.3,
+   "sigma_gear_MPa": 5.1
+  },
+  {
+   "T_arm_Nm": 0.04,
+   "Ft_N": 8.0,
+   "sigma_pinion_MPa": 25.2,
+   "sigma_gear_MPa": 20.2
+  },
+  {
+   "T_arm_Nm": 0.06,
+   "Ft_N": 12.0,
+   "sigma_pinion_MPa": 37.8,
+   "sigma_gear_MPa": 30.3
+  },
+  {
+   "T_arm_Nm": 0.1,
+   "Ft_N": 20.0,
+   "sigma_pinion_MPa": 63.1,
+   "sigma_gear_MPa": 50.6
+  },
+  {
+   "T_arm_Nm": 0.15,
+   "Ft_N": 30.0,
+   "sigma_pinion_MPa": 94.6,
+   "sigma_gear_MPa": 75.9
+  }
+ ],
+ "allowable_MPa": {
+  "POM_static_short": 40,
+  "POM_fatigue": 20,
+  "brass_C3604_static": 100,
+  "steel_pinion": 200
+ },
+ "mesh_forces_at_slip_N": {
+  "Ft": 12.0,
+  "pinion_radial": 3.6,
+  "pinion_axial_down": 2.4,
+  "gear_radial": 2.4,
+  "gear_axial_outboard": 3.6
+ },
+ "vertical_shaft_d3": {
+  "torque_Nmm": 40.0,
+  "tau_MPa": 7.5,
+  "bending_Nmm": 51.9,
+  "sigma_MPa": 19.6
+ },
+ "arm_shaft_d4": {
+  "torque_Nmm": 60.0,
+  "tau_MPa": 4.8,
+  "bending_Nmm": 61.0,
+  "sigma_MPa": 9.7
+ },
+ "bearings_at_slip_N": {
+  "B1_radial": 16.3,
+  "B1_axial": 2.4,
+  "A1_radial": 19.6,
+  "A1_axial": 3.6,
+  "note": "MR63ZZ C ~ 0.3 kN, C0 ~ 0.1 kN; MR74ZZ C ~ 0.4 kN, C0 ~ 0.15 kN (catalogue order of magnitude)"
+ },
+ "ring_resin": {
+  "side_push_N": 10.0,
+  "M_root_Nmm": 102.0,
+  "sigma_root_MPa": 0.52,
+  "sigma_seat_neck_MPa": 0.43,
+  "note": "Elegoo Tough ~ 30-40 MPa tensile; creep limit ~ 5-8 MPa"
+ },
+ "arm_tip_push_10N_along_X": {
+  "moment_Nmm": 600.0,
+  "couple_6700_to_A1_mm": 10.200000000000003,
+  "bearing_force_N": 58.8,
+  "note": "before that the arm touches the torso (gap 1-4 mm) and the load goes into the shell"
+ },
+ "column_legs": {
+  "load_N": 10,
+  "lever_mm": 65.3,
+  "sigma_bend_Y_MPa": 7.2,
+  "sigma_bend_X_MPa": 5.7,
+  "note": "cantilever per leg, half the load each, no help from the shell or the servo"
+ },
+ "clutch": {
+  "T_slip_target_Nm": 0.06,
+  "faces": 2,
+  "mu_greased_steel_brass": 0.12,
+  "r_mean_mm": 3.6,
+  "preload_N": 69.0,
+  "check": "spring scale 1.0-1.4 N at 50 mm from the axis"
+ },
+ "servo": {
+  "stall_5V_Nm": 0.19,
+  "at_arm_stall_Nm": 0.285,
+  "arm_need_Nm": 0.004,
+  "homing_torque_limit_pct": 15,
+  "homing_at_arm_Nm": 0.043,
+  "arm_range_deg": 200.0,
+  "resolution_deg": 0.195
+ }
+}

@@ -1,0 +1,241 @@
+{
+ "side": "L",
+ "sweep": {
+  "ROT_V:coupler": {
+   "min": 1.74,
+   "pan": -57.3,
+   "at": [
+    [
+     35.03,
+     2.55,
+     -38.25
+    ],
+    "servo_zdvih"
+   ]
+  },
+  "ROT_V:shaft_v": {
+   "min": ">4",
+   "pan": null,
+   "at": null
+  },
+  "ROT_V:pinion": {
+   "min": 1.32,
+   "pan": -56.8,
+   "at": [
+    [
+     34.59,
+     2.7,
+     -23.35
+    ],
+    "servo_zdvih"
+   ]
+  },
+  "ROT_A:gear": {
+   "min": null,
+   "note": "all points r >= 38 (>= 4.6 from any moving part)"
+  },
+  "ROT_A:shaft_a": {
+   "min": null,
+   "note": "all points r >= 38 (>= 4.6 from any moving part)"
+  },
+  "BRG:B1": {
+   "min": 2.74,
+   "pan": -57.3,
+   "at": [
+    [
+     36.02,
+     2.7,
+     -25.98
+    ],
+    "servo_zdvih"
+   ]
+  },
+  "BRG:A1": {
+   "min": null,
+   "note": "all points r >= 38 (>= 4.6 from any moving part)"
+  },
+  "BRG:A2": {
+   "min": null,
+   "note": "all points r >= 38 (>= 4.6 from any moving part)"
+  },
+  "SERVO": {
+   "min": 1.05,
+   "pan": -47.3,
+   "at": [
+    [
+     32.95,
+     -0.1,
+     -50.5
+    ],
+    "ffc_par"
+   ]
+  },
+  "STAT:boss": {
+   "min": 1.02,
+   "pan": -61.3,
+   "at": [
+    [
+     34.4,
+     0.03,
+     -27.51
+    ],
+    "servo_zdvih"
+   ]
+  },
+  "STAT:tongue": {
+   "min": 1.33,
+   "pan": -56.8,
+   "at": [
+    [
+     34.61,
+     2.7,
+     -26.85
+    ],
+    "servo_zdvih"
+   ]
+  }
+ },
+ "static": {
+  "ROT_V:coupler": {
+   "min": 4.0,
+   "at": [
+    42.62,
+    3.0,
+    -37.0
+   ],
+   "nearest": {
+    "T_bok_L": 4.0,
+    "T_paluba": 4.59
+   }
+  },
+  "ROT_V:shaft_v": {
+   "min": 0.0,
+   "at": [
+    40.0,
+    3.0,
+    -31.0
+   ],
+   "nearest": {
+    "T_bok_L": 0.0
+   }
+  },
+  "ROT_V:pinion": {
+   "min": 3.52,
+   "at": [
+    39.0,
+    -1.42,
+    -23.35
+   ],
+   "nearest": {
+    "T_bok_L": 3.52
+   }
+  },
+  "ROT_A:gear": {
+   "min": 5.35,
+   "at": [
+    42.58,
+    8.1,
+    -13.33
+   ],
+   "nearest": {
+    "T_bok_L": 5.35
+   }
+  },
+  "ROT_A:shaft_a": {
+   "min": ">6",
+   "at": [
+    41.39,
+    3.0,
+    -17.0
+   ],
+   "nearest": {}
+  },
+  "BRG:B1": {
+   "min": 1.43,
+   "at": [
+    39.15,
+    6.0,
+    -26.35
+   ],
+   "nearest": {
+    "T_bok_L": 1.43
+   }
+  },
+  "BRG:A1": {
+   "min": ">6",
+   "at": [
+    44.55,
+    5.0,
+    -17.0
+   ],
+   "nearest": {}
+  },
+  "BRG:A2": {
+   "min": ">6",
+   "at": [
+    48.55,
+    5.0,
+    -17.0
+   ],
+   "nearest": {}
+  },
+  "SERVO": {
+   "min": 0.53,
+   "at": [
+    44.95,
+    -18.55,
+    -49.3
+   ],
+   "nearest": {
+    "T_bok_L": 0.53,
+    "T_spodok": 1.88,
+    "T_paluba": 1.96
+   }
+  },
+  "STAT:boss": {
+   "min": 0.0,
+   "at": [
+    39.1,
+    1.43,
+    -28.9
+   ],
+   "nearest": {
+    "T_bok_L": 0.0
+   }
+  },
+  "STAT:tongue": {
+   "min": 0.47,
+   "at": [
+    39.3,
+    7.39,
+    -26.85
+   ],
+   "nearest": {
+    "T_bok_L": 0.47
+   }
+  }
+ },
+ "mutual": {
+  "ROT_V:shaft_v | ROT_A:gear": 0.89,
+  "ROT_V:shaft_v | ROT_A:shaft_a": 2.03,
+  "ROT_V:shaft_v | BRG:A1": 4.06,
+  "ROT_V:shaft_v | SERVO": 3.0,
+  "ROT_V:shaft_v | STAT:boss": 0.01,
+  "ROT_V:shaft_v | STAT:tongue": 1.5,
+  "ROT_V:pinion | ROT_A:shaft_a": 1.82,
+  "ROT_V:pinion | BRG:B1": 0.5,
+  "ROT_V:pinion | BRG:A1": 2.26,
+  "ROT_V:pinion | STAT:boss": 0.59,
+  "ROT_V:pinion | STAT:tongue": 0.7,
+  "ROT_A:gear | BRG:B1": 0.82,
+  "ROT_A:gear | BRG:A1": 0.53,
+  "ROT_A:gear | BRG:A2": 4.53,
+  "ROT_A:gear | STAT:boss": 4.64,
+  "ROT_A:gear | STAT:tongue": 0.78,
+  "ROT_A:shaft_a | BRG:B1": 4.85,
+  "BRG:B1 | BRG:A1": 4.21,
+  "BRG:B1 | STAT:boss": 0.02,
+  "BRG:A1 | BRG:A2": 1.5,
+  "BRG:A1 | STAT:tongue": 3.73
+ }
+}

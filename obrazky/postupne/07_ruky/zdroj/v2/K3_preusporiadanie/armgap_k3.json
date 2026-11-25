@@ -1,0 +1,58 @@
+{
+ "delta 0.0 dx 0.0": {
+  "gap_rest": 3.78,
+  "min": 1.45,
+  "at": 135.0,
+  "reach_plus_with_1p0": 135.0,
+  "back_m45": 3.33
+ },
+ "delta 0.0 dx -0.5": {
+  "gap_rest": 3.29,
+  "min": 0.96,
+  "at": 135.0,
+  "reach_plus_with_1p0": 133.0,
+  "back_m45": 2.84
+ },
+ "delta 0.0 dx -1.0": {
+  "gap_rest": 2.8,
+  "min": 0.47,
+  "at": 135.0,
+  "reach_plus_with_1p0": 115.0,
+  "back_m45": 2.35
+ },
+ "delta 0.0 dx -1.5": {
+  "gap_rest": 2.31,
+  "min": -0.05,
+  "at": 135.0,
+  "reach_plus_with_1p0": 100.0,
+  "back_m45": 1.86
+ },
+ "delta 1.0 dx 0.0": {
+  "gap_rest": 4.63,
+  "min": 1.78,
+  "at": 135.0,
+  "reach_plus_with_1p0": 135.0,
+  "back_m45": 4.32
+ },
+ "delta 1.0 dx -0.5": {
+  "gap_rest": 4.14,
+  "min": 1.32,
+  "at": 135.0,
+  "reach_plus_with_1p0": 135.0,
+  "back_m45": 3.82
+ },
+ "delta 1.0 dx -1.0": {
+  "gap_rest": 3.66,
+  "min": 0.86,
+  "at": 135.0,
+  "reach_plus_with_1p0": 130.0,
+  "back_m45": 3.33
+ },
+ "delta 1.0 dx -1.5": {
+  "gap_rest": 3.18,
+  "min": 0.41,
+  "at": 135.0,
+  "reach_plus_with_1p0": 115.0,
+  "back_m45": 2.84
+ }
+}
