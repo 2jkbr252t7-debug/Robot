@@ -1,0 +1,17 @@
+kt 0.50 M1:n-5.00  M2:n-4.21  M2b:n-3.94  M3:n-2.96  M4:n-2.77 32s
+kt 0.55 M1:n-5.00  M2:n-3.16  M2b:n-2.80  M3:n-1.81  M4:n-1.75 72s
+kt 0.60 M1:n-5.00  M2:n-2.13  M2b:n-1.65  M3:n-0.66  M4:n-0.76 110s
+kt 0.65 M1:n-5.00  M2:n-1.11  M2b:n-0.49  M3:Y+0.49  M4:Y+0.17 144s
+kt 0.70 M1:n-4.70  M2:n-0.23  M2b:Y+0.66  M3:Y+1.64  M4:Y+0.66 180s
+kt 0.75 M1:n-4.61  M2:Y+0.33  M2b:Y+1.65  M3:Y+2.00  M4:n+0.80 222s
+kt 0.80 M1:n-3.50  M2:Y+0.66  M2b:Y+1.99  M3:Y+2.00  M4:n+0.82 274s
+kt 0.85 M1:n-2.44  M2:Y+0.80  M2b:Y+2.00  M3:Y+2.00  M4:n+0.88 322s
+kt 0.90 M1:n-1.51  M2:Y+0.84  M2b:Y+2.00  M3:Y+2.00  M4:n+0.93 369s
+kt 0.95 M1:n-0.63  M2:Y+0.85  M2b:Y+2.00  M3:Y+2.00  M4:n+0.98 414s
+kt 1.00 M1:Y+0.16  M2:Y+0.95  M2b:Y+2.00  M3:Y+2.00  M4:n+1.10 459s
+M1 min kt 0.9899 thickness 22.79 governing {'margin': 0.008, 'part': 'ARM_naboj', 'at': {'x': 67.6, 'r': 12.7, 'az': 157.9, 'local': [7.04, -12.0, -14.44]}}
+M2 min kt 0.7188 thickness 16.55 governing {'margin': 0.009, 'part': 'DRV_unasac', 'at': {'x': 60.35, 'r': 14.25, 'az': 158.3, 'local': [3.15, -13.5, -12.53]}}
+M2b min kt 0.6719 thickness 15.47 governing {'margin': 0.009, 'part': 'DRV_unasac', 'at': {'x': 62.9, 'r': 4.7, 'az': 87.6, 'local': [6.21, -0.05, -12.94]}}
+M3 min kt 0.6289 thickness 14.48 governing {'margin': 0.002, 'part': 'ARM_naboj', 'at': {'x': 62.2, 'r': 4.7, 'az': 87.6, 'local': [6.02, -0.05, -12.79]}}
+M4 min kt 0.6406 thickness 14.75 governing {'margin': 0.004, 'part': 'DRV_unasac', 'at': {'x': 58.75, 'r': 14.25, 'az': 86.8, 'local': [4.5, 0.05, -2.73]}}
+done 1502s

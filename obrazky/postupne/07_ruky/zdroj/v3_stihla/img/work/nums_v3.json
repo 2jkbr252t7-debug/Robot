@@ -1,0 +1,202 @@
+{
+ "0": {
+  "name": "s\u00fa\u010dasn\u00e1 ruka (T3)",
+  "thickness_max": 23.0214,
+  "thickness_max_u": 0.208,
+  "thick_joint": 23.0144,
+  "inner_joint": 11.5072,
+  "outer_joint": 11.5072,
+  "width_max": 33.5573,
+  "width_max_u": 0.31,
+  "robot_width": 155.34,
+  "gap_rest": 3.702,
+  "gap_min": 1.001,
+  "gap_140": 0.862,
+  "front_gap_axis": 2.78,
+  "outermost_x": 77.67,
+  "innermost_x": 48.498,
+  "front_band": {
+   "z": -15.649,
+   "x_in": 49.372,
+   "x_seam": 61.306,
+   "x_out": 72.851,
+   "cover": 11.545,
+   "visible": 23.479
+  },
+  "outermost_z": -56.359662806844256,
+  "spot": {
+   "opt": "M1",
+   "part": "ARM_naboj",
+   "side": "out",
+   "wall_json": 1.361,
+   "req": 1.2,
+   "wall_own": 1.36,
+   "az": 15.849999999999962,
+   "p": [
+    67.6,
+    15.217,
+    -13.531
+   ],
+   "skin": [
+    68.617,
+    16.086,
+    -13.282
+   ],
+   "fits": true,
+   "governing": {
+    "margin": 0.161,
+    "where": "ARM_naboj wall_out"
+   }
+  }
+ },
+ "A": {
+  "name": "A \u2013 mierne \u0161t\u00edhlej\u0161ia",
+  "thickness_max": 18.6473,
+  "thickness_max_u": 0.208,
+  "thick_joint": 18.6417,
+  "inner_joint": 11.5072,
+  "outer_joint": 7.1345,
+  "width_max": 31.8794,
+  "width_max_u": 0.31,
+  "robot_width": 150.21,
+  "gap_rest": 3.702,
+  "gap_min": 1.11,
+  "gap_140": 0.955,
+  "front_gap_axis": 2.78,
+  "outermost_x": 75.106,
+  "innermost_x": 48.498,
+  "front_band": {
+   "z": -15.649,
+   "x_in": 49.372,
+   "x_seam": 61.296,
+   "x_out": 68.421,
+   "cover": 7.126,
+   "visible": 19.049
+  },
+  "outermost_z": -63.400358819477404,
+  "spot": {
+   "opt": "M2b",
+   "part": "ARM_podlozka_M12",
+   "side": "in",
+   "wall_json": 1.962,
+   "req": 1.2,
+   "wall_own": 1.962,
+   "az": 186.75,
+   "p": [
+    55.9,
+    -8.917,
+    -18.41
+   ],
+   "skin": [
+    54.555,
+    -10.335,
+    -18.584
+   ],
+   "fits": true,
+   "governing": {
+    "margin": -0.0,
+    "where": "pair PLG_kruzok | ARM_rebro"
+   }
+  }
+ },
+ "B": {
+  "name": "B \u2013 \u0161t\u00edhla",
+  "thickness_max": 15.5394,
+  "thickness_max_u": 0.208,
+  "thick_joint": 15.5348,
+  "inner_joint": 9.2058,
+  "outer_joint": 6.329,
+  "width_max": 30.2016,
+  "width_max_u": 0.31,
+  "robot_width": 144.42,
+  "gap_rest": 3.703,
+  "gap_min": 1.125,
+  "gap_140": 0.97,
+  "front_gap_axis": 2.78,
+  "outermost_x": 72.211,
+  "innermost_x": 48.498,
+  "front_band": {
+   "z": -15.649,
+   "x_in": 49.372,
+   "x_seam": 58.934,
+   "x_out": 65.257,
+   "cover": 6.322,
+   "visible": 15.884
+  },
+  "outermost_z": -63.79203038084909,
+  "spot": {
+   "opt": "M2b",
+   "part": "DRV_unasac",
+   "side": "out",
+   "wall_json": 1.585,
+   "req": 1.5,
+   "wall_own": 1.585,
+   "az": 86.99999999999946,
+   "p": [
+    62.9,
+    3.246,
+    -12.306
+   ],
+   "skin": [
+    64.455,
+    3.262,
+    -11.997
+   ],
+   "fits": true,
+   "governing": {
+    "margin": -0.0,
+    "where": "pair PLG_kruzok | ARM_rebro"
+   }
+  }
+ },
+ "C": {
+  "name": "C \u2013 naj\u0161t\u00edhlej\u0161ia",
+  "thickness_max": 12.5466,
+  "thickness_max_u": 0.208,
+  "thick_joint": 12.5429,
+  "inner_joint": 7.2496,
+  "outer_joint": 5.2933,
+  "width_max": 28.5237,
+  "width_max_u": 0.31,
+  "robot_width": 138.1,
+  "gap_rest": 3.702,
+  "gap_min": 1.039,
+  "gap_140": 0.895,
+  "front_gap_axis": 2.78,
+  "outermost_x": 69.05,
+  "innermost_x": 48.498,
+  "front_band": {
+   "z": -15.649,
+   "x_in": 49.372,
+   "x_seam": 56.925,
+   "x_out": 62.202,
+   "cover": 5.277,
+   "visible": 12.83
+  },
+  "outermost_z": -63.30040352359941,
+  "spot": {
+   "opt": "M2b",
+   "part": "DRV_unasac",
+   "side": "out",
+   "wall_json": -1.402,
+   "req": 1.5,
+   "wall_own": -1.402,
+   "az": 87.19999999999945,
+   "p": [
+    62.9,
+    3.23,
+    -12.306
+   ],
+   "skin": [
+    61.533,
+    3.2,
+    -12.616
+   ],
+   "fits": false,
+   "governing": {
+    "margin": -2.902,
+    "where": "DRV_unasac wall_out"
+   }
+  }
+ }
+}

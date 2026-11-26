@@ -1,0 +1,738 @@
+{
+ "magnets": {
+  "calibration_catalogue_over_ideal": 0.434,
+  "skin": 0.25,
+  "KW": [
+   0.6,
+   0.85
+  ],
+  "mu": [
+   0.25,
+   0.4
+  ],
+  "per_type": {
+   "5x2 N38": {
+    "ideal_contact_N": 11.3,
+    "est_catalogue_pull_N": 4.9,
+    "through_skin_N": [
+     0.929,
+     1.316
+    ],
+    "spacer_factor": {
+     "0.2": 0.717,
+     "0.4": 0.534
+    }
+   },
+   "5x1 N38": {
+    "ideal_contact_N": 8.71,
+    "est_catalogue_pull_N": 3.78,
+    "through_skin_N": [
+     0.455,
+     0.644
+    ],
+    "spacer_factor": {
+     "0.2": 0.678,
+     "0.4": 0.486
+    }
+   },
+   "5x1 N35": {
+    "ideal_contact_N": 8.15,
+    "est_catalogue_pull_N": 3.53,
+    "through_skin_N": [
+     0.426,
+     0.603
+    ],
+    "spacer_factor": {
+     "0.2": 0.678,
+     "0.4": 0.486
+    }
+   },
+   "6x1 N38": {
+    "ideal_contact_N": 17.56,
+    "est_catalogue_pull_N": 7.62,
+    "through_skin_N": [
+     0.577,
+     0.817
+    ],
+    "spacer_factor": {
+     "0.2": 0.696,
+     "0.4": 0.513
+    }
+   },
+   "4x1 N38": {
+    "ideal_contact_N": 4.16,
+    "est_catalogue_pull_N": 1.81,
+    "through_skin_N": [
+     0.332,
+     0.471
+    ],
+    "spacer_factor": {
+     "0.2": 0.65,
+     "0.4": 0.447
+    }
+   }
+  }
+ },
+ "clutch": {
+  "M1 (B1+)": {
+   "magnet": "5x2 N38",
+   "r_mm": 7.7,
+   "pockets": 8,
+   "balanced_counts": [
+    2,
+    4,
+    6,
+    8
+   ],
+   "per_magnet_Nm": {
+    "low (F lo, mu 0.25)": 0.00179,
+    "mid": 0.00281,
+    "high (F hi, mu 0.40)": 0.00405
+   },
+   "windows": {
+    "brief 0.0124-0.0170": {
+     "low (F lo, mu 0.25)": {
+      "T_per_magnet": 0.00179,
+      "max_all_pockets": 0.0143,
+      "full_magnet_counts_in_window": [
+       8
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 7,
+      "fits": true
+     },
+     "mid": {
+      "T_per_magnet": 0.00281,
+      "max_all_pockets": 0.0225,
+      "full_magnet_counts_in_window": [
+       6
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 5,
+      "fits": true
+     },
+     "high (F hi, mu 0.40)": {
+      "T_per_magnet": 0.00405,
+      "max_all_pockets": 0.0324,
+      "full_magnet_counts_in_window": [
+       4
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 4,
+      "fits": true
+     }
+    },
+    "fixer 0.0082-0.0113": {
+     "low (F lo, mu 0.25)": {
+      "T_per_magnet": 0.00179,
+      "max_all_pockets": 0.0143,
+      "full_magnet_counts_in_window": [
+       6
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 5,
+      "fits": true
+     },
+     "mid": {
+      "T_per_magnet": 0.00281,
+      "max_all_pockets": 0.0225,
+      "full_magnet_counts_in_window": [
+       4
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 3,
+      "fits": true
+     },
+     "high (F hi, mu 0.40)": {
+      "T_per_magnet": 0.00405,
+      "max_all_pockets": 0.0324,
+      "full_magnet_counts_in_window": [],
+      "with_spacers_any_in_window": true,
+      "min_needed": 3,
+      "fits": true
+     }
+    }
+   }
+  },
+  "M2 (6700 + M14)": {
+   "magnet": "5x1 N38",
+   "r_mm": 10.5,
+   "pockets": 10,
+   "balanced_counts": [
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "per_magnet_Nm": {
+    "low (F lo, mu 0.25)": 0.00119,
+    "mid": 0.00188,
+    "high (F hi, mu 0.40)": 0.0027
+   },
+   "windows": {
+    "brief 0.0124-0.0170": {
+     "low (F lo, mu 0.25)": {
+      "T_per_magnet": 0.00119,
+      "max_all_pockets": 0.0119,
+      "full_magnet_counts_in_window": [],
+      "with_spacers_any_in_window": false,
+      "min_needed": 11,
+      "fits": false
+     },
+     "mid": {
+      "T_per_magnet": 0.00188,
+      "max_all_pockets": 0.0188,
+      "full_magnet_counts_in_window": [
+       7,
+       8,
+       9
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 7,
+      "fits": true
+     },
+     "high (F hi, mu 0.40)": {
+      "T_per_magnet": 0.0027,
+      "max_all_pockets": 0.027,
+      "full_magnet_counts_in_window": [
+       5,
+       6
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 5,
+      "fits": true
+     }
+    },
+    "fixer 0.0082-0.0113": {
+     "low (F lo, mu 0.25)": {
+      "T_per_magnet": 0.00119,
+      "max_all_pockets": 0.0119,
+      "full_magnet_counts_in_window": [
+       7,
+       8,
+       9
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 7,
+      "fits": true
+     },
+     "mid": {
+      "T_per_magnet": 0.00188,
+      "max_all_pockets": 0.0188,
+      "full_magnet_counts_in_window": [
+       5,
+       6
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 5,
+      "fits": true
+     },
+     "high (F hi, mu 0.40)": {
+      "T_per_magnet": 0.0027,
+      "max_all_pockets": 0.027,
+      "full_magnet_counts_in_window": [
+       4
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 4,
+      "fits": true
+     }
+    }
+   }
+  },
+  "M2 with 5x2 (does not fit 16)": {
+   "magnet": "5x2 N38",
+   "r_mm": 10.5,
+   "pockets": 10,
+   "balanced_counts": [
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "per_magnet_Nm": {
+    "low (F lo, mu 0.25)": 0.00244,
+    "mid": 0.00383,
+    "high (F hi, mu 0.40)": 0.00553
+   },
+   "windows": {
+    "brief 0.0124-0.0170": {
+     "low (F lo, mu 0.25)": {
+      "T_per_magnet": 0.00244,
+      "max_all_pockets": 0.0244,
+      "full_magnet_counts_in_window": [
+       6
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 6,
+      "fits": true
+     },
+     "mid": {
+      "T_per_magnet": 0.00383,
+      "max_all_pockets": 0.0383,
+      "full_magnet_counts_in_window": [
+       4
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 4,
+      "fits": true
+     },
+     "high (F hi, mu 0.40)": {
+      "T_per_magnet": 0.00553,
+      "max_all_pockets": 0.0553,
+      "full_magnet_counts_in_window": [],
+      "with_spacers_any_in_window": true,
+      "min_needed": 3,
+      "fits": true
+     }
+    },
+    "fixer 0.0082-0.0113": {
+     "low (F lo, mu 0.25)": {
+      "T_per_magnet": 0.00244,
+      "max_all_pockets": 0.0244,
+      "full_magnet_counts_in_window": [
+       4
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 4,
+      "fits": true
+     },
+     "mid": {
+      "T_per_magnet": 0.00383,
+      "max_all_pockets": 0.0383,
+      "full_magnet_counts_in_window": [],
+      "with_spacers_any_in_window": true,
+      "min_needed": 3,
+      "fits": true
+     },
+     "high (F hi, mu 0.40)": {
+      "T_per_magnet": 0.00553,
+      "max_all_pockets": 0.0553,
+      "full_magnet_counts_in_window": [
+       2
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 2,
+      "fits": true
+     }
+    }
+   }
+  },
+  "M2b (MR128 + M12)": {
+   "magnet": "5x1 N38",
+   "r_mm": 9.25,
+   "pockets": 8,
+   "balanced_counts": [
+    2,
+    4,
+    6,
+    8
+   ],
+   "per_magnet_Nm": {
+    "low (F lo, mu 0.25)": 0.00105,
+    "mid": 0.00165,
+    "high (F hi, mu 0.40)": 0.00238
+   },
+   "windows": {
+    "brief 0.0124-0.0170": {
+     "low (F lo, mu 0.25)": {
+      "T_per_magnet": 0.00105,
+      "max_all_pockets": 0.0084,
+      "full_magnet_counts_in_window": [],
+      "with_spacers_any_in_window": false,
+      "min_needed": 12,
+      "fits": false
+     },
+     "mid": {
+      "T_per_magnet": 0.00165,
+      "max_all_pockets": 0.0132,
+      "full_magnet_counts_in_window": [
+       8
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 8,
+      "fits": true
+     },
+     "high (F hi, mu 0.40)": {
+      "T_per_magnet": 0.00238,
+      "max_all_pockets": 0.0191,
+      "full_magnet_counts_in_window": [
+       6
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 6,
+      "fits": true
+     }
+    },
+    "fixer 0.0082-0.0113": {
+     "low (F lo, mu 0.25)": {
+      "T_per_magnet": 0.00105,
+      "max_all_pockets": 0.0084,
+      "full_magnet_counts_in_window": [
+       8
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 8,
+      "fits": true
+     },
+     "mid": {
+      "T_per_magnet": 0.00165,
+      "max_all_pockets": 0.0132,
+      "full_magnet_counts_in_window": [
+       6
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 5,
+      "fits": true
+     },
+     "high (F hi, mu 0.40)": {
+      "T_per_magnet": 0.00238,
+      "max_all_pockets": 0.0191,
+      "full_magnet_counts_in_window": [
+       4
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 4,
+      "fits": true
+     }
+    }
+   }
+  },
+  "M4 (= M2 clutch)": {
+   "magnet": "5x1 N38",
+   "r_mm": 10.5,
+   "pockets": 10,
+   "balanced_counts": [
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "per_magnet_Nm": {
+    "low (F lo, mu 0.25)": 0.00119,
+    "mid": 0.00188,
+    "high (F hi, mu 0.40)": 0.0027
+   },
+   "windows": {
+    "brief 0.0124-0.0170": {
+     "low (F lo, mu 0.25)": {
+      "T_per_magnet": 0.00119,
+      "max_all_pockets": 0.0119,
+      "full_magnet_counts_in_window": [],
+      "with_spacers_any_in_window": false,
+      "min_needed": 11,
+      "fits": false
+     },
+     "mid": {
+      "T_per_magnet": 0.00188,
+      "max_all_pockets": 0.0188,
+      "full_magnet_counts_in_window": [
+       7,
+       8,
+       9
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 7,
+      "fits": true
+     },
+     "high (F hi, mu 0.40)": {
+      "T_per_magnet": 0.0027,
+      "max_all_pockets": 0.027,
+      "full_magnet_counts_in_window": [
+       5,
+       6
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 5,
+      "fits": true
+     }
+    },
+    "fixer 0.0082-0.0113": {
+     "low (F lo, mu 0.25)": {
+      "T_per_magnet": 0.00119,
+      "max_all_pockets": 0.0119,
+      "full_magnet_counts_in_window": [
+       7,
+       8,
+       9
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 7,
+      "fits": true
+     },
+     "mid": {
+      "T_per_magnet": 0.00188,
+      "max_all_pockets": 0.0188,
+      "full_magnet_counts_in_window": [
+       5,
+       6
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 5,
+      "fits": true
+     },
+     "high (F hi, mu 0.40)": {
+      "T_per_magnet": 0.0027,
+      "max_all_pockets": 0.027,
+      "full_magnet_counts_in_window": [
+       4
+      ],
+      "with_spacers_any_in_window": true,
+      "min_needed": 4,
+      "fits": true
+     }
+    }
+   }
+  }
+ },
+ "strength": {
+  "stop M1 B1+ (judge-final)": {
+   "area_mm2": 2.2,
+   "r_mm": 6.05,
+   "homing at 0.017 N.m [MPa]": 1.28,
+   "push 3 N at the tip (0.216 N.m) [MPa]": 16.2,
+   "push 10 N at the tip (0.72 N.m) [MPa]": 54.1
+  },
+  "stop M1 fixer 6800 hub": {
+   "area_mm2": 2.7,
+   "r_mm": 6.1,
+   "homing at 0.017 N.m [MPa]": 1.03,
+   "push 3 N at the tip (0.216 N.m) [MPa]": 13.1,
+   "push 10 N at the tip (0.72 N.m) [MPa]": 43.7
+  },
+  "stop M2 / M2b / M3": {
+   "area_mm2": 2.1,
+   "r_mm": 6.0,
+   "homing at 0.017 N.m [MPa]": 1.35,
+   "push 3 N at the tip (0.216 N.m) [MPa]": 17.1,
+   "push 10 N at the tip (0.72 N.m) [MPa]": 57.1
+  },
+  "rib root shear M1": {
+   "area_mm2": 9.7,
+   "push 3 N tip [MPa]": 3.7
+  },
+  "rib root shear M2/M3/M2b": {
+   "area_mm2": 7.28,
+   "push 3 N tip [MPa]": 4.9
+  },
+  "seat bending L5 (0.72 N.m)": {
+   "B1+/M2/M3 D10 with D7 bore (A2 zone, A2 steel race ignored)": 9.7,
+   "B1+ D10/D5 (judge row)": 7.8,
+   "M2/M3 D10 with D7.6 counterbore under the 6700 (about half the couple)": 5.5,
+   "M2b root D10/D5 (stop zone, A2 moved)": 7.8,
+   "M2b D8/D5 under the MR128 (about half the couple)": 8.5,
+   "M2b if the seat were D8/D5 all along (rejected first draft)": 16.9,
+   "M4 D10/D5 root (A2 moved), counterbore D7.6 under the bearing (half couple)": [
+    7.8,
+    5.5
+   ],
+   "allowable": "8.5 long-term, ~20 short-term (B1 convention)"
+  },
+  "bearing 6700ZZ 10x15x4 under L5": {
+   "F_equiv_N": 115.0,
+   "C0_est_N": 425.0,
+   "F/C0": 0.27,
+   "source": "Cr ~0.73-0.93 kN (EZO stainless 729 N, search snippet)"
+  },
+  "bearing MR128ZZ 8x12x3.5 under L5": {
+   "F_equiv_N": 144.0,
+   "C0_est_N": 272.0,
+   "F/C0": 0.53,
+   "source": "Cr 545 N (EZO, Albeco listing)"
+  },
+  "bearing 6800ZZ 10x19x5 (fixer) under L5": {
+   "F_equiv_N": 99.0,
+   "C0_est_N": 860.0,
+   "F/C0": 0.12,
+   "source": "Cr ~1.7 kN (typical)"
+  },
+  "tilt M1 B1+": {
+   "threshold_tip_N": [
+    0.83,
+    1.25
+   ],
+   "tilt_after_threshold_tip_mm": 0.73
+  },
+  "tilt M2 (5x1, face to r 14)": {
+   "threshold_tip_N": [
+    0.56,
+    1.5
+   ],
+   "tilt_after_threshold_tip_mm": 0.73
+  },
+  "tilt M2b (5x1, face to r 12)": {
+   "threshold_tip_N": [
+    0.48,
+    1.12
+   ],
+   "tilt_after_threshold_tip_mm": 0.81
+  },
+  "washer bond M2 (M14 on 6700 OD 2.2 long + hub face r 7.5..14)": {
+   "area_mm2": 543.0,
+   "magnet pull 13 N + torque 0.017 N.m -> stress MPa": 0.033
+  },
+  "drive key 3 AF in DIN 912 (M2/M4)": {
+   "bearing stress at 0.017 N.m [MPa]": 1.26
+  },
+  "drive key 2.5 AF in DIN 7984 (M2b)": {
+   "bearing stress at 0.017 N.m [MPa]": 2.27
+  },
+  "retention B1+ (grip 4.0)": {
+   "fresh_N": [
+    45.0,
+    120.0
+   ],
+   "relaxed_N": [
+    13.0,
+    60.0
+   ],
+   "note": "scaled from the B1/judge estimate (unverified, coupon test needed)"
+  },
+  "retention M2 (grip 2.1, head recessed 1.6)": {
+   "fresh_N": [
+    24.0,
+    63.0
+   ],
+   "relaxed_N": [
+    7.0,
+    32.0
+   ],
+   "note": "scaled from the B1/judge estimate (unverified, coupon test needed)"
+  },
+  "retention M4 (grip 1.8)": {
+   "fresh_N": [
+    20.0,
+    54.0
+   ],
+   "relaxed_N": [
+    6.0,
+    27.0
+   ],
+   "note": "scaled from the B1/judge estimate (unverified, coupon test needed)"
+  },
+  "retention M2b DIN 7984 (grip 2.8, plain head)": {
+   "fresh_N": [
+    31.0,
+    84.0
+   ],
+   "relaxed_N": [
+    9.0,
+    42.0
+   ],
+   "note": "scaled from the B1/judge estimate (unverified, coupon test needed)"
+  }
+ },
+ "M3_torso_room": {
+  "rows": [
+   {
+    "z": -44.75,
+    "full_circle_free_r": 6.0,
+    "free_fraction_r6": 1.0,
+    "free_fraction_r8": 0.84
+   },
+   {
+    "z": -43.75,
+    "full_circle_free_r": 5.0,
+    "free_fraction_r6": 0.84,
+    "free_fraction_r8": 0.8
+   },
+   {
+    "z": -42.75,
+    "full_circle_free_r": 5.0,
+    "free_fraction_r6": 0.66,
+    "free_fraction_r8": 0.56
+   },
+   {
+    "z": -41.75,
+    "full_circle_free_r": 4.5,
+    "free_fraction_r6": 0.62,
+    "free_fraction_r8": 0.55
+   },
+   {
+    "z": -40.75,
+    "full_circle_free_r": 4.5,
+    "free_fraction_r6": 0.62,
+    "free_fraction_r8": 0.55
+   },
+   {
+    "z": -39.75,
+    "full_circle_free_r": 4.5,
+    "free_fraction_r6": 0.62,
+    "free_fraction_r8": 0.55
+   },
+   {
+    "z": -38.75,
+    "full_circle_free_r": 4.5,
+    "free_fraction_r6": 0.62,
+    "free_fraction_r8": 0.55
+   },
+   {
+    "z": -37.75,
+    "full_circle_free_r": 4.5,
+    "free_fraction_r6": 0.62,
+    "free_fraction_r8": 0.55
+   },
+   {
+    "z": -36.75,
+    "full_circle_free_r": 4.5,
+    "free_fraction_r6": 0.62,
+    "free_fraction_r8": 0.55
+   },
+   {
+    "z": -35.75,
+    "full_circle_free_r": 4.5,
+    "free_fraction_r6": 0.62,
+    "free_fraction_r8": 0.52
+   },
+   {
+    "z": -34.75,
+    "full_circle_free_r": 4.5,
+    "free_fraction_r6": 0.59,
+    "free_fraction_r8": 0.46
+   },
+   {
+    "z": -33.75,
+    "full_circle_free_r": 4.5,
+    "free_fraction_r6": 0.59,
+    "free_fraction_r8": 0.43
+   },
+   {
+    "z": -32.75,
+    "full_circle_free_r": 0.0,
+    "free_fraction_r6": 0.14,
+    "free_fraction_r8": 0.23
+   }
+  ],
+  "note": "free = not hard (T4 static), >= 1.0 from the neck pan/lift sweep, >= 0.5 from the T_stred lowering path, inside the side cap, minus the B1+ column fill; the existing coupler (r 4.5, z -43.5..-35.5) and the vertical shaft are not subtracted (they would be replaced)"
+ },
+ "M3_needs": {
+  "brief 0.0124-0.0170": {
+   "servo_side_Nm": [
+    0.00827,
+    0.01133
+   ],
+   "magnet_circle_r_for_8x5x2_mm": 4.4,
+   "spring_preload_N_at_r_eff_2p8_mu_0p25": 16.2
+  },
+  "fixer 0.0082-0.0113": {
+   "servo_side_Nm": [
+    0.00547,
+    0.00753
+   ],
+   "magnet_circle_r_for_8x5x2_mm": 2.9,
+   "spring_preload_N_at_r_eff_2p8_mu_0p25": 10.8
+  }
+ }
+}

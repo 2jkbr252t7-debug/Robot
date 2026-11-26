@@ -1,0 +1,14 @@
+<loc>https://www.gme.sk/v/1499968/micro-servo-37g</loc>
+<loc>https://www.gme.sk/v/1499971/tester-servomotoru</loc>
+<loc>https://www.gme.sk/v/1507647/velleman-allbot-vr013-servo-motory</loc>
+<loc>https://www.gme.sk/v/1507648/velleman-allbot-vr012-servo-motory</loc>
+<loc>https://www.gme.sk/v/1507839/zakladna-pro-servomotor-hlinik</loc>
+<loc>https://www.gme.sk/v/1507840/kovove-rameno-k-servomotoru-tvar-u</loc>
+<loc>https://www.gme.sk/v/1507841/kovove-rameno-k-servomotoru-tvar-l</loc>
+<loc>https://www.gme.sk/v/1508286/hlinikove-rameno-k-servomotoru-35mm</loc>
+<loc>https://www.gme.sk/v/1508287/kovova-plotna-k-servomotoru</loc>
+<loc>https://www.gme.sk/v/1508817/lozisko-pro-kovove-rameno-k-servomotoru-tvar-u</loc>
+<loc>https://www.gme.sk/v/1508859/modul-24-kanalovy-budic-servo-motoru</loc>
+<loc>https://www.gme.sk/v/1497887/digitalni-micro-servo-37g</loc>
+<loc>https://www.gme.sk/v/1497889/mg996r-servomotor-11kg-cm-60</loc>
+<loc>https://www.gme.sk/v/1519263/sg-90-mikro-servo-motor-9g180</loc>

@@ -1,0 +1,316 @@
+Dostupnost loziska - raw evidence index (stiahnute 2026-11-26T13:53Z)
+
+=== loziska-policka.cz product pages (lp/p/*.html) ===
+## 6700-2z-fbj.html
+  URL: https://www.loziska-policka.cz/loziska/lozisko-6700-2z--61700-2z--fbj/
+  H1: Ložisko - 6700 2Z (61700 2Z) FBJ | SKU: 6700 2Z -61700-2Z- FBJ
+  Dostupnost: Skladem (320 ks) | Cena: 31 Kč / ks | 26 Kč bez DPH
+## lozisko-604-2z-kinex.html
+  URL: https://www.loziska-policka.cz/loziska/lozisko-604-2z-kinex/
+  H1: Ložisko - 604 2Z KINEX | SKU: 604 2Z KINEX
+  Dostupnost: Skladem (2 ks) | Cena: 13 Kč / ks | 11 Kč bez DPH
+## lozisko-61800-2rs-kinex.html
+  URL: https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61800-2rs-kinex/
+  H1: Ložisko - 61800 2RS KINEX | SKU: 2416400
+  Dostupnost: Skladem (16 ks) | Cena: 54 Kč / ks | 45 Kč bez DPH
+## lozisko-61800-2z-mtm.html
+  URL: https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61800-2z-mtm/
+  H1: Ložisko - 61800 2Z MTM | SKU: 61800 2Z MTM
+  Dostupnost: Skladem (10 ks) | Cena: 30 Kč / ks | 25 Kč bez DPH
+## lozisko-61800-skf.html
+  URL: https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61800-skf/
+  H1: Ložisko - 61800 SKF | SKU: 61800 SKF
+  Dostupnost: Skladem (119 ks) | Cena: 203 Kč / ks | 168 Kč bez DPH
+## lozisko-61802-2z-skf.html
+  URL: https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61802-2z-skf/
+  H1: Ložisko - 61802 2Z SKF | SKU: 168
+  Dostupnost: Skladem (12 ks) | Cena: 250 Kč / ks | 207 Kč bez DPH
+## lozisko-61805-2rs-cx.html
+  URL: https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61805-2rs-cx/
+  H1: Ložisko - 61805 2RS CX | SKU: 61805 2RS CX
+  Dostupnost: Skladem (27 ks) | Cena: 35 Kč / ks | 29 Kč bez DPH
+## lozisko-61900-2rs-kinex.html
+  URL: https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61900-2rs-kinex/
+  H1: Ložisko - 61900 2RS KINEX | SKU: 61900 2RS KINEX
+  Dostupnost: Skladem (13 ks) | Cena: 62 Kč / ks | 51 Kč bez DPH
+## lozisko-61901-2rs-ezo.html
+  URL: https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61901-2rs-ezo/
+  H1: Ložisko - 61901 2RS EZO | SKU: 2416184
+  Dostupnost: Skladem (20 ks) | Cena: 100 Kč / ks | 83 Kč bez DPH
+## lozisko-61901-2rs-zvl.html
+  URL: https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61901-2rs-zvl/
+  H1: Ložisko - 61901 2RS ZVL | SKU: 74
+  Dostupnost: Skladem (5 ks) | Cena: 50 Kč / ks | 41 Kč bez DPH
+## lozisko-623-2z-zkl.html
+  URL: https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-623-2z-zkl/
+  H1: Ložisko - 623 2Z ZKL | SKU: 623 2Z ZKL
+  Dostupnost: Skladem (10 ks) | Cena: 24 Kč / ks | 20 Kč bez DPH
+## lozisko-63800-zz-ibb.html
+  URL: https://www.loziska-policka.cz/loziska/lozisko-63800-zz-ibb/
+  H1: Ložisko - 63800 ZZ IBB | SKU: 63800 ZZ IBB
+  Dostupnost: Skladem (216 ks) | Cena: 99 Kč / ks | 82 Kč bez DPH
+## lozisko-6800-2rs-craft.html
+  URL: https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-6800-2rs-craft/
+  H1: Ložisko - 6800 2RS CRAFT | SKU: 6800 2RS CRAFT
+  Dostupnost: Na objednání – dostupnost ověříme | Cena: 29 Kč / ks | 24 Kč bez DPH
+## lozisko-6801-2rs-dpi.html
+  URL: https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-6801-2rs-dpi/
+  H1: Ložisko - 6801 2RS DPI | SKU: 6801 2RS DPI
+  Dostupnost: Skladem (9 ks) | Cena: 99 Kč / ks | 82 Kč bez DPH
+## lozisko-6802-2rs-ezo.html
+  URL: https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-6802-2rs-ezo/
+  H1: Ložisko - 6802 2RS EZO | SKU: 6802 2RS EZO
+  Dostupnost: Skladem (122 ks) | Cena: 80 Kč / ks | 66 Kč bez DPH
+## lozisko-6805-2rs-ezo.html
+  URL: https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-6805-2rs-ezo/
+  H1: Ložisko - 6805 2RS EZO | SKU: 2405535
+  Dostupnost: Skladem (16 ks) | Cena: 190 Kč / ks | 157 Kč bez DPH
+## lozisko-684-2z-ezo.html
+  URL: https://www.loziska-policka.cz/loziska/lozisko-684-2z-ezo/
+  H1: Ložisko - 684 2Z EZO | SKU: 684 2Z EZO
+  Dostupnost: Skladem (1 ks) | Cena: 73 Kč / ks | 60 Kč bez DPH
+## lozisko-685-2z-craft.html
+  URL: https://www.loziska-policka.cz/loziska/lozisko-685-2z-craft/
+  H1: Ložisko - 685 2Z CRAFT | SKU: 2538887
+  Dostupnost: Skladem (8 ks) | Cena: 46 Kč / ks | 38 Kč bez DPH
+## lozisko-688-2z-rmb.html
+  URL: https://www.loziska-policka.cz/loziska/lozisko-688-2z-rmb/
+  H1: Ložisko - 688 2Z RMB | SKU: 688 2Z RMB
+  Dostupnost: Skladem (3 ks) | Cena: 85 Kč / ks | 70 Kč bez DPH
+## lozisko-694-2z-p5-zkl.html
+  URL: https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-694-2z-p5-zkl/
+  H1: Ložisko - 694 2Z P5 ZKL | SKU: 694 2Z P5 ZKL
+  Dostupnost: Skladem (136 ks) | Cena: 54 Kč / ks | 45 Kč bez DPH
+## lozisko-695-2z-ibb.html
+  URL: https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-695-2z-ibb/
+  H1: Ložisko - 695 2Z IBB | SKU: 147
+  Dostupnost: Skladem (34 ks) | Cena: 35 Kč / ks | 29 Kč bez DPH
+## lozisko-698-2z-p5-zen.html
+  URL: https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-698-2z-p5-zen/
+  H1: Ložisko - 698 2Z P5 ZEN | SKU: 105
+  Dostupnost: Skladem (16 ks) | Cena: 90 Kč / ks | 74 Kč bez DPH
+## lozisko-699-zz-zkl.html
+  URL: https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-699-zz-zkl/
+  H1: Ložisko - 699 ZZ ZKL | SKU: 699 ZZ ZKL
+  Dostupnost: Skladem (2 ks) | Cena: 129 Kč / ks | 107 Kč bez DPH
+## lozisko-s-688-2z-gpr-j-grw.html
+  URL: https://www.loziska-policka.cz/loziska/lozisko-s-688-2z-gpr-j-grw/
+  H1: Ložisko - S 688 2Z GPR J GRW | SKU: 824396
+  Dostupnost: Skladem (500 ks) | Cena: 50 Kč / ks | 41 Kč bez DPH
+## lozisko-ss-61800-2z-neu.html
+  URL: https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-ss-61800-2z-neu/
+  H1: Ložisko - SS 61800 2Z neu | SKU: SS 61800 2Z
+  Dostupnost: Skladem (3 ks) | Cena: 77 Kč / ks | 64 Kč bez DPH
+## lozisko-ss-6702-2rs.html
+  URL: https://www.loziska-policka.cz/loziska/lozisko-ss-6702-2rs/
+  H1: Ložisko - SS 6702 2RS | SKU: SS 6702 2RS
+  Dostupnost: Skladem (2 ks) | Cena: 467 Kč / ks | 386 Kč bez DPH
+## lozisko-ss-6805-2rs-neu.html
+  URL: https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-ss-6805-2rs-neu/
+  H1: Ložisko - SS 6805 2RS neu | SKU: SS 6805 2RS NEU
+  Dostupnost: Skladem (5 ks) | Cena: 229 Kč / ks | 189 Kč bez DPH
+
+=== loziska-policka.cz searches (lp/s_*.html), ball-bearing hits only ===
+## lp/s_604_2Z.html products: 2 
+ - Ložisko - 604 2Z KINEX | Skladem (2 ks) | 13 Kč / ks | /loziska/lozisko-604-2z-kinex/ | Ložisko - 604 2Z KINEX Plechové kryty z obou stran.
+ - Ložisko - 1604 2Z ZEN | Skladem (46 ks) | 51 Kč / ks | /loziska/lozisko-1604-2z-zen/ | Ložisko - 1604 2Z ZEN Plechové kryty z obou stran. Ložisko ZEN pro průmyslové použití. Při výměně vž
+## lp/s_605_2Z.html products: 0 | nenalezeny
+## lp/s_61700.html products: 2 
+ - Ložisko - 6700 2Z (61700 2Z) FBJ | Skladem (320 ks) | 31 Kč / ks | /loziska/lozisko-6700-2z--61700-2z--fbj/ | 6700 2Z (61700 2Z) FBJ je jednořadé kuličkové ložisko s hlubokou drážkou a kovovými kryty na obou
+## lp/s_61700_2RS.html products: 0 | nenalezeny
+## lp/s_61701.html products: 4 
+## lp/s_61701_2Z.html products: 0 | nenalezeny
+## lp/s_61800.html products: 6 
+ - Ložisko - 61800 2Z MTM | Skladem (10 ks) | 30 Kč / ks | /jednorada-kulickova-loziska/lozisko-61800-2z-mtm/ | Ložisko - 61800 2Z MTM 10 × 19 × 5 mm. Tenkostěnné jednořadé kuličkové ložisko s bezkontaktními
+ - Ložisko - 61800 2RS KINEX | Skladem (16 ks) | 54 Kč / ks | /jednorada-kulickova-loziska/lozisko-61800-2rs-kinex/ | Ložisko - 61800 2RS KINEX Ložisko.
+ - Ložisko - SS 61800 2Z neu | Skladem (3 ks) | 77 Kč / ks | /jednorada-kulickova-loziska/lozisko-ss-61800-2z-neu/ | Ložisko - SS 61800 2Z neu 10 × 19 × 5 mm. Ocelové krytky 2Z na obou stranách, nerezové proveden
+ - Ložisko - 61800 SKF | Skladem (119 ks) | 203 Kč / ks | /jednorada-kulickova-loziska/lozisko-61800-skf/ | Ložisko - 61800 SKF 10 × 19 × 5 mm. Technické provedení a kompatibilitu ověřte podle úplného označen
+ - Ložisko - SS 61800 2RS neu | Skladem (10 ks) | 3 399 Kč / ks | /jednorada-kulickova-loziska/lozisko-ss-61800-2rs-neu/ | Ložisko - SS 61800 2RS neu 10 × 19 × 5 mm. Pryžová těsnění z obou stran, nerezové prov
+## lp/s_61800_2RS.html products: 2 
+ - Ložisko - 61800 2RS KINEX | Skladem (16 ks) | 54 Kč / ks | /jednorada-kulickova-loziska/lozisko-61800-2rs-kinex/ | Ložisko - 61800 2RS KINEX Ložisko.
+ - Ložisko - SS 61800 2RS neu | Skladem (10 ks) | 3 399 Kč / ks | /jednorada-kulickova-loziska/lozisko-ss-61800-2rs-neu/ | Ložisko - SS 61800 2RS neu 10 × 19 × 5 mm. Pryžová těsnění z obou stran, nerezové prov
+## lp/s_61800_2Z.html products: 2 
+ - Ložisko - 61800 2Z MTM | Skladem (10 ks) | 30 Kč / ks | /jednorada-kulickova-loziska/lozisko-61800-2z-mtm/ | Ložisko - 61800 2Z MTM 10 × 19 × 5 mm. Tenkostěnné jednořadé kuličkové ložisko s bezkontaktními
+ - Ložisko - SS 61800 2Z neu | Skladem (3 ks) | 77 Kč / ks | /jednorada-kulickova-loziska/lozisko-ss-61800-2z-neu/ | Ložisko - SS 61800 2Z neu 10 × 19 × 5 mm. Ocelové krytky 2Z na obou stranách, nerezové proveden
+## lp/s_61800_Z.html products: 0 | nenalezeny
+## lp/s_61801.html products: 1 
+## lp/s_61801_2RS.html products: 0 | nenalezeny
+## lp/s_61801_2Z.html products: 0 | nenalezeny
+## lp/s_61802.html products: 2 
+ - Ložisko - 61802 2Z SKF | Skladem (12 ks) | 250 Kč / ks | /jednorada-kulickova-loziska/lozisko-61802-2z-skf/ | Ložisko - 61802 2Z SKF 15 × 24 × 5 mm. Plechové kryty z obou stran.
+## lp/s_61805.html products: 4 
+ - Ložisko - 61805 2RS CX | Skladem (27 ks) | 35 Kč / ks | /jednorada-kulickova-loziska/lozisko-61805-2rs-cx/ | Ložisko - 61805 2RS CX 25 × 37 × 7 mm. Pryžová těsnění 2RS z obou stran, standardní ocelová klec
+ - Ložisko - 61805 SKF | Skladem (5 ks) | 217 Kč / ks | /jednorada-kulickova-loziska/lozisko-61805-skf/ | Ložisko - 61805 SKF 25 × 37 × 7 mm. Technické provedení a kompatibilitu ověřte podle úplného označen
+ - Ložisko - 61805 2RS SKF | Na objednání – dostupnost ověříme | 361 Kč / ks | /jednorada-kulickova-loziska/lozisko-61805-2rs-skf/ | Ložisko - 61805 2RS SKF 25 × 37 × 7 mm. Jednořadé kuličkové ložisko s 
+## lp/s_61900.html products: 6 
+ - Ložisko - 61900 2Z CX | Na objednání – dostupnost ověříme | 13 Kč / ks | /jednorada-kulickova-loziska/lozisko-61900-2z-cx/ | Ložisko - 61900 2Z CX 10 × 22 × 6 mm. Plechové kryty z obou stran.
+ - Ložisko - 61900 2RS FBJ | Na objednání – dostupnost ověříme | 53 Kč / ks | /jednorada-kulickova-loziska/lozisko-61900-2rs-fbj/ | Ložisko - 61900 2RS FBJ 10 × 22 × 6 mm. Pryžová těsnění z obou stran.
+ - Ložisko - 61900 2RS KINEX | Skladem (13 ks) | 62 Kč / ks | /jednorada-kulickova-loziska/lozisko-61900-2rs-kinex/ | Ložisko - 61900 2RS KINEX 10 × 22 × 6 mm. Jednořadé kuličkové ložisko s kontaktním pryžov�
+ - Ložisko - 61900 2Z SKF | Skladem (10 ks) | 230 Kč / ks | /jednorada-kulickova-loziska/lozisko-61900-2z-skf/ | Ložisko - 61900 2Z SKF 10 × 22 × 6 mm. Plechové kryty 2Z na obou stranách; standardní ocelová klec
+ - Ložisko - 61900 2RS SKF | Skladem (6 ks) | 250 Kč / ks | /jednorada-kulickova-loziska/lozisko-61900-2rs-skf/ | Ložisko - 61900 2RS SKF 10 × 22 × 6 mm. Pryžová těsnění z obou stran.
+## lp/s_61901.html products: 5 
+ - Ložisko - 61901 2RS ZVL | Skladem (5 ks) | 50 Kč / ks | /jednorada-kulickova-loziska/lozisko-61901-2rs-zvl/ | Ložisko - 61901 2RS ZVL 12 × 24 × 6 mm. Pryžová těsnění z obou stran.
+ - Ložisko - 61901 2RS EZO | Skladem (20 ks) | 100 Kč / ks | /jednorada-kulickova-loziska/lozisko-61901-2rs-ezo/ | Ložisko - 61901 2RS EZO 12 × 24 × 6 mm. Pryžová těsnění z obou stran.
+ - Ložisko - 61901 2RSR HLC FAG | Skladem (50 ks) | 225 Kč / ks | /jednorada-kulickova-loziska/lozisko-61901-2rsr-hlc-fag/ | Ložisko - 61901 2RSR HLC FAG 12 × 24 × 6 mm. Pryžová těsnění z obou stran.
+ - Ložisko - S 61901 2RS FSY | Skladem (10 ks) | 299 Kč / ks | /jednorada-kulickova-loziska/lozisko-s-61901-2rs-fsy/ | Ložisko - S 61901 2RS FSY 12 × 24 × 6 mm. Pryžová těsnění z obou stran.
+## lp/s_623_2Z.html products: 3 
+ - Ložisko - 623 2ZR ZKL | Na objednání – dostupnost ověříme | 13 Kč / ks | /jednorada-kulickova-loziska/lozisko-623-2zr-zkl/ | Ložisko - 623 2ZR ZKL 3 × 10 × 4 mm. Plechové kryty z obou stran.
+ - Ložisko - 623 2Z ZKL | Skladem (10 ks) | 24 Kč / ks | /jednorada-kulickova-loziska/lozisko-623-2z-zkl/ | Ložisko - 623 2Z ZKL 3 × 10 × 4 mm. Jednořadé kuličkové ložisko s hlubokou drážkou. Plechové kryty 
+ - Ložisko - S 623 2Z GPRJ GRW | Skladem (80 ks) | 50 Kč / ks | /loziska/lozisko-s-623-2z-gprj-grw/ | Ložisko - S 623 2Z GPRJ GRW 3 × 10 × 4 mm. Plechové kryty z obou stran.
+## lp/s_63800.html products: 4 
+ - Ložisko - 63800 2RS EZO | Skladem (8 ks) | 83 Kč / ks | /loziska/lozisko-63800-2rs-ezo/ | Ložisko - 63800 2RS EZO Pryžová těsnění z obou stran.
+ - Ložisko - 63800 ZZ IBB | Skladem (216 ks) | 99 Kč / ks | /loziska/lozisko-63800-zz-ibb/ | Ložisko - 63800 ZZ IBB Plechové kryty z obou stran.
+ - Ložisko - 63800 2Z SKF | Skladem (18 ks) | 250 Kč / ks | /loziska/lozisko-63800-2z-skf/ | Ložisko - 63800 2Z SKF 10 × 19 × 7 mm. Kompaktní jednořadé kuličkové ložisko s bezkontaktními plecho
+## lp/s_6700.html products: 17 
+ - Ložisko - 6000 2Z SKF | Na objednání – dostupnost ověříme | 44 Kč / ks | /jednorada-kulickova-loziska/lozisko-6000-2z-skf/ | 6000 2Z SKF – jednořadé kuličkové ložisko. 10 × 26 × 8 mm. Oboustranné be
+ - Ložisko - 6700 2Z (61700 2Z) FBJ | Skladem (320 ks) | 31 Kč / ks | /loziska/lozisko-6700-2z--61700-2z--fbj/ | 6700 2Z (61700 2Z) FBJ je jednořadé kuličkové ložisko s hlubokou drážkou a kovovými kryty na obou
+## lp/s_6700_2RS.html products: 0 | nenalezeny
+## lp/s_6700_2Z.html products: 1 
+ - Ložisko - 6700 2Z (61700 2Z) FBJ | Skladem (320 ks) | 31 Kč / ks | /loziska/lozisko-6700-2z--61700-2z--fbj/ | 6700 2Z (61700 2Z) FBJ je jednořadé kuličkové ložisko s hlubokou drážkou a kovovými kryty na obou
+## lp/s_6700_ZZ.html products: 0 | nenalezeny
+## lp/s_6701.html products: 20 
+## lp/s_6701_2RS.html products: 0 | nenalezeny
+## lp/s_6701_2Z.html products: 0 | nenalezeny
+## lp/s_6701_ZZ.html products: 0 | nenalezeny
+## lp/s_6702.html products: 15 
+ - Ložisko - SS 6702 2RS | Skladem (2 ks) | 467 Kč / ks | /loziska/lozisko-ss-6702-2rs/ | Ložisko - SS 6702 2RS 15 × 21 × 4 mm. Pryžová těsnění z obou stran.
+## lp/s_673.html products: 24 
+## lp/s_673_2Z.html products: 0 | nenalezeny
+## lp/s_674.html products: 24 
+## lp/s_674_2Z.html products: 0 | nenalezeny
+## lp/s_675.html products: 24 
+## lp/s_675_2Z.html products: 0 | nenalezeny
+## lp/s_676.html products: 24 
+## lp/s_676_2Z.html products: 0 | nenalezeny
+## lp/s_677.html products: 24 
+## lp/s_677_2Z.html products: 0 | nenalezeny
+## lp/s_678.html products: 24 
+ - Ložisko - 6306 Z ZKL | Skladem (13 ks) | 105 Kč / ks | /jednorada-kulickova-loziska/lozisko-6306-z-zkl/ | Ložisko - 6306 Z ZKL 30 × 72 × 19 mm. Jednořadé kuličkové ložisko s hlubokou drážkou a bezdotykový
+## lp/s_678_2Z.html products: 0 | nenalezeny
+## lp/s_6800.html products: 15 
+ - Ložisko - 6800 2RS CRAFT | Na objednání – dostupnost ověříme | 29 Kč / ks | /jednorada-kulickova-loziska/lozisko-6800-2rs-craft/ | Ložisko - 6800 2RS CRAFT 10 × 19 × 5 mm. Pryžová těsnění z obou stran
+## lp/s_6800_2RS.html products: 1 
+ - Ložisko - 6800 2RS CRAFT | Na objednání – dostupnost ověříme | 29 Kč / ks | /jednorada-kulickova-loziska/lozisko-6800-2rs-craft/ | Ložisko - 6800 2RS CRAFT 10 × 19 × 5 mm. Pryžová těsnění z obou stran
+## lp/s_6800_2Z.html products: 0 | nenalezeny
+## lp/s_6800_Z.html products: 0 | nenalezeny
+## lp/s_6800_ZZ.html products: 0 | nenalezeny
+## lp/s_6801.html products: 15 
+ - Ložisko - 6801 2RS DPI | Skladem (9 ks) | 99 Kč / ks | /jednorada-kulickova-loziska/lozisko-6801-2rs-dpi/ | Ložisko - 6801 2RS DPI 12 × 21 × 5 mm. Pryžová těsnění z obou stran.
+## lp/s_6801_2RS.html products: 1 
+ - Ložisko - 6801 2RS DPI | Skladem (9 ks) | 99 Kč / ks | /jednorada-kulickova-loziska/lozisko-6801-2rs-dpi/ | Ložisko - 6801 2RS DPI 12 × 21 × 5 mm. Pryžová těsnění z obou stran.
+## lp/s_6801_2Z.html products: 0 | nenalezeny
+## lp/s_6802.html products: 15 
+ - Ložisko - 6802 2RS EZO | Skladem (122 ks) | 80 Kč / ks | /jednorada-kulickova-loziska/lozisko-6802-2rs-ezo/ | Ložisko - 6802 2RS EZO 15 × 24 × 5 mm. Tenkostěnné kuličkové ložisko je mimořádně kompaktní j
+## lp/s_6805.html products: 16 
+ - Ložisko - 6805 2RS EZO | Skladem (16 ks) | 190 Kč / ks | /jednorada-kulickova-loziska/lozisko-6805-2rs-ezo/ | Ložisko - 6805 2RS EZO Tenkostěnné jednořadé kuličkové ložisko s kontaktním pryžovým těsněn�
+ - Ložisko - SS 6805 2RS neu | Skladem (5 ks) | 229 Kč / ks | /jednorada-kulickova-loziska/lozisko-ss-6805-2rs-neu/ | Ložisko - SS 6805 2RS neu 25 × 37 × 7 mm. Pryžová těsnění z obou stran.
+## lp/s_6805_2RS.html products: 2 
+ - Ložisko - 6805 2RS EZO | Skladem (16 ks) | 190 Kč / ks | /jednorada-kulickova-loziska/lozisko-6805-2rs-ezo/ | Ložisko - 6805 2RS EZO Tenkostěnné jednořadé kuličkové ložisko s kontaktním pryžovým těsněn�
+ - Ložisko - SS 6805 2RS neu | Skladem (5 ks) | 229 Kč / ks | /jednorada-kulickova-loziska/lozisko-ss-6805-2rs-neu/ | Ložisko - SS 6805 2RS neu 25 × 37 × 7 mm. Pryžová těsnění z obou stran.
+## lp/s_683.html products: 24 
+## lp/s_683_2Z.html products: 0 | nenalezeny
+## lp/s_683_ZZ.html products: 0 | nenalezeny
+## lp/s_684.html products: 24 
+## lp/s_684_2Z.html products: 1 
+ - Ložisko - 684 2Z EZO | Skladem (1 ks) | 73 Kč / ks | /loziska/lozisko-684-2z-ezo/ | Ložisko - 684 2Z EZO Plechové kryty z obou stran.
+## lp/s_685.html products: 24 
+## lp/s_685_2Z.html products: 1 
+ - Ložisko - 685 2Z CRAFT | Skladem (8 ks) | 46 Kč / ks | /loziska/lozisko-685-2z-craft/ | Ložisko - 685 2Z CRAFT.
+## lp/s_688.html products: 24 
+## lp/s_688_2Z.html products: 2 
+ - Ložisko - S 688 2Z GPR J GRW | Skladem (500 ks) | 50 Kč / ks | /loziska/lozisko-s-688-2z-gpr-j-grw/ | Ložisko - S 688 2Z GPR J GRW 8 × 16 × 5 mm. Nerezové jednořadé kuličkové ložisko s hlubokou drážkou 
+ - Ložisko - 688 2Z RMB | Skladem (3 ks) | 85 Kč / ks | /loziska/lozisko-688-2z-rmb/ | Ložisko - 688 2Z RMB 8 × 16 × 5 mm. Miniaturní tenkostěnné kuličkové ložisko s plechovými kryty z ob
+## lp/s_689.html products: 24 
+## lp/s_6900.html products: 20 
+ - Ložisko - 6906 2RS EZO | Skladem (3 ks) | 191 Kč / ks | /jednorada-kulickova-loziska/lozisko-6906-2rs-ezo/ | Ložisko - 6906 2RS EZO 30 × 47 × 9 mm. Tenkostěnné jednořadé kuličkové ložisko s hlubokou dráž
+## lp/s_6901_2RS.html products: 0 | nenalezeny
+## lp/s_693.html products: 24 
+## lp/s_693_2Z.html products: 0 | nenalezeny
+## lp/s_694_2Z.html products: 1 
+ - Ložisko - 694 2Z P5 ZKL | Skladem (136 ks) | 54 Kč / ks | /jednorada-kulickova-loziska/lozisko-694-2z-p5-zkl/ | Ložisko - 694 2Z P5 ZKL 4 × 11 × 4 mm. je miniaturní jednořadé radiální kuličkové ložisko se
+## lp/s_695_2Z.html products: 2 
+ - Ložisko - 695 2Z IBB | Skladem (34 ks) | 35 Kč / ks | /jednorada-kulickova-loziska/lozisko-695-2z-ibb/ | Ložisko - 695 2Z IBB 5 × 13 × 4 mm. Miniaturní jednořadé kuličkové ložisko s hlubokou drážkou a bez
+ - Ložisko - S 695 2Z GPRJ GRW | Skladem (100 ks) | 79 Kč / ks | /loziska/lozisko-s-695-2z-gprj-grw/ | Ložisko - S 695 2Z GPRJ GRW 5 × 13 × 4 mm. Plechové kryty z obou stran.
+## lp/s_696_2Z.html products: 1 
+ - Ložisko - 696 2Z neu | Skladem (6 ks) | 45 Kč / ks | /loziska/lozisko-696-2z-neu/ | Ložisko - 696 2Z neu 6 × 15 × 5 mm. Jednořadé kuličkové ložisko s bezkontaktními kovovými kryty na o
+## lp/s_697_2Z.html products: 0 | nenalezeny
+## lp/s_698.html products: 24 
+ - Ložisko - 698 2Z P5 ZEN | Skladem (16 ks) | 90 Kč / ks | /jednorada-kulickova-loziska/lozisko-698-2z-p5-zen/ | Ložisko - 698 2Z P5 ZEN 8 × 19 × 6 mm. Jednořadé kuličkové ložisko v přesnostní třídě P5, s
+ - Ložisko - 698 TVP ZKL | Skladem (9 ks) | 149 Kč / ks | /jednorada-kulickova-loziska/lozisko-698-tvp-zkl/ | Ložisko - 698 TVP ZKL 8 × 19 × 6 mm. Technické provedení a kompatibilitu ověřte podle úplného ozna�
+## lp/s_699.html products: 24 
+ - Ložisko - 699 ZZ ZKL | Skladem (2 ks) | 129 Kč / ks | /jednorada-kulickova-loziska/lozisko-699-zz-zkl/ | Ložisko - 699 ZZ ZKL 9 × 20 × 6 mm. Plechové kryty z obou stran.
+## lp/s_L-850.html products: 0 | nenalezeny
+## lp/s_MF.html products: 24 
+ - Ložisko - MF 219 C4 ZKL | Skladem (2 ks) | 999 Kč / ks | /loziska/lozisko-mf-219-c4-zkl/ | Ložisko - MF 219 C4 ZKL Velmi zvětšená radiální vůle.
+## lp/s_MR.html products: 24 
+## lp/s_MR104.html products: 0 | nenalezeny
+## lp/s_MR105.html products: 0 | nenalezeny
+## lp/s_MR115.html products: 0 | nenalezeny
+## lp/s_MR128.html products: 0 | nenalezeny
+## lp/s_MR148.html products: 0 | nenalezeny
+## lp/s_MR63.html products: 0 | nenalezeny
+## lp/s_MR74.html products: 0 | nenalezeny
+## lp/s_MR84.html products: 0 | nenalezeny
+## lp/s_MR85-2Z.html products: 0 | nenalezeny
+## lp/s_MR85.html products: 0 | nenalezeny
+## lp/s_MR85_2Z.html products: 0 | nenalezeny
+## lp/s_MR_128.html products: 0 | nenalezeny
+## lp/s_MR_85.html products: 0 | nenalezeny
+## lp/s_SS_6800.html products: 0 | nenalezeny
+## lp/s_S_6701.html products: 0 | nenalezeny
+## lp/s_S_6801.html products: 0 | nenalezeny
+
+=== hadex.cz category + product pages ===
+## hadex/cat.html
+   Kloubová hlavice - unibal, vnější závit M3 pravý SA3P/K | Kód zboží: | L740 | Skladem | 54  ks | 32,00 Kč | 26,45 Kč bez DPH | -
+   Kloubová hlavice - unibal, vnější závit M4 pravý SA4P/K | Kód zboží: | L740A | Skladem | 45  ks | 32,00 Kč | 26,45 Kč bez DPH | -
+   Kloubová hlavice - unibal, vnitřní závit M4 pravý, SI4P/K | Kód zboží: | L739 | Skladem | 71  ks | 32,00 Kč | 26,45 Kč bez DPH | -
+   Kuličkové ložisko 606ZZ 6x17mm na hřídel 6mm | Kód zboží: | L760A | Skladem | 207  ks | 12,00 Kč | 9,92 Kč bez DPH | -
+   Kuličkové ložisko 608-2RS,22x7mm na hřídel 8mm | Kód zboží: | L760K | Skladem | 1271  ks | 15,00 Kč | 12,40 Kč bez DPH | -
+   Kuličkové ložisko 608ZZ,22x7mm na hřídel 8mm | Kód zboží: | L760G | Skladem | 3972  ks | 11,00 Kč | 9,09 Kč bez DPH | -
+   Kuličkové ložisko 623ZZ,10x4mm na hřídel 3mm | Kód zboží: | L760C | Na cestě | 11,00 Kč | 9,09 Kč bez DPH | Hlídací pes | 5+  ks (VC)
+   Kuličkové ložisko 624ZZ,13x5mm na hřídel 4mm | Kód zboží: | L760D | Skladem | 332  ks | 8,00 Kč | 6,61 Kč bez DPH | -
+   Kuličkové ložisko 625ZZ,16x5mm na hřídel 5mm | Kód zboží: | L760E | Skladem | 559  ks | 9,00 Kč | 7,44 Kč bez DPH | -
+   Kuličkové ložisko 626ZZ,19x6mm na hřídel 6mm | Kód zboží: | L760F | Skladem | 1034  ks | 9,00 Kč | 7,44 Kč bez DPH | -
+   Kuličkové ložisko 685ZZ,11x5mm na hřídel 5mm | Kód zboží: | L760I | Skladem | 499  ks | 9,00 Kč | 7,44 Kč bez DPH | -
+   Kuličkové ložisko 688ZZ,16x5mm na hřídel 8mm | Kód zboží: | L760H | Skladem | 820  ks | 11,00 Kč | 9,09 Kč bez DPH | -
+   Kuličkové ložisko 694ZZ 11x4mm na hřídel 4mm | Kód zboží: | L760L | Skladem | 335  ks | 11,00 Kč | 9,09 Kč bez DPH | -
+   Kuličkové ložisko MR105, 10x4mm na hřídel 5mm | Kód zboží: | L760B | Skladem | 310  ks | 12,00 Kč | 9,92 Kč bez DPH | -
+   Kuličkové ložisko s drážkou V1804RS 18x8x7mm na hřídel 4mm | Kód zboží: | L760N | Skladem | 562  ks | 22,00 Kč | 18,18 Kč bez DPH | -
+   Kuličkové ložisko s přírubou F604ZZ, 10x4mm na hřídel 5,2mm | Kód zboží: | L735A | Skladem | 226  ks | 14,00 Kč | 11,57 Kč bez DPH | -
+   Kuličkové ložisko s přírubou F608ZZ, 22x7mm na hřídel 8mm | Kód zboží: | L735B | Skladem | 382  ks | 21,00 Kč | 17,36 Kč bez DPH | -
+   Kuličkové ložisko s přírubou F623ZZ, 10x4mm na hřídel 3mm | Kód zboží: | L735C | Skladem | 314  ks | 21,00 Kč | 17,36 Kč bez DPH | -
+   Kuličkové ložisko s přírubou F624ZZ, 13x5mm na hřídel 4mm | Kód zboží: | L735D | Skladem | 127  ks | 21,00 Kč | 17,36 Kč bez DPH | -
+   Kuličkové ložisko s přírubou F625Z, 16x5mm na hřídel 5mm | Kód zboží: | L735E | Skladem | 161  ks | 21,00 Kč | 17,36 Kč bez DPH | -
+   Kuličkové ložisko s přírubou F688ZZ, 16x5mm na hřídel 8mm | Kód zboží: | L735F | Skladem | 251  ks | 21,00 Kč | 17,36 Kč bez DPH | -
+   Kuličkové ložisko s přírubou MF105ZZ, 10x4mm na hřídel 5mm | Kód zboží: | L735 | Skladem | 168  ks | 17,00 Kč | 14,05 Kč bez DPH | -
+   Kuličkové ložisko U604ZZ s drážkou,13x4mm na hřídel 4mm | Kód zboží: | L760M | Skladem | 122  ks | 20,00 Kč | 16,53 Kč bez DPH | -
+   Kuličkové ložisko V623ZZ s drážkou,12x4mm na hřídel 3mm | Kód zboží: | L760J | Skladem | 425  ks | 11,00 Kč | 9,09 Kč bez DPH | -
+## hadex/p_l760b-kulickove-lozisko-mr105-10x4mm-na-hridel-5mm.html
+   Kuličkové ložisko MR105, 10x4mm na hřídel 5mm (L760B) | Kód produktu: | L760B | Pro hobby použití | Zobrazit více | Skladem | 310  ks | Na skladě
+## hadex/p_l760h-kulickove-lozisko-688zz-16x5mm-na-hridel-8mm.html
+   Kuličkové ložisko 688ZZ,16x5mm na hřídel 8mm (L760H) | Kód produktu: | L760H | pro hobby použití | Zobrazit více | Skladem | 820  ks | Na skladě
+## hadex/p_l760i-kulickove-lozisko-685zz-11x5mm-na-hridel-5mm.html
+   Kuličkové ložisko 685ZZ,11x5mm na hřídel 5mm (L760I) | Kód produktu: | L760I | pro hobby použití | Zobrazit více | Skladem | 499  ks | Na skladě
+
+=== laskakit.cz / 3djake.sk ===
+laskakit: jediné kuličkové ložisko v hľadaní = 625RS (laskakit/s_kuličkové_ložisko.html); MR105/MR85/MR63 = nenalezeny
+3djake.sk: hľadanie MR105ZZ/688ZZ/MR85ZZ/6800ZZ/685ZZ/MR63ZZ/MR128ZZ vracia len 'Guličkové ložisko, 608ZZ - 8 x 22 x 7 mm (10 ks)' (3djake/s_*.html)
+
+=== blokované / nečitateľné ===
+== https://www.dratek.cz/
+HTTP/2 301 
+location: https://dratek.cz/
+== https://www.rlx.sk/
+HTTP/2 302 
+location: https://rlx.sk/
+== https://www.tymoty.com/
+HTTP/2 301 
+location: https://www.tymoty.cz/
+Content-Length: 67
+Connection: close
+
+www.laskarduino.sk: HTTP/1.1 502 Bad Gateway (proxy)
+www.tme.eu, botland.store: HTTP 403 Cloudflare 'Just a moment...' (blocked/*_cloudflare.html)
+www.gme.sk: SPA (<app></app>), vyhľadávanie sa renderuje v JS cez externý Luigi's Box -> nečitateľné curlom (gme/s_lozisko.html)
+www.hornbach.sk: 'Client Challenge' JS (hw/hornbach.html); www.bauhaus.sk: výsledky sa načítajú JS (hw/bauhaus2.html); www.obi.sk: žiadne samostatné guličkové ložiská, len kolieska/tuk (hw/obi2.html)

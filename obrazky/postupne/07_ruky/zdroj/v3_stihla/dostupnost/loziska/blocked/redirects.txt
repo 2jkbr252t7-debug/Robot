@@ -1,0 +1,12 @@
+== https://www.dratek.cz/
+HTTP/2 301 
+location: https://dratek.cz/
+== https://www.rlx.sk/
+HTTP/2 302 
+location: https://rlx.sk/
+== https://www.tymoty.com/
+HTTP/2 301 
+location: https://www.tymoty.cz/
+Content-Length: 67
+Connection: close
+

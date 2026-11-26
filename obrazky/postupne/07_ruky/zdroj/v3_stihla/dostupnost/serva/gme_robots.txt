@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /kosik/
+Disallow: /muj-ucet/
+Sitemap: https://www.gme.sk/sitemap.xml

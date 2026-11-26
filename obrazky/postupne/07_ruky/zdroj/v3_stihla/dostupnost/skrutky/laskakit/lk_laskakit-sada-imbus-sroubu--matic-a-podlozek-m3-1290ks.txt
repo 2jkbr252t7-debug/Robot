@@ -1,0 +1,8 @@
+url: https://www.laskakit.cz/laskakit-sada-imbus-sroubu--matic-a-podlozek-m3-1290ks/
+h1: LaskaKit sada IMBUS šroubů, matic a podložek M3 1290ks
+availability: ['Skladem']
+amount: ['(11\xa0ks)', '(12\xa0ks)', '(19\xa0ks)']
+price: ['430,60 Kč']
+price_add: ['355,90 Kč bez DPH', '279,80 Kč\xa0bez DPH 338,60 Kč Stavebnice šestimístných digitálních hodin TJ-56-314A je pájecí sada, ze které si sestavíš stolní hodiny ukazující hodiny, minuty i sekundy, a to bez mikrokontroléru a bez... LA250038']
+code: ['Kód: LA180065B']
+desc: class="tab-pane fade in active" role="tabpanel"> Detailní popis produktu Material: Ocel Závit: M3, délka závitu: 4-40mm. Specifikace: Typ počet M3 matice 430 M3 podložka 430 M3x4mm šroub 40 M3x5mm šroub 40 M3x6mm šroub 40 M3x8mm šroub 40 M3x10mm šroub 30 M3x12mm šroub 30 M3x14mm šroub 30 M3x16mm šroub 30 M3x18mm šroub 30 M3x20mm šroub 30 M3x25mm šroub 25 M3x30mm šroub 25 M3x35mm šroub 20 M3x40mm šroub 20 Součástí dodávky: 1ks LaskaKit sada IMBUS šroubů, matic a podložek M3 1290ks Poznámka: Fotografie výrobků jsou pouze ilustracemi na ukázku a někdy se mohou lišit od skutečného vzhledu předmětu. Avšak toto nemění jejích základní vlastnosti. Doplňkové parametry Kategorie : Pro začátečníky DIY Záruka : 2 roky Hmotnost : 0.635 kg

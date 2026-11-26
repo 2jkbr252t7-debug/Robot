@@ -1,0 +1,722 @@
+{
+ "C": {
+  "variant": "C",
+  "sections": [
+   {
+    "model": "closed",
+    "u": 0.4,
+    "thick": 12.06,
+    "width": 28.32,
+    "A": 99.5,
+    "Iyy": 1739.2,
+    "Ixx": 7301.4,
+    "lever": 41.0,
+    "s_lat_MPa": 1.46,
+    "s_fa_MPa": 0.8
+   },
+   {
+    "model": "closed",
+    "u": 0.45,
+    "thick": 11.86,
+    "width": 28.12,
+    "A": 98.5,
+    "Iyy": 1658.6,
+    "Ixx": 7100.0,
+    "lever": 37.4,
+    "s_lat_MPa": 1.38,
+    "s_fa_MPa": 0.74
+   },
+   {
+    "model": "closed",
+    "u": 0.5,
+    "thick": 11.61,
+    "width": 27.83,
+    "A": 97.1,
+    "Iyy": 1561.6,
+    "Ixx": 6831.3,
+    "lever": 33.8,
+    "s_lat_MPa": 1.29,
+    "s_fa_MPa": 0.69
+   },
+   {
+    "model": "closed",
+    "u": 0.55,
+    "thick": 11.31,
+    "width": 27.42,
+    "A": 95.3,
+    "Iyy": 1445.7,
+    "Ixx": 6473.2,
+    "lever": 30.2,
+    "s_lat_MPa": 1.22,
+    "s_fa_MPa": 0.64
+   },
+   {
+    "model": "closed",
+    "u": 0.6,
+    "thick": 10.95,
+    "width": 26.85,
+    "A": 92.9,
+    "Iyy": 1311.2,
+    "Ixx": 6017.4,
+    "lever": 26.6,
+    "s_lat_MPa": 1.14,
+    "s_fa_MPa": 0.59
+   },
+   {
+    "model": "closed",
+    "u": 0.65,
+    "thick": 10.53,
+    "width": 26.1,
+    "A": 89.9,
+    "Iyy": 1159.9,
+    "Ixx": 5461.8,
+    "lever": 23.0,
+    "s_lat_MPa": 1.07,
+    "s_fa_MPa": 0.55
+   },
+   {
+    "model": "closed",
+    "u": 0.7,
+    "thick": 10.03,
+    "width": 25.14,
+    "A": 86.0,
+    "Iyy": 994.0,
+    "Ixx": 4809.1,
+    "lever": 19.4,
+    "s_lat_MPa": 1.01,
+    "s_fa_MPa": 0.51
+   },
+   {
+    "model": "closed",
+    "u": 0.75,
+    "thick": 9.45,
+    "width": 23.92,
+    "A": 81.3,
+    "Iyy": 817.1,
+    "Ixx": 4069.6,
+    "lever": 15.8,
+    "s_lat_MPa": 0.94,
+    "s_fa_MPa": 0.46
+   },
+   {
+    "model": "closed",
+    "u": 0.8,
+    "thick": 8.75,
+    "width": 22.38,
+    "A": 75.3,
+    "Iyy": 633.0,
+    "Ixx": 3256.9,
+    "lever": 12.2,
+    "s_lat_MPa": 0.87,
+    "s_fa_MPa": 0.42
+   },
+   {
+    "model": "closed",
+    "u": 0.85,
+    "thick": 7.9,
+    "width": 20.39,
+    "A": 67.8,
+    "Iyy": 447.3,
+    "Ixx": 2389.4,
+    "lever": 8.6,
+    "s_lat_MPa": 0.78,
+    "s_fa_MPa": 0.37
+   },
+   {
+    "model": "closed",
+    "u": 0.9,
+    "thick": 6.83,
+    "width": 17.74,
+    "A": 57.9,
+    "Iyy": 267.1,
+    "Ixx": 1497.2,
+    "lever": 5.0,
+    "s_lat_MPa": 0.66,
+    "s_fa_MPa": 0.3
+   },
+   {
+    "model": "open",
+    "u": 0.4,
+    "thick": 12.06,
+    "width": 28.32,
+    "A": 50.6,
+    "Iyy": 148.1,
+    "Ixx": 3756.7,
+    "lever": 41.0,
+    "s_lat_MPa": 11.93,
+    "s_fa_MPa": 1.54
+   },
+   {
+    "model": "open",
+    "u": 0.45,
+    "thick": 11.86,
+    "width": 28.12,
+    "A": 50.1,
+    "Iyy": 141.6,
+    "Ixx": 3659.3,
+    "lever": 37.4,
+    "s_lat_MPa": 11.21,
+    "s_fa_MPa": 1.44
+   },
+   {
+    "model": "open",
+    "u": 0.5,
+    "thick": 11.61,
+    "width": 27.83,
+    "A": 49.4,
+    "Iyy": 131.7,
+    "Ixx": 3507.7,
+    "lever": 33.8,
+    "s_lat_MPa": 10.61,
+    "s_fa_MPa": 1.34
+   },
+   {
+    "model": "open",
+    "u": 0.55,
+    "thick": 11.31,
+    "width": 27.42,
+    "A": 48.5,
+    "Iyy": 121.9,
+    "Ixx": 3326.5,
+    "lever": 30.2,
+    "s_lat_MPa": 9.97,
+    "s_fa_MPa": 1.24
+   },
+   {
+    "model": "open",
+    "u": 0.6,
+    "thick": 10.95,
+    "width": 26.85,
+    "A": 47.2,
+    "Iyy": 109.4,
+    "Ixx": 3080.6,
+    "lever": 26.6,
+    "s_lat_MPa": 9.4,
+    "s_fa_MPa": 1.16
+   },
+   {
+    "model": "open",
+    "u": 0.65,
+    "thick": 10.53,
+    "width": 26.1,
+    "A": 45.6,
+    "Iyy": 96.5,
+    "Ixx": 2792.4,
+    "lever": 23.0,
+    "s_lat_MPa": 8.82,
+    "s_fa_MPa": 1.08
+   },
+   {
+    "model": "open",
+    "u": 0.7,
+    "thick": 10.03,
+    "width": 25.14,
+    "A": 43.6,
+    "Iyy": 82.7,
+    "Ixx": 2455.8,
+    "lever": 19.4,
+    "s_lat_MPa": 8.21,
+    "s_fa_MPa": 0.99
+   },
+   {
+    "model": "open",
+    "u": 0.75,
+    "thick": 9.45,
+    "width": 23.92,
+    "A": 41.1,
+    "Iyy": 67.7,
+    "Ixx": 2072.0,
+    "lever": 15.8,
+    "s_lat_MPa": 7.6,
+    "s_fa_MPa": 0.91
+   },
+   {
+    "model": "open",
+    "u": 0.8,
+    "thick": 8.75,
+    "width": 22.38,
+    "A": 38.1,
+    "Iyy": 52.6,
+    "Ixx": 1652.4,
+    "lever": 12.2,
+    "s_lat_MPa": 6.89,
+    "s_fa_MPa": 0.83
+   },
+   {
+    "model": "open",
+    "u": 0.85,
+    "thick": 7.9,
+    "width": 20.39,
+    "A": 34.2,
+    "Iyy": 37.1,
+    "Ixx": 1202.5,
+    "lever": 8.6,
+    "s_lat_MPa": 6.04,
+    "s_fa_MPa": 0.73
+   },
+   {
+    "model": "open",
+    "u": 0.9,
+    "thick": 6.83,
+    "width": 17.74,
+    "A": 29.0,
+    "Iyy": 22.7,
+    "Ixx": 746.8,
+    "lever": 5.0,
+    "s_lat_MPa": 4.77,
+    "s_fa_MPa": 0.6
+   }
+  ],
+  "max_closed": {
+   "lateral": {
+    "model": "closed",
+    "u": 0.4,
+    "thick": 12.06,
+    "width": 28.32,
+    "A": 99.5,
+    "Iyy": 1739.2,
+    "Ixx": 7301.4,
+    "lever": 41.0,
+    "s_lat_MPa": 1.46,
+    "s_fa_MPa": 0.8
+   },
+   "fore_aft": {
+    "model": "closed",
+    "u": 0.4,
+    "thick": 12.06,
+    "width": 28.32,
+    "A": 99.5,
+    "Iyy": 1739.2,
+    "Ixx": 7301.4,
+    "lever": 41.0,
+    "s_lat_MPa": 1.46,
+    "s_fa_MPa": 0.8
+   }
+  },
+  "max_open": {
+   "lateral": {
+    "model": "open",
+    "u": 0.4,
+    "thick": 12.06,
+    "width": 28.32,
+    "A": 50.6,
+    "Iyy": 148.1,
+    "Ixx": 3756.7,
+    "lever": 41.0,
+    "s_lat_MPa": 11.93,
+    "s_fa_MPa": 1.54
+   },
+   "fore_aft": {
+    "model": "open",
+    "u": 0.4,
+    "thick": 12.06,
+    "width": 28.32,
+    "A": 50.6,
+    "Iyy": 148.1,
+    "Ixx": 3756.7,
+    "lever": 41.0,
+    "s_lat_MPa": 11.93,
+    "s_fa_MPa": 1.54
+   }
+  },
+  "cantilever_closed": {
+   "lateral": {
+    "k_N_per_mm": 102.3,
+    "F_at_UTS_N": 239.0,
+    "F_at_6MPa_N": 41.0,
+    "U_elastic_at_UTS_J": 0.28,
+    "defl_10N_mm": 0.098
+   },
+   "fore_aft": {
+    "k_N_per_mm": 466.6,
+    "F_at_UTS_N": 440.0,
+    "F_at_6MPa_N": 75.4,
+    "U_elastic_at_UTS_J": 0.207,
+    "defl_10N_mm": 0.021
+   }
+  },
+  "cantilever_open": {
+   "lateral": {
+    "k_N_per_mm": 8.6,
+    "F_at_UTS_N": 29.0,
+    "F_at_6MPa_N": 5.0,
+    "U_elastic_at_UTS_J": 0.05,
+    "defl_10N_mm": 1.162
+   },
+   "fore_aft": {
+    "k_N_per_mm": 239.1,
+    "F_at_UTS_N": 227.0,
+    "F_at_6MPa_N": 38.8,
+    "U_elastic_at_UTS_J": 0.107,
+    "defl_10N_mm": 0.042
+   }
+  },
+  "shell_area_mm2": 4336.0,
+  "shell_mass_g": 8.2,
+  "drop": {
+   "E_robot_1m_J": 10.8,
+   "E_arm_alone_1m_J": 0.139,
+   "note": "arm alone = shell + ~6 g hub/bearing/washer (assumed)"
+  }
+ },
+ "0": {
+  "variant": "0",
+  "sections": [
+   {
+    "model": "closed",
+    "u": 0.4,
+    "thick": 22.13,
+    "width": 33.32,
+    "A": 136.2,
+    "Iyy": 8424.8,
+    "Ixx": 16094.5,
+    "lever": 41.0,
+    "s_lat_MPa": 0.54,
+    "s_fa_MPa": 0.42
+   },
+   {
+    "model": "closed",
+    "u": 0.45,
+    "thick": 21.75,
+    "width": 33.08,
+    "A": 134.7,
+    "Iyy": 8048.7,
+    "Ixx": 15632.2,
+    "lever": 37.4,
+    "s_lat_MPa": 0.51,
+    "s_fa_MPa": 0.4
+   },
+   {
+    "model": "closed",
+    "u": 0.5,
+    "thick": 21.3,
+    "width": 32.74,
+    "A": 132.7,
+    "Iyy": 7595.2,
+    "Ixx": 15023.1,
+    "lever": 33.8,
+    "s_lat_MPa": 0.47,
+    "s_fa_MPa": 0.37
+   },
+   {
+    "model": "closed",
+    "u": 0.55,
+    "thick": 20.75,
+    "width": 32.26,
+    "A": 130.1,
+    "Iyy": 7056.0,
+    "Ixx": 14222.0,
+    "lever": 30.2,
+    "s_lat_MPa": 0.44,
+    "s_fa_MPa": 0.34
+   },
+   {
+    "model": "closed",
+    "u": 0.6,
+    "thick": 20.09,
+    "width": 31.59,
+    "A": 126.7,
+    "Iyy": 6429.0,
+    "Ixx": 13213.3,
+    "lever": 26.6,
+    "s_lat_MPa": 0.42,
+    "s_fa_MPa": 0.32
+   },
+   {
+    "model": "closed",
+    "u": 0.65,
+    "thick": 19.32,
+    "width": 30.71,
+    "A": 122.4,
+    "Iyy": 5720.5,
+    "Ixx": 11991.4,
+    "lever": 23.0,
+    "s_lat_MPa": 0.39,
+    "s_fa_MPa": 0.29
+   },
+   {
+    "model": "closed",
+    "u": 0.7,
+    "thick": 18.4,
+    "width": 29.58,
+    "A": 117.2,
+    "Iyy": 4941.9,
+    "Ixx": 10566.0,
+    "lever": 19.4,
+    "s_lat_MPa": 0.36,
+    "s_fa_MPa": 0.27
+   },
+   {
+    "model": "closed",
+    "u": 0.75,
+    "thick": 17.33,
+    "width": 28.14,
+    "A": 110.7,
+    "Iyy": 4105.0,
+    "Ixx": 8955.8,
+    "lever": 15.8,
+    "s_lat_MPa": 0.33,
+    "s_fa_MPa": 0.25
+   },
+   {
+    "model": "closed",
+    "u": 0.8,
+    "thick": 16.05,
+    "width": 26.32,
+    "A": 102.7,
+    "Iyy": 3227.5,
+    "Ixx": 7187.0,
+    "lever": 12.2,
+    "s_lat_MPa": 0.3,
+    "s_fa_MPa": 0.22
+   },
+   {
+    "model": "closed",
+    "u": 0.85,
+    "thick": 14.5,
+    "width": 23.99,
+    "A": 92.5,
+    "Iyy": 2330.5,
+    "Ixx": 5301.7,
+    "lever": 8.6,
+    "s_lat_MPa": 0.27,
+    "s_fa_MPa": 0.2
+   },
+   {
+    "model": "closed",
+    "u": 0.9,
+    "thick": 12.53,
+    "width": 20.87,
+    "A": 79.3,
+    "Iyy": 1442.5,
+    "Ixx": 3358.3,
+    "lever": 5.0,
+    "s_lat_MPa": 0.22,
+    "s_fa_MPa": 0.16
+   },
+   {
+    "model": "open",
+    "u": 0.4,
+    "thick": 22.13,
+    "width": 33.32,
+    "A": 67.3,
+    "Iyy": 607.1,
+    "Ixx": 7844.2,
+    "lever": 41.0,
+    "s_lat_MPa": 4.77,
+    "s_fa_MPa": 0.87
+   },
+   {
+    "model": "open",
+    "u": 0.45,
+    "thick": 21.75,
+    "width": 33.08,
+    "A": 66.6,
+    "Iyy": 577.7,
+    "Ixx": 7621.0,
+    "lever": 37.4,
+    "s_lat_MPa": 4.5,
+    "s_fa_MPa": 0.81
+   },
+   {
+    "model": "open",
+    "u": 0.5,
+    "thick": 21.3,
+    "width": 32.74,
+    "A": 65.5,
+    "Iyy": 539.7,
+    "Ixx": 7310.8,
+    "lever": 33.8,
+    "s_lat_MPa": 4.25,
+    "s_fa_MPa": 0.76
+   },
+   {
+    "model": "open",
+    "u": 0.55,
+    "thick": 20.75,
+    "width": 32.26,
+    "A": 64.3,
+    "Iyy": 499.7,
+    "Ixx": 6927.1,
+    "lever": 30.2,
+    "s_lat_MPa": 4.0,
+    "s_fa_MPa": 0.7
+   },
+   {
+    "model": "open",
+    "u": 0.6,
+    "thick": 20.09,
+    "width": 31.59,
+    "A": 62.5,
+    "Iyy": 450.3,
+    "Ixx": 6422.3,
+    "lever": 26.6,
+    "s_lat_MPa": 3.78,
+    "s_fa_MPa": 0.65
+   },
+   {
+    "model": "open",
+    "u": 0.65,
+    "thick": 19.32,
+    "width": 30.71,
+    "A": 60.4,
+    "Iyy": 398.4,
+    "Ixx": 5827.7,
+    "lever": 23.0,
+    "s_lat_MPa": 3.54,
+    "s_fa_MPa": 0.61
+   },
+   {
+    "model": "open",
+    "u": 0.7,
+    "thick": 18.4,
+    "width": 29.58,
+    "A": 57.8,
+    "Iyy": 340.7,
+    "Ixx": 5125.6,
+    "lever": 19.4,
+    "s_lat_MPa": 3.31,
+    "s_fa_MPa": 0.56
+   },
+   {
+    "model": "open",
+    "u": 0.75,
+    "thick": 17.33,
+    "width": 28.14,
+    "A": 54.5,
+    "Iyy": 280.1,
+    "Ixx": 4334.0,
+    "lever": 15.8,
+    "s_lat_MPa": 3.07,
+    "s_fa_MPa": 0.51
+   },
+   {
+    "model": "open",
+    "u": 0.8,
+    "thick": 16.05,
+    "width": 26.32,
+    "A": 50.5,
+    "Iyy": 217.8,
+    "Ixx": 3467.7,
+    "lever": 12.2,
+    "s_lat_MPa": 2.8,
+    "s_fa_MPa": 0.46
+   },
+   {
+    "model": "open",
+    "u": 0.85,
+    "thick": 14.5,
+    "width": 23.99,
+    "A": 45.5,
+    "Iyy": 156.4,
+    "Ixx": 2554.2,
+    "lever": 8.6,
+    "s_lat_MPa": 2.46,
+    "s_fa_MPa": 0.41
+   },
+   {
+    "model": "open",
+    "u": 0.9,
+    "thick": 12.53,
+    "width": 20.87,
+    "A": 38.8,
+    "Iyy": 94.9,
+    "Ixx": 1603.8,
+    "lever": 5.0,
+    "s_lat_MPa": 1.99,
+    "s_fa_MPa": 0.33
+   }
+  ],
+  "max_closed": {
+   "lateral": {
+    "model": "closed",
+    "u": 0.4,
+    "thick": 22.13,
+    "width": 33.32,
+    "A": 136.2,
+    "Iyy": 8424.8,
+    "Ixx": 16094.5,
+    "lever": 41.0,
+    "s_lat_MPa": 0.54,
+    "s_fa_MPa": 0.42
+   },
+   "fore_aft": {
+    "model": "closed",
+    "u": 0.4,
+    "thick": 22.13,
+    "width": 33.32,
+    "A": 136.2,
+    "Iyy": 8424.8,
+    "Ixx": 16094.5,
+    "lever": 41.0,
+    "s_lat_MPa": 0.54,
+    "s_fa_MPa": 0.42
+   }
+  },
+  "max_open": {
+   "lateral": {
+    "model": "open",
+    "u": 0.4,
+    "thick": 22.13,
+    "width": 33.32,
+    "A": 67.3,
+    "Iyy": 607.1,
+    "Ixx": 7844.2,
+    "lever": 41.0,
+    "s_lat_MPa": 4.77,
+    "s_fa_MPa": 0.87
+   },
+   "fore_aft": {
+    "model": "open",
+    "u": 0.4,
+    "thick": 22.13,
+    "width": 33.32,
+    "A": 67.3,
+    "Iyy": 607.1,
+    "Ixx": 7844.2,
+    "lever": 41.0,
+    "s_lat_MPa": 4.77,
+    "s_fa_MPa": 0.87
+   }
+  },
+  "cantilever_closed": {
+   "lateral": {
+    "k_N_per_mm": 503.8,
+    "F_at_UTS_N": 650.0,
+    "F_at_6MPa_N": 111.4,
+    "U_elastic_at_UTS_J": 0.419,
+    "defl_10N_mm": 0.02
+   },
+   "fore_aft": {
+    "k_N_per_mm": 1026.9,
+    "F_at_UTS_N": 825.0,
+    "F_at_6MPa_N": 141.4,
+    "U_elastic_at_UTS_J": 0.331,
+    "defl_10N_mm": 0.01
+   }
+  },
+  "cantilever_open": {
+   "lateral": {
+    "k_N_per_mm": 35.4,
+    "F_at_UTS_N": 73.0,
+    "F_at_6MPa_N": 12.6,
+    "U_elastic_at_UTS_J": 0.076,
+    "defl_10N_mm": 0.283
+   },
+   "fore_aft": {
+    "k_N_per_mm": 499.1,
+    "F_at_UTS_N": 402.0,
+    "F_at_6MPa_N": 68.9,
+    "U_elastic_at_UTS_J": 0.162,
+    "defl_10N_mm": 0.02
+   }
+  },
+  "shell_area_mm2": 5982.0,
+  "shell_mass_g": 11.3,
+  "drop": {
+   "E_robot_1m_J": 10.8,
+   "E_arm_alone_1m_J": 0.17,
+   "note": "arm alone = shell + ~6 g hub/bearing/washer (assumed)"
+  }
+ }
+}

@@ -1,0 +1,107 @@
+{
+ "option": "M3",
+ "pairs": {
+  "PLG_kruzok | M4_DIN912_M4x16": {
+   "gap": 1.5,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_kruzok | BRG_6700_vonk": {
+   "gap": 2.1,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_kruzok | ARM_rebro": {
+   "gap": 0.3,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_kruzok | ARM_naboj": {
+   "gap": 2.022,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_cap | M4_DIN912_M4x16": {
+   "gap": 0.3,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_cap | BRG_6700_vonk": {
+   "gap": 0.8,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_cap | ARM_rebro": {
+   "gap": 0.3,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_cap | ARM_naboj": {
+   "gap": 0.3,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_doraz | M4_DIN912_M4x16": {
+   "gap": 2.83,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_doraz | BRG_6700_vonk": {
+   "gap": 0.3,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_doraz | ARM_rebro": {
+   "gap": 0.513,
+   "at_swing": 135.0,
+   "kind": "3D sweep -45..135"
+  },
+  "PLG_doraz | ARM_naboj": {
+   "gap": 0.854,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "M4_DIN912_M4x16 | BRG_6700_vnut": {
+   "gap": 1.5,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "M4_DIN912_M4x16 | BRG_6700_vonk": {
+   "gap": 2.3,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "M4_DIN912_M4x16 | ARM_rebro": {
+   "gap": 3.245,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_6700_vnut | ARM_rebro": {
+   "gap": 0.3,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_6700_vnut | ARM_naboj": {
+   "gap": 0.3,
+   "kind": "2D profile (exact for a full revolution)"
+  }
+ },
+ "skipped_contacts": [
+  [
+   "ARM_naboj",
+   "BRG_6700_vonk"
+  ],
+  [
+   "BRG_6700_vnut",
+   "BRG_6700_vonk"
+  ],
+  [
+   "BRG_6700_vnut",
+   "PLG_cap"
+  ],
+  [
+   "BRG_6700_vnut",
+   "PLG_doraz"
+  ]
+ ],
+ "rigid": [
+  [
+   "ARM_naboj",
+   "M4_DIN912_M4x16"
+  ]
+ ],
+ "stop_contact_gap": {
+  "-51.0": 0.005,
+  "140.5": 0.005
+ },
+ "min_pair": {
+  "pair": "PLG_kruzok | ARM_rebro",
+  "gap": 0.3
+ },
+ "below_0p3": []
+}

@@ -1,0 +1,463 @@
+{
+ "option": "M2b",
+ "pairs": {
+  "PLG_kruzok | M4_DIN7984_M4x20": {
+   "gap": 0.5,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_kruzok | DRV_unasac": {
+   "gap": 5.9,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_kruzok | BRG_MR128_vonk": {
+   "gap": 2.1,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_kruzok | ARM_rebro": {
+   "gap": 0.3,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_kruzok | ARM_naboj": {
+   "gap": 2.022,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_kruzok | ARM_podlozka_M12": {
+   "gap": 3.4,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_kruzok | DRV_magnet_5x1_1": {
+   "gap": 6.155,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_kruzok | DRV_magnet_5x1_2": {
+   "gap": 6.155,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_kruzok | DRV_magnet_5x1_3": {
+   "gap": 6.155,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_kruzok | DRV_magnet_5x1_4": {
+   "gap": 6.155,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_kruzok | DRV_magnet_5x1_5": {
+   "gap": 6.155,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_kruzok | DRV_magnet_5x1_6": {
+   "gap": 6.155,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_kruzok | DRV_magnet_5x1_7": {
+   "gap": 6.155,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_kruzok | DRV_magnet_5x1_8": {
+   "gap": 6.155,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_kruzok | DRV_magnet_5x1_9": {
+   "gap": 6.155,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_cap | M4_DIN7984_M4x20": {
+   "gap": 0.5,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_cap | DRV_unasac": {
+   "gap": 0.3,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_cap | BRG_MR128_vonk": {
+   "gap": 0.3,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_cap | ARM_rebro": {
+   "gap": 0.3,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_cap | ARM_naboj": {
+   "gap": 1.044,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_cap | ARM_podlozka_M12": {
+   "gap": 2.193,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_cap | DRV_magnet_5x1_1": {
+   "gap": 2.804,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_cap | DRV_magnet_5x1_2": {
+   "gap": 2.804,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_cap | DRV_magnet_5x1_3": {
+   "gap": 2.804,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_cap | DRV_magnet_5x1_4": {
+   "gap": 2.804,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_cap | DRV_magnet_5x1_5": {
+   "gap": 2.804,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_cap | DRV_magnet_5x1_6": {
+   "gap": 2.804,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_cap | DRV_magnet_5x1_7": {
+   "gap": 2.804,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_cap | DRV_magnet_5x1_8": {
+   "gap": 2.804,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_cap | DRV_magnet_5x1_9": {
+   "gap": 2.804,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_doraz | M4_DIN7984_M4x20": {
+   "gap": 3.0,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_doraz | DRV_unasac": {
+   "gap": 4.1,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_doraz | BRG_MR128_vonk": {
+   "gap": 0.3,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_doraz | ARM_rebro": {
+   "gap": 0.513,
+   "at_swing": 135.0,
+   "kind": "3D sweep -45..135"
+  },
+  "PLG_doraz | ARM_naboj": {
+   "gap": 0.3,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_doraz | ARM_podlozka_M12": {
+   "gap": 1.6,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_doraz | DRV_magnet_5x1_1": {
+   "gap": 4.35,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_doraz | DRV_magnet_5x1_2": {
+   "gap": 4.35,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_doraz | DRV_magnet_5x1_3": {
+   "gap": 4.35,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_doraz | DRV_magnet_5x1_4": {
+   "gap": 4.35,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_doraz | DRV_magnet_5x1_5": {
+   "gap": 4.35,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_doraz | DRV_magnet_5x1_6": {
+   "gap": 4.35,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_doraz | DRV_magnet_5x1_7": {
+   "gap": 4.35,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_doraz | DRV_magnet_5x1_8": {
+   "gap": 4.35,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "PLG_doraz | DRV_magnet_5x1_9": {
+   "gap": 4.35,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "M4_DIN7984_M4x20 | BRG_MR128_vnut": {
+   "gap": 0.943,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "M4_DIN7984_M4x20 | BRG_MR128_vonk": {
+   "gap": 1.442,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "M4_DIN7984_M4x20 | ARM_rebro": {
+   "gap": 3.3,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "M4_DIN7984_M4x20 | ARM_naboj": {
+   "gap": 3.905,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "M4_DIN7984_M4x20 | ARM_podlozka_M12": {
+   "gap": 3.041,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "DRV_unasac | BRG_MR128_vnut": {
+   "gap": 0.3,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "DRV_unasac | BRG_MR128_vonk": {
+   "gap": 0.3,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "DRV_unasac | ARM_rebro": {
+   "gap": 3.8,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "DRV_unasac | ARM_naboj": {
+   "gap": 2.5,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vnut | ARM_rebro": {
+   "gap": 0.6,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vnut | ARM_naboj": {
+   "gap": 1.3,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vnut | ARM_podlozka_M12": {
+   "gap": 1.8,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vnut | DRV_magnet_5x1_1": {
+   "gap": 2.122,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vnut | DRV_magnet_5x1_2": {
+   "gap": 2.122,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vnut | DRV_magnet_5x1_3": {
+   "gap": 2.122,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vnut | DRV_magnet_5x1_4": {
+   "gap": 2.122,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vnut | DRV_magnet_5x1_5": {
+   "gap": 2.122,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vnut | DRV_magnet_5x1_6": {
+   "gap": 2.122,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vnut | DRV_magnet_5x1_7": {
+   "gap": 2.122,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vnut | DRV_magnet_5x1_8": {
+   "gap": 2.122,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vnut | DRV_magnet_5x1_9": {
+   "gap": 2.122,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vonk | DRV_magnet_5x1_1": {
+   "gap": 0.93,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vonk | DRV_magnet_5x1_2": {
+   "gap": 0.93,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vonk | DRV_magnet_5x1_3": {
+   "gap": 0.93,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vonk | DRV_magnet_5x1_4": {
+   "gap": 0.93,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vonk | DRV_magnet_5x1_5": {
+   "gap": 0.93,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vonk | DRV_magnet_5x1_6": {
+   "gap": 0.93,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vonk | DRV_magnet_5x1_7": {
+   "gap": 0.93,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vonk | DRV_magnet_5x1_8": {
+   "gap": 0.93,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "BRG_MR128_vonk | DRV_magnet_5x1_9": {
+   "gap": 0.93,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_rebro | DRV_magnet_5x1_1": {
+   "gap": 4.05,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_rebro | DRV_magnet_5x1_2": {
+   "gap": 4.05,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_rebro | DRV_magnet_5x1_3": {
+   "gap": 4.05,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_rebro | DRV_magnet_5x1_4": {
+   "gap": 4.05,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_rebro | DRV_magnet_5x1_5": {
+   "gap": 4.05,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_rebro | DRV_magnet_5x1_6": {
+   "gap": 4.05,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_rebro | DRV_magnet_5x1_7": {
+   "gap": 4.05,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_rebro | DRV_magnet_5x1_8": {
+   "gap": 4.05,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_rebro | DRV_magnet_5x1_9": {
+   "gap": 4.05,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_naboj | DRV_magnet_5x1_1": {
+   "gap": 2.75,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_naboj | DRV_magnet_5x1_2": {
+   "gap": 2.75,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_naboj | DRV_magnet_5x1_3": {
+   "gap": 2.75,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_naboj | DRV_magnet_5x1_4": {
+   "gap": 2.75,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_naboj | DRV_magnet_5x1_5": {
+   "gap": 2.75,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_naboj | DRV_magnet_5x1_6": {
+   "gap": 2.75,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_naboj | DRV_magnet_5x1_7": {
+   "gap": 2.75,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_naboj | DRV_magnet_5x1_8": {
+   "gap": 2.75,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_naboj | DRV_magnet_5x1_9": {
+   "gap": 2.75,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_podlozka_M12 | DRV_magnet_5x1_1": {
+   "gap": 0.25,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_podlozka_M12 | DRV_magnet_5x1_2": {
+   "gap": 0.25,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_podlozka_M12 | DRV_magnet_5x1_3": {
+   "gap": 0.25,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_podlozka_M12 | DRV_magnet_5x1_4": {
+   "gap": 0.25,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_podlozka_M12 | DRV_magnet_5x1_5": {
+   "gap": 0.25,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_podlozka_M12 | DRV_magnet_5x1_6": {
+   "gap": 0.25,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_podlozka_M12 | DRV_magnet_5x1_7": {
+   "gap": 0.25,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_podlozka_M12 | DRV_magnet_5x1_8": {
+   "gap": 0.25,
+   "kind": "2D profile (exact for a full revolution)"
+  },
+  "ARM_podlozka_M12 | DRV_magnet_5x1_9": {
+   "gap": 0.25,
+   "kind": "2D profile (exact for a full revolution)"
+  }
+ },
+ "skipped_contacts": [
+  [
+   "ARM_podlozka_M12",
+   "BRG_MR128_vonk"
+  ],
+  [
+   "ARM_podlozka_M12",
+   "DRV_unasac"
+  ],
+  [
+   "BRG_MR128_vnut",
+   "BRG_MR128_vonk"
+  ],
+  [
+   "BRG_MR128_vnut",
+   "PLG_cap"
+  ]
+ ],
+ "rigid": [],
+ "stop_contact_gap": {
+  "-51.0": 0.005,
+  "140.5": 0.005
+ },
+ "min_pair": {
+  "pair": "ARM_podlozka_M12 | DRV_magnet_5x1_1",
+  "gap": 0.25
+ },
+ "below_0p3": [
+  "ARM_podlozka_M12 | DRV_magnet_5x1_1",
+  "ARM_podlozka_M12 | DRV_magnet_5x1_2",
+  "ARM_podlozka_M12 | DRV_magnet_5x1_3",
+  "ARM_podlozka_M12 | DRV_magnet_5x1_4",
+  "ARM_podlozka_M12 | DRV_magnet_5x1_5",
+  "ARM_podlozka_M12 | DRV_magnet_5x1_6",
+  "ARM_podlozka_M12 | DRV_magnet_5x1_7",
+  "ARM_podlozka_M12 | DRV_magnet_5x1_8",
+  "ARM_podlozka_M12 | DRV_magnet_5x1_9"
+ ],
+ "magnets": {
+  "count": 9,
+  "r": 9.25,
+  "d": 5.0,
+  "x": [
+   58.65,
+   59.65
+  ],
+  "chord_pitch": 6.327,
+  "web_between_pockets": 1.227
+ }
+}

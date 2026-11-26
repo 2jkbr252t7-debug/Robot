@@ -1,0 +1,28 @@
+[2s] 0. {'world_X_in_local': [0.9781, 0.0, -0.2079], 'seam_x_on_axis': np.float64(61.409), 'seam_x_at_r13_top': np.float64(58.649), 'seam_x_at_r13_bottom': np.float64(64.168), 'seam_x_at_r13_front': np.float64(61.553), 'seam_x_at_r13_back': np.float64(61.264)}
+1. 0 {'spot_local': [0.0, -12.51, -11.52], 'outer_skin_x_min_over_boss': 5.33, 'outer_skin_x_min_over_pocket': 6.32, 'outer_skin_x_centre': 7.95, 'back_wall_over_magnet': 4.02, 'boss_end_vs_skin': 2.68}
+1. 0 {'spot_local': [0.0, 12.51, -11.52], 'outer_skin_x_min_over_boss': 5.33, 'outer_skin_x_min_over_pocket': 6.32, 'outer_skin_x_centre': 7.95, 'back_wall_over_magnet': 4.02, 'boss_end_vs_skin': 2.68}
+1. 0 {'spot_local': [0.0, -11.75, -47.52], 'outer_skin_x_min_over_boss': 4.55, 'outer_skin_x_min_over_pocket': 5.39, 'outer_skin_x_centre': 6.77, 'back_wall_over_magnet': 3.09, 'boss_end_vs_skin': 1.9}
+1. 0 {'spot_local': [0.0, 11.75, -47.52], 'outer_skin_x_min_over_boss': 4.55, 'outer_skin_x_min_over_pocket': 5.39, 'outer_skin_x_centre': 6.77, 'back_wall_over_magnet': 3.09, 'boss_end_vs_skin': 1.9}
+1. A {'spot_local': [0.0, -11.71, -11.52], 'outer_skin_x_min_over_boss': 3.38, 'outer_skin_x_min_over_pocket': 4.0, 'outer_skin_x_centre': 5.02, 'back_wall_over_magnet': 1.7, 'boss_end_vs_skin': 0.73}
+1. A {'spot_local': [0.0, 11.71, -11.52], 'outer_skin_x_min_over_boss': 3.38, 'outer_skin_x_min_over_pocket': 4.0, 'outer_skin_x_centre': 5.02, 'back_wall_over_magnet': 1.7, 'boss_end_vs_skin': 0.73}
+1. A {'spot_local': [0.0, -10.99, -47.52], 'outer_skin_x_min_over_boss': 2.88, 'outer_skin_x_min_over_pocket': 3.41, 'outer_skin_x_centre': 4.28, 'back_wall_over_magnet': 1.11, 'boss_end_vs_skin': 0.23}
+1. A {'spot_local': [0.0, 10.99, -47.52], 'outer_skin_x_min_over_boss': 2.88, 'outer_skin_x_min_over_pocket': 3.41, 'outer_skin_x_centre': 4.28, 'back_wall_over_magnet': 1.11, 'boss_end_vs_skin': 0.23}
+[2s] 1b. {'M2b': {'min_dist_boss_to_part': -0.886, 'part': 'ARM_podlozka_M12', 'boss': 0}, 'M3': {'min_dist_boss_to_part': 1.855, 'part': 'ARM_naboj', 'boss': 1}}
+[563s] 2. M2b DRV_unasac cover-on sweep (outer skin) {'min': 4.002, 'at_t': 0.0}
+[563s] 2. M2b M4_DIN7984_M4x20 cover-on sweep (outer skin) {'min': 9000000000.0, 'at_t': None}
+[563s] 2. M2b ARM_podlozka_M12 cover-on sweep (outer skin) {'min': 9000000000.0, 'at_t': None}
+[563s] 2. M2b DRV_unasac insert along X (inner skin) {'min': 2.382, 'at_t': 0.0}
+[563s] 2. M2b ARM_podlozka_M12 insert along X (inner skin) {'min': 1.962, 'at_t': 0.0}
+[563s] 2. M2b BRG_MR128_vonk insert along X (inner skin) {'min': 3.452, 'at_t': 0.0}
+[575s] 3. {'fits': True, 'governing': {'margin': 0.762, 'part': 'ARM_podlozka_M12'}, 'drive_hub': {'role': 'drive', 'kind': 'printed', 'wall_outer_skin': 3.004, 'req_outer': 1.5, 'margin_outer': 1.504, 'wall_inner_skin': 2.381, 'req_inner': 1.5, 'margin_inner': 0.881, 'at_outer': {'x': 60.82, 'r': 15.84, 'az': 167.0}, 'frac_points_outside_arm': 0.0, 'local_x_range': [-5.65, 3.61], 'crosses_seam': True, 'seam_ok': True, 'ok': True}, 'screw': {'role': 'drive', 'kind': 'steel', 'wall_outer_skin': 4.948, 'req_outer': 1.5, 'margin_outer': 3.448, 'wall_inner_skin': 9.0, 'req_inner': 1.5, 'margin_inner': 7.5, 'at_outer': {'x': 67.74, 'r': 4.54, 'az': 87.3}, 'frac_points_outside_arm': 0.0, 'local_x_range': [-9.13, 2.19], 'crosses_seam': True, 'seam_ok': True, 'ok': True}}
+4. PLG_cap {'role': 'static', 'clearance_to_shell1p6_outer': 7.922, 'clearance_to_shell1p6_inner': 7.4, 'need': 0.3}
+4. PLG_doraz {'role': 'static', 'clearance_to_shell1p6_outer': 9.576, 'clearance_to_shell1p6_inner': 7.4, 'need': 0.3}
+4. M4_DIN7984_M4x20 {'role': 'drive', 'clearance_to_shell1p6_outer': 4.52, 'clearance_to_shell1p6_inner': 7.4, 'need': 0.3}
+4. DRV_unasac {'role': 'drive', 'clearance_to_shell1p6_outer': 1.404, 'clearance_to_shell1p6_inner': 0.781, 'need': 0.3}
+4. BRG_MR128_vnut {'role': 'static', 'clearance_to_shell1p6_outer': 7.761, 'clearance_to_shell1p6_inner': 7.4, 'need': 0.3}
+4. BRG_MR128_vonk {'role': 'arm', 'clearance_to_shell1p6_outer': 7.449, 'clearance_to_shell1p6_inner': 1.851, 'need': 0.0}
+4. ARM_rebro {'role': 'arm', 'clearance_to_shell1p6_outer': 7.955, 'clearance_to_shell1p6_inner': -0.327, 'need': 0.0}
+4. ARM_naboj {'role': 'arm', 'clearance_to_shell1p6_outer': 3.339, 'clearance_to_shell1p6_inner': -0.891, 'need': 0.0}
+4. ARM_podlozka_M12 {'role': 'arm', 'clearance_to_shell1p6_outer': 2.913, 'clearance_to_shell1p6_inner': 0.362, 'need': 0.0}
+[592s] 5. [57.83, 3.88, -0.18] {'min': 3.884, 'at': {'x': 57.58, 'r': 16.8, 'az': 88.0}} 6.12 [{'r': 8.5, 'shell_interior_starts_at_x_max_over_az': 53.33, 'hub_tube_starts': 52.8, 'overlap_mm': 0.53}, {'r': 9.1, 'shell_interior_starts_at_x_max_over_az': 53.55, 'hub_tube_starts': 52.8, 'overlap_mm': 0.75}, {'r': 9.7, 'shell_interior_starts_at_x_max_over_az': 53.82, 'hub_tube_starts': 52.8, 'overlap_mm': 1.02}]
+[592s] 6. {'0': {'tip_volume_mm3': 1096.0, 'tip_extent_local': {'x': [-8.2, -0.3], 'y': [-13.6, 9.7], 'z': [-71.9, -53.6]}, 'outer_half_thickness_at_u0_95': 4.86}, 'A': {'tip_volume_mm3': 1037.0, 'tip_extent_local': {'x': [-8.2, -0.3], 'y': [-12.9, 9.3], 'z': [-71.9, -53.9]}, 'outer_half_thickness_at_u0_95': 3.01}}

@@ -1,0 +1,1100 @@
+{
+ "note": "x along a line || X at radius r from the shoulder axis (frame B, left arm, dx -1.0). x_outer_surface_min = outermost arm-side part + required wall (1.2 cover, +0.3 if the part moves against the arm): the arm's OUTER surface must lie at or beyond it (normal-distance check is done by fit.py). x_inner_surface_max = innermost steel/sliding part - its requirement (printed hub parts merge with the inner shell). Inner skin of the approved arm on the shoulder axis: x 49.645 (all kt).",
+ "envelope": {
+  "M1": [
+   {
+    "r": 0.0,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x20"
+   },
+   {
+    "r": 0.5,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x20"
+   },
+   {
+    "r": 1.0,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x20"
+   },
+   {
+    "r": 1.5,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x20"
+   },
+   {
+    "r": 2.0,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x20"
+   },
+   {
+    "r": 2.5,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 53.6,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 3.0,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 53.6,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 3.5,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 4.0,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 4.5,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 5.0,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 5.5,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_doraz"
+   },
+   {
+    "r": 6.0,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_doraz"
+   },
+   {
+    "r": 6.5,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_doraz"
+   },
+   {
+    "r": 7.0,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 54.3,
+    "by_in": "BRG_6700_vonk"
+   },
+   {
+    "r": 7.5,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 54.3,
+    "by_in": "BRG_6700_vonk"
+   },
+   {
+    "r": 8.0,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 59.4,
+    "by_in": "ARM_podlozka_M10"
+   },
+   {
+    "r": 8.5,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 59.4,
+    "by_in": "ARM_podlozka_M10"
+   },
+   {
+    "r": 9.0,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 59.4,
+    "by_in": "ARM_podlozka_M10"
+   },
+   {
+    "r": 9.5,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 59.4,
+    "by_in": "ARM_podlozka_M10"
+   },
+   {
+    "r": 10.0,
+    "x_outer_surface_min": 67.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 59.4,
+    "by_in": "ARM_podlozka_M10"
+   },
+   {
+    "r": 10.5,
+    "x_outer_surface_min": 68.8,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": 61.1,
+    "by_in": "DRV_unasac"
+   },
+   {
+    "r": 11.0,
+    "x_outer_surface_min": 68.8,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": 61.1,
+    "by_in": "DRV_unasac"
+   },
+   {
+    "r": 11.5,
+    "x_outer_surface_min": 68.8,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 12.0,
+    "x_outer_surface_min": 68.8,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 12.5,
+    "x_outer_surface_min": 68.8,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 13.0,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 13.5,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 14.0,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 14.5,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 15.0,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   }
+  ],
+  "M2": [
+   {
+    "r": 0.0,
+    "x_outer_surface_min": 63.7,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x16"
+   },
+   {
+    "r": 0.5,
+    "x_outer_surface_min": 63.7,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x16"
+   },
+   {
+    "r": 1.0,
+    "x_outer_surface_min": 63.7,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x16"
+   },
+   {
+    "r": 1.5,
+    "x_outer_surface_min": 63.7,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x16"
+   },
+   {
+    "r": 2.0,
+    "x_outer_surface_min": 63.7,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x16"
+   },
+   {
+    "r": 2.5,
+    "x_outer_surface_min": 63.7,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 53.6,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 3.0,
+    "x_outer_surface_min": 63.7,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 53.6,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 3.5,
+    "x_outer_surface_min": 63.7,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 4.0,
+    "x_outer_surface_min": 63.7,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 4.5,
+    "x_outer_surface_min": 63.7,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 5.0,
+    "x_outer_surface_min": 61.85,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 5.5,
+    "x_outer_surface_min": 61.85,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_doraz"
+   },
+   {
+    "r": 6.0,
+    "x_outer_surface_min": 61.85,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_doraz"
+   },
+   {
+    "r": 6.5,
+    "x_outer_surface_min": 61.85,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_doraz"
+   },
+   {
+    "r": 7.0,
+    "x_outer_surface_min": 61.85,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 53.4,
+    "by_in": "BRG_6700_vonk"
+   },
+   {
+    "r": 7.5,
+    "x_outer_surface_min": 61.85,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 53.4,
+    "by_in": "BRG_6700_vonk"
+   },
+   {
+    "r": 8.0,
+    "x_outer_surface_min": 61.85,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 55.2,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 8.5,
+    "x_outer_surface_min": 61.85,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 55.2,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 9.0,
+    "x_outer_surface_min": 61.85,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 55.2,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 9.5,
+    "x_outer_surface_min": 61.85,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 55.2,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 10.0,
+    "x_outer_surface_min": 61.85,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 55.2,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 10.5,
+    "x_outer_surface_min": 61.85,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 55.2,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 11.0,
+    "x_outer_surface_min": 61.85,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 55.2,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 11.5,
+    "x_outer_surface_min": 61.85,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 55.2,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 12.0,
+    "x_outer_surface_min": 61.85,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 55.2,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 12.5,
+    "x_outer_surface_min": 61.85,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 55.2,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 13.0,
+    "x_outer_surface_min": 61.85,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 55.2,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 13.5,
+    "x_outer_surface_min": 61.85,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 55.2,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 14.0,
+    "x_outer_surface_min": 61.85,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 55.2,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 14.5,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 15.0,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   }
+  ],
+  "M2b": [
+   {
+    "r": 0.0,
+    "x_outer_surface_min": 64.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN7984_M4x20"
+   },
+   {
+    "r": 0.5,
+    "x_outer_surface_min": 64.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN7984_M4x20"
+   },
+   {
+    "r": 1.0,
+    "x_outer_surface_min": 64.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN7984_M4x20"
+   },
+   {
+    "r": 1.5,
+    "x_outer_surface_min": 64.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN7984_M4x20"
+   },
+   {
+    "r": 2.0,
+    "x_outer_surface_min": 64.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN7984_M4x20"
+   },
+   {
+    "r": 2.5,
+    "x_outer_surface_min": 64.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 3.0,
+    "x_outer_surface_min": 64.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 3.5,
+    "x_outer_surface_min": 64.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 4.0,
+    "x_outer_surface_min": 64.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 4.5,
+    "x_outer_surface_min": 64.4,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_doraz"
+   },
+   {
+    "r": 5.0,
+    "x_outer_surface_min": 61.35,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_doraz"
+   },
+   {
+    "r": 5.5,
+    "x_outer_surface_min": 61.35,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_doraz"
+   },
+   {
+    "r": 6.0,
+    "x_outer_surface_min": 61.35,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_doraz"
+   },
+   {
+    "r": 6.5,
+    "x_outer_surface_min": 61.35,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_doraz"
+   },
+   {
+    "r": 7.0,
+    "x_outer_surface_min": 61.35,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 54.7,
+    "by_in": "ARM_podlozka_M12"
+   },
+   {
+    "r": 7.5,
+    "x_outer_surface_min": 61.35,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 54.7,
+    "by_in": "ARM_podlozka_M12"
+   },
+   {
+    "r": 8.0,
+    "x_outer_surface_min": 61.35,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 54.7,
+    "by_in": "ARM_podlozka_M12"
+   },
+   {
+    "r": 8.5,
+    "x_outer_surface_min": 61.35,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 54.7,
+    "by_in": "ARM_podlozka_M12"
+   },
+   {
+    "r": 9.0,
+    "x_outer_surface_min": 61.35,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 54.7,
+    "by_in": "ARM_podlozka_M12"
+   },
+   {
+    "r": 9.5,
+    "x_outer_surface_min": 61.35,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 54.7,
+    "by_in": "ARM_podlozka_M12"
+   },
+   {
+    "r": 10.0,
+    "x_outer_surface_min": 61.35,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 54.7,
+    "by_in": "ARM_podlozka_M12"
+   },
+   {
+    "r": 10.5,
+    "x_outer_surface_min": 61.35,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 54.7,
+    "by_in": "ARM_podlozka_M12"
+   },
+   {
+    "r": 11.0,
+    "x_outer_surface_min": 61.35,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 54.7,
+    "by_in": "ARM_podlozka_M12"
+   },
+   {
+    "r": 11.5,
+    "x_outer_surface_min": 61.35,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 54.7,
+    "by_in": "ARM_podlozka_M12"
+   },
+   {
+    "r": 12.0,
+    "x_outer_surface_min": 61.35,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 54.7,
+    "by_in": "ARM_podlozka_M12"
+   },
+   {
+    "r": 12.5,
+    "x_outer_surface_min": 61.35,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 56.9,
+    "by_in": "DRV_unasac"
+   },
+   {
+    "r": 13.0,
+    "x_outer_surface_min": 61.35,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 56.9,
+    "by_in": "DRV_unasac"
+   },
+   {
+    "r": 13.5,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 14.0,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 14.5,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 15.0,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   }
+  ],
+  "M3": [
+   {
+    "r": 0.0,
+    "x_outer_surface_min": 63.4,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x16"
+   },
+   {
+    "r": 0.5,
+    "x_outer_surface_min": 63.4,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x16"
+   },
+   {
+    "r": 1.0,
+    "x_outer_surface_min": 63.4,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x16"
+   },
+   {
+    "r": 1.5,
+    "x_outer_surface_min": 63.4,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x16"
+   },
+   {
+    "r": 2.0,
+    "x_outer_surface_min": 63.4,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x16"
+   },
+   {
+    "r": 2.5,
+    "x_outer_surface_min": 63.4,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": 53.6,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 3.0,
+    "x_outer_surface_min": 63.4,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": 53.6,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 3.5,
+    "x_outer_surface_min": 63.4,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 4.0,
+    "x_outer_surface_min": 63.4,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 4.5,
+    "x_outer_surface_min": 63.4,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 5.0,
+    "x_outer_surface_min": 61.3,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 5.5,
+    "x_outer_surface_min": 61.3,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_doraz"
+   },
+   {
+    "r": 6.0,
+    "x_outer_surface_min": 61.3,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_doraz"
+   },
+   {
+    "r": 6.5,
+    "x_outer_surface_min": 61.3,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_doraz"
+   },
+   {
+    "r": 7.0,
+    "x_outer_surface_min": 61.3,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": 53.4,
+    "by_in": "BRG_6700_vonk"
+   },
+   {
+    "r": 7.5,
+    "x_outer_surface_min": 61.3,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": 53.4,
+    "by_in": "BRG_6700_vonk"
+   },
+   {
+    "r": 8.0,
+    "x_outer_surface_min": 61.3,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 8.5,
+    "x_outer_surface_min": 61.3,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 9.0,
+    "x_outer_surface_min": 56.4,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 9.5,
+    "x_outer_surface_min": 56.4,
+    "by": "ARM_naboj",
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 10.0,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 10.5,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 11.0,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 11.5,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 12.0,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 12.5,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 13.0,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 13.5,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 14.0,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 14.5,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 15.0,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   }
+  ],
+  "M4": [
+   {
+    "r": 0.0,
+    "x_outer_surface_min": 61.8,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x16"
+   },
+   {
+    "r": 0.5,
+    "x_outer_surface_min": 61.8,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x16"
+   },
+   {
+    "r": 1.0,
+    "x_outer_surface_min": 61.8,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x16"
+   },
+   {
+    "r": 1.5,
+    "x_outer_surface_min": 61.8,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x16"
+   },
+   {
+    "r": 2.0,
+    "x_outer_surface_min": 61.8,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "M4_DIN912_M4x16"
+   },
+   {
+    "r": 2.5,
+    "x_outer_surface_min": 61.8,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 3.0,
+    "x_outer_surface_min": 61.8,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 3.5,
+    "x_outer_surface_min": 61.8,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 4.0,
+    "x_outer_surface_min": 61.8,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 4.5,
+    "x_outer_surface_min": 61.8,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 5.0,
+    "x_outer_surface_min": 60.25,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 5.5,
+    "x_outer_surface_min": 60.25,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.0,
+    "by_in": "PLG_cap"
+   },
+   {
+    "r": 6.0,
+    "x_outer_surface_min": 60.25,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.8,
+    "by_in": "BRG_6700_vonk"
+   },
+   {
+    "r": 6.5,
+    "x_outer_surface_min": 60.25,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.8,
+    "by_in": "BRG_6700_vonk"
+   },
+   {
+    "r": 7.0,
+    "x_outer_surface_min": 60.25,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.8,
+    "by_in": "BRG_6700_vonk"
+   },
+   {
+    "r": 7.5,
+    "x_outer_surface_min": 60.25,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 51.8,
+    "by_in": "BRG_6700_vonk"
+   },
+   {
+    "r": 8.0,
+    "x_outer_surface_min": 60.25,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 53.6,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 8.5,
+    "x_outer_surface_min": 60.25,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 53.6,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 9.0,
+    "x_outer_surface_min": 60.25,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 53.6,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 9.5,
+    "x_outer_surface_min": 60.25,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 53.6,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 10.0,
+    "x_outer_surface_min": 60.25,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 53.6,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 10.5,
+    "x_outer_surface_min": 60.25,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 53.6,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 11.0,
+    "x_outer_surface_min": 60.25,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 53.6,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 11.5,
+    "x_outer_surface_min": 60.25,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 53.6,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 12.0,
+    "x_outer_surface_min": 60.25,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 53.6,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 12.5,
+    "x_outer_surface_min": 60.25,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 53.6,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 13.0,
+    "x_outer_surface_min": 60.25,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 53.6,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 13.5,
+    "x_outer_surface_min": 60.25,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 53.6,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 14.0,
+    "x_outer_surface_min": 60.25,
+    "by": "DRV_unasac",
+    "x_inner_surface_max": 53.6,
+    "by_in": "ARM_podlozka_M14"
+   },
+   {
+    "r": 14.5,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   },
+   {
+    "r": 15.0,
+    "x_outer_surface_min": null,
+    "by": null,
+    "x_inner_surface_max": null,
+    "by_in": null
+   }
+  ]
+ }
+}

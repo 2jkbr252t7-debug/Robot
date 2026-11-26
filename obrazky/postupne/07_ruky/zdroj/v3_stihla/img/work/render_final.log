@@ -1,0 +1,35 @@
+=== start 17:08:09
+[  20.1] SHOT front_0 15 s
+[  36.2] SHOT front_A 15 s
+[  51.6] SHOT front_B 14 s
+[  67.4] SHOT front_C 15 s
+[  18.1] SHOT armfront_0 16 s
+[  34.0] SHOT armfront_A 15 s
+[  48.9] SHOT armfront_B 14 s
+[  62.8] SHOT armfront_C 13 s
+[  16.3] SHOT armF_0 16 s
+[  23.8] SHOT armT_0 8 s
+[  39.0] SHOT armF_A 14 s
+[  45.4] SHOT armT_A 6 s
+[  58.9] SHOT armF_B 13 s
+[  64.5] SHOT armT_B 6 s
+[  76.9] SHOT armF_C 12 s
+[  82.1] SHOT armT_C 5 s
+[   4.0]   FAST fallback TB_stlp 0
+[  47.7] SHOT rezv_0_M1 42 s
+[  41.8] SHOT rezh_0_M1 36 s
+[   4.3]   FAST fallback TB_stlp 0
+[  39.5] SHOT rezv_A_M2b 34 s
+[   6.0]   FAST fallback A_vnut 16101
+[  37.7] SHOT rezh_A_M2b 32 s
+[   5.0]   FAST fallback TB_stlp 0
+[  36.6] SHOT rezv_B_M2b 29 s
+[  33.5] SHOT rezh_B_M2b 26 s
+[   4.5]   FAST fallback TB_stlp 0
+[  31.8] SHOT rezv_C_M2b 26 s
+[  28.3] SHOT rezh_C_M2b 22 s
+[ 102.1] SHOT hero_0 97 s
+[ 204.3] SHOT hero_A 101 s
+[ 301.4] SHOT hero_B 96 s
+[ 397.7] SHOT hero_C 95 s
+ALL DONE 17:23:25

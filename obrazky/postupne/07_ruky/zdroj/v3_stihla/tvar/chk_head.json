@@ -1,0 +1,226 @@
+{
+ "0": {
+  "pokoj_pan-30": {
+   "min_le135": 10.11,
+   "angle": 135.0,
+   "arm_u": 0.67,
+   "at140_5": 9.35
+  },
+  "pokoj_pan0": {
+   "min_le135": 8.78,
+   "angle": 135.0,
+   "arm_u": 0.71,
+   "at140_5": 8.12
+  },
+  "pokoj_pan30": {
+   "min_le135": 5.5,
+   "angle": 135.0,
+   "arm_u": 0.58,
+   "at140_5": 4.28
+  },
+  "naklon40_pan-30": {
+   "min_le135": 12.0,
+   "angle": null,
+   "arm_u": null,
+   "at140_5": 12.0
+  },
+  "naklon40_pan0": {
+   "min_le135": 11.73,
+   "angle": 135.0,
+   "arm_u": 0.83,
+   "at140_5": 11.75
+  },
+  "naklon40_pan30": {
+   "min_le135": -1.35,
+   "angle": 135.0,
+   "arm_u": 0.71,
+   "at140_5": -3.12
+  },
+  "vysunute_pan-30": {
+   "min_le135": 12.0,
+   "angle": null,
+   "arm_u": null,
+   "at140_5": 12.0
+  },
+  "vysunute_pan0": {
+   "min_le135": 12.0,
+   "angle": null,
+   "arm_u": null,
+   "at140_5": 12.0
+  },
+  "vysunute_pan30": {
+   "min_le135": 12.0,
+   "angle": null,
+   "arm_u": null,
+   "at140_5": 12.0
+  }
+ },
+ "A": {
+  "pokoj_pan-30": {
+   "min_le135": 10.28,
+   "angle": 135.0,
+   "arm_u": 0.67,
+   "at140_5": 9.46
+  },
+  "pokoj_pan0": {
+   "min_le135": 8.89,
+   "angle": 135.0,
+   "arm_u": 0.71,
+   "at140_5": 8.2
+  },
+  "pokoj_pan30": {
+   "min_le135": 5.93,
+   "angle": 135.0,
+   "arm_u": 0.58,
+   "at140_5": 4.65
+  },
+  "naklon40_pan-30": {
+   "min_le135": 12.0,
+   "angle": null,
+   "arm_u": null,
+   "at140_5": 12.0
+  },
+  "naklon40_pan0": {
+   "min_le135": 11.73,
+   "angle": 135.0,
+   "arm_u": 0.84,
+   "at140_5": 11.75
+  },
+  "naklon40_pan30": {
+   "min_le135": -0.92,
+   "angle": 135.0,
+   "arm_u": 0.69,
+   "at140_5": -2.8
+  },
+  "vysunute_pan-30": {
+   "min_le135": 12.0,
+   "angle": null,
+   "arm_u": null,
+   "at140_5": 12.0
+  },
+  "vysunute_pan0": {
+   "min_le135": 12.0,
+   "angle": null,
+   "arm_u": null,
+   "at140_5": 12.0
+  },
+  "vysunute_pan30": {
+   "min_le135": 12.0,
+   "angle": null,
+   "arm_u": null,
+   "at140_5": 12.0
+  }
+ },
+ "B": {
+  "pokoj_pan-30": {
+   "min_le135": 10.1,
+   "angle": 135.0,
+   "arm_u": 0.68,
+   "at140_5": 9.24
+  },
+  "pokoj_pan0": {
+   "min_le135": 8.6,
+   "angle": 135.0,
+   "arm_u": 0.74,
+   "at140_5": 7.91
+  },
+  "pokoj_pan30": {
+   "min_le135": 5.92,
+   "angle": 135.0,
+   "arm_u": 0.58,
+   "at140_5": 4.59
+  },
+  "naklon40_pan-30": {
+   "min_le135": 12.0,
+   "angle": null,
+   "arm_u": null,
+   "at140_5": 12.0
+  },
+  "naklon40_pan0": {
+   "min_le135": 10.78,
+   "angle": 135.0,
+   "arm_u": 0.86,
+   "at140_5": 10.81
+  },
+  "naklon40_pan30": {
+   "min_le135": -1.07,
+   "angle": 135.0,
+   "arm_u": 0.7,
+   "at140_5": -3.16
+  },
+  "vysunute_pan-30": {
+   "min_le135": 12.0,
+   "angle": null,
+   "arm_u": null,
+   "at140_5": 12.0
+  },
+  "vysunute_pan0": {
+   "min_le135": 12.0,
+   "angle": null,
+   "arm_u": null,
+   "at140_5": 12.0
+  },
+  "vysunute_pan30": {
+   "min_le135": 12.0,
+   "angle": null,
+   "arm_u": null,
+   "at140_5": 12.0
+  }
+ },
+ "C": {
+  "pokoj_pan-30": {
+   "min_le135": 9.62,
+   "angle": 135.0,
+   "arm_u": 0.69,
+   "at140_5": 8.68
+  },
+  "pokoj_pan0": {
+   "min_le135": 7.83,
+   "angle": 135.0,
+   "arm_u": 0.78,
+   "at140_5": 7.2
+  },
+  "pokoj_pan30": {
+   "min_le135": 5.74,
+   "angle": 135.0,
+   "arm_u": 0.58,
+   "at140_5": 4.35
+  },
+  "naklon40_pan-30": {
+   "min_le135": 12.0,
+   "angle": null,
+   "arm_u": null,
+   "at140_5": 12.0
+  },
+  "naklon40_pan0": {
+   "min_le135": 9.34,
+   "angle": 135.0,
+   "arm_u": 0.9,
+   "at140_5": 9.37
+  },
+  "naklon40_pan30": {
+   "min_le135": -1.37,
+   "angle": 135.0,
+   "arm_u": 0.7,
+   "at140_5": -3.59
+  },
+  "vysunute_pan-30": {
+   "min_le135": 12.0,
+   "angle": null,
+   "arm_u": null,
+   "at140_5": 12.0
+  },
+  "vysunute_pan0": {
+   "min_le135": 12.0,
+   "angle": null,
+   "arm_u": null,
+   "at140_5": 12.0
+  },
+  "vysunute_pan30": {
+   "min_le135": 12.0,
+   "angle": null,
+   "arm_u": null,
+   "at140_5": 12.0
+  }
+ }
+}

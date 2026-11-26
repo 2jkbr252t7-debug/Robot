@@ -1,0 +1,2037 @@
+{
+ "M1": {
+  "option": "M1",
+  "title": "B1+ bez zmeny",
+  "parts": {
+   "PLG_cap": {
+    "role": "static",
+    "kind": "printed",
+    "wall_outer_skin": 11.713,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 9.0,
+    "req_inner": 1.5,
+    "margin_inner": 7.5,
+    "at_outer": {
+     "x": 60.99,
+     "r": 16.62,
+     "az": 3.8
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -9.75,
+     -0.83
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "PLG_doraz": {
+    "role": "static",
+    "kind": "printed",
+    "wall_outer_skin": 11.573,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 9.0,
+    "req_inner": 1.5,
+    "margin_inner": 7.5,
+    "at_outer": {
+     "x": 60.49,
+     "r": 16.79,
+     "az": 11.9
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -10.09,
+     -5.66
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "M4_DIN912_M4x20": {
+    "role": "drive",
+    "kind": "steel",
+    "wall_outer_skin": 8.246,
+    "req_outer": 1.5,
+    "margin_outer": 6.746,
+    "wall_inner_skin": 9.0,
+    "req_inner": 1.5,
+    "margin_inner": 7.5,
+    "at_outer": {
+     "x": 72.05,
+     "r": 5.29,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -9.13,
+     3.26
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_unasac": {
+    "role": "drive",
+    "kind": "printed",
+    "wall_outer_skin": 3.761,
+    "req_outer": 1.5,
+    "margin_outer": 2.261,
+    "wall_inner_skin": 5.771,
+    "req_inner": 1.5,
+    "margin_inner": 4.271,
+    "at_outer": {
+     "x": 68.73,
+     "r": 13.48,
+     "az": 15.9
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -2.31,
+     6.68
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "BRG_6700_vnut": {
+    "role": "static",
+    "kind": "steel",
+    "wall_outer_skin": 10.92,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 9.0,
+    "req_inner": 1.5,
+    "margin_inner": 7.5,
+    "at_outer": {
+     "x": 60.98,
+     "r": 16.62,
+     "az": 170.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -6.99,
+     -0.66
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "BRG_6700_vonk": {
+    "role": "arm",
+    "kind": "steel",
+    "wall_outer_skin": 9.238,
+    "req_outer": 1.2,
+    "margin_outer": 8.038,
+    "wall_inner_skin": 3.955,
+    "req_inner": 1.2,
+    "margin_inner": 2.755,
+    "at_outer": {
+     "x": 60.95,
+     "r": 16.62,
+     "az": 169.5
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -7.34,
+     -0.31
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "ARM_rebro": {
+    "role": "arm",
+    "kind": "printed",
+    "wall_outer_skin": 9.949,
+    "req_outer": 1.2,
+    "margin_outer": null,
+    "wall_inner_skin": 1.599,
+    "req_inner": 0.0,
+    "margin_inner": null,
+    "at_outer": {
+     "x": 60.51,
+     "r": 16.78,
+     "az": 162.5
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -8.82,
+     -5.87
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "ARM_naboj": {
+    "role": "arm",
+    "kind": "printed",
+    "wall_outer_skin": 1.36,
+    "req_outer": 1.2,
+    "margin_outer": 0.16,
+    "wall_inner_skin": 0.988,
+    "req_inner": 0.0,
+    "margin_inner": null,
+    "at_outer": {
+     "x": 68.61,
+     "r": 13.61,
+     "az": 158.6
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -10.24,
+     8.7
+    ],
+    "crosses_seam": true,
+    "seam_ok": false,
+    "ok": false
+   },
+   "ARM_podlozka_M10": {
+    "role": "arm",
+    "kind": "steel",
+    "wall_outer_skin": 6.507,
+    "req_outer": 1.2,
+    "margin_outer": 5.307,
+    "wall_inner_skin": 6.583,
+    "req_inner": 1.2,
+    "margin_inner": 5.383,
+    "at_outer": {
+     "x": 64.18,
+     "r": 16.31,
+     "az": 4.7
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -2.87,
+     3.24
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x2_1": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 5.218,
+    "req_outer": 1.5,
+    "margin_outer": 3.718,
+    "wall_inner_skin": 6.612,
+    "req_inner": 1.5,
+    "margin_inner": 5.112,
+    "at_outer": {
+     "x": 68.47,
+     "r": 13.89,
+     "az": 5.2
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     0.97,
+     3.97
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x2_2": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 5.374,
+    "req_outer": 1.5,
+    "margin_outer": 3.874,
+    "wall_inner_skin": 8.641,
+    "req_inner": 1.5,
+    "margin_inner": 7.141,
+    "at_outer": {
+     "x": 69.5,
+     "r": 12.82,
+     "az": 39.9
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     2.08,
+     5.08
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x2_3": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 5.605,
+    "req_outer": 1.5,
+    "margin_outer": 4.105,
+    "wall_inner_skin": 8.339,
+    "req_inner": 1.5,
+    "margin_inner": 6.839,
+    "at_outer": {
+     "x": 70.07,
+     "r": 12.23,
+     "az": 89.3
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     2.49,
+     5.48
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x2_4": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 5.286,
+    "req_outer": 1.5,
+    "margin_outer": 3.786,
+    "wall_inner_skin": 8.198,
+    "req_inner": 1.5,
+    "margin_inner": 6.698,
+    "at_outer": {
+     "x": 69.3,
+     "r": 12.98,
+     "az": 139.7
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     1.96,
+     4.96
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x2_5": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 5.357,
+    "req_outer": 1.5,
+    "margin_outer": 3.857,
+    "wall_inner_skin": 6.621,
+    "req_inner": 1.5,
+    "margin_inner": 5.121,
+    "at_outer": {
+     "x": 68.52,
+     "r": 13.97,
+     "az": 172.6
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     0.81,
+     3.8
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x2_6": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 7.689,
+    "req_outer": 1.5,
+    "margin_outer": 6.189,
+    "wall_inner_skin": 9.126,
+    "req_inner": 1.5,
+    "margin_inner": 7.626,
+    "at_outer": {
+     "x": 71.59,
+     "r": 11.62,
+     "az": 195.6
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -0.3,
+     2.7
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x2_7": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 9.014,
+    "req_outer": 1.5,
+    "margin_outer": 7.514,
+    "wall_inner_skin": 10.403,
+    "req_inner": 1.5,
+    "margin_inner": 8.903,
+    "at_outer": {
+     "x": 73.73,
+     "r": 3.7,
+     "az": 276.3
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -0.71,
+     2.29
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x2_8": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 7.323,
+    "req_outer": 1.5,
+    "margin_outer": 5.823,
+    "wall_inner_skin": 8.563,
+    "req_inner": 1.5,
+    "margin_inner": 7.063,
+    "at_outer": {
+     "x": 70.98,
+     "r": 12.45,
+     "az": 341.3
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -0.18,
+     2.81
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   }
+  },
+  "pairs": {
+   "PLG_kruzok|M4_DIN912_M4x20": 1.5,
+   "PLG_kruzok|DRV_unasac": 7.5,
+   "PLG_kruzok|BRG_6700_vonk": 3.0,
+   "PLG_kruzok|ARM_rebro": 0.5,
+   "PLG_kruzok|ARM_naboj": 2.062,
+   "PLG_kruzok|ARM_podlozka_M10": 8.1,
+   "PLG_cap|M4_DIN912_M4x20": 0.5,
+   "PLG_cap|DRV_unasac": 0.5,
+   "PLG_cap|BRG_6700_vonk": 0.8,
+   "PLG_cap|ARM_rebro": 0.5,
+   "PLG_cap|ARM_naboj": 0.5,
+   "PLG_cap|ARM_podlozka_M10": 1.128,
+   "PLG_doraz|M4_DIN912_M4x20": 3.0,
+   "PLG_doraz|DRV_unasac": 5.025,
+   "PLG_doraz|BRG_6700_vonk": 0.5,
+   "PLG_doraz|ARM_naboj": 1.03,
+   "PLG_doraz|ARM_podlozka_M10": 5.6,
+   "M4_DIN912_M4x20|BRG_6700_vnut": 1.581,
+   "M4_DIN912_M4x20|BRG_6700_vonk": 2.354,
+   "M4_DIN912_M4x20|ARM_rebro": 3.5,
+   "M4_DIN912_M4x20|ARM_naboj": 1.5,
+   "M4_DIN912_M4x20|ARM_podlozka_M10": 1.75,
+   "DRV_unasac|BRG_6700_vnut": 0.707,
+   "DRV_unasac|BRG_6700_vonk": 1.393,
+   "DRV_unasac|ARM_rebro": 5.099,
+   "DRV_unasac|ARM_naboj": 0.5,
+   "BRG_6700_vnut|ARM_rebro": 0.5,
+   "BRG_6700_vnut|ARM_naboj": 0.5,
+   "BRG_6700_vnut|ARM_podlozka_M10": 1.1
+  },
+  "stop": {
+   "gap_m45": 0.58,
+   "gap_135": 0.532,
+   "gap_at_m51": 0.005,
+   "gap_at_140p5": 0.005,
+   "contact_face_mm2": 2.2
+  },
+  "magnet_pockets": {
+   "n": 8,
+   "r": 7.7,
+   "web_D5p1": 0.79
+  },
+  "fits": false,
+  "governing_part_margin": {
+   "margin": 0.16,
+   "part": "ARM_naboj"
+  },
+  "min_pair_clearance": 0.5
+ },
+ "M2": {
+  "option": "M2",
+  "title": "B1+ naplocho (6700 + podlo\u017eka M14 okolo lo\u017eiska)",
+  "parts": {
+   "PLG_cap": {
+    "role": "static",
+    "kind": "printed",
+    "wall_outer_skin": 11.847,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 9.0,
+    "req_inner": 1.5,
+    "margin_inner": 7.5,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -9.75,
+     -1.71
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "PLG_doraz": {
+    "role": "static",
+    "kind": "printed",
+    "wall_outer_skin": 11.833,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 1.244,
+    "req_inner": 1.5,
+    "margin_inner": -0.256,
+    "at_outer": {
+     "x": 60.41,
+     "r": 16.83,
+     "az": 13.2
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -10.11,
+     -6.15
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": false
+   },
+   "M4_DIN912_M4x16": {
+    "role": "drive",
+    "kind": "steel",
+    "wall_outer_skin": 11.174,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 9.0,
+    "req_inner": 1.5,
+    "margin_inner": 7.5,
+    "at_outer": {
+     "x": 71.9,
+     "r": 5.97,
+     "az": 87.2
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -9.13,
+     0.33
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_unasac": {
+    "role": "drive",
+    "kind": "printed",
+    "wall_outer_skin": 2.445,
+    "req_outer": 1.5,
+    "margin_outer": 0.945,
+    "wall_inner_skin": 2.1,
+    "req_inner": 1.5,
+    "margin_inner": 0.6,
+    "at_outer": {
+     "x": 60.88,
+     "r": 16.64,
+     "az": 168.3
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -5.42,
+     1.93
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "BRG_6700_vnut": {
+    "role": "static",
+    "kind": "steel",
+    "wall_outer_skin": 11.047,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 9.0,
+    "req_inner": 1.5,
+    "margin_inner": 7.5,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -7.87,
+     -1.54
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "BRG_6700_vonk": {
+    "role": "arm",
+    "kind": "steel",
+    "wall_outer_skin": 9.347,
+    "req_outer": 1.2,
+    "margin_outer": 8.147,
+    "wall_inner_skin": 3.083,
+    "req_inner": 1.2,
+    "margin_inner": 1.883,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -8.22,
+     -1.19
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "ARM_rebro": {
+    "role": "arm",
+    "kind": "printed",
+    "wall_outer_skin": 10.352,
+    "req_outer": 1.2,
+    "margin_outer": null,
+    "wall_inner_skin": 1.414,
+    "req_inner": 0.0,
+    "margin_inner": null,
+    "at_outer": {
+     "x": 60.47,
+     "r": 16.8,
+     "az": 161.8
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -9.02,
+     -6.56
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "ARM_naboj": {
+    "role": "arm",
+    "kind": "printed",
+    "wall_outer_skin": 2.92,
+    "req_outer": 1.2,
+    "margin_outer": null,
+    "wall_inner_skin": 0.3,
+    "req_inner": 0.0,
+    "margin_inner": null,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -10.44,
+     -1.93
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "ARM_podlozka_M14": {
+    "role": "arm",
+    "kind": "steel",
+    "wall_outer_skin": 2.847,
+    "req_outer": 1.2,
+    "margin_outer": 1.647,
+    "wall_inner_skin": 1.275,
+    "req_inner": 1.2,
+    "margin_inner": 0.075,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -7.81,
+     0.46
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_1": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 3.749,
+    "req_outer": 1.5,
+    "margin_outer": 2.249,
+    "wall_inner_skin": 3.378,
+    "req_inner": 1.5,
+    "margin_inner": 1.878,
+    "at_outer": {
+     "x": 61.12,
+     "r": 16.61,
+     "az": 1.8
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -2.61,
+     -0.6
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_2": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 4.887,
+    "req_outer": 1.5,
+    "margin_outer": 3.387,
+    "wall_inner_skin": 4.839,
+    "req_inner": 1.5,
+    "margin_inner": 3.339,
+    "at_outer": {
+     "x": 59.51,
+     "r": 17.61,
+     "az": 27.6
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -1.36,
+     0.66
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_3": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 4.373,
+    "req_outer": 1.5,
+    "margin_outer": 2.873,
+    "wall_inner_skin": 4.393,
+    "req_inner": 1.5,
+    "margin_inner": 2.893,
+    "at_outer": {
+     "x": 58.22,
+     "r": 17.15,
+     "az": 77.4
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -0.62,
+     1.4
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_4": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 4.671,
+    "req_outer": 1.5,
+    "margin_outer": 3.171,
+    "wall_inner_skin": 4.685,
+    "req_inner": 1.5,
+    "margin_inner": 3.185,
+    "at_outer": {
+     "x": 58.18,
+     "r": 17.36,
+     "az": 100.7
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -0.69,
+     1.33
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_5": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 4.517,
+    "req_outer": 1.5,
+    "margin_outer": 3.017,
+    "wall_inner_skin": 4.449,
+    "req_inner": 1.5,
+    "margin_inner": 2.949,
+    "at_outer": {
+     "x": 59.83,
+     "r": 17.29,
+     "az": 151.5
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -1.54,
+     0.48
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_6": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 3.891,
+    "req_outer": 1.5,
+    "margin_outer": 2.391,
+    "wall_inner_skin": 3.387,
+    "req_inner": 1.5,
+    "margin_inner": 1.887,
+    "at_outer": {
+     "x": 61.35,
+     "r": 16.63,
+     "az": 176.1
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -2.84,
+     -0.83
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_7": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 6.638,
+    "req_outer": 1.5,
+    "margin_outer": 5.138,
+    "wall_inner_skin": 4.777,
+    "req_inner": 1.5,
+    "margin_inner": 3.277,
+    "at_outer": {
+     "x": 62.66,
+     "r": 17.78,
+     "az": 196.4
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -4.1,
+     -2.09
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_8": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 11.966,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 6.066,
+    "req_inner": 1.5,
+    "margin_inner": 4.566,
+    "at_outer": {
+     "x": 63.46,
+     "r": 19.3,
+     "az": 207.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -4.84,
+     -2.82
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_9": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 10.953,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 5.975,
+    "req_inner": 1.5,
+    "margin_inner": 4.475,
+    "at_outer": {
+     "x": 63.38,
+     "r": 19.12,
+     "az": 328.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -4.77,
+     -2.75
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_10": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 5.974,
+    "req_outer": 1.5,
+    "margin_outer": 4.474,
+    "wall_inner_skin": 4.452,
+    "req_inner": 1.5,
+    "margin_inner": 2.952,
+    "at_outer": {
+     "x": 62.48,
+     "r": 17.51,
+     "az": 340.3
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -3.92,
+     -1.9
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   }
+  },
+  "pairs": {
+   "PLG_kruzok|M4_DIN912_M4x16": 1.5,
+   "PLG_kruzok|DRV_unasac": 6.4,
+   "PLG_kruzok|BRG_6700_vonk": 2.1,
+   "PLG_kruzok|ARM_rebro": 0.3,
+   "PLG_kruzok|ARM_naboj": 2.022,
+   "PLG_kruzok|ARM_podlozka_M14": 4.026,
+   "PLG_cap|M4_DIN912_M4x16": 0.3,
+   "PLG_cap|DRV_unasac": 0.3,
+   "PLG_cap|BRG_6700_vonk": 0.8,
+   "PLG_cap|ARM_rebro": 0.3,
+   "PLG_cap|ARM_naboj": 2.5,
+   "PLG_cap|ARM_podlozka_M14": 2.5,
+   "PLG_doraz|M4_DIN912_M4x16": 2.83,
+   "PLG_doraz|DRV_unasac": 4.3,
+   "PLG_doraz|BRG_6700_vonk": 0.3,
+   "PLG_doraz|ARM_naboj": 0.854,
+   "PLG_doraz|ARM_podlozka_M14": 2.247,
+   "M4_DIN912_M4x16|BRG_6700_vnut": 1.5,
+   "M4_DIN912_M4x16|BRG_6700_vonk": 2.3,
+   "M4_DIN912_M4x16|ARM_rebro": 3.245,
+   "M4_DIN912_M4x16|ARM_naboj": 4.045,
+   "M4_DIN912_M4x16|ARM_podlozka_M14": 4.0,
+   "DRV_unasac|BRG_6700_vnut": 0.3,
+   "DRV_unasac|BRG_6700_vonk": 0.3,
+   "DRV_unasac|ARM_rebro": 4.6,
+   "DRV_unasac|ARM_naboj": 2.5,
+   "BRG_6700_vnut|ARM_rebro": 0.3,
+   "BRG_6700_vnut|ARM_naboj": 1.7,
+   "BRG_6700_vnut|ARM_podlozka_M14": 1.7
+  },
+  "stop": {
+   "gap_m45": 0.559,
+   "gap_135": 0.513,
+   "gap_at_m51": 0.005,
+   "gap_at_140p5": 0.005,
+   "contact_face_mm2": 2.1
+  },
+  "magnet_pockets": {
+   "n": 10,
+   "r": 10.5,
+   "web_D5p1": 1.39
+  },
+  "fits": false,
+  "governing_part_margin": {
+   "margin": -0.256,
+   "part": "PLG_doraz"
+  },
+  "min_pair_clearance": 0.3
+ },
+ "M2b": {
+  "option": "M2b",
+  "title": "B1+ naplocho, MR128 + podlo\u017eka M12",
+  "parts": {
+   "PLG_cap": {
+    "role": "static",
+    "kind": "printed",
+    "wall_outer_skin": 12.361,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 9.0,
+    "req_inner": 1.5,
+    "margin_inner": 7.5,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -9.75,
+     -2.4
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "PLG_doraz": {
+    "role": "static",
+    "kind": "printed",
+    "wall_outer_skin": 11.833,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 1.244,
+    "req_inner": 1.5,
+    "margin_inner": -0.256,
+    "at_outer": {
+     "x": 60.41,
+     "r": 16.83,
+     "az": 13.2
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -10.11,
+     -6.33
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": false
+   },
+   "M4_DIN7984_M4x20": {
+    "role": "drive",
+    "kind": "steel",
+    "wall_outer_skin": 10.491,
+    "req_outer": 1.5,
+    "margin_outer": 8.991,
+    "wall_inner_skin": 9.0,
+    "req_inner": 1.5,
+    "margin_inner": 7.5,
+    "at_outer": {
+     "x": 71.93,
+     "r": 5.82,
+     "az": 87.2
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -9.13,
+     1.01
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_unasac": {
+    "role": "drive",
+    "kind": "printed",
+    "wall_outer_skin": 3.779,
+    "req_outer": 1.5,
+    "margin_outer": 2.279,
+    "wall_inner_skin": 3.129,
+    "req_inner": 1.5,
+    "margin_inner": 1.629,
+    "at_outer": {
+     "x": 60.82,
+     "r": 16.65,
+     "az": 167.5
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -5.65,
+     2.44
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "BRG_MR128_vnut": {
+    "role": "static",
+    "kind": "steel",
+    "wall_outer_skin": 12.147,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 9.0,
+    "req_inner": 1.5,
+    "margin_inner": 7.5,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -7.64,
+     -2.26
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "BRG_MR128_vonk": {
+    "role": "arm",
+    "kind": "steel",
+    "wall_outer_skin": 10.847,
+    "req_outer": 1.2,
+    "margin_outer": null,
+    "wall_inner_skin": 3.451,
+    "req_inner": 1.2,
+    "margin_inner": 2.251,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -7.91,
+     -1.99
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "ARM_rebro": {
+    "role": "arm",
+    "kind": "printed",
+    "wall_outer_skin": 10.176,
+    "req_outer": 1.2,
+    "margin_outer": null,
+    "wall_inner_skin": 1.414,
+    "req_inner": 0.0,
+    "margin_inner": null,
+    "at_outer": {
+     "x": 60.49,
+     "r": 16.79,
+     "az": 162.1
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -9.02,
+     -6.26
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "ARM_naboj": {
+    "role": "arm",
+    "kind": "printed",
+    "wall_outer_skin": 4.939,
+    "req_outer": 1.2,
+    "margin_outer": null,
+    "wall_inner_skin": 0.794,
+    "req_inner": 0.0,
+    "margin_inner": null,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -10.44,
+     -2.83
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "ARM_podlozka_M12": {
+    "role": "arm",
+    "kind": "steel",
+    "wall_outer_skin": 4.847,
+    "req_outer": 1.2,
+    "margin_outer": 3.647,
+    "wall_inner_skin": 2.425,
+    "req_inner": 1.2,
+    "margin_inner": 1.225,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -7.88,
+     -0.45
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_1": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 5.083,
+    "req_outer": 1.5,
+    "margin_outer": 3.583,
+    "wall_inner_skin": 4.401,
+    "req_inner": 1.5,
+    "margin_inner": 2.901,
+    "at_outer": {
+     "x": 61.07,
+     "r": 16.61,
+     "az": 2.4
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -3.12,
+     -1.1
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_2": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 6.304,
+    "req_outer": 1.5,
+    "margin_outer": 4.804,
+    "wall_inner_skin": 6.162,
+    "req_inner": 1.5,
+    "margin_inner": 4.662,
+    "at_outer": {
+     "x": 59.45,
+     "r": 17.67,
+     "az": 28.4
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -1.91,
+     0.11
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_3": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 5.23,
+    "req_outer": 1.5,
+    "margin_outer": 3.73,
+    "wall_inner_skin": 5.223,
+    "req_inner": 1.5,
+    "margin_inner": 3.723,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.88,
+     "az": 83.2
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -1.31,
+     0.71
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_4": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 6.479,
+    "req_outer": 1.5,
+    "margin_outer": 4.979,
+    "wall_inner_skin": 6.452,
+    "req_inner": 1.5,
+    "margin_inner": 4.952,
+    "at_outer": {
+     "x": 57.88,
+     "r": 17.75,
+     "az": 107.7
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -1.61,
+     0.41
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_5": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 5.116,
+    "req_outer": 1.5,
+    "margin_outer": 3.616,
+    "wall_inner_skin": 4.726,
+    "req_inner": 1.5,
+    "margin_inner": 3.226,
+    "at_outer": {
+     "x": 60.55,
+     "r": 16.75,
+     "az": 163.1
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -2.66,
+     -0.64
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_6": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 6.242,
+    "req_outer": 1.5,
+    "margin_outer": 4.742,
+    "wall_inner_skin": 4.662,
+    "req_inner": 1.5,
+    "margin_inner": 3.162,
+    "at_outer": {
+     "x": 61.99,
+     "r": 16.97,
+     "az": 186.2
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -3.97,
+     -1.95
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_7": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 10.621,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 5.785,
+    "req_inner": 1.5,
+    "margin_inner": 4.285,
+    "at_outer": {
+     "x": 63.02,
+     "r": 18.38,
+     "az": 201.3
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -4.93,
+     -2.91
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_8": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 12.676,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 5.937,
+    "req_inner": 1.5,
+    "margin_inner": 4.437,
+    "at_outer": {
+     "x": 63.2,
+     "r": 18.75,
+     "az": 330.2
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -5.09,
+     -3.07
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_9": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 7.459,
+    "req_outer": 1.5,
+    "margin_outer": 5.959,
+    "wall_inner_skin": 5.085,
+    "req_inner": 1.5,
+    "margin_inner": 3.585,
+    "at_outer": {
+     "x": 62.41,
+     "r": 17.43,
+     "az": 341.3
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -4.38,
+     -2.36
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   }
+  },
+  "pairs": {
+   "PLG_kruzok|M4_DIN7984_M4x20": 0.5,
+   "PLG_kruzok|DRV_unasac": 5.9,
+   "PLG_kruzok|BRG_MR128_vonk": 2.1,
+   "PLG_kruzok|ARM_rebro": 0.3,
+   "PLG_kruzok|ARM_naboj": 2.022,
+   "PLG_kruzok|ARM_podlozka_M12": 3.4,
+   "PLG_cap|M4_DIN7984_M4x20": 0.5,
+   "PLG_cap|DRV_unasac": 0.3,
+   "PLG_cap|BRG_MR128_vonk": 0.3,
+   "PLG_cap|ARM_rebro": 0.3,
+   "PLG_cap|ARM_naboj": 1.044,
+   "PLG_cap|ARM_podlozka_M12": 2.193,
+   "PLG_doraz|M4_DIN7984_M4x20": 3.0,
+   "PLG_doraz|DRV_unasac": 4.1,
+   "PLG_doraz|BRG_MR128_vonk": 0.3,
+   "PLG_doraz|ARM_naboj": 0.3,
+   "PLG_doraz|ARM_podlozka_M12": 1.6,
+   "M4_DIN7984_M4x20|BRG_MR128_vnut": 0.943,
+   "M4_DIN7984_M4x20|BRG_MR128_vonk": 1.442,
+   "M4_DIN7984_M4x20|ARM_rebro": 3.3,
+   "M4_DIN7984_M4x20|ARM_naboj": 3.905,
+   "M4_DIN7984_M4x20|ARM_podlozka_M12": 3.041,
+   "DRV_unasac|BRG_MR128_vnut": 0.3,
+   "DRV_unasac|BRG_MR128_vonk": 0.3,
+   "DRV_unasac|ARM_rebro": 3.8,
+   "DRV_unasac|ARM_naboj": 2.5,
+   "BRG_MR128_vnut|ARM_rebro": 0.6,
+   "BRG_MR128_vnut|ARM_naboj": 1.3,
+   "BRG_MR128_vnut|ARM_podlozka_M12": 1.8
+  },
+  "stop": {
+   "gap_m45": 0.559,
+   "gap_135": 0.513,
+   "gap_at_m51": 0.005,
+   "gap_at_140p5": 0.005,
+   "contact_face_mm2": 2.1
+  },
+  "magnet_pockets": {
+   "n": 9,
+   "r": 9.25,
+   "web_D5p1": 1.23
+  },
+  "fits": false,
+  "governing_part_margin": {
+   "margin": -0.256,
+   "part": "PLG_doraz"
+  },
+  "min_pair_clearance": 0.3
+ },
+ "M3": {
+  "option": "M3",
+  "title": "spojka v trupe (ruka len n\u00e1boj)",
+  "parts": {
+   "PLG_cap": {
+    "role": "static",
+    "kind": "printed",
+    "wall_outer_skin": 11.847,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 9.0,
+    "req_inner": 1.5,
+    "margin_inner": 7.5,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -9.75,
+     -1.71
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "PLG_doraz": {
+    "role": "static",
+    "kind": "printed",
+    "wall_outer_skin": 11.833,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 1.244,
+    "req_inner": 1.5,
+    "margin_inner": -0.256,
+    "at_outer": {
+     "x": 60.41,
+     "r": 16.83,
+     "az": 13.2
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -10.11,
+     -6.15
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": false
+   },
+   "M4_DIN912_M4x16": {
+    "role": "drive",
+    "kind": "steel",
+    "wall_outer_skin": 11.174,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 9.0,
+    "req_inner": 1.5,
+    "margin_inner": 7.5,
+    "at_outer": {
+     "x": 71.9,
+     "r": 5.97,
+     "az": 87.2
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -9.13,
+     0.33
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "BRG_6700_vnut": {
+    "role": "static",
+    "kind": "steel",
+    "wall_outer_skin": 11.047,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 9.0,
+    "req_inner": 1.5,
+    "margin_inner": 7.5,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -7.87,
+     -1.54
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "BRG_6700_vonk": {
+    "role": "arm",
+    "kind": "steel",
+    "wall_outer_skin": 9.347,
+    "req_outer": 1.2,
+    "margin_outer": 8.147,
+    "wall_inner_skin": 3.083,
+    "req_inner": 1.2,
+    "margin_inner": 1.883,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -8.22,
+     -1.19
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "ARM_rebro": {
+    "role": "arm",
+    "kind": "printed",
+    "wall_outer_skin": 10.352,
+    "req_outer": 1.2,
+    "margin_outer": null,
+    "wall_inner_skin": 1.414,
+    "req_inner": 0.0,
+    "margin_inner": null,
+    "at_outer": {
+     "x": 60.47,
+     "r": 16.8,
+     "az": 161.8
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -9.02,
+     -6.56
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "ARM_naboj": {
+    "role": "arm",
+    "kind": "printed",
+    "wall_outer_skin": 7.615,
+    "req_outer": 1.2,
+    "margin_outer": 6.415,
+    "wall_inner_skin": 0.794,
+    "req_inner": 0.0,
+    "margin_inner": null,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -10.44,
+     1.75
+    ],
+    "crosses_seam": true,
+    "seam_ok": false,
+    "ok": false
+   }
+  },
+  "pairs": {
+   "PLG_kruzok|M4_DIN912_M4x16": 1.5,
+   "PLG_kruzok|BRG_6700_vonk": 2.1,
+   "PLG_kruzok|ARM_rebro": 0.3,
+   "PLG_kruzok|ARM_naboj": 2.022,
+   "PLG_cap|M4_DIN912_M4x16": 0.3,
+   "PLG_cap|BRG_6700_vonk": 0.8,
+   "PLG_cap|ARM_rebro": 0.3,
+   "PLG_cap|ARM_naboj": 0.3,
+   "PLG_doraz|M4_DIN912_M4x16": 2.83,
+   "PLG_doraz|BRG_6700_vonk": 0.3,
+   "PLG_doraz|ARM_naboj": 0.854,
+   "M4_DIN912_M4x16|BRG_6700_vnut": 1.5,
+   "M4_DIN912_M4x16|BRG_6700_vonk": 2.3,
+   "M4_DIN912_M4x16|ARM_rebro": 3.245,
+   "BRG_6700_vnut|ARM_rebro": 0.3,
+   "BRG_6700_vnut|ARM_naboj": 0.3
+  },
+  "stop": {
+   "gap_m45": 0.559,
+   "gap_135": 0.513,
+   "gap_at_m51": 0.005,
+   "gap_at_140p5": 0.005,
+   "contact_face_mm2": 2.1
+  },
+  "fits": false,
+  "governing_part_margin": {
+   "margin": -0.256,
+   "part": "PLG_doraz"
+  },
+  "min_pair_clearance": 0.3
+ },
+ "M4": {
+  "option": "M4",
+  "title": "ultra-ploch\u00fd, Hallov sn\u00edma\u010d namiesto dorazu",
+  "parts": {
+   "PLG_cap": {
+    "role": "static",
+    "kind": "printed",
+    "wall_outer_skin": 11.876,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 9.0,
+    "req_inner": 1.5,
+    "margin_inner": 7.5,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -9.86,
+     -3.27
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "M4_DIN912_M4x16": {
+    "role": "drive",
+    "kind": "steel",
+    "wall_outer_skin": 13.025,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 9.0,
+    "req_inner": 1.5,
+    "margin_inner": 7.5,
+    "at_outer": {
+     "x": 71.78,
+     "r": 6.46,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -9.13,
+     -1.53
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_unasac": {
+    "role": "drive",
+    "kind": "printed",
+    "wall_outer_skin": 2.597,
+    "req_outer": 1.5,
+    "margin_outer": 1.097,
+    "wall_inner_skin": 1.529,
+    "req_inner": 1.5,
+    "margin_inner": 0.029,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -6.98,
+     0.36
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "BRG_6700_vnut": {
+    "role": "static",
+    "kind": "steel",
+    "wall_outer_skin": 11.078,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 9.0,
+    "req_inner": 1.5,
+    "margin_inner": 7.5,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -9.43,
+     -3.11
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "BRG_6700_vonk": {
+    "role": "arm",
+    "kind": "steel",
+    "wall_outer_skin": 9.383,
+    "req_outer": 1.2,
+    "margin_outer": 8.183,
+    "wall_inner_skin": 1.532,
+    "req_inner": 1.2,
+    "margin_inner": 0.332,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -9.78,
+     -2.75
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "ARM_naboj": {
+    "role": "arm",
+    "kind": "printed",
+    "wall_outer_skin": 3.956,
+    "req_outer": 1.2,
+    "margin_outer": null,
+    "wall_inner_skin": -0.58,
+    "req_inner": 0.0,
+    "margin_inner": null,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0456,
+    "local_x_range": [
+     -10.61,
+     -3.49
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "ARM_podlozka_M14": {
+    "role": "arm",
+    "kind": "steel",
+    "wall_outer_skin": 2.895,
+    "req_outer": 1.2,
+    "margin_outer": 1.695,
+    "wall_inner_skin": 0.251,
+    "req_inner": 1.2,
+    "margin_inner": -0.949,
+    "at_outer": {
+     "x": 57.83,
+     "r": 16.85,
+     "az": 87.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -9.37,
+     -1.11
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": false
+   },
+   "DRV_magnet_5x1_1": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 4.416,
+    "req_outer": 1.5,
+    "margin_outer": 2.916,
+    "wall_inner_skin": 2.799,
+    "req_inner": 1.5,
+    "margin_inner": 1.299,
+    "at_outer": {
+     "x": 60.99,
+     "r": 16.62,
+     "az": 3.8
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -4.18,
+     -2.16
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_2": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 4.972,
+    "req_outer": 1.5,
+    "margin_outer": 3.472,
+    "wall_inner_skin": 4.482,
+    "req_inner": 1.5,
+    "margin_inner": 2.982,
+    "at_outer": {
+     "x": 59.42,
+     "r": 17.7,
+     "az": 28.9
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -2.92,
+     -0.9
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_3": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 4.19,
+    "req_outer": 1.5,
+    "margin_outer": 2.69,
+    "wall_inner_skin": 4.038,
+    "req_inner": 1.5,
+    "margin_inner": 2.538,
+    "at_outer": {
+     "x": 57.83,
+     "r": 17.07,
+     "az": 77.5
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -2.19,
+     -0.17
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_4": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 4.497,
+    "req_outer": 1.5,
+    "margin_outer": 2.997,
+    "wall_inner_skin": 4.334,
+    "req_inner": 1.5,
+    "margin_inner": 2.834,
+    "at_outer": {
+     "x": 57.84,
+     "r": 17.28,
+     "az": 100.6
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -2.26,
+     -0.24
+    ],
+    "crosses_seam": true,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_5": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 4.678,
+    "req_outer": 1.5,
+    "margin_outer": 3.178,
+    "wall_inner_skin": 4.068,
+    "req_inner": 1.5,
+    "margin_inner": 2.568,
+    "at_outer": {
+     "x": 59.71,
+     "r": 17.4,
+     "az": 149.7
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -3.1,
+     -1.09
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_6": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 4.621,
+    "req_outer": 1.5,
+    "margin_outer": 3.121,
+    "wall_inner_skin": 2.745,
+    "req_inner": 1.5,
+    "margin_inner": 1.245,
+    "at_outer": {
+     "x": 61.23,
+     "r": 16.61,
+     "az": 174.1
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -4.41,
+     -2.39
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_7": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 7.384,
+    "req_outer": 1.5,
+    "margin_outer": 5.884,
+    "wall_inner_skin": 3.563,
+    "req_inner": 1.5,
+    "margin_inner": 2.063,
+    "at_outer": {
+     "x": 62.57,
+     "r": 17.64,
+     "az": 195.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -5.67,
+     -3.65
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_8": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 12.498,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 4.53,
+    "req_inner": 1.5,
+    "margin_inner": 3.03,
+    "at_outer": {
+     "x": 63.37,
+     "r": 19.09,
+     "az": 205.9
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -6.4,
+     -4.39
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_9": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 11.52,
+    "req_outer": 1.5,
+    "margin_outer": null,
+    "wall_inner_skin": 4.457,
+    "req_inner": 1.5,
+    "margin_inner": 2.957,
+    "at_outer": {
+     "x": 63.3,
+     "r": 18.94,
+     "az": 329.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -6.33,
+     -4.31
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   },
+   "DRV_magnet_5x1_10": {
+    "role": "drive",
+    "kind": "magnet",
+    "wall_outer_skin": 6.746,
+    "req_outer": 1.5,
+    "margin_outer": 5.246,
+    "wall_inner_skin": 3.343,
+    "req_inner": 1.5,
+    "margin_inner": 1.843,
+    "at_outer": {
+     "x": 62.36,
+     "r": 17.37,
+     "az": 342.0
+    },
+    "frac_points_outside_arm": 0.0,
+    "local_x_range": [
+     -5.48,
+     -3.47
+    ],
+    "crosses_seam": false,
+    "seam_ok": true,
+    "ok": true
+   }
+  },
+  "pairs": {
+   "PLG_kruzok|M4_DIN912_M4x16": 0.5,
+   "PLG_kruzok|DRV_unasac": 4.8,
+   "PLG_kruzok|BRG_6700_vonk": 0.5,
+   "PLG_kruzok|ARM_naboj": 1.118,
+   "PLG_kruzok|ARM_podlozka_M14": 2.508,
+   "PLG_cap|M4_DIN912_M4x16": 0.3,
+   "PLG_cap|DRV_unasac": 0.3,
+   "PLG_cap|BRG_6700_vonk": 0.3,
+   "PLG_cap|ARM_naboj": 2.0,
+   "PLG_cap|ARM_podlozka_M14": 2.5,
+   "M4_DIN912_M4x16|BRG_6700_vnut": 1.5,
+   "M4_DIN912_M4x16|BRG_6700_vonk": 2.3,
+   "M4_DIN912_M4x16|ARM_naboj": 4.011,
+   "M4_DIN912_M4x16|ARM_podlozka_M14": 4.0,
+   "DRV_unasac|BRG_6700_vnut": 0.3,
+   "DRV_unasac|BRG_6700_vonk": 0.3,
+   "DRV_unasac|ARM_naboj": 2.5,
+   "BRG_6700_vnut|ARM_naboj": 1.7,
+   "BRG_6700_vnut|ARM_podlozka_M14": 1.7
+  },
+  "stop": null,
+  "magnet_pockets": {
+   "n": 10,
+   "r": 10.5,
+   "web_D5p1": 1.39
+  },
+  "fits": false,
+  "governing_part_margin": {
+   "margin": -0.949,
+   "part": "ARM_podlozka_M14"
+  },
+  "min_pair_clearance": 0.3
+ }
+}

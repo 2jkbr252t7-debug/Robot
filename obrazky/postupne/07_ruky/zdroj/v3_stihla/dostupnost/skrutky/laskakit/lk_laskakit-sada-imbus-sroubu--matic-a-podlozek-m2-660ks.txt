@@ -1,0 +1,8 @@
+url: https://www.laskakit.cz/laskakit-sada-imbus-sroubu--matic-a-podlozek-m2-660ks/
+h1: LaskaKit sada IMBUS šroubů, matic a podložek M2 660ks
+availability: ['Skladem']
+amount: ['(32\xa0ks)', '(15\xa0ks)', '(12\xa0ks)']
+price: ['209,80 Kč']
+price_add: ['173,40 Kč bez DPH', '226,60 Kč\xa0bez DPH 274,20 Kč Stavebnice digitální váhy TJ-56-630 je pájecí sada, ze které si sestavíš elektronickou váhu s rozsahem do 1 kg a akrylovou miskou. LA250035']
+code: ['Kód: LA180065A']
+desc: class="tab-pane fade in active" role="tabpanel"> Detailní popis produktu Material: Ocel Závit: M2, délka závitu: 4-16mm. Specifikace: Typ počet M2 matice 220 M2 podložka 220 M2x4mm šroub 40 M2x6mm šroub 40 M2x8mm šroub 40 M2x10mm šroub 40 M2x12mm šroub 40 M2x16mm šroub 40 Součástí dodávky: 1ks LaskaKit sada IMBUS šroubů, matic a podložek M2 660ks Poznámka: Fotografie výrobků jsou pouze ilustracemi na ukázku a někdy se mohou lišit od skutečného vzhledu předmětu. Avšak toto nemění jejích základní vlastnosti. Doplňkové parametry Kategorie : Pro začátečníky DIY Záruka : 2 roky Hmotnost : 0.116 kg

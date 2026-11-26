@@ -1,0 +1,1630 @@
+{
+ "0+M1": [
+  {
+   "u": 0.16,
+   "y": -12.51,
+   "worst": [
+    [
+     "ARM_naboj",
+     -0.63
+    ],
+    [
+     "DRV_unasac",
+     0.7
+    ],
+    [
+     "ARM_podlozka_M10",
+     1.53
+    ]
+   ],
+   "back_wall": 4.02
+  },
+  {
+   "u": 0.16,
+   "y": 12.51,
+   "worst": [
+    [
+     "ARM_naboj",
+     -0.63
+    ],
+    [
+     "DRV_unasac",
+     0.7
+    ],
+    [
+     "ARM_podlozka_M10",
+     1.53
+    ]
+   ],
+   "back_wall": 4.02
+  },
+  {
+   "u": 0.66,
+   "y": -11.75,
+   "worst": [
+    [
+     "ARM_naboj",
+     16.67
+    ],
+    [
+     "DRV_unasac",
+     18.63
+    ],
+    [
+     "DRV_magnet_5x2_6",
+     20.23
+    ]
+   ],
+   "back_wall": 3.09
+  },
+  {
+   "u": 0.66,
+   "y": 11.75,
+   "worst": [
+    [
+     "ARM_naboj",
+     16.67
+    ],
+    [
+     "DRV_unasac",
+     18.63
+    ],
+    [
+     "DRV_magnet_5x2_7",
+     20.15
+    ]
+   ],
+   "back_wall": 3.09
+  }
+ ],
+ "0+M2b": [
+  {
+   "u": 0.16,
+   "y": -12.51,
+   "worst": [
+    [
+     "DRV_unasac",
+     -0.72
+    ],
+    [
+     "ARM_podlozka_M12",
+     -0.67
+    ],
+    [
+     "DRV_magnet_5x1_5",
+     -0.23
+    ]
+   ],
+   "back_wall": 4.02
+  },
+  {
+   "u": 0.16,
+   "y": 12.51,
+   "worst": [
+    [
+     "DRV_unasac",
+     -0.72
+    ],
+    [
+     "ARM_podlozka_M12",
+     -0.67
+    ],
+    [
+     "DRV_magnet_5x1_1",
+     1.03
+    ]
+   ],
+   "back_wall": 4.02
+  },
+  {
+   "u": 0.66,
+   "y": -11.75,
+   "worst": [
+    [
+     "DRV_unasac",
+     17.9
+    ],
+    [
+     "DRV_magnet_5x1_7",
+     19.22
+    ],
+    [
+     "ARM_podlozka_M12",
+     19.29
+    ]
+   ],
+   "back_wall": 3.09
+  },
+  {
+   "u": 0.66,
+   "y": 11.75,
+   "worst": [
+    [
+     "DRV_unasac",
+     17.9
+    ],
+    [
+     "ARM_podlozka_M12",
+     19.29
+    ],
+    [
+     "DRV_magnet_5x1_8",
+     19.29
+    ]
+   ],
+   "back_wall": 3.09
+  }
+ ],
+ "A+M2b": [
+  {
+   "u": 0.16,
+   "y": -11.71,
+   "worst": [
+    [
+     "ARM_podlozka_M12",
+     -0.89
+    ],
+    [
+     "DRV_unasac",
+     -0.72
+    ],
+    [
+     "DRV_magnet_5x1_5",
+     -0.5
+    ]
+   ],
+   "back_wall": 1.7
+  },
+  {
+   "u": 0.16,
+   "y": 11.71,
+   "worst": [
+    [
+     "ARM_podlozka_M12",
+     -0.89
+    ],
+    [
+     "DRV_unasac",
+     -0.72
+    ],
+    [
+     "DRV_magnet_5x1_2",
+     0.32
+    ]
+   ],
+   "back_wall": 1.7
+  },
+  {
+   "u": 0.66,
+   "y": -10.99,
+   "worst": [
+    [
+     "DRV_unasac",
+     17.64
+    ],
+    [
+     "DRV_magnet_5x1_7",
+     18.99
+    ],
+    [
+     "ARM_podlozka_M12",
+     19.03
+    ]
+   ],
+   "back_wall": 1.11
+  },
+  {
+   "u": 0.66,
+   "y": 10.99,
+   "worst": [
+    [
+     "DRV_unasac",
+     17.64
+    ],
+    [
+     "DRV_magnet_5x1_8",
+     18.99
+    ],
+    [
+     "ARM_podlozka_M12",
+     19.03
+    ]
+   ],
+   "back_wall": 1.11
+  }
+ ],
+ "A+M3": [
+  {
+   "u": 0.16,
+   "y": -11.71,
+   "worst": [
+    [
+     "ARM_naboj",
+     1.85
+    ],
+    [
+     "BRG_6700_vonk",
+     3.05
+    ],
+    [
+     "ARM_rebro",
+     4.37
+    ]
+   ],
+   "back_wall": 1.7
+  },
+  {
+   "u": 0.16,
+   "y": 11.71,
+   "worst": [
+    [
+     "ARM_naboj",
+     1.85
+    ],
+    [
+     "BRG_6700_vonk",
+     3.05
+    ],
+    [
+     "BRG_6700_vnut",
+     4.75
+    ]
+   ],
+   "back_wall": 1.7
+  },
+  {
+   "u": 0.66,
+   "y": -10.99,
+   "worst": [
+    [
+     "ARM_naboj",
+     21.76
+    ],
+    [
+     "BRG_6700_vonk",
+     23.28
+    ],
+    [
+     "BRG_6700_vnut",
+     24.92
+    ]
+   ],
+   "back_wall": 1.11
+  },
+  {
+   "u": 0.66,
+   "y": 10.99,
+   "worst": [
+    [
+     "ARM_naboj",
+     21.76
+    ],
+    [
+     "BRG_6700_vonk",
+     23.28
+    ],
+    [
+     "BRG_6700_vnut",
+     24.92
+    ]
+   ],
+   "back_wall": 1.11
+  }
+ ],
+ "search_upper": [
+  {
+   "u": 0.03,
+   "inset": 3.5,
+   "clash_margin": 0.89,
+   "back_wall": -1.02,
+   "ok": false
+  },
+  {
+   "u": 0.03,
+   "inset": 4.0,
+   "clash_margin": 0.68,
+   "back_wall": -0.11,
+   "ok": false
+  },
+  {
+   "u": 0.03,
+   "inset": 4.5,
+   "clash_margin": 0.48,
+   "back_wall": 0.42,
+   "ok": false
+  },
+  {
+   "u": 0.03,
+   "inset": 5.0,
+   "clash_margin": 0.29,
+   "back_wall": 0.81,
+   "ok": false
+  },
+  {
+   "u": 0.04,
+   "inset": 3.5,
+   "clash_margin": 0.63,
+   "back_wall": 0.49,
+   "ok": false
+  },
+  {
+   "u": 0.04,
+   "inset": 4.0,
+   "clash_margin": 0.38,
+   "back_wall": 0.96,
+   "ok": false
+  },
+  {
+   "u": 0.04,
+   "inset": 4.5,
+   "clash_margin": 0.16,
+   "back_wall": 1.33,
+   "ok": true
+  },
+  {
+   "u": 0.04,
+   "inset": 5.0,
+   "clash_margin": -0.06,
+   "back_wall": 1.62,
+   "ok": false
+  },
+  {
+   "u": 0.05,
+   "inset": 3.5,
+   "clash_margin": 0.34,
+   "back_wall": 0.96,
+   "ok": false
+  },
+  {
+   "u": 0.05,
+   "inset": 4.0,
+   "clash_margin": 0.07,
+   "back_wall": 1.38,
+   "ok": true
+  },
+  {
+   "u": 0.05,
+   "inset": 4.5,
+   "clash_margin": -0.18,
+   "back_wall": 1.72,
+   "ok": false
+  },
+  {
+   "u": 0.05,
+   "inset": 5.0,
+   "clash_margin": -0.4,
+   "back_wall": 2.0,
+   "ok": false
+  },
+  {
+   "u": 0.06,
+   "inset": 3.5,
+   "clash_margin": 0.03,
+   "back_wall": 1.21,
+   "ok": true
+  },
+  {
+   "u": 0.06,
+   "inset": 4.0,
+   "clash_margin": -0.25,
+   "back_wall": 1.61,
+   "ok": false
+  },
+  {
+   "u": 0.06,
+   "inset": 4.5,
+   "clash_margin": -0.49,
+   "back_wall": 1.94,
+   "ok": false
+  },
+  {
+   "u": 0.06,
+   "inset": 5.0,
+   "clash_margin": -0.72,
+   "back_wall": 2.22,
+   "ok": false
+  },
+  {
+   "u": 0.07,
+   "inset": 3.5,
+   "clash_margin": -0.28,
+   "back_wall": 1.37,
+   "ok": false
+  },
+  {
+   "u": 0.07,
+   "inset": 4.0,
+   "clash_margin": -0.54,
+   "back_wall": 1.76,
+   "ok": false
+  },
+  {
+   "u": 0.07,
+   "inset": 4.5,
+   "clash_margin": -0.81,
+   "back_wall": 2.08,
+   "ok": false
+  },
+  {
+   "u": 0.07,
+   "inset": 5.0,
+   "clash_margin": -0.96,
+   "back_wall": 2.36,
+   "ok": false
+  },
+  {
+   "u": 0.08,
+   "inset": 3.5,
+   "clash_margin": -0.55,
+   "back_wall": 1.47,
+   "ok": false
+  },
+  {
+   "u": 0.08,
+   "inset": 4.0,
+   "clash_margin": -0.83,
+   "back_wall": 1.86,
+   "ok": false
+  },
+  {
+   "u": 0.08,
+   "inset": 4.5,
+   "clash_margin": -1.02,
+   "back_wall": 2.18,
+   "ok": false
+  },
+  {
+   "u": 0.08,
+   "inset": 5.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.46,
+   "ok": false
+  },
+  {
+   "u": 0.09,
+   "inset": 3.5,
+   "clash_margin": -0.82,
+   "back_wall": 1.54,
+   "ok": false
+  },
+  {
+   "u": 0.09,
+   "inset": 4.0,
+   "clash_margin": -1.02,
+   "back_wall": 1.93,
+   "ok": false
+  },
+  {
+   "u": 0.09,
+   "inset": 4.5,
+   "clash_margin": -1.02,
+   "back_wall": 2.25,
+   "ok": false
+  },
+  {
+   "u": 0.09,
+   "inset": 5.0,
+   "clash_margin": -1.06,
+   "back_wall": 2.53,
+   "ok": false
+  },
+  {
+   "u": 0.1,
+   "inset": 3.5,
+   "clash_margin": -1.02,
+   "back_wall": 1.59,
+   "ok": false
+  },
+  {
+   "u": 0.1,
+   "inset": 4.0,
+   "clash_margin": -1.02,
+   "back_wall": 1.97,
+   "ok": false
+  },
+  {
+   "u": 0.1,
+   "inset": 4.5,
+   "clash_margin": -1.03,
+   "back_wall": 2.3,
+   "ok": false
+  },
+  {
+   "u": 0.1,
+   "inset": 5.0,
+   "clash_margin": -1.38,
+   "back_wall": 2.58,
+   "ok": false
+  },
+  {
+   "u": 0.11,
+   "inset": 3.5,
+   "clash_margin": -1.02,
+   "back_wall": 1.63,
+   "ok": false
+  },
+  {
+   "u": 0.11,
+   "inset": 4.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.01,
+   "ok": false
+  },
+  {
+   "u": 0.11,
+   "inset": 4.5,
+   "clash_margin": -1.33,
+   "back_wall": 2.33,
+   "ok": false
+  },
+  {
+   "u": 0.11,
+   "inset": 5.0,
+   "clash_margin": -1.45,
+   "back_wall": 2.61,
+   "ok": false
+  },
+  {
+   "u": 0.12,
+   "inset": 3.5,
+   "clash_margin": -1.02,
+   "back_wall": 1.66,
+   "ok": false
+  },
+  {
+   "u": 0.12,
+   "inset": 4.0,
+   "clash_margin": -1.22,
+   "back_wall": 2.04,
+   "ok": false
+  },
+  {
+   "u": 0.12,
+   "inset": 4.5,
+   "clash_margin": -1.43,
+   "back_wall": 2.36,
+   "ok": false
+  },
+  {
+   "u": 0.12,
+   "inset": 5.0,
+   "clash_margin": -1.45,
+   "back_wall": 2.64,
+   "ok": false
+  },
+  {
+   "u": 0.13,
+   "inset": 3.5,
+   "clash_margin": -1.05,
+   "back_wall": 1.67,
+   "ok": false
+  },
+  {
+   "u": 0.13,
+   "inset": 4.0,
+   "clash_margin": -1.31,
+   "back_wall": 2.05,
+   "ok": false
+  },
+  {
+   "u": 0.13,
+   "inset": 4.5,
+   "clash_margin": -1.42,
+   "back_wall": 2.38,
+   "ok": false
+  },
+  {
+   "u": 0.13,
+   "inset": 5.0,
+   "clash_margin": -1.45,
+   "back_wall": 2.66,
+   "ok": false
+  },
+  {
+   "u": 0.14,
+   "inset": 3.5,
+   "clash_margin": -1.17,
+   "back_wall": 1.69,
+   "ok": false
+  },
+  {
+   "u": 0.14,
+   "inset": 4.0,
+   "clash_margin": -1.29,
+   "back_wall": 2.07,
+   "ok": false
+  },
+  {
+   "u": 0.14,
+   "inset": 4.5,
+   "clash_margin": -1.37,
+   "back_wall": 2.39,
+   "ok": false
+  },
+  {
+   "u": 0.14,
+   "inset": 5.0,
+   "clash_margin": -1.44,
+   "back_wall": 2.67,
+   "ok": false
+  },
+  {
+   "u": 0.15,
+   "inset": 3.5,
+   "clash_margin": -1.14,
+   "back_wall": 1.7,
+   "ok": false
+  },
+  {
+   "u": 0.15,
+   "inset": 4.0,
+   "clash_margin": -1.24,
+   "back_wall": 2.07,
+   "ok": false
+  },
+  {
+   "u": 0.15,
+   "inset": 4.5,
+   "clash_margin": -1.31,
+   "back_wall": 2.4,
+   "ok": false
+  },
+  {
+   "u": 0.15,
+   "inset": 5.0,
+   "clash_margin": -1.37,
+   "back_wall": 2.68,
+   "ok": false
+  },
+  {
+   "u": 0.16,
+   "inset": 3.5,
+   "clash_margin": -1.09,
+   "back_wall": 1.7,
+   "ok": false
+  },
+  {
+   "u": 0.16,
+   "inset": 4.0,
+   "clash_margin": -1.17,
+   "back_wall": 2.08,
+   "ok": false
+  },
+  {
+   "u": 0.16,
+   "inset": 4.5,
+   "clash_margin": -1.24,
+   "back_wall": 2.4,
+   "ok": false
+  },
+  {
+   "u": 0.16,
+   "inset": 5.0,
+   "clash_margin": -1.29,
+   "back_wall": 2.68,
+   "ok": false
+  },
+  {
+   "u": 0.17,
+   "inset": 3.5,
+   "clash_margin": -1.02,
+   "back_wall": 1.7,
+   "ok": false
+  },
+  {
+   "u": 0.17,
+   "inset": 4.0,
+   "clash_margin": -1.09,
+   "back_wall": 2.08,
+   "ok": false
+  },
+  {
+   "u": 0.17,
+   "inset": 4.5,
+   "clash_margin": -1.15,
+   "back_wall": 2.4,
+   "ok": false
+  },
+  {
+   "u": 0.17,
+   "inset": 5.0,
+   "clash_margin": -1.19,
+   "back_wall": 2.69,
+   "ok": false
+  },
+  {
+   "u": 0.18,
+   "inset": 3.5,
+   "clash_margin": -1.02,
+   "back_wall": 1.7,
+   "ok": false
+  },
+  {
+   "u": 0.18,
+   "inset": 4.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.08,
+   "ok": false
+  },
+  {
+   "u": 0.18,
+   "inset": 4.5,
+   "clash_margin": -1.04,
+   "back_wall": 2.4,
+   "ok": false
+  },
+  {
+   "u": 0.18,
+   "inset": 5.0,
+   "clash_margin": -1.09,
+   "back_wall": 2.69,
+   "ok": false
+  },
+  {
+   "u": 0.19,
+   "inset": 3.5,
+   "clash_margin": -1.02,
+   "back_wall": 1.7,
+   "ok": false
+  },
+  {
+   "u": 0.19,
+   "inset": 4.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.08,
+   "ok": false
+  },
+  {
+   "u": 0.19,
+   "inset": 4.5,
+   "clash_margin": -1.02,
+   "back_wall": 2.4,
+   "ok": false
+  },
+  {
+   "u": 0.19,
+   "inset": 5.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.68,
+   "ok": false
+  },
+  {
+   "u": 0.2,
+   "inset": 3.5,
+   "clash_margin": -1.02,
+   "back_wall": 1.7,
+   "ok": false
+  },
+  {
+   "u": 0.2,
+   "inset": 4.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.07,
+   "ok": false
+  },
+  {
+   "u": 0.2,
+   "inset": 4.5,
+   "clash_margin": -1.02,
+   "back_wall": 2.4,
+   "ok": false
+  },
+  {
+   "u": 0.2,
+   "inset": 5.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.68,
+   "ok": false
+  },
+  {
+   "u": 0.21,
+   "inset": 3.5,
+   "clash_margin": -1.02,
+   "back_wall": 1.69,
+   "ok": false
+  },
+  {
+   "u": 0.21,
+   "inset": 4.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.07,
+   "ok": false
+  },
+  {
+   "u": 0.21,
+   "inset": 4.5,
+   "clash_margin": -1.02,
+   "back_wall": 2.39,
+   "ok": false
+  },
+  {
+   "u": 0.21,
+   "inset": 5.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.67,
+   "ok": false
+  },
+  {
+   "u": 0.22,
+   "inset": 3.5,
+   "clash_margin": -1.02,
+   "back_wall": 1.69,
+   "ok": false
+  },
+  {
+   "u": 0.22,
+   "inset": 4.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.06,
+   "ok": false
+  },
+  {
+   "u": 0.22,
+   "inset": 4.5,
+   "clash_margin": -1.02,
+   "back_wall": 2.38,
+   "ok": false
+  },
+  {
+   "u": 0.22,
+   "inset": 5.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.66,
+   "ok": false
+  },
+  {
+   "u": 0.23,
+   "inset": 3.5,
+   "clash_margin": -1.02,
+   "back_wall": 1.68,
+   "ok": false
+  },
+  {
+   "u": 0.23,
+   "inset": 4.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.05,
+   "ok": false
+  },
+  {
+   "u": 0.23,
+   "inset": 4.5,
+   "clash_margin": -1.02,
+   "back_wall": 2.37,
+   "ok": false
+  },
+  {
+   "u": 0.23,
+   "inset": 5.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.66,
+   "ok": false
+  },
+  {
+   "u": 0.24,
+   "inset": 3.5,
+   "clash_margin": -1.02,
+   "back_wall": 1.67,
+   "ok": false
+  },
+  {
+   "u": 0.24,
+   "inset": 4.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.05,
+   "ok": false
+  },
+  {
+   "u": 0.24,
+   "inset": 4.5,
+   "clash_margin": -1.02,
+   "back_wall": 2.37,
+   "ok": false
+  },
+  {
+   "u": 0.24,
+   "inset": 5.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.65,
+   "ok": false
+  },
+  {
+   "u": 0.25,
+   "inset": 3.5,
+   "clash_margin": -1.02,
+   "back_wall": 1.66,
+   "ok": false
+  },
+  {
+   "u": 0.25,
+   "inset": 4.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.04,
+   "ok": false
+  },
+  {
+   "u": 0.25,
+   "inset": 4.5,
+   "clash_margin": -1.02,
+   "back_wall": 2.36,
+   "ok": false
+  },
+  {
+   "u": 0.25,
+   "inset": 5.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.64,
+   "ok": false
+  },
+  {
+   "u": 0.26,
+   "inset": 3.5,
+   "clash_margin": -1.02,
+   "back_wall": 1.66,
+   "ok": false
+  },
+  {
+   "u": 0.26,
+   "inset": 4.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.03,
+   "ok": false
+  },
+  {
+   "u": 0.26,
+   "inset": 4.5,
+   "clash_margin": -1.02,
+   "back_wall": 2.35,
+   "ok": false
+  },
+  {
+   "u": 0.26,
+   "inset": 5.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.62,
+   "ok": false
+  },
+  {
+   "u": 0.27,
+   "inset": 3.5,
+   "clash_margin": -1.02,
+   "back_wall": 1.65,
+   "ok": false
+  },
+  {
+   "u": 0.27,
+   "inset": 4.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.02,
+   "ok": false
+  },
+  {
+   "u": 0.27,
+   "inset": 4.5,
+   "clash_margin": -1.02,
+   "back_wall": 2.34,
+   "ok": false
+  },
+  {
+   "u": 0.27,
+   "inset": 5.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.61,
+   "ok": false
+  },
+  {
+   "u": 0.28,
+   "inset": 3.5,
+   "clash_margin": -1.02,
+   "back_wall": 1.64,
+   "ok": false
+  },
+  {
+   "u": 0.28,
+   "inset": 4.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.01,
+   "ok": false
+  },
+  {
+   "u": 0.28,
+   "inset": 4.5,
+   "clash_margin": -1.02,
+   "back_wall": 2.32,
+   "ok": false
+  },
+  {
+   "u": 0.28,
+   "inset": 5.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.6,
+   "ok": false
+  },
+  {
+   "u": 0.29,
+   "inset": 3.5,
+   "clash_margin": -1.02,
+   "back_wall": 1.63,
+   "ok": false
+  },
+  {
+   "u": 0.29,
+   "inset": 4.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.0,
+   "ok": false
+  },
+  {
+   "u": 0.29,
+   "inset": 4.5,
+   "clash_margin": -1.02,
+   "back_wall": 2.31,
+   "ok": false
+  },
+  {
+   "u": 0.29,
+   "inset": 5.0,
+   "clash_margin": -1.02,
+   "back_wall": 2.59,
+   "ok": false
+  },
+  {
+   "u": 0.3,
+   "inset": 3.5,
+   "clash_margin": -0.88,
+   "back_wall": 1.62,
+   "ok": false
+  },
+  {
+   "u": 0.3,
+   "inset": 4.0,
+   "clash_margin": -0.88,
+   "back_wall": 1.99,
+   "ok": false
+  },
+  {
+   "u": 0.3,
+   "inset": 4.5,
+   "clash_margin": -0.88,
+   "back_wall": 2.3,
+   "ok": false
+  },
+  {
+   "u": 0.3,
+   "inset": 5.0,
+   "clash_margin": -0.88,
+   "back_wall": 2.58,
+   "ok": false
+  },
+  {
+   "u": 0.31,
+   "inset": 3.5,
+   "clash_margin": -0.73,
+   "back_wall": 1.61,
+   "ok": false
+  },
+  {
+   "u": 0.31,
+   "inset": 4.0,
+   "clash_margin": -0.73,
+   "back_wall": 1.98,
+   "ok": false
+  },
+  {
+   "u": 0.31,
+   "inset": 4.5,
+   "clash_margin": -0.73,
+   "back_wall": 2.29,
+   "ok": false
+  },
+  {
+   "u": 0.31,
+   "inset": 5.0,
+   "clash_margin": -0.73,
+   "back_wall": 2.57,
+   "ok": false
+  },
+  {
+   "u": 0.32,
+   "inset": 3.5,
+   "clash_margin": -0.57,
+   "back_wall": 1.6,
+   "ok": false
+  },
+  {
+   "u": 0.32,
+   "inset": 4.0,
+   "clash_margin": -0.58,
+   "back_wall": 1.97,
+   "ok": false
+  },
+  {
+   "u": 0.32,
+   "inset": 4.5,
+   "clash_margin": -0.58,
+   "back_wall": 2.28,
+   "ok": false
+  },
+  {
+   "u": 0.32,
+   "inset": 5.0,
+   "clash_margin": -0.58,
+   "back_wall": 2.55,
+   "ok": false
+  },
+  {
+   "u": 0.33,
+   "inset": 3.5,
+   "clash_margin": -0.42,
+   "back_wall": 1.59,
+   "ok": false
+  },
+  {
+   "u": 0.33,
+   "inset": 4.0,
+   "clash_margin": -0.43,
+   "back_wall": 1.95,
+   "ok": false
+  },
+  {
+   "u": 0.33,
+   "inset": 4.5,
+   "clash_margin": -0.43,
+   "back_wall": 2.27,
+   "ok": false
+  },
+  {
+   "u": 0.33,
+   "inset": 5.0,
+   "clash_margin": -0.43,
+   "back_wall": 2.54,
+   "ok": false
+  },
+  {
+   "u": 0.34,
+   "inset": 3.5,
+   "clash_margin": -0.26,
+   "back_wall": 1.58,
+   "ok": false
+  },
+  {
+   "u": 0.34,
+   "inset": 4.0,
+   "clash_margin": -0.28,
+   "back_wall": 1.94,
+   "ok": false
+  },
+  {
+   "u": 0.34,
+   "inset": 4.5,
+   "clash_margin": -0.28,
+   "back_wall": 2.26,
+   "ok": false
+  },
+  {
+   "u": 0.34,
+   "inset": 5.0,
+   "clash_margin": -0.28,
+   "back_wall": 2.53,
+   "ok": false
+  },
+  {
+   "u": 0.35,
+   "inset": 3.5,
+   "clash_margin": -0.07,
+   "back_wall": 1.57,
+   "ok": false
+  },
+  {
+   "u": 0.35,
+   "inset": 4.0,
+   "clash_margin": -0.12,
+   "back_wall": 1.93,
+   "ok": false
+  },
+  {
+   "u": 0.35,
+   "inset": 4.5,
+   "clash_margin": -0.13,
+   "back_wall": 2.25,
+   "ok": false
+  },
+  {
+   "u": 0.35,
+   "inset": 5.0,
+   "clash_margin": -0.13,
+   "back_wall": 2.52,
+   "ok": false
+  },
+  {
+   "u": 0.36,
+   "inset": 3.5,
+   "clash_margin": 0.19,
+   "back_wall": 1.56,
+   "ok": true
+  },
+  {
+   "u": 0.36,
+   "inset": 4.0,
+   "clash_margin": 0.07,
+   "back_wall": 1.92,
+   "ok": true
+  },
+  {
+   "u": 0.36,
+   "inset": 4.5,
+   "clash_margin": 0.03,
+   "back_wall": 2.24,
+   "ok": true
+  },
+  {
+   "u": 0.36,
+   "inset": 5.0,
+   "clash_margin": 0.02,
+   "back_wall": 2.51,
+   "ok": true
+  },
+  {
+   "u": 0.37,
+   "inset": 3.5,
+   "clash_margin": 0.55,
+   "back_wall": 1.55,
+   "ok": true
+  },
+  {
+   "u": 0.37,
+   "inset": 4.0,
+   "clash_margin": 0.32,
+   "back_wall": 1.91,
+   "ok": true
+  },
+  {
+   "u": 0.37,
+   "inset": 4.5,
+   "clash_margin": 0.21,
+   "back_wall": 2.23,
+   "ok": true
+  },
+  {
+   "u": 0.37,
+   "inset": 5.0,
+   "clash_margin": 0.17,
+   "back_wall": 2.5,
+   "ok": true
+  },
+  {
+   "u": 0.38,
+   "inset": 3.5,
+   "clash_margin": 0.98,
+   "back_wall": 1.54,
+   "ok": true
+  },
+  {
+   "u": 0.38,
+   "inset": 4.0,
+   "clash_margin": 0.69,
+   "back_wall": 1.9,
+   "ok": true
+  },
+  {
+   "u": 0.38,
+   "inset": 4.5,
+   "clash_margin": 0.48,
+   "back_wall": 2.21,
+   "ok": true
+  },
+  {
+   "u": 0.38,
+   "inset": 5.0,
+   "clash_margin": 0.36,
+   "back_wall": 2.48,
+   "ok": true
+  },
+  {
+   "u": 0.39,
+   "inset": 3.5,
+   "clash_margin": 1.43,
+   "back_wall": 1.53,
+   "ok": true
+  },
+  {
+   "u": 0.39,
+   "inset": 4.0,
+   "clash_margin": 1.12,
+   "back_wall": 1.89,
+   "ok": true
+  },
+  {
+   "u": 0.39,
+   "inset": 4.5,
+   "clash_margin": 0.86,
+   "back_wall": 2.2,
+   "ok": true
+  },
+  {
+   "u": 0.39,
+   "inset": 5.0,
+   "clash_margin": 0.65,
+   "back_wall": 2.47,
+   "ok": true
+  },
+  {
+   "u": 0.4,
+   "inset": 3.5,
+   "clash_margin": 1.9,
+   "back_wall": 1.52,
+   "ok": true
+  },
+  {
+   "u": 0.4,
+   "inset": 4.0,
+   "clash_margin": 1.59,
+   "back_wall": 1.88,
+   "ok": true
+  },
+  {
+   "u": 0.4,
+   "inset": 4.5,
+   "clash_margin": 1.31,
+   "back_wall": 2.19,
+   "ok": true
+  },
+  {
+   "u": 0.4,
+   "inset": 5.0,
+   "clash_margin": 1.06,
+   "back_wall": 2.46,
+   "ok": true
+  },
+  {
+   "u": 0.41,
+   "inset": 3.5,
+   "clash_margin": 2.4,
+   "back_wall": 1.51,
+   "ok": true
+  },
+  {
+   "u": 0.41,
+   "inset": 4.0,
+   "clash_margin": 2.09,
+   "back_wall": 1.87,
+   "ok": true
+  },
+  {
+   "u": 0.41,
+   "inset": 4.5,
+   "clash_margin": 1.8,
+   "back_wall": 2.18,
+   "ok": true
+  },
+  {
+   "u": 0.41,
+   "inset": 5.0,
+   "clash_margin": 1.53,
+   "back_wall": 2.45,
+   "ok": true
+  },
+  {
+   "u": 0.42,
+   "inset": 3.5,
+   "clash_margin": 2.91,
+   "back_wall": 1.5,
+   "ok": true
+  },
+  {
+   "u": 0.42,
+   "inset": 4.0,
+   "clash_margin": 2.6,
+   "back_wall": 1.86,
+   "ok": true
+  },
+  {
+   "u": 0.42,
+   "inset": 4.5,
+   "clash_margin": 2.31,
+   "back_wall": 2.17,
+   "ok": true
+  },
+  {
+   "u": 0.42,
+   "inset": 5.0,
+   "clash_margin": 2.04,
+   "back_wall": 2.43,
+   "ok": true
+  },
+  {
+   "u": 0.43,
+   "inset": 3.5,
+   "clash_margin": 3.43,
+   "back_wall": 1.49,
+   "ok": true
+  },
+  {
+   "u": 0.43,
+   "inset": 4.0,
+   "clash_margin": 3.13,
+   "back_wall": 1.85,
+   "ok": true
+  },
+  {
+   "u": 0.43,
+   "inset": 4.5,
+   "clash_margin": 2.85,
+   "back_wall": 2.15,
+   "ok": true
+  },
+  {
+   "u": 0.43,
+   "inset": 5.0,
+   "clash_margin": 2.57,
+   "back_wall": 2.42,
+   "ok": true
+  },
+  {
+   "u": 0.44,
+   "inset": 3.5,
+   "clash_margin": 3.97,
+   "back_wall": 1.48,
+   "ok": true
+  },
+  {
+   "u": 0.44,
+   "inset": 4.0,
+   "clash_margin": 3.68,
+   "back_wall": 1.84,
+   "ok": true
+  },
+  {
+   "u": 0.44,
+   "inset": 4.5,
+   "clash_margin": 3.4,
+   "back_wall": 2.14,
+   "ok": true
+  },
+  {
+   "u": 0.44,
+   "inset": 5.0,
+   "clash_margin": 3.13,
+   "back_wall": 2.41,
+   "ok": true
+  },
+  {
+   "u": 0.45,
+   "inset": 3.5,
+   "clash_margin": 4.52,
+   "back_wall": 1.47,
+   "ok": true
+  },
+  {
+   "u": 0.45,
+   "inset": 4.0,
+   "clash_margin": 4.23,
+   "back_wall": 1.82,
+   "ok": true
+  },
+  {
+   "u": 0.45,
+   "inset": 4.5,
+   "clash_margin": 3.96,
+   "back_wall": 2.13,
+   "ok": true
+  },
+  {
+   "u": 0.45,
+   "inset": 5.0,
+   "clash_margin": 3.69,
+   "back_wall": 2.39,
+   "ok": true
+  },
+  {
+   "u": 0.46,
+   "inset": 3.5,
+   "clash_margin": 5.07,
+   "back_wall": 1.46,
+   "ok": true
+  },
+  {
+   "u": 0.46,
+   "inset": 4.0,
+   "clash_margin": 4.79,
+   "back_wall": 1.81,
+   "ok": true
+  },
+  {
+   "u": 0.46,
+   "inset": 4.5,
+   "clash_margin": 4.52,
+   "back_wall": 2.11,
+   "ok": true
+  },
+  {
+   "u": 0.46,
+   "inset": 5.0,
+   "clash_margin": 4.27,
+   "back_wall": 2.38,
+   "ok": true
+  }
+ ],
+ "lower_back_wall": [
+  [
+   0.6,
+   3.5,
+   1.24
+  ],
+  [
+   0.6,
+   4.0,
+   1.57
+  ],
+  [
+   0.6,
+   4.5,
+   1.85
+  ],
+  [
+   0.6,
+   5.0,
+   2.1
+  ],
+  [
+   0.62,
+   3.5,
+   1.2
+  ],
+  [
+   0.62,
+   4.0,
+   1.52
+  ],
+  [
+   0.62,
+   4.5,
+   1.8
+  ],
+  [
+   0.62,
+   5.0,
+   2.05
+  ],
+  [
+   0.64,
+   3.5,
+   1.15
+  ],
+  [
+   0.64,
+   4.0,
+   1.48
+  ],
+  [
+   0.64,
+   4.5,
+   1.75
+  ],
+  [
+   0.64,
+   5.0,
+   1.99
+  ],
+  [
+   0.66,
+   3.5,
+   1.11
+  ],
+  [
+   0.66,
+   4.0,
+   1.43
+  ],
+  [
+   0.66,
+   4.5,
+   1.7
+  ],
+  [
+   0.66,
+   5.0,
+   1.94
+  ]
+ ]
+}

@@ -1,0 +1,62 @@
+URL: https://www.bauhaus.sk/profi-depot-metricka-skrutka-din-965-10807856
+FETCHED: curl full page
+JSON stock: ('true', '1', '12')
+JSON final_price_incl_tax: 2.25
+--- visible text ---
+Profi Depot Metrická skrutka DIN 965
+zápustná hlava; M3 × 10 mm; oceľ; 100 ks
+Prejsť na recenzie.
+Ideálna do zapustených otvorov
+Pre spoľahlivé spoje
+Pozinkovaný povrch poskytuje ochranu pred koróziou
+2,25 €
+(1
+Kilogram
+= 42,45 €)
+Doručenie domov
+Pridať do košíka
+Rezervovať a vyzdvihnúť v predajni
+Dostupné online
+Nie je k dispozícií
+Rezervovať v predajni
+→
+Na zobrazenie umiestnenia produktu vyberte
+vašu predajňu
+Pridať do košíka
+Pridať do porovnania
+Pridať k obľúbeným
+Čo nájdete v balení?
+100× metrická skrutka so zápustnou hlavou
+Artiklové číslo 10807856
+Popis
+Metrická skrutka so zápustnou hlavou od značky Profi Depot je vyrobený z kvalitnej ocele, má pozinkovaný povrch a tým je zaručená jeho dobrá ochrana proti korózii. Túto skrutku je možné využiť v celom rade rôznych situácií. Hlavu je možné úplne zapustiť a tým tak vznikne perfektne rovná plocha.
+Technické informácie
+Značka
+Profi Depot
+Tvar hlavy
+zápustná
+Priemer
+3 mm
+Závit
+M3
+Dĺžka
+10 mm
+Typ drážky
+PH (Philips)
+Drážka
+<span aria-labelledby="attr-name-atributy_37_drazka" data-
+--- html snippet (availability) ---
+5 €
+          <!----></div></div></div> <div class="mb20 price serif" data-v-163edab1><!----> <div class="recalc unit-price"><div class="unit-info"><div class="unit-info-row">
+        (1
+        <span>Kilogram</span>
+        = 42,45 €)
+      </div></div></div></div></div></div></div></div> <ul role="radiogroup" aria-label="Vyberte cenu" class="prices-tier items" data-v-0dd782a6 data-v-780e505a><!----> </ul> <div data-ospres="Click and Collectable" data-shopable="1" class="row add-to-cart-box pdp-actions" data-v-780e505a><h2 class="col-md-12" data-v-780e505a>
+              Doručenie domov
+            </h2> <div class="col-md-6" data-v-780e505a><div class="no-ssr-placeholder" data-v-780e505a></div></div> <div class="col-md-6" data-v-780e505a><button type="button" data-testid="addToCart" aria-describedby="not-available sold-out" aria-disabled="true" class="add-to-cart button-secondary col-xs-12 button button-primary disabled button-disabled" data-v-6a5afaec data-v-40229b6a data-v-780e505a>
+  Pridať do košíka
+  <!----></button></div></div> <div class="store-availability row pdp-actions" data-v-780e505a><h2 class="col-md-12" data-v-780e505a>
+              Rezervovať a vyzdvihnúť v predajni
+            </h2> <div class="col-md-6 col-xs-12 lh25 flex brdr-none serif cl-mine-shaft" data-v-780e505a><div class="product-availability-block" data-v-644aa064 data-v-780e505a><div class="product-availability online" data-v-644aa064><span class="stock cl-green weight-semibold" data-v-644aa064>Dostupné online</span></div> <a href="#" class="product-availability weight-semibold" data-v-644aa064><span class="choose-store cl-red" data-v-644aa064>Nie je k dispozícií  </span></a></div></div> <div class="col-md-6" data-v-780e505a><div stocks="" store="" class="stock-status-action" data-v-7ef1416e data-v-780e505a><button class="button action-stock arrow ripple" data-v-7ef1416e>
+      Rezervovať v predajni
+      <span data-v-7ef1416e>→</span></button></div></div></div> <div store="" class="pdp-actions product-finder" data-v-53916dc2 data-v-780e505a><!----> <button class="select-store-link p

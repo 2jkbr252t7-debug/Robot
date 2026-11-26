@@ -1,0 +1,8 @@
+url: https://www.laskakit.cz/matice-presna-m2-din-934-zb--6--ocel/
+h1: Matice přesná M2 DIN 934 ZB /6/ ocel
+availability: ['Skladem']
+amount: ['(746\xa0ks)', '(316\xa0ks)', '(14\xa0ks)']
+price: ['1,30 Kč']
+price_add: ['1,10 Kč bez DPH', '2,20 Kč\xa0bez DPH 2,60 Kč Šroub imbus zápustná hlava M3x8 DIN 7991 10.9 Černěno LA220017']
+code: ['Kód: LA220009']
+desc: class="tab-pane fade in active" role="tabpanel"> Detailní popis produktu Šestihranné matice přesné s metrickým závitem. Specifikace: DIN 934 – ISO4032 – ČSN 021401 Materiál: ocel Součástí dodávky: 1ks Matice přesná M2 DIN 934 ZB /6/ ocel Poznámka: Tento výrobek není samostatně funkčním celkem a může vyžadovat odbornou montáž. Fotografie výrobků jsou pouze ilustracemi na ukázku a někdy se mohou lišit od skutečného vzhledu předmětu. Avšak toto nemění jejích základní vlastnosti. Doplňkové parametry Kategorie : Šroubky, matice, sloupky Záruka : 2 roky Hmotnost : 0.001 kg

@@ -1,0 +1,23 @@
+arm cloud 4455266 pts (5 s)
+
+=== M1 B1+ bez zmeny : FITS NO  governing {'part': 'ARM_naboj', 'margin': 0.16, 'at': {'x': 67.6, 'r': 12.7, 'az': 158.3, 'local': [6.9, -12.03, -14.54]}}
+part                   role     req  minwall  margin  outO  outI  seam rel x         dome    tip
+PLG_cap                static  1.50     4.00    2.50     0     0  [-9.75, -0.83]     4.01   27.7 ok
+PLG_doraz              static  1.50     4.00    2.50     0     0  [-10.09, -5.66]    4.60   26.2 ok
+M4_DIN912_M4x20        drive   1.50     4.00    2.50     0     0  [-9.13, 3.26]      5.62   30.6 ok
+DRV_unasac             drive   1.50     3.76    2.26     0     0  [-2.31, 6.68]      4.18   25.4 ok
+BRG_6700_vnut          static  1.50     4.00    2.50     0     0  [-6.99, -0.66]     6.81   28.0 ok
+BRG_6700_vonk          arm     1.20     3.96    2.75     0     0  [-7.34, -0.31]     6.32   26.4 ok
+ARM_rebro              arm     1.20     9.00    7.80     0     0  [-8.82, -5.87]     5.36   27.3 ok
+ARM_naboj              arm     1.20     1.36    0.16     0     0  [-10.24, 8.7]      1.81   22.8 ok
+ARM_podlozka_M10       arm     1.20     4.00    2.80     0     0  [-2.87, 3.24]      7.27   25.7 ok
+DRV_magnet_5x2_1       drive   1.50     4.00    2.50     0     0  [0.97, 3.97]       8.40   36.5 ok
+DRV_magnet_5x2_2       drive   1.50     4.00    2.50     0     0  [2.08, 5.08]       5.52   40.3 ok
+DRV_magnet_5x2_3       drive   1.50     4.00    2.50     0     0  [2.49, 5.48]       5.61   40.1 ok
+DRV_magnet_5x2_4       drive   1.50     4.00    2.50     0     0  [1.96, 4.96]       5.61   36.0 ok
+DRV_magnet_5x2_5       drive   1.50     4.00    2.50     0     0  [0.81, 3.8]        9.11   30.4 ok
+DRV_magnet_5x2_6       drive   1.50     4.00    2.50     0     0  [-0.3, 2.7]         inf   26.6 ok
+DRV_magnet_5x2_7       drive   1.50     4.00    2.50     0     0  [-0.71, 2.29]       inf   26.9 ok
+DRV_magnet_5x2_8       drive   1.50     4.00    2.50     0     0  [-0.18, 2.81]       inf   31.0 ok
+min sliding clearance: {'pair': 'ARM_podlozka_M10 | DRV_magnet_5x2_1', 'gap': 0.25, 'ok': False}
+stop: {'overlap_x': (np.float64(53.0), np.float64(55.0)), 'overlap_r': (np.float64(5.5), np.float64(6.6)), 'ang_gap_deg': {'-51.0': 0.05, '-45.0': 6.05, '135.0': 5.55, '140.5': 0.05}, 'arc_gap_analytic': {'-51.0': np.float64(0.005), '-45.0': np.float64(0.58), '135.0': np.float64(0.533), '140.5': np.float64(0.005)}, 'gap_numeric': {'-51.0': 0.021, '-45.0': 0.58, '135.0': 0.532, '140.5': 0.021}, 'ok': True}

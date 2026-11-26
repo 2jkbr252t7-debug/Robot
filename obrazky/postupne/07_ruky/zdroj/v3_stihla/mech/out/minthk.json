@@ -1,0 +1,632 @@
+{
+ "M1": {
+  "scan": [
+   {
+    "kt": 0.5,
+    "thickness": 11.51,
+    "fits": false,
+    "outer": -5.0,
+    "outer_at": "DRV_magnet_5x2_1",
+    "inner": -5.0,
+    "pairs": 0.2
+   },
+   {
+    "kt": 0.55,
+    "thickness": 12.66,
+    "fits": false,
+    "outer": -5.0,
+    "outer_at": "DRV_magnet_5x2_2",
+    "inner": -5.0,
+    "pairs": 0.2
+   },
+   {
+    "kt": 0.6,
+    "thickness": 13.81,
+    "fits": false,
+    "outer": -5.0,
+    "outer_at": "DRV_unasac",
+    "inner": -5.0,
+    "pairs": 0.2
+   },
+   {
+    "kt": 0.65,
+    "thickness": 14.96,
+    "fits": false,
+    "outer": -4.997,
+    "outer_at": "DRV_unasac",
+    "inner": -4.997,
+    "pairs": 0.2
+   },
+   {
+    "kt": 0.7,
+    "thickness": 16.11,
+    "fits": false,
+    "outer": -4.7,
+    "outer_at": "ARM_naboj",
+    "inner": -3.871,
+    "pairs": 0.2
+   },
+   {
+    "kt": 0.75,
+    "thickness": 17.27,
+    "fits": false,
+    "outer": -4.611,
+    "outer_at": "ARM_naboj",
+    "inner": -3.411,
+    "pairs": 0.2
+   },
+   {
+    "kt": 0.8,
+    "thickness": 18.42,
+    "fits": false,
+    "outer": -3.502,
+    "outer_at": "ARM_naboj",
+    "inner": -2.302,
+    "pairs": 0.2
+   },
+   {
+    "kt": 0.85,
+    "thickness": 19.57,
+    "fits": false,
+    "outer": -2.444,
+    "outer_at": "ARM_naboj",
+    "inner": -1.244,
+    "pairs": 0.2
+   },
+   {
+    "kt": 0.9,
+    "thickness": 20.72,
+    "fits": false,
+    "outer": -1.511,
+    "outer_at": "ARM_naboj",
+    "inner": -0.311,
+    "pairs": 0.2
+   },
+   {
+    "kt": 0.95,
+    "thickness": 21.87,
+    "fits": false,
+    "outer": -0.632,
+    "outer_at": "ARM_naboj",
+    "inner": 1.003,
+    "pairs": 0.2
+   },
+   {
+    "kt": 1.0,
+    "thickness": 23.02,
+    "fits": true,
+    "outer": 0.161,
+    "outer_at": "ARM_naboj",
+    "inner": 0.989,
+    "pairs": 0.2
+   }
+  ],
+  "kt_min": 0.9899,
+  "kt_fail": 0.9891,
+  "thickness_min": 22.79,
+  "thickness_fail": 22.77,
+  "governing_at_min": {
+   "margin": 0.008,
+   "part": "ARM_naboj",
+   "at": {
+    "x": 67.6,
+    "r": 12.7,
+    "az": 157.9,
+    "local": [
+     7.04,
+     -12.0,
+     -14.44
+    ]
+   }
+  },
+  "inner_at_min": {
+   "margin": 0.992,
+   "part": "ARM_naboj"
+  },
+  "fits_all_thicker": true
+ },
+ "M2": {
+  "scan": [
+   {
+    "kt": 0.5,
+    "thickness": 11.51,
+    "fits": false,
+    "outer": -4.208,
+    "outer_at": "DRV_unasac",
+    "inner": -4.208,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.55,
+    "thickness": 12.66,
+    "fits": false,
+    "outer": -3.159,
+    "outer_at": "DRV_unasac",
+    "inner": -3.159,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.6,
+    "thickness": 13.81,
+    "fits": false,
+    "outer": -2.126,
+    "outer_at": "DRV_unasac",
+    "inner": -2.126,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.65,
+    "thickness": 14.96,
+    "fits": false,
+    "outer": -1.111,
+    "outer_at": "DRV_unasac",
+    "inner": 0.891,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.7,
+    "thickness": 16.11,
+    "fits": false,
+    "outer": -0.225,
+    "outer_at": "DRV_unasac",
+    "inner": 0.878,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.75,
+    "thickness": 17.27,
+    "fits": true,
+    "outer": 0.329,
+    "outer_at": "DRV_unasac",
+    "inner": 0.864,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.8,
+    "thickness": 18.42,
+    "fits": true,
+    "outer": 0.657,
+    "outer_at": "DRV_unasac",
+    "inner": 0.76,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.85,
+    "thickness": 19.57,
+    "fits": true,
+    "outer": 0.801,
+    "outer_at": "DRV_unasac",
+    "inner": 0.582,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.9,
+    "thickness": 20.72,
+    "fits": true,
+    "outer": 0.842,
+    "outer_at": "DRV_unasac",
+    "inner": 0.408,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.95,
+    "thickness": 21.87,
+    "fits": true,
+    "outer": 0.854,
+    "outer_at": "DRV_unasac",
+    "inner": 0.239,
+    "pairs": 0.0
+   },
+   {
+    "kt": 1.0,
+    "thickness": 23.02,
+    "fits": true,
+    "outer": 0.946,
+    "outer_at": "DRV_unasac",
+    "inner": 0.076,
+    "pairs": 0.0
+   }
+  ],
+  "kt_min": 0.7188,
+  "kt_fail": 0.718,
+  "thickness_min": 16.55,
+  "thickness_fail": 16.53,
+  "governing_at_min": {
+   "margin": 0.009,
+   "part": "DRV_unasac",
+   "at": {
+    "x": 60.35,
+    "r": 14.25,
+    "az": 158.3,
+    "local": [
+     3.15,
+     -13.5,
+     -12.53
+    ]
+   }
+  },
+  "inner_at_min": {
+   "margin": 0.872,
+   "part": "ARM_naboj"
+  },
+  "fits_all_thicker": true
+ },
+ "M2b": {
+  "scan": [
+   {
+    "kt": 0.5,
+    "thickness": 11.51,
+    "fits": false,
+    "outer": -3.945,
+    "outer_at": "DRV_unasac",
+    "inner": -3.945,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.55,
+    "thickness": 12.66,
+    "fits": false,
+    "outer": -2.796,
+    "outer_at": "DRV_unasac",
+    "inner": -2.796,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.6,
+    "thickness": 13.81,
+    "fits": false,
+    "outer": -1.649,
+    "outer_at": "DRV_unasac",
+    "inner": -1.649,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.65,
+    "thickness": 14.96,
+    "fits": false,
+    "outer": -0.495,
+    "outer_at": "DRV_unasac",
+    "inner": 0.891,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.7,
+    "thickness": 16.11,
+    "fits": true,
+    "outer": 0.655,
+    "outer_at": "DRV_unasac",
+    "inner": 0.878,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.75,
+    "thickness": 17.27,
+    "fits": true,
+    "outer": 1.65,
+    "outer_at": "DRV_unasac",
+    "inner": 0.864,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.8,
+    "thickness": 18.42,
+    "fits": true,
+    "outer": 1.993,
+    "outer_at": "DRV_unasac",
+    "inner": 0.849,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.85,
+    "thickness": 19.57,
+    "fits": true,
+    "outer": 2.0,
+    "outer_at": "BRG_MR128_vnut",
+    "inner": 0.836,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.9,
+    "thickness": 20.72,
+    "fits": true,
+    "outer": 2.0,
+    "outer_at": "BRG_MR128_vnut",
+    "inner": 0.822,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.95,
+    "thickness": 21.87,
+    "fits": true,
+    "outer": 2.0,
+    "outer_at": "BRG_MR128_vnut",
+    "inner": 0.808,
+    "pairs": 0.0
+   },
+   {
+    "kt": 1.0,
+    "thickness": 23.02,
+    "fits": true,
+    "outer": 2.0,
+    "outer_at": "BRG_MR128_vnut",
+    "inner": 0.795,
+    "pairs": 0.0
+   }
+  ],
+  "kt_min": 0.6719,
+  "kt_fail": 0.6711,
+  "thickness_min": 15.47,
+  "thickness_fail": 15.45,
+  "governing_at_min": {
+   "margin": 0.009,
+   "part": "DRV_unasac",
+   "at": {
+    "x": 62.9,
+    "r": 4.7,
+    "az": 87.6,
+    "local": [
+     6.21,
+     -0.05,
+     -12.94
+    ]
+   }
+  },
+  "inner_at_min": {
+   "margin": 0.885,
+   "part": "ARM_naboj"
+  },
+  "fits_all_thicker": true
+ },
+ "M3": {
+  "scan": [
+   {
+    "kt": 0.5,
+    "thickness": 11.51,
+    "fits": false,
+    "outer": -2.963,
+    "outer_at": "ARM_naboj",
+    "inner": -1.833,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.55,
+    "thickness": 12.66,
+    "fits": false,
+    "outer": -1.814,
+    "outer_at": "ARM_naboj",
+    "inner": -0.614,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.6,
+    "thickness": 13.81,
+    "fits": false,
+    "outer": -0.66,
+    "outer_at": "ARM_naboj",
+    "inner": 0.905,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.65,
+    "thickness": 14.96,
+    "fits": true,
+    "outer": 0.488,
+    "outer_at": "ARM_naboj",
+    "inner": 0.891,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.7,
+    "thickness": 16.11,
+    "fits": true,
+    "outer": 1.636,
+    "outer_at": "ARM_naboj",
+    "inner": 0.878,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.75,
+    "thickness": 17.27,
+    "fits": true,
+    "outer": 2.0,
+    "outer_at": "BRG_6700_vnut",
+    "inner": 0.864,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.8,
+    "thickness": 18.42,
+    "fits": true,
+    "outer": 2.0,
+    "outer_at": "BRG_6700_vnut",
+    "inner": 0.849,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.85,
+    "thickness": 19.57,
+    "fits": true,
+    "outer": 2.0,
+    "outer_at": "BRG_6700_vnut",
+    "inner": 0.836,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.9,
+    "thickness": 20.72,
+    "fits": true,
+    "outer": 2.0,
+    "outer_at": "BRG_6700_vnut",
+    "inner": 0.822,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.95,
+    "thickness": 21.87,
+    "fits": true,
+    "outer": 2.0,
+    "outer_at": "BRG_6700_vnut",
+    "inner": 0.808,
+    "pairs": 0.0
+   },
+   {
+    "kt": 1.0,
+    "thickness": 23.02,
+    "fits": true,
+    "outer": 2.0,
+    "outer_at": "BRG_6700_vnut",
+    "inner": 0.795,
+    "pairs": 0.0
+   }
+  ],
+  "kt_min": 0.6289,
+  "kt_fail": 0.6281,
+  "thickness_min": 14.48,
+  "thickness_fail": 14.46,
+  "governing_at_min": {
+   "margin": 0.002,
+   "part": "ARM_naboj",
+   "at": {
+    "x": 62.2,
+    "r": 4.7,
+    "az": 87.6,
+    "local": [
+     6.02,
+     -0.05,
+     -12.79
+    ]
+   }
+  },
+  "inner_at_min": {
+   "margin": 0.898,
+   "part": "ARM_naboj"
+  },
+  "fits_all_thicker": true
+ },
+ "M4": {
+  "scan": [
+   {
+    "kt": 0.5,
+    "thickness": 11.51,
+    "fits": false,
+    "outer": -2.766,
+    "outer_at": "DRV_unasac",
+    "inner": -2.766,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.55,
+    "thickness": 12.66,
+    "fits": false,
+    "outer": -1.752,
+    "outer_at": "DRV_unasac",
+    "inner": -1.752,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.6,
+    "thickness": 13.81,
+    "fits": false,
+    "outer": -0.757,
+    "outer_at": "DRV_unasac",
+    "inner": 0.41,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.65,
+    "thickness": 14.96,
+    "fits": true,
+    "outer": 0.172,
+    "outer_at": "DRV_unasac",
+    "inner": 0.26,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.7,
+    "thickness": 16.11,
+    "fits": true,
+    "outer": 0.658,
+    "outer_at": "DRV_unasac",
+    "inner": 0.07,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.75,
+    "thickness": 17.27,
+    "fits": false,
+    "outer": 0.8,
+    "outer_at": "DRV_unasac",
+    "inner": -0.114,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.8,
+    "thickness": 18.42,
+    "fits": false,
+    "outer": 0.82,
+    "outer_at": "DRV_unasac",
+    "inner": -0.292,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.85,
+    "thickness": 19.57,
+    "fits": false,
+    "outer": 0.884,
+    "outer_at": "DRV_unasac",
+    "inner": -0.465,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.9,
+    "thickness": 20.72,
+    "fits": false,
+    "outer": 0.931,
+    "outer_at": "DRV_unasac",
+    "inner": -0.632,
+    "pairs": 0.0
+   },
+   {
+    "kt": 0.95,
+    "thickness": 21.87,
+    "fits": false,
+    "outer": 0.982,
+    "outer_at": "DRV_unasac",
+    "inner": -0.793,
+    "pairs": 0.0
+   },
+   {
+    "kt": 1.0,
+    "thickness": 23.02,
+    "fits": false,
+    "outer": 1.101,
+    "outer_at": "DRV_unasac",
+    "inner": -0.947,
+    "pairs": 0.0
+   }
+  ],
+  "kt_min": 0.6406,
+  "kt_fail": 0.6398,
+  "thickness_min": 14.75,
+  "thickness_fail": 14.73,
+  "governing_at_min": {
+   "margin": 0.004,
+   "part": "DRV_unasac",
+   "at": {
+    "x": 58.75,
+    "r": 14.25,
+    "az": 86.8,
+    "local": [
+     4.5,
+     0.05,
+     -2.73
+    ]
+   }
+  },
+  "inner_at_min": {
+   "margin": 0.296,
+   "part": "ARM_podlozka_M14"
+  },
+  "fits_all_thicker": false
+ }
+}

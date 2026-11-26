@@ -1,0 +1,13 @@
+URL: https://www.3djake.sk/cnc-kitchen/skrutka-s-valcovou-hlavou-m2-nizka-hlava-iso-14580-nehrdzavejuca?sai=30292
+name: Skrutka s valcovou nízkou hlavou M2 (ISO 14580), nehrdzavejúca oceľ A2-70, M2x10
+sku: CNC-TC-S-M2x10
+offer: {"price": "4.55", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://www.3djake.sk/cnc-kitchen/skrutka-s-valcovou-hlavou-m2-nizka-hlava-iso-14580-nehrdzavejuca?sai=30292"}
+stock_texts: ['Na sklade', 'Doručenie: streda, 02. decembra , ak si objednáte do dňa: piatok,23:59 h', 'Na sklade zostáva už len 25 ks tohto produktu. Ďalšie sú na ceste. Ak si objednáte viac kusov, môže to ovplyvniť dátum dodania.', '* Tieto náklady na doručenie sa vzťahujú na štandardnú prepravu. Môžu sa vyskytnúť ďalšie náklady, napr. v dôsledku hmotnosti, veľkosti alebo vlastností výrobkov. Tieto informácie nájdete priamo v popise produktu.']
+na_sklade: ['Na sklade', 'Na sklade zostáva už len 25 ks tohto produktu. Ďalšie sú na ceste. Ak si objednáte viac kusov, môže to ovplyvniť dátum dodania.']
+variants:
+  sai=30286 M2x4 :: M2x4 € 4,71 € 5,89 (€ 0,19 / ks)
+  sai=30289 M2x6 :: M2x6 € 4,79 € 5,99 (€ 0,19 / ks)
+  sai=30292 M2x10 :: M2x10 € 4,55 € 5,69 (€ 0,18 / ks)
+  sai=30295 M2x12 :: M2x12 € 4,55 € 5,69 (€ 0,18 / ks)
+  sai=30298 M2x16 :: M2x16 € 4,39 € 5,49 (€ 0,18 / ks)
+  sai=30301 M2x20 :: M2x20 € 4,47 € 5,59 (€ 0,18 / ks)

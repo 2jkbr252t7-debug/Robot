@@ -1,0 +1,18 @@
+{
+ "nominal": {
+  "min_wall": 1.585,
+  "margin_vs_1p5": 0.085
+ },
+ "+0.1": {
+  "min_wall": 1.487,
+  "margin_vs_1p5": -0.013
+ },
+ "+0.2": {
+  "min_wall": 1.39,
+  "margin_vs_1p5": -0.11
+ },
+ "DIN912_M4x20_head4.0": {
+  "min_wall": 0.413,
+  "margin_vs_1p5": -1.087
+ }
+}

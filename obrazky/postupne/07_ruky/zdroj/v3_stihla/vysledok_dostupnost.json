@@ -1,0 +1,2702 @@
+{
+  "summary": "Check real stock/price of NOVA mini bought parts in SK/CZ shops (servos, bearings, screws, magnets, inserts, misc) with URLs, then re-verify",
+  "agentCount": 8,
+  "logs": [],
+  "result": [
+    {
+      "category": "serva",
+      "check": {
+        "category": "Servá",
+        "parts": [
+          {
+            "part": "Feetech SCS0009 / Waveshare SC09 sériové zbernicové servo (pohon ruky, 2 ks + 1 rezerva)",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "LaskaKit (www.laskakit.cz)",
+                "url": "https://www.laskakit.cz/waveshare-sc09-serial-bus-servo-2-3kg/",
+                "title": "Waveshare SC09 Serial Bus Servo 2.3kg",
+                "price": "255,80 Kč s DPH (Black Friday −7 %, bežne 278 Kč; 211,40 Kč bez DPH)",
+                "pack": "1 ks (kód LA143101)",
+                "stock_text": "Skladem (3 ks)",
+                "verified": true
+              },
+              {
+                "shop": "Waveshare (www.waveshare.com) – e-shop výrobcu v Číne, nie SK/CZ, iba ako záloha",
+                "url": "https://www.waveshare.com/sc09-servo.htm",
+                "title": "2.3kg Serial Bus Servo, Two-way Feedback, Servo/Motor Mode Switchable, Compact Size, 300° Rotation Angle (Part No. SC09 Servo, SKU 24440)",
+                "price": "$8.99 za 1 ks; $8.59 pri 2 ks, $8.39 pri 3 ks, $8.31 pri 4+ ks (USD, bez DPH, cla a dopravy)",
+                "pack": "1 ks",
+                "stock_text": "žiadny text o sklade na stránke; schema.org JSON-LD: \"availability\": \"https://schema.org/InStock\"",
+                "verified": true
+              }
+            ],
+            "note": "Servo značky Feetech (SCS0009) sme v povolených obchodoch nenašli: LaskaKit aj Hadex vrátili pre „SCS0009“ 0 výsledkov. Ponúka sa len rebrand Waveshare SC09. LaskaKit uvádza rozmery 23,2×12,0×25,5 mm, 300°/1024 krokov, 4,8–8,4 V a kovové prevody. Výšku tela 25,5 mm treba porovnať s neoverenými 21,5/25,25 mm v podkladoch pre ruky (07_ruky/zdroj/servo_v_trupe). Na sklade sú IBA 3 ks, teda presne 2 + 1 rezerva. Akciová cena platí len počas Black Friday. Obsah balenia: LaskaKit v časti „Součástí dodávky“ uvádza iba „1ks Waveshare SC09 Serial Bus Servo 2.3kg“, ramienka ani skrutky nespomína. Textový zoznam na stránke Waveshare uvádza len „SC09 Servo x1“, ale fotka obsahu balenia (uložená ako waveshare_SC09-Servo-details-pack.jpg) ukazuje 4 plastové ramienka (krížik, disk, dvojité, jednoduché), 3 skrutky, malú prepojovaciu DPS a 1 predlžovací kábel. Na tom, čo sa naozaj dodáva, sa netreba spoliehať, kým sa balenie neotvorí.",
+            "alternative": "Ak treba viac ako 3 ks, druhý zdroj je e-shop výrobcu Waveshare (záloha mimo SK/CZ). V LaskaKit je ešte Waveshare Serial Bus Servo Driver Board za 136,20 Kč, Skladem (7 ks), ide však o radič, nie o servo."
+          },
+          {
+            "part": "Feetech STS3215 / Waveshare ST3215 (otáčanie trupu J1)",
+            "status": "na_objednavku",
+            "offers": [
+              {
+                "shop": "LaskaKit (www.laskakit.cz)",
+                "url": "https://www.laskakit.cz/waveshare-st3215-serial-bus-servo-30kg/",
+                "title": "Waveshare ST3215 Serial Bus Servo 30kg",
+                "price": "678 Kč s DPH (560,30 Kč bez DPH)",
+                "pack": "1 ks (kód LA143105)",
+                "stock_text": "Objednáno – termín upřesníme (na stránke aj „Položka byla vyprodána…“)",
+                "verified": true
+              },
+              {
+                "shop": "LaskaKit (www.laskakit.cz)",
+                "url": "https://www.laskakit.cz/feetech-sts3215-serial-bus-servo-30kg/",
+                "title": "Feetech STS3215 Serial Bus Servo 30kg",
+                "price": "598 Kč s DPH (494,20 Kč bez DPH)",
+                "pack": "1 ks (kód LA143109)",
+                "stock_text": "Objednáno – termín upřesníme (na stránke aj „Položka byla vyprodána…“)",
+                "verified": true
+              },
+              {
+                "shop": "Waveshare (www.waveshare.com) – e-shop výrobcu v Číne, iba ako záloha",
+                "url": "https://www.waveshare.com/st3215-servo.htm",
+                "title": "ST3215 Series Serial Bus Servo, High precision and torque, with Programmable 360 Degrees Magnetic Encoder, Two-way Feedback, Servo/Motor Mode Switchable (varianty „ST3215 Servo“ a „ST3215-7.4V Servo“)",
+                "price": "cena nie je v statickom HTML (načítava sa cez JS), nezistená",
+                "pack": "1 ks",
+                "stock_text": "stav skladu nie je v statickom HTML, nezistený",
+                "verified": true
+              }
+            ],
+            "note": "V žiadnom povolenom SK/CZ obchode nie je na sklade. Feetech verzia v LaskaKit je model ST-3215-C018 (7,4–12,6 V). Waveshare ST3215 v LaskaKit je 6–12,6 V, 30 kg·cm @ 12 V. Obe sú 45×35×24,7 mm. Pri napájaní zbernice nižším napätím než 12 V bude krútiaci moment nižší. Waveshare predáva aj verziu ST3215-7.4V, tú však v LaskaKit nemajú. Obsah balenia: LaskaKit uvádza iba „1ks … Serial Bus Servo 30kg“, ramienka ani skrutky nespomína. Na fotke balenia Waveshare (waveshare_ST3215-Servo-details-pack.jpg) sú servo, 2 hliníkové kotúče (drážkovaný a protikus), približne 15 skrutiek a 1 kábel.",
+            "alternative": "Waveshare ST3215-HS Serial Bus Servo 20kg (rovnaké telo 45×35×24,7 mm) v LaskaKit: https://www.laskakit.cz/waveshare-st3215-hs-serial-bus-servo-20kg/, 648 Kč s DPH, tiež „Objednáno – termín upřesníme“. Väčší Waveshare ST3025 40kg je v LaskaKit za 2548 Kč, tiež na objednávku. Servo podobnej veľkosti so sériovou zbernicou nie je skladom v žiadnom povolenom obchode."
+          },
+          {
+            "part": "Feetech STS3032 (otáčanie hlavy, súčasný návrh)",
+            "status": "nenajdene",
+            "offers": [],
+            "note": "Nenájdené v povolených obchodoch. LaskaKit (vyhľadávanie „STS3032“ aj celá kategória Serva, 26 položiek), Hadex („STS3032“: 0 výsledkov), GME (sitemap produktov bez Feetech) a Waveshare (nepredáva značku Feetech, jediné mikroservo so zbernicou je SC09) ho nemajú. Botland a TME blokuje Cloudflare, nedalo sa v nich overiť.",
+            "alternative": "Najbližšia bežne dostupná náhrada je Waveshare SC09 (LaskaKit, 255,80 Kč, Skladem (3 ks)): rovnaká trieda mikroserva, rovnaký 3-pinový UART a rovnaká zbernica. Odlišnosti: protokol SCS (nie STS), potenciometer s rozsahom 300° a 1024 krokmi namiesto magnetického snímača s 4096 krokmi, a 2,3 kg·cm namiesto 4,5 kg·cm @ 6 V, ktoré projekt uvádza pre STS3032. Keď sa použije aj na hlavu, treba 4 ks SC09, LaskaKit má však len 3. Inou cestou je väčšie servo so zbernicou, ST3215 alebo ST3215-HS, momentálne však len na objednávku."
+          },
+          {
+            "part": "MG90S mikroservo s kovovými prevodmi (zdvih krku)",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "LaskaKit (www.laskakit.cz)",
+                "url": "https://www.laskakit.cz/mini-servo-mg90s-s-kovovymi-prevody/",
+                "title": "Mini servo MG90S 180° s kovovými převody",
+                "price": "76,60 Kč s DPH (Black Friday −12 %, bežne 88 Kč; 63,30 Kč bez DPH)",
+                "pack": "1 ks (kód LA143001A)",
+                "stock_text": "Skladem (182 ks)",
+                "verified": true
+              },
+              {
+                "shop": "Hadex (www.hadex.cz)",
+                "url": "https://www.hadex.cz/p/l761-servo-plastove-mg90s-180-13g-kovove-prevody",
+                "title": "Servo plastové MG90S 180° 13g, kovové převody (L761)",
+                "price": "120,00 Kč s DPH (99,17 Kč bez DPH); pri 3 a viac ks 85,00 Kč/ks bez DPH",
+                "pack": "1 ks",
+                "stock_text": "Na cestě – 0 ks – „Na cestě, dodání do 20. 12. 2026“",
+                "verified": true
+              }
+            ],
+            "note": "Obsah balenia: LaskaKit ho vypisuje v časti „Součástí dodávky“: „1× MG90S mini servo, Sada nástavců (páky), Montážní šroubky“. Hadex obsah balenia neuvádza, v popise len „Servo Tower Pro MG 90 Mikro Servo“, k tomu datasheet l761.pdf. LaskaKit pri svojom serve výslovne píše „Nejedná se o výrobek firmy TowerPro.“ Rozmery podľa LaskaKit sú 22,8×12,2×28,5 mm a 13,4 g. Pozor na Hadex L761A (MG90S 360°, 110 Kč, Skladem 65 ks): to je verzia na nepretržité otáčanie a na polohovaný zdvih krku sa nehodí. V LaskaKit je ešte plastová verzia MG90S („Objednáno – termín upřesníme“) a MG90D 270° s kovovými prevodmi za 88 Kč (tiež „Objednáno – termín upřesníme“).",
+            "alternative": ""
+          },
+          {
+            "part": "Iné malé sériové servo veľkosti SC09 (alternatíva k SCS0009)",
+            "status": "nenajdene",
+            "offers": [],
+            "note": "Nenájdené v povolených obchodoch. V celej kategórii Serva v LaskaKit (strany 1–3 uložené) je jediné mikroservo so zbernicou Waveshare SC09. Ostatné servá so zbernicou majú štandardnú veľkosť 45×35 mm: ST3215, ST3215-HS, STS3215, ST3025. V katalógu Waveshare (kategória Servos) je SC09 tiež jediné mikroservo so zbernicou. SC15, ST3020, ST3235, CF12-6 a CF35-12 sú väčšie a WP90 je klasické PWM servo. Hadex nemá žiadne servo so zbernicou (hľadanie „servo“ = 364 výsledkov, žiadne so zbernicou) a GME tiež nie (podľa sitemap).",
+            "alternative": "Jediná dostupná možnosť v tejto veľkosti je Waveshare SC09 (LaskaKit, Skladem (3 ks)). Inak treba zostať pri PWM mikroservách bez spätnej väzby: MG90S s kovovými prevodmi v LaskaKit za 76,60 Kč, Skladem (182 ks), alebo SG90."
+          }
+        ],
+        "blocked_hosts": [
+          "www.laskarduino.sk (proxy: connect_unreachable / HTTP 502, aj pri opakovanom pokuse)",
+          "www.dratek.cz (301 presmeruje na dratek.cz, ktorý nie je v povolenom zozname)",
+          "www.rlx.sk (302 presmeruje na rlx.sk, ktorý nie je v povolenom zozname)",
+          "botland.store (403, Cloudflare challenge pre curl; WebFetch: ENOTFOUND)",
+          "www.tme.eu (403, Cloudflare challenge pre curl; WebFetch: ENOTFOUND)",
+          "www.gme.sk (stránky aj produkty sa vykresľujú cez JS, takže cenu a sklad nebolo možné prečítať; interné vyhľadávacie API zamietlo povolenie, nepoužité; prezreté len verejné sitemap produktov)",
+          "www.tymoty.com (presmeruje na www.tymoty.cz, nedostupné)"
+        ],
+        "summary": "Servá zbieral som 26. 11. 2026. Jediný povolený SK/CZ obchod so servami so sériovou zbernicou je LaskaKit.\n\n1. SC09/SCS0009: dostupné len ako Waveshare SC09 v LaskaKit za 255,80 Kč (akcia Black Friday, bežne 278 Kč), Skladem (3 ks). To je presne 2 + 1 rezerva, viac nie je. Servo značky Feetech SCS0009 nemá nikto. Záloha je e-shop výrobcu Waveshare ($8.99, podľa značiek na stránke InStock).\n2. ST3215/STS3215 pre J1: LaskaKit má Waveshare ST3215 za 678 Kč a Feetech STS3215 (ST-3215-C018, 7,4–12,6 V) za 598 Kč. Obe sú „Objednáno – termín upřesníme“, momentálne teda na sklade nie sú nikde. Rovnako je na tom aj ST3215-HS za 648 Kč.\n3. STS3032 nemá žiadny povolený obchod. Najbližšia náhrada je SC09: má nižšiu rozlišovaciu schopnosť (1024 krokov namiesto 4096, potenciometer namiesto magnetického snímača) a menší moment. Pri použití na hlavu by bolo treba 4 ks, LaskaKit má len 3.\n4. MG90S s kovovými prevodmi: LaskaKit za 76,60 Kč, Skladem (182 ks). Je to jediné servo, pri ktorom obchod vypisuje ramienka a skrutky. Hadex L761 stojí 120 Kč, je „Na cestě“ s dodaním do 20. 12. 2026. Hadex L761A „360°“ je skladom, ale ide o verziu na nepretržité otáčanie, na zdvih krku sa nehodí.\n5. Iné mikroservo so zbernicou veľkosti SC09 v povolených obchodoch nie je, ani v katalógu Waveshare.\n\nObsah balenia servových pohonov so zbernicou (SC09, ST3215, STS3215) LaskaKit vypisuje iba ako „1ks … Servo“. Ramienka, skrutky a kábel sú vidieť len na fotkách balenia na stránkach Waveshare (SC09: 4 plastové ramienka, 3 skrutky, DPS, kábel; ST3215: 2 hliníkové kotúče, skrutky, kábel).\n\nNedostupné boli: laskarduino.sk (502), dratek a rlx (presmerovanie na adresy bez www mimo povoleného zoznamu), Botland a TME (Cloudflare), GME (stránky sa vykresľujú cez JS, takže cenu a sklad nebolo vidieť; sitemap neobsahuje MG90S ani Feetech). Hadex ani 3DJake servá so zbernicou nemajú.\n\nPodklady sú uložené v /tmp/claude-0/gapwf/fin/R3/dostupnost/serva/: surové HTML vyhľadávaní a produktových stránok, evidence_extracts.txt s výpisom cien, skladu a obsahu balenia, access_log_headers.txt s hlavičkami blokovaných hostiteľov, gme_sitemap_servo_urls.txt a fotky balenia waveshare_SC09-Servo-details-pack.jpg a waveshare_ST3215-Servo-details-pack.jpg."
+      },
+      "verify": {
+        "category": "Servá",
+        "checked": [
+          {
+            "part": "Feetech SCS0009 / Waveshare SC09 (ruky, 2+1 ks) – LaskaKit",
+            "url": "https://www.laskakit.cz/waveshare-sc09-serial-bus-servo-2-3kg/",
+            "confirmed": true,
+            "note": "Stránka znova otvorená (HTTP 200). H1 „Waveshare SC09 Serial Bus Servo 2.3kg“, kód LA143101, Black Friday 278 Kč −7 %. Rozmery 23.2×12.0×25.5mm, 300°/1024, VIN 4.8-8.4V, kovové prevody. Text balenia znie „Součástí dodávky: 1ks Waveshare SC09 Serial Bus Servo 2.3kg“. Všetko sa zhoduje s hlásením. Na sklade sú len 3 ks, teda presne 2 + 1 rezerva. Dôkaz: overenie/lk_sc09.html.",
+            "seen_price": "255,80 Kč s DPH (211,40 Kč bez DPH; bežne 278 Kč, −7 %)",
+            "seen_stock_text": "Skladem (3 ks)"
+          },
+          {
+            "part": "Waveshare SC09 – e-shop Waveshare (záloha)",
+            "url": "https://www.waveshare.com/sc09-servo.htm",
+            "confirmed": false,
+            "note": "Naživo sa stránku znova otvoriť nepodarilo. curl dostal HTTP 403 s Cloudflare výzvou „Just a moment...“ a WebFetch hlásil ENOTFOUND. Prečítal som HTML, ktoré predchádzajúci agent uložil 26. 11. 2026 o 13:42 UTC (../waveshare_prod_sc09-servo.html). Obsahuje title „2.3kg Serial Bus Servo, ... 300° Rotation Angle | SC09 Servo“, „SKU : 24440 Part No. : SC09 Servo“, cenu $8.99 a tabuľku: 2 ks $8.59, 3 ks $8.39, 4+ ks $8.31. JSON-LD má InStock a na stránke je bežné tlačidlo Add to Cart, nie Backorder. Popis fotky balenia sedí: 4 plastové ramienka, 3 skrutky, adaptérová DPS, 1 kábel. Z uloženého HTML je teda hlásenie správne, naživo však nepotvrdené.",
+            "seen_price": "$8.99 (z uloženého HTML, nie naživo)",
+            "seen_stock_text": "\"availability\": \"https://schema.org/InStock\" (z uloženého HTML)"
+          },
+          {
+            "part": "Waveshare ST3215 (J1) – LaskaKit",
+            "url": "https://www.laskakit.cz/waveshare-st3215-serial-bus-servo-30kg/",
+            "confirmed": true,
+            "note": "H1 „Waveshare ST3215 Serial Bus Servo 30kg“, kód LA143105. Rozmery 45x35x24.7mm, 6–12,6 V, 30 kg*cm pri 12 V. V balení „1ks Waveshare ST3215 Serial Bus Servo 30kg“. Zhoduje sa s hlásením.",
+            "seen_price": "678 Kč s DPH (560,30 Kč bez DPH)",
+            "seen_stock_text": "Objednáno – termín upřesníme / Položka byla vyprodána…"
+          },
+          {
+            "part": "Feetech STS3215 (J1) – LaskaKit",
+            "url": "https://www.laskakit.cz/feetech-sts3215-serial-bus-servo-30kg/",
+            "confirmed": true,
+            "note": "H1 „Feetech STS3215 Serial Bus Servo 30kg“, kód LA143109, „Model: ST-3215-C018“, 7.4V až 12.6V, 45x35x24.7mm. Zhoduje sa s hlásením.",
+            "seen_price": "598 Kč s DPH (494,20 Kč bez DPH)",
+            "seen_stock_text": "Objednáno – termín upřesníme / Položka byla vyprodána…"
+          },
+          {
+            "part": "Waveshare ST3215 – e-shop Waveshare (záloha)",
+            "url": "https://www.waveshare.com/st3215-servo.htm",
+            "confirmed": false,
+            "note": "Naživo sa stránku otvoriť nepodarilo (Cloudflare 403, WebFetch ENOTFOUND). Uložené HTML predchádzajúceho agenta (../waveshare_prod_st3215-servo.html) však cenu OBSAHUJE, aj keď hlásenie tvrdí opak: <span class=\"price\">$16.99</span> - <span class=\"price\">$21.99</span>, teda rozsah pre 2 varianty. Varianty sú SKU 22414 „30kg.cm@12V“ a SKU 33014 „19.5kg.cm@7.4V“ (ST3215-7.4V) a obe majú \"unsaleable\":false. Zo statického HTML sa nedá zistiť, ktorá cena patrí ktorému variantu. Popis fotky balenia sedí: 2 hliníkové kotúče, približne 15 skrutiek, 1 kábel.",
+            "seen_price": "$16.99 – $21.99 USD (rozsah pre 2 varianty, z uloženého HTML)",
+            "seen_stock_text": "žiadny text o sklade; obe SKU \"unsaleable\":false (z uloženého HTML)"
+          },
+          {
+            "part": "Waveshare ST3215-HS 20kg (alternatíva J1) – LaskaKit",
+            "url": "https://www.laskakit.cz/waveshare-st3215-hs-serial-bus-servo-20kg/",
+            "confirmed": true,
+            "note": "H1 „Waveshare ST3215-HS Serial Bus Servo 20kg“, kód LA143104, 45x35x24.7mm, 20 kg*cm pri 12 V. Zhoduje sa s hlásením. V hlásení chýbala cena bez DPH: 535,50 Kč.",
+            "seen_price": "648 Kč s DPH (535,50 Kč bez DPH)",
+            "seen_stock_text": "Objednáno – termín upřesníme / Položka byla vyprodána…"
+          },
+          {
+            "part": "MG90S s kovovými prevodmi (zdvih krku) – LaskaKit",
+            "url": "https://www.laskakit.cz/mini-servo-mg90s-s-kovovymi-prevody/",
+            "confirmed": true,
+            "note": "H1 „Mini servo MG90S 180° s kovovými převody“, kód LA143001A, Black Friday 88 Kč −12 %. Rozmery 22.8x12.2x28.5mm, 13.4g. Balenie: „1× MG90S mini servo Sada nástavců (páky) Montážní šroubky“. Na stránke je aj veta „Nejedná se o výrobek firmy TowerPro.“ Odlišuje sa iba počet kusov na sklade: teraz 180 ks, v hlásení 182 ks (bežný pohyb zásob).",
+            "seen_price": "76,60 Kč s DPH (63,30 Kč bez DPH; bežne 88 Kč, −12 %)",
+            "seen_stock_text": "Skladem (180 ks)"
+          },
+          {
+            "part": "MG90S s kovovými prevodmi – Hadex L761",
+            "url": "https://www.hadex.cz/p/l761-servo-plastove-mg90s-180-13g-kovove-prevody",
+            "confirmed": true,
+            "note": "H1 „Servo plastové MG90S 180° 13g, kovové převody (L761)“. Pri 3 a viac ks stojí 85,00 Kč/ks bez DPH. Odkaz na datasheet l761.pdf na stránke je. Zhoduje sa s hlásením.",
+            "seen_price": "120,00 Kč s DPH (99,17 Kč bez DPH)",
+            "seen_stock_text": "Na cestě 0 ks – Na cestě, dodání do 20. 12. 2026"
+          },
+          {
+            "part": "MG90S 360° (upozornenie) – Hadex L761A",
+            "url": "https://www.hadex.cz/p/l761a-servo-plastove-mg90s-360-13g-kovove-prevody",
+            "confirmed": true,
+            "note": "H1 „Servo plastové MG90S 360° 13g, kovové převody (L761A)“. Popis: „Servo s udávanou výchylkou 360°, tedy servo s rotací.“ Hlásenie má pravdu, na polohovaný zdvih krku sa nehodí.",
+            "seen_price": "110,00 Kč s DPH (90,91 Kč bez DPH)",
+            "seen_stock_text": "Skladem 65 ks / Na skladě"
+          },
+          {
+            "part": "Waveshare Serial Bus Servo Driver Board (spomenuté v alternatíve) – LaskaKit",
+            "url": "https://www.laskakit.cz/waveshare-serial-bus-servo-driver-board-radic-pro-seriove-serva-rady-st-sc/",
+            "confirmed": true,
+            "note": "Kód LA143108, Black Friday 148 Kč −7 %. Zhoduje sa s hlásením. Ide o radič, nie o servo.",
+            "seen_price": "136,20 Kč s DPH (112,60 Kč bez DPH)",
+            "seen_stock_text": "Skladem (7 ks)"
+          },
+          {
+            "part": "Feetech STS3032 (hlava) – opakované hľadanie",
+            "url": "https://www.laskakit.cz/vyhledavani/?string=STS3032",
+            "confirmed": true,
+            "note": "„Nenájdené“ potvrdené. LaskaKit: STS3032, STS3032-C001 aj SCS0009 vracajú „nebyly nalezeny“; na „Feetech“ nájde iba STS3215. Hadex: STS3032, SCS0009, SC09 aj „sbernicove servo“ dávajú 0 produktov; na „Feetech“ nájde len generátor Feeltech. 3DJake: STS3032 „Žiadne výsledky“; „feetech“ nájde iba 2 antivibračné nožičky (fuzzy zhoda). GME: vyhľadávanie je len JS kostra, preto som prešiel product-sitemap 0–3 (30 498 URL): 14 servo URL, z toho žiadne Feetech, STS ani SCS. TME a Botland vracajú 403 Cloudflare, laskarduino CONNECT 502, dratek a rlx presmerúvajú mimo povoleného zoznamu.",
+            "seen_price": "",
+            "seen_stock_text": "nebyly nalezeny (LaskaKit); Žiadne výsledky pre \"STS3032\" (3DJake)"
+          },
+          {
+            "part": "Iné malé sériové servo veľkosti SC09 – opakované hľadanie",
+            "url": "https://www.laskakit.cz/vyhledavani/?string=serial+bus+servo",
+            "confirmed": true,
+            "note": "„Nenájdené“ potvrdené. V kategórii Serva v LaskaKit (/serva/, 26 názvov na 1. strane) a vo vyhľadávaní „serial bus servo“ aj „smart servo“ je jediné mikroservo so zbernicou SC09. Ostatné servá so zbernicou majú rozmery 45×35: ST3215, ST3215-HS, STS3215, ST3025. Je tu ešte Waveshare DDSM210, čo je direct-drive motor, nie mikroservo. „Digitální servo 17G 6050 5pin“ (LA143119B, 189,70 Kč, Skladem (15 ks), 34x28x13 mm) je bežné RC servo do auta, nie sériové zbernicové. „HA-LB5W“ je pohon centrálneho zamykania. Hadex ani 3DJake servá so zbernicou nemajú. V GME sitemap nie je nič také.",
+            "seen_price": "",
+            "seen_stock_text": ""
+          }
+        ],
+        "corrections": [
+          "Waveshare ST3215 (https://www.waveshare.com/st3215-servo.htm): tvrdenie „cena nie je v statickom HTML, nezistená“ je CHYBNÉ. HTML, ktoré uložil sám predchádzajúci agent (serva/waveshare_prod_st3215-servo.html), obsahuje cenový rozsah „$16.99 - $21.99“ (USD, bez DPH, cla a dopravy) pre 2 varianty: SKU 22414 ST3215 30kg.cm@12V a SKU 33014 ST3215-7.4V 19.5kg.cm@7.4V. Obe varianty majú \"unsaleable\":false. Ktorá cena patrí ktorému variantu, zo statického HTML nevyčítať.",
+          "Waveshare (sc09-servo.htm aj st3215-servo.htm) sa pri opakovanej kontrole naživo neotvoril: curl dostal HTTP 403 s Cloudflare výzvou „Just a moment...“ a WebFetch ENOTFOUND. Údaje o SC09 ($8.99, cenové stupne $8.59/$8.39/$8.31, InStock, SKU 24440) sú overené iba z HTML uloženého predchádzajúcim agentom 26. 11. 2026 o 13:42 UTC. Hosť www.waveshare.com teda treba pridať k blokovaným/nestabilným hostiteľom (Cloudflare).",
+          "MG90S LaskaKit: počet kusov na sklade je teraz „Skladem (180 ks)“, nie 182 ks. Ide len o drobný časový posun, cena 76,60 Kč sedí.",
+          "Doplnenie: ST3215-HS v LaskaKit stojí 535,50 Kč bez DPH (648 Kč s DPH), hlásenie uvádzalo iba cenu s DPH.",
+          "Nepresnosť (nie chyba): hlásenie pri Waveshare ST3215 uvádza ako názov nadpis z popisu („...with Programmable 360 Degrees Magnetic Encoder...“). Skutočný <title> stránky je „ST3215 Series Serial Bus Servo, High precision and torque, 360 Degrees Magnetic Encoder, Two-way Feedback, Servo/Motor Mode Switchable, Options For 30kg.cm@12V / 19.5kg.cm@7.4V Torque | ST3215 Servo“.",
+          "Všetko ostatné sa potvrdilo bez rozdielu: SC09 LaskaKit (255,80 Kč, Skladem (3 ks)), ST3215 a STS3215 LaskaKit (678 a 598 Kč, Objednáno – termín upřesníme), Hadex L761 (120 Kč, Na cestě, dodanie do 20. 12. 2026), Hadex L761A (110 Kč, Skladem 65 ks, 360° kontinuálne), driver board (136,20 Kč, Skladem (7 ks)), obsah balenia a popis fotiek balenia, „nenájdené“ pre STS3032 a pre iné mikroservo so zbernicou. Dôkazy sú v /tmp/claude-0/gapwf/fin/R3/dostupnost/serva/overenie/ (overenie_extracts.txt, access_overenie.txt, surové HTML, gme_sitemaps/, gme_servo_locs_overenie.txt)."
+        ]
+      }
+    },
+    {
+      "category": "loziska",
+      "check": {
+        "category": "Ložiská",
+        "parts": [
+          {
+            "part": "MR63ZZ (3x6x2.5)",
+            "status": "nenajdene",
+            "offers": [
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-623-2z-zkl/",
+                "title": "Ložisko - 623 2Z ZKL",
+                "price": "24 Kč s DPH (20 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (10 ks)",
+                "verified": true
+              },
+              {
+                "shop": "hadex.cz",
+                "url": "https://www.hadex.cz/c/kulickova-loziska-a-hlavice",
+                "title": "Kuličkové ložisko s přírubou F623ZZ, 10x4mm na hřídel 3mm",
+                "price": "21,00 Kč s DPH (17,36 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem 314 ks",
+                "verified": false
+              }
+            ],
+            "note": "Nenájdené v povolených obchodoch: loziska-policka (MR63, 673 2Z = nenalezeny), Hadex (MR63 = 0 výsledkov), LaskaKit, 3DJake. Ponuky vyššie sú alternatívy (623 = 3x10x4, F623ZZ je s prírubou). Hadex má aj 623ZZ L760C, ale stav je 'Na cestě'.",
+            "alternative": "623ZZ / 623 2Z (3x10x4) – skladom na loziska-policka.cz; F623ZZ s prírubou – Hadex"
+          },
+          {
+            "part": "MR74ZZ (4x7x2.5, RC \"740\")",
+            "status": "nenajdene",
+            "offers": [
+              {
+                "shop": "hadex.cz",
+                "url": "https://www.hadex.cz/c/kulickova-loziska-a-hlavice",
+                "title": "Kuličkové ložisko 694ZZ 11x4mm na hřídel 4mm",
+                "price": "11,00 Kč s DPH (9,09 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem 335 ks",
+                "verified": false
+              },
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-694-2z-p5-zkl/",
+                "title": "Ložisko - 694 2Z P5 ZKL",
+                "price": "54 Kč s DPH (45 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (136 ks)",
+                "verified": true
+              }
+            ],
+            "note": "MR74 / 674 nenájdené (loziska-policka: nenalezeny, Hadex: 0). Najbližšie skladom s dierou 4 mm: 694ZZ (4x11x4), 684 2Z (4x9x4, len 1 ks) a 604 2Z (4x12x4, 2 ks).",
+            "alternative": "694ZZ (4x11x4) – Hadex / loziska-policka"
+          },
+          {
+            "part": "683ZZ (3x7x3)",
+            "status": "nenajdene",
+            "offers": [
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-623-2z-zkl/",
+                "title": "Ložisko - 623 2Z ZKL",
+                "price": "24 Kč s DPH (20 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (10 ks)",
+                "verified": true
+              }
+            ],
+            "note": "683 2Z / 683ZZ nenájdené (loziska-policka '683 2Z' a '683 ZZ' = nenalezeny; Hadex '683ZZ' = 0 výsledkov).",
+            "alternative": "623 2Z (3x10x4)"
+          },
+          {
+            "part": "684ZZ (4x9x4)",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/loziska/lozisko-684-2z-ezo/",
+                "title": "Ložisko - 684 2Z EZO",
+                "price": "73 Kč s DPH (60 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (1 ks)",
+                "verified": true
+              },
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-694-2z-p5-zkl/",
+                "title": "Ložisko - 694 2Z P5 ZKL",
+                "price": "54 Kč s DPH (45 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (136 ks)",
+                "verified": true
+              }
+            ],
+            "note": "Je skladom iba 1 ks (EZO), na stránke výrobku nie sú uvedené rozmery (štandard 4x9x4). Ak treba viac kusov, vziať 694 2Z (4x11x4) ako alternatívu. Hadex 684ZZ nemá.",
+            "alternative": "694ZZ (4x11x4), Hadex 11 Kč, Skladem 335 ks"
+          },
+          {
+            "part": "MR84ZZ (4x8x3)",
+            "status": "nenajdene",
+            "offers": [
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/loziska/lozisko-684-2z-ezo/",
+                "title": "Ložisko - 684 2Z EZO",
+                "price": "73 Kč s DPH (60 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (1 ks)",
+                "verified": true
+              }
+            ],
+            "note": "MR84 nenájdené (loziska-policka nenalezeny, Hadex 0).",
+            "alternative": "684 2Z (4x9x4, 1 ks) alebo 694ZZ (4x11x4, veľa kusov skladom)"
+          },
+          {
+            "part": "MR85ZZ (5x8x2.5)",
+            "status": "nenajdene",
+            "offers": [
+              {
+                "shop": "hadex.cz",
+                "url": "https://www.hadex.cz/p/l760b-kulickove-lozisko-mr105-10x4mm-na-hridel-5mm",
+                "title": "Kuličkové ložisko MR105, 10x4mm na hřídel 5mm (L760B)",
+                "price": "12,00 Kč s DPH (9,92 Kč bez DPH; od 5 ks 8,00 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem 310 ks / Na skladě",
+                "verified": true
+              }
+            ],
+            "note": "MR85 / 675 nenájdené (loziska-policka MR85ZZ, MR85, MR 85, MR85-2Z, 675 2Z = nenalezeny; Hadex 0; LaskaKit nenalezeny; 3DJake vracia len 608ZZ).",
+            "alternative": "MR105 (5x10x4) – Hadex"
+          },
+          {
+            "part": "685ZZ (5x11x5)",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "hadex.cz",
+                "url": "https://www.hadex.cz/p/l760i-kulickove-lozisko-685zz-11x5mm-na-hridel-5mm",
+                "title": "Kuličkové ložisko 685ZZ,11x5mm na hřídel 5mm (L760I)",
+                "price": "9,00 Kč s DPH (7,44 Kč bez DPH; od 5 ks 6,00 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem 499 ks / Na skladě",
+                "verified": true
+              },
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/loziska/lozisko-685-2z-craft/",
+                "title": "Ložisko - 685 2Z CRAFT",
+                "price": "46 Kč s DPH (38 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (8 ks)",
+                "verified": true
+              }
+            ],
+            "note": "Hadex označuje tovar 'pro hobby použití'."
+          },
+          {
+            "part": "688ZZ (8x16x5)",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "hadex.cz",
+                "url": "https://www.hadex.cz/p/l760h-kulickove-lozisko-688zz-16x5mm-na-hridel-8mm",
+                "title": "Kuličkové ložisko 688ZZ,16x5mm na hřídel 8mm (L760H)",
+                "price": "11,00 Kč s DPH (9,09 Kč bez DPH; 5-19 ks 7,00 Kč, 20+ ks 6,00 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem 820 ks / Na skladě",
+                "verified": true
+              },
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/loziska/lozisko-s-688-2z-gpr-j-grw/",
+                "title": "Ložisko - S 688 2Z GPR J GRW",
+                "price": "50 Kč s DPH (41 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (500 ks)",
+                "verified": true
+              },
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/loziska/lozisko-688-2z-rmb/",
+                "title": "Ložisko - 688 2Z RMB",
+                "price": "85 Kč s DPH (70 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (3 ks)",
+                "verified": true
+              }
+            ],
+            "note": "S 688 GRW je nerezové. Hadex má aj prírubovú verziu F688ZZ (L735F, 21 Kč, Skladem 251 ks, overené len v zozname kategórie)."
+          },
+          {
+            "part": "MR104ZZ (4x10x4)",
+            "status": "nenajdene",
+            "offers": [
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-694-2z-p5-zkl/",
+                "title": "Ložisko - 694 2Z P5 ZKL",
+                "price": "54 Kč s DPH (45 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (136 ks)",
+                "verified": true
+              },
+              {
+                "shop": "hadex.cz",
+                "url": "https://www.hadex.cz/c/kulickova-loziska-a-hlavice",
+                "title": "Kuličkové ložisko 694ZZ 11x4mm na hřídel 4mm",
+                "price": "11,00 Kč s DPH (9,09 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem 335 ks",
+                "verified": false
+              }
+            ],
+            "note": "MR104 nenájdené (loziska-policka nenalezeny, Hadex 0). Pozor: Hadex F604ZZ je '10x4mm na hřídel 5,2mm' (podľa názvu), takže to nie je MR104.",
+            "alternative": "694ZZ (4x11x4)"
+          },
+          {
+            "part": "MR105ZZ (5x10x4)",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "hadex.cz",
+                "url": "https://www.hadex.cz/p/l760b-kulickove-lozisko-mr105-10x4mm-na-hridel-5mm",
+                "title": "Kuličkové ložisko MR105, 10x4mm na hřídel 5mm (L760B)",
+                "price": "12,00 Kč s DPH (9,92 Kč bez DPH; od 5 ks 8,00 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem 310 ks / Na skladě",
+                "verified": true
+              },
+              {
+                "shop": "hadex.cz",
+                "url": "https://www.hadex.cz/c/kulickova-loziska-a-hlavice",
+                "title": "Kuličkové ložisko s přírubou MF105ZZ, 10x4mm na hřídel 5mm",
+                "price": "17,00 Kč s DPH (14,05 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem 168 ks",
+                "verified": false
+              }
+            ],
+            "note": "V názve na Hadexe chýba 'ZZ' (len 'MR105'), typ krytu teda skontrolovať pri nákupe. loziska-policka MR105 nemá. Najbližšia alternatíva tam je 695 2Z IBB (5x13x4), 35 Kč, Skladem (34 ks), overené."
+          },
+          {
+            "part": "MR115 (5x11x4)",
+            "status": "nenajdene",
+            "offers": [
+              {
+                "shop": "hadex.cz",
+                "url": "https://www.hadex.cz/p/l760i-kulickove-lozisko-685zz-11x5mm-na-hridel-5mm",
+                "title": "Kuličkové ložisko 685ZZ,11x5mm na hřídel 5mm (L760I)",
+                "price": "9,00 Kč s DPH (7,44 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem 499 ks / Na skladě",
+                "verified": true
+              }
+            ],
+            "note": "MR115 nenájdené (loziska-policka nenalezeny, Hadex 0).",
+            "alternative": "685ZZ (5x11x5, rovnaký vonkajší priemer, o 1 mm širšie) alebo MR105 (5x10x4)"
+          },
+          {
+            "part": "MR128ZZ (8x12x3.5)",
+            "status": "nenajdene",
+            "offers": [
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/loziska/lozisko-6700-2z--61700-2z--fbj/",
+                "title": "Ložisko - 6700 2Z (61700 2Z) FBJ",
+                "price": "31 Kč s DPH (26 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (320 ks)",
+                "verified": true
+              },
+              {
+                "shop": "hadex.cz",
+                "url": "https://www.hadex.cz/p/l760h-kulickove-lozisko-688zz-16x5mm-na-hridel-8mm",
+                "title": "Kuličkové ložisko 688ZZ,16x5mm na hřídel 8mm (L760H)",
+                "price": "11,00 Kč s DPH (9,09 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem 820 ks / Na skladě",
+                "verified": true
+              }
+            ],
+            "note": "MR128 / 678 / MR148 nenájdené (loziska-policka MR128, MR 128, 678 2Z, MR148 = nenalezeny; Hadex MR128 = 0).",
+            "alternative": "S dierou 8 mm: 688ZZ (8x16x5). Ak môže byť diera 10 mm: 6700 2Z (10x15x4), najtenšie ložisko, ktoré sa našlo skladom."
+          },
+          {
+            "part": "6700ZZ (10x15x4)",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/loziska/lozisko-6700-2z--61700-2z--fbj/",
+                "title": "Ložisko - 6700 2Z (61700 2Z) FBJ",
+                "price": "31 Kč s DPH (26 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (320 ks)",
+                "verified": true
+              }
+            ],
+            "note": "Na stránke výrobku: 'Rozměry d × D × B jsou 10 × 15 × 4 mm'. Iný povolený obchod, do ktorého sa dalo dostať, ho nemá (Hadex 6700 = žiadne ložisko). Je to najtenšie ložisko s dierou 8-12 mm, ktoré sa našlo skladom."
+          },
+          {
+            "part": "6800ZZ / 6800-2RS / 61800 (10x19x5)",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61800-2z-mtm/",
+                "title": "Ložisko - 61800 2Z MTM",
+                "price": "30 Kč s DPH (25 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (10 ks)",
+                "verified": true
+              },
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61800-2rs-kinex/",
+                "title": "Ložisko - 61800 2RS KINEX",
+                "price": "54 Kč s DPH (45 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (16 ks)",
+                "verified": true
+              },
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61800-skf/",
+                "title": "Ložisko - 61800 SKF",
+                "price": "203 Kč s DPH (168 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (119 ks)",
+                "verified": true
+              }
+            ],
+            "note": "Ďalej: 'Ložisko - 6800 2RS CRAFT' 29 Kč, 'Na objednání – dostupnost ověříme' (overené, https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-6800-2rs-craft/); 'SS 61800 2Z neu' (nerez) 77 Kč, Skladem (3 ks). Širšia verzia 63800 (10x19x7): '63800 ZZ IBB' 99 Kč, Skladem (216 ks), overené. 61800 SKF bez prípony je pravdepodobne otvorené (bez krytov). Hadex 6800 nemá."
+          },
+          {
+            "part": "6701ZZ (12x18x4)",
+            "status": "nenajdene",
+            "offers": [
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-6801-2rs-dpi/",
+                "title": "Ložisko - 6801 2RS DPI",
+                "price": "99 Kč s DPH (82 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (9 ks)",
+                "verified": true
+              },
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61901-2rs-zvl/",
+                "title": "Ložisko - 61901 2RS ZVL",
+                "price": "50 Kč s DPH (41 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (5 ks)",
+                "verified": true
+              }
+            ],
+            "note": "6701 / 61701 nenájdené (loziska-policka '6701 2Z', '6701 2RS', '6701 ZZ', '61701 2Z', 'S 6701' = nenalezeny; holé '6701' a '61701' vracajú iné výrobky).",
+            "alternative": "6801 2RS (12x21x5) alebo 61901 2RS (12x24x6)"
+          },
+          {
+            "part": "6801 (12x21x5)",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-6801-2rs-dpi/",
+                "title": "Ložisko - 6801 2RS DPI",
+                "price": "99 Kč s DPH (82 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (9 ks)",
+                "verified": true
+              }
+            ],
+            "note": "Jediná ponuka, len 2RS (gumové tesnenia). Verzia 2Z/ZZ ani 61801 sa nenašli. Stránka výrobku uvádza 'Rozměry: 12 × 21 × 5 mm'."
+          },
+          {
+            "part": "6805-2RS (25x37x7)",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61805-2rs-cx/",
+                "title": "Ložisko - 61805 2RS CX",
+                "price": "35 Kč s DPH (29 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (27 ks)",
+                "verified": true
+              },
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-6805-2rs-ezo/",
+                "title": "Ložisko - 6805 2RS EZO",
+                "price": "190 Kč s DPH (157 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (16 ks)",
+                "verified": true
+              },
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-ss-6805-2rs-neu/",
+                "title": "Ložisko - SS 6805 2RS neu",
+                "price": "229 Kč s DPH (189 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (5 ks)",
+                "verified": true
+              }
+            ],
+            "note": "61805 = 6805 (25x37x7). Strana EZO: '25 × 37 × 7 mm, dynamická únosnost 4,3 kN'. Ďalej '61805 SKF' 217 Kč, Skladem (5 ks) a '61805 2RS SKF' 361 Kč, 'Na objednání – dostupnost ověříme' (obe len zo zoznamu)."
+          },
+          {
+            "part": "PREHĽAD: iné tenkostenné ložiská s dierou 8-12 mm skladom (na loziska-policka.cz)",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61900-2rs-kinex/",
+                "title": "Ložisko - 61900 2RS KINEX",
+                "price": "62 Kč s DPH (51 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (13 ks)",
+                "verified": true
+              },
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-698-2z-p5-zen/",
+                "title": "Ložisko - 698 2Z P5 ZEN",
+                "price": "90 Kč s DPH (74 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (16 ks)",
+                "verified": true
+              },
+              {
+                "shop": "loziska-policka.cz",
+                "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-699-zz-zkl/",
+                "title": "Ložisko - 699 ZZ ZKL",
+                "price": "129 Kč s DPH (107 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem (2 ks)",
+                "verified": true
+              }
+            ],
+            "note": "Všetky tenkostenné rozmery, ktoré obchody naozaj majú skladom (d x D x B), od najtenšieho: 6700 2Z 10x15x4 (320 ks, 31 Kč); 688 8x16x5 (Hadex 820 ks 11 Kč; LP GRW nerez 500 ks, RMB 3 ks); 61800 10x19x5 (2Z MTM 10 ks, 2RS KINEX 16 ks, SKF 119 ks; 6800 2RS CRAFT na objednanie); 6801 2RS 12x21x5 (9 ks); 63800 10x19x7 (ZZ IBB 216 ks, 2RS EZO 8 ks, 2Z SKF 18 ks); 698 8x19x6 (2Z P5 ZEN 16 ks, TVP ZKL 9 ks); 699 9x20x6 (2 ks); 61900 10x22x6 (2RS KINEX 13 ks, 2Z SKF 10 ks, 2RS SKF 6 ks; 2Z CX a 2RS FBJ len na objednanie); 61901 12x24x6 (2RS ZVL 5 ks 50 Kč, 2RS EZO 20 ks 100 Kč, FAG 50 ks, nerez FSY 10 ks). Väčšie: 6802 2RS EZO 15x24x5 (122 ks, 80 Kč), 61802 2Z SKF 15x24x5 (12 ks, 250 Kč), SS 6702 2RS 15x21x4 (2 ks, 467 Kč), 61805/6805 25x37x7. NEnájdené: MR128 (8x12x3.5), 678, MR148, 6701 (12x18x4), 61801. Pre ruku s dierou 8-12 mm je teda najtenšie bežne skladové 6700 2Z (B = 4 mm). Ďalšie s B = 5 mm: 688 (d 8), 61800 (d 10), 6801 (d 12)."
+          }
+        ],
+        "blocked_hosts": [
+          "www.dratek.cz (301 na dratek.cz, mimo povolené)",
+          "www.rlx.sk (302 na rlx.sk, mimo povolené)",
+          "www.tymoty.com (301 na www.tymoty.cz, mimo povolené)",
+          "www.tme.eu (HTTP 403 Cloudflare 'Just a moment...'; WebFetch: ENOTFOUND)",
+          "botland.store (HTTP 403 Cloudflare 'Just a moment...')",
+          "www.laskarduino.sk (HTTP 502 Bad Gateway z proxy)",
+          "www.gme.sk (stránka sa skladá len v JavaScripte, vyhľadávanie ide cez externý Luigi's Box, curlom sa nedá prečítať)",
+          "www.hornbach.sk ('Client Challenge' v JS)",
+          "www.bauhaus.sk (výsledky hľadania sa načítajú v JS, v HTML nie sú)"
+        ],
+        "summary": "Prehľadal som loziska-policka.cz (hlavný zdroj, Shoptet: vyhľadávanie + otvorené stránky výrobkov), hadex.cz (celá kategória 'Kuličková ložiska a hlavice' + stránky výrobkov), laskakit.cz (má len 625RS), 3djake.sk (má len 608ZZ) a obi.sk (žiadne samostatné ložiská). Všetky ceny sú v CZK s DPH, balenie 1 ks.\n\nSKLADOM:\n- 685ZZ: Hadex 9 Kč, 499 ks; loziska-policka 46 Kč, 8 ks.\n- 688ZZ: Hadex 11 Kč, 820 ks; loziska-policka nerez GRW 50 Kč, 500 ks.\n- MR105: Hadex 12 Kč, 310 ks (v názve chýba 'ZZ').\n- 684 2Z EZO: 73 Kč, iba 1 ks.\n- 6700 2Z FBJ (10x15x4): 31 Kč, 320 ks.\n- 61800 (10x19x5): 2Z MTM 30 Kč/10 ks, 2RS KINEX 54 Kč/16 ks, SKF 203 Kč/119 ks. 6800 2RS CRAFT je len 'Na objednání'.\n- 6801 2RS DPI: 99 Kč, 9 ks.\n- 6805-2RS: 61805 2RS CX 35 Kč/27 ks, 6805 2RS EZO 190 Kč/16 ks.\n\nNENÁJDENÉ v povolených obchodoch: MR63, MR74, 683, MR84, MR85, MR104, MR115, MR128 a 6701. Navrhnuté alternatívy, ktoré sú skladom:\n- 623 2Z (3x10x4) za 683 a MR63\n- 694ZZ (4x11x4) za MR74, MR84 a MR104\n- MR105 za MR85\n- 685ZZ za MR115\n- 688ZZ, alebo 6700 2Z pri diere 10 mm, za MR128\n- 6801 2RS alebo 61901 2RS za 6701\n\nTENKOSTENNÉ s dierou 8-12 mm, ktoré obchody naozaj majú: 6700 2Z 10x15x4 (najtenšie), 688 8x16x5, 61800 10x19x5, 6801 12x21x5, 63800 10x19x7, 698 8x19x6, 699 9x20x6, 61900 10x22x6, 61901 12x24x6. MR128 (8x12x3.5) ani 6701 (12x18x4) skladom nie sú.\n\nObchody dratek, rlx, tymoty, tme, botland, laskarduino a gme sa overiť nedali (presmerovanie mimo povolených hostov, Cloudflare, 502 alebo stránka len v JavaScripte). Najmä dratek.cz a rlx.sk by mohli mať rad MR, preto treba povoliť hosty dratek.cz a rlx.sk (bez www).\n\nDôkazy: /tmp/claude-0/gapwf/fin/R3/dostupnost/loziska/ (EVIDENCE_index.txt = výťah z každej stránky; lp/p/*.html = stránky výrobkov loziska-policka; lp/s_*.html = vyhľadávania; hadex/*.html; laskakit/; 3djake/; blocked/; hw/; gme/)."
+      },
+      "verify": {
+        "category": "Ložiská",
+        "checked": [
+          {
+            "part": "MR63ZZ / 683ZZ – alternatíva 623 2Z",
+            "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-623-2z-zkl/",
+            "confirmed": true,
+            "seen_price": "24 Kč / ks (20 Kč bez DPH)",
+            "seen_stock_text": "Skladem (10 ks)",
+            "note": "Názov stránky: 'Ložisko - 623 2Z ZKL'. Stránka uvádza 3 × 10 × 4 mm. Súhlasí."
+          },
+          {
+            "part": "MR63ZZ – alternatíva F623ZZ (Hadex, s prírubou)",
+            "url": "https://www.hadex.cz/p/l735c-kulickove-lozisko-s-prirubou-f623zz-10x4mm-na-hridel-3mm",
+            "confirmed": true,
+            "seen_price": "21,00 Kč (17,36 Kč bez DPH); od 5 ks 15,00 Kč bez DPH",
+            "seen_stock_text": "Skladem 314 ks / Na skladě",
+            "note": "Pôvodne len URL kategórie (verified=false). Stránka výrobku existuje: 'Kuličkové ložisko s přírubou F623ZZ, 10x4mm na hřídel 3mm (L735C)'. Teraz overené."
+          },
+          {
+            "part": "623ZZ Hadex (L760C)",
+            "url": "https://www.hadex.cz/p/l760c-kulickove-lozisko-623zz-10x4mm-na-hridel-3mm",
+            "confirmed": true,
+            "seen_price": "11,00 Kč (9,09 Kč bez DPH)",
+            "seen_stock_text": "Na cestě | 0 ks | Na cestě, dodání do 20. 12. 2026",
+            "note": "Stav 'Na cestě' súhlasí. Presný text uvádza aj 0 ks a dodanie do 20. 12. 2026."
+          },
+          {
+            "part": "683 (3x7x3) – NOVÁ ponuka",
+            "url": "https://www.loziska-policka.cz/loziska/lozisko-683-ezo/",
+            "confirmed": true,
+            "seen_price": "67 Kč / ks (55 Kč bez DPH)",
+            "seen_stock_text": "Skladem (4000 ks)",
+            "note": "'Ložisko - 683 EZO'. V označení nie je 2Z/ZZ a popis je len 'Ložisko', teda zrejme OTVORENÉ (bez krytov). Rozmery na stránke nie sú (štandard 683 = 3x7x3). Našlo sa až na 7. strane vyhľadávania '683'."
+          },
+          {
+            "part": "MR74ZZ – alternatíva 694ZZ (Hadex)",
+            "url": "https://www.hadex.cz/p/l760l-kulickove-lozisko-694zz-11x4mm-na-hridel-4mm",
+            "confirmed": true,
+            "seen_price": "11,00 Kč (9,09 Kč bez DPH); od 5 ks 7,00 Kč bez DPH",
+            "seen_stock_text": "Skladem 335 ks / Na skladě",
+            "note": "Pôvodne len URL kategórie (verified=false). Stránka výrobku: 'Kuličkové ložisko 694ZZ 11x4mm na hřídel 4mm (L760L)'. Overené."
+          },
+          {
+            "part": "MR74 / 684 / MR104 – alternatíva 694 2Z",
+            "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-694-2z-p5-zkl/",
+            "confirmed": true,
+            "seen_price": "54 Kč / ks (45 Kč bez DPH)",
+            "seen_stock_text": "Skladem (136 ks)",
+            "note": "'Ložisko - 694 2Z P5 ZKL'. Stránka uvádza 4 × 11 × 4 mm. Súhlasí."
+          },
+          {
+            "part": "684ZZ (4x9x4)",
+            "url": "https://www.loziska-policka.cz/loziska/lozisko-684-2z-ezo/",
+            "confirmed": true,
+            "seen_price": "73 Kč / ks (60 Kč bez DPH)",
+            "seen_stock_text": "Skladem (1 ks)",
+            "note": "'Ložisko - 684 2Z EZO, plechové kryty z oboch strán'. Rozmery na stránke nie sú (pravda). Úplné prehľadanie '684' (10 strán) a '684 ZZ', '684 2RS', '618/4' neukázalo inú verziu 684."
+          },
+          {
+            "part": "MR85ZZ / MR105ZZ – MR105 (Hadex)",
+            "url": "https://www.hadex.cz/p/l760b-kulickove-lozisko-mr105-10x4mm-na-hridel-5mm",
+            "confirmed": true,
+            "seen_price": "12,00 Kč (9,92 Kč bez DPH); 5 a více ks 8,00 Kč bez DPH",
+            "seen_stock_text": "Skladem 310 ks / Na skladě",
+            "note": "Názov: 'Kuličkové ložisko MR105, 10x4mm na hřídel 5mm (L760B)'. Na stránke nie je ZZ ani typ krytu, len 'Pro hobby použití'."
+          },
+          {
+            "part": "MR105ZZ – NOVÁ ponuka na loziska-policka",
+            "url": "https://www.loziska-policka.cz/loziska/lozisko-mr-105-2z-ibb/",
+            "confirmed": true,
+            "seen_price": "99 Kč / ks (82 Kč bez DPH)",
+            "seen_stock_text": "Skladem (4 ks)",
+            "note": "'Ložisko - MR 105 2Z IBB – Plechové kryty z obou stran'. Obchod píše 'MR 105' s medzerou, preto vyhľadávanie 'MR105' vracia 0. Rozmery na stránke nie sú (štandard 5x10x4)."
+          },
+          {
+            "part": "MR105ZZ – MF105ZZ s prírubou (Hadex)",
+            "url": "https://www.hadex.cz/p/l735-kulickove-lozisko-s-prirubou-mf105zz-10x4mm-na-hridel-5mm",
+            "confirmed": true,
+            "seen_price": "17,00 Kč (14,05 Kč bez DPH); od 5 ks 12,00 Kč bez DPH",
+            "seen_stock_text": "Skladem 168 ks / Na skladě",
+            "note": "Pôvodne len URL kategórie. Stránka výrobku existuje a súhlasí."
+          },
+          {
+            "part": "MR85ZZ – NOVÁ najbližšia alternatíva MR95",
+            "url": "https://www.loziska-policka.cz/loziska/lozisko-mr-95-zz-cn/",
+            "confirmed": true,
+            "seen_price": "149 Kč / ks (123 Kč bez DPH)",
+            "seen_stock_text": "Skladem (5 ks)",
+            "note": "'Ložisko - MR 95 ZZ CN, plechové kryty z oboch strán'. Rozmery na stránke nie sú (štandard MR95 = 5x9x3). Vonkajší priemer je bližší k MR85 (8) než pri MR105 (10). Drahé a len 5 ks."
+          },
+          {
+            "part": "685ZZ (5x11x5) Hadex",
+            "url": "https://www.hadex.cz/p/l760i-kulickove-lozisko-685zz-11x5mm-na-hridel-5mm",
+            "confirmed": true,
+            "seen_price": "9,00 Kč (7,44 Kč bez DPH); 5 a více ks 6,00 Kč bez DPH",
+            "seen_stock_text": "Skladem 499 ks / Na skladě",
+            "note": "'Kuličkové ložisko 685ZZ,11x5mm na hřídel 5mm (L760I)', 'pro hobby použití'. Súhlasí."
+          },
+          {
+            "part": "685ZZ – loziska-policka",
+            "url": "https://www.loziska-policka.cz/loziska/lozisko-685-2z-craft/",
+            "confirmed": true,
+            "seen_price": "46 Kč / ks (38 Kč bez DPH)",
+            "seen_stock_text": "Skladem (8 ks)",
+            "note": "'Ložisko - 685 2Z CRAFT'. Rozmery na stránke nie sú."
+          },
+          {
+            "part": "688ZZ (8x16x5) Hadex",
+            "url": "https://www.hadex.cz/p/l760h-kulickove-lozisko-688zz-16x5mm-na-hridel-8mm",
+            "confirmed": true,
+            "seen_price": "11,00 Kč (9,09 Kč bez DPH); 5-19 ks 7,00; 20+ ks 6,00 Kč bez DPH",
+            "seen_stock_text": "Skladem 820 ks / Na skladě",
+            "note": "Súhlasí."
+          },
+          {
+            "part": "688ZZ – S 688 2Z GRW (nerez)",
+            "url": "https://www.loziska-policka.cz/loziska/lozisko-s-688-2z-gpr-j-grw/",
+            "confirmed": true,
+            "seen_price": "50 Kč / ks (41 Kč bez DPH)",
+            "seen_stock_text": "Skladem (500 ks)",
+            "note": "Popis: 'nerezové ... 8 × 16 × 5 mm', 2Z. Súhlasí."
+          },
+          {
+            "part": "688ZZ – 688 2Z RMB",
+            "url": "https://www.loziska-policka.cz/loziska/lozisko-688-2z-rmb/",
+            "confirmed": true,
+            "seen_price": "85 Kč / ks (70 Kč bez DPH)",
+            "seen_stock_text": "Skladem (3 ks)",
+            "note": "d 8, D 16, B 5 mm. Súhlasí."
+          },
+          {
+            "part": "F688ZZ Hadex (poznámka)",
+            "url": "https://www.hadex.cz/p/l735f-kulickove-lozisko-s-prirubou-f688zz-16x5mm-na-hridel-8mm",
+            "confirmed": true,
+            "seen_price": "21,00 Kč (17,36 Kč bez DPH)",
+            "seen_stock_text": "Skladem 251 ks / Na skladě",
+            "note": "Teraz overené aj na stránke výrobku."
+          },
+          {
+            "part": "MR128 / 6700ZZ (10x15x4)",
+            "url": "https://www.loziska-policka.cz/loziska/lozisko-6700-2z--61700-2z--fbj/",
+            "confirmed": true,
+            "seen_price": "31 Kč / ks (26 Kč bez DPH)",
+            "seen_stock_text": "Skladem (320 ks)",
+            "note": "Stránka: 'Rozměry d × D × B jsou 10 × 15 × 4 mm', 2Z. Súhlasí."
+          },
+          {
+            "part": "61800 2Z MTM (10x19x5)",
+            "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61800-2z-mtm/",
+            "confirmed": true,
+            "seen_price": "30 Kč / ks (25 Kč bez DPH)",
+            "seen_stock_text": "Skladem (10 ks)",
+            "note": "Parametre: d 10, D 19, B 5 mm. Súhlasí."
+          },
+          {
+            "part": "61800 2RS KINEX",
+            "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61800-2rs-kinex/",
+            "confirmed": true,
+            "seen_price": "54 Kč / ks (45 Kč bez DPH)",
+            "seen_stock_text": "Skladem (16 ks)",
+            "note": "Cena a stav súhlasia. Rozmery na stránke nie sú."
+          },
+          {
+            "part": "61800 SKF",
+            "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61800-skf/",
+            "confirmed": true,
+            "seen_price": "203 Kč / ks (168 Kč bez DPH)",
+            "seen_stock_text": "Skladem (119 ks)",
+            "note": "Stránka uvádza 10 × 19 × 5 mm. Bez prípony, teda pravdepodobne otvorené (to bolo uvedené správne)."
+          },
+          {
+            "part": "6800 2RS CRAFT",
+            "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-6800-2rs-craft/",
+            "confirmed": true,
+            "seen_price": "29 Kč / ks (24 Kč bez DPH)",
+            "seen_stock_text": "Na objednání – dostupnost ověříme",
+            "note": "Schema OutOfStock. Stránka uvádza 10 × 19 × 5 mm. Súhlasí."
+          },
+          {
+            "part": "6801 / 6701 – 6801 2RS DPI",
+            "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-6801-2rs-dpi/",
+            "confirmed": true,
+            "seen_price": "99 Kč / ks (82 Kč bez DPH)",
+            "seen_stock_text": "Skladem (9 ks)",
+            "note": "Stránka uvádza 12 × 21 × 5 mm. Súhlasí. Vyhľadávania '6801 2Z' a '61801' nenašli verziu 2Z."
+          },
+          {
+            "part": "6701 – alternatíva 61901 2RS ZVL",
+            "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61901-2rs-zvl/",
+            "confirmed": true,
+            "seen_price": "50 Kč / ks (41 Kč bez DPH)",
+            "seen_stock_text": "Skladem (5 ks)",
+            "note": "Stránka uvádza 12 × 24 × 6 mm. Súhlasí."
+          },
+          {
+            "part": "6805-2RS – 61805 2RS CX",
+            "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61805-2rs-cx/",
+            "confirmed": true,
+            "seen_price": "35 Kč / ks (29 Kč bez DPH)",
+            "seen_stock_text": "Skladem (27 ks)",
+            "note": "Stránka uvádza 25 × 37 × 7 mm. Súhlasí."
+          },
+          {
+            "part": "6805-2RS – 6805 2RS EZO",
+            "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-6805-2rs-ezo/",
+            "confirmed": true,
+            "seen_price": "190 Kč / ks (157 Kč bez DPH)",
+            "seen_stock_text": "Skladem (16 ks)",
+            "note": "Text na stránke: '25 × 37 × 7 mm, dynamická únosnost 4,3 kN'. Súhlasí."
+          },
+          {
+            "part": "6805-2RS – SS 6805 2RS neu",
+            "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-ss-6805-2rs-neu/",
+            "confirmed": true,
+            "seen_price": "229 Kč / ks (189 Kč bez DPH)",
+            "seen_stock_text": "Skladem (5 ks)",
+            "note": "Stránka uvádza 25 × 37 × 7 mm. Súhlasí."
+          },
+          {
+            "part": "PREHĽAD – 61900 2RS KINEX",
+            "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-61900-2rs-kinex/",
+            "confirmed": true,
+            "seen_price": "62 Kč / ks (51 Kč bez DPH)",
+            "seen_stock_text": "Skladem (13 ks)",
+            "note": "Stránka uvádza 10 × 22 × 6 mm."
+          },
+          {
+            "part": "PREHĽAD – 698 2Z P5 ZEN",
+            "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-698-2z-p5-zen/",
+            "confirmed": true,
+            "seen_price": "90 Kč / ks (74 Kč bez DPH)",
+            "seen_stock_text": "Skladem (16 ks)",
+            "note": "Stránka uvádza 8 × 19 × 6 mm."
+          },
+          {
+            "part": "PREHĽAD – 699 ZZ ZKL",
+            "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-699-zz-zkl/",
+            "confirmed": true,
+            "seen_price": "129 Kč / ks (107 Kč bez DPH)",
+            "seen_stock_text": "Skladem (2 ks)",
+            "note": "Stránka uvádza 9 × 20 × 6 mm."
+          },
+          {
+            "part": "PREHĽAD – 63800 ZZ IBB",
+            "url": "https://www.loziska-policka.cz/loziska/lozisko-63800-zz-ibb/",
+            "confirmed": true,
+            "seen_price": "99 Kč / ks (82 Kč bez DPH)",
+            "seen_stock_text": "Skladem (216 ks)",
+            "note": "Cena a stav súhlasia. Vlastné rozmery na stránke nie sú (štandard 10x19x7)."
+          },
+          {
+            "part": "PREHĽAD – SS 6702 2RS",
+            "url": "https://www.loziska-policka.cz/loziska/lozisko-ss-6702-2rs/",
+            "confirmed": true,
+            "seen_price": "467 Kč / ks (386 Kč bez DPH)",
+            "seen_stock_text": "Skladem (2 ks)",
+            "note": "Stránka uvádza 15 × 21 × 4 mm."
+          },
+          {
+            "part": "MR105 – alternatíva 695 2Z IBB",
+            "url": "https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-695-2z-ibb/",
+            "confirmed": true,
+            "seen_price": "35 Kč / ks (29 Kč bez DPH)",
+            "seen_stock_text": "Skladem (34 ks)",
+            "note": "Stránka uvádza 5 × 13 × 4 mm."
+          },
+          {
+            "part": "623 (3x10x4) – viac kusov skladom (NOVÉ)",
+            "url": "https://www.loziska-policka.cz/loziska/lozisko-623-zz-dpi/",
+            "confirmed": true,
+            "seen_price": "69 Kč / ks (57 Kč bez DPH)",
+            "seen_stock_text": "Skladem (40 ks)",
+            "note": "'Ložisko - 623 ZZ DPI 3 × 10 × 4 mm. Plechové kryty z obou stran.' Ďalej: S 623 2Z GPRJ GRW (nerez), 50 Kč, Skladem (80 ks), /loziska/lozisko-s-623-2z-gprj-grw/. Má aj 623 Z ZKL (kryt len z jednej strany), 22 Kč, Skladem (125 ks)."
+          },
+          {
+            "part": "PREHĽAD doplnok – S 698 2Z GPRJ GRW (8x19x6, nerez)",
+            "url": "https://www.loziska-policka.cz/loziska/lozisko-s-698-2z-gprj-grw/",
+            "confirmed": true,
+            "seen_price": "39 Kč / ks (32 Kč bez DPH)",
+            "seen_stock_text": "Skladem (2095 ks)",
+            "note": "Popis uvádza 8 × 19 × 6 mm, 2Z. Je lacnejšie a s väčšou zásobou ako 698 2Z P5 ZEN, v prehľade chýbalo."
+          },
+          {
+            "part": "PREHĽAD doplnok – 689 2Z IBU (9x17x5)",
+            "url": "https://www.loziska-policka.cz/loziska/lozisko-689-2z-ibu/",
+            "confirmed": true,
+            "seen_price": "198 Kč / ks (164 Kč bez DPH)",
+            "seen_stock_text": "Skladem (9 ks)",
+            "note": "Popis uvádza 9 × 17 × 5 mm. Je tenšie ako 699 (9x20x6), v prehľade chýbalo."
+          },
+          {
+            "part": "PREHĽAD doplnok – S 688/003 2Z GRW a 698 2RS neu",
+            "url": "https://www.loziska-policka.cz/loziska/lozisko-s-688-003-2z-gpr-j-grw/",
+            "confirmed": true,
+            "seen_price": "99 Kč / ks (82 Kč bez DPH)",
+            "seen_stock_text": "Skladem (250 ks)",
+            "note": "Popis uvádza 8 × 16 × 5 mm. Ďalej '698 2RS neu' (8 × 19 × 6 mm, gumové tesnenia), 109 Kč, Skladem (9 ks), /loziska/lozisko-698-2rs-neu/."
+          },
+          {
+            "part": "Hadex – úplnosť kategórie",
+            "url": "https://www.hadex.cz/c/kulickova-loziska-a-hlavice",
+            "confirmed": true,
+            "seen_price": "",
+            "seen_stock_text": "Zobrazuji 1 - 24 z 24",
+            "note": "Kategória má 24 položiek a všetky sa zobrazili. Hadex vyhľadávania 'MR', '683', '684', '6801', '6701', 'kuličkové ložisko', 'ložisko 3mm/4mm/8mm' nenašli žiadne ďalšie ložisko. Hadex teda naozaj nemá MR63, MR74, 683, 684, MR84, MR85, MR104, MR115, MR128, 6700, 6701, 6800 ani 6801."
+          }
+        ],
+        "corrections": [
+          "683ZZ (3x7x3): stav 'nenajdene' je NESPRÁVNY. loziska-policka má 'Ložisko - 683 EZO', 67 Kč s DPH (55 Kč bez DPH), Skladem (4000 ks), https://www.loziska-policka.cz/loziska/lozisko-683-ezo/ (overené). V označení však nie je 2Z/ZZ, takže je zrejme OTVORENÉ (bez krytov), a rozmery na stránke nie sú. Správny stav: rozmer skladom, ale len otvorené; verzia ZZ sa nenašla. Prvý agent videl len 1. stranu vyhľadávania '683' (je ich 11, toto ložisko je na 7. strane).",
+          "MR105ZZ: tvrdenie 'loziska-policka MR105 nemá' je NESPRÁVNE. Je tam 'Ložisko - MR 105 2Z IBB', 99 Kč s DPH (82 Kč bez DPH), Skladem (4 ks), https://www.loziska-policka.cz/loziska/lozisko-mr-105-2z-ibb/ (overené). Obchod píše 'MR 105' s medzerou, preto hľadanie 'MR105' vracia 0. Je to jediná ponuka MR105, ktorá je výslovne 2Z (Hadex MR105 typ krytu neuvádza).",
+          "MR85ZZ: chýbala bližšia alternatíva skladom: 'Ložisko - MR 95 ZZ CN' (štandard MR95 = 5x9x3; rozmery na stránke nie sú), 149 Kč s DPH, Skladem (5 ks), https://www.loziska-policka.cz/loziska/lozisko-mr-95-zz-cn/ (overené). Vonkajší priemer je 9 mm, pri MR105 je 10 mm. Celé vyhľadávanie 'MR' na loziska-policka (3 strany) obsahuje z miniatúrnych ložísk MR len MR 105 2Z IBB a MR 95 ZZ CN.",
+          "MR63ZZ: zostáva nenájdené (ďalšie hľadanie: 'MR 63', '673 ZZ', 'L-630', celé 'MR' a celé '673' na 11 stranách; Hadex, LaskaKit). Ako najbližšiu alternatívu však treba uviesť 683 EZO (3x7x3, otvorené, 4000 ks), nie 623 (3x10x4), ak sa zmestí vonkajší priemer 7 mm.",
+          "Ponuky z Hadexu, ktoré mali len URL kategórie (verified=false), majú vlastné stránky výrobkov. Všetky sú teraz overené a sedia: 694ZZ https://www.hadex.cz/p/l760l-kulickove-lozisko-694zz-11x4mm-na-hridel-4mm (11,00 Kč, Skladem 335 ks); F623ZZ https://www.hadex.cz/p/l735c-kulickove-lozisko-s-prirubou-f623zz-10x4mm-na-hridel-3mm (21,00 Kč, Skladem 314 ks); MF105ZZ https://www.hadex.cz/p/l735-kulickove-lozisko-s-prirubou-mf105zz-10x4mm-na-hridel-5mm (17,00 Kč, Skladem 168 ks); F688ZZ https://www.hadex.cz/p/l735f-kulickove-lozisko-s-prirubou-f688zz-16x5mm-na-hridel-8mm (21,00 Kč, Skladem 251 ks).",
+          "Hadex 623ZZ (L760C): presný text stavu je 'Na cestě | 0 ks | Na cestě, dodání do 20. 12. 2026', nie len 'Na cestě'. https://www.hadex.cz/p/l760c-kulickove-lozisko-623zz-10x4mm-na-hridel-3mm",
+          "Alternatíva 623 (3x10x4): 623 2Z ZKL má len 10 ks. Ďalšie verzie s krytmi skladom na loziska-policka: '623 ZZ DPI' 69 Kč, Skladem (40 ks), https://www.loziska-policka.cz/loziska/lozisko-623-zz-dpi/; 'S 623 2Z GPRJ GRW' (nerez) 50 Kč, Skladem (80 ks), https://www.loziska-policka.cz/loziska/lozisko-s-623-2z-gprj-grw/; '623 Z ZKL' (kryt len z jednej strany) 22 Kč, Skladem (125 ks).",
+          "V PREHĽADE chýbajú tenkostenné ložiská skladom: 'S 698 2Z GPRJ GRW' (8x19x6, nerez) 39 Kč, Skladem (2095 ks), https://www.loziska-policka.cz/loziska/lozisko-s-698-2z-gprj-grw/. Je lacnejšie a s väčšou zásobou ako uvedené 698 2Z P5 ZEN (90 Kč, 16 ks). Ďalej '698 2RS neu' 109 Kč, Skladem (9 ks); '689 2Z IBU' (9x17x5) 198 Kč, Skladem (9 ks), ktoré je tenšie ako 699; 'S 688/003 2Z GPR J GRW' (8x16x5) 99 Kč, Skladem (250 ks).",
+          "Drobnosť k presnosti: stránky 684 2Z EZO, 685 2Z CRAFT, 61800 2RS KINEX, 63800 ZZ IBB, 683 EZO, MR 105 2Z IBB a MR 95 ZZ CN rozmery neuvádzajú, rozmer vyplýva len zo štandardného označenia. Rozmery výslovne uvádzajú tieto stránky: 623 2Z ZKL, 694 2Z P5 ZKL, 6700 2Z FBJ, 61800 2Z MTM, 61800 SKF, 6800 2RS CRAFT, 6801 2RS DPI, 61901 2RS ZVL, 61805 2RS CX, 6805 2RS EZO, SS 6805 2RS, 61900 2RS KINEX, 698 2Z P5 ZEN, 699 ZZ ZKL, 688 2Z RMB, S 688 2Z GRW, 695 2Z IBB a SS 6702 2RS.",
+          "Potvrdené ako NENÁJDENÉ (ďalšie hľadanie na loziska-policka, každý výsledok prejdený na všetkých stranách): MR74 ('MR 74', '674 ZZ', 'L-740', celé '674' na 10 stranách), MR84 ('MR 84', 'L-840'), MR104 ('MR 104', 'L-1040'), MR115 ('MR 115', 'L-1150'), MR128 ('MR128ZZ', '678 ZZ', 'L-1280', celé '678' na 11 stranách), 6701 ('6701 2RS', '61701 2RS', 'S 6701', '6701') a 61801/6801 2Z. Filter na loziska-policka 'skladom + vnútorný priemer d' (len výrobky, ktoré majú vyplnené parametre) ukazuje pri d=3 len rad 623, pri d=4 rady 624, 634 a 694, pri d=5 rady 625, 635 a 695. Hadex má celú kategóriu ložísk (24 z 24) bez týchto typov. LaskaKit má len 625RS, 3DJake len 608ZZ.",
+          "Všetky ostatné overené ponuky z pôvodnej správy sedia na stránke výrobku v názve, rozmere, cene aj stave skladu (pozri zoznam 'checked'). Pri zablokovaných hostoch sa nič nezmenilo: www.dratek.cz 301 na dratek.cz, www.rlx.sk 302 na rlx.sk, www.tymoty.com 301 na www.tymoty.cz, botland.store 403, www.tme.eu 403, www.laskarduino.sk bez odpovede cez proxy.",
+          "Dôkazy: /tmp/claude-0/gapwf/fin/R3/dostupnost/loziska/overenie/EVIDENCE_overenie.txt obsahuje výťahy. Stránky výrobkov sú v overenie/p/*.html, filtre a prehľad skladových položiek v overenie/s/ (lp_filter_d*.html, lp_jednorada_stock_all.txt). Vyhľadávania sú zbalené ako *.html.gz v overenie/s/lp_search/, overenie/s/hadex/ a overenie/s/lp_jednorada_stock/. Index ich ešte uvádza pod názvami .html."
+        ]
+      }
+    },
+    {
+      "category": "skrutky",
+      "check": {
+        "category": "Skrutky a podložky",
+        "parts": [
+          {
+            "part": "DIN 912 / ISO 4762 M4x20 (aj M4x16, M4x25)",
+            "status": "nenajdene",
+            "offers": [
+              {
+                "shop": "LaskaKit (laskakit.cz)",
+                "url": "https://www.laskakit.cz/sroub-valcova-hlava-m4x16-din-6912-8-8/",
+                "title": "Šroub válcová hlava M4x16 DIN 6912 8.8",
+                "price": "2,60 Kč s DPH (2,20 Kč bez DPH) / ks",
+                "pack": "1 ks",
+                "stock_text": "Skladem (2910 ks)",
+                "verified": true
+              },
+              {
+                "shop": "3DJake (3djake.sk)",
+                "url": "https://www.3djake.sk/cnc-kitchen/skrutky-s-valcovou-nizkou-hlavou-m4-iso-14580-nehrdzavejuca?sai=30376",
+                "title": "Skrutky s valcovou nízkou hlavou M4 (ISO 14580), nehrdzavejúca oceľ A2-70, M4x20",
+                "price": "5,59 € s DPH (pôvodne 6,99 €; 0,22 €/ks)",
+                "pack": "25 ks",
+                "stock_text": "Na sklade – „Na sklade zostáva už len 28 ks tohto produktu. Ďalšie sú na ceste.“",
+                "verified": true
+              },
+              {
+                "shop": "3DJake (3djake.sk)",
+                "url": "https://www.3djake.sk/cnc-kitchen/skrutky-s-valcovou-nizkou-hlavou-m4-iso-14580-nehrdzavejuca?sai=30379",
+                "title": "Skrutky s valcovou nízkou hlavou M4 (ISO 14580), nehrdzavejúca oceľ A2-70, M4x25",
+                "price": "9,35 € s DPH (pôvodne 11,69 €)",
+                "pack": "25 ks",
+                "stock_text": "Ešte 9 ks na sklade",
+                "verified": true
+              }
+            ],
+            "note": "V povolených obchodoch som DIN 912 v M4 nenašiel. Bauhaus Profi Depot DIN 912 začína až od M5 (napr. M5x10, 100 ks, 4,90 €, „Dostupné online“). LaskaKit má DIN 912 len M2,5x8. Variant 3DJake M4x16 (sai=30373) stojí 6,87 €, „Na sklade“, zostáva 11 ks. Všetky tri vyššie uvedené ponuky majú nízku hlavu.",
+            "alternative": "nenájdené v povolených obchodoch. Najbližšie dostupné: LaskaKit DIN 6912 M4x16 8.8 (nízka valcová hlava s imbusom, Skladem) alebo 3DJake/CNC Kitchen ISO 14580 M4x16/20/25 A2-70 (nízka hlava, imbus podľa popisu). Výška hlavy podľa noriem (nie podľa obchodu) je cca 2,6–2,8 mm namiesto 4 mm pri DIN 912, priemer hlavy je rovnaký (cca 7 mm). Druhá možnosť: Bauhaus Marinetech ISO 7380-1 M4x16/20 (šošovková hlava)."
+          },
+          {
+            "part": "ISO 7380 imbus šošovková hlava M4x8 / M4x10 / M4x12 / M4x16 / M4x20",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "BAUHAUS (bauhaus.sk)",
+                "url": "https://www.bauhaus.sk/marinetech-inbusova-skrutka-23678398",
+                "title": "Marinetech Inbusová skrutka – šošovková hlava; M4 × 12 mm; nerezová oceľ; 1 ks",
+                "price": "0,20 € s DPH / ks",
+                "pack": "1 ks",
+                "stock_text": "Dostupné online",
+                "verified": true
+              },
+              {
+                "shop": "BAUHAUS (bauhaus.sk)",
+                "url": "https://www.bauhaus.sk/marinetech-inbusova-skrutka-23678404",
+                "title": "Marinetech Inbusová skrutka – šošovková hlava; M4 × 16 mm; nerezová oceľ; 1 ks",
+                "price": "0,30 € s DPH / ks",
+                "pack": "1 ks",
+                "stock_text": "Dostupné online",
+                "verified": true
+              },
+              {
+                "shop": "BAUHAUS (bauhaus.sk)",
+                "url": "https://www.bauhaus.sk/marinetech-inbusova-skrutka-23678413",
+                "title": "Marinetech Inbusová skrutka – šošovková hlava; M4 × 20 mm; nerezová oceľ; 1 ks",
+                "price": "0,30 € s DPH / ks",
+                "pack": "1 ks",
+                "stock_text": "Dostupné online",
+                "verified": true
+              }
+            ],
+            "note": "Na stránke je uvedené „Vyrobená podľa ISO 7380-1“, nerez A4. Online sklad podľa dát stránky: M4x12 = 322, M4x16 = 181, M4x20 = 31 ks. K dispozícii je aj M4x25. M4x8 a M4x10 v ISO 7380 som nenašiel v žiadnom povolenom obchode. LaskaKit má ISO 7380 len M2x3, okrem toho imbusové skrutky s pologuľatou hlavou M5x8, M5x10 a M6x12.",
+            "alternative": "Pre M4x8/M4x10: Bauhaus Marinetech M4x12 (najkratšia ISO 7380 M4) alebo 3DJake ISO 14580 M4x6/M4x10 (nízka valcová hlava, 25 ks)."
+          },
+          {
+            "part": "ISO 7380 imbus šošovková hlava M2x6 / M2x8 / M2x10",
+            "status": "nenajdene",
+            "offers": [
+              {
+                "shop": "LaskaKit (laskakit.cz)",
+                "url": "https://www.laskakit.cz/sroub-imbus-pulkulata-hlava-m2x3-iso-7380-10-9-cerneno/",
+                "title": "Šroub imbus půlkulatá hlava M2x3 ISO 7380 10.9 Černěno",
+                "price": "13,90 Kč s DPH (11,50 Kč bez DPH) / ks",
+                "pack": "1 ks",
+                "stock_text": "Skladem (142 ks)",
+                "verified": true
+              },
+              {
+                "shop": "3DJake (3djake.sk)",
+                "url": "https://www.3djake.sk/cnc-kitchen/skrutka-s-valcovou-hlavou-m2-nizka-hlava-iso-14580-nehrdzavejuca?sai=30289",
+                "title": "Skrutka s valcovou nízkou hlavou M2 (ISO 14580), nehrdzavejúca oceľ A2-70, M2x6",
+                "price": "4,79 € s DPH (pôvodne 5,99 €)",
+                "pack": "25 ks",
+                "stock_text": "Na sklade – „Na sklade zostáva už len 32 ks tohto produktu.“",
+                "verified": true
+              },
+              {
+                "shop": "3DJake (3djake.sk)",
+                "url": "https://www.3djake.sk/cnc-kitchen/skrutka-s-valcovou-hlavou-m2-nizka-hlava-iso-14580-nehrdzavejuca?sai=30292",
+                "title": "Skrutka s valcovou nízkou hlavou M2 (ISO 14580), nehrdzavejúca oceľ A2-70, M2x10",
+                "price": "4,55 € s DPH (pôvodne 5,69 €)",
+                "pack": "25 ks",
+                "stock_text": "Na sklade – „Na sklade zostáva už len 25 ks tohto produktu.“",
+                "verified": true
+              }
+            ],
+            "note": "ISO 7380 M2 sa v povolených obchodoch predáva len v dĺžke 3 mm (LaskaKit). Varianty 3DJake ISO 14580 M2: x4, x6, x10, x12, x16, x20. M2x8 v ponuke nie je.",
+            "alternative": "nenájdené v povolených obchodoch. Najbližšie: sada LaskaKit IMBUS M2 660 ks (po 40 ks M2x6, M2x8, M2x10; typ hlavy text neuvádza) alebo 3DJake ISO 14580 M2x6/M2x10 (nízka valcová hlava, imbus)."
+          },
+          {
+            "part": "DIN 7984 imbus nízka hlava M4 (ľubovoľná dĺžka)",
+            "status": "nenajdene",
+            "offers": [
+              {
+                "shop": "LaskaKit (laskakit.cz)",
+                "url": "https://www.laskakit.cz/sroub-valcova-hlava-m4x16-din-6912-8-8/",
+                "title": "Šroub válcová hlava M4x16 DIN 6912 8.8",
+                "price": "2,60 Kč s DPH (2,20 Kč bez DPH) / ks",
+                "pack": "1 ks",
+                "stock_text": "Skladem (2910 ks)",
+                "verified": true
+              },
+              {
+                "shop": "3DJake (3djake.sk)",
+                "url": "https://www.3djake.sk/cnc-kitchen/skrutky-s-valcovou-nizkou-hlavou-m4-iso-14580-nehrdzavejuca?sai=30373",
+                "title": "Skrutky s valcovou nízkou hlavou M4 (ISO 14580), nehrdzavejúca oceľ A2-70, M4x16",
+                "price": "6,87 € s DPH (pôvodne 8,59 €)",
+                "pack": "25 ks",
+                "stock_text": "Na sklade – „Na sklade zostáva už len 11 ks tohto produktu. Ďalšie sú na ceste.“",
+                "verified": true
+              },
+              {
+                "shop": "3DJake (3djake.sk)",
+                "url": "https://www.3djake.sk/cnc-kitchen/skrutky-s-valcovou-nizkou-hlavou-m4-iso-14580-nehrdzavejuca",
+                "title": "Skrutky s valcovou nízkou hlavou M4 (ISO 14580), nehrdzavejúca oceľ A2-70, M4x10",
+                "price": "6,47 € s DPH (pôvodne 8,09 €)",
+                "pack": "25 ks",
+                "stock_text": "Na sklade – „Na sklade zostáva už len 27 ks tohto produktu.“",
+                "verified": true
+              }
+            ],
+            "note": "Ako „DIN 7984“ to nepredáva žiadny dostupný obchod. 3DJake popisuje ISO 14580 ako „s vnútorným šesťhranom“, dĺžky M4x5 až M4x50 (M4x20 = 5,59 €).",
+            "alternative": "Funkčná náhrada je skladom: DIN 6912 M4x16 (LaskaKit). Podľa normy má rovnakú nízku hlavu ako DIN 7984 (Ø7 × 2,8 mm) a navyše vodiaci otvor. Druhá možnosť: ISO 14580 M4 (3DJake/CNC Kitchen, nerez A2-70)."
+          },
+          {
+            "part": "DIN 912 imbus M2x5 / M2x6 / M2x8",
+            "status": "nenajdene",
+            "offers": [
+              {
+                "shop": "BAUHAUS (bauhaus.sk)",
+                "url": "https://www.bauhaus.sk/stabilit-inbusova-skrutka-din-912-21307465",
+                "title": "Stabilit Inbusová skrutka DIN 912 – valcová hlava; M2 × 10 mm; oceľ; 10 ks",
+                "price": "3,50 € s DPH",
+                "pack": "10 ks",
+                "stock_text": "Dostupné online",
+                "verified": true
+              },
+              {
+                "shop": "LaskaKit (laskakit.cz)",
+                "url": "https://www.laskakit.cz/laskakit-sada-imbus-sroubu--matic-a-podlozek-m2-660ks/",
+                "title": "LaskaKit sada IMBUS šroubů, matic a podložek M2 660ks",
+                "price": "209,80 Kč s DPH (173,40 Kč bez DPH)",
+                "pack": "sada 660 ks (vrátane 40× M2x6, 40× M2x8)",
+                "stock_text": "Skladem (32 ks)",
+                "verified": true
+              },
+              {
+                "shop": "BAUHAUS (bauhaus.sk)",
+                "url": "https://www.bauhaus.sk/stabilit-metricka-skrutka-din-84-21307395",
+                "title": "Stabilit Metrická skrutka DIN 84 – valcová hlava; M2 × 5 mm; oceľ; 10 ks",
+                "price": "3,50 € s DPH",
+                "pack": "10 ks",
+                "stock_text": "Dostupné online",
+                "verified": true
+              }
+            ],
+            "note": "Stabilit DIN 912 v Bauhause: len M2x10 (online 12 bal.) a M3x16. DIN 84 M2x5 má drážku, nie imbus (online 8 bal.). LaskaKit má DIN 912 len M2,5x8 (3,50 Kč/ks, Skladem 153 ks). Sada LaskaKit neuvádza typ hlavy.",
+            "alternative": "nenájdené jednotlivo. Najbližšie: sada LaskaKit IMBUS M2 660 ks (M2x6 a M2x8 po 40 ks), Bauhaus Stabilit DIN 912 M2x10 alebo 3DJake ISO 14580 M2x6 (nízka hlava, 25 ks, 4,79 €)."
+          },
+          {
+            "part": "DIN 965 / ISO 7046 zápustná krížová M2x8 / M2x10 / M2x12",
+            "status": "nenajdene",
+            "offers": [
+              {
+                "shop": "BAUHAUS (bauhaus.sk)",
+                "url": "https://www.bauhaus.sk/stabilit-metricka-skrutka-din-963-21307447",
+                "title": "Stabilit Metrická skrutka DIN 963 – Zápustná hlava; M2 × 10 mm; oceľ; 20 ks",
+                "price": "3,70 € s DPH",
+                "pack": "20 ks",
+                "stock_text": "Dostupné online",
+                "verified": true
+              },
+              {
+                "shop": "HADEX (hadex.cz)",
+                "url": "https://www.hadex.cz/p/o600a-sroubky-m2-m3-se-zapustnou-hlavou-sada-500ks",
+                "title": "Šroubky M2-M3 se zápustnou hlavou, sada 500ks (O600A)",
+                "price": "125,00 Kč s DPH (103,31 Kč bez DPH)",
+                "pack": "sada 500 ks: po 50× M2x3, M2x4, M2x5, M2x6, M2,5x3, M2,5x4, M2,5x5, M2,5x6, M2,5x8, M3x4",
+                "stock_text": "Na cestě – 0 bal – „Na cestě, dodání do 20. 12. 2026“",
+                "verified": true
+              },
+              {
+                "shop": "BAUHAUS (bauhaus.sk)",
+                "url": "https://www.bauhaus.sk/profi-depot-metricka-skrutka-din-965-10807856",
+                "title": "Profi Depot Metrická skrutka DIN 965 – zápustná hlava; M3 × 10 mm; oceľ; 100 ks",
+                "price": "2,25 € s DPH",
+                "pack": "100 ks",
+                "stock_text": "Dostupné online",
+                "verified": true
+              }
+            ],
+            "note": "DIN 965 v Bauhause začína od M3 (M3x10, M3x25, M3x30, potom M4…). Stabilit DIN 963 je zápustná s drážkou, nie krížová (online 13 bal.). Sada Hadex obsahuje len krátke dĺžky (max. M2x6) a je na ceste.",
+            "alternative": "nenájdené v M2 krížovej. Najbližšie: Bauhaus Stabilit DIN 963 M2x10 (rovnaký zápustný kužeľ, ale drážka) alebo zmena na M3 DIN 965 (Bauhaus M3x10, 100 ks)."
+          },
+          {
+            "part": "DIN 913 / ISO 4026 závitový kolík (červík) M2x6 a M3x12",
+            "status": "nenajdene",
+            "offers": [],
+            "note": "Hľadal som v Bauhause (sitemap), LaskaKite (DIN 913, DIN 916, ISO 4029, červík, stavěcí šroub, šroub bez hlavy), v Hadexe, na 3DJake (DIN 913, ISO 4026, ISO 4029, DIN 916, stavacia skrutka, červík, závitový kolík) a v Ložiskách Polička. Nič som nenašiel. Bauhaus má len „Stabilit Nastavovacia skrutka M10 × 80/100/120 mm“ a „Stabilit Závitový kolík M8/M10“, tie sú nepoužiteľné. TME, Botland, GME, Dratek a RLX sa nedali overiť (blokované).",
+            "alternative": "nenájdené v povolených obchodoch. Bežne dostupnú náhradu nemám. Treba buď zmeniť dizajn (napr. upínanie imbusovou skrutkou s hlavou: M3x12 je v sade LaskaKit M3 1290 ks, M2x6 v sade M2 660 ks), alebo použiť AliExpress/Amazon ako označenú zálohu."
+          },
+          {
+            "part": "DIN 125 podložka M10 (pozinkovaná oceľ 10,5×20×2)",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "BAUHAUS (bauhaus.sk)",
+                "url": "https://www.bauhaus.sk/profi-depot-plocha-podlozka-din-125-10826514",
+                "title": "Profi Depot Plochá podložka DIN 125 – vnútorný ⌀: 10,5 mm; hrúbka materiálu: 2 mm; oceľ; 100 ks",
+                "price": "7,70 € s DPH",
+                "pack": "100 ks",
+                "stock_text": "Dostupné online",
+                "verified": true
+              },
+              {
+                "shop": "BAUHAUS (bauhaus.sk)",
+                "url": "https://www.bauhaus.sk/profi-depot-plocha-podlozka-din-125-10272106",
+                "title": "Profi Depot Plochá podložka DIN 125 – vnútorný ⌀: 10,5 mm; hrúbka materiálu: 2 mm; nerezová oceľ; 100 ks",
+                "price": "5,35 € s DPH",
+                "pack": "100 ks",
+                "stock_text": "Dostupné online",
+                "verified": true
+              }
+            ],
+            "note": "Presná zhoda: podľa technických údajov stránky je vonkajší priemer 20 mm a povrchová úprava „pozinkované“. Online 13 bal. (nerezová verzia 9 bal.). Nerezová verzia je lacnejšia. 3DJake má DIN 125 len do M8. V LaskaKite a Hadexe som M10 nenašiel."
+          },
+          {
+            "part": "DIN 125 podložka M8",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "BAUHAUS (bauhaus.sk)",
+                "url": "https://www.bauhaus.sk/profi-depot-plocha-podlozka-din-125-10826497",
+                "title": "Profi Depot Plochá podložka DIN 125 – vnútorný ⌀: 8,4 mm; hrúbka materiálu: 1,6 mm; oceľ; 100 ks",
+                "price": "2,95 € s DPH",
+                "pack": "100 ks",
+                "stock_text": "Dostupné online",
+                "verified": true
+              },
+              {
+                "shop": "BAUHAUS (bauhaus.sk)",
+                "url": "https://www.bauhaus.sk/profi-depot-plocha-podlozka-din-125-10272089",
+                "title": "Profi Depot Plochá podložka DIN 125 – vnútorný ⌀: 8,4 mm; hrúbka materiálu: 1,6 mm; nerezová oceľ; 100 ks",
+                "price": "4,30 € s DPH",
+                "pack": "100 ks",
+                "stock_text": "Dostupné online",
+                "verified": true
+              },
+              {
+                "shop": "3DJake (3djake.sk)",
+                "url": "https://www.3djake.sk/cnc-kitchen/podlozka-standard-din-125-nehrdzavejuca-ocel-a2?sai=30472",
+                "title": "Podložka Standard (DIN 125), nehrdzavejúca oceľ A2, M8",
+                "price": "5,27 € s DPH (pôvodne 6,59 €)",
+                "pack": "50 ks",
+                "stock_text": "Ešte 5 ks na sklade",
+                "verified": true
+              }
+            ],
+            "note": "Pozinkovaná verzia v Bauhause: vonkajší Ø 16 mm, „pozinkované“, online 36 bal.; nerezová verzia online 16 bal."
+          },
+          {
+            "part": "DIN 9021 podložka M8 (veľká)",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "BAUHAUS (bauhaus.sk)",
+                "url": "https://www.bauhaus.sk/profi-depot-plocha-podlozka-din-9021-10826978",
+                "title": "Profi Depot Plochá podložka DIN 9021 – vnútorné ø: 8,4 mm; hrúbka materiálu: 2 mm; oceľ; 100 ks",
+                "price": "10,10 € s DPH",
+                "pack": "100 ks",
+                "stock_text": "Dostupné online",
+                "verified": true
+              },
+              {
+                "shop": "BAUHAUS (bauhaus.sk)",
+                "url": "https://www.bauhaus.sk/profi-depot-plocha-podlozka-din-9021-10272209",
+                "title": "Profi Depot Plochá podložka DIN 9021 – vnútorný ⌀: 8,4 mm; hrúbka materiálu: 2 mm; nerezová oceľ; 100 ks",
+                "price": "7,95 € s DPH",
+                "pack": "100 ks",
+                "stock_text": "Dostupné online",
+                "verified": true
+              },
+              {
+                "shop": "3DJake (3djake.sk)",
+                "url": "https://www.3djake.sk/cnc-kitchen/podlozka-velka-din-125-nehrdzavejuca-ocel-a2?sai=30493",
+                "title": "Podložka veľká (DIN 125), nehrdzavejúca oceľ A2, M8",
+                "price": "6,63 € s DPH (pôvodne 8,29 €)",
+                "pack": "50 ks",
+                "stock_text": "Na sklade – „Na sklade zostáva už len 24 ks tohto produktu.“",
+                "verified": true
+              }
+            ],
+            "note": "Pozinkovaná verzia v Bauhause: vonkajší Ø 24 mm, „pozinkované“, online 46 bal.; nerezová verzia online 9 bal. Produkt 3DJake má v názve „DIN 125“, ale v technickej tabuľke je „Norma DIN 9021“."
+          },
+          {
+            "part": "DIN 934 matica M3",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "LaskaKit (laskakit.cz)",
+                "url": "https://www.laskakit.cz/matice-presna-m3-din-934--6--ocel/",
+                "title": "Matice přesná M3 DIN 934 /6/ ocel",
+                "price": "1,60 Kč s DPH (1,30 Kč bez DPH) / ks",
+                "pack": "1 ks",
+                "stock_text": "Skladem (378 ks)",
+                "verified": true
+              },
+              {
+                "shop": "BAUHAUS (bauhaus.sk)",
+                "url": "https://www.bauhaus.sk/profi-depot-sesthranna-matica-din-934-10825618",
+                "title": "Profi Depot Šesťhranná matica DIN 934 – veľ. 5,5; M3; oceľ; pozinkovaná; 100 ks",
+                "price": "1,95 € s DPH",
+                "pack": "100 ks",
+                "stock_text": "Dostupné online",
+                "verified": true
+              },
+              {
+                "shop": "3DJake (3djake.sk)",
+                "url": "https://www.3djake.sk/cnc-kitchen/sesthranne-matice-din-934-nerezova-ocel-a2-50?sai=30421",
+                "title": "Šesťhranná matica (DIN 934), nerezová oceľ A2-50, M3",
+                "price": "3,43 € s DPH (pôvodne 4,29 €)",
+                "pack": "50 ks",
+                "stock_text": "Na sklade od: 15. decembra",
+                "verified": true
+              }
+            ],
+            "note": "V Bauhause online 16 bal. Na 3DJake je teraz len predobjednávka (schema PreOrder). Hadex má v M3 len mosadznú a plastovú matičku, oceľovú DIN 934 nie. LaskaKit má aj M2 DIN 934 ZB (1,30 Kč, Skladem 746 ks)."
+          },
+          {
+            "part": "Sortiment / sada skrutiek M2, M2,5, M3",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "LaskaKit (laskakit.cz)",
+                "url": "https://www.laskakit.cz/laskakit-sada-imbus-sroubu--matic-a-podlozek-m2-660ks/",
+                "title": "LaskaKit sada IMBUS šroubů, matic a podložek M2 660ks",
+                "price": "209,80 Kč s DPH (173,40 Kč bez DPH)",
+                "pack": "660 ks: 220× matica M2, 220× podložka M2, po 40× M2x4, M2x6, M2x8, M2x10, M2x12, M2x16 (oceľ)",
+                "stock_text": "Skladem (32 ks)",
+                "verified": true
+              },
+              {
+                "shop": "LaskaKit (laskakit.cz)",
+                "url": "https://www.laskakit.cz/laskakit-sada-imbus-sroubu--matic-a-podlozek-m3-1290ks/",
+                "title": "LaskaKit sada IMBUS šroubů, matic a podložek M3 1290ks",
+                "price": "430,60 Kč s DPH (355,90 Kč bez DPH)",
+                "pack": "1290 ks: 430× matica M3, 430× podložka M3, po 40× M3x4/5/6/8, po 30× M3x10/12/14/16/18/20, po 25× M3x25/30, po 20× M3x35/40 (oceľ)",
+                "stock_text": "Skladem (11 ks)",
+                "verified": true
+              },
+              {
+                "shop": "HADEX (hadex.cz)",
+                "url": "https://www.hadex.cz/p/o600a-sroubky-m2-m3-se-zapustnou-hlavou-sada-500ks",
+                "title": "Šroubky M2-M3 se zápustnou hlavou, sada 500ks (O600A)",
+                "price": "125,00 Kč s DPH (103,31 Kč bez DPH)",
+                "pack": "500 ks (zápustné): po 50× M2x3, M2x4, M2x5, M2x6, M2,5x3, M2,5x4, M2,5x5, M2,5x6, M2,5x8, M3x4",
+                "stock_text": "Na cestě – „Na cestě, dodání do 20. 12. 2026“",
+                "verified": true
+              }
+            ],
+            "note": "Sady LaskaKit neuvádzajú typ hlavy (len „IMBUS“). Pre M2,5 je ďalej LaskaKit „sada šroubů, matic a distanční sloupky M2.5 120ks mosaz“: 20× M2.5x6, 20× matica, 80 stĺpikov, 209,80 Kč, Skladem (47 ks). Hadex O472A (plastové stĺpiky + skrutky a matice M2,5/M3) stojí 175 Kč, Skladem 162 bal; počty skrutiek stránka neuvádza."
+          }
+        ],
+        "blocked_hosts": [
+          "www.hornbach.sk – vracia JS stránku „Client Challenge“ (bez JavaScriptu nečitateľné; WebFetch: host sa neprekladá)",
+          "www.obi.sk – CloudFront HTTP 404 s prázdnym telom na každej ceste",
+          "www.tme.eu – Cloudflare 403 „Just a moment...“",
+          "botland.store – Cloudflare 403 „Just a moment...“",
+          "www.laskarduino.sk – proxy CONNECT 502 (nedostupné)",
+          "www.dratek.cz – 301 presmerovanie na dratek.cz (mimo povoleného zoznamu, nesledované)",
+          "www.rlx.sk – 302 presmerovanie na rlx.sk (mimo povoleného zoznamu, nesledované)",
+          "www.tymoty.com – 301 presmerovanie na www.tymoty.cz (mimo povoleného zoznamu, nesledované)",
+          "www.gme.sk – dostupné, ale stránky produktov sú JS SPA bez ceny a skladu v HTML (sitemap má M3 matice a M2 krížové skrutky Würth/Bossard, neoverené)"
+        ],
+        "summary": "Nájdené a overené na samotných stránkach produktov (verified=true), dostupné obchody: Bauhaus SK, LaskaKit, 3DJake SK, Hadex. Ložiská Polička je dostupný, ale tieto spojovacie prvky nepredáva. Hornbach, OBI, TME, Botland, Laskarduino, Dratek, RLX, Tymoty a GME sa nedali overiť (pozri blocked_hosts).\n\nSKLADOM:\n- DIN 125 M10 pozinkovaná 10,5×20×2: Bauhaus, 100 ks, 7,70 €.\n- DIN 125 M8 a DIN 9021 M8: Bauhaus a 3DJake.\n- DIN 934 M3: LaskaKit 1,60 Kč/ks, Bauhaus 100 ks za 1,95 €.\n- ISO 7380 M4x12/16/20: Bauhaus Marinetech, nerez A4, ISO 7380-1, 0,20–0,30 €/ks.\n- Sady LaskaKit IMBUS M2 660 ks (209,80 Kč) a M3 1290 ks (430,60 Kč) s rozpisom obsahu. Sada Hadex so zápustnými M2–M3, 500 ks, je „Na cestě“ do 20. 12. 2026.\n\nNENÁJDENÉ v povolených obchodoch:\n- DIN 912 M4 (Bauhaus DIN 912 až od M5).\n- DIN 7984 M4 (ako DIN 7984).\n- DIN 912 M2x5/6/8 jednotlivo (Bauhaus má len Stabilit M2x10).\n- ISO 7380 M4x8/M4x10 a M2x6/8/10 (LaskaKit má ISO 7380 len M2x3).\n- DIN 965 M2 krížová (Bauhaus DIN 965 až od M3x10).\n- DIN 913 M2x6 a M3x12: žiadne závitové kolíky nikde. Treba zmeniť dizajn alebo použiť AliExpress/Amazon ako označenú zálohu.\n\nNajbližšie dostupné náhrady:\n- Nízka hlava M4: LaskaKit DIN 6912 M4x16 (2,60 Kč, Skladem 2910 ks) alebo 3DJake CNC Kitchen ISO 14580 M4x16/20/25 A2-70 (25 ks, 5,59–9,35 €).\n- Krátke M2: sada LaskaKit M2 alebo 3DJake ISO 14580 M2x6/M2x10.\n- Zápustná M2: Bauhaus Stabilit DIN 963 M2x10 (drážka, 20 ks, 3,70 €).\n\nCeny sú s DPH, ako ich obchody zobrazujú. Na 3DJake sú to aktuálne zľavnené ceny (Black Friday), pôvodné uvádzam v zátvorke.\n\nBauhaus zobrazuje stav „Dostupné online“. Text „Nie je k dispozícií“ na tej istej stránke sa týka rezervácie v predajni bez zvolenej predajne. Online množstvo beriem zo stock JSON v stránke.\n\nDôkazy sú v /tmp/claude-0/gapwf/fin/R3/dostupnost/skrutky/:\n- bauhaus/*.txt: viditeľný text, stock JSON, HTML úryvok,\n- laskakit/*.html a *.txt,\n- 3djake/p_*.html a p_*.txt: ceny variantov, text skladu,\n- hadex/*.html a *.txt,\n- raw/bh_sitemap/all_urls.txt a raw/bh_heads.tgz: zoznam produktov Bauhausu,\n- raw/bh_cand*_names.txt: zoznam veľkostí,\n- raw/blocked_hosts_http.txt: HTTP odpovede blokovaných obchodov,\n- gme/gme_products.txt,\n- loziska/.\n\nPomocné skripty sú mimo priečinka s dôkazmi, v scratchpade /tmp/claude-0/-home-user-Robot/e2af8646-c6f1-5ece-963d-7005cfdf5589/scratchpad/sk/."
+      },
+      "verify": {
+        "category": "Skrutky a podložky",
+        "checked": [
+          {
+            "part": "DIN 912 M4 (náhrada) / DIN 7984 M4 – LaskaKit DIN 6912 M4x16",
+            "url": "https://www.laskakit.cz/sroub-valcova-hlava-m4x16-din-6912-8-8/",
+            "confirmed": true,
+            "note": "Stránka existuje. Titul presne „Šroub válcová hlava M4x16 DIN 6912 8.8“, Bossard, kód LA220022, 1 ks. Cena je akciová (Black Friday −13 %), bežná cena 3 Kč.",
+            "seen_price": "2,60 Kč s DPH (2,20 Kč bez DPH) / ks; preškrtnuté 3 Kč (−13 %)",
+            "seen_stock_text": "Skladem (2910 ks)"
+          },
+          {
+            "part": "DIN 912 M4x20 (náhrada) – 3DJake ISO 14580 M4x20",
+            "url": "https://www.3djake.sk/cnc-kitchen/skrutky-s-valcovou-nizkou-hlavou-m4-iso-14580-nehrdzavejuca?sai=30376",
+            "confirmed": true,
+            "note": "Titul, veľkosť M4x20, balenie 25 ks, cena aj sklad sedia. CHYBA v pôvodnom popise: technická tabuľka uvádza „Vnútorný pohon: TX20“ (Torx, ISO 14580 = hexalobular), teda nie imbus. Hlava podľa obchodu Ø7 × 3,1 mm.",
+            "seen_price": "5,59 € s DPH (pôvodne 6,99 €, −20 %; 0,22 €/ks)",
+            "seen_stock_text": "Na sklade – „Na sklade zostáva už len 28 ks tohto produktu. Ďalšie sú na ceste.“"
+          },
+          {
+            "part": "DIN 912 M4x25 (náhrada) – 3DJake ISO 14580 M4x25",
+            "url": "https://www.3djake.sk/cnc-kitchen/skrutky-s-valcovou-nizkou-hlavou-m4-iso-14580-nehrdzavejuca?sai=30379",
+            "confirmed": true,
+            "note": "M4x25, 25 ks, cena a sklad sedia. Pohon TX20 (Torx), nie imbus.",
+            "seen_price": "9,35 € s DPH (pôvodne 11,69 €; 0,37 €/ks)",
+            "seen_stock_text": "Ešte 9 ks na sklade"
+          },
+          {
+            "part": "DIN 7984 M4 (náhrada) – 3DJake ISO 14580 M4x16",
+            "url": "https://www.3djake.sk/cnc-kitchen/skrutky-s-valcovou-nizkou-hlavou-m4-iso-14580-nehrdzavejuca?sai=30373",
+            "confirmed": true,
+            "note": "M4x16, 25 ks, sedí. Pohon TX20 (Torx).",
+            "seen_price": "6,87 € s DPH (pôvodne 8,59 €; 0,27 €/ks)",
+            "seen_stock_text": "Na sklade – „Na sklade zostáva už len 11 ks tohto produktu. Ďalšie sú na ceste.“"
+          },
+          {
+            "part": "DIN 7984 M4 (náhrada) – 3DJake ISO 14580 M4x10 (URL bez sai)",
+            "url": "https://www.3djake.sk/cnc-kitchen/skrutky-s-valcovou-nizkou-hlavou-m4-iso-14580-nehrdzavejuca",
+            "confirmed": true,
+            "note": "URL bez parametra sa otvorí na predvolenom variante M4x10 (sai=30370), 25 ks. Pohon TX20 (Torx). Dostupné varianty: M4x5/6/10/16/20/25/35/40/50.",
+            "seen_price": "6,47 € s DPH (pôvodne 8,09 €; 0,26 €/ks)",
+            "seen_stock_text": "Na sklade – „Na sklade zostáva už len 27 ks tohto produktu.“"
+          },
+          {
+            "part": "ISO 7380 M4x12",
+            "url": "https://www.bauhaus.sk/marinetech-inbusova-skrutka-23678398",
+            "confirmed": true,
+            "note": "„Marinetech Inbusová skrutka – šošovková hlava; M4 × 12 mm; nerezová oceľ; 1 ks“, Norma ISO 7380-1, nerez A4. Online qty 322.",
+            "seen_price": "0,20 € s DPH / ks",
+            "seen_stock_text": "Dostupné online"
+          },
+          {
+            "part": "ISO 7380 M4x16",
+            "url": "https://www.bauhaus.sk/marinetech-inbusova-skrutka-23678404",
+            "confirmed": true,
+            "note": "M4 × 16 mm, ISO 7380-1, A4, 1 ks. Online qty 181.",
+            "seen_price": "0,30 € s DPH / ks",
+            "seen_stock_text": "Dostupné online"
+          },
+          {
+            "part": "ISO 7380 M4x20",
+            "url": "https://www.bauhaus.sk/marinetech-inbusova-skrutka-23678413",
+            "confirmed": true,
+            "note": "M4 × 20 mm, ISO 7380-1, A4, 1 ks. Online qty 31. Overil som všetkých 58 Marinetech skrutiek zo sitemapy: ISO 7380 M4 existuje len v dĺžkach 12/16/20/25 mm (M4x25 art. 23678422, 0,30 €, qty 97).",
+            "seen_price": "0,30 € s DPH / ks",
+            "seen_stock_text": "Dostupné online"
+          },
+          {
+            "part": "ISO 7380 M2 (náhrada) – LaskaKit M2x3",
+            "url": "https://www.laskakit.cz/sroub-imbus-pulkulata-hlava-m2x3-iso-7380-10-9-cerneno/",
+            "confirmed": true,
+            "note": "Titul sedí: M2x3, ISO 7380, 10.9, černěno, Bossard. Cena je Black Friday (−13 %), bežne 16 Kč.",
+            "seen_price": "13,90 Kč s DPH (11,50 Kč bez DPH) / ks; preškrtnuté 16 Kč",
+            "seen_stock_text": "Skladem (142 ks)"
+          },
+          {
+            "part": "ISO 7380 M2x6 / DIN 912 M2x6 (náhrada) – 3DJake ISO 14580 M2x6",
+            "url": "https://www.3djake.sk/cnc-kitchen/skrutka-s-valcovou-hlavou-m2-nizka-hlava-iso-14580-nehrdzavejuca?sai=30289",
+            "confirmed": true,
+            "note": "M2x6, 25 ks, sedí. Pohon TX6 (Torx), nie imbus. Hlava Ø3,8 × 1,55 mm. Varianty: M2x4/6/10/12/16/20 (M2x8 nie je).",
+            "seen_price": "4,79 € s DPH (pôvodne 5,99 €; 0,19 €/ks)",
+            "seen_stock_text": "Na sklade – „Na sklade zostáva už len 32 ks tohto produktu.“"
+          },
+          {
+            "part": "ISO 7380 M2x10 (náhrada) – 3DJake ISO 14580 M2x10",
+            "url": "https://www.3djake.sk/cnc-kitchen/skrutka-s-valcovou-hlavou-m2-nizka-hlava-iso-14580-nehrdzavejuca?sai=30292",
+            "confirmed": true,
+            "note": "M2x10, 25 ks, sedí. Pohon TX6 (Torx).",
+            "seen_price": "4,55 € s DPH (pôvodne 5,69 €; 0,18 €/ks)",
+            "seen_stock_text": "Na sklade – „Na sklade zostáva už len 25 ks tohto produktu.“"
+          },
+          {
+            "part": "DIN 912 M2 – Bauhaus Stabilit DIN 912 M2x10",
+            "url": "https://www.bauhaus.sk/stabilit-inbusova-skrutka-din-912-21307465",
+            "confirmed": true,
+            "note": "„Stabilit Inbusová skrutka DIN 912 – valcová hlava; M2 × 10 mm; oceľ; 10 ks“, pozinkovaná. Online qty 12. Stabilit DIN 912 existuje okrem toho len M3x16 (3,70 €, qty 2).",
+            "seen_price": "3,50 € s DPH / 10 ks",
+            "seen_stock_text": "Dostupné online"
+          },
+          {
+            "part": "Sada M2 – LaskaKit IMBUS M2 660 ks",
+            "url": "https://www.laskakit.cz/laskakit-sada-imbus-sroubu--matic-a-podlozek-m2-660ks/",
+            "confirmed": true,
+            "note": "Titul, cena a sklad sedia. Obsah: 220 matíc, 220 podložiek, po 40 ks M2x4/6/8/10/12/16. Súčet tabuľky na stránke je 680, nie 660. Typ hlavy stránka neuvádza. Cena je Black Friday, bežne 228 Kč.",
+            "seen_price": "209,80 Kč s DPH (173,40 Kč bez DPH); preškrtnuté 228 Kč",
+            "seen_stock_text": "Skladem (32 ks)"
+          },
+          {
+            "part": "DIN 912 M2x5 (náhrada) – Bauhaus Stabilit DIN 84 M2x5",
+            "url": "https://www.bauhaus.sk/stabilit-metricka-skrutka-din-84-21307395",
+            "confirmed": true,
+            "note": "„Stabilit Metrická skrutka DIN 84 – valcová hlava; M2 × 5 mm; oceľ; 10 ks“, drážka (nie imbus), qty 8. Existuje aj DIN 84 M2x10 (art. 21307401, 3,50 €, qty 10).",
+            "seen_price": "3,50 € s DPH / 10 ks",
+            "seen_stock_text": "Dostupné online"
+          },
+          {
+            "part": "DIN 965 M2 (náhrada) – Bauhaus Stabilit DIN 963 M2x10",
+            "url": "https://www.bauhaus.sk/stabilit-metricka-skrutka-din-963-21307447",
+            "confirmed": true,
+            "note": "„Stabilit Metrická skrutka DIN 963 – Zápustná hlava; M2 × 10 mm; oceľ; 20 ks“, drážka, qty 13. Stránka si odporuje: v odrážke je „Závit M2,5“, v tabuľke aj v titule M2.",
+            "seen_price": "3,70 € s DPH / 20 ks",
+            "seen_stock_text": "Dostupné online"
+          },
+          {
+            "part": "DIN 965 M2 / sada zápustných M2–M3 – Hadex O600A",
+            "url": "https://www.hadex.cz/p/o600a-sroubky-m2-m3-se-zapustnou-hlavou-sada-500ks",
+            "confirmed": true,
+            "note": "Obsah: po 50× M2x3, M2x4, M2x5, M2x6, M2,5x3/4/5/6/8, M3x4. Typ drážky stránka neuvádza.",
+            "seen_price": "125,00 Kč s DPH (103,31 Kč bez DPH)",
+            "seen_stock_text": "Na cestě – 0 bal – „Na cestě, dodání do 20. 12. 2026“"
+          },
+          {
+            "part": "DIN 965 (M3 namiesto M2) – Bauhaus Profi Depot M3x10",
+            "url": "https://www.bauhaus.sk/profi-depot-metricka-skrutka-din-965-10807856",
+            "confirmed": true,
+            "note": "„zápustná hlava; M3 × 10 mm; oceľ; 100 ks“, PH (Philips), pozinkovaná, qty 12. DIN 965 v Bauhause naozaj začína od M3 (M3x10, M3x25, M3x30, nerez M3x10 za 19,60 €).",
+            "seen_price": "2,25 € s DPH / 100 ks",
+            "seen_stock_text": "Dostupné online"
+          },
+          {
+            "part": "DIN 125 M10 (pozinkovaná)",
+            "url": "https://www.bauhaus.sk/profi-depot-plocha-podlozka-din-125-10826514",
+            "confirmed": true,
+            "note": "ID 10,5, OD 20, hrúbka 2 mm, oceľ, pozinkované, 100 ks, qty 13. Presná zhoda.",
+            "seen_price": "7,70 € s DPH / 100 ks",
+            "seen_stock_text": "Dostupné online"
+          },
+          {
+            "part": "DIN 125 M10 (nerez)",
+            "url": "https://www.bauhaus.sk/profi-depot-plocha-podlozka-din-125-10272106",
+            "confirmed": true,
+            "note": "ID 10,5, OD 20, hrúbka 2, nerezová oceľ, 100 ks, qty 9.",
+            "seen_price": "5,35 € s DPH / 100 ks",
+            "seen_stock_text": "Dostupné online"
+          },
+          {
+            "part": "DIN 125 M8 (pozinkovaná)",
+            "url": "https://www.bauhaus.sk/profi-depot-plocha-podlozka-din-125-10826497",
+            "confirmed": true,
+            "note": "ID 8,4, OD 16, hrúbka 1,6, pozinkované, 100 ks, qty 36.",
+            "seen_price": "2,95 € s DPH / 100 ks",
+            "seen_stock_text": "Dostupné online"
+          },
+          {
+            "part": "DIN 125 M8 (nerez)",
+            "url": "https://www.bauhaus.sk/profi-depot-plocha-podlozka-din-125-10272089",
+            "confirmed": true,
+            "note": "ID 8,4, OD 16, hrúbka 1,6, nerez, 100 ks, qty 16.",
+            "seen_price": "4,30 € s DPH / 100 ks",
+            "seen_stock_text": "Dostupné online"
+          },
+          {
+            "part": "DIN 125 M8 – 3DJake",
+            "url": "https://www.3djake.sk/cnc-kitchen/podlozka-standard-din-125-nehrdzavejuca-ocel-a2?sai=30472",
+            "confirmed": true,
+            "note": "M8, 50 ks, A2, d1 8,4 / d2 16 / h 1,6. Varianty len M2–M8.",
+            "seen_price": "5,27 € s DPH (pôvodne 6,59 €; 0,11 €/ks)",
+            "seen_stock_text": "Ešte 5 ks na sklade"
+          },
+          {
+            "part": "DIN 9021 M8 (pozinkovaná)",
+            "url": "https://www.bauhaus.sk/profi-depot-plocha-podlozka-din-9021-10826978",
+            "confirmed": true,
+            "note": "ID 8,4, OD 24, hrúbka 2, pozinkované, 100 ks, qty 46.",
+            "seen_price": "10,10 € s DPH / 100 ks",
+            "seen_stock_text": "Dostupné online"
+          },
+          {
+            "part": "DIN 9021 M8 (nerez)",
+            "url": "https://www.bauhaus.sk/profi-depot-plocha-podlozka-din-9021-10272209",
+            "confirmed": true,
+            "note": "ID 8,4, hrúbka 2, nerez, 100 ks, qty 9. Pozor: vonkajší priemer je podľa stránky 25 mm, nie 24 ako pri pozinkovanej.",
+            "seen_price": "7,95 € s DPH / 100 ks",
+            "seen_stock_text": "Dostupné online"
+          },
+          {
+            "part": "DIN 9021 M8 – 3DJake „Podložka veľká (DIN 125)“",
+            "url": "https://www.3djake.sk/cnc-kitchen/podlozka-velka-din-125-nehrdzavejuca-ocel-a2?sai=30493",
+            "confirmed": true,
+            "note": "M8, 50 ks. V názve je DIN 125, ale v tabuľke Norma DIN 9021: d1 8,4 / d2 24 / h 2.",
+            "seen_price": "6,63 € s DPH (pôvodne 8,29 €, −20 %)",
+            "seen_stock_text": "Na sklade – „Na sklade zostáva už len 24 ks tohto produktu.“"
+          },
+          {
+            "part": "DIN 934 M3 – LaskaKit",
+            "url": "https://www.laskakit.cz/matice-presna-m3-din-934--6--ocel/",
+            "confirmed": true,
+            "note": "„Matice přesná M3 DIN 934 /6/ ocel“, Bossard. Cena je Black Friday (−11 %), bežne 1,80 Kč.",
+            "seen_price": "1,60 Kč s DPH (1,30 Kč bez DPH) / ks; preškrtnuté 1,80 Kč",
+            "seen_stock_text": "Skladem (378 ks)"
+          },
+          {
+            "part": "DIN 934 M3 – Bauhaus",
+            "url": "https://www.bauhaus.sk/profi-depot-sesthranna-matica-din-934-10825618",
+            "confirmed": true,
+            "note": "„veľ. 5,5; M3; oceľ; pozinkovaná; 100 ks“, Norma DIN 934, qty 16.",
+            "seen_price": "1,95 € s DPH / 100 ks",
+            "seen_stock_text": "Dostupné online"
+          },
+          {
+            "part": "DIN 934 M3 – 3DJake",
+            "url": "https://www.3djake.sk/cnc-kitchen/sesthranne-matice-din-934-nerezova-ocel-a2-50?sai=30421",
+            "confirmed": true,
+            "note": "M3, 50 ks, A2-50. Schema PreOrder, „…zostáva už len 0 ks…“, doručenie do štvrtka 17. decembra. Teraz nie je skladom.",
+            "seen_price": "3,43 € s DPH (pôvodne 4,29 €; 0,07 €/ks)",
+            "seen_stock_text": "Na sklade od: 15. decembra"
+          },
+          {
+            "part": "Sada M3 – LaskaKit IMBUS M3 1290 ks",
+            "url": "https://www.laskakit.cz/laskakit-sada-imbus-sroubu--matic-a-podlozek-m3-1290ks/",
+            "confirmed": true,
+            "note": "Obsah sedí a súčet je 1290 (430+430 + 4×40 + 6×30 + 2×25 + 2×20, vrátane M3x12). Cena je Black Friday, bežne 468 Kč.",
+            "seen_price": "430,60 Kč s DPH (355,90 Kč bez DPH); preškrtnuté 468 Kč",
+            "seen_stock_text": "Skladem (11 ks)"
+          },
+          {
+            "part": "NOVÉ – DIN 913 M2x6/M3x12, najbližšia bežná náhrada (iný rozmer): OBI závitový kolík M4x10",
+            "url": "https://www.obi.sk/zavitove-koliky/nastavovacia-skrutka-sw3-cierno-pozinkovana-m4-x-10-mm-8-ks/p/1884543",
+            "confirmed": true,
+            "note": "OBI je teraz dostupné. „Nastavovacia skrutka SW3 čierno pozinkovaná M4 x 10 mm, 8 ks“, LUX-TOOLS, Norma DIN 914 (kužeľový hrot), vnútorný šesťhran. V kategórii Závitové kolíky (c/2511) sú len M4x10, M5x10 a M6x10. M2 a M3 tam nie sú. Počet kusov na sklade stránka neuvádza.",
+            "seen_price": "2,39 EUR s DPH / 8 ks",
+            "seen_stock_text": "Dodávka domov (Balík, 2-3 pracovných dní dodacia lehota)"
+          },
+          {
+            "part": "NOVÉ – DIN 125 M10: OBI podložka 10,5 mm",
+            "url": "https://www.obi.sk/podlozky/lux-tools-podlozka-pozinkovana-pr-10-5-mm-100-ks/p/3860467",
+            "confirmed": true,
+            "note": "„LUX-TOOLS Podložka pozinkovaná pr. 10,5 mm, 100 ks“, vonkajší priemer 20, oceľ, pozinkované. Hrúbku ani normu stránka neuvádza. Je lacnejšia než Bauhaus.",
+            "seen_price": "3,89 EUR s DPH / 100 ks",
+            "seen_stock_text": "Dodávka domov (Balík, 2-3 pracovných dní dodacia lehota)"
+          },
+          {
+            "part": "NOVÉ – DIN 934 M3: OBI matica M3",
+            "url": "https://www.obi.sk/sesthranne-matice/lux-tools-sesthranna-matica-pozinkovana-m3-pr-5-5-mm-100-ks/p/3945318",
+            "confirmed": true,
+            "note": "„LUX-TOOLS Šesťhranná matica pozinkovaná M3, pr. 5,5 mm, 100 ks“. DIN stránka neuvádza.",
+            "seen_price": "1,69 EUR s DPH / 100 ks",
+            "seen_stock_text": "Dodávka domov (Balík, 2-3 pracovných dní dodacia lehota)"
+          },
+          {
+            "part": "NOVÉ – DIN 9021 M8: OBI karosárska podložka 8,4×24",
+            "url": "https://www.obi.sk/velkoplosne-podlozky/lux-tools-karosarska-podlozka-pozinkovana-pr-8-4-x-24-mm-100-ks/p/3860327",
+            "confirmed": true,
+            "note": "„LUX-TOOLS Karosárska podložka pozinkovaná pr. 8,4 x 24 mm, 100 ks“, vonkajší priemer 24. Normu ani hrúbku stránka neuvádza.",
+            "seen_price": "5,59 EUR s DPH / 100 ks",
+            "seen_stock_text": "Dodávka domov (Balík, 2-3 pracovných dní dodacia lehota)"
+          },
+          {
+            "part": "NOVÉ – DIN 912 M2x6, náhrada s krížovou drážkou: LaskaKit BN 381 M2x6",
+            "url": "https://www.laskakit.cz/sroub-s-valcovou-hlavou-a-krizovou-drazkou-m2x6-bn-381-zb-ocel/",
+            "confirmed": true,
+            "note": "„Šroub s válcovou hlavou a křížovou drážkou M2x6 BN 381 ZB ocel“, Bossard, 1 ks. Nie je to imbus. Cena je Black Friday (−15 %), bežne 2 Kč. Existuje aj M2x4.",
+            "seen_price": "1,70 Kč s DPH (1,40 Kč bez DPH) / ks",
+            "seen_stock_text": "Skladem (131 ks)"
+          },
+          {
+            "part": "NOVÉ – DIN 965 M2 (náhrada s drážkou): Bauhaus Stabilit DIN 963 M2x5",
+            "url": "https://www.bauhaus.sk/stabilit-metricka-skrutka-din-359-21307359",
+            "confirmed": true,
+            "note": "Titul stránky je „Stabilit Metrická skrutka DIN 359“, no tabuľka uvádza Norma DIN 963, zápustná, M2 × 5 mm, 20 ks. Drážka, nie krížová. Online qty 5.",
+            "seen_price": "3,50 € s DPH / 20 ks",
+            "seen_stock_text": "Dostupné online"
+          }
+        ],
+        "corrections": [
+          "3DJake / CNC Kitchen ISO 14580 (M4x10/16/20/25 aj M2x6/M2x10) NIE sú imbus. Technická tabuľka každého variantu uvádza „Vnútorný pohon: TX20“ (M4) a „TX6“ (M2), na M4 je aj odznak „TX20“, a norma ISO 14580 je Torx (hexalobular). Text „s vnútorným šesťhranom“ a pole „Typ pohonu: šesťhran“ sú chybné údaje obchodu. Treba bity T20 a T6, nie imbusový kľúč. Výšku hlavy obchod uvádza M4 Ø7 × 3,1 mm (nie ‚cca 2,6–2,8 mm‘) a M2 Ø3,8 × 1,55 mm. Opraviť všade, kde je napísané ‚imbus podľa popisu‘ alebo ‚nízka valcová hlava, imbus‘ (DIN 912 M4, ISO 7380 M2, DIN 7984 M4, DIN 912 M2).",
+          "OBI (www.obi.sk) je teraz dostupné: koreň, vyhľadávanie /search/<výraz>/ aj produktové stránky vracajú HTTP 200 s cenou. Tvrdenie ‚CloudFront HTTP 404 s prázdnym telom na každej ceste‘ už neplatí. OBI treba vyradiť z blocked_hosts.",
+          "DIN 913 závitový kolík: tvrdenie ‚žiadne závitové kolíky nikde‘ nie je presné. OBI predáva LUX-TOOLS „Nastavovacia skrutka SW3/SW4/SW5 čierno pozinkovaná M4 x 10 / M5 x 10 / M6 x 10 mm, 8 ks“ (M4x10: 2,39 €, DIN 914 kužeľový hrot, imbus, „Dodávka domov (Balík, 2-3 pracovných dní dodacia lehota)“). Požadované M2x6 a M3x12 však neexistujú v žiadnom dostupnom obchode, takže stav ‚nenajdene‘ ostáva. Najbližšia bežná náhrada je M4x10 s úpravou dizajnu.",
+          "Nové lacnejšie ponuky v OBI: DIN 125 M10 = „LUX-TOOLS Podložka pozinkovaná pr. 10,5 mm, 100 ks“ za 3,89 € (OD 20, hrúbka neuvedená; Bauhaus 7,70 €). M3 matica = „LUX-TOOLS Šesťhranná matica pozinkovaná M3, pr. 5,5 mm, 100 ks“ za 1,69 €. M8 veľká podložka = „LUX-TOOLS Karosárska podložka pozinkovaná pr. 8,4 x 24 mm, 100 ks“ za 5,59 €. Všetky tri majú text „Dodávka domov (Balík, 2-3 pracovných dní dodacia lehota)“; normu DIN stránky neuvádzajú.",
+          "LaskaKit ceny sú akciové (Black Friday, −11 až −15 %). Pôvodná správa to uvádza len pri 3DJake. Bežné ceny: DIN 6912 M4x16 = 3 Kč, ISO 7380 M2x3 = 16 Kč, DIN 934 M3 = 1,80 Kč, DIN 934 M2 = 1,50 Kč, DIN 912 M2,5x8 = 4 Kč, sada M2 = 228 Kč, sada M3 = 468 Kč, sada M2.5 mosadz = 228 Kč.",
+          "LaskaKit sada IMBUS M2 ‚660 ks‘: tabuľka na stránke dáva 220 + 220 + 6×40 = 680 ks. Počty po 40 ks M2x6/M2x8/M2x10 sú správne, ale súčet nesedí s názvom (chyba obchodu).",
+          "Bauhaus Profi Depot DIN 9021 M8 nerez (10272209) má podľa stránky vonkajší priemer 25 mm, pozinkovaná verzia (10826978) 24 mm. Nie sú zameniteľné 1:1, ak záleží na OD.",
+          "Bauhaus Stabilit DIN 963 M2x10 (21307447): odrážka na stránke uvádza ‚Závit M2,5‘, titul a tabuľka M2 × 10. Pred kúpou overiť.",
+          "Doplnková náhrada za DIN 965 M2: Bauhaus „Stabilit Metrická skrutka DIN 359“ (art. 21307359). Podľa tabuľky je to DIN 963, zápustná M2 × 5, 20 ks, 3,50 €, Dostupné online (qty 5), s drážkou. DIN 965 (PH) v Bauhause začína od M3, to sa potvrdilo.",
+          "Doplnková náhrada za DIN 912 M2x6 (nie imbus): LaskaKit „Šroub s válcovou hlavou a křížovou drážkou M2x6 BN 381 ZB ocel“, 1,70 Kč/ks, Skladem (131 ks). Existuje aj M2x4.",
+          "Bauhaus Marinetech ‚pologuľatá hlava‘ M4x10/20/30/40 (napr. art. 23671290) je DIN 85 (drážka), nie ISO 7380. ISO 7380 M4x8 a M4x10 teda naozaj nie sú v ponuke. Potvrdené kontrolou všetkých 58 Marinetech skrutiek zo sitemapy.",
+          "Blokované obchody pri opätovnej kontrole: www.hornbach.sk stále vracia JS ‚Client Challenge‘. www.tme.eu a botland.store vracajú 403. www.laskarduino.sk nenadviaže spojenie (HTTP 000). www.dratek.cz, www.rlx.sk a www.tymoty.com presmerúvajú mimo povolený zoznam. www.gme.sk je Angular SPA (3,8 kB kostra, bez ceny a skladu) a jej sitemap neobsahuje žiadne imbusové ani stavacie skrutky.",
+          "Všetko ostatné sa potvrdilo bez rozdielov: všetkých 29 pôvodne overených URL existuje a titul, rozmer, cena, balenie, text skladu aj online počty Bauhausu sedia. Overené zvlášť aj tvrdenia z poznámok: Bauhaus DIN 912 M5x10 za 4,90 € (qty 5), LaskaKit DIN 912 M2,5x8 (3,50 Kč, Skladem 153 ks), LaskaKit DIN 934 M2 (1,30 Kč, Skladem 746 ks), LaskaKit sada M2.5 mosadz (209,80 Kč, Skladem 47 ks, 20 skrutiek M2.5x6, 20 matíc, 80 stĺpikov) a Hadex O472A (175,00 Kč, Skladem 162 bal). Doplnkové hľadanie v LaskaKite, Hadexe, 3DJake, Bauhause (sitemap), Ložiskách Polička aj OBI nenašlo DIN 912 M4, DIN 7984 M4, ISO 7380 M4x8/M4x10 ani M2x6/8/10, DIN 912 M2x5/6/8 jednotlivo, DIN 965 M2 ani DIN 913 M2/M3. Stav ‚nenajdene‘ je pri nich správny.",
+          "Dôkazy sú v /tmp/claude-0/gapwf/fin/R3/dostupnost/skrutky/overenie/: extrakty_overenia.txt (súhrn), raw/ (29 overených stránok, .html a .txt), raw2/ (ďalšie tvrdenia z poznámok), laskakit_hladanie/, hadex_hladanie/, 3djake_hladanie/, ostatne/ (OBI, Ložiská Polička, GME, blocked_recheck.txt), bauhaus_marinetech_vsetky_skrutky.txt a bauhaus_stabilit_profidepot_male_skrutky.txt."
+        ]
+      }
+    },
+    {
+      "category": "magnety_vlozky",
+      "check": {
+        "category": "Magnety, vložky, drobnosti",
+        "parts": [
+          {
+            "part": "NdFeB disk magnet 5x2 mm (axiálne mag., N35–N52)",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "TME (tme.eu/sk)",
+                "url": "https://www.tme.eu/sk/details/gn55.2-nd-5-2/magnety/elesa-ganter/gn-55-2-nd-5-2/",
+                "title": "GN 55.2-ND-5-2 ELESA+GANTER – Magnet: konštantný; neodymový; 4,5N; Ø: 5mm; H: 2mm",
+                "price": "1,45 € /ks s DPH (od 5 ks 1,29 €, od 10 ks 1,17 €)",
+                "pack": "1 ks (balené vo vrecku po 10)",
+                "stock_text": "seoStock: 72 (ks na sklade TME, údaj z dát stránky)",
+                "verified": true
+              },
+              {
+                "shop": "TME (tme.eu/sk)",
+                "url": "https://www.tme.eu/sk/details/ec-n804/magnety/eclipse-magnetics/n804/",
+                "title": "N804 Eclipse Magnetics – Magnet: konštantný; NdFeB; 5N; Ø: 5mm; H: 2mm; nikel; disk; 10ks.",
+                "price": "9,59 € /balenie s DPH",
+                "pack": "10 ks",
+                "stock_text": "seoStock: 91",
+                "verified": true
+              }
+            ],
+            "note": "5x2 je len v TME (priemyselný katalógový distribútor, drahé ~1 €/ks). V hobby obchodoch nenájdené; najbližšie hobby: 3DJAKE Magnety N35 5x3 mm, sada 50 ks, 4,67 €, Na sklade (https://www.3djake.sk/3djake/magnety-n35-sada-50-ks).",
+            "alternative": "3DJAKE N35 5x3 mm (50 ks, 4,67 €, Na sklade) ak konštrukcia znesie hrúbku 3 mm"
+          },
+          {
+            "part": "NdFeB disk magnet 5x1 mm",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "3DJake.sk",
+                "url": "https://www.3djake.sk/the-army-painter/miniature-and-model-magnets",
+                "title": "The Army Painter Miniature and Model Magnets",
+                "price": "12,05 € s DPH (pôvodne 13,39 €)",
+                "pack": "sada: 20x magnet 5x1 mm + 80x magnet 3x1 mm, N52",
+                "stock_text": "Na sklade (skrytý údaj: zostáva 21 ks)",
+                "verified": true
+              }
+            ],
+            "note": "Jediný nájdený 5x1 (len v zmiešanej sade s 3x1). TME nemá 5x1 (URL GN55.2-ND-5-1 vracia 404)."
+          },
+          {
+            "part": "NdFeB disk magnet 6x1 mm",
+            "status": "nenajdene",
+            "offers": [],
+            "note": "Nenájdené v povolených obchodoch (3DJake, Laskakit, Hadex, TME, OBI). TME GN 55.2 6-1 neexistuje (404).",
+            "alternative": "6x2: 3DJAKE Magnety N35 (sada, 50 ks), 6 x 2 mm, 4,67 €, Na sklade (668) – https://www.3djake.sk/3djake/magnety-n35-sada-50-ks?sai=16827; alebo 5x1 zo sady Army Painter"
+          },
+          {
+            "part": "NdFeB disk magnet 6x2 mm",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "3DJake.sk",
+                "url": "https://www.3djake.sk/3djake/magnety-n35-sada-50-ks?sai=16827",
+                "title": "3DJAKE Magnety N35 (sada, 50 ks), 6 x 2 mm",
+                "price": "4,67 € s DPH (pôvodne 5,19 €)",
+                "pack": "50 ks",
+                "stock_text": "Na sklade (skrytý údaj: zostáva 668 ks)",
+                "verified": true
+              },
+              {
+                "shop": "TME (tme.eu/sk)",
+                "url": "https://www.tme.eu/sk/details/gn55.2-nd-6-2/magnety/elesa-ganter/gn-55-2-nd-6-2/",
+                "title": "GN 55.2-ND-6-2 ELESA+GANTER – Magnet: konštantný; neodymový; 5,5N; Ø: 6mm; H: 2mm",
+                "price": "1,25 € /ks s DPH (od 10 ks 1,01 €)",
+                "pack": "1 ks (vrecko 10)",
+                "stock_text": "seoStock: 122",
+                "verified": true
+              }
+            ],
+            "note": "Najlepšia hobby voľba: 3DJAKE 6x2 N35, 50 ks za 4,67 €."
+          },
+          {
+            "part": "NdFeB disk magnet 8x1 mm",
+            "status": "nenajdene",
+            "offers": [],
+            "note": "Nenájdené v povolených obchodoch (TME GN55.2-ND-8-1 = 404; Hadex najmenší 12x2).",
+            "alternative": "8x2: TME GN 55.2-ND-8-2, 1,38 €/ks s DPH, seoStock 112 (https://www.tme.eu/sk/details/gn55.2-nd-8-2/magnety/elesa-ganter/gn-55-2-nd-8-2/); lacno: Laskakit Neodymový magnet cylindrický 7x2,48mm, 4,30 Kč/ks, Skladem (507 ks) (https://www.laskakit.cz/neodymovy-magnet-cylindricky-7x2-48mm/)"
+          },
+          {
+            "part": "NdFeB disk magnet 4x2 mm",
+            "status": "nenajdene",
+            "offers": [],
+            "note": "Nenájdené (TME GN55.2-ND-4-2 = 404).",
+            "alternative": "4x3: TME GN 55.2-ND-4-3, 1,67 €/ks, seoStock 17 (https://www.tme.eu/sk/details/gn55.2-nd-4-3/magnety/elesa-ganter/gn-55-2-nd-4-3/); TME Eclipse N802 4x3 10 ks 9,59 €, seoStock 192 (https://www.tme.eu/sk/details/ec-n802/magnety/eclipse-magnetics/n802/); alebo 3x2 (nižšie)"
+          },
+          {
+            "part": "NdFeB disk magnet 3x2 mm",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "TME (tme.eu/sk)",
+                "url": "https://www.tme.eu/sk/details/gn55.2-nd-3-2/magnety/elesa-ganter/gn-55-2-nd-3-2/",
+                "title": "GN 55.2-ND-3-2 ELESA+GANTER – Magnet: konštantný; neodymový; 1,5N; Ø: 3mm; H: 2mm",
+                "price": "1,19 € /ks s DPH (od 10 ks 0,96 €)",
+                "pack": "1 ks (vrecko 10)",
+                "stock_text": "seoStock: 134",
+                "verified": true
+              },
+              {
+                "shop": "TME (tme.eu/sk)",
+                "url": "https://www.tme.eu/sk/details/ec-n800/magnety/eclipse-magnetics/n800/",
+                "title": "N800 Eclipse Magnetics – Magnet: konštantný; NdFeB; 3N; Ø: 3mm; H: 2mm; nikel; disk; 10ks.",
+                "price": "8,43 € /balenie s DPH",
+                "pack": "10 ks",
+                "stock_text": "seoStock: 87",
+                "verified": true
+              }
+            ],
+            "note": "Len TME (priemyselné). Hobby alternatíva: 3x1 mm v sade Army Painter (3DJake, 80 ks 3x1 + 20 ks 5x1, 12,05 €, Na sklade)."
+          },
+          {
+            "part": "Mosadzné závitové vložky M2 (dĺžka 3–4, OD 3,2–4)",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "Hadex.cz",
+                "url": "https://www.hadex.cz/p/p131f-mosazna-zavitova-vlozka-m2x3x3-2-pro-3d-tisk",
+                "title": "Mosazná závitová vložka M2x3x3,2 (pro 3D tisk) (P131F)",
+                "price": "3,00 Kč /ks s DPH (10–99 ks 1,50 Kč bez DPH, 100+ 0,80 Kč bez DPH)",
+                "pack": "1 ks",
+                "stock_text": "Skladem 836 ks",
+                "verified": true
+              },
+              {
+                "shop": "Hadex.cz",
+                "url": "https://www.hadex.cz/p/p131g-mosazna-zavitova-vlozka-m2x4x3-2-pro-3d-tisk",
+                "title": "Mosazná závitová vložka M2x4x3,2 (pro 3D tisk) (P131G)",
+                "price": "3,00 Kč /ks s DPH",
+                "pack": "1 ks",
+                "stock_text": "Skladem 282 ks",
+                "verified": true
+              },
+              {
+                "shop": "3DJake.sk",
+                "url": "https://www.3djake.sk/ruthex/zavitova-vlozka-m2-70-ks",
+                "title": "ruthex Závitová vložka M2 (70 ks), M2 x 4",
+                "price": "7,43 € s DPH (pôvodne 9,29 €)",
+                "pack": "70 ks (D1 3,6 / otvor D3 3,2 / L 4,0)",
+                "stock_text": "Na sklade (skrytý údaj: zostáva 125 ks)",
+                "verified": true
+              }
+            ],
+            "note": "Aj Laskakit sada M2/M2.5/M3 500 ks (M2x3x3.5, M2x4x3.5…), 389,80 Kč, Skladem (3 ks): https://www.laskakit.cz/laskakit-zavitove-vlozky--sada-m2-m2-5-m3-500ks--mosaz/"
+          },
+          {
+            "part": "Mosadzné závitové vložky M2.5",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "Hadex.cz",
+                "url": "https://www.hadex.cz/p/p131i-mosazna-zavitova-vlozka-m2-5x3x3-5-pro-3d-tisk",
+                "title": "Mosazná závitová vložka M2,5x3x3,5 (pro 3D tisk) (P131I)",
+                "price": "3,00 Kč /ks s DPH",
+                "pack": "1 ks",
+                "stock_text": "Skladem 808 ks",
+                "verified": true
+              },
+              {
+                "shop": "Hadex.cz",
+                "url": "https://www.hadex.cz/p/p131k-mosazna-zavitova-vlozka-m2-5x5x3-5-pro-3d-tisk",
+                "title": "Mosazná závitová vložka M2,5x5x3,5 (pro 3D tisk) (P131K)",
+                "price": "3,00 Kč /ks s DPH",
+                "pack": "1 ks",
+                "stock_text": "Skladem 446 ks",
+                "verified": true
+              },
+              {
+                "shop": "3DJake.sk",
+                "url": "https://www.3djake.sk/ruthex/zavitova-vlozka-m25-70-ks",
+                "title": "ruthex Závitová vložka M2,5 (70 ks), M2,5 x 5,7",
+                "price": "7,43 € s DPH",
+                "pack": "70 ks (D1 4,6 / D3 4,0 / L 5,7)",
+                "stock_text": "Na sklade (skrytý údaj: zostáva 126 ks)",
+                "verified": true
+              }
+            ],
+            "note": "Hadex M2,5x4x3,5 má len 5 ks (listing)."
+          },
+          {
+            "part": "Mosadzné závitové vložky M3",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "Hadex.cz",
+                "url": "https://www.hadex.cz/p/p131l-mosazna-zavitova-vlozka-m3x3x4-pro-3d-tisk",
+                "title": "Mosazná závitová vložka M3x3x4 (pro 3D tisk) (P131L)",
+                "price": "4,00 Kč /ks s DPH",
+                "pack": "1 ks",
+                "stock_text": "Skladem 436 ks",
+                "verified": true
+              },
+              {
+                "shop": "3DJake.sk",
+                "url": "https://www.3djake.sk/ruthex/zavitova-vlozka-m3s-100-ks",
+                "title": "ruthex Závitová vložka M3S (100 ks), M3S x 4,0",
+                "price": "7,43 € s DPH",
+                "pack": "100 ks (D1 4,6 / D3 4,0 / L 4,0)",
+                "stock_text": "Na sklade (skrytý údaj: zostáva 128 ks)",
+                "verified": true
+              },
+              {
+                "shop": "3DJake.sk",
+                "url": "https://www.3djake.sk/3djake/zavitove-vlozky-sada-50",
+                "title": "3DJAKE Závitové vložky (sada 50), M3 x 5,7 mm (50 ks)",
+                "price": "3,63 € s DPH (pôvodne 5,19 €)",
+                "pack": "50 ks",
+                "stock_text": "Na sklade (skrytý údaj: zostáva 231 ks)",
+                "verified": true
+              }
+            ],
+            "note": "Hadex M3x4x4 (P131M) len Skladem 7 ks; ruthex M3 x 5,7 (100 ks) 7,43 €, Na sklade (151)."
+          },
+          {
+            "part": "PTFE (teflónová) trubička 4x2 mm (bowden)",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "3DJake.sk",
+                "url": "https://www.3djake.sk/capricorn/tl-transparent-ptfe-bowden",
+                "title": "Capricorn TL Transparent PTFE Bowden, 1,75 mm / 1 m",
+                "price": "13,85 € s DPH (pôvodne 15,39 €)",
+                "pack": "1 m (ID 2,0 / OD 4,0 mm)",
+                "stock_text": "Ešte 5 ks na sklade",
+                "verified": true
+              },
+              {
+                "shop": "3DJake.sk",
+                "url": "https://www.3djake.sk/capricorn/xs-ultra-low-friction-ptfe-bowden",
+                "title": "Capricorn XS Ultra-Low Friction PTFE Bowden, 1,75 mm / 2 m",
+                "price": "23,39 € s DPH",
+                "pack": "2 m (ID 1,9 / OD 4,0 mm)",
+                "stock_text": "Na sklade (skrytý údaj: zostáva 19 ks)",
+                "verified": true
+              },
+              {
+                "shop": "3DJake.sk",
+                "url": "https://www.3djake.sk/3djake/ptfe-hadicka",
+                "title": "3DJAKE PTFE hadička, 1,75 mm / 1 m",
+                "price": "3,63 € s DPH (pôvodne 5,19 €)",
+                "pack": "1 m (ID 2,0 / OD 4,0 mm)",
+                "stock_text": "Na sklade od: 23. decembra",
+                "verified": true
+              }
+            ],
+            "note": "Lacná 3DJAKE hadička je teraz nedostupná (1 m do 23.12., 2 m do 12.1.). Laskakit/Hadex PTFE trubičku nemajú."
+          },
+          {
+            "part": "Sortiment malých tlačných pružín",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "Hadex.cz",
+                "url": "https://www.hadex.cz/p/o598f-sada-pruzin-mix-200ks-amio",
+                "title": "Sada pružin mix 200ks AMIO (O598F)",
+                "price": "120,00 Kč s DPH",
+                "pack": "200 ks (tlačné aj ťažné)",
+                "stock_text": "Skladem 14 bal",
+                "verified": true
+              },
+              {
+                "shop": "Laskakit.cz",
+                "url": "https://www.laskakit.cz/laskakit-sada-taznych-a-tlacnych-pruzin-200ks/",
+                "title": "LaskaKit sada tažných a tlačných pružin 200ks",
+                "price": "182,20 Kč s DPH",
+                "pack": "200 ks",
+                "stock_text": "Skladem (26 ks)",
+                "verified": true
+              },
+              {
+                "shop": "OBI.sk",
+                "url": "https://www.obi.sk/spojovacie-kovania/suprava-taznych-a-tlacnych-pruzin-200dielna/p/2809259",
+                "title": "Súprava ťažných a tlačných pružín, 200dielna",
+                "price": "6,99 € s DPH",
+                "pack": "200 ks",
+                "stock_text": "Online nie je k dispozícii (dlaždica vyhľadávania; vyzdvihnutie podľa predajne)",
+                "verified": true
+              }
+            ],
+            "note": "Pozor: v týchto sadách sú najmenšie tlačné pružiny cca 5,5x17, 6,5x10, 7x12,5 mm (OD x L) – menšie (OD < 5 mm) sady nenájdené."
+          },
+          {
+            "part": "Sortiment O-krúžkov",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "Hadex.cz",
+                "url": "https://www.hadex.cz/p/v500b-velka-sada-tesneni-o-krouzku-225ks-gumove-teplota-do-100-c",
+                "title": "Velká sada těsnění o-kroužků 225ks, gumové, teplota do 100°C (V500B)",
+                "price": "140,00 Kč s DPH",
+                "pack": "225 ks",
+                "stock_text": "Skladem 40 bal",
+                "verified": true
+              },
+              {
+                "shop": "Hadex.cz",
+                "url": "https://www.hadex.cz/p/v500-velka-sada-tesneni-o-krouzku-419ks-mar-pol",
+                "title": "Velká sada těsnění o-kroužků 419ks MAR-POL (V500)",
+                "price": "275,00 Kč s DPH",
+                "pack": "419 ks (32 veľkostí, od 3x6x1,5 po 50x57x3,5 mm)",
+                "stock_text": "Skladem 3 ks",
+                "verified": true
+              },
+              {
+                "shop": "OBI.sk",
+                "url": "https://www.obi.sk/sady-tesneni/suprava-gumovych-o-kruzkov-20-ks/p/3982733",
+                "title": "Súprava gumových O krúžkov, 20 ks",
+                "price": "3,59 € s DPH",
+                "pack": "20 ks",
+                "stock_text": "Online k dispozícii (dlaždica vyhľadávania)",
+                "verified": true
+              }
+            ],
+            "note": "Hadex má aj silikónovú sadu 225 ks (do 200 °C), 220 Kč, Skladem 29 bal (len listing)."
+          },
+          {
+            "part": "2K epoxid (napr. UHU Plus Endfest, Loctite EA 3430)",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "Hadex.cz",
+                "url": "https://www.hadex.cz/p/m861f-dvouslozkove-epoxidove-lepidlo-epoxy-clear-24ml-debbex",
+                "title": "Dvousložkové epoxidové lepidlo Epoxy Clear 24ml DEBBEX (M861F)",
+                "price": "149,00 Kč s DPH",
+                "pack": "24 ml",
+                "stock_text": "Skladem 18 ks",
+                "verified": true
+              },
+              {
+                "shop": "OBI.sk",
+                "url": "https://www.obi.sk/lepidla/pattex-dvojzlozkove-epoxidove-lepidlo-repair-epoxy-12-ml/p/3133733",
+                "title": "Pattex Dvojzložkové epoxidové lepidlo REPAIR EPOXY 12 ml",
+                "price": "3,99 € s DPH",
+                "pack": "12 ml",
+                "stock_text": "Online k dispozícii (dlaždica vyhľadávania)",
+                "verified": true
+              },
+              {
+                "shop": "OBI.sk",
+                "url": "https://www.obi.sk/lepidla/loctite-epoxidove-lepidlo-ea-3450-tekuty-kov-25-ml/p/1470509",
+                "title": "Loctite Epoxidové lepidlo EA 3450, tekutý kov 25 ml",
+                "price": "14,79 € s DPH",
+                "pack": "25 ml",
+                "stock_text": "Online k dispozícii (dlaždica vyhľadávania)",
+                "verified": true
+              }
+            ],
+            "note": "Presne UHU Plus Endfest ani Loctite EA 3430 NENÁJDENÉ v povolených obchodoch (Hadex, OBI, Laskakit, 3DJake, TME, ložiska-policka). Bežný 2K epoxid je skladom. Ďalej 3DJake Everglue 5-minútový Epoxy 200 g, 13,93 €, Na sklade.",
+            "alternative": "Pattex Repair Epoxy 12 ml (OBI) / DEBBEX Epoxy Clear 24 ml (Hadex)"
+          },
+          {
+            "part": "PTFE mazivo / silikónové mazivo",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "3DJake.sk",
+                "url": "https://www.3djake.sk/synco-lube/synteticke-viacucelove-plasticke-mazivo-so-syncolonom-ptfe?sai=32688",
+                "title": "Synco Lube Syntetické viacúčelové plastické mazivo so Syncolonom (PTFE), 12 g",
+                "price": "9,26 € s DPH (pôvodne 10,29 €)",
+                "pack": "12 g (aj 85 g za 18,44 €, Na sklade)",
+                "stock_text": "Na sklade (skrytý údaj: zostáva 35 ks)",
+                "verified": true
+              },
+              {
+                "shop": "TME (tme.eu/sk)",
+                "url": "https://www.tme.eu/sk/details/smar-tf-20/mazacie-pripravky/ag-termopasty/art-agt-065/",
+                "title": "ART.AGT-065 AG TERMOPASTY – SMAR-TF-20: Mazivo; pasta; Zloženie: PTFE,silikón; plastová nádoba; SMAR TF",
+                "price": "3,14 € s DPH",
+                "pack": "1 nádobka (balenie 6)",
+                "stock_text": "seoStock: 40",
+                "verified": true
+              },
+              {
+                "shop": "TME (tme.eu/sk)",
+                "url": "https://www.tme.eu/sk/details/smar-tf-3.5/mazacie-pripravky/ag-termopasty/art-agt-064/",
+                "title": "ART.AGT-064 AG TERMOPASTY – SMAR-TF-3.5: Mazivo; pasta; Zloženie: PTFE,silikón; tuba; SMAR TF; 3,5g",
+                "price": "1,23 € s DPH",
+                "pack": "3,5 g tuba",
+                "stock_text": "seoStock: 104",
+                "verified": true
+              }
+            ],
+            "note": "Spreje (nie tuk): OBI Presto PTFE suchý sprej 400 ml 9,29 € Online k dispozícii; Hadex Teflonový sprej DEBBEX 400ml 139 Kč Skladem 25 ks; OBI MOTIP Mazivo s PTFE 200 ml 5,09 € (len listing). Čistá silikónová vazelína (tuk) nenájdená; OBI Fermit GLISSA 60 g (8,19 €) – zloženie na stránke neuvedené."
+          },
+          {
+            "part": "Loctite 222 / 243 (zaisťovač závitov)",
+            "status": "skladom",
+            "offers": [
+              {
+                "shop": "OBI.sk",
+                "url": "https://www.obi.sk/lepidla/loctite-zaistovac-skrutiek-243-stredne-pevny-5-g/p/1470491",
+                "title": "LOCTITE Zaisťovač skrutiek 243 stredne pevný 5 g",
+                "price": "11,99 € s DPH",
+                "pack": "5 g",
+                "stock_text": "Online k dispozícii (dlaždica vyhľadávania)",
+                "verified": true
+              },
+              {
+                "shop": "Hadex.cz",
+                "url": "https://www.hadex.cz/p/m861m-zajistovac-sroubu-a-matic-debbex",
+                "title": "Zajišťovač šroubů a matic, DEBBEX (M861M)",
+                "price": "69,00 Kč s DPH",
+                "pack": "1 ks (hmotnosť s obalom 20 g)",
+                "stock_text": "Skladem 10 ks",
+                "verified": true
+              }
+            ],
+            "note": "Loctite 243 skladom v OBI. Loctite 222 (nízka pevnosť) NENÁJDENÉ v povolených obchodoch (OBI, Hadex, Laskakit, 3DJake, ložiska-policka; TME vyhľadávanie vracia 0). DEBBEX má neuvedenú triedu pevnosti.",
+            "alternative": "Loctite 243 (OBI) s malou dávkou pre M2/M2.5, alebo DEBBEX zajišťovač (Hadex)"
+          }
+        ],
+        "blocked_hosts": [
+          "dratek.cz (www.dratek.cz presmeruje na dratek.cz – proxy odmietne)",
+          "rlx.sk (www.rlx.sk presmeruje na rlx.sk – proxy odmietne)",
+          "www.tymoty.cz (www.tymoty.com presmeruje na .cz – proxy odmietne)",
+          "www.laskarduino.sk (proxy 502 connect_unreachable)",
+          "botland.store (Cloudflare challenge 403)",
+          "www.hornbach.sk (JS Client Challenge, obsah nedostupný)",
+          "www.gme.sk (Angular SPA, API search nevracia produkty – neoverené)",
+          "www.bauhaus.sk (výsledky vyhľadávania sa načítajú JS/prefixbox – neoverené)"
+        ],
+        "summary": "Ceny a sklad sú zistené 26.11.2026 cez curl. Surové HTML sú v /tmp/claude-0/gapwf/fin/R3/dostupnost/magnety_vlozky/raw/ (186 súborov), vyťažené údaje v /tmp/claude-0/gapwf/fin/R3/dostupnost/magnety_vlozky/evidence_extract.txt. Ceny sú s DPH: Hadex a Laskakit v Kč, 3DJake, OBI a TME v €. Pri TME je sklad hodnota seoStock z dát stránky.\n\nMAGNETY sú problém. V hobby obchodoch sú skladom len 6x2 (3DJAKE N35, 50 ks, 4,67 €, Na sklade), 5x3 (3DJAKE, 50 ks, 4,67 €) a 5x1 / 3x1 (sada Army Painter N52 na 3DJake, 12,05 €). Laskakit má 7x2,48 mm za 4,30 Kč/ks (507 ks). Hadex má len veľké magnety (najmenší 12x2). Rozmery 5x2, 3x2, 8x2 a 4x3 má iba TME, a to ako priemyselné katalógové diely. Elesa-Ganter GN 55.2 stojí asi 1,2–1,7 €/ks, Eclipse balenie 10 ks asi 8,4–9,6 €. Rozmery 6x1, 8x1 a 4x2 sa v povolených obchodoch nenašli. Odporúčanie: návrh prestaviť na 6x2 (alebo 5x3) z 3DJake a tenké 5x1 zo sady Army Painter.\n\nZÁVITOVÉ VLOŽKY: výborná dostupnosť. Hadex má M2x3x3,2 (836 ks), M2x4x3,2 (282 ks), M2,5x3x3,5 (808 ks), M2,5x5x3,5 (446 ks) a M3x3x4 (436 ks), za 3–4 Kč/ks. Ďalej ruthex M2x4, M2,5x5,7, M3x5,7 a M3S x4 na 3DJake (7,43 €/sada) a Laskakit sada M2–M3 500 ks za 389,80 Kč.\n\nPTFE TRUBIČKA 4x2: Capricorn TL 1 m (ID 2,0) za 13,85 €, „Ešte 5 ks na sklade“. Capricorn XS 2 m za 23,39 €, Na sklade. Lacná 3DJAKE hadička je vypredaná do 23.12.\n\nPRUŽINY: sady 200 ks sú na Hadexe (120 Kč), Laskakite (182,20 Kč) a v OBI (6,99 €, online nedostupná). Najmenšie tlačné pružiny v nich majú priemer cca 5,5–7 mm.\n\nO-KRÚŽKY: Hadex 225 ks za 140 Kč, Hadex MAR-POL 419 ks od ID 3 mm za 275 Kč, OBI 20 ks za 3,59 €.\n\nEPOXID: presne UHU Plus Endfest ani Loctite EA 3430 sa nenašli. Ako náhrada je skladom DEBBEX Epoxy Clear 24 ml (Hadex, 149 Kč), Pattex Repair Epoxy 12 ml (OBI, 3,99 €) a Loctite EA 3450 (OBI, 14,79 €).\n\nMAZIVO: Synco Lube PTFE 12 g (3DJake, 9,26 €) a AG Termopasty SMAR TF s PTFE a silikónom (TME, 3,14 € / 1,23 €). Čistý silikónový tuk sa nenašiel.\n\nLOCTITE: 243 (5 g) je v OBI za 11,99 €, Online k dispozícii. 222 sa nenašiel. Náhrada je DEBBEX zajišťovač na Hadexe (69 Kč), pevnosť neuvedená.\n\nNedostupné obchody: dratek, rlx a tymoty presmerujú na hosty mimo zoznamu, laskarduino nie je dosiahnuteľný, botland má Cloudflare a hornbach JS challenge. GME je SPA bez dát a Bauhaus vyhľadáva cez JS, takže tieto dva sa overiť nedali."
+      },
+      "verify": {
+        "category": "Magnety, vložky, drobnosti",
+        "checked": [
+          {
+            "part": "NdFeB disk magnet 5x2 mm",
+            "url": "https://www.tme.eu/sk/details/gn55.2-nd-5-2/magnety/elesa-ganter/gn-55-2-nd-5-2/",
+            "confirmed": true,
+            "seen_price": "1,45 € s DPH/ks (od 5 ks 1,29 €, od 10 ks 1,17 €)",
+            "seen_stock_text": "72 na sklade v TME",
+            "note": "Stránka existuje. Názov GN 55.2-ND-5-2, Ø5 mm, H 2 mm, 4,5N, sedí. Vrecko po 10 (prePackUnits BG1=10). Smer magnetizácie na stránke neuvedený."
+          },
+          {
+            "part": "NdFeB disk magnet 5x2 mm",
+            "url": "https://www.tme.eu/sk/details/ec-n804/magnety/eclipse-magnetics/n804/",
+            "confirmed": true,
+            "seen_price": "9,59 € s DPH/balenie",
+            "seen_stock_text": "91 na sklade v TME",
+            "note": "N804 Eclipse, Ø5 x 2 mm, 5N, nikel, 10 ks v balení. Sedí."
+          },
+          {
+            "part": "5x2 alternatíva: 3DJAKE N35 5x3 mm",
+            "url": "https://www.3djake.sk/3djake/magnety-n35-sada-50-ks",
+            "confirmed": true,
+            "seen_price": "4,67 € (pôvodne 5,19 €), vr. 23 % DPH",
+            "seen_stock_text": "Na sklade (data-limit 127)",
+            "note": "Predvolený variant je 5 x 3 mm (CB-MAG5X3), 50 ks, N35. Ďalšie varianty: 6x2 a 10x2 (9,26 €)."
+          },
+          {
+            "part": "NdFeB disk magnet 5x1 mm",
+            "url": "https://www.3djake.sk/the-army-painter/miniature-and-model-magnets",
+            "confirmed": true,
+            "seen_price": "12,05 € (pôvodne 13,39 €), vr. 23 % DPH",
+            "seen_stock_text": "Na sklade (data-limit 21)",
+            "note": "Obsah podľa stránky: 20x magnet 5 mm (5x1 mm) a 80x magnet 3 mm (3x1 mm), N52, SKU TAP-TL5038P. Sedí. Iný 5x1 sa v povolených obchodoch nenašiel; GN 55.2 v TME nemá 5-1 (overené aj v celom zozname)."
+          },
+          {
+            "part": "NdFeB disk magnet 6x2 mm",
+            "url": "https://www.3djake.sk/3djake/magnety-n35-sada-50-ks?sai=16827",
+            "confirmed": true,
+            "seen_price": "4,67 € (pôvodne 5,19 €), vr. 23 % DPH",
+            "seen_stock_text": "Na sklade (data-limit 667)",
+            "note": "H1: 3DJAKE Magnety N35 (sada, 50 ks), 6 x 2 mm, CB-MAG6X2. Sedí. Skrytý počet je 667, hlásené 668 (bežný pohyb)."
+          },
+          {
+            "part": "NdFeB disk magnet 6x2 mm",
+            "url": "https://www.tme.eu/sk/details/gn55.2-nd-6-2/magnety/elesa-ganter/gn-55-2-nd-6-2/",
+            "confirmed": true,
+            "seen_price": "1,25 € s DPH/ks (od 5 ks 1,12 €, od 10 ks 1,0076 €)",
+            "seen_stock_text": "122 na sklade v TME",
+            "note": "Ø6 x 2 mm, 5,5N, vrecko po 10. Sedí."
+          },
+          {
+            "part": "8x1 alternatíva: TME GN 55.2-ND-8-2",
+            "url": "https://www.tme.eu/sk/details/gn55.2-nd-8-2/magnety/elesa-ganter/gn-55-2-nd-8-2/",
+            "confirmed": true,
+            "seen_price": "1,38 € s DPH/ks (od 5 ks 1,23 €, od 10 ks 1,11 €)",
+            "seen_stock_text": "112 na sklade v TME",
+            "note": "Ø8 x 2 mm, 7N. Sedí."
+          },
+          {
+            "part": "8x1 alternatíva: Laskakit 7x2,48 mm",
+            "url": "https://www.laskakit.cz/neodymovy-magnet-cylindricky-7x2-48mm/",
+            "confirmed": true,
+            "seen_price": "4,30 Kč s DPH/ks (3,60 Kč bez DPH)",
+            "seen_stock_text": "Skladem (507 ks)",
+            "note": "Ø7 mm, výška 2,48 mm, N35 alebo N38, 1 ks. Sedí."
+          },
+          {
+            "part": "4x2 alternatíva: TME GN 55.2-ND-4-3",
+            "url": "https://www.tme.eu/sk/details/gn55.2-nd-4-3/magnety/elesa-ganter/gn-55-2-nd-4-3/",
+            "confirmed": true,
+            "seen_price": "1,67 € s DPH/ks (od 5 ks 1,49 €, od 20 ks 1,27 €)",
+            "seen_stock_text": "17 na sklade v TME",
+            "note": "Ø4 x 3 mm, 4N. Sedí."
+          },
+          {
+            "part": "4x2 alternatíva: TME Eclipse N802 4x3",
+            "url": "https://www.tme.eu/sk/details/ec-n802/magnety/eclipse-magnetics/n802/",
+            "confirmed": true,
+            "seen_price": "9,59 € s DPH/balenie 10 ks",
+            "seen_stock_text": "192 na sklade v TME",
+            "note": "Ø4 x 3 mm, 7N, 10 ks. Sedí."
+          },
+          {
+            "part": "NdFeB disk magnet 3x2 mm",
+            "url": "https://www.tme.eu/sk/details/gn55.2-nd-3-2/magnety/elesa-ganter/gn-55-2-nd-3-2/",
+            "confirmed": true,
+            "seen_price": "1,19 € s DPH/ks (od 5 ks 1,055 €, od 10 ks 0,96 €)",
+            "seen_stock_text": "134 na sklade v TME",
+            "note": "Ø3 x 2 mm, 1,5N, vrecko po 10. Sedí."
+          },
+          {
+            "part": "NdFeB disk magnet 3x2 mm",
+            "url": "https://www.tme.eu/sk/details/ec-n800/magnety/eclipse-magnetics/n800/",
+            "confirmed": true,
+            "seen_price": "8,43 € s DPH/balenie 10 ks",
+            "seen_stock_text": "87 na sklade v TME",
+            "note": "Ø3 x 2 mm, 3N, 10 ks. Sedí."
+          },
+          {
+            "part": "Nová alternatíva pre 6x1/8x1: TME GN 55.2-ND-10-1 (10x1)",
+            "url": "https://www.tme.eu/sk/details/gn55.2-nd-10-1/magnety/elesa-ganter/gn-55-2-nd-10-1/",
+            "confirmed": true,
+            "seen_price": "1,31 € s DPH/ks (od 5 ks 1,17 €, od 10 ks 1,055 €)",
+            "seen_stock_text": "41 na sklade v TME",
+            "note": "Ø10 x 1 mm, 5N. Okrem sady Army Painter 5x1 je to jediný 1 mm hrubý disk s priemerom ≥ 6 mm v povolených obchodoch. V správe chýbal."
+          },
+          {
+            "part": "NdFeB 6x1 mm (nenájdené – nové hľadanie)",
+            "url": "https://www.tme.eu/sk/katalog/?queryPhrase=magnet%206x1",
+            "confirmed": true,
+            "seen_price": "",
+            "seen_stock_text": "0 výsledkov",
+            "note": "Potvrdené, že sa nenašiel. Laskakit (?string=magnet, magnet+6x1): jediný disk je 7x2,48. Hadex (hľadanie magnet / neodymový magnet, /c/magnety): najmenší je 12x2. 3DJake (magnet, 2 strany; neodymové magnety; green stuff world magnet): len 3DJAKE N35 5x3/6x2/10x2 a Army Painter. OBI (magnet, neodymový magnet): žiadne malé disky. TME: celý zoznam NdFeB (7 strán, 137 symbolov), GN 55.2 nemá 6-1. GME (SPA shell 1,6 kB) a Bauhaus (404) sa overiť nedali."
+          },
+          {
+            "part": "NdFeB 8x1 mm (nenájdené – nové hľadanie)",
+            "url": "https://www.laskakit.cz/vyhledavani/?string=magnet+8x1",
+            "confirmed": true,
+            "seen_price": "",
+            "seen_stock_text": "žiadny magnet vo výsledkoch",
+            "note": "Potvrdené, že sa nenašiel v Laskakit, Hadex, 3DJake, OBI ani TME. Jediné TME disky s H=1 mm sú GN55.2-ND-10-1 a GN55.2-ND-2.5-1."
+          },
+          {
+            "part": "NdFeB 4x2 mm (nenájdené – nové hľadanie)",
+            "url": "https://www.laskakit.cz/vyhledavani/?string=magnet+4x2",
+            "confirmed": true,
+            "seen_price": "",
+            "seen_stock_text": "0 položiek",
+            "note": "Potvrdené, že sa nenašiel. GN 55.2 v TME má z Ø4 len 4-3 a 4-5, Eclipse N802 (4x3) a N803 (4x4). Hobby obchody nemajú nič."
+          },
+          {
+            "part": "Mosadzné vložky M2",
+            "url": "https://www.hadex.cz/p/p131f-mosazna-zavitova-vlozka-m2x3x3-2-pro-3d-tisk",
+            "confirmed": true,
+            "seen_price": "3,00 Kč s DPH/ks (2,48 Kč bez DPH); 10–99 ks (VC) 1,50 Kč, 100 a více ks (VC) 0,80 Kč bez DPH",
+            "seen_stock_text": "Skladem 836 ks (Na skladě)",
+            "note": "M2x3x3,2, P131F. Sedí. Stupňovité ceny sú na stránke označené (VC), význam tam nie je vysvetlený."
+          },
+          {
+            "part": "Mosadzné vložky M2",
+            "url": "https://www.hadex.cz/p/p131g-mosazna-zavitova-vlozka-m2x4x3-2-pro-3d-tisk",
+            "confirmed": true,
+            "seen_price": "3,00 Kč s DPH/ks",
+            "seen_stock_text": "Skladem 282 ks",
+            "note": "M2x4x3,2, P131G. Sedí. Ďalší variant skladom: P131H M2x5x3,2, 3,00 Kč, Skladem 468 ks."
+          },
+          {
+            "part": "Mosadzné vložky M2",
+            "url": "https://www.3djake.sk/ruthex/zavitova-vlozka-m2-70-ks",
+            "confirmed": true,
+            "seen_price": "7,43 € (pôvodne 9,29 €), vr. 23 % DPH",
+            "seen_stock_text": "Na sklade (data-limit 125)",
+            "note": "M2 x 4, D1 3,6 / D2 3,1 / D3 3,2 / L 4,0, 70 ks. Sedí."
+          },
+          {
+            "part": "Mosadzné vložky M2–M3 (sada)",
+            "url": "https://www.laskakit.cz/laskakit-zavitove-vlozky--sada-m2-m2-5-m3-500ks--mosaz/",
+            "confirmed": true,
+            "seen_price": "389,80 Kč s DPH (322,20 Kč bez DPH)",
+            "seen_stock_text": "Skladem (3 ks)",
+            "note": "Obsah: M2x3x3.5, M2x4x3.5, M2x5x3.5, M2.5x3/4/5x3.5, M3x3x4.5, M3x4x4.5, M3x4x5, M3x5x5, po 50 ks. Sedí."
+          },
+          {
+            "part": "Mosadzné vložky M2.5",
+            "url": "https://www.hadex.cz/p/p131i-mosazna-zavitova-vlozka-m2-5x3x3-5-pro-3d-tisk",
+            "confirmed": true,
+            "seen_price": "3,00 Kč s DPH/ks",
+            "seen_stock_text": "Skladem 808 ks",
+            "note": "M2,5x3x3,5, P131I. Sedí."
+          },
+          {
+            "part": "Mosadzné vložky M2.5",
+            "url": "https://www.hadex.cz/p/p131k-mosazna-zavitova-vlozka-m2-5x5x3-5-pro-3d-tisk",
+            "confirmed": true,
+            "seen_price": "3,00 Kč s DPH/ks",
+            "seen_stock_text": "Skladem 446 ks",
+            "note": "M2,5x5x3,5, P131K. Sedí. Poznámka o P131J (M2,5x4x3,5) potvrdená: Skladem 5 ks."
+          },
+          {
+            "part": "Mosadzné vložky M2.5",
+            "url": "https://www.3djake.sk/ruthex/zavitova-vlozka-m25-70-ks",
+            "confirmed": true,
+            "seen_price": "7,43 € (pôvodne 9,29 €)",
+            "seen_stock_text": "Na sklade (data-limit 126)",
+            "note": "M2,5 x 5,7, D1 4,6 / D3 4,0 / L 5,7, 70 ks. Sedí."
+          },
+          {
+            "part": "Mosadzné vložky M3",
+            "url": "https://www.hadex.cz/p/p131l-mosazna-zavitova-vlozka-m3x3x4-pro-3d-tisk",
+            "confirmed": true,
+            "seen_price": "4,00 Kč s DPH/ks",
+            "seen_stock_text": "Skladem 436 ks",
+            "note": "M3x3x4, P131L. Sedí. Poznámka o P131M (M3x4x4) potvrdená: Skladem 7 ks."
+          },
+          {
+            "part": "Mosadzné vložky M3",
+            "url": "https://www.3djake.sk/ruthex/zavitova-vlozka-m3s-100-ks",
+            "confirmed": true,
+            "seen_price": "7,43 € (pôvodne 9,29 €)",
+            "seen_stock_text": "Na sklade (data-limit 128)",
+            "note": "M3S x 4,0 (M3 short), D1 4,6 / D3 4,0 / L 4,0, 100 ks. Sedí. ruthex M3 x 5,7 (100 ks): 7,43 €, Na sklade, limit 142 (hlásené 151)."
+          },
+          {
+            "part": "Mosadzné vložky M3",
+            "url": "https://www.3djake.sk/3djake/zavitove-vlozky-sada-50",
+            "confirmed": true,
+            "seen_price": "3,63 € (pôvodne 5,19 €), 0,07 €/ks",
+            "seen_stock_text": "Na sklade (data-limit 230)",
+            "note": "M3 x 5,7 mm, 50 ks. Sedí (limit 230, hlásené 231)."
+          },
+          {
+            "part": "PTFE trubička 4x2 mm",
+            "url": "https://www.3djake.sk/capricorn/tl-transparent-ptfe-bowden",
+            "confirmed": true,
+            "seen_price": "13,85 € (pôvodne 15,39 €)",
+            "seen_stock_text": "Ešte 5 ks na sklade",
+            "note": "1,75 mm / 1 m, vnútorný priemer 2,0 mm, vonkajší 4,0 mm. Sedí. Variant 2 m stojí 23,39 € (sklad neoverený)."
+          },
+          {
+            "part": "PTFE trubička 4x2 mm",
+            "url": "https://www.3djake.sk/capricorn/xs-ultra-low-friction-ptfe-bowden",
+            "confirmed": true,
+            "seen_price": "23,39 € (pôvodne 25,99 €)",
+            "seen_stock_text": "Na sklade (data-limit 19)",
+            "note": "1,75 mm / 2 m, ID 1,9 ± 0,05 mm, OD 4,0 mm. Sedí. Existuje aj variant 1 m za 13,85 € (sklad neoverený)."
+          },
+          {
+            "part": "PTFE trubička 4x2 mm",
+            "url": "https://www.3djake.sk/3djake/ptfe-hadicka",
+            "confirmed": true,
+            "seen_price": "3,63 € (pôvodne 5,19 €)",
+            "seen_stock_text": "Na sklade od: 23. decembra",
+            "note": "1,75 mm / 1 m, ID 2,0 / OD 4,0. Teraz nedostupné (schema PreOrder, limit 0), správa to uvádza správne."
+          },
+          {
+            "part": "Sortiment tlačných pružín",
+            "url": "https://www.hadex.cz/p/o598f-sada-pruzin-mix-200ks-amio",
+            "confirmed": true,
+            "seen_price": "120,00 Kč s DPH",
+            "seen_stock_text": "Skladem 14 bal",
+            "note": "200 ks AMIO. Hadex v popise označuje skupinu 5,5–9,5 mm ako „Tažné pružiny“ a pružiny s očkami ako „Natahovací“ (pravdepodobne zámena)."
+          },
+          {
+            "part": "Sortiment tlačných pružín",
+            "url": "https://www.laskakit.cz/laskakit-sada-taznych-a-tlacnych-pruzin-200ks/",
+            "confirmed": true,
+            "seen_price": "182,20 Kč s DPH",
+            "seen_stock_text": "Skladem (26 ks)",
+            "note": "Pružiny s očkami (ťažné): 4x79,5 … 8,5x36,5. Tlačné: 5,5x17, 5,5x38, 6,5x10, 7x12,5, 7x19, 9x35, 9,5x16, 9,5x19 (76 ks). Najmenší priemer tlačnej pružiny je 5,5 mm, správa to uvádza správne."
+          },
+          {
+            "part": "Sortiment tlačných pružín",
+            "url": "https://www.obi.sk/spojovacie-kovania/suprava-taznych-a-tlacnych-pruzin-200dielna/p/2809259",
+            "confirmed": true,
+            "seen_price": "6,99 € s DPH",
+            "seen_stock_text": "Dodávka domov momentálne nie je možná",
+            "note": "Produktová stránka otvorená. Dá sa len rezervovať a vyzdvihnúť v predajni („Vyberte si predajňu“). Rozmery pružín stránka neuvádza (krabica 20,7x10,8x2,8 cm, asi tá istá sada)."
+          },
+          {
+            "part": "Sortiment O-krúžkov",
+            "url": "https://www.hadex.cz/p/v500b-velka-sada-tesneni-o-krouzku-225ks-gumove-teplota-do-100-c",
+            "confirmed": true,
+            "seen_price": "140,00 Kč s DPH",
+            "seen_stock_text": "Skladem 40 bal",
+            "note": "225 ks, gumové. Rozmery na stránke neuvedené."
+          },
+          {
+            "part": "Sortiment O-krúžkov",
+            "url": "https://www.hadex.cz/p/v500-velka-sada-tesneni-o-krouzku-419ks-mar-pol",
+            "confirmed": true,
+            "seen_price": "275,00 Kč s DPH",
+            "seen_stock_text": "Skladem 3 ks",
+            "note": "Zoznam R-01 3/6/1,5 až R-32 50/57/3,5. Sedí. Silikónová sada V500C 225 ks: 220 Kč, Skladem 29 bal, potvrdené."
+          },
+          {
+            "part": "Sortiment O-krúžkov",
+            "url": "https://www.obi.sk/sady-tesneni/suprava-gumovych-o-kruzkov-20-ks/p/3982733",
+            "confirmed": true,
+            "seen_price": "3,59 € s DPH",
+            "seen_stock_text": "Dodávka domov (Balík, 2-3 pracovných dní dodacia lehota)",
+            "note": "Produktová stránka otvorená, tlačidlo „Do nákupného košíka“. Rozmery krúžkov stránka neuvádza."
+          },
+          {
+            "part": "2K epoxid",
+            "url": "https://www.hadex.cz/p/m861f-dvouslozkove-epoxidove-lepidlo-epoxy-clear-24ml-debbex",
+            "confirmed": true,
+            "seen_price": "149,00 Kč s DPH",
+            "seen_stock_text": "Skladem 18 ks",
+            "note": "DEBBEX Epoxy Clear 24 ml, 5-minútový, plná pevnosť po 12 h. Sedí."
+          },
+          {
+            "part": "2K epoxid",
+            "url": "https://www.obi.sk/lepidla/pattex-dvojzlozkove-epoxidove-lepidlo-repair-epoxy-12-ml/p/3133733",
+            "confirmed": true,
+            "seen_price": "3,99 € s DPH (332,50 €/l)",
+            "seen_stock_text": "Dodávka domov (Balík, 2-3 pracovných dní dodacia lehota)",
+            "note": "Varianty 6 ml a 12 ml. Sedí."
+          },
+          {
+            "part": "2K epoxid",
+            "url": "https://www.obi.sk/lepidla/loctite-epoxidove-lepidlo-ea-3450-tekuty-kov-25-ml/p/1470509",
+            "confirmed": true,
+            "seen_price": "14,79 € s DPH (591,60 €/l)",
+            "seen_stock_text": "Dodávka domov (Balík, 2-3 pracovných dní dodacia lehota)",
+            "note": "Sedí. UHU Plus Endfest ani EA 3430 sa pri novom hľadaní nenašli (OBI loctite, Hadex uhu plus / loctite, TME loctite = 12 položiek, samé príslušenstvo)."
+          },
+          {
+            "part": "PTFE / silikónové mazivo",
+            "url": "https://www.3djake.sk/synco-lube/synteticke-viacucelove-plasticke-mazivo-so-syncolonom-ptfe?sai=32688",
+            "confirmed": true,
+            "seen_price": "9,26 € (pôvodne 10,29 €), 771,67 €/kg",
+            "seen_stock_text": "Na sklade (data-limit 35)",
+            "note": "12 g. Sedí. Údaj 18,44 € je len položka vo výbere „Prevedenie“ (216,94 €/kg, teda 85 g). Sklad 85 g som neoveril, URL variantu s sai vracia 410."
+          },
+          {
+            "part": "PTFE / silikónové mazivo",
+            "url": "https://www.tme.eu/sk/details/smar-tf-20/mazacie-pripravky/ag-termopasty/art-agt-065/",
+            "confirmed": true,
+            "seen_price": "3,14 € s DPH (od 5 ks 2,76 €, od 6 ks 2,39 €)",
+            "seen_stock_text": "40 na sklade v TME",
+            "note": "SMAR TF, PTFE a silikón, plastová nádoba, 20 g netto, balenie BG1=6. Sedí."
+          },
+          {
+            "part": "PTFE / silikónové mazivo",
+            "url": "https://www.tme.eu/sk/details/smar-tf-3.5/mazacie-pripravky/ag-termopasty/art-agt-064/",
+            "confirmed": true,
+            "seen_price": "1,23 € s DPH (od 5 ks 1,19 €, od 10 ks 1,11 €)",
+            "seen_stock_text": "104 na sklade v TME",
+            "note": "Tuba 3,5 g, PTFE a silikón. Sedí."
+          },
+          {
+            "part": "Loctite 222 / 243",
+            "url": "https://www.obi.sk/lepidla/loctite-zaistovac-skrutiek-243-stredne-pevny-5-g/p/1470491",
+            "confirmed": true,
+            "seen_price": "11,99 € s DPH",
+            "seen_stock_text": "Dodávka domov (Balík, 2-3 pracovných dní dodacia lehota)",
+            "note": "Loctite 243, 5 g. Sedí. Loctite 222 sa ani pri novom hľadaní nenašiel (OBI, Hadex, TME)."
+          },
+          {
+            "part": "Loctite 222 / 243",
+            "url": "https://www.hadex.cz/p/m861m-zajistovac-sroubu-a-matic-debbex",
+            "confirmed": true,
+            "seen_price": "69,00 Kč s DPH",
+            "seen_stock_text": "Skladem 10 ks",
+            "note": "DEBBEX, pevnostná trieda neuvedená. Popis: „rozebíratelný spoj“, pri najpevnejších spojoch treba zahriať na asi 250 °C. Sedí."
+          }
+        ],
+        "corrections": [
+          "Pri TME nie je stock_text „seoStock: N“. Stránka zobrazuje „N na sklade v TME“, napr. „72 na sklade v TME“. Čísla sedia na všetkých 10 stránkach TME (72, 91, 122, 112, 17, 192, 134, 87, 40, 104). Opraviť treba len znenie.",
+          "Pri OBI je stock_text prevzatý zo search dlaždice, hoci je označený verified=true. Produktové stránky O-krúžky 20 ks, Pattex 12 ml, Loctite EA 3450 a Loctite 243 ukazujú „Dodávka domov (Balík, 2-3 pracovných dní dodacia lehota)“ a tlačidlo „Do nákupného košíka“. Sada pružín 200 ks ukazuje „Dodávka domov momentálne nie je možná“, ide len rezervovať a vyzdvihnúť v predajni. Podstata správy sedí, znenie a zdroj nie.",
+          "Malé posuny skrytého počtu na 3DJake (bežný predaj): 6x2 N35 má 667, nie 668. Sada 50 vložiek M3 má 230, nie 231. ruthex M3 x 5,7 má 142, nie 151.",
+          "Hadex P131F: stupňovité ceny 10–99 ks 1,50 Kč a 100+ ks 0,80 Kč bez DPH sú na stránke označené „(VC)“ a stránka to nevysvetľuje (pravdepodobne veľkoobchodná cena). Nerátať s nimi ako s maloobchodnou cenou.",
+          "Žiadna stránka s magnetmi (3DJAKE N35, Army Painter, TME GN 55.2 a Eclipse, Laskakit 7x2,48) neuvádza smer magnetizácie. „Axiálne mag.“ z názvu dielu nie je overené, pri diskoch je to bežné, ale treba to uviesť.",
+          "Chýbajúca alternatíva pre tenké magnety 6x1 a 8x1: TME GN 55.2-ND-10-1, Ø10 x 1 mm, 5N, 1,31 €/ks s DPH (od 5 ks 1,17 €, od 10 ks 1,055 €), „41 na sklade v TME“, https://www.tme.eu/sk/details/gn55.2-nd-10-1/magnety/elesa-ganter/gn-55-2-nd-10-1/. Okrem sady Army Painter 5x1 je to jediný 1 mm hrubý disk v povolených obchodoch.",
+          "Verdikt „nenájdené“ pre 6x1, 8x1 a 4x2 (aj „TME nemá 5x1“) platí, ale opieral sa len o hádané URL vracajúce 404. Teraz je podložený celým zoznamom NdFeB v TME (7 strán, 137 symbolov): GN 55.2 nemá 4-2, 5-1, 6-1 ani 8-1, s H=1 mm sú len 10-1 a 2.5-1. Overené aj novým hľadaním v Laskakit, Hadex, 3DJake (2 strany plus Green Stuff World) a OBI.",
+          "Synco Lube 85 g za 18,44 €: na stránke 12 g je to len položka vo výbere „Prevedenie“ (216,94 €/kg, teda 85 g). Sklad 85 g som nepotvrdil, URL variantu s sai vracia 410 Gone. Treba ho brať ako neoverený.",
+          "Pružiny: Hadex O598F v popise označuje skupinu 5,5–9,5 mm ako „Tažné pružiny“ a pružiny s očkami ako „Natahovací“. Podľa Laskakitu sú pružiny s očkami ťažné, teda tlačné sú len 8 veľkostí: 5,5x17, 5,5x38, 6,5x10, 7x12,5, 7x19, 9x35, 9,5x16 a 9,5x19 (spolu 76 ks), zvyšok (asi 124 ks) sú ťažné. Záver správy (najmenšia tlačná pružina má priemer asi 5,5 mm) platí. OBI rozmery pružín ani O-krúžkov (20 ks) neuvádza.",
+          "Doplnky, ktoré v správe chýbali: Hadex M2x5x3,2 (P131H), 3,00 Kč, Skladem 468 ks. Capricorn XS je aj v dĺžke 1 m (13,85 €) a TL aj v dĺžke 2 m (23,39 €), sklad týchto variantov som neoveril.",
+          "GME a Bauhaus sa ani teraz overiť nedali. GME vracia na /vyhladavanie?search=magnet a /search?q=magnet len SPA shell (1,6 kB), Bauhaus /catalogsearch/result/ vracia 404. Zoznam blokovaných alebo neoverených hostov v správe platí."
+        ]
+      }
+    }
+  ],
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Obchody"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Overenie"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "obchody: serva",
+      "phaseIndex": 1,
+      "phaseTitle": "Obchody",
+      "agentId": "afdb3de8ddce28b6d",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795700261179,
+      "queuedAt": 1795700261170,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Servá",
+      "promptPreview": "CONTEXT: NOVA mini desktop robot, built by a hobbyist in Slovakia. Binding user rule: bought parts must be COMMONLY available (a hardware store / fastener shop, or a common SK/CZ hobby, 3D-printing or electronics e-shop); AliExpress/Amazon only as a flagged backup; no special catalogue or made-to-order parts.\nThe session's network now allows these shop hosts (and nothing else except package regist…",
+      "promptFramed": true,
+      "lastProgressAt": 1795700754814,
+      "tokens": 171567,
+      "toolCalls": 62,
+      "durationMs": 493634,
+      "resultPreview": "{\"category\":\"Servá\",\"parts\":[{\"part\":\"Feetech SCS0009 / Waveshare SC09 sériové zbernicové servo (pohon ruky, 2 ks + 1 rezerva)\",\"status\":\"skladom\",\"offers\":[{\"shop\":\"LaskaKit (www.laskakit.cz)\",\"url\":\"https://www.laskakit.cz/waveshare-sc09-serial-bus-servo-2-3kg/\",\"title\":\"Waveshare SC09 Serial Bus Servo 2.3kg\",\"price\":\"255,80 Kč s DPH (Black Friday −7 %, bežne 278 Kč; 211,40 Kč bez DPH)\",\"pack\":\"…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "obchody: loziska",
+      "phaseIndex": 1,
+      "phaseTitle": "Obchody",
+      "agentId": "ad2c06b706d4629a2",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795700261180,
+      "queuedAt": 1795700261170,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Ložiská",
+      "promptPreview": "CONTEXT: NOVA mini desktop robot, built by a hobbyist in Slovakia. Binding user rule: bought parts must be COMMONLY available (a hardware store / fastener shop, or a common SK/CZ hobby, 3D-printing or electronics e-shop); AliExpress/Amazon only as a flagged backup; no special catalogue or made-to-order parts.\nThe session's network now allows these shop hosts (and nothing else except package regist…",
+      "promptFramed": true,
+      "lastProgressAt": 1795701300625,
+      "tokens": 173060,
+      "toolCalls": 57,
+      "durationMs": 1036708,
+      "resultPreview": "{\"category\":\"Ložiská\",\"parts\":[{\"part\":\"MR63ZZ (3x6x2.5)\",\"status\":\"nenajdene\",\"offers\":[{\"shop\":\"loziska-policka.cz\",\"url\":\"https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-623-2z-zkl/\",\"title\":\"Ložisko - 623 2Z ZKL\",\"price\":\"24 Kč s DPH (20 Kč bez DPH)\",\"pack\":\"1 ks\",\"stock_text\":\"Skladem (10 ks)\",\"verified\":true},{\"shop\":\"hadex.cz\",\"url\":\"https://www.hadex.cz/c/kulickova-lozis…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "obchody: skrutky",
+      "phaseIndex": 1,
+      "phaseTitle": "Obchody",
+      "agentId": "ad179b68b5b3c80a0",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795700754821,
+      "queuedAt": 1795700261170,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Skrutky a podložky",
+      "promptPreview": "CONTEXT: NOVA mini desktop robot, built by a hobbyist in Slovakia. Binding user rule: bought parts must be COMMONLY available (a hardware store / fastener shop, or a common SK/CZ hobby, 3D-printing or electronics e-shop); AliExpress/Amazon only as a flagged backup; no special catalogue or made-to-order parts.\nThe session's network now allows these shop hosts (and nothing else except package regist…",
+      "promptFramed": true,
+      "lastProgressAt": 1795701900882,
+      "tokens": 262369,
+      "toolCalls": 95,
+      "durationMs": 1146060,
+      "resultPreview": "{\"category\":\"Skrutky a podložky\",\"parts\":[{\"part\":\"DIN 912 / ISO 4762 M4x20 (aj M4x16, M4x25)\",\"status\":\"nenajdene\",\"offers\":[{\"shop\":\"LaskaKit (laskakit.cz)\",\"url\":\"https://www.laskakit.cz/sroub-valcova-hlava-m4x16-din-6912-8-8/\",\"title\":\"Šroub válcová hlava M4x16 DIN 6912 8.8\",\"price\":\"2,60 Kč s DPH (2,20 Kč bez DPH) / ks\",\"pack\":\"1 ks\",\"stock_text\":\"Skladem (2910 ks)\",\"verified\":true},{\"shop\":\"…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "obchody: magnety_vlozky",
+      "phaseIndex": 1,
+      "phaseTitle": "Obchody",
+      "agentId": "a96b86a14cc9af0ee",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795701300636,
+      "queuedAt": 1795700261170,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Magnety, vložky, drobnosti",
+      "promptPreview": "CONTEXT: NOVA mini desktop robot, built by a hobbyist in Slovakia. Binding user rule: bought parts must be COMMONLY available (a hardware store / fastener shop, or a common SK/CZ hobby, 3D-printing or electronics e-shop); AliExpress/Amazon only as a flagged backup; no special catalogue or made-to-order parts.\nThe session's network now allows these shop hosts (and nothing else except package regist…",
+      "promptFramed": true,
+      "lastProgressAt": 1795702464090,
+      "tokens": 328026,
+      "toolCalls": 110,
+      "durationMs": 1163452,
+      "resultPreview": "{\"category\":\"Magnety, vložky, drobnosti\",\"parts\":[{\"part\":\"NdFeB disk magnet 5x2 mm (axiálne mag., N35–N52)\",\"status\":\"skladom\",\"offers\":[{\"shop\":\"TME (tme.eu/sk)\",\"url\":\"https://www.tme.eu/sk/details/gn55.2-nd-5-2/magnety/elesa-ganter/gn-55-2-nd-5-2/\",\"title\":\"GN 55.2-ND-5-2 ELESA+GANTER – Magnet: konštantný; neodymový; 4,5N; Ø: 5mm; H: 2mm\",\"price\":\"1,45 € /ks s DPH (od 5 ks 1,29 €, od 10 ks 1,1…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "overenie: serva",
+      "phaseIndex": 2,
+      "phaseTitle": "Overenie",
+      "agentId": "ae1b54275554f6b6c",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795701900894,
+      "queuedAt": 1795700754868,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Servá",
+      "promptPreview": "CONTEXT: NOVA mini desktop robot, built by a hobbyist in Slovakia. Binding user rule: bought parts must be COMMONLY available (a hardware store / fastener shop, or a common SK/CZ hobby, 3D-printing or electronics e-shop); AliExpress/Amazon only as a flagged backup; no special catalogue or made-to-order parts.\nThe session's network now allows these shop hosts (and nothing else except package regist…",
+      "promptFramed": true,
+      "lastProgressAt": 1795702220430,
+      "tokens": 143117,
+      "toolCalls": 39,
+      "durationMs": 319535,
+      "resultPreview": "{\"category\":\"Servá\",\"checked\":[{\"part\":\"Feetech SCS0009 / Waveshare SC09 (ruky, 2+1 ks) – LaskaKit\",\"url\":\"https://www.laskakit.cz/waveshare-sc09-serial-bus-servo-2-3kg/\",\"confirmed\":true,\"note\":\"Stránka znova otvorená (HTTP 200). H1 „Waveshare SC09 Serial Bus Servo 2.3kg“, kód LA143101, Black Friday 278 Kč −7 %. Rozmery 23.2×12.0×25.5mm, 300°/1024, VIN 4.8-8.4V, kovové prevody. Text balenia znie …"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "overenie: loziska",
+      "phaseIndex": 2,
+      "phaseTitle": "Overenie",
+      "agentId": "ab7f66ef50e819cc8",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795702220438,
+      "queuedAt": 1795701300678,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Ložiská",
+      "promptPreview": "CONTEXT: NOVA mini desktop robot, built by a hobbyist in Slovakia. Binding user rule: bought parts must be COMMONLY available (a hardware store / fastener shop, or a common SK/CZ hobby, 3D-printing or electronics e-shop); AliExpress/Amazon only as a flagged backup; no special catalogue or made-to-order parts.\nThe session's network now allows these shop hosts (and nothing else except package regist…",
+      "promptFramed": true,
+      "lastProgressAt": 1795703282651,
+      "tokens": 207946,
+      "toolCalls": 52,
+      "durationMs": 1062212,
+      "resultPreview": "{\"category\":\"Ložiská\",\"checked\":[{\"part\":\"MR63ZZ / 683ZZ – alternatíva 623 2Z\",\"url\":\"https://www.loziska-policka.cz/jednorada-kulickova-loziska/lozisko-623-2z-zkl/\",\"confirmed\":true,\"seen_price\":\"24 Kč / ks (20 Kč bez DPH)\",\"seen_stock_text\":\"Skladem (10 ks)\",\"note\":\"Názov stránky: 'Ložisko - 623 2Z ZKL'. Stránka uvádza 3 × 10 × 4 mm. Súhlasí.\"},{\"part\":\"MR63ZZ – alternatíva F623ZZ (Hadex, s prír…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 7,
+      "label": "overenie: skrutky",
+      "phaseIndex": 2,
+      "phaseTitle": "Overenie",
+      "agentId": "a776c4bb69e09884c",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795702464115,
+      "queuedAt": 1795701900947,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Skrutky a podložky",
+      "promptPreview": "CONTEXT: NOVA mini desktop robot, built by a hobbyist in Slovakia. Binding user rule: bought parts must be COMMONLY available (a hardware store / fastener shop, or a common SK/CZ hobby, 3D-printing or electronics e-shop); AliExpress/Amazon only as a flagged backup; no special catalogue or made-to-order parts.\nThe session's network now allows these shop hosts (and nothing else except package regist…",
+      "promptFramed": true,
+      "lastProgressAt": 1795703367895,
+      "tokens": 279551,
+      "toolCalls": 101,
+      "durationMs": 903780,
+      "resultPreview": "{\"category\":\"Skrutky a podložky\",\"checked\":[{\"part\":\"DIN 912 M4 (náhrada) / DIN 7984 M4 – LaskaKit DIN 6912 M4x16\",\"url\":\"https://www.laskakit.cz/sroub-valcova-hlava-m4x16-din-6912-8-8/\",\"confirmed\":true,\"note\":\"Stránka existuje. Titul presne „Šroub válcová hlava M4x16 DIN 6912 8.8“, Bossard, kód LA220022, 1 ks. Cena je akciová (Black Friday −13 %), bežná cena 3 Kč.\",\"seen_price\":\"2,60 Kč s DPH (2…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 8,
+      "label": "overenie: magnety_vlozky",
+      "phaseIndex": 2,
+      "phaseTitle": "Overenie",
+      "agentId": "a30230b3d5883b7ed",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795703282666,
+      "queuedAt": 1795702464185,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Magnety, vložky, drobnosti",
+      "promptPreview": "CONTEXT: NOVA mini desktop robot, built by a hobbyist in Slovakia. Binding user rule: bought parts must be COMMONLY available (a hardware store / fastener shop, or a common SK/CZ hobby, 3D-printing or electronics e-shop); AliExpress/Amazon only as a flagged backup; no special catalogue or made-to-order parts.\nThe session's network now allows these shop hosts (and nothing else except package regist…",
+      "promptFramed": true,
+      "lastProgressAt": 1795703891357,
+      "tokens": 206854,
+      "toolCalls": 48,
+      "durationMs": 608691,
+      "resultPreview": "{\"category\":\"Magnety, vložky, drobnosti\",\"checked\":[{\"part\":\"NdFeB disk magnet 5x2 mm\",\"url\":\"https://www.tme.eu/sk/details/gn55.2-nd-5-2/magnety/elesa-ganter/gn-55-2-nd-5-2/\",\"confirmed\":true,\"seen_price\":\"1,45 € s DPH/ks (od 5 ks 1,29 €, od 10 ks 1,17 €)\",\"seen_stock_text\":\"72 na sklade v TME\",\"note\":\"Stránka existuje. Názov GN 55.2-ND-5-2, Ø5 mm, H 2 mm, 4,5N, sedí. Vrecko po 10 (prePackUnits B…"
+    }
+  ],
+  "totalTokens": 1772490,
+  "totalToolCalls": 564
+}

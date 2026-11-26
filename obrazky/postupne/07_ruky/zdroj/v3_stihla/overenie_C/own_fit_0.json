@@ -1,0 +1,612 @@
+{
+ "M1": {
+  "option": "M1",
+  "title": "B1+ bez zmeny",
+  "parts": {
+   "PLG_cap": {
+    "role": "static",
+    "kind": "printed",
+    "req": 1.5,
+    "min_wall": 4.0,
+    "margin": 2.5,
+    "at": {
+     "x": 53.09,
+     "r": 3.5,
+     "az": 66.7,
+     "local": [
+      -7.45,
+      1.21,
+      -12.28
+     ]
+    },
+    "n_outside_outer": 0,
+    "n_outside_inner_trimmed": 0,
+    "seam_rel": [
+     -9.75,
+     -0.83
+    ],
+    "crosses_seam": false,
+    "dome_dist": 4.01,
+    "tip_plane_min": 27.7,
+    "ok": true
+   },
+   "PLG_doraz": {
+    "role": "static",
+    "kind": "printed",
+    "req": 1.5,
+    "min_wall": 4.0,
+    "margin": 2.5,
+    "at": {
+     "x": 53.63,
+     "r": 5.0,
+     "az": 21.4,
+     "local": [
+      -7.18,
+      4.55,
+      -13.58
+     ]
+    },
+    "n_outside_outer": 0,
+    "n_outside_inner_trimmed": 0,
+    "seam_rel": [
+     -10.09,
+     -5.66
+    ],
+    "crosses_seam": false,
+    "dome_dist": 4.6,
+    "tip_plane_min": 26.2,
+    "ok": true
+   },
+   "M4_DIN912_M4x20": {
+    "role": "drive",
+    "kind": "steel",
+    "req": 1.5,
+    "min_wall": 4.0,
+    "margin": 2.5,
+    "at": {
+     "x": 53.34,
+     "r": 2.0,
+     "az": 68.6,
+     "local": [
+      -7.5,
+      0.63,
+      -13.69
+     ]
+    },
+    "n_outside_outer": 0,
+    "n_outside_inner_trimmed": 0,
+    "seam_rel": [
+     -9.13,
+     3.26
+    ],
+    "crosses_seam": true,
+    "dome_dist": 5.62,
+    "tip_plane_min": 30.6,
+    "ok": true
+   },
+   "DRV_unasac": {
+    "role": "drive",
+    "kind": "printed",
+    "req": 1.5,
+    "min_wall": 3.761,
+    "margin": 2.261,
+    "at": {
+     "x": 65.9,
+     "r": 11.0,
+     "az": 15.9,
+     "local": [
+      5.14,
+      10.4,
+      -14.67
+     ]
+    },
+    "n_outside_outer": 0,
+    "n_outside_inner_trimmed": 0,
+    "seam_rel": [
+     -2.31,
+     6.68
+    ],
+    "crosses_seam": true,
+    "dome_dist": 4.18,
+    "tip_plane_min": 25.4,
+    "ok": true
+   },
+   "BRG_6700_vnut": {
+    "role": "static",
+    "kind": "steel",
+    "req": 1.5,
+    "min_wall": 4.0,
+    "margin": 2.5,
+    "at": {
+     "x": 55.5,
+     "r": 5.0,
+     "az": 0.0,
+     "local": [
+      -5.73,
+      4.99,
+      -15.74
+     ]
+    },
+    "n_outside_outer": 0,
+    "n_outside_inner_trimmed": 0,
+    "seam_rel": [
+     -6.99,
+     -0.66
+    ],
+    "crosses_seam": false,
+    "dome_dist": 6.81,
+    "tip_plane_min": 28.0,
+    "ok": true
+   },
+   "BRG_6700_vonk": {
+    "role": "arm",
+    "kind": "steel",
+    "req": 1.2,
+    "min_wall": 3.955,
+    "margin": 2.755,
+    "at": {
+     "x": 55.5,
+     "r": 7.5,
+     "az": 267.0,
+     "local": [
+      -7.34,
+      0.0,
+      -23.33
+     ]
+    },
+    "n_outside_outer": 0,
+    "n_outside_inner_trimmed": 0,
+    "seam_rel": [
+     -7.34,
+     -0.31
+    ],
+    "crosses_seam": false,
+    "dome_dist": 6.32,
+    "tip_plane_min": 26.4,
+    "ok": true
+   },
+   "ARM_rebro": {
+    "role": "arm",
+    "kind": "printed",
+    "req": 1.2,
+    "min_wall": 9.0,
+    "margin": 7.8,
+    "at": {
+     "x": 53.0,
+     "r": 5.5,
+     "az": 164.1,
+     "local": [
+      -7.97,
+      -5.36,
+      -14.27
+     ]
+    },
+    "n_outside_outer": 0,
+    "n_outside_inner_trimmed": 0,
+    "seam_rel": [
+     -8.82,
+     -5.87
+    ],
+    "crosses_seam": false,
+    "dome_dist": 5.36,
+    "tip_plane_min": 27.3,
+    "ok": true
+   },
+   "ARM_naboj": {
+    "role": "arm",
+    "kind": "printed",
+    "req": 1.2,
+    "min_wall": 1.36,
+    "margin": 0.16,
+    "at": {
+     "x": 67.6,
+     "r": 12.7,
+     "az": 158.3,
+     "local": [
+      6.9,
+      -12.03,
+      -14.54
+     ]
+    },
+    "n_outside_outer": 0,
+    "n_outside_inner_trimmed": 0,
+    "seam_rel": [
+     -10.24,
+     8.7
+    ],
+    "crosses_seam": true,
+    "dome_dist": 1.81,
+    "tip_plane_min": 22.8,
+    "ok": true
+   },
+   "ARM_podlozka_M10": {
+    "role": "arm",
+    "kind": "steel",
+    "req": 1.2,
+    "min_wall": 4.0,
+    "margin": 2.8,
+    "at": {
+     "x": 60.6,
+     "r": 5.25,
+     "az": 0.0,
+     "local": [
+      -0.73,
+      5.24,
+      -16.79
+     ]
+    },
+    "n_outside_outer": 0,
+    "n_outside_inner_trimmed": 0,
+    "seam_rel": [
+     -2.87,
+     3.24
+    ],
+    "crosses_seam": true,
+    "dome_dist": 7.27,
+    "tip_plane_min": 25.7,
+    "ok": true
+   },
+   "DRV_magnet_5x2_1": {
+    "role": "drive",
+    "kind": "magnet",
+    "req": 1.5,
+    "min_wall": 4.0,
+    "margin": 2.5,
+    "at": {
+     "x": 62.85,
+     "r": 10.2,
+     "az": 0.0,
+     "local": [
+      1.52,
+      10.19,
+      -17.0
+     ]
+    },
+    "n_outside_outer": 0,
+    "n_outside_inner_trimmed": 0,
+    "seam_rel": [
+     0.97,
+     3.97
+    ],
+    "crosses_seam": false,
+    "dome_dist": 8.4,
+    "tip_plane_min": 36.5,
+    "ok": true
+   },
+   "DRV_magnet_5x2_2": {
+    "role": "drive",
+    "kind": "magnet",
+    "req": 1.5,
+    "min_wall": 4.0,
+    "margin": 2.5,
+    "at": {
+     "x": 62.85,
+     "r": 9.63,
+     "az": 34.4,
+     "local": [
+      2.63,
+      7.65,
+      -11.8
+     ]
+    },
+    "n_outside_outer": 0,
+    "n_outside_inner_trimmed": 0,
+    "seam_rel": [
+     2.08,
+     5.08
+    ],
+    "crosses_seam": false,
+    "dome_dist": 5.52,
+    "tip_plane_min": 40.3,
+    "ok": true
+   },
+   "DRV_magnet_5x2_3": {
+    "role": "drive",
+    "kind": "magnet",
+    "req": 1.5,
+    "min_wall": 4.0,
+    "margin": 2.5,
+    "at": {
+     "x": 62.85,
+     "r": 8.1,
+     "az": 72.0,
+     "local": [
+      3.04,
+      2.09,
+      -9.87
+     ]
+    },
+    "n_outside_outer": 0,
+    "n_outside_inner_trimmed": 0,
+    "seam_rel": [
+     2.49,
+     5.48
+    ],
+    "crosses_seam": false,
+    "dome_dist": 5.61,
+    "tip_plane_min": 40.1,
+    "ok": true
+   },
+   "DRV_magnet_5x2_4": {
+    "role": "drive",
+    "kind": "magnet",
+    "req": 1.5,
+    "min_wall": 4.0,
+    "margin": 2.5,
+    "at": {
+     "x": 62.85,
+     "r": 6.19,
+     "az": 118.4,
+     "local": [
+      2.51,
+      -3.23,
+      -12.36
+     ]
+    },
+    "n_outside_outer": 0,
+    "n_outside_inner_trimmed": 0,
+    "seam_rel": [
+     1.96,
+     4.96
+    ],
+    "crosses_seam": false,
+    "dome_dist": 5.61,
+    "tip_plane_min": 36.0,
+    "ok": true
+   },
+   "DRV_magnet_5x2_5": {
+    "role": "drive",
+    "kind": "magnet",
+    "req": 1.5,
+    "min_wall": 4.0,
+    "margin": 2.5,
+    "at": {
+     "x": 62.85,
+     "r": 5.2,
+     "az": 180.0,
+     "local": [
+      1.35,
+      -5.19,
+      -17.79
+     ]
+    },
+    "n_outside_outer": 0,
+    "n_outside_inner_trimmed": 0,
+    "seam_rel": [
+     0.81,
+     3.8
+    ],
+    "crosses_seam": false,
+    "dome_dist": 9.11,
+    "tip_plane_min": 30.4,
+    "ok": true
+   },
+   "DRV_magnet_5x2_6": {
+    "role": "drive",
+    "kind": "magnet",
+    "req": 1.5,
+    "min_wall": 4.0,
+    "margin": 2.5,
+    "at": {
+     "x": 62.85,
+     "r": 6.19,
+     "az": 241.6,
+     "local": [
+      0.25,
+      -2.66,
+      -22.99
+     ]
+    },
+    "n_outside_outer": 0,
+    "n_outside_inner_trimmed": 0,
+    "seam_rel": [
+     -0.3,
+     2.7
+    ],
+    "crosses_seam": true,
+    "dome_dist": Infinity,
+    "tip_plane_min": 26.6,
+    "ok": true
+   },
+   "DRV_magnet_5x2_7": {
+    "role": "drive",
+    "kind": "magnet",
+    "req": 1.5,
+    "min_wall": 4.0,
+    "margin": 2.5,
+    "at": {
+     "x": 62.85,
+     "r": 8.1,
+     "az": 288.0,
+     "local": [
+      -0.16,
+      2.9,
+      -24.92
+     ]
+    },
+    "n_outside_outer": 0,
+    "n_outside_inner_trimmed": 0,
+    "seam_rel": [
+     -0.71,
+     2.29
+    ],
+    "crosses_seam": true,
+    "dome_dist": Infinity,
+    "tip_plane_min": 26.9,
+    "ok": true
+   },
+   "DRV_magnet_5x2_8": {
+    "role": "drive",
+    "kind": "magnet",
+    "req": 1.5,
+    "min_wall": 4.0,
+    "margin": 2.5,
+    "at": {
+     "x": 62.85,
+     "r": 9.63,
+     "az": 325.6,
+     "local": [
+      0.37,
+      8.22,
+      -22.43
+     ]
+    },
+    "n_outside_outer": 0,
+    "n_outside_inner_trimmed": 0,
+    "seam_rel": [
+     -0.18,
+     2.81
+    ],
+    "crosses_seam": false,
+    "dome_dist": Infinity,
+    "tip_plane_min": 31.0,
+    "ok": true
+   }
+  },
+  "pairs": {
+   "PLG_kruzok | M4_DIN912_M4x20": 1.5,
+   "PLG_kruzok | DRV_unasac": 7.5,
+   "PLG_kruzok | BRG_6700_vonk": 3.0,
+   "PLG_kruzok | ARM_rebro": 0.5,
+   "PLG_kruzok | ARM_naboj": 2.062,
+   "PLG_kruzok | ARM_podlozka_M10": 8.1,
+   "PLG_kruzok | DRV_magnet_5x2_1": 10.35,
+   "PLG_kruzok | DRV_magnet_5x2_2": 10.35,
+   "PLG_kruzok | DRV_magnet_5x2_3": 10.35,
+   "PLG_kruzok | DRV_magnet_5x2_4": 10.35,
+   "PLG_kruzok | DRV_magnet_5x2_5": 10.35,
+   "PLG_kruzok | DRV_magnet_5x2_6": 10.35,
+   "PLG_kruzok | DRV_magnet_5x2_7": 10.35,
+   "PLG_kruzok | DRV_magnet_5x2_8": 10.35,
+   "PLG_cap | M4_DIN912_M4x20": 0.5,
+   "PLG_cap | DRV_unasac": 0.5,
+   "PLG_cap | BRG_6700_vonk": 0.8,
+   "PLG_cap | ARM_rebro": 0.5,
+   "PLG_cap | ARM_naboj": 0.5,
+   "PLG_cap | ARM_podlozka_M10": 1.128,
+   "PLG_cap | DRV_magnet_5x2_1": 3.356,
+   "PLG_cap | DRV_magnet_5x2_2": 3.356,
+   "PLG_cap | DRV_magnet_5x2_3": 3.356,
+   "PLG_cap | DRV_magnet_5x2_4": 3.356,
+   "PLG_cap | DRV_magnet_5x2_5": 3.356,
+   "PLG_cap | DRV_magnet_5x2_6": 3.356,
+   "PLG_cap | DRV_magnet_5x2_7": 3.356,
+   "PLG_cap | DRV_magnet_5x2_8": 3.356,
+   "PLG_doraz | M4_DIN912_M4x20": 3.0,
+   "PLG_doraz | DRV_unasac": 5.025,
+   "PLG_doraz | BRG_6700_vonk": 0.5,
+   "PLG_doraz | ARM_rebro": 0.532,
+   "PLG_doraz | ARM_naboj": 1.03,
+   "PLG_doraz | ARM_podlozka_M10": 5.6,
+   "PLG_doraz | DRV_magnet_5x2_1": 7.85,
+   "PLG_doraz | DRV_magnet_5x2_2": 7.85,
+   "PLG_doraz | DRV_magnet_5x2_3": 7.85,
+   "PLG_doraz | DRV_magnet_5x2_4": 7.85,
+   "PLG_doraz | DRV_magnet_5x2_5": 7.85,
+   "PLG_doraz | DRV_magnet_5x2_6": 7.85,
+   "PLG_doraz | DRV_magnet_5x2_7": 7.85,
+   "PLG_doraz | DRV_magnet_5x2_8": 7.85,
+   "M4_DIN912_M4x20 | BRG_6700_vnut": 1.581,
+   "M4_DIN912_M4x20 | BRG_6700_vonk": 2.354,
+   "M4_DIN912_M4x20 | ARM_rebro": 3.5,
+   "M4_DIN912_M4x20 | ARM_naboj": 1.5,
+   "M4_DIN912_M4x20 | ARM_podlozka_M10": 1.75,
+   "DRV_unasac | BRG_6700_vnut": 0.707,
+   "DRV_unasac | BRG_6700_vonk": 1.393,
+   "DRV_unasac | ARM_rebro": 5.099,
+   "DRV_unasac | ARM_naboj": 0.5,
+   "BRG_6700_vnut | ARM_rebro": 0.5,
+   "BRG_6700_vnut | ARM_naboj": 0.5,
+   "BRG_6700_vnut | ARM_podlozka_M10": 1.1,
+   "BRG_6700_vnut | DRV_magnet_5x2_1": 3.35,
+   "BRG_6700_vnut | DRV_magnet_5x2_2": 3.35,
+   "BRG_6700_vnut | DRV_magnet_5x2_3": 3.35,
+   "BRG_6700_vnut | DRV_magnet_5x2_4": 3.35,
+   "BRG_6700_vnut | DRV_magnet_5x2_5": 3.35,
+   "BRG_6700_vnut | DRV_magnet_5x2_6": 3.35,
+   "BRG_6700_vnut | DRV_magnet_5x2_7": 3.35,
+   "BRG_6700_vnut | DRV_magnet_5x2_8": 3.35,
+   "BRG_6700_vonk | DRV_magnet_5x2_1": 3.35,
+   "BRG_6700_vonk | DRV_magnet_5x2_2": 3.35,
+   "BRG_6700_vonk | DRV_magnet_5x2_3": 3.35,
+   "BRG_6700_vonk | DRV_magnet_5x2_4": 3.35,
+   "BRG_6700_vonk | DRV_magnet_5x2_5": 3.35,
+   "BRG_6700_vonk | DRV_magnet_5x2_6": 3.35,
+   "BRG_6700_vonk | DRV_magnet_5x2_7": 3.35,
+   "BRG_6700_vonk | DRV_magnet_5x2_8": 3.35,
+   "ARM_rebro | DRV_magnet_5x2_1": 7.85,
+   "ARM_rebro | DRV_magnet_5x2_2": 7.85,
+   "ARM_rebro | DRV_magnet_5x2_3": 7.85,
+   "ARM_rebro | DRV_magnet_5x2_4": 7.85,
+   "ARM_rebro | DRV_magnet_5x2_5": 7.85,
+   "ARM_rebro | DRV_magnet_5x2_6": 7.85,
+   "ARM_rebro | DRV_magnet_5x2_7": 7.85,
+   "ARM_rebro | DRV_magnet_5x2_8": 7.85,
+   "ARM_naboj | DRV_magnet_5x2_1": 1.3,
+   "ARM_naboj | DRV_magnet_5x2_2": 1.3,
+   "ARM_naboj | DRV_magnet_5x2_3": 1.3,
+   "ARM_naboj | DRV_magnet_5x2_4": 1.3,
+   "ARM_naboj | DRV_magnet_5x2_5": 1.3,
+   "ARM_naboj | DRV_magnet_5x2_6": 1.3,
+   "ARM_naboj | DRV_magnet_5x2_7": 1.3,
+   "ARM_naboj | DRV_magnet_5x2_8": 1.3,
+   "ARM_podlozka_M10 | DRV_magnet_5x2_1": 0.25,
+   "ARM_podlozka_M10 | DRV_magnet_5x2_2": 0.25,
+   "ARM_podlozka_M10 | DRV_magnet_5x2_3": 0.25,
+   "ARM_podlozka_M10 | DRV_magnet_5x2_4": 0.25,
+   "ARM_podlozka_M10 | DRV_magnet_5x2_5": 0.25,
+   "ARM_podlozka_M10 | DRV_magnet_5x2_6": 0.25,
+   "ARM_podlozka_M10 | DRV_magnet_5x2_7": 0.25,
+   "ARM_podlozka_M10 | DRV_magnet_5x2_8": 0.25
+  },
+  "stop": {
+   "overlap_x": [
+    53.0,
+    55.0
+   ],
+   "overlap_r": [
+    5.5,
+    6.6
+   ],
+   "ang_gap_deg": {
+    "-51.0": 0.05,
+    "-45.0": 6.05,
+    "135.0": 5.55,
+    "140.5": 0.05
+   },
+   "arc_gap_analytic": {
+    "-51.0": 0.005,
+    "-45.0": 0.58,
+    "135.0": 0.533,
+    "140.5": 0.005
+   },
+   "gap_numeric": {
+    "-51.0": 0.021,
+    "-45.0": 0.58,
+    "135.0": 0.532,
+    "140.5": 0.021
+   },
+   "ok": true
+  },
+  "min_pair": {
+   "pair": "ARM_podlozka_M10 | DRV_magnet_5x2_1",
+   "gap": 0.25,
+   "ok": false
+  },
+  "fits": false,
+  "governing": {
+   "part": "ARM_naboj",
+   "margin": 0.16,
+   "at": {
+    "x": 67.6,
+    "r": 12.7,
+    "az": 158.3,
+    "local": [
+     6.9,
+     -12.03,
+     -14.54
+    ]
+   }
+  }
+ }
+}

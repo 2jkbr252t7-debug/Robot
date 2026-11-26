@@ -1,0 +1,1440 @@
+{
+ "frame": "B: mm, Z up, front -Y, robot left +X; LEFT arm at rest; right = mirror x -> -x; shoulder axis || X through (y 3, z -17)",
+ "note": "magnet pockets are not cut out of the drive hub mesh (magnets overlap it)",
+ "options": {
+  "M1": {
+   "PLG_kruzok": {
+    "role": "static",
+    "kind": "printed",
+    "color": "black",
+    "valid": true,
+    "volume": 635.61,
+    "bbox": [
+     45.756,
+     -3.5,
+     -23.5,
+     52.5,
+     9.5,
+     -10.5
+    ],
+    "note": "plug ring D13 (visible in the gap), kept"
+   },
+   "PLG_cap": {
+    "role": "static",
+    "kind": "printed",
+    "color": "black",
+    "valid": true,
+    "volume": 363.33,
+    "bbox": [
+     52.5,
+     -2.0,
+     -22.0,
+     59.5,
+     8.0,
+     -12.0
+    ],
+    "note": "seat D10 x 52.5..59.5, D7 bore for A2, bore D5"
+   },
+   "PLG_doraz": {
+    "role": "static",
+    "kind": "printed",
+    "color": "black",
+    "valid": true,
+    "volume": 54.95,
+    "bbox": [
+     52.5,
+     0.506,
+     -23.6,
+     55.0,
+     9.6,
+     -14.368
+    ],
+    "note": "stop lug on the seat"
+   },
+   "BRG_A2_MR74": {
+    "role": "torso",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 64.8,
+    "bbox": [
+     52.6,
+     -0.5,
+     -20.5,
+     55.1,
+     6.5,
+     -13.5
+    ],
+    "note": "MR74 A2 inside the seat (torso drive)"
+   },
+   "M4_DIN912_M4x20": {
+    "role": "drive",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 248.19,
+    "bbox": [
+     52.5,
+     -0.5,
+     -20.5,
+     64.0,
+     6.5,
+     -13.5
+    ],
+    "note": "arm shaft, head x 60..64"
+   },
+   "DRV_unasac": {
+    "role": "drive",
+    "kind": "printed",
+    "color": "grey",
+    "valid": true,
+    "volume": 1265.9,
+    "bbox": [
+     60.0,
+     -8.0,
+     -28.0,
+     65.9,
+     14.0,
+     -6.0
+    ],
+    "note": "drive hub: pocket on the M4 head + disc r 11 with 8 pockets"
+   },
+   "BRG_6700_vnut": {
+    "role": "static",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 108.57,
+    "bbox": [
+     55.5,
+     -2.8,
+     -22.8,
+     59.5,
+     8.8,
+     -11.2
+    ],
+    "note": "6700ZZ inner ring (slides on the seat)"
+   },
+   "BRG_6700_vonk": {
+    "role": "arm",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 284.13,
+    "bbox": [
+     55.5,
+     -4.5,
+     -24.5,
+     59.5,
+     10.5,
+     -9.5
+    ],
+    "note": "6700ZZ outer ring + shields (epoxied in the hub)"
+   },
+   "ARM_rebro": {
+    "role": "arm",
+    "kind": "printed",
+    "color": "white",
+    "valid": true,
+    "volume": 23.97,
+    "bbox": [
+     53.0,
+     -5.5,
+     -19.45,
+     55.0,
+     -2.267,
+     -14.664
+    ],
+    "note": "stop rib"
+   },
+   "ARM_naboj": {
+    "role": "arm",
+    "kind": "printed",
+    "color": "white",
+    "valid": true,
+    "volume": 1557.86,
+    "bbox": [
+     53.0,
+     -9.7,
+     -29.7,
+     67.6,
+     15.7,
+     -4.3
+    ],
+    "note": "arm hub: bearing bore, flange, wall r 11.5..12.7, lip ring"
+   },
+   "ARM_podlozka_M10": {
+    "role": "arm",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 455.14,
+    "bbox": [
+     60.6,
+     -7.0,
+     -27.0,
+     62.6,
+     13.0,
+     -7.0
+    ],
+    "note": "DIN 125 M10 10.5x20x2 (friction partner)"
+   },
+   "DRV_magnet_5x2_1": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 39.27,
+    "bbox": [
+     62.85,
+     8.2,
+     -19.5,
+     64.85,
+     13.2,
+     -14.5
+    ],
+    "note": "NdFeB 5x2 axial"
+   },
+   "DRV_magnet_5x2_2": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 39.27,
+    "bbox": [
+     62.85,
+     5.945,
+     -14.055,
+     64.85,
+     10.945,
+     -9.055
+    ],
+    "note": "NdFeB 5x2 axial"
+   },
+   "DRV_magnet_5x2_3": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 39.27,
+    "bbox": [
+     62.85,
+     0.5,
+     -11.8,
+     64.85,
+     5.5,
+     -6.8
+    ],
+    "note": "NdFeB 5x2 axial"
+   },
+   "DRV_magnet_5x2_4": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 39.27,
+    "bbox": [
+     62.85,
+     -4.945,
+     -14.055,
+     64.85,
+     0.055,
+     -9.055
+    ],
+    "note": "NdFeB 5x2 axial"
+   },
+   "DRV_magnet_5x2_5": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 39.27,
+    "bbox": [
+     62.85,
+     -7.2,
+     -19.5,
+     64.85,
+     -2.2,
+     -14.5
+    ],
+    "note": "NdFeB 5x2 axial"
+   },
+   "DRV_magnet_5x2_6": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 39.27,
+    "bbox": [
+     62.85,
+     -4.945,
+     -24.945,
+     64.85,
+     0.055,
+     -19.945
+    ],
+    "note": "NdFeB 5x2 axial"
+   },
+   "DRV_magnet_5x2_7": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 39.27,
+    "bbox": [
+     62.85,
+     0.5,
+     -27.2,
+     64.85,
+     5.5,
+     -22.2
+    ],
+    "note": "NdFeB 5x2 axial"
+   },
+   "DRV_magnet_5x2_8": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 39.27,
+    "bbox": [
+     62.85,
+     5.945,
+     -24.945,
+     64.85,
+     10.945,
+     -19.945
+    ],
+    "note": "NdFeB 5x2 axial"
+   }
+  },
+  "M2": {
+   "PLG_kruzok": {
+    "role": "static",
+    "kind": "printed",
+    "color": "black",
+    "valid": true,
+    "volume": 635.61,
+    "bbox": [
+     45.756,
+     -3.5,
+     -23.5,
+     52.5,
+     9.5,
+     -10.5
+    ],
+    "note": "plug ring D13 (visible in the gap), kept"
+   },
+   "PLG_cap": {
+    "role": "static",
+    "kind": "printed",
+    "color": "black",
+    "valid": true,
+    "volume": 256.28,
+    "bbox": [
+     52.5,
+     -2.0,
+     -22.0,
+     58.6,
+     8.0,
+     -12.0
+    ],
+    "note": "seat D10 x 52.5..58.6, A2 + shoulder as B1+, D7.6 counterbore x 56.5..58.6 for the M4 head"
+   },
+   "PLG_doraz": {
+    "role": "static",
+    "kind": "printed",
+    "color": "black",
+    "valid": true,
+    "volume": 44.26,
+    "bbox": [
+     52.5,
+     0.468,
+     -23.7,
+     54.6,
+     9.7,
+     -14.328
+    ],
+    "note": "stop lug r 5.0..6.7 x 52.5..54.3 + step r 5.0..5.5 to x 54.6 (6700 inner ring rests on it)"
+   },
+   "BRG_A2_MR74": {
+    "role": "torso",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 64.8,
+    "bbox": [
+     52.6,
+     -0.5,
+     -20.5,
+     55.1,
+     6.5,
+     -13.5
+    ],
+    "note": "MR74 A2 unchanged"
+   },
+   "M4_DIN912_M4x16": {
+    "role": "drive",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 210.49,
+    "bbox": [
+     52.5,
+     -0.5,
+     -20.5,
+     61.0,
+     6.5,
+     -13.5
+    ],
+    "note": "DIN 912 M4x16 8.8, head x 57..61 (tip x 41.0), 1.6 of the head inside the seat counterbore"
+   },
+   "DRV_unasac": {
+    "role": "drive",
+    "kind": "printed",
+    "color": "grey",
+    "valid": true,
+    "volume": 972.58,
+    "bbox": [
+     58.9,
+     -11.25,
+     -31.25,
+     62.2,
+     17.25,
+     -2.75
+    ],
+    "note": "drive hub: ring pressed on the head (x 58.9..61.0) + cap with 3 AF key; disc 1.45 thick (skin 0.25), 10 pockets D5.1 x 1.2"
+   },
+   "BRG_6700_vnut": {
+    "role": "static",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 108.57,
+    "bbox": [
+     54.6,
+     -2.8,
+     -22.8,
+     58.6,
+     8.8,
+     -11.2
+    ],
+    "note": "6700ZZ inner ring"
+   },
+   "BRG_6700_vonk": {
+    "role": "arm",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 284.13,
+    "bbox": [
+     54.6,
+     -4.5,
+     -24.5,
+     58.6,
+     10.5,
+     -9.5
+    ],
+    "note": "6700ZZ outer ring + shields"
+   },
+   "ARM_rebro": {
+    "role": "arm",
+    "kind": "printed",
+    "color": "white",
+    "valid": true,
+    "volume": 18.9,
+    "bbox": [
+     52.8,
+     -5.5,
+     -19.45,
+     54.3,
+     -2.075,
+     -14.664
+    ],
+    "note": "stop rib r 5.3..8.5 x 52.8..54.3"
+   },
+   "ARM_naboj": {
+    "role": "arm",
+    "kind": "printed",
+    "color": "white",
+    "valid": true,
+    "volume": 753.68,
+    "bbox": [
+     52.8,
+     -11.3,
+     -31.3,
+     56.4,
+     17.3,
+     -2.7
+    ],
+    "note": "arm hub (part of A_vnut): bearing bore + washer backing"
+   },
+   "ARM_podlozka_M14": {
+    "role": "arm",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 1097.59,
+    "bbox": [
+     56.4,
+     -11.0,
+     -31.0,
+     58.9,
+     17.0,
+     -3.0
+    ],
+    "note": "DIN 125 M14 15x28x2.5 ZINC-PLATED STEEL (not A2), epoxied on the 6700 outer ring: friction partner"
+   },
+   "DRV_magnet_5x1_1": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     59.15,
+     11.0,
+     -19.5,
+     60.15,
+     16.0,
+     -14.5
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_2": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     59.15,
+     8.995,
+     -13.328,
+     60.15,
+     13.995,
+     -8.328
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_3": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     59.15,
+     3.745,
+     -9.514,
+     60.15,
+     8.745,
+     -4.514
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_4": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     59.15,
+     -2.745,
+     -9.514,
+     60.15,
+     2.255,
+     -4.514
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_5": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     59.15,
+     -7.995,
+     -13.328,
+     60.15,
+     -2.995,
+     -8.328
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_6": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     59.15,
+     -10.0,
+     -19.5,
+     60.15,
+     -5.0,
+     -14.5
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_7": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     59.15,
+     -7.995,
+     -25.672,
+     60.15,
+     -2.995,
+     -20.672
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_8": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     59.15,
+     -2.745,
+     -29.486,
+     60.15,
+     2.255,
+     -24.486
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_9": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     59.15,
+     3.745,
+     -29.486,
+     60.15,
+     8.745,
+     -24.486
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_10": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     59.15,
+     8.995,
+     -25.672,
+     60.15,
+     13.995,
+     -20.672
+    ],
+    "note": "NdFeB 5x1 axial"
+   }
+  },
+  "M2b": {
+   "PLG_kruzok": {
+    "role": "static",
+    "kind": "printed",
+    "color": "black",
+    "valid": true,
+    "volume": 643.15,
+    "bbox": [
+     45.756,
+     -3.5,
+     -23.5,
+     52.5,
+     9.5,
+     -10.5
+    ],
+    "note": "plug ring D13 (visible in the gap), kept"
+   },
+   "PLG_cap": {
+    "role": "static",
+    "kind": "printed",
+    "color": "black",
+    "valid": true,
+    "volume": 225.59,
+    "bbox": [
+     52.5,
+     -2.0,
+     -22.0,
+     58.1,
+     8.0,
+     -12.0
+    ],
+    "note": "seat D10 at the root (x 52.5..54.3, stop zone), shoulder r 4.4 for the MR128 inner ring, D8 x 54.6..58.1, bore D5"
+   },
+   "PLG_doraz": {
+    "role": "static",
+    "kind": "printed",
+    "color": "black",
+    "valid": true,
+    "volume": 42.4,
+    "bbox": [
+     52.5,
+     0.468,
+     -23.7,
+     54.3,
+     9.7,
+     -14.328
+    ],
+    "note": "stop lug r 5.0..6.7 x 52.5..54.3"
+   },
+   "BRG_A2_MR74": {
+    "role": "torso",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 64.8,
+    "bbox": [
+     49.6,
+     -0.5,
+     -20.5,
+     52.1,
+     6.5,
+     -13.5
+    ],
+    "note": "MR74 A2 moved 3.0 inboard into the ring"
+   },
+   "M4_DIN7984_M4x20": {
+    "role": "drive",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 188.18,
+    "bbox": [
+     52.5,
+     -0.5,
+     -20.5,
+     61.7,
+     6.5,
+     -13.5
+    ],
+    "note": "DIN 7984 M4x20 (low head k 2.8), head x 58.9..61.7, tip x 38.9"
+   },
+   "DRV_unasac": {
+    "role": "drive",
+    "kind": "printed",
+    "color": "grey",
+    "valid": true,
+    "volume": 854.51,
+    "bbox": [
+     58.4,
+     -10.0,
+     -30.0,
+     62.9,
+     16.0,
+     -4.0
+    ],
+    "note": "drive hub: ring on the head + cap with 2.5 AF key; disc 1.45, 9 pockets"
+   },
+   "BRG_MR128_vnut": {
+    "role": "static",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 66.96,
+    "bbox": [
+     54.6,
+     -1.7,
+     -21.7,
+     58.1,
+     7.7,
+     -12.3
+    ],
+    "note": "MR128ZZ inner ring"
+   },
+   "BRG_MR128_vonk": {
+    "role": "arm",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 152.95,
+    "bbox": [
+     54.6,
+     -3.0,
+     -23.0,
+     58.1,
+     9.0,
+     -11.0
+    ],
+    "note": "MR128ZZ outer ring + shields"
+   },
+   "ARM_rebro": {
+    "role": "arm",
+    "kind": "printed",
+    "color": "white",
+    "valid": true,
+    "volume": 22.68,
+    "bbox": [
+     52.8,
+     -5.5,
+     -19.45,
+     54.6,
+     -2.075,
+     -14.664
+    ],
+    "note": "stop rib r 5.3..8.5 x 52.8..54.6"
+   },
+   "ARM_naboj": {
+    "role": "arm",
+    "kind": "printed",
+    "color": "white",
+    "valid": true,
+    "volume": 576.38,
+    "bbox": [
+     52.8,
+     -9.3,
+     -29.3,
+     55.9,
+     15.3,
+     -4.7
+    ],
+    "note": "arm hub: bearing bore + washer backing"
+   },
+   "ARM_podlozka_M12": {
+    "role": "arm",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 799.14,
+    "bbox": [
+     55.9,
+     -9.0,
+     -29.0,
+     58.4,
+     15.0,
+     -5.0
+    ],
+    "note": "DIN 125 M12 13x24x2.5 zinc steel around the MR128 (0.5 epoxy ring)"
+   },
+   "DRV_magnet_5x1_1": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     58.65,
+     9.75,
+     -19.5,
+     59.65,
+     14.75,
+     -14.5
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_2": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     58.65,
+     7.586,
+     -13.554,
+     59.65,
+     12.586,
+     -8.554
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_3": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     58.65,
+     2.106,
+     -10.391,
+     59.65,
+     7.106,
+     -5.391
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_4": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     58.65,
+     -4.125,
+     -11.489,
+     59.65,
+     0.875,
+     -6.489
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_5": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     58.65,
+     -8.192,
+     -16.336,
+     59.65,
+     -3.192,
+     -11.336
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_6": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     58.65,
+     -8.192,
+     -22.664,
+     59.65,
+     -3.192,
+     -17.664
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_7": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     58.65,
+     -4.125,
+     -27.511,
+     59.65,
+     0.875,
+     -22.511
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_8": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     58.65,
+     2.106,
+     -28.609,
+     59.65,
+     7.106,
+     -23.609
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_9": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     58.65,
+     7.586,
+     -25.446,
+     59.65,
+     12.586,
+     -20.446
+    ],
+    "note": "NdFeB 5x1 axial"
+   }
+  },
+  "M3": {
+   "PLG_kruzok": {
+    "role": "static",
+    "kind": "printed",
+    "color": "black",
+    "valid": true,
+    "volume": 635.61,
+    "bbox": [
+     45.756,
+     -3.5,
+     -23.5,
+     52.5,
+     9.5,
+     -10.5
+    ],
+    "note": "plug ring D13 (visible in the gap), kept"
+   },
+   "PLG_cap": {
+    "role": "static",
+    "kind": "printed",
+    "color": "black",
+    "valid": true,
+    "volume": 256.28,
+    "bbox": [
+     52.5,
+     -2.0,
+     -22.0,
+     58.6,
+     8.0,
+     -12.0
+    ],
+    "note": "seat as M2"
+   },
+   "PLG_doraz": {
+    "role": "static",
+    "kind": "printed",
+    "color": "black",
+    "valid": true,
+    "volume": 44.26,
+    "bbox": [
+     52.5,
+     0.468,
+     -23.7,
+     54.6,
+     9.7,
+     -14.328
+    ],
+    "note": "stop lug as M2"
+   },
+   "BRG_A2_MR74": {
+    "role": "torso",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 64.8,
+    "bbox": [
+     52.6,
+     -0.5,
+     -20.5,
+     55.1,
+     6.5,
+     -13.5
+    ],
+    "note": ""
+   },
+   "M4_DIN912_M4x16": {
+    "role": "drive",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 210.49,
+    "bbox": [
+     52.5,
+     -0.5,
+     -20.5,
+     61.0,
+     6.5,
+     -13.5
+    ],
+    "note": "keyed rigidly to the arm hub (no clutch in the arm)"
+   },
+   "BRG_6700_vnut": {
+    "role": "static",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 108.57,
+    "bbox": [
+     54.6,
+     -2.8,
+     -22.8,
+     58.6,
+     8.8,
+     -11.2
+    ],
+    "note": ""
+   },
+   "BRG_6700_vonk": {
+    "role": "arm",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 284.13,
+    "bbox": [
+     54.6,
+     -4.5,
+     -24.5,
+     58.6,
+     10.5,
+     -9.5
+    ],
+    "note": ""
+   },
+   "ARM_rebro": {
+    "role": "arm",
+    "kind": "printed",
+    "color": "white",
+    "valid": true,
+    "volume": 18.9,
+    "bbox": [
+     52.8,
+     -5.5,
+     -19.45,
+     54.3,
+     -2.075,
+     -14.664
+    ],
+    "note": ""
+   },
+   "ARM_naboj": {
+    "role": "arm",
+    "kind": "printed",
+    "color": "white",
+    "valid": true,
+    "volume": 771.06,
+    "bbox": [
+     52.8,
+     -6.7,
+     -26.7,
+     62.2,
+     12.7,
+     -7.3
+    ],
+    "note": "arm hub with a web over the 6700 and a cap keyed on the M4 head (hex 3 AF + press ring)"
+   }
+  },
+  "M4": {
+   "PLG_kruzok": {
+    "role": "static",
+    "kind": "printed",
+    "color": "black",
+    "valid": true,
+    "volume": 643.15,
+    "bbox": [
+     45.756,
+     -3.5,
+     -23.5,
+     52.5,
+     9.5,
+     -10.5
+    ],
+    "note": "plug ring D13 (visible in the gap), kept"
+   },
+   "PLG_cap": {
+    "role": "static",
+    "kind": "printed",
+    "color": "black",
+    "valid": true,
+    "volume": 211.57,
+    "bbox": [
+     52.5,
+     -2.5,
+     -22.5,
+     57.0,
+     8.5,
+     -11.5
+    ],
+    "note": "seat D10 x 52.5..56.8, shoulder ring for the 6700, D7.6 counterbore from 54.4"
+   },
+   "BRG_A2_MR74": {
+    "role": "torso",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 64.8,
+    "bbox": [
+     49.6,
+     -0.5,
+     -20.5,
+     52.1,
+     6.5,
+     -13.5
+    ],
+    "note": "MR74 A2 moved 3.0 inboard into the ring"
+   },
+   "M4_DIN912_M4x16": {
+    "role": "drive",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 186.61,
+    "bbox": [
+     52.5,
+     -0.5,
+     -20.5,
+     59.1,
+     6.5,
+     -13.5
+    ],
+    "note": "DIN 912 M4x16, head x 55.1..59.1 (tip x 39.1)"
+   },
+   "DRV_unasac": {
+    "role": "drive",
+    "kind": "printed",
+    "color": "grey",
+    "valid": true,
+    "volume": 963.31,
+    "bbox": [
+     57.3,
+     -11.25,
+     -31.25,
+     60.3,
+     17.25,
+     -2.75
+    ],
+    "note": "drive hub as M2, 1.5 lower"
+   },
+   "BRG_6700_vnut": {
+    "role": "static",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 108.57,
+    "bbox": [
+     53.0,
+     -2.8,
+     -22.8,
+     57.0,
+     8.8,
+     -11.2
+    ],
+    "note": ""
+   },
+   "BRG_6700_vonk": {
+    "role": "arm",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 284.13,
+    "bbox": [
+     53.0,
+     -4.5,
+     -24.5,
+     57.0,
+     10.5,
+     -9.5
+    ],
+    "note": ""
+   },
+   "ARM_naboj": {
+    "role": "arm",
+    "kind": "printed",
+    "color": "white",
+    "valid": true,
+    "volume": 595.5,
+    "bbox": [
+     53.0,
+     -11.3,
+     -31.3,
+     54.8,
+     17.3,
+     -2.7
+    ],
+    "note": "arm hub"
+   },
+   "ARM_podlozka_M14": {
+    "role": "arm",
+    "kind": "steel",
+    "color": "steel",
+    "valid": true,
+    "volume": 1097.59,
+    "bbox": [
+     54.8,
+     -11.0,
+     -31.0,
+     57.3,
+     17.0,
+     -3.0
+    ],
+    "note": "DIN 125 M14 on the 6700 outer ring"
+   },
+   "ARM_hall_magnet_3x2": {
+    "role": "arm",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 8.48,
+    "bbox": [
+     53.6,
+     -7.5,
+     -18.5,
+     54.8,
+     -4.5,
+     -15.5
+    ],
+    "note": "homing magnet for a Hall sensor in the plug ring - placement indicative only, not checked"
+   },
+   "DRV_magnet_5x1_1": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     57.55,
+     11.0,
+     -19.5,
+     58.55,
+     16.0,
+     -14.5
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_2": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     57.55,
+     8.995,
+     -13.328,
+     58.55,
+     13.995,
+     -8.328
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_3": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     57.55,
+     3.745,
+     -9.514,
+     58.55,
+     8.745,
+     -4.514
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_4": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     57.55,
+     -2.745,
+     -9.514,
+     58.55,
+     2.255,
+     -4.514
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_5": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     57.55,
+     -7.995,
+     -13.328,
+     58.55,
+     -2.995,
+     -8.328
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_6": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     57.55,
+     -10.0,
+     -19.5,
+     58.55,
+     -5.0,
+     -14.5
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_7": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     57.55,
+     -7.995,
+     -25.672,
+     58.55,
+     -2.995,
+     -20.672
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_8": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     57.55,
+     -2.745,
+     -29.486,
+     58.55,
+     2.255,
+     -24.486
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_9": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     57.55,
+     3.745,
+     -29.486,
+     58.55,
+     8.745,
+     -24.486
+    ],
+    "note": "NdFeB 5x1 axial"
+   },
+   "DRV_magnet_5x1_10": {
+    "role": "drive",
+    "kind": "magnet",
+    "color": "magnet",
+    "valid": true,
+    "volume": 19.63,
+    "bbox": [
+     57.55,
+     8.995,
+     -25.672,
+     58.55,
+     13.995,
+     -20.672
+    ],
+    "note": "NdFeB 5x1 axial"
+   }
+  }
+ }
+}

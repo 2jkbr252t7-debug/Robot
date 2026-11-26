@@ -1,0 +1,52 @@
+arm samples 2268915 2s
+M1 PLG_cap                both out 0 cover 2.5 inner 2.5 ok
+M1 PLG_doraz              inner out 0 cover 2.5 inner 2.5 ok
+M1 M4_DIN912_M4x20        both out 0 cover -0.734 inner 2.5 NO
+M1 DRV_unasac             both out 59093 cover -4.303 inner -4.303 NO
+M1 BRG_6700_vnut          both out 0 cover 2.5 inner 2.5 ok
+M1 BRG_6700_vonk          both out 0 cover 2.8 inner 2.757 ok
+M1 ARM_rebro              inner out 0 cover 2.8 inner None ok
+M1 ARM_naboj              both out 108844 cover -5.2 inner None NO
+M1 ARM_podlozka_M10       both out 0 cover -0.556 inner 2.8 NO
+M1 DRV_magnet_5x2_1       cover out 26922 cover -3.084 inner -3.084 NO
+M1 DOES NOT FIT {'margin': -5.2, 'part': 'ARM_naboj', 'side': 'cover'} 16s
+M2 PLG_cap                both out 0 cover 2.5 inner 2.5 ok
+M2 PLG_doraz              inner out 0 cover 2.5 inner 2.5 ok
+M2 M4_DIN912_M4x16        both out 0 cover 2.198 inner 2.5 ok
+M2 DRV_unasac             both out 0 cover -1.139 inner -0.825 NO
+M2 BRG_6700_vnut          both out 0 cover 2.5 inner 2.5 ok
+M2 BRG_6700_vonk          both out 0 cover 2.8 inner 1.883 ok
+M2 ARM_rebro              inner out 0 cover 2.8 inner None ok
+M2 ARM_naboj              inner out 0 cover 2.8 inner None ok
+M2 ARM_podlozka_M14       both out 0 cover -0.277 inner -0.743 NO
+M2 DRV_magnet_5x1_1       both out 0 cover 0.015 inner 0.443 ok
+M2 DOES NOT FIT {'margin': -1.139, 'part': 'DRV_unasac', 'side': 'cover'} 34s
+M2b PLG_cap                inner out 0 cover 2.5 inner 2.5 ok
+M2b PLG_doraz              inner out 0 cover 2.5 inner 2.5 ok
+M2b M4_DIN7984_M4x20       both out 0 cover 1.514 inner 2.5 ok
+M2b DRV_unasac             both out 0 cover 0.085 inner 0.404 ok
+M2b BRG_MR128_vnut         both out 0 cover 2.5 inner 2.5 ok
+M2b BRG_MR128_vonk         both out 0 cover 2.8 inner 2.251 ok
+M2b ARM_rebro              inner out 0 cover 2.8 inner None ok
+M2b ARM_naboj              inner out 0 cover 2.8 inner None ok
+M2b ARM_podlozka_M12       both out 0 cover 1.744 inner 0.72 ok
+M2b DRV_magnet_5x1_1       both out 0 cover 1.241 inner 1.667 ok
+M2b FITS {'margin': 0.085, 'part': 'DRV_unasac', 'side': 'cover'} 58s
+M3 PLG_cap                both out 0 cover 2.5 inner 2.5 ok
+M3 PLG_doraz              inner out 0 cover 2.5 inner 2.5 ok
+M3 M4_DIN912_M4x16        both out 0 cover 2.198 inner 2.5 ok
+M3 BRG_6700_vnut          both out 0 cover 2.5 inner 2.5 ok
+M3 BRG_6700_vonk          both out 0 cover 2.8 inner 1.883 ok
+M3 ARM_rebro              inner out 0 cover 2.8 inner None ok
+M3 ARM_naboj              both out 0 cover 1.069 inner None ok
+M3 FITS {'margin': 1.069, 'part': 'ARM_naboj', 'side': 'cover'} 77s
+M4 PLG_cap                inner out 0 cover 2.5 inner 2.5 ok
+M4 M4_DIN912_M4x16        both out 0 cover 2.5 inner 2.5 ok
+M4 DRV_unasac             both out 0 cover -0.826 inner -1.001 NO
+M4 BRG_6700_vnut          inner out 0 cover 2.5 inner 2.5 ok
+M4 BRG_6700_vonk          inner out 0 cover 2.8 inner 0.332 ok
+M4 ARM_naboj              inner out 0 cover 2.8 inner None ok
+M4 ARM_podlozka_M14       both out 1872 cover -1.537 inner -1.537 NO
+M4 DRV_magnet_5x1_1       both out 0 cover 0.435 inner 0.273 ok
+M4 DOES NOT FIT {'margin': -1.537, 'part': 'ARM_podlozka_M14', 'side': 'cover'} 94s
+done 94s

@@ -1,0 +1,16 @@
+import sys, time; sys.path.insert(0, "/tmp/claude-0/gapwf/fin/R3/mech")
+import numpy as np, fit, parts as PT
+mod = fit.load_variant("standin.py")
+arm = fit.Arm(mod, "kt100", -1.0)
+allS = np.concatenate([p.surface(0.5) for p in PT.options()["M1"]["parts"] if p.pebble and p.role!="torso"])
+L = arm.to_local(allS); S = arm.build_cloud(L[:,2].min()-8, L[:,2].max()+8)
+Q = PT.options()["M1"]["parts"][5].surface(0.15); print(len(Q))
+t=time.time(); P = arm.to_local(Q); print("loc", time.time()-t)
+t=time.time(); d,_ = arm.t_out.query(P[:2000], distance_upper_bound=15.0); print("q2000", time.time()-t)
+t=time.time(); i = arm.inside(P); print("ins", time.time()-t)
+print(arm.t_out.n, arm.t_out.m, arm.t_out.leafsize)
+from scipy.spatial import cKDTree
+t=time.time(); T = cKDTree(np.ascontiguousarray(S[S[:,0]>=0])); print("build", time.time()-t)
+t=time.time(); d,_ = T.query(P[:2000], distance_upper_bound=15.0); print("q2000 new", time.time()-t)
+t=time.time(); d,_ = T.query(P[:2000]); print("q2000 new nobound", time.time()-t)
+print(S[:5], S.dtype, np.isfinite(S).all())

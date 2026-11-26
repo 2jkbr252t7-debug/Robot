@@ -1,0 +1,447 @@
+Fetched 2026-11-26 via curl (proxy). Raw HTML files in this directory.
+
+================================================================================
+URL: https://www.laskakit.cz/waveshare-sc09-serial-bus-servo-2-3kg/
+FILE: laskakit_prod_waveshare-sc09-serial-bus-servo-2-3kg.html
+Přeskočit kategorie
+ Waveshare SC09 Serial Bus Servo 2.3kg 
+Kód:
+LA143101
+ Black Friday
+Průměrné hodnocení produktu je 0,0 z 5 hvězdiček.
+Neohodnoceno
+ Podrobnosti hodnocení 
+Značka: 
+Waveshare
+278 Kč
+ –7 %
+278 Kč
+ –7 %
+ 255,80 Kč
+ 211,40 Kč
+ bez DPH 
+Měrná cena: 
+ Skladem
+(3 ks)
+Můžeme doručit do:
+ 1.12.2026
+Množství
+Přidat do košíku
+Servo SC09 2.3 kg od Waveshare nabízí točivý moment až 2.3 kg*cm při napájení 6 V. Pracuje ve dvou režimech: jako servo s pohybem až 300° a jako motor s plným rozsahem 360°. Podporuje vstupní napětí 4,8–8,4 V a při zablokování odebírá proud 1 A
+Detailní informace
+Doprava zdarma
+do výdejních boxů od 1 400 Kč
+30 dní na vrácení
+pro registrované
+30 dní na vrácení
+Pro registrované zákazníky
+Doprava zdarma do výdejních boxů
+Při objednávce nad 1 400 Kč
+Prodejem to nekončí
+Reklamace řešíme do 5 dnů
+Rychlá expedice
+Do 24 hodin
+Popis
+Podobné (3)
+Související soubory (4)
+Hodnocení
+Diskuze
+Detailní popis produktu
+Servo SC09 2.3 kg od Waveshare nabízí točivý moment až 2.3 kg*cm při napájení 6 V. Pracuje ve dvou režimech: jako servo s pohybem až 300° a jako motor s plným rozsahem 360°. Podporuje vstupní napětí 4,8–8,4 V a při zablokování odebírá proud 1 A. Díky rozhraní UART může být propojen s až 254 zařízeními na společné sběrnici. Nabízí rychlost otáčení až 0,1 s/60°, což odpovídá přibližně 100 otáčkám za minutu při 6V napájení.
+Specifikace:
+Vstupní napětí VIN: 4.8-8.4V
+Mezní úhel mechanismu: bez omezení
+Úhel otočení: 300° v režimu servo a 360° v režimu motoru
+Přenosová rychlost: 38400bps~1Mbps
+Typ ozubeného kola: vysoce přesné kovové ozubené kolo
+Rychlost naprázdno: 0.1 s/60° (100 ot./min) @ 6V
+Rozlišení snímače polohy: 0.293° (300°/1024)
+Rozsah ID: 0-253
+Informace o zpětné vazbě: poloha, zatížení, rychlost, vstupní napětí
+Proud naprázdno: 150mA@6V
+Proud zablokovaného rotoru: 1.0A
+Rozměry: 23.2×12.0×25.5mm
+Součástí dodávky:
+1ks Waveshare SC09 Serial Bus Servo 2.3kg
+Poznámka:
+Tento výrobek není samostatně funkčním celkem a může vyžadovat odbornou montáž.
+Fotografie výrobků jsou pouze ilustracemi na ukázku a někdy se mohou lišit od skutečného vzhledu předmětu. Avšak toto nemění jejích základní vlastnosti.
+
+
+================================================================================
+URL: https://www.laskakit.cz/waveshare-st3215-serial-bus-servo-30kg/
+FILE: laskakit_prod_waveshare-st3215-serial-bus-servo-30kg.html
+Přeskočit kategorie
+ Waveshare ST3215 Serial Bus Servo 30kg 
+Kód:
+LA143105
+Průměrné hodnocení produktu je 5,0 z 5 hvězdiček.
+1 hodnocení
+ Podrobnosti hodnocení 
+Značka: 
+Waveshare
+ 678 Kč
+ 560,30 Kč
+ bez DPH 
+Měrná cena: 
+ Objednáno – termín upřesníme 
+ Položka byla vyprodána…
+30KG Bus Servo Motor je programovatelné servo s magnetickým kodérem, které umožňuje plné 360° otáčení. Jakýkoli úhel lze nastavit jako středovou polohu a zařízení lze přepnout do režimu kontinuálního nebo krokového motoru. Pracuje s napětím 6–12,6 V a poskytuje točivý moment až 30 kg*cm při 12 V. Servo Waveshare je precizní a spolehlivé, ideální pro použití v robotice a strojírenství. S maximální rychlostí 106 ot./min a vysokou programovatelností je skvělou volbou pro náročné projekty.
+Detailní informace
+Doprava zdarma
+do výdejních boxů od 1 400 Kč
+30 dní na vrácení
+pro registrované
+30 dní na vrácení
+Pro registrované zákazníky
+Doprava zdarma do výdejních boxů
+Při objednávce nad 1 400 Kč
+Prodejem to nekončí
+Reklamace řešíme do 5 dnů
+Rychlá expedice
+Do 24 hodin
+Popis
+Podobné (3)
+Související soubory (4)
+Hodnocení (1)
+Diskuze
+Detailní popis produktu
+30KG Bus Servo Motor je programovatelné servo s magnetickým kodérem, které umožňuje plné 360° otáčení. Jakýkoli úhel lze nastavit jako středovou polohu a zařízení lze přepnout do režimu kontinuálního nebo krokového motoru. Pracuje s napětím 6–12,6 V a poskytuje točivý moment až 30 kg*cm při 12 V. Servo Waveshare je precizní a spolehlivé, ideální pro použití v robotice a strojírenství. S maximální rychlostí 106 ot./min a vysokou programovatelností je skvělou volbou pro náročné projekty.
+Specifikace:
+Komunikace: UART
+Rozsah ID: 1 až 253
+Napájecí napětí: 6V až 12.6V
+Rozsah otáčení: 360°
+Rozlišení kroků: 4096
+Rychlost naprázdno: 0.222s / 60°
+Točivý moment se zastaveným hřídelem: 30kg*cm / 12V
+Spotřeba proudu bez zátěže: 180mA
+Odběr proudu při zastaveném hřídeli: 2.7A
+Zpětná vazba: poloha, zatížení, rychlost, vstupní napětí
+Rozměry: 45x35x24.7mm
+Součástí dodávky:
+1ks Waveshare ST3215 Serial Bus Servo 30kg
+Poznámka:
+Tento výrobek není samostatně funkčním celkem a může vyžadovat odbornou montáž.
+Fotografie výrobků jsou pouze ilustracemi na ukázku a někdy se mohou lišit od skutečného vzhledu předmětu. Avšak toto nemění jejích základní vlastnosti.
+
+
+================================================================================
+URL: https://www.laskakit.cz/feetech-sts3215-serial-bus-servo-30kg/
+FILE: laskakit_prod_feetech-sts3215-serial-bus-servo-30kg.html
+Přeskočit kategorie
+ Feetech STS3215 Serial Bus Servo 30kg 
+Kód:
+LA143109
+Průměrné hodnocení produktu je 0,0 z 5 hvězdiček.
+Neohodnoceno
+ Podrobnosti hodnocení 
+Značka: 
+FeeTech
+ 598 Kč
+ 494,20 Kč
+ bez DPH 
+Měrná cena: 
+ Objednáno – termín upřesníme 
+ Položka byla vyprodána…
+30KG Bus Servo Motor je programovatelné servo s magnetickým kodérem, které umožňuje plné 360° otáčení. Jakýkoli úhel lze nastavit jako středovou polohu a zařízení lze přepnout do režimu kontinuálního nebo krokového motoru. Pracuje s napětím 12V V a poskytuje točivý moment až 30 kg*cm při 12 V. Servo je precizní a spolehlivé, ideální pro použití v robotice a strojírenství. S maximální rychlostí 45ot./min a vysokou programovatelností je skvělou volbou pro náročné projekty.
+Detailní informace
+Doprava zdarma
+do výdejních boxů od 1 400 Kč
+30 dní na vrácení
+pro registrované
+30 dní na vrácení
+Pro registrované zákazníky
+Doprava zdarma do výdejních boxů
+Při objednávce nad 1 400 Kč
+Prodejem to nekončí
+Reklamace řešíme do 5 dnů
+Rychlá expedice
+Do 24 hodin
+Popis
+Podobné (3)
+Související soubory (5)
+Hodnocení
+Diskuze
+Detailní popis produktu
+30KG Bus Servo Motor je programovatelné servo s magnetickým kodérem, které umožňuje plné 360° otáčení. Jakýkoli úhel lze nastavit jako středovou polohu a zařízení lze přepnout do režimu kontinuálního nebo krokového motoru. Pracuje s napětím 12V V a poskytuje točivý moment až 30 kg*cm při 12 V. Servo je precizní a spolehlivé, ideální pro použití v robotice a strojírenství. S maximální rychlostí 45ot./min a vysokou programovatelností je skvělou volbou pro náročné projekty.
+Specifikace:
+Model: ST-3215-C018
+Komunikace: UART
+Rozsah ID: 1 až 253
+Napájecí napětí: 7.4V až 12.6V
+Rozsah otáčení: 360°
+Rozlišení kroků: 4096
+Rychlost naprázdno: 0.222s / 60°
+Točivý moment se zastaveným hřídelem: 30kg*cm / 12V
+Spotřeba proudu bez zátěže: 180mA
+Odběr proudu při zastaveném hřídeli: 2.7A
+Zpětná vazba: poloha, zatížení, rychlost, vstupní napětí
+Rozměry: 45x35x24.7mm
+Součástí dodávky:
+1ks Feetech STS3215 Serial Bus Servo 30kg
+Poznámka:
+Tento výrobek není samostatně funkčním celkem a může vyžadovat odbornou montáž.
+Fotografie výrobků jsou pouze ilustracemi na ukázku a někdy se mohou lišit od skutečného vzhledu předmětu. Avšak toto nemění jejích základní vlastnosti.
+
+
+================================================================================
+URL: https://www.laskakit.cz/waveshare-st3215-hs-serial-bus-servo-20kg/
+FILE: laskakit_prod_waveshare-st3215-hs-serial-bus-servo-20kg.html
+Přeskočit kategorie
+ Waveshare ST3215-HS Serial Bus Servo 20kg 
+Kód:
+LA143104
+Průměrné hodnocení produktu je 0,0 z 5 hvězdiček.
+Neohodnoceno
+ Podrobnosti hodnocení 
+Značka: 
+Waveshare
+ 648 Kč
+ 535,50 Kč
+ bez DPH 
+Měrná cena: 
+ Objednáno – termín upřesníme 
+ Položka byla vyprodána…
+20KG Bus Servo Motor je programovatelné servo s magnetickým kodérem, které umožňuje plné 360° otáčení. Jakýkoli úhel lze nastavit jako středovou polohu a zařízení lze přepnout do režimu kontinuálního nebo krokového motoru. Pracuje s napětím 6–12,6 V a poskytuje točivý moment až 20 kg*cm při 12 V. Servo Waveshare je precizní a spolehlivé, ideální pro použití v robotice a strojírenství. S maximální rychlostí 106 ot./min a vysokou programovatelností je skvělou volbou pro náročné projekty.
+Detailní informace
+Doprava zdarma
+do výdejních boxů od 1 400 Kč
+30 dní na vrácení
+pro registrované
+30 dní na vrácení
+Pro registrované zákazníky
+Doprava zdarma do výdejních boxů
+Při objednávce nad 1 400 Kč
+Prodejem to nekončí
+Reklamace řešíme do 5 dnů
+Rychlá expedice
+Do 24 hodin
+Popis
+Podobné (3)
+Související soubory (4)
+Hodnocení
+Diskuze
+Detailní popis produktu
+20KG Bus Servo Motor je programovatelné servo s magnetickým kodérem, které umožňuje plné 360° otáčení. Jakýkoli úhel lze nastavit jako středovou polohu a zařízení lze přepnout do režimu kontinuálního nebo krokového motoru. Pracuje s napětím 6–12,6 V a poskytuje točivý moment až 20 kg*cm při 12 V. Servo Waveshare je precizní a spolehlivé, ideální pro použití v robotice a strojírenství. S maximální rychlostí 106 ot./min a vysokou programovatelností je skvělou volbou pro náročné projekty.
+Specifikace:
+Komunikace: UART
+Rozsah ID: 1 až 253
+Napájecí napětí: 6V až 12.6V
+Rozsah otáčení: 360°
+Rozlišení kroků: 4096
+Rychlost naprázdno: 
+0.094sec/60° (106RPM)@12V
+Točivý moment se zastaveným hřídelem: 20kg*cm / 12V
+Spotřeba proudu bez zátěže: 240mA
+Odběr proudu při zastaveném hřídeli: 2.4A
+Zpětná vazba: poloha, zatížení, rychlost, vstupní napětí
+Rozměry: 45x35x24.7mm
+Součástí dodávky:
+1ks Waveshare ST3215-HS Serial Bus Servo 20kg
+Poznámka:
+Tento výrobek není samostatně funkčním celkem a může vyžadovat odbornou montáž.
+Fotografie výrobků jsou pouze ilustracemi na ukázku a někdy se mohou lišit od skutečného vzhledu předmětu. Avšak toto nemění jejích základní vlastnosti.
+
+
+================================================================================
+URL: https://www.laskakit.cz/mini-servo-mg90s-s-kovovymi-prevody/
+FILE: laskakit_prod_mini-servo-mg90s-s-kovovymi-prevody.html
+Přeskočit kategorie
+ Mini servo MG90S 180° s kovovými převody 
+Kód:
+LA143001A
+ Black Friday
+Průměrné hodnocení produktu je 4,0 z 5 hvězdiček.
+11 hodnocení
+ Podrobnosti hodnocení 
+Značka: 
+LaskaKit_cz
+88 Kč
+ –12 %
+88 Kč
+ –12 %
+ 76,60 Kč
+ 63,30 Kč
+ bez DPH 
+Měrná cena: 
+ Skladem
+(182 ks)
+Můžeme doručit do:
+ 1.12.2026
+Množství
+Přidat do košíku
+Miniaturní servo 
+MG90S
+ je spolehlivé mikroservo s 
+kovovými převody
+ a rozsahem otáčení 
+až 180°
+. Díky své kompaktní velikosti a vysokému točivému momentu je ideální pro modelářské a robotické projekty.
+Detailní informace
+Doprava zdarma
+do výdejních boxů od 1 400 Kč
+30 dní na vrácení
+pro registrované
+30 dní na vrácení
+Pro registrované zákazníky
+Doprava zdarma do výdejních boxů
+Při objednávce nad 1 400 Kč
+Prodejem to nekončí
+Reklamace řešíme do 5 dnů
+Rychlá expedice
+Do 24 hodin
+Popis
+Podobné (3)
+Hodnocení (11)
+Diskuze (1)
+Detailní popis produktu
+Miniaturní servo 
+MG90S
+ je spolehlivé mikroservo s 
+kovovými převody
+ a rozsahem otáčení 
+až 180°
+. Díky své kompaktní velikosti a vysokému točivému momentu je ideální pro modelářské a robotické projekty.
+Nejedná se o výrobek firmy TowerPro.
+Specifikace:
+Rotační úhel:
+ 180°
+Napájecí napětí:
+ 4.8 V – 6.0 V
+Točivý moment:
+1.8 kg·cm při 4.8 V
+2.2 kg·cm při 6.0 V
+Rychlost:
+0,1 s/60° při 4.8 V
+0,08 s/60° při 6.0 V
+Teplotní Rozsah:
+ 0 až +55°C
+Délka vodičů:
+ 175mm
+Rozměry:
+ 22.8x12.2x28.5mm
+Hmotnost:
+ 13.4g
+Součástí dodávky:
+1× MG90S mini servo
+Sada nástavců (páky)
+Montážní šroubky
+Poznámka:
+Tento výrobek není samostatně funkčním celkem a může vyžadovat odbornou montáž.
+Fotografie výrobků jsou pouze ilustracemi na ukázku a někdy se mohou lišit od skutečného vzhledu předmětu. Avšak toto nemění jejích základní vlastnosti.
+
+
+================================================================================
+URL: https://www.hadex.cz/p/l761-servo-plastove-mg90s-180-13g-kovove-prevody
+FILE: hadex_prod_l761.html
+Serva pro RC modely
+Servo plastové MG90S 180° 13g, kovové převody
+×
+ 1 / 3
+Servo plastové MG90S 180° 13g, kovové převody (L761)
+ Kód produktu: 
+L761
+Servo Tower Pro MG 90 Mikro Servo
+Třídílná skříň z černého částečně průsvitného plastu je stažená čtyřmi šrouby.
+Čtyřstupňová převodovka je opravdu celokovová. Pastorky mosazné, kola z hliníkovéslitiny. Výstupní hřídel se otáčí v kluzném bronzovém ...
+Zobrazit více
+ Na cestě
+0 ks
+ Na cestě, dodání do 20. 12. 2026 
+120,00 Kč
+99,17 Kč bez DPH
+Hlídací pes
+3 a více ks (VC)
+ 85,00 Kč / ks 
+(bez DPH)
+Nakupte ještě za 
+1 500,00 Kč
+ a dopravu máte
+zdarma
+.
+0,00 Kč
+1 500,00 Kč
+Popis produktu: Servo plastové MG90S 180° 13g, kovové převody
+ Servo Tower Pro MG 90 Mikro Servo 
+Třídílná skříň z černého částečně průsvitného plastu je stažená čtyřmi šrouby. 
+Čtyřstupňová převodovka je opravdu celokovová. Pastorky mosazné, kola z hliníkovéslitiny. Výstupní hřídel se otáčí v kluzném bronzovém ložisku. 
+Podrobnosti v datasheetu.
+Parametry produktu
+EAN:
+8596425130238
+Hmotnost vč. obalu:
+ 0.018 kg
+Měrná jednotka:
+ ks
+Specifikace ke stažení
+l761.pdf
+
+
+================================================================================
+URL: https://www.waveshare.com/sc09-servo.htm
+FILE: waveshare_prod_sc09-servo.html
+SKU
+:
+24440
+Part No.
+:
+SC09 Servo
+Brand
+:
+Waveshare
+$8.99
+Qty:
+Increase
+Decrease
+Add to Cart
+↓Please select all required options below before ordering.
+--> 
+-->
+Price
+Quantity
+-->
+1
+$8.59
+2
+save 
+5
+%
+ -->
+-->
+-->
+$8.39
+3
+save 
+7
+%
+ -->
+-->
+-->
+$8.31
+4+
+save 
+8
+%
+ -->
+-->
+-->
+-->
+
+
+================================================================================
+FILE: waveshare_prod_sc09-servo.html package_content tab (HTML):
+/div><div class="tab-section tab-pane " id="tab-package_content"> <p><strong>Weight: </strong><span>0.021 kg</span></p> <h2>Quick Overview</h2> <div class="std"> <p>SC09 Servo x1</p> <img src="/img/devkit/accessories/SC09-Servo/SC09-Servo-details-pack.jpg" /> </div> </div> </div> <div id="waveshare_tabbar" class="wavesahre-tabbar-bg" style="display: none;"></div> <script type="text/javascript"> //<![CDATA[ var crosssell_slider; var is_mobile = ''; var clickCount = 1; // console.log(new Date(), 1); function getElementLeft(element){ var actualLeft = element.off
+JSON-LD offers: "offers": {
+                    "@type": "Offer",
+                    "priceCurrency": "USD",
+                    "price": 8.99,
+                    "availability": "https://schema.org/InStock"
+                }
+
+================================================================================
+FILE: waveshare_prod_st3215-servo.html package_content tab (HTML):
+/div><div class="tab-section tab-pane " id="tab-package_content"> <h2>Quick Overview</h2> <div class="std"> <h2>ST3215 Servo</h2> <img src="/img/devkit/accessories/ST3215-Servo/ST3215-Servo-details-pack.jpg?v=26061203" /> <div class="sep0px"></div> <h2>ST3215-7.4V Servo</h2> <img src="/img/devkit/accessories/ST3215-Servo/ST3215-7.4V-Servo-pack.jpg?v=26061203" /> <div class="sep0px"></div> </div> </div> </div> <div id="waveshare_tabbar" class="wavesahre-tabbar-bg" style="display: none;"></div> <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+JSON-LD offers: none
+
+Package photos saved: waveshare_SC09-Servo-details-pack.jpg (servo + 4 plastic horns + 3 screws + adapter PCB + cable), waveshare_ST3215-Servo-details-pack.jpg (servo + 2 aluminium discs + screws + cable)

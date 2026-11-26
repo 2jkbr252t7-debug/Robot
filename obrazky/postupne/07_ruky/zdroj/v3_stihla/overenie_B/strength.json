@@ -1,0 +1,347 @@
+{
+ "0": {
+  "stations": [
+   {
+    "u": 0.4,
+    "lever": 41.2,
+    "M_Nmm": 412.0,
+    "closed": {
+     "A": 136.25,
+     "Iyy": 8385.8,
+     "Ixx": 16047.9,
+     "J": 21742.99,
+     "sig_lateral": 0.54,
+     "sig_foreaft": 0.43
+    },
+    "open_Avnut": {
+     "A": 67.9,
+     "Iyy": 627.2,
+     "Ixx": 7967.0,
+     "J": 57.94,
+     "sig_lateral": 4.71,
+     "sig_foreaft": 0.86,
+     "torsion_tau_if_cover_carries_nothing": 2.11,
+     "shear_centre_offset_est": 7.63
+    }
+   },
+   {
+    "u": 0.5,
+    "lever": 34.0,
+    "M_Nmm": 340.0,
+    "closed": {
+     "A": 132.71,
+     "Iyy": 7558.0,
+     "Ixx": 14976.9,
+     "J": 19813.15,
+     "sig_lateral": 0.48,
+     "sig_foreaft": 0.37
+    },
+    "open_Avnut": {
+     "A": 66.13,
+     "Iyy": 558.8,
+     "Ixx": 7434.6,
+     "J": 56.43,
+     "sig_lateral": 4.2,
+     "sig_foreaft": 0.75,
+     "torsion_tau_if_cover_carries_nothing": 2.08,
+     "shear_centre_offset_est": 7.34
+    }
+   },
+   {
+    "u": 0.6,
+    "lever": 26.8,
+    "M_Nmm": 268.0,
+    "closed": {
+     "A": 126.7,
+     "Iyy": 6393.1,
+     "Ixx": 13168.3,
+     "J": 16958.95,
+     "sig_lateral": 0.42,
+     "sig_foreaft": 0.32
+    },
+    "open_Avnut": {
+     "A": 63.14,
+     "Iyy": 466.6,
+     "Ixx": 6536.0,
+     "J": 53.88,
+     "sig_lateral": 3.74,
+     "sig_foreaft": 0.65,
+     "torsion_tau_if_cover_carries_nothing": 2.06,
+     "shear_centre_offset_est": 6.94
+    }
+   },
+   {
+    "u": 0.7,
+    "lever": 19.6,
+    "M_Nmm": 196.0,
+    "closed": {
+     "A": 117.17,
+     "Iyy": 4908.8,
+     "Ixx": 10524.4,
+     "J": 13177.07,
+     "sig_lateral": 0.37,
+     "sig_foreaft": 0.28
+    },
+    "open_Avnut": {
+     "A": 58.39,
+     "Iyy": 353.5,
+     "Ixx": 5223.2,
+     "J": 49.82,
+     "sig_lateral": 3.29,
+     "sig_foreaft": 0.55,
+     "torsion_tau_if_cover_carries_nothing": 2.06,
+     "shear_centre_offset_est": 6.41
+    }
+   },
+   {
+    "u": 0.8,
+    "lever": 12.4,
+    "M_Nmm": 124.0,
+    "closed": {
+     "A": 102.65,
+     "Iyy": 3198.9,
+     "Ixx": 7150.8,
+     "J": 8690.51,
+     "sig_lateral": 0.31,
+     "sig_foreaft": 0.23
+    },
+    "open_Avnut": {
+     "A": 51.15,
+     "Iyy": 227.1,
+     "Ixx": 3548.4,
+     "J": 43.65,
+     "sig_lateral": 2.8,
+     "sig_foreaft": 0.46,
+     "torsion_tau_if_cover_carries_nothing": 2.09,
+     "shear_centre_offset_est": 5.69
+    }
+   },
+   {
+    "u": 0.9,
+    "lever": 5.2,
+    "M_Nmm": 52.0,
+    "closed": {
+     "A": 79.27,
+     "Iyy": 1420.6,
+     "Ixx": 3329.9,
+     "J": 3910.15,
+     "sig_lateral": 0.23,
+     "sig_foreaft": 0.16
+    },
+    "open_Avnut": {
+     "A": 39.5,
+     "Iyy": 99.2,
+     "Ixx": 1652.1,
+     "J": 33.7,
+     "sig_lateral": 2.04,
+     "sig_foreaft": 0.33,
+     "torsion_tau_if_cover_carries_nothing": 2.21,
+     "shear_centre_offset_est": 4.66
+    }
+   }
+  ],
+  "surface_mm2": 5996.0,
+  "shell_mass_g": 11.3,
+  "crown_radius_pm5mm_u05": 40.7,
+  "cover_depth_u05": 10.65,
+  "section_u05": {
+   "thick": 21.3,
+   "width": 32.74
+  }
+ },
+ "B": {
+  "stations": [
+   {
+    "u": 0.4,
+    "lever": 41.2,
+    "M_Nmm": 412.0,
+    "closed": {
+     "A": 110.35,
+     "Iyy": 3014.9,
+     "Ixx": 9502.0,
+     "J": 8862.73,
+     "sig_lateral": 1.06,
+     "sig_foreaft": 0.65
+    },
+    "open_Avnut": {
+     "A": 57.71,
+     "Iyy": 314.2,
+     "Ixx": 5161.6,
+     "J": 49.24,
+     "sig_lateral": 7.43,
+     "sig_foreaft": 1.2,
+     "torsion_tau_if_cover_carries_nothing": 2.02,
+     "shear_centre_offset_est": 6.23
+    }
+   },
+   {
+    "u": 0.5,
+    "lever": 34.0,
+    "M_Nmm": 340.0,
+    "closed": {
+     "A": 107.66,
+     "Iyy": 2709.8,
+     "Ixx": 8881.3,
+     "J": 8030.54,
+     "sig_lateral": 0.93,
+     "sig_foreaft": 0.56
+    },
+    "open_Avnut": {
+     "A": 56.25,
+     "Iyy": 279.5,
+     "Ixx": 4818.7,
+     "J": 48.0,
+     "sig_lateral": 6.63,
+     "sig_foreaft": 1.04,
+     "torsion_tau_if_cover_carries_nothing": 2.0,
+     "shear_centre_offset_est": 6.0
+    }
+   },
+   {
+    "u": 0.6,
+    "lever": 26.8,
+    "M_Nmm": 268.0,
+    "closed": {
+     "A": 102.93,
+     "Iyy": 2280.6,
+     "Ixx": 7816.2,
+     "J": 6818.85,
+     "sig_lateral": 0.83,
+     "sig_foreaft": 0.49
+    },
+    "open_Avnut": {
+     "A": 53.72,
+     "Iyy": 232.7,
+     "Ixx": 4236.1,
+     "J": 45.84,
+     "sig_lateral": 5.91,
+     "sig_foreaft": 0.9,
+     "torsion_tau_if_cover_carries_nothing": 1.99,
+     "shear_centre_offset_est": 5.69
+    }
+   },
+   {
+    "u": 0.7,
+    "lever": 19.6,
+    "M_Nmm": 196.0,
+    "closed": {
+     "A": 95.28,
+     "Iyy": 1735.3,
+     "Ixx": 6244.2,
+     "J": 5236.55,
+     "sig_lateral": 0.73,
+     "sig_foreaft": 0.42
+    },
+    "open_Avnut": {
+     "A": 49.69,
+     "Iyy": 175.3,
+     "Ixx": 3381.6,
+     "J": 42.4,
+     "sig_lateral": 5.22,
+     "sig_foreaft": 0.77,
+     "torsion_tau_if_cover_carries_nothing": 1.99,
+     "shear_centre_offset_est": 5.28
+    }
+   },
+   {
+    "u": 0.8,
+    "lever": 12.4,
+    "M_Nmm": 124.0,
+    "closed": {
+     "A": 83.46,
+     "Iyy": 1111.6,
+     "Ixx": 4228.8,
+     "J": 3388.05,
+     "sig_lateral": 0.63,
+     "sig_foreaft": 0.35
+    },
+    "open_Avnut": {
+     "A": 43.5,
+     "Iyy": 111.5,
+     "Ixx": 2290.1,
+     "J": 37.12,
+     "sig_lateral": 4.46,
+     "sig_foreaft": 0.64,
+     "torsion_tau_if_cover_carries_nothing": 2.04,
+     "shear_centre_offset_est": 4.72
+    }
+   },
+   {
+    "u": 0.9,
+    "lever": 5.2,
+    "M_Nmm": 52.0,
+    "closed": {
+     "A": 64.23,
+     "Iyy": 473.5,
+     "Ixx": 1946.4,
+     "J": 1461.82,
+     "sig_lateral": 0.48,
+     "sig_foreaft": 0.25
+    },
+    "open_Avnut": {
+     "A": 33.49,
+     "Iyy": 47.6,
+     "Ixx": 1056.4,
+     "J": 28.58,
+     "sig_lateral": 3.29,
+     "sig_foreaft": 0.46,
+     "torsion_tau_if_cover_carries_nothing": 2.19,
+     "shear_centre_offset_est": 3.91
+    }
+   }
+  ],
+  "surface_mm2": 4798.0,
+  "shell_mass_g": 9.1,
+  "crown_radius_pm5mm_u05": 57.7,
+  "cover_depth_u05": 5.86,
+  "section_u05": {
+   "thick": 14.38,
+   "width": 29.47
+  }
+ },
+ "drop_arm_alone_1m": {
+  "0": {
+   "arm_mass_g": 20.9,
+   "E_1m_Nmm": 205.0,
+   "edge_R8": {
+    "R": 8.0,
+    "k_Nmm": 1438.0,
+    "F_peak_N": 768.0,
+    "sig_local_MPa": 381.0
+   },
+   "crown": {
+    "R": 40.7,
+    "k_Nmm": 283.0,
+    "F_peak_N": 340.0,
+    "sig_local_MPa": 169.0
+   }
+  },
+  "B": {
+   "arm_mass_g": 18.7,
+   "E_1m_Nmm": 183.4,
+   "edge_R8": {
+    "R": 8.0,
+    "k_Nmm": 1438.0,
+    "F_peak_N": 726.0,
+    "sig_local_MPa": 361.0
+   },
+   "crown": {
+    "R": 57.7,
+    "k_Nmm": 199.0,
+    "F_peak_N": 270.0,
+    "sig_local_MPa": 134.0
+   }
+  }
+ },
+ "robot_drop_1m_on_arm_Nmm": 10791.0,
+ "tip_deflection_10N_lateral_mm": {
+  "0": {
+   "closed": 0.029,
+   "open_Avnut": 0.403
+  },
+  "B": {
+   "closed": 0.082,
+   "open_Avnut": 0.808
+  }
+ }
+}

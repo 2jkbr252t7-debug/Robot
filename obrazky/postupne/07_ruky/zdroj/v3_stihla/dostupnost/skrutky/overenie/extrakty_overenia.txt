@@ -1,0 +1,160 @@
+# Overenie 2026-11-26: extrakty z produktovych stranok (curl), subory v raw/, raw2/, ostatne/
+
+== lk_m4x16_din6912 | https://www.laskakit.cz/sroub-valcova-hlava-m4x16-din-6912-8-8/
+Šroub válcová hlava M4x16 DIN 6912 8.8
+3 Kč –13 % 3 Kč –13 % 2,60 Kč 2,20 Kč bez DPH Měrná cena: Skladem (2910 ks) Můžeme doručit do: 
+
+== dj_m4_30376 | https://www.3djake.sk/cnc-kitchen/skrutky-s-valcovou-nizkou-hlavou-m4-iso-14580-nehrdzavejuca?sai=30376
+LD: Skrutky s valcovou nízkou hlavou M4 (ISO 14580), nehrdzavejúca oceľ A2-70, M4x20 | CNC-TC-S-M4x20 | 5.59 EUR | https://schema.org/InStock
+STOCK: ['Na sklade zostáva už len 28 ks tohto produktu. Ďalšie sú na ceste. Ak si obje']
+Obsah: 25 ks Norma ISO 14580 Vnútorný pohon TX20 Priemer hlavy (dk) 7 mm Výška hlavy (k1) 3,1 mm 
+
+== dj_m4_30379 | https://www.3djake.sk/cnc-kitchen/skrutky-s-valcovou-nizkou-hlavou-m4-iso-14580-nehrdzavejuca?sai=30379
+LD: Skrutky s valcovou nízkou hlavou M4 (ISO 14580), nehrdzavejúca oceľ A2-70, M4x25 | CNC-TC-S-M4x25 | 9.35 EUR | https://schema.org/InStock
+STOCK: ['Ešte 9 ks na sklade', 'Na sklade zostáva už len 9 ks tohto produktu. Ďalšie sú na ceste. Ak si objed']
+Obsah: 25 ks Norma ISO 14580 Vnútorný pohon TX20 Priemer hlavy (dk) 7 mm Výška hlavy (k1) 3,1 mm 
+
+== dj_m4_30373 | https://www.3djake.sk/cnc-kitchen/skrutky-s-valcovou-nizkou-hlavou-m4-iso-14580-nehrdzavejuca?sai=30373
+LD: Skrutky s valcovou nízkou hlavou M4 (ISO 14580), nehrdzavejúca oceľ A2-70, M4x16 | CNC-TC-S-M4x16 | 6.87 EUR | https://schema.org/InStock
+STOCK: ['Na sklade zostáva už len 11 ks tohto produktu. Ďalšie sú na ceste. Ak si obje']
+Obsah: 25 ks Norma ISO 14580 Vnútorný pohon TX20 Priemer hlavy (dk) 7 mm Výška hlavy (k1) 3,1 mm 
+
+== dj_m4_base | https://www.3djake.sk/cnc-kitchen/skrutky-s-valcovou-nizkou-hlavou-m4-iso-14580-nehrdzavejuca
+LD: Skrutky s valcovou nízkou hlavou M4 (ISO 14580), nehrdzavejúca oceľ A2-70, M4x10 | CNC-TC-S-M4x10 | 6.47 EUR | https://schema.org/InStock
+STOCK: ['Na sklade zostáva už len 27 ks tohto produktu. Ďalšie sú na ceste. Ak si obje']
+Obsah: 25 ks Norma ISO 14580 Vnútorný pohon TX20 Priemer hlavy (dk) 7 mm Výška hlavy (k1) 3,1 mm 
+
+== bh_mt_23678398 | https://www.bauhaus.sk/marinetech-inbusova-skrutka-23678398
+Marinetech Inbusová skrutka šošovková hlava; M4 × 12 mm; nerezová oceľ; 1 ks 0,20 €
+Dostupné online
+"stock":{"is_in_stock":true,"stock_status":1,"qty":322,"product_id":110910}
+
+== bh_mt_23678404 | https://www.bauhaus.sk/marinetech-inbusova-skrutka-23678404
+Marinetech Inbusová skrutka šošovková hlava; M4 × 16 mm; nerezová oceľ; 1 ks 0,30 €
+Dostupné online
+"stock":{"is_in_stock":true,"stock_status":1,"qty":181,"product_id":110911}
+
+== bh_mt_23678413 | https://www.bauhaus.sk/marinetech-inbusova-skrutka-23678413
+Marinetech Inbusová skrutka šošovková hlava; M4 × 20 mm; nerezová oceľ; 1 ks 0,30 €
+Dostupné online
+"stock":{"is_in_stock":true,"stock_status":1,"qty":31,"product_id":110912}
+
+== lk_m2x3_iso7380 | https://www.laskakit.cz/sroub-imbus-pulkulata-hlava-m2x3-iso-7380-10-9-cerneno/
+Šroub imbus půlkulatá hlava M2x3 ISO 7380 10.9 Černěno
+16 Kč –13 % 16 Kč –13 % 13,90 Kč 11,50 Kč bez DPH Měrná cena: Skladem (142 ks) Můžeme doručit do: 
+
+== dj_m2_30289 | https://www.3djake.sk/cnc-kitchen/skrutka-s-valcovou-hlavou-m2-nizka-hlava-iso-14580-nehrdzavejuca?sai=30289
+LD: Skrutka s valcovou nízkou hlavou M2 (ISO 14580), nehrdzavejúca oceľ A2-70, M2x6 | CNC-TC-S-M2x6 | 4.79 EUR | https://schema.org/InStock
+STOCK: ['Na sklade zostáva už len 32 ks tohto produktu. Ďalšie sú na ceste. Ak si obje']
+Obsah: 25 ks Norma ISO 14580 Vnútorný pohon TX6 Priemer hlavy (dk) 3,8 mm Výška hlavy (k1) 1,55 mm 
+
+== dj_m2_30292 | https://www.3djake.sk/cnc-kitchen/skrutka-s-valcovou-hlavou-m2-nizka-hlava-iso-14580-nehrdzavejuca?sai=30292
+LD: Skrutka s valcovou nízkou hlavou M2 (ISO 14580), nehrdzavejúca oceľ A2-70, M2x10 | CNC-TC-S-M2x10 | 4.55 EUR | https://schema.org/InStock
+STOCK: ['Na sklade zostáva už len 25 ks tohto produktu. Ďalšie sú na ceste. Ak si obje']
+Obsah: 25 ks Norma ISO 14580 Vnútorný pohon TX6 Priemer hlavy (dk) 3,8 mm Výška hlavy (k1) 1,55 mm 
+
+== bh_st_din912_21307465 | https://www.bauhaus.sk/stabilit-inbusova-skrutka-din-912-21307465
+Stabilit Inbusová skrutka DIN 912 valcová hlava; M2 × 10 mm; oceľ; 10 ks 3,50 €
+Dostupné online
+"stock":{"is_in_stock":true,"stock_status":1,"qty":12,"product_id":81834}
+
+== lk_sada_m2 | https://www.laskakit.cz/laskakit-sada-imbus-sroubu--matic-a-podlozek-m2-660ks/
+Přeskočit kategorie
+LaskaKit 228 Kč –7 % 228 Kč –7 % 209,80 Kč 173,40 Kč bez DPH Měrná cena: Skladem (32 ks) 
+
+== bh_st_din84_21307395 | https://www.bauhaus.sk/stabilit-metricka-skrutka-din-84-21307395
+Stabilit Metrická skrutka DIN 84 valcová hlava; M2 × 5 mm; oceľ; 10 ks 3,50 €
+Dostupné online
+"stock":{"is_in_stock":true,"stock_status":1,"qty":8,"product_id":81794}
+
+== bh_st_din963_21307447 | https://www.bauhaus.sk/stabilit-metricka-skrutka-din-963-21307447
+Stabilit Metrická skrutka DIN 963 Zápustná hlava; M2 × 10 mm; oceľ; 20 ks 3,70 €
+Dostupné online
+"stock":{"is_in_stock":true,"stock_status":1,"qty":13,"product_id":81836}
+
+== hx_o600a | https://www.hadex.cz/p/o600a-sroubky-m2-m3-se-zapustnou-hlavou-sada-500ks
+Šroubky M2-M3 se zápustnou hlavou, sada 500ks (O600A) Kód produktu: O600A Obsah sady: 50x M2x3mm 50x M2x4mm 50x M2x5mm 50x M2x6mm 50x M2,5x3mm ... Zobrazit více Na cestě 0 bal Na cestě, dodání do 20. 12. 2026 125,00 Kč 103,31 Kč bez DPH 
+
+== bh_pd_din965_10807856 | https://www.bauhaus.sk/profi-depot-metricka-skrutka-din-965-10807856
+Profi Depot Metrická skrutka DIN 965 zápustná hlava; M3 × 10 mm; oceľ; 100 ks 2,25 €
+Dostupné online
+"stock":{"is_in_stock":true,"stock_status":1,"qty":12,"product_id":81188}
+
+== bh_pd_din125_10826514 | https://www.bauhaus.sk/profi-depot-plocha-podlozka-din-125-10826514
+vnútorný ⌀: 10,5 mm; hrúbka materiálu: 2 mm; oceľ; 100 ks Prejsť na recenzie. 7,70 €
+Dostupné online
+"stock":{"is_in_stock":true,"stock_status":1,"qty":13,"product_id":63088}
+
+== bh_pd_din125_10272106 | https://www.bauhaus.sk/profi-depot-plocha-podlozka-din-125-10272106
+vnútorný ⌀: 10,5 mm; hrúbka materiálu: 2 mm; nerezová oceľ; 100 ks Prejsť na recenzie. 5,35 €
+Dostupné online
+"stock":{"is_in_stock":true,"stock_status":1,"qty":9,"product_id":64257}
+
+== bh_pd_din125_10826497 | https://www.bauhaus.sk/profi-depot-plocha-podlozka-din-125-10826497
+vnútorný ⌀: 8,4 mm; hrúbka materiálu: 1,6 mm; oceľ; 100 ks Prejsť na recenzie. 2,95 €
+Dostupné online
+"stock":{"is_in_stock":true,"stock_status":1,"qty":36,"product_id":63087}
+
+== bh_pd_din125_10272089 | https://www.bauhaus.sk/profi-depot-plocha-podlozka-din-125-10272089
+vnútorný ⌀: 8,4 mm; hrúbka materiálu: 1,6 mm; nerezová oceľ; 100 ks Prejsť na recenzie. 4,30 €
+Dostupné online
+"stock":{"is_in_stock":true,"stock_status":1,"qty":16,"product_id":64255}
+
+== dj_din125_30472 | https://www.3djake.sk/cnc-kitchen/podlozka-standard-din-125-nehrdzavejuca-ocel-a2?sai=30472
+LD: Podložka Standard (DIN 125), nehrdzavejúca oceľ A2, M8 | CNC-TC-W-M8 | 5.27 EUR | https://schema.org/InStock
+STOCK: ['Ešte 5 ks na sklade', 'Na sklade zostáva už len 5 ks tohto produktu. Ďalšie sú na ceste. Ak si objed']
+Obsah: 50 ks Norma DIN 125 
+
+== bh_pd_din9021_10826978 | https://www.bauhaus.sk/profi-depot-plocha-podlozka-din-9021-10826978
+vnútorné ø: 8,4 mm; hrúbka materiálu: 2 mm; oceľ; 100 ks Prejsť na recenzie. 10,10 €
+Dostupné online
+"stock":{"is_in_stock":true,"stock_status":1,"qty":46,"product_id":54881}
+
+== bh_pd_din9021_10272209 | https://www.bauhaus.sk/profi-depot-plocha-podlozka-din-9021-10272209
+vnútorný ⌀: 8,4 mm; hrúbka materiálu: 2 mm; nerezová oceľ; 100 ks Prejsť na recenzie. 7,95 €
+Dostupné online
+"stock":{"is_in_stock":true,"stock_status":1,"qty":9,"product_id":84925}
+
+== dj_velka_30493 | https://www.3djake.sk/cnc-kitchen/podlozka-velka-din-125-nehrdzavejuca-ocel-a2?sai=30493
+LD: Podložka veľká (DIN 125), nehrdzavejúca oceľ A2, M8 | CNC-TC-LW-M8 | 6.63 EUR | https://schema.org/InStock
+STOCK: ['Na sklade zostáva už len 24 ks tohto produktu. Ďalšie sú na ceste. Ak si obje']
+Obsah: M8 Obsah: 50 ks Norma DIN 9021 
+
+== lk_m3_din934 | https://www.laskakit.cz/matice-presna-m3-din-934--6--ocel/
+Matice přesná M3 DIN 934 /6/ ocel
+1,80 Kč –11 % 1,80 Kč –11 % 1,60 Kč 1,30 Kč bez DPH Měrná cena: Skladem (378 ks) Můžeme doručit do: 
+
+== bh_pd_din934_10825618 | https://www.bauhaus.sk/profi-depot-sesthranna-matica-din-934-10825618
+Profi Depot Šesťhranná matica DIN 934 veľ. 5,5; M3; oceľ; pozinkovaná; 100 ks 1,95 €
+Dostupné online
+"stock":{"is_in_stock":true,"stock_status":1,"qty":16,"product_id":81231}
+
+== dj_din934_30421 | https://www.3djake.sk/cnc-kitchen/sesthranne-matice-din-934-nerezova-ocel-a2-50?sai=30421
+LD: Šesťhranná matica (DIN 934), nerezová oceľ A2-50, M3 | CNC-TC-N-M3 | 3.43 EUR | https://schema.org/PreOrder
+STOCK: ['Na sklade od: 15. decembra  ', 'Na sklade zostáva už len 0 ks tohto produktu. Ďalšie sú na ceste. Ak si objed']
+Obsah: M3 Obsah: 50 ks Norma DIN 934 
+
+== lk_sada_m3 | https://www.laskakit.cz/laskakit-sada-imbus-sroubu--matic-a-podlozek-m3-1290ks/
+Přeskočit kategorie
+LaskaKit 468 Kč –7 % 468 Kč –7 % 430,60 Kč 355,90 Kč bez DPH Měrná cena: Skladem (11 ks) 
+
+# --- Doplnkove hladania (nenajdene polozky) ---
+# LaskaKit: laskakit_hladanie/q1..q20 (DIN 912, ISO 4762, M4x20, M4x25, M4x16, ISO 7380, DIN 7984, DIN 965, ISO 7046, DIN 913, ISO 4026, cervik, stavecí sroub, M2x6, M2x8, M2x5, imbus M4, zapustna M2, sroub bez hlavy, zavitovy kolik) + s_*.html (sroub hlava / DIN / BN)
+#   vysledok: DIN 912 len M2,5x8; DIN 6912 M4x16, M5x25; ISO 7380 len M2x3 (+M5x8/10, M6x12 pulkulata imbus); BN 381 M2x4/M2x6 (kriz, valcova); DIN 7991 M3x8; ziadne DIN 913/914/916, ziadne DIN 965 M2
+#   p_bn381_m2x6.html: "Šroub s válcovou hlavou a křížovou drážkou M2x6 BN 381 ZB ocel" 1,70 Kč s DPH (1,40 bez), Skladem (131 ks), Black Friday -15 % (pôvodne 2 Kč)
+# Hadex: hadex_hladanie/h1..h13 + cat_srouby.html (kategoria /c/srouby-1): ziadne imbus M4/M2, ziadne stavěcí/červík
+# 3DJake: 3djake_hladanie/j1..j17: len CNC Kitchen ISO 14580 (Torx: M4 = TX20, M2 = TX6), DIN 125/9021, DIN 934, DIN 985; ziadne ISO 4762/7380/10642/4026
+# Bauhaus: bauhaus_marinetech_vsetky_skrutky.txt (vsetkych 58 Marinetech skrutiek zo sitemapy) + bauhaus_stabilit_profidepot_male_skrutky.txt
+#   ISO 7380 M4 len 12/16/20/25 mm; Marinetech polgulata M4x10/20/30/40 = DIN 85 (drazka), nie ISO 7380
+#   DIN 965 od M3 (M3x10, M3x25, M3x30; nerez M3x10 19,60 €); Stabilit DIN 963 M2x5 (titul "DIN 359", art. 21307359, 3,50 €, 20 ks, qty 5), M2x10, M2,5x5, M3x5
+#   Stabilit DIN 84 M1.6x10, M2x5, M2x10; Stabilit DIN 912 M2x10, M3x16; Stabilit Nastavovacia skrutka M10x80/100/120 qty 0; Zavitovy kolik M8/M10
+# Lozisko Policka: ostatne/lp_*.html - imbus, M4x20, cervik, sroub M4 = nenalezeno
+# OBI (teraz DOSTUPNE, HTTP 200): ostatne/obi_*.html
+#   kategoria Zavitove koliky (c/2511): len Nastavovacia skrutka SW3 M4x10 / SW4 M5x10 / SW5 M6x10, 8 ks (LUX-TOOLS)
+#   obi_p1884543: "Nastavovacia skrutka SW3 čierno pozinkovaná M4 x 10 mm, 8 ks" 2,39 EUR* vr. DPH, "Dodávka domov (Balík, 2-3 pracovných dní dodacia lehota)", Norma DIN 914, Pohon vnútorný šesťhran
+#   obi_p3860467: "LUX-TOOLS Podložka pozinkovaná pr. 10,5 mm, 100 ks" 3,89 EUR*, vonkajší priemer 20, Dodávka domov (Balík, 2-3 pracovných dní)
+#   obi_p3945318: "LUX-TOOLS Šesťhranná matica pozinkovaná M3, pr. 5,5 mm, 100 ks" 1,69 EUR*, Dodávka domov (Balík, 2-3 pracovných dní)
+#   obi_p3860327: "LUX-TOOLS Karosárska podložka pozinkovaná pr. 8,4 x 24 mm, 100 ks" 5,59 EUR*, vonkajší priemer 24
+#   ziadne imbus M4 s valcovou hlavou (len SW5 M6, SW6 M8), ziadne M2 skrutky
+# GME: SPA (Angular, 3,8 kB shell) - neoveritelne; sitemap (../gme/gme_products.txt) nema ziadne imbus/stavěcí skrutky
+# Blokovane: ostatne/blocked_recheck.txt (laskarduino 000, botland 403, tme 403, hornbach "Client Challenge", dratek/rlx/tymoty presmerovanie mimo zoznam)

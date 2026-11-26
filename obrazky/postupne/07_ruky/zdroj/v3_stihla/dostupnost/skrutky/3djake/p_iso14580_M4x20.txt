@@ -1,0 +1,16 @@
+URL: https://www.3djake.sk/cnc-kitchen/skrutky-s-valcovou-nizkou-hlavou-m4-iso-14580-nehrdzavejuca?sai=30376
+name: Skrutky s valcovou nízkou hlavou M4 (ISO 14580), nehrdzavejúca oceľ A2-70, M4x20
+sku: CNC-TC-S-M4x20
+offer: {"price": "5.59", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://www.3djake.sk/cnc-kitchen/skrutky-s-valcovou-nizkou-hlavou-m4-iso-14580-nehrdzavejuca?sai=30376"}
+stock_texts: ['Na sklade', 'Doručenie: streda, 02. decembra , ak si objednáte do dňa: piatok,23:59 h', 'Na sklade zostáva už len 28 ks tohto produktu. Ďalšie sú na ceste. Ak si objednáte viac kusov, môže to ovplyvniť dátum dodania.', '* Tieto náklady na doručenie sa vzťahujú na štandardnú prepravu. Môžu sa vyskytnúť ďalšie náklady, napr. v dôsledku hmotnosti, veľkosti alebo vlastností výrobkov. Tieto informácie nájdete priamo v popise produktu.']
+na_sklade: ['Na sklade', 'Na sklade zostáva už len 28 ks tohto produktu. Ďalšie sú na ceste. Ak si objednáte viac kusov, môže to ovplyvniť dátum dodania.']
+variants:
+  sai=30364 M4x5 :: M4x5 € 10,07 € 12,59 (€ 0,40 / ks)
+  sai=30367 M4x6 :: M4x6 € 6,87 € 8,59 (€ 0,27 / ks)
+  sai=30370 M4x10 :: M4x10 € 6,47 € 8,09 (€ 0,26 / ks)
+  sai=30373 M4x16 :: M4x16 € 6,87 € 8,59 (€ 0,27 / ks)
+  sai=30376 M4x20 :: M4x20 € 5,59 € 6,99 (€ 0,22 / ks)
+  sai=30379 M4x25 :: M4x25 € 9,35 € 11,69 (€ 0,37 / ks)
+  sai=30382 M4x35 :: M4x35 € 7,27 € 9,09 (€ 0,29 / ks)
+  sai=30385 M4x40 :: M4x40 € 10,71 € 13,39 (€ 0,43 / ks)
+  sai=30388 M4x50 :: M4x50 € 12,47 € 15,59 (€ 0,50 / ks)

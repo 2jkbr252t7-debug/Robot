@@ -1,0 +1,8 @@
+url: https://www.laskakit.cz/podlozka-plocha-4-3-din-125a--m4/
+h1: Podložka plochá 4,3 DIN 125A (M4)
+availability: ['Skladem']
+amount: ['(4768\xa0ks)', '(4241\xa0ks)', '(3\xa0ks)']
+price: ['0,40 Kč']
+price_add: ['0,30 Kč bez DPH', '1,40 Kč\xa0bez DPH 1,70 Kč Matice přesná M4 DIN 934 LA220011']
+code: ['Kód: LA220008']
+desc: class="tab-pane fade in active" role="tabpanel"> Detailní popis produktu Specifikace: DIN 125 A ISO 7089 Materiál: ocel Součástí dodávky: 1ks Podložka plochá 4,3 DIN 125A (M4) Poznámka: Tento výrobek není samostatně funkčním celkem a může vyžadovat odbornou montáž. Fotografie výrobků jsou pouze ilustracemi na ukázku a někdy se mohou lišit od skutečného vzhledu předmětu. Avšak toto nemění jejích základní vlastnosti. Doplňkové parametry Kategorie : Šroubky, matice, sloupky Záruka : 2 roky Hmotnost : 0.001 kg

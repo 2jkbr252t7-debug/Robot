@@ -1,0 +1,8 @@
+url: https://www.laskakit.cz/laskkit-sada-sroubu--matic-a-distancni-sloupky-m2-5-120ks-mosaz/
+h1: LaskaKit sada šroubů, matic a distanční sloupky M2.5 120ks mosaz
+availability: ['Skladem']
+amount: ['(47\xa0ks)', '(32\xa0ks)']
+price: ['209,80 Kč']
+price_add: ['173,40 Kč bez DPH', '135,20 Kč\xa0bez DPH 163,60 Kč Stavebnice podvozku se sledovačem čáry D2-1 je jednoduchý elektronický robot na pájení, který sám jezdí po tmavé čáře. LA250002']
+code: ['Kód: LA180018']
+desc: class="tab-pane fade in active" role="tabpanel"> Detailní popis produktu Material: Mosaz Závit: M2.5, délka závitu: 6mm. Specifikace: Typ počet M2.5 matice 20 M2.5x6mm šroub 20 Distanční sloupek F-F M2.5 6mm 10 Distanční sloupek F-F M2.5 10mm 10 Distanční sloupek F-F M2.5 12mm 10 Distanční sloupek F-F M2.5 15mm 10 Distanční sloupek M-F M2.5 6+6mm 10 Distanční sloupek M-F M2.5 10+6mm 10 Distanční sloupek M-F M2.5 15+6mm 10 Distanční sloupek M-F M2.5 20+6mm 10 Součástí dodávky: 1ks LaskaKit sada šroubů, matic a distanční sloupky M2.5 120ks mosaz Poznámka: Fotografie výrobků jsou pouze ilustracemi na ukázku a někdy se mohou lišit od skutečného vzhledu předmětu. Avšak toto nemění jejích základní vlastnosti. Doplňkové parametry Kategorie : Pro začátečníky DIY Záruka : 2 roky Hmotnost : 0.162 kg

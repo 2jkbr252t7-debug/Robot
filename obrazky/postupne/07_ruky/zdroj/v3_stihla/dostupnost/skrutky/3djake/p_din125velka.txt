@@ -1,0 +1,14 @@
+URL: https://www.3djake.sk/cnc-kitchen/podlozka-velka-din-125-nehrdzavejuca-ocel-a2
+name: Podložka veľká (DIN 125), nehrdzavejúca oceľ A2, M2
+sku: CNC-TC-LW-M2
+offer: {"price": "4.95", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://www.3djake.sk/cnc-kitchen/podlozka-velka-din-125-nehrdzavejuca-ocel-a2?sai=30475"}
+stock_texts: ['Ešte 8 ks na sklade', 'Doručenie: streda, 02. decembra , ak si objednáte do dňa: piatok,23:59 h', 'Na sklade zostáva už len 8 ks tohto produktu. Ďalšie sú na ceste. Ak si objednáte viac kusov, môže to ovplyvniť dátum dodania.', '* Tieto náklady na doručenie sa vzťahujú na štandardnú prepravu. Môžu sa vyskytnúť ďalšie náklady, napr. v dôsledku hmotnosti, veľkosti alebo vlastností výrobkov. Tieto informácie nájdete priamo v popise produktu.']
+na_sklade: ['Na sklade zostáva už len 8 ks tohto produktu. Ďalšie sú na ceste. Ak si objednáte viac kusov, môže to ovplyvniť dátum dodania.']
+variants:
+  sai=30475 M2 :: M2 € 4,95 € 6,19 (€ 0,02 / ks)
+  sai=30478 M2,5 :: M2,5 € 4,63 € 5,79 (€ 0,02 / ks)
+  sai=30481 M3 :: M3 € 4,71 € 5,89 (€ 0,02 / ks)
+  sai=30484 M4 :: M4 € 4,79 € 5,99 (€ 0,05 / ks)
+  sai=30487 M5 :: M5 € 7,19 € 8,99 (€ 0,07 / ks)
+  sai=30490 M6 :: M6 € 5,75 € 7,19 (€ 0,12 / ks)
+  sai=30493 M8 :: M8 € 6,63 € 8,29 (€ 0,13 / ks)

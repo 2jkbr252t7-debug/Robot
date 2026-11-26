@@ -1,0 +1,25 @@
+== https://www.dratek.cz/vyhledavani/?search=MG90S
+HTTP/1.1 200 Connection Established
+HTTP/2 301 
+server: nginx
+location: https://dratek.cz/vyhledavani/?search=MG90S
+== https://www.rlx.sk/sk/search?controller=search&s=MG90S
+HTTP/1.1 200 Connection Established
+HTTP/2 302 
+location: https://rlx.sk/sk/search?controller=search&s=MG90S?controller=search&s=MG90S
+server: 
+== https://www.laskarduino.sk/
+HTTP/1.1 502 Bad Gateway
+== https://www.tme.eu/sk/katalog/?search=MG90S
+HTTP/1.1 200 Connection Established
+HTTP/2 403 
+cf-mitigated: challenge
+server: cloudflare
+server-timing: chlray;desc="a60951f44b899079"
+== https://botland.store/search?s=MG90S
+HTTP/1.1 200 Connection Established
+HTTP/2 403 
+cf-mitigated: challenge
+server: cloudflare
+server-timing: chlray;desc="a60951f53826f3ee"
+laskarduino retry done

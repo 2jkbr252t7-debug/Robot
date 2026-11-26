@@ -1,0 +1,174 @@
+{
+ "C": {
+  "axis": {
+   "skins": [
+    49.641,
+    62.465
+   ],
+   "seam_x": 57.057
+  },
+  "r12_up": {
+   "skins": [
+    48.945,
+    59.835
+   ],
+   "seam_x": 54.971000000000004
+  },
+  "r12_down": {
+   "skins": [
+    52.571,
+    64.968
+   ],
+   "seam_x": 59.766999999999996
+  },
+  "r12_front": {
+   "skins": [
+    52.908,
+    60.488
+   ],
+   "seam_x": 57.194
+  },
+  "r12_back": {
+   "skins": [
+    52.705,
+    60.186
+   ],
+   "seam_x": 56.921
+  },
+  "tip_volume_mm3": 1027.0,
+  "tip_volume_on_cover_side_mm3": 364.0,
+  "tip_u_range": [
+   0.755,
+   1.0
+  ],
+  "tip_cut_angle_deg_min": 46.6,
+  "tip_cut_angle_deg_min_cover_side": 59.9,
+  "tip_cut_angle_at": [
+   -7.01,
+   -10.72,
+   -54.39
+  ],
+  "cover_magnet_spots": [
+   {
+    "u": 0.16,
+    "y": 12.51,
+    "cover_depth_from_seam": 2.47,
+    "inner_depth_from_seam": 3.21,
+    "room_cover_for_magnet_wall1p6": 0.62
+   },
+   {
+    "u": 0.16,
+    "y": 10.11,
+    "cover_depth_from_seam": 3.88,
+    "inner_depth_from_seam": 5.16,
+    "room_cover_for_magnet_wall1p6": 2.03
+   },
+   {
+    "u": 0.66,
+    "y": 11.75,
+    "cover_depth_from_seam": 2.2,
+    "inner_depth_from_seam": 2.86,
+    "room_cover_for_magnet_wall1p6": 0.35
+   },
+   {
+    "u": 0.66,
+    "y": 9.46,
+    "cover_depth_from_seam": 3.3,
+    "inner_depth_from_seam": 4.4,
+    "room_cover_for_magnet_wall1p6": 1.45
+   }
+  ],
+  "joint_u022": {
+   "seam": -4.26,
+   "inner_half": 7.25,
+   "outer_half": 5.29,
+   "cover_cavity_depth_wall1p6": 3.69
+  }
+ },
+ "0": {
+  "axis": {
+   "skins": [
+    49.641,
+    73.093
+   ],
+   "seam_x": 61.408
+  },
+  "r12_up": {
+   "skins": [
+    48.944,
+    70.163
+   ],
+   "seam_x": 58.861000000000004
+  },
+  "r12_down": {
+   "skins": [
+    52.57,
+    75.107
+   ],
+   "seam_x": 63.955
+  },
+  "r12_front": {
+   "skins": [
+    52.652,
+    70.457
+   ],
+   "seam_x": 61.542
+  },
+  "r12_back": {
+   "skins": [
+    52.436,
+    70.19800000000001
+   ],
+   "seam_x": 61.275000000000006
+  },
+  "tip_volume_mm3": 1829.0,
+  "tip_volume_on_cover_side_mm3": 636.0,
+  "tip_u_range": [
+   0.741,
+   1.0
+  ],
+  "tip_cut_angle_deg_min": 41.8,
+  "tip_cut_angle_deg_min_cover_side": 57.8,
+  "tip_cut_angle_at": [
+   -5.77,
+   -11.58,
+   -53.17
+  ],
+  "cover_magnet_spots": [
+   {
+    "u": 0.16,
+    "y": 12.51,
+    "cover_depth_from_seam": 7.95,
+    "inner_depth_from_seam": 7.95,
+    "room_cover_for_magnet_wall1p6": 6.1
+   },
+   {
+    "u": 0.16,
+    "y": 12.51,
+    "cover_depth_from_seam": 7.95,
+    "inner_depth_from_seam": 7.95,
+    "room_cover_for_magnet_wall1p6": 6.1
+   },
+   {
+    "u": 0.66,
+    "y": 11.75,
+    "cover_depth_from_seam": 6.77,
+    "inner_depth_from_seam": 6.77,
+    "room_cover_for_magnet_wall1p6": 4.92
+   },
+   {
+    "u": 0.66,
+    "y": 11.75,
+    "cover_depth_from_seam": 6.77,
+    "inner_depth_from_seam": 6.77,
+    "room_cover_for_magnet_wall1p6": 4.92
+   }
+  ],
+  "joint_u022": {
+   "seam": -0.0,
+   "inner_half": 11.51,
+   "outer_half": 11.51,
+   "cover_cavity_depth_wall1p6": 9.91
+  }
+ }
+}

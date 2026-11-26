@@ -1,0 +1,8 @@
+url: https://www.laskakit.cz/matice-presna-m3-din-934--6--ocel/
+h1: Matice přesná M3 DIN 934 /6/ ocel
+availability: ['Skladem']
+amount: ['(378\xa0ks)', '(70\xa0ks)', '(2099\xa0ks)']
+price: ['1,60 Kč']
+price_add: ['1,30 Kč bez DPH', '1,40 Kč\xa0bez DPH 1,70 Kč Šroub do plastu s půlkulatou hlavou a kříž. drážkou 3,5x12 BN 82428 ZB LA220005B']
+code: ['Kód: LA220010']
+desc: class="tab-pane fade in active" role="tabpanel"> Detailní popis produktu Šestihranné matice přesné s metrickým závitem. Specifikace: DIN 934 – ISO4032 – ČSN 021401 Materiál: ocel Součástí dodávky: 1ks Matice přesná M3 DIN 934 /6/ ocel Poznámka: Tento výrobek není samostatně funkčním celkem a může vyžadovat odbornou montáž. Fotografie výrobků jsou pouze ilustracemi na ukázku a někdy se mohou lišit od skutečného vzhledu předmětu. Avšak toto nemění jejích základní vlastnosti.   Doplňkové parametry Kategorie : Šroubky, matice, sloupky Záruka : 2 roky Hmotnost : 0.001 kg

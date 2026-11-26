@@ -1,0 +1,554 @@
+{
+  "summary": "Slimmer NOVA mini arm: 3 slimmer shape variants, how much of the joint fits inside each, comparison images (Slovak)",
+  "agentCount": 7,
+  "logs": [
+    "Varianty: 0 23.02, A 18.65, B 15.54, C 12.55; možnosti kĺbu: M1 min 22.79, M2 min 16.55, M2b min 15.47, M3 min 14.48, M4 min 14.75"
+  ],
+  "result": {
+    "tvar": {
+      "module": "/tmp/claude-0/gapwf/fin/R3/tvar/variants.py. It is pure numpy and imports in both the CAD venv and Blender's python; it reads only T3/shape.py. API: VIDS = (\"0\",\"A\",\"B\",\"C\"); params(vid); section(vid,u) -> (c, ti, to, w, ni, no); profile(vid,u) -> (half_width, half_thick_inner, half_thick_outer), where both half thicknesses are measured from the seam/equator x = seam_x(vid,u) and not from x = 0, so thickness = inner + outer; faces(vid,u) -> (x of inner face, x of outer face, seam x) on the centre line; thickness(vid,u); pebble_rows(vid,nu,nth,inset=0) -> (rows, top, bot), the same tuple and u/theta sampling as v1geo.pebble_rows; pebble_cloud; inside_local(vid,P,inset) (same inset meaning as v1geo); half_rows(vid,'vonk'|'vnut',nu,nth,gap=0.25) gives closed half solids with the seam gap, for rendering or export; tip_plane_local(vid); to_world(P,vid,dx=-1.0,sx=1), to_local, dir_world, swing(Q,deg) and swing_matrix(deg), all identical to armgeo/v1geo; subset_margin(vid). Section model: an asymmetric superellipse. The equator (seam) is at x = c(u) = -(1-ki)*H(u). The inner half has thickness ti = ki*ht and exponent ni; the outer half has to = ko*ht and exponent no; the half width is w = kw*hw, with (hw, ht) the approved T3 arm_profile. H = ht for u in [u1, 0.5], so the inner face on the centre line stays exactly at -ht there. Towards both tips H is smoothstep-blended to a constant, so the tips follow the slimmer body. Self-test (python variants.py): variant \"0\" matches the v1geo rows and the world placement to 1.6e-13 (assert < 0.01). Helper scripts in the same folder: chk_variants.py -> chk_variants.json, room.py -> room.json, chk_head.py -> chk_head.json, scene_tvar.py (copy of v2_scene.py with the variant arms; shots front / hero / heroarm / armfront / side / top / zoom, plus --vids), sheet_tvar.py.",
+      "variants": [
+        {
+          "id": "0",
+          "name_sk": "0 – súčasná ruka (T3)",
+          "thickness_max": 23.02,
+          "thickness_at_joint": 23.01,
+          "inner_half_at_joint": 11.51,
+          "outer_half_at_joint": 11.51,
+          "width_max": 33.56,
+          "robot_width_over_arms": 155.34,
+          "params": "ki 1.00, ko 1.00, kw 1.00, ni = no = 2.3 (approved T3 pebble, dx -1.0, SPLAY 12, SWING 3)",
+          "notes": "Measured on the current arm. Thickness along u (0.05/0.1/0.22/0.3/0.4/0.5/0.6/0.7/0.8/0.9/0.95): 20.1/22.1/23.0/22.7/22.1/21.3/20.1/18.4/16.1/12.5/9.7; maximum 23.0 at u 0.21. Width along u: 25.7/29.7/33.1/33.6/33.3/32.7/31.6/29.6/26.3/20.9/16.2; maximum 33.6 at u 0.31. In the front view the outer cover is 11.6 of 23.6 mm of visible arm width at u 0.22 (half). Innermost world x 48.498 at u 0.085. Gap to the torso (model rec1 from armgap_top): 3.702 at rest, 1.001 at +135, 0.862 at 140.5, 0.829 at 142, all matching armgap_top. Front-view gap at the axis height 2.78. Shoulder-axis skin x 49.65..73.09. With a 1.2 wall, an r 12.7 hub fits up to x 67.8, i.e. the B1+ hub to 67.6 is what sets this thickness."
+        },
+        {
+          "id": "A",
+          "name_sk": "A – mierne štíhlejšia",
+          "thickness_max": 18.65,
+          "thickness_at_joint": 18.64,
+          "inner_half_at_joint": 11.51,
+          "outer_half_at_joint": 7.13,
+          "width_max": 31.88,
+          "robot_width_over_arms": 150.21,
+          "params": "ki 1.00, ko 0.62, kw 0.95, ni 2.3, no 2.3; seam stays the plane x = 0; tips unchanged; black-tip plane unchanged (u 0.86)",
+          "notes": "The inner half A_vnut keeps its exact thickness. Only the outer cover A_vonk is flattened, from 11.5 to 7.1 at the joint. Width is 5 % narrower (33.6 -> 31.9) for proportions; this is a deliberate change. Strict subset of the approved pebble (0.0 mm outside). Gap: rest 3.702 (unchanged); minimum over -45..+135 is 1.11 at 135 (now 1.00); 0.955 at 140.5. Robot width 150.2 (-5.1). Front-view outer cover band 7.2 of 19.1 at u 0.22. Joint room: axis skin x 49.65..68.66; with wall 1.2, an r 12.7 hub fits up to x 64.2, so the in-arm stack (B1+ to 67.6) must get about 3.4 shorter."
+        },
+        {
+          "id": "B",
+          "name_sk": "B – štíhla",
+          "thickness_max": 15.54,
+          "thickness_at_joint": 15.53,
+          "inner_half_at_joint": 9.21,
+          "outer_half_at_joint": 6.33,
+          "width_max": 30.2,
+          "robot_width_over_arms": 144.42,
+          "params": "ki 0.80, ko 0.55, kw 0.90, ni 2.2, no 2.3, u1 0.03, u2 0.50, hb 1.25, black tip at u 0.85 (plane point moved onto the new seam, same normal)",
+          "notes": "The seam moves inwards to x -2.30 at the joint. It is curved and follows the equator. The tips sit at local x -1.84 (top) and -2.66 (bottom), so the outer contour does not turn into a straight blade. Width is 10 % narrower (30.2). In u 0.03..0.5 it is a strict subset of the approved arm; the 2D section test gives level 0.99999995 <= 1. Outside the old pebble: at most 0.16 mm at the top apex (u<0.03, world x >= 49.77, z -3.4..-0.4) and at most 1.57 mm at the bottom (u>0.5, world x >= 56.25). Gap: rest 3.703, minimum over -45..135 is 1.125 at 135, 0.97 at 140.5. Front-view outer cover 6.3 of 16.0. Joint room: axis skin x 49.65..65.51; with wall 1.2, r 12.7 fits only up to x 60.9 and r 11 up to 61.75, so the in-arm stack needs about 6.7 less length."
+        },
+        {
+          "id": "C",
+          "name_sk": "C – najštíhlejšia",
+          "thickness_max": 12.55,
+          "thickness_at_joint": 12.54,
+          "inner_half_at_joint": 7.25,
+          "outer_half_at_joint": 5.29,
+          "width_max": 28.52,
+          "robot_width_over_arms": 138.1,
+          "params": "ki 0.63, ko 0.46, kw 0.85, ni 2.2, no 2.3, u1 0.03, u2 0.50, hb 1.40, black tip at u 0.84",
+          "notes": "Seam at x -4.26 at the joint; tips at local x -3.41 (top) and -5.52 (bottom). Width is 15 % narrower (28.5). Subset of the approved arm in u 0.03..0.5. Outside the old pebble: at most 0.31 mm at the top apex (world x >= 49.65) and at most 3.5 mm at the bottom (u>0.5, world x >= 55.7). Gap: rest 3.702, minimum over -45..135 is 1.039 at 135 (now 1.001), 0.895 at 140.5. Front-view outer cover 5.3 of 12.9. Joint room: axis skin x 49.65..62.46; with wall 1.2, r 12.7 fits only from x 55.8 to 57.6 and r 10 up to 59.05. The B1+ in-arm clutch (6700 + M10 washer + magnet disc r 11 to x 67.6) cannot stay in the arm; the clutch would have to move into the torso or shrink a lot. Look: a slim leaf or flipper; the rounded inner shoulder at the top starts to dominate. It still reads as a pebble from the side and in the hero view, but less like R01 than A or B."
+        }
+      ],
+      "inner_face_check": "All of this was computed by me in /tmp/claude-0/gapwf/fin/R3/tvar/chk_variants.py; results are in chk_variants.json.\n(1) Variant \"0\" reproduces the approved arm: rows and world placement match v1geo and armgeo to 1.6e-13; inside test 0 mismatches in 200k random points; swing identical to armgeo.\n(2) The inner face on the centre line is exactly x = -ht(u) for u 0.03..0.5 (0.04..0.5 for A and 0) in every variant, and the attachment and local frame are the approved ones. Innermost world x at rest is 48.498 for 0, A, B and C (u 0.085, unchanged; tolerance 0.05 met with 0.000). Inner skin on the shoulder axis is 49.65 in all variants. Front-view gap at axis height is 2.78 in all.\n(3) In u 0.03..0.5 every section lies inside the approved section. The 2D level is <= 1 (A 0.99999999, B 0.99999995, C 0.99999997), so there the gap can only grow. Outside that zone, B and C deliberately leave the old pebble: by at most 0.16 / 0.31 mm at the top apex (u < 0.03) and 1.57 / 3.5 mm at the lower arm (u > 0.5, world x >= 55.7, far from the torso). A is a strict subset everywhere.\n(4) Gap to the torso was computed with the same model and method as R2c/vyber/armgap_top.py ('rec1': approved torso exterior, cap edge r 14, plug face recessed 1.0; dense arm cloud at h 0.15 plus the analytic sign; angles -51..142 in 1 deg steps, 0.5 deg steps from 130). Variant 0 reproduces 3.702 / 1.001 at 135 / 0.862 at 140.5 / 0.829 at 142.\n- Rest: A 3.702, B 3.703, C 3.702.\n- Minimum over -45..+135: A 1.11, B 1.125, C 1.039, all at 135.\n- At the 140.5 stop: A 0.955, B 0.97, C 0.895 (now 0.862).\nNone is worse than now. The critical point at 135 is the inner face at u 0.045, y/w about 0.55, inside the exact-subset zone.\n(5) Only the left side was checked; the right side is the mirror, with the same analytic torso.\n(6) Extra, approximate check: arm against the B/stl CELOK head and neck meshes (vertices and centroids, pan about the Z axis through the origin assumed), chk_head.json.\n- Upright head: C comes up to about 1 mm closer than now (pan 0: 7.83 vs 8.78; pan +30: 5.74 vs 5.50 is better). A and B are within ±0.2 mm.\n- Tilt 40 + pan +30 at 135: the CURRENT arm already overlaps the head by 1.35 mm (A -0.92, B -1.07, C -1.37). This looks like an existing limit-combination issue, or an artefact of my pan-axis assumption; I did not verify it further.\nNot checked by me: the B1+ joint parts inside the slimmer arms (only the room numbers in room.json), wall thickness or strength of the thinner shells, and print orientation.",
+      "look_notes": "How I read the complaint: in the front view the outer cover takes half the visible arm width (11.6 of 23.6 mm). In the hero view the raised arm shows a broad, flat outer oval (33.6 wide).\n\nStrategy in all three variants:\n- The arm gets thinner from the outside. The outer cover is a flatter dome: 11.5 -> 7.1 / 6.3 / 5.3 at the joint. In the front view the cover band becomes 7.2 / 6.3 / 5.3 instead of 11.6.\n- The inner face stays, so the arm sits just as close to the torso as now (3.70 rest gap, 2.78 front-view gap).\n- In B and C the inner half also thins and the seam (the equator, which is also the widest fore-aft line) moves inwards. It is curved in B and C and still the clean parting line; A keeps the current planar seam.\n- The fore-aft width is deliberately 5 / 10 / 15 % narrower. Without that, a thin arm becomes a wide flat paddle in the hero and side views ('ruka pôsobí široká'), and the narrower width also gives the subset guarantee for the thinner inner half.\n- In B and C both tips move inwards with the body. Without this the outer contour of B and C was a straight blade line (the first iteration looked like a leaf or feather).\n- Black tip on the inner lower front: same plane normal as v1geo, with the plane point moved onto the new seam (u 0.86 / 0.85 / 0.84) so the black patch keeps a similar size.\n- Splay 12 and swing 3 are unchanged.\n\nVerdict from the previews:\n- A still reads as the approved R01 pebble, only with a visibly thinner outer cover. It is the safest option and needs the joint stack about 3.4 shorter.\n- B is in my view the best balance: clearly slim, still a rounded pebble, and the seam runs near the outer edge in the front view, much like the rim line on the R01 arm.\n- C is about as slim as it can go: it reads as a slim leaf or flipper and the rounded inner shoulder at the top dominates. It is OK as the extreme option but less R01-like.\n\nJoint consequence (computed, room.json): with a 1.2 wall, an r 12.7 hub fits up to x 67.8 now, 64.2 in A, 60.9 in B and 57.6 in C. The B1+ in-arm clutch (to x 67.6) fits only the current arm. B and C need the clutch moved into the torso or made much shorter.\n\nRender caveats:\n- The visible black spigot is the v2 'zatka' STL from img_v2 (read only), not the B1+ part.\n- A dark core inside each arm is visible only through the 0.5 seam. It stands in for the internal lip, so the seam reads as a dark line, as in the approved renders.\n- No hub or internals are modelled.\n- The previews are 500 px, 16 samples, 3 threads.",
+      "previews": [
+        "/tmp/claude-0/gapwf/fin/R3/tvar/prev/fin/porovnanie_variantov.png",
+        "/tmp/claude-0/gapwf/fin/R3/tvar/prev/fin/front_0.png",
+        "/tmp/claude-0/gapwf/fin/R3/tvar/prev/fin/front_A.png",
+        "/tmp/claude-0/gapwf/fin/R3/tvar/prev/fin/front_B.png",
+        "/tmp/claude-0/gapwf/fin/R3/tvar/prev/fin/front_C.png",
+        "/tmp/claude-0/gapwf/fin/R3/tvar/prev/fin/hero_0.png",
+        "/tmp/claude-0/gapwf/fin/R3/tvar/prev/fin/hero_A.png",
+        "/tmp/claude-0/gapwf/fin/R3/tvar/prev/fin/hero_B.png",
+        "/tmp/claude-0/gapwf/fin/R3/tvar/prev/fin/hero_C.png",
+        "/tmp/claude-0/gapwf/fin/R3/tvar/prev/fin/armfront_0.png",
+        "/tmp/claude-0/gapwf/fin/R3/tvar/prev/fin/armfront_A.png",
+        "/tmp/claude-0/gapwf/fin/R3/tvar/prev/fin/armfront_B.png",
+        "/tmp/claude-0/gapwf/fin/R3/tvar/prev/fin/armfront_C.png"
+      ]
+    },
+    "mech": {
+      "options": [
+        {
+          "id": "M1",
+          "name_sk": "B1+ bez zmeny (súčasný kĺb v ruke)",
+          "description": "Reference: the judge-final B1+ arm-side stack rebuilt from final_B1plus.json. Order along the shoulder axis: 6700ZZ on the D10 seat (x 55.5..59.5), hub flange, DIN 125 M10 washer (60.6..62.6), drive-hub disc r 11 (62.6..65.9) on the DIN 912 M4x20 head (60..64), lip ring and hub wall r 10.4..12.7 out to x 67.6. Everything with a large radius sits at the outer end of the stack. Because the arm is splayed 12 deg, that is the place where the pebble has the least room.",
+          "parts_in_arm": "6700ZZ (outer ring epoxied in the printed hub). Printed arm hub: bore wall r 7.5..8.7, flange, wall r 11.5..12.7 to x 67.6, lip ring r 10.4..12.0 at x 66.4..67.6. Stop rib r 5.5..8.5, x 53..55. DIN 125 M10 washer. Printed drive hub: pocket on the M4 head, disc r 11, 8 pockets for 5x2 N38 at r 7.7. Head of the DIN 912 M4x20.",
+          "parts_changed_in_torso": "none",
+          "envelope": "The arm OUTER surface along a line parallel to X at radius r from the shoulder axis must be at or beyond: x >= 67.40 for r 0..10.4 (drive disc 65.9 + 0.3 + 1.2), x >= 68.80 for r 10.4..12.7 (hub wall/lip 67.6 + 1.2). Arm inner skin on the axis is x 49.645, so the stack needs 17.8-19.2 mm along X. Governing spot: hub wall/lip corner x 67.6, r 12.7, front-top (az 158). Shape variants (fit.py): 0 (23.02) fits, margin +0.16 (reproduces the judge's 1.36 wall). A (18.65) -3.16, B (15.54) -4.70, C (12.55) -5.0: all three fail. The fixer's newer 6800 hub (R2c/oprava/final_B1plus_fix.json) is in the same class (fixer reports 1.29-1.40 wall at 23.0). I did not re-run it.",
+          "min_thickness_at_joint": 22.79,
+          "rules_ok": "As B1+ (judge-final): no metal work, common parts, walls >= 1.2 (wall left 1.36), clearances 0.5.",
+          "strength_and_function": "As B1+: stop 2.2 mm2, homing 1.28 MPa, 3 N tip push 16.2 MPa. Clutch with 5x2 N38 at r 7.7: 0.0018-0.0041 N.m per magnet. Brief window 0.0124-0.0170 needs 4-8 magnets. The fixer's newer window 0.0082-0.0113 needs 3-6. Tilt threshold 0.83-1.25 N at the tip, then <= 0.73 mm. Seat under L5: 7.8 MPa (D10/D5), 9.7 MPa in the A2 zone with the steel race ignored.",
+          "risks": "Needs 22.8 mm at the joint, so it is incompatible with every slimmer shape. The outer cover can only get thinner if the stack is repackaged.",
+          "verified_by_own_calc": "Yes, with my own sdf checker. The judge's room numbers were reproduced to 0.01 mm: hub wall 1.36, disc 3.76, rib 1.60, 6700 3.96. Stop gaps 0.58 at -45 and 0.53 at +135, contact at -51 and +140.5. Min thickness 22.79 by bisection on the kt stand-ins. Stress and clutch numbers are B1+/judge values plus my own re-run of the magnet model."
+        },
+        {
+          "id": "M2",
+          "name_sk": "B1+ naplocho: 6700 + podložka M14 okolo ložiska, magnety 5×1",
+          "description": "Same functions as B1+ (6700 on the plug seat, magnetic slip clutch, two-sided hidden stop, removable arm), repackaged three ways: (1) the steel friction washer is a DIN 125 M14 (ID 15 = 6700 OD) slipped over and epoxied onto the 6700 outer ring, so the washer is radially nested AROUND the bearing (friction face 0.3 beyond the bearing face); (2) thin 5x1 magnets in a 1.45 mm disc; (3) the M4 head is recessed 1.6 mm in a counterbore of the seat (DIN 912 M4x16). No lip ring is needed: when the arm is pulled outward the washer pushes the disc, so retention comes from the drive-hub press fit, as in B1+.",
+          "parts_in_arm": "6700ZZ, x 54.6..58.6 on the D10 seat; its inner ring rests on a step of the stop lug. DIN 125 M14 15x28x2.5 washer in ZINC-PLATED STEEL (not A2), x 56.4..58.9. Printed hub, part of A_vnut: bearing bore plus backing r 7.5..14.3, x 55.2..56.4. Stop rib r 5.3..8.5, x 52.8..54.3, 32.7 deg. Printed drive hub: ring pressed on the M4 head (x 58.9..61.0), cap with a 3 AF key (to 62.2), disc r 14.25 at x 58.9..60.35 with 10 pockets D5.1x1.2 at r 10.5 (web 1.5) behind a 0.25 skin. 4-9 NdFeB 5x1 N38.",
+          "parts_changed_in_torso": "Plug (zátka) reprint only. Seat D10 shortened 59.5 -> 58.6 with a D7.6 counterbore (x 56.5..58.6, wall 1.2) for the head. Stop lug reshaped to r 5.0..6.7, x 52.5..54.3, plus a step r 5.0..5.5 to x 54.6. Arm shaft DIN 912 M4x16 instead of M4x20 (head x 57..61, tip x 41.0, full thread in the gear). A1/A2, gear, pinion, servo, column, D13 ring and arm hole are unchanged, so the arm-torso gap is unchanged.",
+          "envelope": "x_outer >= 63.70 for r 0..4.7 (key cap 62.2 + 0.3 + 1.2); x_outer >= 61.85 for r 4.7..14.25 (disc 60.35 + 1.5). Governing spot: disc rim r 14.25, front-top. Shape variants: 0 fits (+0.95). A fails: the r 14 washer is only 0.64 from the inner surface fore-aft (-0.56), because A is 5 % narrower. B -1.14 and C -3.34 also fail. Stand-ins: kt 0.85 fits (+0.80), kt 0.70 fails (-0.23).",
+          "min_thickness_at_joint": 16.55,
+          "rules_ok": "No metal work: yes. DIN 912 M4x16 8.8 zinc is a Hornbach item. 6700ZZ is already used by B1+ (bearing shops; the fixer notes 6800 is easier to buy). DIN 125 M14 zinc is a fastener-shop item: verify it is zinc steel, not A2, and magnetic. 5x1 N38 is sold on the Kaufland.cz marketplace and by Enes PL, but is less common than 5x2. Printed walls >= 1.2: yes, except the 0.25 friction skin, same concept as B1+. Sliding clearances >= 0.30: yes (checker). Cover wall >= 1.2: yes.",
+          "strength_and_function": "Clutch, 5x1 N38 through the 0.25 skin: 0.45-0.64 N per magnet, 0.0012-0.0027 N.m per magnet at r 10.5. Fixer window 0.0082-0.0113: 4-9 of 10 pockets, in all cases. Brief window 0.0124-0.0170: 7-9 (mid) or 5-6 (high); the pessimistic case (F low, mu 0.25) needs 11 > 10, so use 5x1 N52 there. Balanced counts: any count except 1 and 3. Spacer factors 0.68 / 0.49. Stop 2.1 mm2: homing 1.35 MPa, 3 N tip push 17.1 MPa (B1+ 16.2), rib root 4.9 MPa. Seat under L5: 9.7 MPa in the A2 zone (same as B1+), 5.5 MPa at the counterbore. 6700 under L5: F/C0 about 0.27. Washer bond 0.03 MPa. Key 1.3 MPa. Retention about 7-32 N after relaxation (B1+ 13-60), scaled estimate. Tilt threshold 0.5-1.5 N at the tip, then <= 0.73 mm.",
+          "risks": "The r 14.25 disc and washer sit near the fore-aft edge, so any narrower shape fails (A, B). Lower press-fit retention (grip 2.1 instead of 4.0). Availability of the M14 washer and the 5x1 magnets. The brief's torque window is only met with N52 in the pessimistic case.",
+          "verified_by_own_calc": "Geometry fit, min thickness, envelope, stop gaps (0.56 at -45, 0.51 at +135, contact at -51 / +140.5), clearances, clutch counts and stress hand calcs: my own. Magnet force: my re-implementation of the B1 model, calibrated to 5x2. The absolute 5x1 force, mu, washer saturation, press-fit retention and bearing C0 are NOT verified."
+        },
+        {
+          "id": "M2b",
+          "name_sk": "B1+ naplocho: MR128 + podložka M12, nízka hlava DIN 7984 (odporúčané)",
+          "description": "M2 with a smaller bearing, so the clutch washer can shrink: MR128ZZ (8x12x3.5) on a D8 seat and a DIN 125 M12 washer (13x24x2.5) around it, with a 0.5 epoxy ring. The disc rim drops from r 14.25 to r 13.0, so the governing spot moves to the center cap. A D8 seat cannot hold the MR74 A2, so A2 moves 3 mm inboard into the ring. The seat stays D10 at its root (stop zone) and is D8 only under the MR128 (slid on from outboard). The head is a low-head DIN 7984 M4x20.",
+          "parts_in_arm": "MR128ZZ, x 54.6..58.1. Outer ring epoxied in the hub bore (54.6..55.9) and inside a DIN 125 M12 zinc washer at x 55.9..58.4; friction face at 58.4. Printed hub, part of A_vnut: backing r 6..12.3, x 54.7..55.9. Stop rib r 5.3..8.5, x 52.8..54.6. Printed drive hub: ring on the DIN 7984 head (58.9..61.7), cap with a 2.5 AF key (to 62.9), disc r 13.0 at x 58.4..59.85 with 8 pockets D5.1x1.2 at r 9.25 (web 2.2). 4-8 NdFeB 5x1 N38.",
+          "parts_changed_in_torso": "Plug reprint. MR74 A2 moved 3.0 inboard into the ring (x 49.6..52.1); the spacer sleeve goes from 5.56 to 2.56 long; the D7->D5 step at 52.1 is the outboard shoulder. Seat: D10/D5 at x 52.5..54.3, shoulder r 4.4, D8/D5 at x 54.6..58.1. Lug r 5.0..6.7, x 52.5..54.3. Arm shaft DIN 7984 M4x20 instead of DIN 912 M4x20 (tip x 38.9, 0.5 from the boss). MR74 span 8.06 -> 5.06 mm, so its loads go x1.6 (still small). D13 ring, hole, gear, servo and column are unchanged, so the gap is unchanged.",
+          "envelope": "x_outer >= 64.40 for r 0..4.7 (cap 62.9 + 1.5); x_outer >= 61.35 for r 4.7..13.0 (disc 59.85 + 1.5). Governing spot: cap edge r 4.7 directly above the axis (az 88), at local x 2.4-6 and u about 0.18. Shape variants: A (18.65) fits, +1.50. B (15.54) fits, but only +0.085 (at the limit). C (12.55) -2.90. Stand-ins: kt 0.70 fits (+0.66), kt 0.57 -2.34.",
+          "min_thickness_at_joint": 15.47,
+          "rules_ok": "No metal work: yes. MR128ZZ is common (3D-printer/RC parts; EZO/budget versions). DIN 125 M12 zinc is a mainstream size; check zinc, not A2. 5x1 N38: as in M2. DIN 7984 M4x20 is a standard screw, but sold by fastener e-shops (Fabory SK, PGB), not Hornbach: BORDERLINE with the hardware-store rule. With DIN 912 M4x20 instead, B fails by about 1.1. Printed walls >= 1.2: yes, except the 0.25 skin. Clearances >= 0.30: yes. Cover >= 1.2: yes.",
+          "strength_and_function": "Clutch at r 9.25: 0.00105-0.00238 N.m per magnet. Fixer window: 4-8 of 8, in all cases. Brief window: 8 (mid) or 6 (high); the pessimistic case needs 12 > 8, so use N52. Balanced counts 2/4/6/8. Stop 2.1 mm2: homing 1.35 MPa, 3 N push 17.1 MPa. Seat under L5: root D10/D5 7.8 MPa (= B1+), D8/D5 under the bearing about 8.5 MPa (borderline; a first draft with D8 all along gave 16.9 MPa and was rejected). MR128 under L5: F/C0 about 0.53 (6700 about 0.27). Key 2.3 MPa. Washer bond < 0.05 MPa. Retention about 9-42 N after relaxation (plain head), scaled estimate. Tilt threshold about 0.4-0.7 N at the tip (magnet force is lower than B1+), then <= 0.81 mm.",
+          "risks": "Variant B has only 0.085 mm spare; asking the shape designer for about 0.5 mm more outer surface above the axis at u about 0.18 would make it comfortable. Other risks: the DIN 7984 source, the 5x1 magnets, the seat at 8.5 MPa under L5, a softer arm feel (lower tilt threshold), and moving A2 changes the plug cartridge. Not checked: the fixer's newer lug angles (same geometry, only angles).",
+          "verified_by_own_calc": "Geometry fit on the stand-ins and on the shape designer's variants 0/A/B/C (fit.py), envelope, stop gaps and contacts, clearances, seat/stop/key hand calcs, magnet counts: my own. Min thickness 15.47 is a bisection on the first M2b draft; the outer envelope is identical, and the revised draft was re-checked at kt 0.70, A and B. NOT verified: 5x1 absolute force, mu, the MR128 C0 value (search snippet, C0 assumed 0.5 Cr), retention."
+        },
+        {
+          "id": "M3",
+          "name_sk": "Spojka v trupe – v ruke len ložisko a náboj",
+          "description": "The clutch moves into the torso drive line. The arm keeps the 6700 on the seat, the B1+-type stop, and a printed hub keyed rigidly on the recessed DIN 912 M4x16 head (hex 3 AF + press ring), with a web over the bearing. Result: the torso has no room for the clutch.",
+          "parts_in_arm": "6700ZZ, x 54.6..58.6. Printed hub with a web over the bearing (x 58.9..60.1, r <= 8.7) and a cap keyed on the head (to 62.2). Stop rib as M2. No magnets, no washer.",
+          "parts_changed_in_torso": "Would need a slip clutch at the servo coupler, on the vertical shaft, or between the gear and the M4. Measured room (fixer's free map minus the B1+ column fill): around the vertical axis at coupler height (z -43.75..-33.75), the largest full circle is only r 4.5-5.0. It is limited by the column fill bands at y 7.5 / -8.5 and the neck pan/lift sweep at x about 34.5. The existing coupler already uses r 4.5 over z -43.5..-35.5, and above z -33.5 the side-cap notch leaves r 2. Servo-side torque is 0.0083-0.0113 N.m (brief) or 0.0055-0.0075 (fixer). A magnetic clutch: not one 5 mm magnet fits within r 4.5 beside the hex shaft (needs a disc of r >= 7-8). A spring friction clutch: assortment spring, closed internal loop so the pinion sees no axial force, 11-16 N preload at r_eff 2.8. It needs about 8.5-9 mm above the horn; about 6 mm is available. In the plug, the gear has only 0.57 radial / 0.30 axial room. Fitting it anyway would mean a new coupler, cutting into the column fill (already 8.54 MPa at z -48) and the side-cap notch. The clutch could only be adjusted with the arm, plug and side cap removed. VERDICT: does not fit.",
+          "envelope": "Arm side alone: x_outer >= 63.40 for r 0..4.7 (cap); >= 61.30 for r 4.7..8.7 (web); >= 56.4 for r 8.7..9.7. Shape variants: A fits, B fits (+1.07), C (12.55) -1.92. Stand-ins: kt 0.57 -1.36.",
+          "min_thickness_at_joint": 14.48,
+          "rules_ok": "Arm side: yes (common parts, walls, clearances). Torso side: not achievable within the rules and the available space.",
+          "strength_and_function": "Arm side: stop as M2 (17.1 MPa at a 3 N push). Seat as M2. Key 1.3 MPa. Torque path rigid from the M4 to the arm. All slip and adjustment would be inside the torso. Teeth would see the same clutch-limited torque.",
+          "risks": "No room in the torso (see numbers). Even if the clutch could be placed, the arm side alone still needs 14.5 mm, so it would not reach the 13 mm variant C.",
+          "verified_by_own_calc": "Free-space radii from the fixer's free_L.npz (read only) plus colfill_B1merge_L.npz: my own computation. Clutch size and preload needs: my own. The arm-side fit: my checker. The cap-notch, horn and coupler heights come from the B1+ json."
+        },
+        {
+          "id": "M4",
+          "name_sk": "Ultra-plochý bez mechanického dorazu (Hallov snímač)",
+          "description": "My extra test. Drop the mechanical stop (homing with a Hall sensor in the plug ring plus a magnet in the arm hub), move A2 into the ring, and push the 6700 right against the ring end (x 53.0..57.0), with the M14 washer around it and the head recessed deeper (DIN 912 M4x16, head x 55.1..59.1). Removing the stop saves about 1.5 mm of stack. The r 14.25 disc then governs, so it is NOT better than M2b or M3. Rejected.",
+          "parts_in_arm": "6700ZZ, x 53.0..57.0. DIN 125 M14, x 54.8..57.3. Printed hub. Drive hub: cap to 60.3, disc r 14.25 at x 57.3..58.75, 10x 5x1. Homing magnet 3x2; its position is indicative and was not checked.",
+          "parts_changed_in_torso": "Plug reprint: A2 moved inboard, seat D10 x 52.5..57.0 with a counterbore from 54.6. Hall sensor (SS49E/A3144 class) plus 3 wires in the plug; not designed in detail. No stop lug.",
+          "envelope": "x_outer >= 61.80 for r 0..4.7; >= 60.25 for r 4.7..14.25. Stand-in min 14.75 (governing: disc rim r 14.25 at the top). Shape variants A, B and C all fail: the washer and disc at r 14 lie outside the narrower fore-aft width (-1.5).",
+          "min_thickness_at_joint": 14.75,
+          "rules_ok": "Parts common, but the user/judge requirement for a two-sided hidden stop is dropped. Adds electronics in the plug.",
+          "strength_and_function": "Clutch as M2. Seat root 7.8 MPa, counterbore 5.5 MPa under L5. No stop to break. Hall homing function: unverified.",
+          "risks": "Thinner than M2 only on kt-scaled arms, and fails the real narrower variants. Drops the stop. Adds a sensor and wiring. Not recommended.",
+          "verified_by_own_calc": "Geometry, envelope and min thickness: my own checker. Hall sensing range and the magnet position: not verified."
+        }
+      ],
+      "checker": "/tmp/claude-0/gapwf/fin/R3/mech/fit.py — usage: /opt/venv/cad/bin/python fit.py <variant_module.py> <vid> <M1|M2|M2b|M3|M4|all> [--dx -1.0] [--json out.json]. Also importable: fit.check(mod, vid, option), fit.envelope(option), fit.load_variant(path).\n\nVariant module requirements: inside_local(vid,P,inset) and to_world(P,vid,dx) are required. profile(vid,u) is optional and is used only for thickness when thickness() is missing. seam_x(vid,u) and thickness(vid[,u]) are used if present.\n\nHow it checks:\n- Builds a dense surface cloud of the arm by ray bisection on inside_local (spacing <= 0.12, rows plus a top-cap ray fan), then KD-tree distances; sign from inside_local.\n- Splits the surface at the variant's seam into the outer cover (A_vonk) and the inner half.\n- Per part: reports the wall to the outer and to the inner surface against the rules: 1.2 cover; +0.3 for parts that move against the arm (drive/static); 1.2 printed backing for steel arm parts. Printed hub parts merge with A_vnut, so the cover rule applies only on the cover side. Static/drive parts inside the arm hole (r < 6.7) have no inner-shell rule.\n- Pairwise sliding clearance >= 0.3 between parts that move against each other: exact 2-D (x,r) profile distance, or 3-D rotated clouds over the swing -45..+135 for rib vs lug. Designed contacts are listed and skipped.\n- Stop gaps at -45 / +135 (>= 0.3) and contact at -51 / +140.5.\n- Output: fits yes/no, governing spot (x, r, azimuth, local), and outer/inner/pair margins.\n\nValidation: on the current arm it reproduces the B1+ judge room numbers to 0.01 mm (hub wall 1.36, disc 3.76, rib 1.60, 6700 3.96). Each option checks in about 3-10 s.\n\nResults, fits (margin to the outer surface):\n\n| Arm | M1 | M2 | M2b | M3 | M4 |\n|---|---|---|---|---|---|\n| kt 1.00 / 23.02 | Y +0.16 | Y | Y | Y | n (inner side; M4 is tuned for thin arms) |\n| kt 0.85 / 19.57 | n -2.44 | Y +0.80 | Y | Y | n |\n| kt 0.70 / 16.11 | n | n -0.23 | Y +0.66 | Y +1.64 | Y +0.66 |\n| kt 0.57 / 13.12 | n | n -2.74 | n -2.34 | n -1.36 | n -1.34 |\n| shape var A / 18.65 | n -3.16 | n (inner -0.56) | Y +1.50 | Y | n |\n| shape var B / 15.54 | n | n -1.14 | Y +0.085 | Y +1.07 | n |\n| shape var C / 12.55 | n | n -3.34 | n -2.90 | n -1.92 | n |\n\nMinimum thickness at the joint (bisection on the kt stand-ins): M1 22.79, M2 16.55, M2b 15.47, M3 14.48, M4 14.75.\n\nFiles (all under /tmp/claude-0/gapwf/fin/R3/mech):\n- Results: out/summary.json (everything), out/minthk.json, out/envelope.json (x_outer_min per radius, 0..16 mm), out/calc.json, out/fit_*.json/.log.\n- Code: parts.py (part definitions), calc.py, minthk.py, standin.py (armgeo kt stand-ins).\n- STL: stl/<M1|M2|M2b|M3|M4>/<part>.stl — frame B, left arm at rest, built with build123d, all valid. stl/index.json gives role/colour/bbox. Magnet pockets are not cut out of the drive-hub mesh (the magnets overlap it).",
+      "summary": "**What makes the arm thick (B1+ / M1).** The arm-side stack (6700 -> M10 washer -> magnet disc r 11 -> lip/wall r 12.7 at x 67.6) needs the outer surface at x >= 67.4 for r <= 10.4 and x >= 68.8 for r 10.4..12.7. The arm's inner skin on the axis is at x 49.645. Result: a minimum of 22.8 mm at the joint, against today's 23.0 (margin 0.16, matching the judge's 1.36 wall).\n\n**Why it costs so much.** The arm is splayed 12 deg and is a pebble, so the room for a part that is round about the shoulder axis shrinks by about 0.4 mm per mm of radius on both faces. The worst spots are straight above the axis (top) and at the fore-aft edges. Every large-radius part placed far outboard costs thickness.\n\n**Options:**\n- **M2 (B1+ flat, all functions kept).** 6700 + DIN 125 M14 washer nested around the bearing, 5x1 magnets in a 1.45 mm disc, M4x16 head recessed in the seat. Only a plug reprint. Reaches 16.5 mm on kt stand-ins, but its r 14.25 disc fails the shape designer's narrower variants A and B.\n- **M2b (recommended).** MR128 + DIN 125 M12, A2 moved into the ring, low-head DIN 7984 M4x20, seat D10 at the root and D8 under the bearing. Reaches 15.5 mm. Fits variant A (18.65) with 1.5 spare and variant B (15.54) with only 0.085 spare. Fits the brief's 0.0124-0.0170 N.m window except the pessimistic case (needs N52 magnets). Open points: DIN 7984 is a fastener-shop item, not Hornbach (borderline with the hardware-store rule); seat at about 8.5 MPa under L5.\n- **M3 (clutch into the torso).** Does not fit. The free full circle around the vertical axis at coupler height is only r 4.5-5. No 5 mm magnet fits beside the shaft, and a spring clutch needs about 9 mm of height where about 6 mm exists. Even its bare arm side (bearing + keyed hub) needs 14.5 mm.\n- **M4 (no mechanical stop, Hall homing).** Rejected. It saves about 1.5 mm of stack, but its r 14.25 disc still governs (14.75 mm) and it fails the narrow variants.\n\n**Conclusion for the shape designer.** About 19 mm is easy (M2b, or M2 if the arm keeps its full fore-aft width). About 16 mm works only with M2b, and only just: ask for about 0.5 mm more outer surface directly above the shoulder axis at u about 0.18. 13 mm (variant C) cannot hold any joint that keeps the clutch, bearing and stop: the best with a clutch (M2b) is 2.9 mm short, and the version without a clutch in the arm (M3) is 1.9 mm short and has no room in the torso. The arm–torso gap does not change in any option, because the inner face, the hole and the D13 ring stay the same.\n\n**Verified by my own computation:**\n- Fits, envelopes, minimum thicknesses and clearances, with a checker validated against the B1+ judge numbers.\n- Stop gaps and contacts.\n- Magnet counts, using my re-implementation of the B1 magnet model.\n- Stress hand calcs.\n- Room in the torso, read from the fixer's free map (read only).\n\n**Not verified:**\n- Absolute pull of 5x1 magnets, friction coefficient, washer saturation, press-fit retention and bearing C0 values.\n- Shop availability: these come from search snippets only.\n- Hall sensing in M4.\n\n**Window note.** The fixer has since lowered the clutch window to 0.0082-0.0113 N.m (R2c/oprava/final_B1plus_fix.json). M2 and M2b meet that window in all cases."
+    },
+    "verify": [
+      {
+        "variant_id": "A",
+        "options": [
+          {
+            "option_id": "M1",
+            "fits": false,
+            "min_clearance": 0.5,
+            "min_wall": -1.96,
+            "note": "Does not fit; the checker and my own calculation agree. The arm-hub wall and lip at r 12.7, x 67.6 stick out through the outer skin by up to 1.96 mm (own KD-tree 1.964, checker -1.964). The drive disc r 11 is 0.18 from the outer skin (needs 1.5; checker 0.19), and 5x2 magnet 3 is 1.42 from it. The stop is fine: 0.58 / 0.532, contact at -51 / +140.5. My method reproduces the judge's room numbers on the current arm (hub 1.36, disc 3.76, rib 1.60, 6700 3.96)."
+          },
+          {
+            "option_id": "M2",
+            "fits": false,
+            "min_clearance": 0.3,
+            "min_wall": 0.64,
+            "note": "Does not fit; both methods agree to 0.003 mm. The steel DIN 125 M14 washer (r 14) is only 0.64 from the inner skin (needs 1.2). The drive disc r 14.25 is 1.31 from the inner skin (needs 1.5). Both spots are at the fore-aft edge, because A is 5 % narrower. The outer side would be fine (+0.16). The printed hub pokes 0.27 through the inner skin, which is allowed because it merges with the inner shell. All sliding clearances are 0.30. Stop 0.559 / 0.513."
+          },
+          {
+            "option_id": "M2b",
+            "fits": true,
+            "min_clearance": 0.3,
+            "min_wall": 1.96,
+            "note": "Fits; the checker and my own meridian-distance method agree to 0.003 mm. Smallest walls: the M12 washer's backing to the inner skin is 1.96 (needs 1.2, margin +0.76). The drive hub is 3.00 from the outer skin (margin +1.50, at the front disc rim) and 2.38 from the inner skin (+0.88). The MR128 outer ring is 3.45 from the skin, the top dome is 3.88 above the disc, and the screw head is 6.12 from the outer skin. With a 1.6 shell the drive hub still clears the shell's inside by 1.40 (outer side) and 0.78 (inner side). Eight sliding pairs sit at exactly 0.30, the rule minimum. Stop gaps 0.559 at -45 and 0.513 at +135, contact at -51 / +140.5, contact face 2.1 mm2. Seam: the printed hub and rib lie fully in the inner half (local x -10.44..-2.83). The washer stays on the inner side (up to -0.45). Only the drive hub and the screw head cross the seam plane, and both are loose parts, so nothing that must be one piece is cut. Assembly paths: the cover goes on along its seam normal, and the drive hub, washer and bearing go in along X. The tightest point of each path is the final position, so the paths are clear. A hardware-store DIN 912 M4x20 also fits instead of DIN 7984: the drive-hub cap then reaches x 64.1, the margin stays +1.50 and the head is 4.95 from the outer skin. The arm hub's tube r 8.5..9.7 merges with the 1.6 shell over only 0.53..1.02 mm at its root. Condition: the cover magnets must move (see issues)."
+          },
+          {
+            "option_id": "M3",
+            "fits": false,
+            "min_clearance": 0.3,
+            "min_wall": 3.08,
+            "note": "The arm side fits (checker and own calculation agree): the 6700 outer ring has 3.08 of backing to the inner skin, the printed hub merges with the inner shell, and the stop is 0.559 / 0.513. Its keyed cap reaches 2.0 past the seam into the cover's hollow, and is still 5.37 from the outer skin. The option as a whole cannot be built: the author found no room for the slip clutch in the torso. I did not re-check that torso finding."
+          },
+          {
+            "option_id": "M4",
+            "fits": false,
+            "min_clearance": 0.3,
+            "min_wall": -0.27,
+            "note": "Does not fit. The steel M14 washer pokes 0.27 mm through the skin (checker -0.28), and the drive disc r 14.25 is 0.82 from the inner skin (needs 1.5). It also drops the two-sided hidden stop the user asked for, and adds a Hall sensor."
+          }
+        ],
+        "arm_gap_rest": 3.702,
+        "arm_gap_min_swing": 1.104,
+        "issues": [
+          "Gap, verified myself with two torso models and my own arm surface. Model 1 is the judge's: analytic torso, cap edge r 14, plug face recessed 1.0. Model 2 is the real T4 side-cover mesh T_bok_L.stl plus the recessed plug face. Variant A: rest 3.702 / 3.704; minimum over -45..+135 is 1.110 / 1.104, at +135; at the 140.5 stop 0.954 / 0.949; at -45 3.351. The current arm with the same code: 3.701 / 3.703, 1.001 / 0.997, 0.862 / 0.856. Nothing gets worse. A is a strict subset of the approved pebble (maximum approved-section level 1.0000000000015 over 2.1 M surface points), touching it only along the inner centre line. So no clearance to the torso, head, neck or base can shrink. I did not re-run the head meshes.",
+          "NEW, must fix: the cover magnets at the v1geo spots (u 0.16, 3.5 mm inside the outline, Ø3x2 in r 2.2 x 2.4 bosses on both sides of the seam) collide with the M2b joint. The front-upper boss overlaps the M12 washer by 0.89 mm, the drive-hub disc by 0.72 and a clutch magnet by 0.50. The same spots already overlap the current B1+ arm hub by 0.63, so this clash exists in the approved design too. Spots I checked that work for A + M2b: upper pair at u 0.38-0.40 with 3.5-4.0 inset (clearance margin >= 0.69, back wall >= 1.5). A pair at the top is only possible at u 0.04-0.05 with 4.0-4.5 inset, and only just (margin 0.07-0.16).",
+          "NEW: in the flatter cover, the lower cover magnets at u 0.66 have only 1.11 mm of back wall over the Ø3x2 pocket (minimum 1.2; current arm 3.09). Fix: 4.0 mm inset (gives 1.43), or Ø3x1.5 magnets. At u 0.16 the back wall is 1.70.",
+          "M2b: 8 sliding pairs are designed at exactly 0.30, the rule minimum, which leaves nothing for print tolerance. Stop gaps are 0.513 / 0.559.",
+          "M2b: the hub tube r 8.5..9.7 overlaps the 1.6 shell by only 0.53 mm at its root (r 8.5, worst azimuth). It is the only load path from the bearing into the shell, so thicken or fillet the root (printed, free).",
+          "M2b sourcing: in A, a hardware-store DIN 912 M4x20 fits instead of the borderline DIN 7984 (margin stays +1.50, own calculation). Recommend DIN 912 together with a 3 AF key.",
+          "Inconsistency: the M2b text says 8 magnet pockets with a 2.2 web. parts.py and the STL have 9 pockets at r 9.25, which leaves only a 1.23 web.",
+          "M2b risks inherited from the option author and NOT verified by me: stop 17.1 MPa at a 3 N tip push (B1+ 16.2; both are above the 12.9 MPa abuse allowable); seat D8/D5 about 8.5 MPa under L5 (equal to the allowable); MR128 C0 assumed; 5x1 magnets, and N52 needed in the pessimistic torque case; retention 9-42 N; plug reprint with A2 moved, which raises the MR74 loads x1.6.",
+          "Shell: the outer cover's own lateral bending stiffness drops 75 % (Iyy 157 vs 632 mm4 at u 0.355). That is acceptable only while the cover stays a magnet-held, non-structural lid. With a seam lip or interlock the halves would share load better.",
+          "Found in passing, existing on the current arm: the B1+ arm hub and lip ring (x 59.6..67.6) reach 8.7 mm past the seam into the outer-cover side, but the v2 render cuts the hub at the seam. Clarify this if M1 is ever kept.",
+          "Confirmed the designer's numbers myself: thickness 18.65 (max, at u 0.21), 18.64 at the joint (11.51 inner + 7.13 outer), width 31.88, robot width over the arms 150.21, innermost x 48.498. The black tip (inner half) is unchanged except 5 % narrower (1037 vs 1096 mm3).",
+          "Not checked: print orientation and supports, seam-lip details, clutch torque and magnet force, the right side (assumed a mirror), FE of the shell and hub (stresses are hand estimates)."
+        ],
+        "best_option": "M2b",
+        "shell_strength": "Hand estimate, my own calculation; I treat it as only a check, not a design proof. I rasterised the sections (0.02 mm) with a true 1.6 inward offset and the 0.25 half seam removed. Resin allowables are the T4 values: 8.5 MPa normal use including the stress concentration, 12.9 MPa abuse.\n\n10 N lateral push at the arm tip, section just below the hub (u 0.355, lever 46.4 mm). The cover is held only by magnets, so the inner half carries the load on its own as an open trough. It reaches 5.34 MPa nominal (current arm 5.27, +1 %). At u 0.5 it is 4.59 (current 4.53). With a stress concentration of about 1.5 at the hub joint that is about 8.0 MPa, as tight as today. Torsion of the open section is not included.\n\nIf the cover is pressed onto the inner half and both bend together without shear transfer, the inner half takes about 80 % in A instead of 50 % (4.3 vs 2.6 MPa), and the cover about 2.6 MPa. The cover alone as a cantilever would reach 13.0 MPa (current 5.3). That case cannot really happen, because the magnets let go first.\n\nFore-aft 10 N only matters with the arm on its stop (otherwise the clutch slips at about 0.017 N m). The shell then sees only 1.05 MPa (current 0.97). The stop itself is the weak point, not the shell.\n\n10 N finger press on the middle of the cover: a clamped flat 1.6 plate is the upper bound, about 8.5 MPa and 0.07 mm deflection (E about 1.5 GPa). The dome, now 7.1 mm high instead of 11.5, is less stiff than before but still stiffer than a flat plate. The cover's inside is about 3 mm from the drive-hub cap, so pressing it does not reach the joint.\n\n1 m drop, arm alone (about 8.5 g shell, 9.5 g today, plus about 10 g of steel and drive parts, about 0.19 J). The washer bond sees about 1.2 MPa at 1000-2000 g (bond allowable 2.7). The flatter cover is about 9 % less stiff locally, so the peak force is slightly lower for the same energy, not worse. Real shell cracking is uncertain; test by dropping a printed sample.\n\nWhole robot (1.1 kg, 10.8 J) falling onto an arm: the joint fails first in either variant (seat, stop, or the arm popping off). A has 4.4 mm less crush depth between the floor and the torso, so it absorbs a little less energy. I did not quantify this.\n\nOverall: the shell is not weaker where it carries load. The thinner outer cover is fine as a magnet-held lid. FE and a drop test of a printed cover are still recommended."
+      },
+      {
+        "variant_id": "B",
+        "options": [
+          {
+            "option_id": "M1",
+            "fits": false,
+            "min_wall": -4,
+            "min_clearance": 0.5,
+            "note": "B1+ unchanged: does NOT fit B. My own analytic-surface check agrees with fit.py. The arm hub wall and lip (r 12.7, x 67.6) and the drive disc (r 11, x 62.6..65.9) stick out of the 15.5 mm pebble by more than 4 mm (I capped the value at 4). The hub cover margin is -5.2 in my check and -4.70 in fit.py; both are capped. The disc is -4.30, the M10 washer -0.56, the M4 head -0.73. Sliding clearances are 0.50 and the rib/lug gap is 0.532, because the parts are unchanged."
+          },
+          {
+            "option_id": "M2",
+            "fits": false,
+            "min_wall": 0.36,
+            "min_clearance": 0.3,
+            "note": "Does NOT fit. The drive disc rim (r 14.25, x 60.35, front edge, az about 165) has 0.36 to the cover (needs 1.5, margin -1.14) and 0.68 to the inner skin (-0.82). The DIN 125 M14 washer has 0.92 / 0.46 (needs 1.2). B is 10 % narrower fore-aft, so the r 14 parts do not fit at the fore-aft edge. Clearances: minimum 0.30; rib/lug 0.513 over -45..135."
+          },
+          {
+            "option_id": "M2b",
+            "fits": true,
+            "min_wall": 1.585,
+            "min_clearance": 0.3,
+            "note": "Fits B only NOMINALLY. Two independent methods agree to 0.001 mm: fit.py, and my own analytic sampling (0.04 mm) of variants.section with Nelder-Mead refinement. Governing spot: edge of the drive-hub cap (x 62.9, r 4.7, directly above the axis, local (2.44, 0, -12.94), u 0.18). Wall to the cover 1.585 against the required 1.5 (1.2 cover + 0.3 clearance): margin +0.085. Other walls: disc rim to the inner skin 1.904 (needs 1.5); M12 washer to the inner skin 1.92 (needs 1.2); magnet ring (checked as a full revolution, i.e. any clutch-slip angle) 2.74 / 3.17. Clearances (my own polygon code): minimum 0.30 exactly on several designed pairs; rib/lug 0.513 over -45..+135; contact at -51 and +140.5 (0.005). Sensitivity (sens.py): with the drive hub 0.1 mm further out the margin is -0.013, with 0.2 mm it is -0.11; with a DIN 912 M4x20 instead of the DIN 7984 it is -1.09. So it does not survive a realistic +/-0.1 print/assembly stack. Seam: the seam surface crosses the joint diagonally. On r 13 it lies at x 56.6 at the top and 61.9 at the bottom, so 59 % of the rotating disc is on the cover side, and the cover's inner surface sets the 0.3 clearance. The seam line on the skin passes 1.92 mm from the disc rim at the front and back edges (x 58.8, az about 173 / 3). That leaves no room for a seam lip there (approved + B1+: 5.77). No part that must be one piece is cut: the hub, rib and seat are entirely on the A_vnut side, and the washer and disc are separate parts inside the cavity. Assembly: the disc goes into A_vnut from outboard with the cover off, which works. Black tip: 859 mm3 vs 1192 now, same depth, not a sliver."
+          },
+          {
+            "option_id": "M3",
+            "fits": false,
+            "min_wall": 2.269,
+            "min_clearance": 0.3,
+            "note": "The arm side fits B with margin +1.07 (hub cap at x 62.2, r 4.7, u 0.18; my check agrees with fit.py; clearances 0.30, rib/lug 0.513). But the option moves the clutch into the torso, and its own author measured no room for it there (r 4.5-5.0 free around the coupler). I did not re-check the torso room, so by default I mark it as not buildable as a complete option."
+          },
+          {
+            "option_id": "M4",
+            "fits": false,
+            "min_wall": -0.34,
+            "min_clearance": 0.3,
+            "note": "Does NOT fit. The DIN 125 M14 washer (r 14, x 54.8, back edge, az about 349) is 0.34 outside the pebble (margin -1.54). The drive disc has 0.67 to the cover and 0.50 to the inner skin (needs 1.5). It also drops the required two-sided mechanical stop."
+          }
+        ],
+        "arm_gap_rest": 3.703,
+        "arm_gap_min_swing": 1.125,
+        "issues": [
+          "M2b in B fits only on paper. The wall at the drive-hub cap edge above the axis is 1.585 against the required 1.5 (+0.085). If the hub ends up 0.1 mm further out, the margin is -0.013. To be robust, the shape needs about 0.5 mm more outer surface over the axis at u 0.1..0.25 (outer half 6.3 -> about 6.8 there), or a cap/key about 0.4 mm lower.",
+          "M2b needs the low-head DIN 7984 M4x20. That is a fastener e-shop item and borderline against the hardware-store rule. With an ordinary DIN 912 M4x20, B fails by 1.09 mm (own sens.py).",
+          "Not covered by anyone so far: the approved cover attachment (4x D3x2 magnets in posts r 2.2 x 2.4 on the seam rim at u 0.16 / 0.66, parts_v1.py), moved onto B's seam. The upper pair overlaps the rotating M2b drive disc by 0.72 mm (cover-side post); the inner-side post has 0.20 < 0.3. They must move to u >= 0.38 (0.5 clearance, checked: post_move_B_M2b.json) or to u <= 0.05. Approved arm + B1+ has 0.70 / 2.39 here.",
+          "With M2b in B, the seam line on the skin runs 1.92 mm from the rotating disc rim at the front and back edges (x 58.8). After the 0.3 clearance only 1.6 mm of material is left, so a lapped seam lip (2 x 1.2 wall) cannot be used there. It has to be a plain butt joint locally, or the lip must be interrupted. Approved + B1+: 5.77 mm.",
+          "The disc straddles the seam (59 % on the cover side), so the 0.3 sliding clearance depends on the cover's print accuracy and on how the cover seats. Rough estimate from the joint designer's tilt figure (<= 0.81 mm at the tip, not verified by me): an outward pull at the tip could close the 0.385 gap between cover and cap to about 0.13.",
+          "Inconsistency in the M2b brief: the text says 8 magnet pockets (web 2.2), but parts.py and fit.py use 9 (web 1.23, still >= 1.2).",
+          "Shell strength: if the cover carries no load (held only by magnets), A_vnut alone sees about 9.7 MPa at the hub edge under a 10 N lateral tip push (approved arm about 6.2). That is above the 8.5 normal allowable before any Kt at the shell-hub junction, and below the 12.9 abuse and 25.8 UTS limits. If the cover is keyed so the section acts closed, it is <= 1.4 MPa. Recommendation: locating lip or ribs so the cover takes compression.",
+          "The shape designer says head clearances for B are within +/-0.2 mm of today, but their own chk_head.json shows B 0.95 mm closer in the tilt-40 / pan-0 pose (10.78 vs 11.73). Still harmless. I did not verify the head check independently.",
+          "M3 is not a complete option: the arm side fits (+1.07), but per its author there is no room for the clutch in the torso. I did not re-check the torso room."
+        ],
+        "shell_strength": "Hand / beam-level estimate (strength.py) for a 1.6 mm Elegoo Tough shell, B vs the approved arm. Allowables: normal 8.5, abuse 12.9, UTS lower bound 25.8 MPa; E 1.8 GPa. 10 N push at the tip, lateral: closed section (cover acts with A_vnut) 1.06 MPa at u 0.4, about 1.4 MPa at the hub edge (approved 0.54 / 0.7). Worst case with A_vnut alone (cover only on magnets): 7.4 MPa at u 0.4, about 9.7 MPa at the hub edge by lever scaling (approved 4.7 / 6.2). That is above the 8.5 normal allowable without Kt, and about 15-19 MPa with Kt 1.5-2 at the shell-hub junction: above the 12.9 abuse allowable, below the UTS. So B is acceptable only if the cover is keyed to carry compression. Tip deflection of the shell alone: B 0.08 mm closed / 0.81 open (approved 0.03 / 0.40), far below the 3.7 mm gap. 10 N fore-aft push: it only reaches the shell with the arm on a stop, because the clutch slips at about 0.3 N at the tip. Shell then <= 1.2 MPa bending plus about 2 MPa torsion even in the open section. The stop rib is the weak link there (about 57 MPa by scaling the 3 N = 17 MPa figure), the same as in the approved design, so it does not depend on the shape. 1 m drop of the arm alone (B about 19 g, approved about 21 g; 0.18 J): a crude elastic shallow-shell point-load model gives 270-730 N peak force and 130-360 MPa local stress for BOTH arms. The model says 'cracks' for the current arm too, so it is too crude to decide: it ignores plastic and viscous energy absorption and floor compliance. B is not worse than the current arm in that estimate (lighter, flatter cover, crown radius 58 vs 41 mm). 1 m drop of the whole robot (1.1 kg, 10.8 J) onto the arm: a 1.6 mm shell section cracks at about 0.06 J of ring crushing, so any arm variant, the current one included, will crack unless the arm pops off first (press-fit retention about 9-42 N, the joint designer's estimate). The drop results are NOT verified: they need a physical drop test of one printed arm. What I computed myself: section properties, stresses, deflections and mass. Allowables and the tilt figure are project / joint-designer values.",
+        "best_option": "M2b"
+      },
+      {
+        "variant_id": "C",
+        "options": [
+          {
+            "option_id": "M1",
+            "fits": false,
+            "min_wall": -4,
+            "min_clearance": 0.5,
+            "note": "B1+ unchanged. Checker: NO, margin -5.0 (capped at 3.5). My own check: NO, -5.5 (capped at 4). The r 11 drive disc (x 62.6..65.9), the hub wall and lip to x 67.6, the M10 washer, all 8 magnets and the M4 head (x 64) sit OUTSIDE the C skin. On the axis the skin is x 49.64..62.47; 12 mm above the axis it ends at 59.84. The real protrusion is larger than the capped number. The printed hub crosses the seam by up to 12.7 mm. Stop: 0.58 at -45 and 0.53 at +135, contact at -51 and +140.5. Sliding clearances 0.50. Hopeless for C."
+          },
+          {
+            "option_id": "M2",
+            "fits": false,
+            "min_wall": -1.84,
+            "min_clearance": 0.3,
+            "note": "Checker -3.339; my own -3.337. Governing: the r 14.25 drive disc at the back rim (az 19) lies 1.84 OUTSIDE C, which is only 28.5 wide fore-aft. The M14 washer is 0.63 outside, 6 of 10 magnets 0.4-0.9 outside, and the hub pokes out. The M4 head has 0.71 wall where 1.5 is needed. Sliding clearances exactly 0.30, stop gaps 0.56 / 0.51. My stricter rule also flagged the lug at 1.24: false alarm, it sits inside the ring hole and has 0.30 to the hole edge (lug_hole_C.py)."
+          },
+          {
+            "option_id": "M2b",
+            "fits": false,
+            "min_wall": -1.4,
+            "min_clearance": 0.3,
+            "note": "Checker -2.902; my own -2.902. Governing: the drive-hub cap (r 4.7, x to 62.9) right above the axis is 1.40 OUTSIDE the cover. It needs the outer skin at x >= 64.4; C has 62.47 on the axis and about 61.4 at r 4.7 up. Also failing: DIN 7984 head wall 0.02 (needs 1.5); magnets 2-5 only 0.10-0.24 below the top dome (needs 1.5); M12 washer 1.07 (needs 1.2). Hub, bearing and rib are OK (hub cover wall 2.50). The seam crosses the bearing, the washer and the hub (+0.96). C would need about 3 mm more outer cover over the joint, i.e. about 15.5 at the joint = variant B. Clearances 0.30, stop OK."
+          },
+          {
+            "option_id": "M3",
+            "fits": false,
+            "min_wall": -0.72,
+            "min_clearance": 0.3,
+            "note": "Arm side only. Checker -1.92; my own -1.918. Governing: the keyed hub cap (r 4.7, x to 62.2) above the axis is 0.72 OUTSIDE C. M4 head wall 0.71 (needs 1.5). The hub reaches 6.0 past the seam into the cover. Even if the arm side fitted, the torso clutch has no room by its author's own measurement (I did not re-check). Not buildable."
+          },
+          {
+            "option_id": "M4",
+            "fits": false,
+            "min_wall": -0.73,
+            "min_clearance": 0.3,
+            "note": "Checker -2.239; my own -2.234. Governing: the r 14.25 disc at the front rim (az 162) is 0.73 OUTSIDE. The M14 washer is 0.38 outside and 6 magnets have 0.4-1.0 wall (needs 1.5). It also drops the required two-sided mechanical stop. Rejected."
+          }
+        ],
+        "arm_gap_rest": 3.702,
+        "arm_gap_min_swing": 1.039,
+        "issues": [
+          "BLOCKER: no joint option fits variant C. All five fail by 1.9 to 5.5 mm (to the 1.2 cover wall plus 0.3 sliding where it applies). The C skin on the shoulder axis spans only x 49.64..62.47 (12.8 mm); 12 mm above the axis it ends at 59.84. The thinnest complete option with the clutch in the arm (M2b) needs about 15.5 mm at the joint; C has 12.55. So C is about 3 mm short, and only a local outer bulge of about 3 mm over a ~28 mm area would rescue it. That brings back the width the user dislikes.",
+          "The designer's numbers for C are confirmed by my own independent code: own surface model, part sampling, rules and 2-D/3-D distances. M2 -3.337 (claimed -3.339), M2b -2.902 (-2.902), M3 -1.918 (-1.92), M4 -2.234 (-2.239), M1 well below -5. My code was validated on the current arm with B1+: it reproduces hub wall 1.36, disc 3.76 and 6700 3.96.",
+          "Arm-torso gap is OK, by my own method: arm cloud swung against the analytic T4 exterior, rec1 socket model, 211 angles from -51 to 142. Variant 0 reproduces 3.701 / 1.001 at 135 / 0.862 at 140.5 / 0.829 at 142. For C: rest 3.702, minimum over -45..+135 is 1.039 at 135, 0.895 at 140.5, 0.860 at 142, 3.248 at -51. C >= current at every one of the 211 angles. The critical point is the inner face at u 0.045, y/w 0.61, against the cap edge r 14.",
+          "STRENGTH concern: the cover is held by magnets and must come off to dismount the arm, so the inner half carries the bending alone. For C that half is only a 7 mm deep dish. 10 N lateral at the tip (case L5) gives 11.9 MPa at the hub edge (u 0.40) with a 1.6 wall. Limits: abuse 6 MPa, static allowable 12 MPa. Current arm: 4.8 MPa. Stiffness 8.6 vs 35.4 N/mm, i.e. 1.16 mm vs 0.28 mm tip deflection at 10 N. A thicker wall barely helps: 2.0 -> 9.8, 2.4 -> 8.4, 2.8 -> 7.3 MPa. With the cover glued as a closed section it would be 1.5 MPa, but the cover would no longer come off. C needs a structural seam (tongue/groove plus hidden screws) or ribs. Not designed or checked by me.",
+          "Seam: in C the parting surface is far inboard. World x 57.06 on the axis, 54.97 at r 12 above, 59.77 at r 12 below. It cuts through the bearing outer ring and the friction washer in every option. The printed hub (one piece with A_vnut) crosses the seam by +0.96 (M2b), +1.51 (M2), +6.0 (M3) and +12.7 (M1), so the cover would need pockets over the hub. The current arm has the seam at 61.4.",
+          "Cover magnets: at the v1 spots (u 0.16 / 0.66, y = hw - 3.5) the C cover is only 2.2-2.5 deep from the seam. That leaves 0.35-0.62 mm for a 2 mm magnet behind a 1.6 wall, so Ø3x2 does not fit. Even moved to y = w - 3.5 there is only 1.45 (u 0.66) to 2.03 (u 0.16) of room. Thinner magnets or new spots are needed (not checked).",
+          "Black tip plane: no issue for C. Tip piece 1027 mm3, 35 % of it on the cover side (current arm: 1829 mm3, 35 %). Smallest angle between the tip plane and the surface is 46.6 deg, so there is no feather edge. No joint part comes within 21 mm of the tip plane.",
+          "Sliding clearances in M2, M2b, M3 and M4 are exactly 0.30, the rule minimum, with no allowance for resin print tolerance. This is independent of the arm shape.",
+          "Not verified by me: the torso-side clutch room for M3 (author's verdict: no room); head and neck clearance (designer's approximate numbers show C up to about 1 mm closer at pan 0, 7.83 vs 8.78); print orientation; the hub-to-shell junction and seam-joint stresses; the right side (mirror of the same model)."
+        ],
+        "best_option": "none - C cannot be built with any proposed joint package. The least-bad complete package is M2b (-2.90 mm; it would need about 3 mm of local cover bulge over the joint). M3 is closer (-1.92) but has no clutch room in the torso. If a slim arm is wanted, build variant B with M2b instead.",
+        "shell_strength": "Hand estimate on rasterised true sections with a 1.6 normal-offset wall (strength_C.py / wallscan_C.py). Material: tough resin, UTS 35 MPa, E 1.8 GPa, allowable 12 MPa, abuse limit 6 MPa. 10 N at the tip, lever 72*(0.97-u). (a) Cover glued as a closed section: lateral 1.46 MPa, fore-aft 0.80 MPa, so OK (current arm 0.54 / 0.42). (b) Design case, cover on magnets, inner half alone: lateral 11.9 MPa at the hub edge u 0.40, FAILS the 6 MPa abuse limit (current arm 4.8 MPa), fore-aft 1.5 MPa. Stiffness 8.6 N/mm (1.16 mm at 10 N; current 35.4 N/mm, 0.28 mm). Tip force to reach UTS: 29 N (current 73 N). A 2.8 wall still gives 7.3 MPa. 1 m drop: 1.1 kg robot = 10.8 J against an elastic capacity at UTS of 0.05 J (C open, lateral) to 0.28 J (C closed); the current arm has 0.08 / 0.42 J. Neither arm survives a robot drop onto the arm by elasticity, and C has about 35-40 % less capacity. The arm dropped alone carries 0.14 J; that is a local contact problem I did not compute. Uncertain: hub/shell junction stress concentration, partial help from the magnet-held cover, seam joint, resin aging."
+      }
+    ],
+    "images": {
+      "images": [
+        {
+          "path": "/tmp/claude-0/gapwf/fin/R3/img/final/v3_porovnanie_spredu.png",
+          "title_sk": "NOVA mini · štíhlejšia ruka: porovnanie spredu",
+          "content": "Front ortho of the whole robot in 4 columns at the same scale (0 – súčasná ruka (T3), A, B, C). Each column has the overall-width dimension over the arms (155,3 / 150,2 / 144,4 / 138,1 mm), a teal frame and a shoulder zoom with the outer-cover band dimensioned (kryt 11,5 / 7,1 / 6,3 / 5,3), a table (thickness max / at joint 23,0/23,0 · 18,6/18,6 · 15,5/15,5 · 12,5/12,5; cover / inner half at the joint; width 33,6 / 31,9 / 30,2 / 28,5; gap at rest 3,7; minimum gap while moving 1,0 / 1,1 / 1,1 / 1,0) and a coloured joint line: green 'kĺb bez zmeny (B1+)', green 'kĺb treba sploštiť – zmestí sa' (rezerva 0,76), orange 'kĺb treba sploštiť – len tesne' (rezerva 0,09), red 'nezmestí sa žiadny navrhnutý kĺb'. 1400×1443, 48 samples."
+        },
+        {
+          "path": "/tmp/claude-0/gapwf/fin/R3/img/final/v3_porovnanie_3d.png",
+          "title_sk": "NOVA mini · štíhlejšia ruka: pohľad zboku spredu",
+          "content": "v2_hero camera (left arm raised 90°, head turned 20°). 2×2 grid with the same camera and scale for 0/A/B/C, each with the line 'hrúbka · z toho kryt · šírka · robot'. Below is a 4-column strip with a close-up of the raised arm (same direction), where the flatter, narrower outer cover is easy to compare. 1400×2477, 48 samples."
+        },
+        {
+          "path": "/tmp/claude-0/gapwf/fin/R3/img/final/v3_ruka_zhora_zboku.png",
+          "title_sk": "NOVA mini · samotná ľavá ruka: spredu a zhora",
+          "content": "Left arm alone, upright in its local frame (no 12° splay), 4 columns at the same scale. Front view with two tiers of dimensions above it: total thickness 23,0 / 18,6 / 15,5 / 12,5 and the split vnútro | kryt at the joint (11,5|11,5, 11,5|7,1, 9,2|6,3, 7,2|5,3). The seam line, the black tip and labels for 'vnútro (k trupu)' and 'vonkajší kryt' are shown. Top view (front = down) with the thickness and width dimensions (33,6 / 31,9 / 30,2 / 28,5) shows the flatter cover dome and the inward-moving, slightly curved seam in B/C. Table with width relative to today (100 / 95 / 90 / 85 %). 1400×1422."
+        },
+        {
+          "path": "/tmp/claude-0/gapwf/fin/R3/img/final/v3_prierez_klbom.png",
+          "title_sk": "NOVA mini · štíhlejšia ruka: rez kĺbom ramena",
+          "content": "Sections of each variant with its best joint option inside: 0 = M1 (B1+ unchanged), A/B/C = M2b (MR128 + M12 washer + 5×1 magnets, DIN 7984). Top row: vertical plane y = 3 seen from the front. Bottom row: horizontal plane z = −17 seen from above. Each shows the arm shells (cover 1,2, inner 1,6), the hub merged into the inner shell, bearing, washer, drive hub with magnets, M4, plug/seat/lug, A1/A2 and the torso side cover. The critical thin spot is circled with its number: 0 '1,36 mm (treba ≥ 1,20)' at the back of the hub wall; A '1,96 mm' washer to the inner skin, front; B '1,59 mm (treba ≥ 1,50), rezerva len 0,09' cap edge above the axis; C '1,40 mm VON … chýba 2,90', with the drive hub visibly poking through the cover. Numbered badges 1–8 on panels 0 and A, a legend, a cut-colour key and footnotes (B tolerance and DIN 912 sensitivity; C: none of the 5 options fits; the cover magnets are not drawn). 1400×1439, 48 samples."
+        }
+      ],
+      "scripts_dir": "/tmp/claude-0/gapwf/fin/R3/img/work",
+      "notes": "I rendered and built all four sheets. I opened each final PNG with Read and fixed every overlap and overflow I found. Every sheet is 1400 px wide. The renders used 48 samples on 3 threads.\n\nHow it works:\n- **Scenes:** scene_v3.py is a copy of R3/tvar/scene_tvar.py, which is the v2_scene.py lineage, so it uses the same materials, lights and cameras as v2. I added two new shots, 'armonly' (the arm alone in its local frame) and 'rezv' (sections with --plane v|h and --opt), plus save_cam for armfront and heroarm.\n- **Sheets:** sheets_v3.py builds them.\n- **Numbers:** nums_v3.py writes nums_v3.json.\n- **Rerun:** render_final.sh and run_rez.sh redo the renders.\n- **Writes:** nothing was written outside R3. Read-only sources were T4, B, T3, img_v1, img_v2 (T_bok_L stl_mod and the v2 zatka), R2c/img/work/stl_b (plug body, column and A1 for the torso side of the sections), R3/tvar and R3/mech/stl.\n\nChecked by my own computation:\n- **Thickness, width, halves:** the values from variants.py match chk_variants.json. I rounded from the precise values, not from the 2-decimal JSON. A's maximum thickness is 18.647, shown as 18,6, and C's is 12.547, shown as 12,5. The JSON's 18.65 and 12.55 would round up to 18,7 and 12,6.\n- **Outer-cover band in the front view:** measured at the u 0.22 height it is 11.54 / 7.13 / 6.32 / 5.28. That equals the outer half at the joint to 0.1 mm, so the zoom labels show outer_half_at_joint (11,5 / 7,1 / 6,3 / 5,3). The designer's 11.6 / 7.2 figures differ by up to 0.07 mm. I did not put the 'of 23.6 visible' numbers on the sheet.\n- **Thin spots:** a KD-tree from the governing part edge to the analytic skin reproduces the JSON exactly: 0/M1 1.361 at az 15.8, A/M2b washer 1.962 at az 186.75, B/M2b cap 1.585 at az 87, C/M2b −1.402 at az 87. Because of where they sit, the 0 and A spots are marked in the horizontal section and the B and C spots in the vertical one.\n- **Margins and gaps** are taken from the fit/verification JSON: +0.16, +0.76, +0.085 (shown as 0,09) and −2.90. Rest gap 3.70 and minimum gaps 1.001, 1.11, 1.125 and 1.039 (verifier: A 1.104).\n\nNot verified / caveats:\n- **Torso side of the sections:** the plug body, column and A1 are the B1 meshes from R2c/img (close to B1+, simplified). The M2b screw shank and spacer sleeve inside the plug are plain cylinders from the stated dimensions (M4 tip x 38.9 / 40.0; sleeve Ø7/Ø5 between A1 and A2).\n- **Shell walls:** the cover is drawn 1.2 mm thick, the minimum used by the fit rules (B needs ≤ 1.285 locally over the cap). The inner shell is 1.6 mm. The strength estimates assumed 1.6 everywhere.\n- **Hub:** the printed hub is drawn merged with the inner shell. In variant 0 the M1 hub shows its real crossing past the seam.\n- **Not drawn:** the cover magnets (they clash and must move), seam lips and print details.\n- **Renderer workarounds:** exact booleans failed on a few self-intersecting shells, so I used the FLOAT solver as a fallback with the cap faces recoloured. In C, the parts that poke out are subtracted from the cover so the protrusion shows clearly.\n- **Visible black ring** in the front/3D views is the v2 'zatka' STL (visual only). The arms have no hub or internals in those views. The dark core in the arm only shows through the seam.\n- **C joint line on sheet 1:** it says the clutch would not fit in the torso either. That is the M3 author's measurement, which the verifier did not re-check; the footnote says 'spojka presunutá do trupu sa tam nezmestí'."
+    },
+    "review": {
+      "ok": true,
+      "fixed": [
+        "v3_porovnanie_spredu + v3_porovnanie_3d: the 'overall robot width' labels were wrong for B and C. The concept base in the scene is 146.0 mm wide; I computed this from the base section in the shape module and it matches the 145.7 measured on the front render. So 144.4 and 138.1 are the width over the arms, not the robot's width. I renamed the table row 'celková šírka robota' and the caption 'celková šírka cez ruky' to 'šírka cez ruky', and the hero line 'robot …' to 'cez ruky …'. I added a footnote: 'Podstavec (zatiaľ koncept) je široký 146 mm, takže v B a C je najširším miestom robota on, nie ruky.' The hero footnote now also says 'podstavec má 146 mm'.",
+        "v3_porovnanie_3d: the 2×2 crop cut 50 px of render off the bottom, which clipped the front-bottom corner of the base in all four panels. The crop now goes to the bottom of the robot's silhouette plus a margin (the sheet is now 1400×2585), and the base is whole.",
+        "v3_porovnanie_3d: the intro said the close-ups make the flatter and narrower cover easy to compare. From this camera the thickness difference is barely visible. New honest text: 'Zdvihnutá ruka je otočená vonkajším krytom k nám: vidno užší a menej vypuklý kryt. Samotnú hrúbku lepšie ukazuje pohľad spredu.'",
+        "v3_porovnanie_spredu: in column 0 the 'kryt 11,5' label overlapped the arm's outer edge. The label position is now searched against the render's alpha mask (3 px margin), so it sits clear of the arm in all four columns.",
+        "v3_porovnanie_spredu: the B and C joint boxes had shrunk to a smaller font than 0 and A. All four boxes now use one common font size.",
+        "v3_porovnanie_spredu: the intro said '(nad švom)', which wrongly says the cover is 'above' the seam. It now says '(od švu von)'.",
+        "B margin was rounded up in the B joint box, the front-sheet footnote and the section panel: 1,59 / 0,09. It now shows the checker value 1,585 mm (treba ≥ 1,50), rezerva 0,085 mm.",
+        "The C claim about the torso clutch was the option author's finding, not verified: 'ani spojka v trupe sa nezmestí' and, in the section footnote, 'spojka presunutá do trupu sa tam nezmestí'. I replaced it with the verified statement, since M3's arm side alone fails in C by −1.92: box 'nepomôže ani spojka v trupe'; footnote 'nesedí žiadna z 5 navrhnutých možností (chýba 1,9 – 5,5 mm), ani tá so spojkou presunutou do trupu.'",
+        "v3_prierez_klbom: the col-0 thin spot is at z −13.53 and the cut is at z −17, so it is 3.47 mm above the cut, not 3. The text now says 'asi 3,5 mm nad rezom'.",
+        "v3_ruka_zhora_zboku: 'pohľad spredu' sat on the same line as the 'hrúbka' caption and read as 'pohľad spredu hrúbka'. It is now a two-line label left of the arm top.",
+        "Checked and found correct (no change needed): every number against the data (all rounding is half-up from nums_v3.json); the joint verdicts (0 = M1 fits, A = M2b fits, B = M2b only just fits, C = none fits); Slovak diacritics, with no English apart from part codes; the section badges sit on the right parts, as checked against the mech parts.py coordinates; Ø13 matches the plug ring (r 6.5). Same scale, measured in pixels: front sheet 1.790 / 1.796 px/mm for 0 / C (±1 px reading); single arm 6.96–7.00 px/mm front view and 6.98–7.02 px/mm top view; sections and hero use identical cameras and scale factors. The slimmer variants clearly look slimmer in the front and top views, and the outer cover is visible. Rendered on magenta, the section cuts show no holes, black faces or z-fighting.",
+        "Files: the corrected finals are in /tmp/claude-0/gapwf/fin/R3/img/final/ (all 4 replaced and re-read). The originals are backed up in /tmp/claude-0/gapwf/fin/R3/img/review/orig_final/. Script edits are in /tmp/claude-0/gapwf/fin/R3/img/work/sheets_v3.py, with a backup at /tmp/claude-0/gapwf/fin/R3/img/work/sheets_v3.py.bak_review. No re-render was needed; all fixes are re-composition."
+      ],
+      "remaining": [
+        "Hero close-up strip (v3_porovnanie_3d): with this camera, which shows the outer face, the four arms look very similar. The text is now honest about it. To really show the thickness, the strip would have to be re-rendered from above or from the front (about 4 × 30–60 s at 48 samples); I did not do that.",
+        "v3_porovnanie_spredu: in B and C the thin red extension lines of the over-arm width cross the edge of the wider base. This is acceptable as a drawing convention, and the footnote explains it. Not changed.",
+        "v3_ruka_zhora_zboku top views of B and C: the curved seam shows small kinks. I believe it is the real projection of the variable-x seam, not a render fault, but I did not check this against the seam function in variants.py.",
+        "v3_prierez_klbom panel 0 shows the B1+ arm hub crossing the seam into the cover side. This is true geometry (the verifier already flagged it), and no caption explains it.",
+        "Minor and left as is: the shoulder zooms crop off the arm tip (intentional detail crop); a white tick at the top of each zoom is the real torso seam groove seen in silhouette; the hero renders' faint backdrop shows as a light rectangle on the card; the A caption 'podložka M12 ku vnútru' is understandable but terse (the longer wording does not fit the column).",
+        "Not my scope and not verified by me: the underlying geometry and fit numbers themselves (taken from nums_v3.json and the verifier data); head and neck clearances."
+      ],
+      "images": [
+        "/tmp/claude-0/gapwf/fin/R3/img/final/v3_porovnanie_spredu.png",
+        "/tmp/claude-0/gapwf/fin/R3/img/final/v3_porovnanie_3d.png",
+        "/tmp/claude-0/gapwf/fin/R3/img/final/v3_ruka_zhora_zboku.png",
+        "/tmp/claude-0/gapwf/fin/R3/img/final/v3_prierez_klbom.png"
+      ]
+    }
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Rozbor"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Overenie"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Obrázky"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 4,
+      "title": "Kontrola"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "tvar: štíhle varianty",
+      "phaseIndex": 1,
+      "phaseTitle": "Rozbor",
+      "agentId": "aa52309d589b1b08d",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795694891482,
+      "queuedAt": 1795694891473,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "/tmp/claude-0/gapwf/fin/R3/tvar/variants.py. It is pure num…",
+      "promptPreview": "PROJECT: NOVA mini desktop robot (repo /home/user/Robot, read CLAUDE.md there only if needed). User language Slovak; every text on images in Slovak WITH diacritics.\nFrame B: mm, Z up, FRONT = -Y, robot LEFT = +X. Shoulder axis parallel to X through (y 3.0, z -17.0). Torso surface on the shoulder axis at x 46.756. Values for the LEFT arm; right arm = mirror x -> -x.\nCURRENT ARM (approved T3 shape, …",
+      "promptFramed": true,
+      "lastProgressAt": 1795699489222,
+      "tokens": 338408,
+      "toolCalls": 102,
+      "durationMs": 4597739,
+      "resultPreview": "{\"module\":\"/tmp/claude-0/gapwf/fin/R3/tvar/variants.py. It is pure numpy and imports in both the CAD venv and Blender's python; it reads only T3/shape.py. API: VIDS = (\\\"0\\\",\\\"A\\\",\\\"B\\\",\\\"C\\\"); params(vid); section(vid,u) -> (c, ti, to, w, ni, no); profile(vid,u) -> (half_width, half_thick_inner, half_thick_outer), where both half thicknesses are measured from the seam/equator x = seam_x(vid,u) an…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "mechanika: miesto pre kĺb",
+      "phaseIndex": 1,
+      "phaseTitle": "Rozbor",
+      "agentId": "a13c4d55ff1a474cd",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795694891482,
+      "queuedAt": 1795694891474,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "/tmp/claude-0/gapwf/fin/R3/mech/fit.py — usage: /opt/venv/c…",
+      "promptPreview": "PROJECT: NOVA mini desktop robot (repo /home/user/Robot, read CLAUDE.md there only if needed). User language Slovak; every text on images in Slovak WITH diacritics.\nFrame B: mm, Z up, FRONT = -Y, robot LEFT = +X. Shoulder axis parallel to X through (y 3.0, z -17.0). Torso surface on the shoulder axis at x 46.756. Values for the LEFT arm; right arm = mirror x -> -x.\nCURRENT ARM (approved T3 shape, …",
+      "promptFramed": true,
+      "lastProgressAt": 1795700885359,
+      "tokens": 541107,
+      "toolCalls": 83,
+      "durationMs": 5993874,
+      "resultPreview": "{\"options\":[{\"id\":\"M1\",\"name_sk\":\"B1+ bez zmeny (súčasný kĺb v ruke)\",\"description\":\"Reference: the judge-final B1+ arm-side stack rebuilt from final_B1plus.json. Order along the shoulder axis: 6700ZZ on the D10 seat (x 55.5..59.5), hub flange, DIN 125 M10 washer (60.6..62.6), drive-hub disc r 11 (62.6..65.9) on the DIN 912 M4x20 head (60..64), lip ring and hub wall r 10.4..12.7 out to x 67.6. Eve…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "overenie: variant A",
+      "phaseIndex": 2,
+      "phaseTitle": "Overenie",
+      "agentId": "ae6745be604643fc8",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795700885377,
+      "queuedAt": 1795700885369,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "A",
+      "promptPreview": "PROJECT: NOVA mini desktop robot (repo /home/user/Robot, read CLAUDE.md there only if needed). User language Slovak; every text on images in Slovak WITH diacritics.\nFrame B: mm, Z up, FRONT = -Y, robot LEFT = +X. Shoulder axis parallel to X through (y 3.0, z -17.0). Torso surface on the shoulder axis at x 46.756. Values for the LEFT arm; right arm = mirror x -> -x.\nCURRENT ARM (approved T3 shape, …",
+      "promptFramed": true,
+      "lastProgressAt": 1795705807925,
+      "tokens": 319173,
+      "toolCalls": 59,
+      "durationMs": 4922547,
+      "resultPreview": "{\"variant_id\":\"A\",\"options\":[{\"option_id\":\"M1\",\"fits\":false,\"min_clearance\":0.5,\"min_wall\":-1.96,\"note\":\"Does not fit; the checker and my own calculation agree. The arm-hub wall and lip at r 12.7, x 67.6 stick out through the outer skin by up to 1.96 mm (own KD-tree 1.964, checker -1.964). The drive disc r 11 is 0.18 from the outer skin (needs 1.5; checker 0.19), and 5x2 magnet 3 is 1.42 from it. …"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "overenie: variant B",
+      "phaseIndex": 2,
+      "phaseTitle": "Overenie",
+      "agentId": "a776eda7bc0d20115",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795700885377,
+      "queuedAt": 1795700885369,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "B",
+      "promptPreview": "PROJECT: NOVA mini desktop robot (repo /home/user/Robot, read CLAUDE.md there only if needed). User language Slovak; every text on images in Slovak WITH diacritics.\nFrame B: mm, Z up, FRONT = -Y, robot LEFT = +X. Shoulder axis parallel to X through (y 3.0, z -17.0). Torso surface on the shoulder axis at x 46.756. Values for the LEFT arm; right arm = mirror x -> -x.\nCURRENT ARM (approved T3 shape, …",
+      "promptFramed": true,
+      "lastProgressAt": 1795706055407,
+      "tokens": 312782,
+      "toolCalls": 69,
+      "durationMs": 5167620,
+      "resultPreview": "{\"variant_id\":\"B\",\"options\":[{\"option_id\":\"M1\",\"fits\":false,\"min_wall\":-4,\"min_clearance\":0.5,\"note\":\"B1+ unchanged: does NOT fit B. My own analytic-surface check agrees with fit.py. The arm hub wall and lip (r 12.7, x 67.6) and the drive disc (r 11, x 62.6..65.9) stick out of the 15.5 mm pebble by more than 4 mm (I capped the value at 4). The hub cover margin is -5.2 in my check and -4.70 in fit.…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "overenie: variant C",
+      "phaseIndex": 2,
+      "phaseTitle": "Overenie",
+      "agentId": "ae8d5ae70b50bdc75",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795705807933,
+      "queuedAt": 1795700885369,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "C",
+      "promptPreview": "PROJECT: NOVA mini desktop robot (repo /home/user/Robot, read CLAUDE.md there only if needed). User language Slovak; every text on images in Slovak WITH diacritics.\nFrame B: mm, Z up, FRONT = -Y, robot LEFT = +X. Shoulder axis parallel to X through (y 3.0, z -17.0). Torso surface on the shoulder axis at x 46.756. Values for the LEFT arm; right arm = mirror x -> -x.\nCURRENT ARM (approved T3 shape, …",
+      "promptFramed": true,
+      "lastProgressAt": 1795711882183,
+      "tokens": 308340,
+      "toolCalls": 77,
+      "durationMs": 6074249,
+      "resultPreview": "{\"variant_id\":\"C\",\"options\":[{\"option_id\":\"M1\",\"fits\":false,\"min_wall\":-4,\"min_clearance\":0.5,\"note\":\"B1+ unchanged. Checker: NO, margin -5.0 (capped at 3.5). My own check: NO, -5.5 (capped at 4). The r 11 drive disc (x 62.6..65.9), the hub wall and lip to x 67.6, the M10 washer, all 8 magnets and the M4 head (x 64) sit OUTSIDE the C skin. On the axis the skin is x 49.64..62.47; 12 mm above the ax…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "obrázky: porovnanie variantov",
+      "phaseIndex": 3,
+      "phaseTitle": "Obrázky",
+      "agentId": "af3ded15869ee8495",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795711882194,
+      "queuedAt": 1795711882188,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "/tmp/claude-0/gapwf/fin/R3/img/work",
+      "promptPreview": "PROJECT: NOVA mini desktop robot (repo /home/user/Robot, read CLAUDE.md there only if needed). User language Slovak; every text on images in Slovak WITH diacritics.\nFrame B: mm, Z up, FRONT = -Y, robot LEFT = +X. Shoulder axis parallel to X through (y 3.0, z -17.0). Torso surface on the shoulder axis at x 46.756. Values for the LEFT arm; right arm = mirror x -> -x.\nCURRENT ARM (approved T3 shape, …",
+      "promptFramed": true,
+      "lastProgressAt": 1795714180282,
+      "tokens": 396773,
+      "toolCalls": 100,
+      "durationMs": 2298088,
+      "resultPreview": "{\"images\":[{\"path\":\"/tmp/claude-0/gapwf/fin/R3/img/final/v3_porovnanie_spredu.png\",\"title_sk\":\"NOVA mini · štíhlejšia ruka: porovnanie spredu\",\"content\":\"Front ortho of the whole robot in 4 columns at the same scale (0 – súčasná ruka (T3), A, B, C). Each column has the overall-width dimension over the arms (155,3 / 150,2 / 144,4 / 138,1 mm), a teal frame and a shoulder zoom with the outer-cover ba…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 7,
+      "label": "kontrola obrázkov",
+      "phaseIndex": 4,
+      "phaseTitle": "Kontrola",
+      "agentId": "ac10b59330aadf099",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795714180301,
+      "queuedAt": 1795714180293,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "PROJECT: NOVA mini desktop robot (repo /home/user/Robot, read CLAUDE.md there only if needed). User language Slovak; every text on images in Slovak WITH diacritics.\nFrame B: mm, Z up, FRONT = -Y, robot LEFT = +X. Shoulder axis parallel to X through (y 3.0, z -17.0). Torso surface on the shoulder axis at x 46.756. Values for the LEFT arm; right arm = mirror x -> -x.\nCURRENT ARM (approved T3 shape, …",
+      "promptFramed": true,
+      "lastProgressAt": 1795714771799,
+      "tokens": 229022,
+      "toolCalls": 66,
+      "durationMs": 591498,
+      "resultPreview": "{\"ok\":true,\"fixed\":[\"v3_porovnanie_spredu + v3_porovnanie_3d: the 'overall robot width' labels were wrong for B and C. The concept base in the scene is 146.0 mm wide; I computed this from the base section in the shape module and it matches the 145.7 measured on the front render. So 144.4 and 138.1 are the width over the arms, not the robot's width. I renamed the table row 'celková šírka robota' an…"
+    }
+  ],
+  "totalTokens": 2445605,
+  "totalToolCalls": 556
+}

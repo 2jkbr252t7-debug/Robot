@@ -1,0 +1,6 @@
+https://www.rlx.sk/ 302 -> https://rlx.sk/
+https://www.tymoty.com/ 301 -> https://www.tymoty.cz/
+laskarduino: curl: (56) CONNECT tunnel failed, response 502
+waveshare sc09/st3215 (curl): HTTP 403 'Just a moment...' Cloudflare challenge; WebFetch: ENOTFOUND
+tme.eu, botland.store search STS3032: HTTP 403 'Just a moment...'
+dratek: 301 -> https://dratek.cz/vyhledavani/?string=STS3032

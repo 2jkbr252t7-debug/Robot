@@ -1,0 +1,688 @@
+Overenie (re-check) loziska - raw extracts, stiahnute 2026-11-26T14:25Z
+
+=== loziska-policka product pages (p/loziska-policka_*.html): H1 / cena / dostupnost / rozmery ===
+===  p/loziska-policka_lozisko-61800-2rs-kinex.html
+ H1      : Ložisko - 61800 2RS KINEX
+ price   : 54 Kč / ks | 45 Kč bez DPH | meta 54.00
+ stock   : Skladem (16 ks) | schema https://schema.org/InStock
+ dims    : []
+===  p/loziska-policka_lozisko-61800-2z-mtm.html
+ H1      : Ložisko - 61800 2Z MTM
+ price   : 30 Kč / ks | 25 Kč bez DPH | meta 30.00
+ stock   : Skladem (10 ks) | schema https://schema.org/InStock
+ dims    : ['10 × 19 × 5 mm']
+===  p/loziska-policka_lozisko-61800-skf.html
+ H1      : Ložisko - 61800 SKF
+ price   : 203 Kč / ks | 168 Kč bez DPH | meta 203.00
+ stock   : Skladem (119 ks) | schema https://schema.org/InStock
+ dims    : ['10 × 19 × 5 mm']
+===  p/loziska-policka_lozisko-61805-2rs-cx.html
+ H1      : Ložisko - 61805 2RS CX
+ price   : 35 Kč / ks | 29 Kč bez DPH | meta 35.00
+ stock   : Skladem (27 ks) | schema https://schema.org/InStock
+ dims    : ['25 × 37 × 7 mm']
+===  p/loziska-policka_lozisko-61900-2rs-kinex.html
+ H1      : Ložisko - 61900 2RS KINEX
+ price   : 62 Kč / ks | 51 Kč bez DPH | meta 62.00
+ stock   : Skladem (13 ks) | schema https://schema.org/InStock
+ dims    : ['10 × 22 × 6 mm']
+===  p/loziska-policka_lozisko-61901-2rs-zvl.html
+ H1      : Ložisko - 61901 2RS ZVL
+ price   : 50 Kč / ks | 41 Kč bez DPH | meta 50.00
+ stock   : Skladem (5 ks) | schema https://schema.org/InStock
+ dims    : ['12 × 24 × 6 mm']
+===  p/loziska-policka_lozisko-623-2z-zkl.html
+ H1      : Ložisko - 623 2Z ZKL
+ price   : 24 Kč / ks | 20 Kč bez DPH | meta 24.00
+ stock   : Skladem (10 ks) | schema https://schema.org/InStock
+ dims    : ['3 × 10 × 4 mm']
+===  p/loziska-policka_lozisko-623-z-zkl.html
+ H1      : Ložisko - 623 Z ZKL
+ price   : 22 Kč / ks | 18 Kč bez DPH | meta 22.00
+ stock   : Skladem (125 ks) | schema https://schema.org/InStock
+ dims    : ['3 × 10 × 4 mm']
+===  p/loziska-policka_lozisko-623-zz-dpi.html
+ H1      : Ložisko - 623 ZZ DPI
+ price   : 69 Kč / ks | 57 Kč bez DPH | meta 69.00
+ stock   : Skladem (40 ks) | schema https://schema.org/InStock
+ dims    : ['10 × 19 × 7 mm', '3 × 10 × 4 mm', '30 × 62 × 15 mm', '35 × 80 × 31 mm', '5 × 19 × 6 mm', '50 × 90 × 28 mm']
+===  p/loziska-policka_lozisko-63800-zz-ibb.html
+ H1      : Ložisko - 63800 ZZ IBB
+ price   : 99 Kč / ks | 82 Kč bez DPH | meta 99.00
+ stock   : Skladem (216 ks) | schema https://schema.org/InStock
+ dims    : ['150 × 240 × 40 mm', '280 × 406,4 × 67,67 mm', '35 × 72 × 27 mm', '40 × 68 × 15 mm', '40 × 75 × 54 mm', '6 × 19 × 6 mm']
+===  p/loziska-policka_lozisko-6700-2z--61700-2z--fbj.html
+ H1      : Ložisko - 6700 2Z (61700 2Z) FBJ
+ price   : 31 Kč / ks | 26 Kč bez DPH | meta 31.00
+ stock   : Skladem (320 ks) | schema https://schema.org/InStock
+ dims    : ['10 × 15 × 4 mm', '17 × 40 × 17 mm', '25 × 72 × 75 mm', '35 × 70 × 70 mm', '40 × 100 × 70 mm', '40 × 68 × 15 mm']
+===  p/loziska-policka_lozisko-6800-2rs-craft.html
+ H1      : Ložisko - 6800 2RS CRAFT
+ price   : 29 Kč / ks | 24 Kč bez DPH | meta 29.00
+ stock   : Uvedená cena může být orientační. V případě její změny bude zákazník po vytvoření objednávky neprodleně kontaktován s aktualizovanou cenovou nabídkou."> Na objednání – dostupnost ověříme None | schema https://schema.org/OutOfStock
+ dims    : ['10 × 19 × 5 mm']
+===  p/loziska-policka_lozisko-6801-2rs-dpi.html
+ H1      : Ložisko - 6801 2RS DPI
+ price   : 99 Kč / ks | 82 Kč bez DPH | meta 99.00
+ stock   : Skladem (9 ks) | schema https://schema.org/InStock
+ dims    : ['12 × 21 × 5 mm']
+===  p/loziska-policka_lozisko-6805-2rs-ezo.html
+ H1      : Ložisko - 6805 2RS EZO
+ price   : 190 Kč / ks | 157 Kč bez DPH | meta 190.00
+ stock   : Skladem (16 ks) | schema https://schema.org/InStock
+ dims    : ['25 × 37 × 7 mm']
+===  p/loziska-policka_lozisko-683-ezo.html
+ H1      : Ložisko - 683 EZO
+ price   : 67 Kč / ks | 55 Kč bez DPH | meta 67.00
+ stock   : Skladem (4000 ks) | schema https://schema.org/InStock
+ dims    : ['150 × 240 × 40 mm', '25 × 72 × 75 mm', '30 × 62 × 23 mm', '40 × 80 × 28 mm', '40.988 × 67.975 × 17.501 mm', '50 × 110 × 82 mm']
+===  p/loziska-policka_lozisko-684-2z-ezo.html
+ H1      : Ložisko - 684 2Z EZO
+ price   : 73 Kč / ks | 60 Kč bez DPH | meta 73.00
+ stock   : Skladem (1 ks) | schema https://schema.org/InStock
+ dims    : ['35 × 62 × 14 mm', '40 × 68 × 15 mm', '50 × 140 × 82 mm', '50 × 90 × 28 mm', '7 × 19 × 6 mm', '9 × 26 × 8 mm']
+===  p/loziska-policka_lozisko-685-2z-craft.html
+ H1      : Ložisko - 685 2Z CRAFT
+ price   : 46 Kč / ks | 38 Kč bez DPH | meta 46.00
+ stock   : Skladem (8 ks) | schema https://schema.org/InStock
+ dims    : ['150 × 240 × 40 mm', '168 × 250 × 42 mm', '17 × 40 × 17 mm', '25 × 75 × 28 mm', '280 × 406,4 × 67,67 mm', '40 × 80 × 30 mm']
+===  p/loziska-policka_lozisko-688-2z-rmb.html
+ H1      : Ložisko - 688 2Z RMB
+ price   : 85 Kč / ks | 70 Kč bez DPH | meta 85.00
+ stock   : Skladem (3 ks) | schema https://schema.org/InStock
+ dims    : ['10 × 19 × 7 mm', '150 × 240 × 40 mm', '280 × 406,4 × 67,67 mm', '35 × 80 × 31 mm', '50 × 115 × 34 mm', '8 × 16 × 5 mm']
+===  p/loziska-policka_lozisko-689-2z-ibu.html
+ H1      : Ložisko - 689 2Z IBU
+ price   : 198 Kč / ks | 164 Kč bez DPH | meta 198.00
+ stock   : Skladem (9 ks) | schema https://schema.org/InStock
+ dims    : ['150 × 240 × 40 mm', '168 × 250 × 42 mm', '17 × 40 × 17 mm', '17 × 40 × 27.4 mm', '25 × 52 × 15 mm', '25 × 72 × 60 mm']
+===  p/loziska-policka_lozisko-694-2z-p5-zkl.html
+ H1      : Ložisko - 694 2Z P5 ZKL
+ price   : 54 Kč / ks | 45 Kč bez DPH | meta 54.00
+ stock   : Skladem (136 ks) | schema https://schema.org/InStock
+ dims    : ['4 × 11 × 4 mm']
+===  p/loziska-policka_lozisko-695-2z-ibb.html
+ H1      : Ložisko - 695 2Z IBB
+ price   : 35 Kč / ks | 29 Kč bez DPH | meta 35.00
+ stock   : Skladem (34 ks) | schema https://schema.org/InStock
+ dims    : ['5 × 13 × 4 mm']
+===  p/loziska-policka_lozisko-698-2rs-neu.html
+ H1      : Ložisko - 698 2RS neu
+ price   : 109 Kč / ks | 90 Kč bez DPH | meta 109.00
+ stock   : Skladem (9 ks) | schema https://schema.org/InStock
+ dims    : ['10 × 19 × 7 mm', '25 × 52 × 15 mm', '25 × 72 × 75 mm', '40 × 75 × 54 mm', '40 × 80 × 28 mm', '5 × 19 × 6 mm']
+===  p/loziska-policka_lozisko-698-2z-p5-zen.html
+ H1      : Ložisko - 698 2Z P5 ZEN
+ price   : 90 Kč / ks | 74 Kč bez DPH | meta 90.00
+ stock   : Skladem (16 ks) | schema https://schema.org/InStock
+ dims    : ['8 × 19 × 6 mm']
+===  p/loziska-policka_lozisko-699-zz-zkl.html
+ H1      : Ložisko - 699 ZZ ZKL
+ price   : 129 Kč / ks | 107 Kč bez DPH | meta 129.00
+ stock   : Skladem (2 ks) | schema https://schema.org/InStock
+ dims    : ['9 × 20 × 6 mm']
+===  p/loziska-policka_lozisko-mr-105-2z-ibb.html
+ H1      : Ložisko - MR 105 2Z IBB
+ price   : 99 Kč / ks | 82 Kč bez DPH | meta 99.00
+ stock   : Skladem (4 ks) | schema https://schema.org/InStock
+ dims    : ['17 × 40 × 17 mm', '25 × 72 × 60 mm', '40 × 100 × 70 mm', '40 × 80 × 28 mm', '5 × 19 × 6 mm', '50 × 110 × 82 mm']
+===  p/loziska-policka_lozisko-mr-95-zz-cn.html
+ H1      : Ložisko - MR 95 ZZ CN
+ price   : 149 Kč / ks | 123 Kč bez DPH | meta 149.00
+ stock   : Skladem (5 ks) | schema https://schema.org/InStock
+ dims    : ['10 × 19 × 7 mm', '17 × 40 × 27.4 mm', '25 × 72 × 75 mm', '30 × 80 × 28 mm', '35 × 80 × 31 mm', '40 × 100 × 70 mm']
+===  p/loziska-policka_lozisko-s-623-2z-gprj-grw.html
+ H1      : Ložisko - S 623 2Z GPRJ GRW
+ price   : 50 Kč / ks | 41 Kč bez DPH | meta 50.00
+ stock   : Skladem (80 ks) | schema https://schema.org/InStock
+ dims    : ['17 × 40 × 17 mm', '17 × 40 × 27.4 mm', '25 × 72 × 75 mm', '3 × 10 × 4 mm', '30 × 80 × 28 mm', '40 × 100 × 70 mm']
+===  p/loziska-policka_lozisko-s-688-003-2z-gpr-j-grw.html
+ H1      : Ložisko - S 688/003 2Z GPR J GRW
+ price   : 99 Kč / ks | 82 Kč bez DPH | meta 99.00
+ stock   : Skladem (250 ks) | schema https://schema.org/InStock
+ dims    : ['25 × 75 × 28 mm', '254 × 365,125 × 58,738 mm', '260 × 385 × 55 mm', '50 × 115 × 34 mm', '75 × 115 × 48 mm', '8 × 16 × 5 mm']
+===  p/loziska-policka_lozisko-s-688-2z-gpr-j-grw.html
+ H1      : Ložisko - S 688 2Z GPR J GRW
+ price   : 50 Kč / ks | 41 Kč bez DPH | meta 50.00
+ stock   : Skladem (500 ks) | schema https://schema.org/InStock
+ dims    : ['25 × 75 × 28 mm', '30 × 62 × 23 mm', '35 × 62 × 14 mm', '40 × 100 × 70 mm', '50 × 90 × 28 mm', '6 × 17 × 6 mm']
+===  p/loziska-policka_lozisko-s-698-2z-gprj-grw.html
+ H1      : Ložisko - S 698 2Z GPRJ GRW
+ price   : 39 Kč / ks | 32 Kč bez DPH | meta 39.00
+ stock   : Skladem (2095 ks) | schema https://schema.org/InStock
+ dims    : ['17 × 40 × 27.4 mm', '20 × 68 × 46 mm', '254 × 365,125 × 58,738 mm', '35 × 70 × 70 mm', '40 × 75 × 54 mm', '50 × 110 × 82 mm']
+===  p/loziska-policka_lozisko-ss-6702-2rs.html
+ H1      : Ložisko - SS 6702 2RS
+ price   : 467 Kč / ks | 386 Kč bez DPH | meta 467.00
+ stock   : Skladem (2 ks) | schema https://schema.org/InStock
+ dims    : ['15 × 21 × 4 mm', '150 × 240 × 40 mm', '254 × 365,125 × 58,738 mm', '35 × 70 × 70 mm', '35 × 80 × 31 mm', '6 × 19 × 6 mm']
+===  p/loziska-policka_lozisko-ss-6805-2rs-neu.html
+ H1      : Ložisko - SS 6805 2RS neu
+ price   : 229 Kč / ks | 189 Kč bez DPH | meta 229.00
+ stock   : Skladem (5 ks) | schema https://schema.org/InStock
+ dims    : ['25 × 37 × 7 mm']
+===  p/loziska-policka_lozisko-61800-2rs-kinex.html
+  DESC: Ložisko - 61800 2RS KINEX Ložisko.
+===  p/loziska-policka_lozisko-61800-2z-mtm.html
+  DESC: Ložisko - 61800 2Z MTM 10 × 19 × 5 mm. Tenkostěnné jednořadé kuličkové ložisko s bezkontaktními plechovými kryty z obou stran pro kompaktní uložení, nízké tření a ochranu před běžnými nečistotami.
+===  p/loziska-policka_lozisko-61800-skf.html
+  DESC: Ložisko - 61800 SKF 10 × 19 × 5 mm. Technické provedení a kompatibilitu ověřte podle úplného označení výrobce a požadavků aplikace.
+===  p/loziska-policka_lozisko-61805-2rs-cx.html
+  DESC: Ložisko - 61805 2RS CX 25 × 37 × 7 mm. Pryžová těsnění 2RS z obou stran, standardní ocelová klec.
+===  p/loziska-policka_lozisko-61900-2rs-kinex.html
+  DESC: Ložisko - 61900 2RS KINEX 10 × 22 × 6 mm. Jednořadé kuličkové ložisko s kontaktním pryžovým těsněním na obou stranách. Kompaktní řešení pro radiální a přiměřené axiální zatížení v obou směrech, chráněné proti prachu, nečistotám a úniku maziva.
+===  p/loziska-policka_lozisko-61901-2rs-zvl.html
+  DESC: Ložisko - 61901 2RS ZVL 12 × 24 × 6 mm. Pryžová těsnění z obou stran.
+===  p/loziska-policka_lozisko-623-2z-zkl.html
+  DESC: Ložisko - 623 2Z ZKL 3 × 10 × 4 mm. Jednořadé kuličkové ložisko s hlubokou drážkou. Plechové kryty z obou stran; před objednáním porovnejte celé označení včetně suffixu.
+===  p/loziska-policka_lozisko-623-z-zkl.html
+  DESC: Ložisko - 623 Z ZKL 3 × 10 × 4 mm. Jednořadé kuličkové ložisko s jednostranným bezkontaktním kovovým krytem. Vhodné pro radiální a přiměřené axiální zatížení v obou směrech, když má být jedna strana ložiska chráněna před hrubšími nečistotami.
+===  p/loziska-policka_lozisko-623-zz-dpi.html
+  DESC: Ložisko - 623 ZZ DPI 3 × 10 × 4 mm. Plechové kryty z obou stran.
+===  p/loziska-policka_lozisko-63800-zz-ibb.html
+  DESC: Ložisko - 63800 ZZ IBB Plechové kryty z obou stran.
+===  p/loziska-policka_lozisko-6700-2z--61700-2z--fbj.html
+  DESC: 6700 2Z (61700 2Z) FBJ je jednořadé kuličkové ložisko s hlubokou drážkou a kovovými kryty na obou stranách. Rozměry d × D × B jsou 10 × 15 × 4 mm.
+===  p/loziska-policka_lozisko-6800-2rs-craft.html
+  DESC: Ložisko - 6800 2RS CRAFT 10 × 19 × 5 mm. Pryžová těsnění z obou stran.
+===  p/loziska-policka_lozisko-6801-2rs-dpi.html
+  DESC: Ložisko - 6801 2RS DPI 12 × 21 × 5 mm. Pryžová těsnění z obou stran.
+===  p/loziska-policka_lozisko-6805-2rs-ezo.html
+  DESC: Ložisko - 6805 2RS EZO Tenkostěnné jednořadé kuličkové ložisko s kontaktním pryžovým těsněním z obou stran. Oficiální data výrobce: 25 × 37 × 7 mm, dynamická únosnost 4,3 kN, statická únosnost 2,94 kN a mezní otáčky 10 000 min⁻¹. MPN 6805 2RS. Ložisko EZO pro pr
+===  p/loziska-policka_lozisko-683-ezo.html
+  DESC: Ložisko - 683 EZO Ložisko.
+===  p/loziska-policka_lozisko-684-2z-ezo.html
+  DESC: Ložisko - 684 2Z EZO Plechové kryty z obou stran.
+===  p/loziska-policka_lozisko-685-2z-craft.html
+  DESC: Ložisko - 685 2Z CRAFT.
+===  p/loziska-policka_lozisko-688-2z-rmb.html
+  DESC: Ložisko - 688 2Z RMB 8 × 16 × 5 mm. Miniaturní tenkostěnné kuličkové ložisko s plechovými kryty z obou stran. Velmi kompaktní provedení nabízí nízké tření a ochranu pro přesné malé mechanismy.
+===  p/loziska-policka_lozisko-689-2z-ibu.html
+  DESC: Ložisko - 689 2Z IBU 9 × 17 × 5 mm. Plechové kryty z obou stran.
+===  p/loziska-policka_lozisko-694-2z-p5-zkl.html
+  DESC: Ložisko - 694 2Z P5 ZKL 4 × 11 × 4 mm. je miniaturní jednořadé radiální kuličkové ložisko se dvěma bezkontaktními kovovými krytkami a vyšší třídou přesnosti P5. Přenáší radiální zatížení i přiměřené axiální síly v obou směrech při nízkém tření. Krytk
+===  p/loziska-policka_lozisko-695-2z-ibb.html
+  DESC: Ložisko - 695 2Z IBB 5 × 13 × 4 mm. Miniaturní jednořadé kuličkové ložisko s hlubokou drážkou a bezkontaktními plechovými kryty z obou stran. Kompaktní provedení pro malé mechanismy, kde je požadováno nízké tření a ochrana maziva před běžnými nečistotami.
+===  p/loziska-policka_lozisko-698-2rs-neu.html
+  DESC: Ložisko - 698 2RS neu 8 × 19 × 6 mm. Pryžová těsnění z obou stran.
+===  p/loziska-policka_lozisko-698-2z-p5-zen.html
+  DESC: Ložisko - 698 2Z P5 ZEN 8 × 19 × 6 mm. Jednořadé kuličkové ložisko v přesnostní třídě P5, s bezkontaktními kovovými kryty na obou stranách. Vhodné pro radiální a přiměřené axiální zatížení v obou směrech, s nízkým třením a ochranou maziva před hrubšími ne�
+===  p/loziska-policka_lozisko-699-zz-zkl.html
+  DESC: Ložisko - 699 ZZ ZKL 9 × 20 × 6 mm. Plechové kryty z obou stran.
+===  p/loziska-policka_lozisko-mr-105-2z-ibb.html
+  DESC: Ložisko - MR 105 2Z IBB Plechové kryty z obou stran.
+===  p/loziska-policka_lozisko-mr-95-zz-cn.html
+  DESC: Ložisko - MR 95 ZZ CN Plechové kryty z obou stran.
+===  p/loziska-policka_lozisko-s-623-2z-gprj-grw.html
+  DESC: Ložisko - S 623 2Z GPRJ GRW 3 × 10 × 4 mm. Plechové kryty z obou stran.
+===  p/loziska-policka_lozisko-s-688-003-2z-gpr-j-grw.html
+  DESC: Ložisko - S 688/003 2Z GPR J GRW 8 × 16 × 5 mm. Ložisko GRW pro průmyslové použití. Při výměně vždy ověřte úplné označení, rozměry, konstrukční provedení a požadavky aplikace podle dokumentace výrobce.
+===  p/loziska-policka_lozisko-s-688-2z-gpr-j-grw.html
+  DESC: Ložisko - S 688 2Z GPR J GRW 8 × 16 × 5 mm. Nerezové jednořadé kuličkové ložisko s hlubokou drážkou a plechovými kryty z obou stran. Kompaktní provedení pro radiální zatížení a menší axiální zatížení v obou směrech.
+===  p/loziska-policka_lozisko-s-698-2z-gprj-grw.html
+  DESC: Ložisko - S 698 2Z GPRJ GRW 8 × 19 × 6 mm. Plechové kryty z obou stran.
+===  p/loziska-policka_lozisko-ss-6702-2rs.html
+  DESC: Ložisko - SS 6702 2RS 15 × 21 × 4 mm. Pryžová těsnění z obou stran.
+===  p/loziska-policka_lozisko-ss-6805-2rs-neu.html
+  DESC: Ložisko - SS 6805 2RS neu 25 × 37 × 7 mm. Pryžová těsnění z obou stran.
+
+=== hadex product pages (p/hadex_*.html) ===
+===  p/hadex_l735-kulickove-lozisko-s-prirubou-mf105zz-10x4mm-na-hridel-5mm.html
+ H1: Kuličkové ložisko s přírubou MF105ZZ, 10x4mm na hřídel 5mm (L735)
+   Skladem -> sko s přírubou MF105ZZ, 10x4mm na hřídel 5mm | × | 1 / 2 | Kuličkové ložisko s přírubou MF105ZZ, 10x4mm na hřídel 5mm (L735) | Kód produktu: | L735 | Skladem | 168 ks | Na skladě | 17,00 Kč | 14,05 Kč bez DPH | - | + | Do košíku | 5 a více ks (VC) | 12,00 Kč / ks | (bez DPH) | Nakupte ještě za
+===  p/hadex_l735a-kulickove-lozisko-s-prirubou-f604zz-10x4mm-na-hridel-5-2mm.html
+ H1: Kuličkové ložisko s přírubou F604ZZ, 10x4mm na hřídel 5,2mm (L735A)
+   Skladem -> s přírubou F604ZZ, 10x4mm na hřídel 5,2mm | × | 1 / 1 | Kuličkové ložisko s přírubou F604ZZ, 10x4mm na hřídel 5,2mm (L735A) | Kód produktu: | L735A | Skladem | 226 ks | Na skladě | 14,00 Kč | 11,57 Kč bez DPH | - | + | Do košíku | Nakupte ještě za | 1 500,00 Kč | a dopravu máte | zdarma | . | 
+===  p/hadex_l735c-kulickove-lozisko-s-prirubou-f623zz-10x4mm-na-hridel-3mm.html
+ H1: Kuličkové ložisko s přírubou F623ZZ, 10x4mm na hřídel 3mm (L735C)
+   Skladem -> sko s přírubou F623ZZ, 10x4mm na hřídel 3mm | × | 1 / 1 | Kuličkové ložisko s přírubou F623ZZ, 10x4mm na hřídel 3mm (L735C) | Kód produktu: | L735C | Skladem | 314 ks | Na skladě | 21,00 Kč | 17,36 Kč bez DPH | - | + | Do košíku | 5 a více ks (VC) | 15,00 Kč / ks | (bez DPH) | Nakupte ještě za
+===  p/hadex_l735f-kulickove-lozisko-s-prirubou-f688zz-16x5mm-na-hridel-8mm.html
+ H1: Kuličkové ložisko s přírubou F688ZZ, 16x5mm na hřídel 8mm (L735F)
+   Skladem -> sko s přírubou F688ZZ, 16x5mm na hřídel 8mm | × | 1 / 1 | Kuličkové ložisko s přírubou F688ZZ, 16x5mm na hřídel 8mm (L735F) | Kód produktu: | L735F | Skladem | 251 ks | Na skladě | 21,00 Kč | 17,36 Kč bez DPH | - | + | Do košíku | 5 a více ks (VC) | 15,00 Kč / ks | (bez DPH) | Nakupte ještě za
+===  p/hadex_l760b-kulickove-lozisko-mr105-10x4mm-na-hridel-5mm.html
+ H1: Kuličkové ložisko MR105, 10x4mm na hřídel 5mm (L760B)
+   Skladem -> 0x4mm na hřídel 5mm | × | 1 / 2 | Kuličkové ložisko MR105, 10x4mm na hřídel 5mm (L760B) | Kód produktu: | L760B | Pro hobby použití | Zobrazit více | Skladem | 310 ks | Na skladě | 12,00 Kč | 9,92 Kč bez DPH | - | + | Do košíku | 5 a více ks (VC) | 8,00 Kč / ks | (bez DPH) | Nakupte ještě za | 
+===  p/hadex_l760c-kulickove-lozisko-623zz-10x4mm-na-hridel-3mm.html
+ H1: Kuličkové ložisko 623ZZ,10x4mm na hřídel 3mm (L760C)
+   Na cestě -> 10x4mm na hřídel 3mm | × | 1 / 2 | Kuličkové ložisko 623ZZ,10x4mm na hřídel 3mm (L760C) | Kód produktu: | L760C | pro hobby použití | Zobrazit více | Na cestě | 0 ks | Na cestě, dodání do 20. 12. 2026 | 11,00 Kč | 9,09 Kč bez DPH | Hlídací pes | 5 a více ks (VC) | 7,00 Kč / ks | (bez DPH) | 
+   Na cestě -> mm | × | 1 / 2 | Kuličkové ložisko 623ZZ,10x4mm na hřídel 3mm (L760C) | Kód produktu: | L760C | pro hobby použití | Zobrazit více | Na cestě | 0 ks | Na cestě, dodání do 20. 12. 2026 | 11,00 Kč | 9,09 Kč bez DPH | Hlídací pes | 5 a více ks (VC) | 7,00 Kč / ks | (bez DPH) | Nakupte ještě za |
+===  p/hadex_l760h-kulickove-lozisko-688zz-16x5mm-na-hridel-8mm.html
+ H1: Kuličkové ložisko 688ZZ,16x5mm na hřídel 8mm (L760H)
+   Skladem -> 16x5mm na hřídel 8mm | × | 1 / 2 | Kuličkové ložisko 688ZZ,16x5mm na hřídel 8mm (L760H) | Kód produktu: | L760H | pro hobby použití | Zobrazit více | Skladem | 820 ks | Na skladě | 11,00 Kč | 9,09 Kč bez DPH | - | + | Do košíku | 5 - 19 ks (VC) | 7,00 Kč / ks | (bez DPH) | 20 a více ks (VC) | 6,0
+===  p/hadex_l760i-kulickove-lozisko-685zz-11x5mm-na-hridel-5mm.html
+ H1: Kuličkové ložisko 685ZZ,11x5mm na hřídel 5mm (L760I)
+   Skladem -> 11x5mm na hřídel 5mm | × | 1 / 2 | Kuličkové ložisko 685ZZ,11x5mm na hřídel 5mm (L760I) | Kód produktu: | L760I | pro hobby použití | Zobrazit více | Skladem | 499 ks | Na skladě | 9,00 Kč | 7,44 Kč bez DPH | - | + | Do košíku | 5 a více ks (VC) | 6,00 Kč / ks | (bez DPH) | Nakupte ještě za | 1
+===  p/hadex_l760l-kulickove-lozisko-694zz-11x4mm-na-hridel-4mm.html
+ H1: Kuličkové ložisko 694ZZ 11x4mm na hřídel 4mm (L760L)
+   Skladem -> a hlavice | Kuličkové ložisko 694ZZ 11x4mm na hřídel 4mm | × | 1 / 1 | Kuličkové ložisko 694ZZ 11x4mm na hřídel 4mm (L760L) | Kód produktu: | L760L | Skladem | 335 ks | Na skladě | 11,00 Kč | 9,09 Kč bez DPH | - | + | Do košíku | 5 a více ks (VC) | 7,00 Kč / ks | (bez DPH) | Nakupte ještě za | 
+
+=== hadex category (p/hadex_kulickova-loziska-a-hlavice.html): 'Zobrazuji 1 - 24 z 24' - full list ===
+ - Kloubová hlavice - unibal, vnější závit M3 pravý SA3P/K | L740 | Skladem | 54 ks | 32,00 Kč
+ - Kloubová hlavice - unibal, vnější závit M4 pravý SA4P/K | L740A | Skladem | 45 ks | 32,00 Kč
+ - Kloubová hlavice - unibal, vnitřní závit M4 pravý, SI4P/K | L739 | Skladem | 71 ks | 32,00 Kč
+ - Kuličkové ložisko 606ZZ 6x17mm na hřídel 6mm | L760A | Skladem | 207 ks | 12,00 Kč
+ - Kuličkové ložisko 608-2RS,22x7mm na hřídel 8mm | L760K | Skladem | 1271 ks | 15,00 Kč
+ - Kuličkové ložisko 608ZZ,22x7mm na hřídel 8mm | L760G | Skladem | 3972 ks | 11,00 Kč
+ - Kuličkové ložisko 623ZZ,10x4mm na hřídel 3mm | L760C | Na cestě | 11,00 Kč | 9,09 Kč bez DPH
+ - Kuličkové ložisko 624ZZ,13x5mm na hřídel 4mm | L760D | Skladem | 332 ks | 8,00 Kč
+ - Kuličkové ložisko 625ZZ,16x5mm na hřídel 5mm | L760E | Skladem | 559 ks | 9,00 Kč
+ - Kuličkové ložisko 626ZZ,19x6mm na hřídel 6mm | L760F | Skladem | 1034 ks | 9,00 Kč
+ - Kuličkové ložisko 685ZZ,11x5mm na hřídel 5mm | L760I | Skladem | 499 ks | 9,00 Kč
+ - Kuličkové ložisko 688ZZ,16x5mm na hřídel 8mm | L760H | Skladem | 820 ks | 11,00 Kč
+ - Kuličkové ložisko 694ZZ 11x4mm na hřídel 4mm | L760L | Skladem | 335 ks | 11,00 Kč
+ - Kuličkové ložisko MR105, 10x4mm na hřídel 5mm | L760B | Skladem | 310 ks | 12,00 Kč
+ - Kuličkové ložisko s drážkou V1804RS 18x8x7mm na hřídel 4mm | L760N | Skladem | 562 ks | 22,00 Kč
+ - Kuličkové ložisko s přírubou F604ZZ, 10x4mm na hřídel 5,2mm | L735A | Skladem | 226 ks | 14,00 Kč
+ - Kuličkové ložisko s přírubou F608ZZ, 22x7mm na hřídel 8mm | L735B | Skladem | 382 ks | 21,00 Kč
+ - Kuličkové ložisko s přírubou F623ZZ, 10x4mm na hřídel 3mm | L735C | Skladem | 314 ks | 21,00 Kč
+ - Kuličkové ložisko s přírubou F624ZZ, 13x5mm na hřídel 4mm | L735D | Skladem | 127 ks | 21,00 Kč
+ - Kuličkové ložisko s přírubou F625Z, 16x5mm na hřídel 5mm | L735E | Skladem | 161 ks | 21,00 Kč
+ - Kuličkové ložisko s přírubou F688ZZ, 16x5mm na hřídel 8mm | L735F | Skladem | 251 ks | 21,00 Kč
+ - Kuličkové ložisko s přírubou MF105ZZ, 10x4mm na hřídel 5mm | L735 | Skladem | 168 ks | 17,00 Kč
+ - Kuličkové ložisko U604ZZ s drážkou,13x4mm na hřídel 4mm | L760M | Skladem | 122 ks | 20,00 Kč
+ - Kuličkové ložisko V623ZZ s drážkou,12x4mm na hřídel 3mm | L760J | Skladem | 425 ks | 11,00 Kč
+
+=== loziska-policka parametric filter, in stock, by bore d (s/lp_filter_d*.html; only products that have parameters) ===
+## d=3
+   - Ložisko - 623 2Z ZKL | Skladem (10 ks) (10 ks) | 24 Kč | 
+   - Ložisko - 623 Z ZKL | Skladem (125 ks) (125 ks) | 22 Kč | 
+   - Ložisko - 623 ZKL | Skladem (71 ks) (71 ks) | 30 Kč | 
+   - Ložisko - S 623 2Z GPRJ GRW | Skladem (80 ks) (80 ks) | 50 Kč | 
+   - Ložisko - 623 ZZ DPI | Skladem (40 ks) (40 ks) | 69 Kč | 
+   - Ložisko - 623 P6 ZKL | Skladem (200 ks) (200 ks) | 29 Kč | 
+   - Ložisko - 623 ZR P6 ZKL | Skladem (300 ks) (300 ks) | 39 Kč | 
+   - Ložisko - 623 FAG | Skladem (424 ks) (424 ks) | 50 Kč
+## d=4
+   - Ložisko - 624 P5 ZKL | Skladem (120 ks) (120 ks) | 24 Kč | 
+   - Ložisko - 624 GPZ | Skladem (606 ks) (606 ks) | 24 Kč | 
+   - Ložisko - 624 ZKL | Skladem (18 ks) (18 ks) | 30 Kč | 
+   - Ložisko - 624 2RS EU-ROLL | Skladem (25 ks) (25 ks) | 25 Kč | 
+   - Ložisko - 694 2Z P5 ZKL | Skladem (136 ks) (136 ks) | 54 Kč | 
+   - Ložisko - 624 2Z SKF | Skladem (14 ks) (14 ks) | 93 Kč | 
+   - Ložisko - 634 ZZ ZKL | Skladem (5 ks) (5 ks) | 31 Kč | 
+   - Ložisko - 624 2Z ZKL | Skladem (5 ks) (5 ks) | 18 Kč | 
+   - Ložisko - 634 2Z neu | Skladem (20 ks) (20 ks) | 24 Kč | 
+   - Ložisko - 634 ZKL | Skladem (21 ks) (21 ks) | 16 Kč | 
+   - Ložisko - 624 2Z GPZ | Skladem (438 ks) (438 ks) | 24 Kč
+## d=5
+   - Ložisko - 635 ZKL | Skladem (104 ks) (104 ks) | 8 Kč | 
+   - Ložisko - 625 ZZ ZKL | Skladem (638 ks) (638 ks) | 50 Kč | 
+   - Ložisko - 625 B TPX ZKL | Skladem (134 ks) (134 ks) | 19 Kč | 
+   - Ložisko - 695 2Z IBB | Skladem (34 ks) (34 ks) | 35 Kč | 
+   - Ložisko - 635 2RS GMN | Skladem (65 ks) (65 ks) | 73 Kč | 
+   - Ložisko - 625 2Z RMB | Skladem (2 ks) (2 ks) | 50 Kč | 
+   - Ložisko - 625 ZR ZKL | Skladem (300 ks) (300 ks) | 18 Kč | 
+   - Ložisko - 625 ZRP6 ZKL | Skladem (89 ks) (89 ks) | 25 Kč | 
+   - Ložisko - SS 625 2RS MGK | Skladem (10 ks) (10 ks) | 139 Kč | 
+   - Ložisko - 625 SKF | Skladem (566 ks) (566 ks) | 54 Kč | 
+   - Ložisko - S 695 2Z GPRJ GRW | Skladem (100 ks) (100 ks) | 79 Kč | 
+   - Ložisko - 635 2Z C3 ZKL | Skladem (4 ks) (4 ks) | 44 Kč | 
+   - Ložisko - 635 2Z ZKL | Skladem (6 ks) (6 ks) | 23 Kč | 
+   - Ložisko - 635 2Z SKF | Skladem (14 ks) (14 ks) | 54 Kč | 
+   - Ložisko - 625 DKF | Skladem (36 ks) (36 ks) | 19 Kč | 
+   - Ložisko - 635 2ZR ZKL | Skladem (68 ks) (68 ks) | 21 Kč
+## d=8
+   - Ložisko - 608 2Z NMB | Skladem (2235 ks) (2235 ks) | 30 Kč | 
+   - Ložisko - 608 2Z SKF | Skladem (501 ks) (501 ks) | 59 Kč | 
+   - Ložisko - 608 Z ZKL | Skladem (792 ks) (792 ks) | 30 Kč | 
+   - Ložisko - 608 2RS ZKL | Skladem (358 ks) (358 ks) | 44 Kč | 
+   - Ložisko - 608 2RSH SKF | Skladem (107 ks) (107 ks) | 59 Kč | 
+   - Ložisko - 698 2Z P5 ZEN | Skladem (16 ks) (16 ks) | 90 Kč | 
+   - Ložisko - 608 ZKL | Skladem (83 ks) (83 ks) | 13 Kč | 
+   - Ložisko - 608 2RS TIMKEN | Skladem (1 ks) (1 ks) | 59 Kč | 
+   - Ložisko - S 688 2Z GPR J GRW | Skladem (500 ks) (500 ks) | 50 Kč | 
+   - Ložisko - 628 NACHI | Skladem (12 ks) (12 ks) | 30 Kč | 
+   - Ložisko - 608 2Z C3 INA | Skladem (550 ks) (550 ks) | 59 Kč | 
+   - Ložisko - EL 8 SKF | Skladem (484 ks) (484 ks) | 39 Kč | 
+   - Ložisko - 638 2RS KBS | Skladem (6 ks) (6 ks) | 61 Kč | 
+   - Ložisko - 608 ZC4 ZKL | Skladem (44 ks) (44 ks) | 59 Kč | 
+   - Ložisko - 688 2Z RMB | Skladem (3 ks) (3 ks) | 85 Kč | 
+   - Ložisko - SS 608 ZZ EZO | Skladem (8 ks) (8 ks) | 319 Kč | 
+   - Ložisko - SS 608 2RS IBB | Skladem (18 ks) (18 ks) | 149 Kč | 
+   - Ložisko - GE 8 E NEU | Skladem (50 ks) (50 ks) | 67 Kč
+   - Kloubové ložisko - GE 8 NEU | Skladem (50 ks) (50 ks) | 198 Kč | 
+   - Ložisko - S 688/003 2Z GPR J GRW | Skladem (250 ks) (250 ks) | 99 Kč | 
+   - Ložisko - S 698 2Z GPRJ GRW | Skladem (2095 ks) (2095 ks) | 39 Kč | 
+   - Ložisko - SS 608 2Z ZEN | Skladem (15 ks) (15 ks) | 149 Kč | 
+   - Ložisko - GE 8 DO ELGES | Skladem (34 ks) (34 ks) | 198 Kč | 
+   - Ložisko - 608 P6 ZKL | Skladem (600 ks) (600 ks) | 79 Kč | 
+   - Ložisko - 608 2RS FAG | Skladem (1 ks) (1 ks) | 50 Kč | 
+   - Ložisko - LM 08 UU CRB | Skladem (5 ks) (5 ks) | 270 Kč | 
+   - Ložisko - 698 TVP ZKL | Skladem (9 ks) (9 ks) | 149 Kč | 
+   - Ložisko - 698 2RS neu | Skladem (9 ks) (9 ks) | 109 Kč | 
+   - Ložisko - LAG 8X16X25 2RS FAG | Skladem (144 ks) (144 ks) | 299 Kč | 
+   - Ložisko - 608 2Z KG | Skladem (144 ks) (144 ks) | 24 Kč
+## d=9
+   - Ložisko - 609 2Z ZKL | Skladem (2 ks) (2 ks) | 30 Kč | 
+   - Ložisko - 609 2Z NMB | Skladem (123 ks) (123 ks) | 30 Kč | 
+   - Ložisko - 609 Z ZKL | Skladem (53 ks) (53 ks) | 35 Kč | 
+   - Ložisko - 629 ZKL | Skladem (158 ks) (158 ks) | 5 Kč | 
+   - Ložisko - 629 2Z SKF | Skladem (3 ks) (3 ks) | 48 Kč | 
+   - Ložisko - 609 ZKL | Skladem (40 ks) (40 ks) | 8 Kč | 
+   - Ložisko - 629 2RSH SKF | Skladem (27 ks) (27 ks) | 70 Kč | 
+   - Ložisko - 629 2RS KINEX | Skladem (11 ks) (11 ks) | 19 Kč | 
+   - Ložisko - 629 DKF | Skladem (58 ks) (58 ks) | 19 Kč | 
+   - Ložisko - 609 2RS DPI | Skladem (10 ks) (10 ks) | 290 Kč | 
+   - Ložisko - 629 2Z NEU | Skladem (173 ks) (173 ks) | 41 Kč | 
+   - Ložisko - 629 2RS CX | Skladem (1 ks) (1 ks) | 17 Kč | 
+   - Ložisko - 609 Z P6 ZKL | Skladem (3 ks) (3 ks) | 22 Kč | 
+   - Ložisko - 699 ZZ ZKL | Skladem (2 ks) (2 ks) | 129 Kč | 
+   - Ložisko - 609 URB | Skladem (5 ks) (5 ks) | 8 Kč | 
+   - Ložisko - 689 2Z IBU | Skladem (9 ks) (9 ks) | 198 Kč | 
+   - Ložisko - 609 DKF | Skladem (7 ks) (7 ks) | 6 Kč | 
+   - Ložisko - 629 Z ZKL | Skladem (11 ks) (11 ks) | 28 Kč
+   - Ložisko - 629 2Z ZKL | Skladem (3 ks) (3 ks) | 28 Kč | 
+   - Ložisko - 629 C3 ZKL | Skladem (60 ks) (60 ks) | 21 Kč | 
+   - Ložisko - 629 BMZ | Skladem (60 ks) (60 ks) | 24 Kč
+## d=10
+   - Ložisko - 6000 2RS ZVL | Skladem (58 ks) (58 ks) | 52 Kč | 
+   - Ložisko - 6000 FLT | Skladem (8 ks) (8 ks) | 35 Kč | 
+   - Ložisko - 6300 2RS EU-ROLL | Skladem (2 ks) (2 ks) | 38 Kč | 
+   - Ložisko - 6200 RS ZKL | Skladem (75 ks) (75 ks) | 25 Kč | 
+   - Ložisko - 6200 2Z SKF | Skladem (19 ks) (19 ks) | 81 Kč | 
+   - Ložisko - 6200 Z ZKL | Skladem (180 ks) (180 ks) | 30 Kč | 
+   - Ložisko - 6000 2RSH SKF | Skladem (25 ks) (25 ks) | 59 Kč | 
+   - Ložisko - 61900 2RS KINEX | Skladem (13 ks) (13 ks) | 62 Kč | 
+   - Ložisko - 6200 2RS CRAFT | Skladem (7 ks) (7 ks) | 45 Kč | 
+   - Ložisko - 6700 2Z (61700 2Z) FBJ | Skladem (320 ks) (320 ks) | 31 Kč | 
+   - Ložisko - 6000 ZR ZKL | Skladem (22 ks) (22 ks) | 35 Kč | 
+   - Ložisko - 6200 2Z DPI | Skladem (71 ks) (71 ks) | 70 Kč | 
+   - Ložisko - 6200 2RS SKF | Skladem (45 ks) (45 ks) | 106 Kč | 
+   - Ložisko - 6000 2Z P63E NTN | Skladem (45 ks) (45 ks) | 35 Kč | 
+   - Ložisko - 61800 2Z MTM | Skladem (10 ks) (10 ks) | 30 Kč | 
+   - Ložisko - 6000 Z C6 ZKL | Skladem (56 ks) (56 ks) | 25 Kč | 
+   - Ložisko - 6300 ZKL | Skladem (178 ks) (178 ks) | 23 Kč | 
+   - Ložisko - 6000 2Z FAG | Skladem (6 ks) (6 ks) | 56 Kč
+   - Ložisko - SS 61800 2Z neu | Skladem (3 ks) (3 ks) | 77 Kč | 
+   - Ložisko - 6000 2RS1 SKF | Skladem (2 ks) (2 ks) | 299 Kč | 
+   - Ložisko - 6000 2RSH C3 SKF | Skladem (5 ks) (5 ks) | 70 Kč | 
+   - Ložisko - 61900 2Z SKF | Skladem (10 ks) (10 ks) | 230 Kč | 
+   - Ložisko - 51100 STEYR | Skladem (1 ks) (1 ks) | 59 Kč | 
+   - Ložisko - 6200 Z SKF | Skladem (4 ks) (4 ks) | 136 Kč | 
+   - Ložisko - 51100 ZVL | Skladem (5 ks) (5 ks) | 59 Kč | 
+   - Ložisko - 51200 DPI | Skladem (197 ks) (197 ks) | 29 Kč | 
+   - Ložisko - 7200 CBTB P4 ZKL | Skladem (1 ks) (1 ks) | 1 306 Kč | 
+   - Ložisko - SS6000 2RS MTM | Skladem (14 ks) (14 ks) | 99 Kč | 
+   - Ložisko - SS 61800 2RS neu | Skladem (10 ks) (10 ks) | 3 399 Kč | 
+   - Jehlové ložisko - HK 1010 B INA | Skladem (500 ks) (500 ks) | 59 Kč | 
+   - Ložisko - 3200 BB 2Z TVH FAG | Skladem (2 ks) (2 ks) | 695 Kč | 
+   - Ložisko - 2200 2RS ZVL | Skladem (19 ks) (19 ks) | 115 Kč | 
+   - Ložisko - SS 6200 2RS neu | Skladem (29 ks) (29 ks) | 149 Kč | 
+   - Jehlové ložisko - HK 1010 IBB | Skladem (2 ks) (2 ks) | 99 Kč | 
+   - Ložisko - 6300 2ZC3 ZKL | Skladem (4 ks) (4 ks) | 31 Kč | 
+   - Ložisko - 61900 2RS SKF | Skladem (6 ks) (6 ks) | 250 Kč
+   - Ložisko - 6000 C3 FAG | Skladem (1 ks) (1 ks) | 150 Kč | 
+   - Ložisko - 51200 SKF | Skladem (1 ks) (1 ks) | 359 Kč | 
+   - Ložisko - 1200 ETN9 SKF | Skladem (2 ks) (2 ks) | 455 Kč | 
+   - Ložisko - 6000 SKF | Skladem (7 ks) (7 ks) | 61 Kč | 
+   - Ložisko - B7000-C-T-P4S-UL FAG | Skladem (2 ks) (2 ks) | 2 490 Kč | 
+   - Ložisko - 6000 TNG ZKL | Skladem (4 ks) (4 ks) | 35 Kč | 
+   - Ložisko - 2200 ZKL | Skladem (6 ks) (6 ks) | 73 Kč | 
+   - Ložisko - 1200 GPZ | Skladem (4 ks) (4 ks) | 795 Kč | 
+   - Ložisko - 6200 2RSC3 ZKL | Skladem (3 ks) (3 ks) | 29 Kč | 
+   - Ložisko - 6000 C 2HRS C3 FAG | Skladem (5 ks) (5 ks) | 65 Kč | 
+   - Ložisko - 51200 DKF | Skladem (5 ks) (5 ks) | 29 Kč | 
+   - Ložisko - 6300 N GPZ | Skladem (6 ks) (6 ks) | 15 Kč | 
+   - Ložisko - 3200 ZKL | Skladem (6 ks) (6 ks) | 96 Kč | 
+   - Ložisko - 1200 DKF | Skladem (6 ks) (6 ks) | 63 Kč | 
+   - Ložisko - 6300 RS ZKL | Skladem (7 ks) (7 ks) | 40 Kč | 
+   - Ložisko - 4200 BB TVH FAG | Skladem (2 ks) (2 ks) | 522 Kč | 
+   - Jehlové ložisko - HK 1015 B INA | Skladem (9 ks) (9 ks) | 90 Kč | 
+   - Ložisko - 3200 FAG | Skladem (10 ks) (10 ks) | 511 Kč
+   - Ložisko - 3200 A 2RS1TN9MT33 SKF | Skladem (3 ks) (3 ks) | 666 Kč | 
+   - Ložisko - 7200 C ATB P4 ZKL | Skladem (15 ks) (15 ks) | 299 Kč | 
+   - Ložisko - 6300 Z ZKL | Skladem (28 ks) (28 ks) | 40 Kč | 
+   - Ložisko - 1200 FLT | Skladem (19 ks) (19 ks) | 53 Kč | 
+   - Ložisko - 6200 Z BMZ | Skladem (20 ks) (20 ks) | 29 Kč | 
+   - Ložisko - 1300 GPZ | Skladem (21 ks) (21 ks) | 29 Kč | 
+   - Kloubové ložisko - GAKFL 10 PB ELGES | Skladem (24 ks) (24 ks) | 299 Kč | 
+   - Ložisko - 6300 P6 ZKL | Skladem (28 ks) (28 ks) | 119 Kč | 
+   - Ložisko - 51200 CX | Skladem (133 ks) (133 ks) | 31 Kč | 
+   - Ložisko - 6200 BMZ | Skladem (15 ks) (15 ks) | 24 Kč | 
+   - Ložisko - 6200 TN ZKL | Skladem (75 ks) (75 ks) | 59 Kč | 
+   - Ložisko - 61800 SKF | Skladem (119 ks) (119 ks) | 203 Kč | 
+   - Ložisko - 6200 ARSR P6 ZKL | Skladem (440 ks) (440 ks) | 39 Kč | 
+   - Ložisko - 6000 C 2Z FAG | Skladem (9 ks) (9 ks) | 70 Kč | 
+   - Ložisko - 6300 2Z ZKL | Skladem (51 ks) (51 ks) | 36 Kč
+## d=12
+   - Ložisko - 6001 2RS ZVL | Skladem (89 ks) (89 ks) | 54 Kč | 
+   - Jehlové ložisko - HK 1210 B INA | Skladem (296 ks) (296 ks) | 61 Kč | 
+   - Ložisko - 6201 2RS INA | Skladem (105 ks) (105 ks) | 98 Kč | 
+   - Ložisko - 6201 ZKL | Skladem (71 ks) (71 ks) | 30 Kč | 
+   - Ložisko - 6001 2RS SKF | Skladem (23 ks) (23 ks) | 106 Kč | 
+   - Ložisko - 6001 2Z SKF | Skladem (4 ks) (4 ks) | 83 Kč | 
+   - Ložisko - 6201 ZD NSK | Skladem (39 ks) (39 ks) | 65 Kč | 
+   - Ložisko - 6201 2Z C3 SKF | Skladem (704 ks) (704 ks) | 58 Kč | 
+   - Ložisko - 6201 C 2Z FAG | Skladem (30 ks) (30 ks) | 59 Kč | 
+   - Ložisko - 6301 2Z ZKL | Skladem (20 ks) (20 ks) | 36 Kč | 
+   - Ložisko - 6001 URB | Skladem (177 ks) (177 ks) | 17 Kč | 
+   - Ložisko - 61901 2RS ZVL | Skladem (5 ks) (5 ks) | 50 Kč | 
+   - Ložisko - TR55-ZZ HIC0102 neu | Skladem (230 ks) (230 ks) | 229 Kč | 
+   - Ložisko - 6001 ZKL | Skladem (7 ks) (7 ks) | 18 Kč | 
+   - Ložisko - GE 12 E BBC | Skladem (2 ks) (2 ks) | 59 Kč | 
+   - Ložisko - S 6001 2RS neu | Skladem (28 ks) (28 ks) | 270 Kč | 
+   - Ložisko - 6201 Z ZKL | Skladem (15 ks) (15 ks) | 27 Kč | 
+   - Ložisko - SS 6001 2RS CRB | Skladem (1 ks) (1 ks) | 198 Kč
+   - Ložisko - 6301 2RS SKF | Skladem (18 ks) (18 ks) | 87 Kč | 
+   - Ložisko - 6301 Z ZKL | Skladem (2 ks) (2 ks) | 35 Kč | 
+   - Ložisko - 6201 FAG | Skladem (1 ks) (1 ks) | 46 Kč | 
+   - Ložisko - 6301 2RSH SKF | Skladem (8 ks) (8 ks) | 83 Kč | 
+   - Ložisko - 6301 2Z SKF | Skladem (6 ks) (6 ks) | 79 Kč | 
+   - Ložisko - 6301 RS ZKL | Skladem (62 ks) (62 ks) | 38 Kč | 
+   - Jehlové ložisko - HK 1210 SKF | Skladem (17 ks) (17 ks) | 67 Kč | 
+   - Ložisko - 6301 2RSR KINEX | Skladem (1 ks) (1 ks) | 190 Kč | 
+   - Ložisko - 6001 P5 NEU | Skladem (10 ks) (10 ks) | 54 Kč | 
+   - Ložisko - 6001 2RS CX | Skladem (20 ks) (20 ks) | 25 Kč | 
+   - Ložisko - 3201 A 2ZTN9 MT33 SKF | Skladem (1 ks) (1 ks) | 620 Kč | 
+   - Ložisko - SS 6201 2RS neu | Skladem (16 ks) (16 ks) | 70 Kč | 
+   - Ložisko - 6301 GMN | Skladem (2 ks) (2 ks) | 99 Kč | 
+   - Ložisko - 6301 TBP6 ZKL | Skladem (1 ks) (1 ks) | 99 Kč | 
+   - Ložisko - B71901-C-2RSD-T-P4S-UL FAG | Skladem (1 ks) (1 ks) | 3 540 Kč | 
+   - Ložisko - 2201 E 2RS1TN9 SKF | Skladem (14 ks) (14 ks) | 620 Kč | 
+   - Ložisko - 6201 C3 KINEX | Skladem (14 ks) (14 ks) | 45 Kč | 
+   - Ložisko - S 61901 2RS FSY | Skladem (10 ks) (10 ks) | 299 Kč
+   - Ložisko - RNAO 12X19X20 FAG | Skladem (55 ks) (55 ks) | 399 Kč | 
+   - Ložisko - 51201 SKF | Skladem (1 ks) (1 ks) | 961 Kč | 
+   - Ložisko - NKX 12 Z XL X-LIFE INA | Skladem (1 ks) (1 ks) | 549 Kč | 
+   - Ložisko - 6201 RS1 QE6 SKF | Skladem (1 ks) (1 ks) | 109 Kč | 
+   - Ložisko - 51101 FAG | Skladem (1 ks) (1 ks) | 669 Kč | 
+   - Ložisko - 4201 B TVH FAG | Skladem (1 ks) (1 ks) | 499 Kč | 
+   - Ložisko - 3201 ZKL | Skladem (351 ks) (351 ks) | 150 Kč | 
+   - Ložisko - 2201 SKF | Skladem (1 ks) (1 ks) | 497 Kč | 
+   - Ložisko - 1201 TVH E FAG | Skladem (1 ks) (1 ks) | 2 235 Kč | 
+   - Jehlové ložisko - HK 1214 2RS INA | Skladem (1 ks) (1 ks) | 150 Kč | 
+   - Ložisko - B7201 AP4 ZKL | Skladem (1 ks) (1 ks) | 1 999 Kč | 
+   - Ložisko - 6201 2NSE NACHI | Skladem (2 ks) (2 ks) | 54 Kč | 
+   - Ložisko - 2301 RIV ITALY | Skladem (2 ks) (2 ks) | 499 Kč | 
+   - Ložisko - 1201 TV FAG | Skladem (3 ks) (3 ks) | 348 Kč | 
+   - Ložisko - B7201 C T P4S UL FAG | Skladem (2 ks) (2 ks) | 2 750 Kč | 
+   - Ložisko - B7201 C ATB P4 ZKL | Skladem (2 ks) (2 ks) | 1 999 Kč | 
+   - Ložisko - 6201 C 2HRS FAG | Skladem (2 ks) (2 ks) | 76 Kč | 
+   - Ložisko - 6001 2Z C3 DPI | Skladem (4 ks) (4 ks) | 50 Kč
+   - Ložisko - 3201 P ZKL | Skladem (3 ks) (3 ks) | 155 Kč | 
+   - Jehlové ložisko - HK 1212 INA | Skladem (3 ks) (3 ks) | 59 Kč | 
+   - Jehlové ložisko - HK 1210 CX | Skladem (3 ks) (3 ks) | 40 Kč | 
+   - Ložisko - 6301 2Z EU-ROLL | Skladem (4 ks) (4 ks) | 39 Kč | 
+   - Ložisko - B7201 CBTB ZKL | Skladem (5 ks) (5 ks) | 1 999 Kč | 
+   - Ložisko - 6201 ZC3TNG ZKL | Skladem (7 ks) (7 ks) | 39 Kč | 
+   - Ložisko - 2201 RIF | Skladem (7 ks) (7 ks) | 149 Kč | 
+   - Ložisko - 51201 neu | Skladem (10 ks) (10 ks) | 79 Kč | 
+   - Ložisko - 2201 FAG | Skladem (10 ks) (10 ks) | 525 Kč | 
+   - Ložisko - B7201 BETNG ZKL | Skladem (10 ks) (10 ks) | 1 999 Kč | 
+   - Ložisko - 2201 STEYR | Skladem (11 ks) (11 ks) | 249 Kč | 
+   - Ložisko - B7201 C ATB P5 ZKL | Skladem (11 ks) (11 ks) | 1 999 Kč | 
+   - Ložisko - 1201 GPZ | Skladem (22 ks) (22 ks) | 25 Kč | 
+   - Ložisko - 51101 ZKL | Skladem (10 ks) (10 ks) | 73 Kč | 
+   - Jehlové ložisko - HK 1216 2RS SKF | Skladem (15 ks) (15 ks) | 120 Kč | 
+   - Ložisko - 2201 TNG DKF | Skladem (16 ks) (16 ks) | 198 Kč | 
+   - Ložisko - 1201 FLT | Skladem (10 ks) (10 ks) | 63 Kč | 
+   - Ložisko - 6801 2RS DPI | Skladem (9 ks) (9 ks) | 99 Kč
+   - Ložisko - 6201 C6 ZKL | Skladem (17 ks) (17 ks) | 29 Kč | 
+   - Kloubové ložisko - GAKFL 12 PB ELGES | Skladem (30 ks) (30 ks) | 299 Kč | 
+   - Ložisko - 2201 2RS TVH E FAG | Skladem (66 ks) (66 ks) | 626 Kč | 
+   - Jehlové ložisko - HK 1216 2RS INA | Skladem (29 ks) (29 ks) | 96 Kč | 
+   - Ložisko - 61901 2RSR HLC FAG | Skladem (50 ks) (50 ks) | 225 Kč | 
+   - Ložisko - 6301 C3 ZKL | Skladem (52 ks) (52 ks) | 33 Kč | 
+   - Ložisko - 16101 TH FAG | Skladem (45 ks) (45 ks) | 149 Kč | 
+   - Ložisko - 16101 TH C3 FAG | Skladem (68 ks) (68 ks) | 149 Kč | 
+   - Ložisko - 1201 ZKL | Skladem (66 ks) (66 ks) | 31 Kč | 
+   - Ložisko - 6201 TN ZKL | Skladem (109 ks) (109 ks) | 79 Kč | 
+   - Ložisko - 6301 ZKL | Skladem (235 ks) (235 ks) | 16 Kč
+
+=== loziska-policka parametric filter incl. on-order, bore 3/4/5 (s/lp_filterall_d*.html) ===
+## d=3
+   - Ložisko - 623 2Z ZKL | Skladem (10 ks) (10 ks) | 24 Kč | 
+   - Ložisko - 623 Z ZKL | Skladem (125 ks) (125 ks) | 22 Kč | 
+   - Ložisko - 623 ZKL | Skladem (71 ks) (71 ks) | 30 Kč | 
+   - Ložisko - S 623 2Z GPRJ GRW | Skladem (80 ks) (80 ks) | 50 Kč | 
+   - Ložisko - 623 2ZR ZKL | Na objednání – dostupnost ověříme  | 13 Kč | 
+   - Ložisko - 623 ZZ DPI | Skladem (40 ks) (40 ks) | 69 Kč | 
+   - Ložisko - 623 P6 ZKL | Skladem (200 ks) (200 ks) | 29 Kč | 
+   - Ložisko - 623 ZR P6 ZKL | Skladem (300 ks) (300 ks) | 39 Kč | 
+   - Ložisko - 623 FAG | Skladem (424 ks) (424 ks) | 50 Kč
+## d=4
+   - Ložisko - 624 P5 ZKL | Skladem (120 ks) (120 ks) | 24 Kč | 
+   - Ložisko - 624 GPZ | Skladem (606 ks) (606 ks) | 24 Kč | 
+   - Ložisko - 624 ZKL | Skladem (18 ks) (18 ks) | 30 Kč | 
+   - Ložisko - 624 2RS EU-ROLL | Skladem (25 ks) (25 ks) | 25 Kč | 
+   - Ložisko - 694 2Z P5 ZKL | Skladem (136 ks) (136 ks) | 54 Kč | 
+   - Ložisko - 624 2Z SKF | Skladem (14 ks) (14 ks) | 93 Kč | 
+   - Ložisko - 634 ZZ ZKL | Skladem (5 ks) (5 ks) | 31 Kč | 
+   - Ložisko - 624 2Z ZKL | Skladem (5 ks) (5 ks) | 18 Kč | 
+   - Ložisko - 634 2Z neu | Skladem (20 ks) (20 ks) | 24 Kč | 
+   - Ložisko - 634 ZKL | Skladem (21 ks) (21 ks) | 16 Kč | 
+   - Ložisko - 624 2Z GPZ | Skladem (438 ks) (438 ks) | 24 Kč
+## d=5
+   - Ložisko - 635 ZKL | Skladem (104 ks) (104 ks) | 8 Kč | 
+   - Ložisko - 625 ZZ ZKL | Skladem (638 ks) (638 ks) | 50 Kč | 
+   - Ložisko - 625 B TPX ZKL | Skladem (134 ks) (134 ks) | 19 Kč | 
+   - Ložisko - 625 ZKL | Na objednání – dostupnost ověříme  | 11 Kč | 
+   - Ložisko - 695 2Z IBB | Skladem (34 ks) (34 ks) | 35 Kč | 
+   - Ložisko - 635 2RS GMN | Skladem (65 ks) (65 ks) | 73 Kč | 
+   - Ložisko - 625 2Z RMB | Skladem (2 ks) (2 ks) | 50 Kč | 
+   - Ložisko - 625 ZR ZKL | Skladem (300 ks) (300 ks) | 18 Kč | 
+   - Ložisko - 625 ZRP6 ZKL | Skladem (89 ks) (89 ks) | 25 Kč | 
+   - Ložisko - SS 625 2RS MGK | Skladem (10 ks) (10 ks) | 139 Kč | 
+   - Ložisko - 625 SKF | Skladem (566 ks) (566 ks) | 54 Kč | 
+   - Ložisko - S 695 2Z GPRJ GRW | Skladem (100 ks) (100 ks) | 79 Kč | 
+   - Ložisko - 635 2Z C3 ZKL | Skladem (4 ks) (4 ks) | 44 Kč | 
+   - Ložisko - 635 2Z ZKL | Skladem (6 ks) (6 ks) | 23 Kč | 
+   - Ložisko - 635 2Z SKF | Skladem (14 ks) (14 ks) | 54 Kč | 
+   - Ložisko - 625 DKF | Skladem (36 ks) (36 ks) | 19 Kč | 
+   - Ložisko - 635 2ZR ZKL | Skladem (68 ks) (68 ks) | 21 Kč
+
+=== loziska-policka extra searches (s/lp_search/lp_s_*.html) - counts and designation hits ===
+## s/lp_search/lp_s_61701_2RS.html: 0 nenalezeny
+## s/lp_search/lp_s_61801.html: 1 
+## s/lp_search/lp_s_618_3.html: 0 nenalezeny
+## s/lp_search/lp_s_618_4.html: 0 nenalezeny
+## s/lp_search/lp_s_6701.html: 20 
+## s/lp_search/lp_s_6701_2RS.html: 0 nenalezeny
+## s/lp_search/lp_s_673.html: 24 
+## s/lp_search/lp_s_673_ZZ.html: 0 nenalezeny
+## s/lp_search/lp_s_673_p10.html: 24 
+## s/lp_search/lp_s_673_p11.html: 16 
+## s/lp_search/lp_s_673_p2.html: 24 
+## s/lp_search/lp_s_673_p3.html: 24 
+## s/lp_search/lp_s_673_p4.html: 24 
+## s/lp_search/lp_s_673_p5.html: 24 
+## s/lp_search/lp_s_673_p6.html: 24 
+## s/lp_search/lp_s_673_p7.html: 24 
+## s/lp_search/lp_s_673_p8.html: 24 
+## s/lp_search/lp_s_673_p9.html: 24 
+## s/lp_search/lp_s_674.html: 24 
+## s/lp_search/lp_s_674_ZZ.html: 0 nenalezeny
+## s/lp_search/lp_s_674_p10.html: 4 
+## s/lp_search/lp_s_674_p2.html: 24 
+## s/lp_search/lp_s_674_p3.html: 24 
+## s/lp_search/lp_s_674_p4.html: 24 
+## s/lp_search/lp_s_674_p5.html: 24 
+## s/lp_search/lp_s_674_p6.html: 24 
+## s/lp_search/lp_s_674_p7.html: 24 
+## s/lp_search/lp_s_674_p8.html: 24 
+## s/lp_search/lp_s_674_p9.html: 24 
+## s/lp_search/lp_s_675.html: 24 
+## s/lp_search/lp_s_675_ZZ.html: 0 nenalezeny
+## s/lp_search/lp_s_675_p10.html: 24 
+## s/lp_search/lp_s_675_p11.html: 24 
+## s/lp_search/lp_s_675_p12.html: 24 
+## s/lp_search/lp_s_675_p13.html: 24 
+## s/lp_search/lp_s_675_p14.html: 24 
+## s/lp_search/lp_s_675_p15.html: 9 
+## s/lp_search/lp_s_675_p2.html: 24 
+## s/lp_search/lp_s_675_p3.html: 24 
+## s/lp_search/lp_s_675_p4.html: 24 
+## s/lp_search/lp_s_675_p5.html: 24 
+## s/lp_search/lp_s_675_p6.html: 24 
+## s/lp_search/lp_s_675_p7.html: 24 
+## s/lp_search/lp_s_675_p8.html: 24 
+## s/lp_search/lp_s_675_p9.html: 24 
+## s/lp_search/lp_s_678.html: 24 
+## s/lp_search/lp_s_678_ZZ.html: 0 nenalezeny
+## s/lp_search/lp_s_678_p10.html: 24 
+## s/lp_search/lp_s_678_p11.html: 3 
+## s/lp_search/lp_s_678_p2.html: 24 
+## s/lp_search/lp_s_678_p3.html: 24 
+## s/lp_search/lp_s_678_p4.html: 24 
+## s/lp_search/lp_s_678_p5.html: 24 
+## s/lp_search/lp_s_678_p6.html: 24 
+## s/lp_search/lp_s_678_p7.html: 24 
+## s/lp_search/lp_s_678_p8.html: 24 
+## s/lp_search/lp_s_678_p9.html: 24 
+## s/lp_search/lp_s_6801.html: 15 
+   - Ložisko - 6801 2RS DPI | Skladem (9 ks) (9 ks) | 99 Kč | 
+## s/lp_search/lp_s_6801_2Z.html: 0 nenalezeny
+## s/lp_search/lp_s_683.html: 24 
+## s/lp_search/lp_s_683_2RS.html: 0 nenalezeny
+## s/lp_search/lp_s_683_Z.html: 0 nenalezeny
+## s/lp_search/lp_s_683_p10.html: 24 
+## s/lp_search/lp_s_683_p11.html: 2 
+## s/lp_search/lp_s_683_p2.html: 24 
+## s/lp_search/lp_s_683_p3.html: 24 
+## s/lp_search/lp_s_683_p4.html: 24 
+## s/lp_search/lp_s_683_p5.html: 24 
+## s/lp_search/lp_s_683_p6.html: 24 
+## s/lp_search/lp_s_683_p7.html: 24 
+   - Ložisko - 683 EZO | Skladem (4000 ks) (4000 ks) | 67 Kč | 
+## s/lp_search/lp_s_683_p8.html: 24 
+## s/lp_search/lp_s_683_p9.html: 24 
+## s/lp_search/lp_s_684.html: 24 
+## s/lp_search/lp_s_684_2RS.html: 0 nenalezeny
+## s/lp_search/lp_s_684_2Z.html: 1 
+   - Ložisko - 684 2Z EZO | Skladem (1 ks) (1 ks) | 73 Kč
+## s/lp_search/lp_s_684_ZZ.html: 0 nenalezeny
+## s/lp_search/lp_s_684_p10.html: 22 
+## s/lp_search/lp_s_684_p2.html: 24 
+## s/lp_search/lp_s_684_p3.html: 24 
+## s/lp_search/lp_s_684_p4.html: 24 
+## s/lp_search/lp_s_684_p5.html: 24 
+## s/lp_search/lp_s_684_p6.html: 24 
+   - Ložisko - 684 2Z EZO | Skladem (1 ks) (1 ks) | 73 Kč | 
+## s/lp_search/lp_s_684_p7.html: 24 
+## s/lp_search/lp_s_684_p8.html: 24 
+## s/lp_search/lp_s_684_p9.html: 24 
+## s/lp_search/lp_s_L-1040.html: 0 nenalezeny
+## s/lp_search/lp_s_L-1150.html: 0 nenalezeny
+## s/lp_search/lp_s_L-1280.html: 0 nenalezeny
+## s/lp_search/lp_s_L-630.html: 0 nenalezeny
+## s/lp_search/lp_s_L-740.html: 0 nenalezeny
+## s/lp_search/lp_s_L-840.html: 0 nenalezeny
+## s/lp_search/lp_s_MR.html: 24 
+## s/lp_search/lp_s_MR128ZZ.html: 0 nenalezeny
+## s/lp_search/lp_s_MR_104.html: 0 nenalezeny
+## s/lp_search/lp_s_MR_115.html: 0 nenalezeny
+## s/lp_search/lp_s_MR_63.html: 0 nenalezeny
+## s/lp_search/lp_s_MR_74.html: 0 nenalezeny
+## s/lp_search/lp_s_MR_84.html: 0 nenalezeny
+## s/lp_search/lp_s_MR_p2.html: 24 
+## s/lp_search/lp_s_MR_p3.html: 6 
+   - Ložisko - MR 105 2Z IBB | Skladem (4 ks) (4 ks) | 99 Kč | 
+   - Ložisko - MR 95 ZZ CN | Skladem (5 ks) (5 ks) | 149 Kč
+## s/lp_search/lp_s_S_6701.html: 0 nenalezeny
+
+=== in-stock full crawl jednorada-kulickova-loziska (?stock=1, 65 pages, 1163 items): s/lp_jednorada_stock_all.txt ===
+
+=== laskakit / 3djake / blocked hosts ===
+laskakit 'ložisko': only bearing = '625RS  kuličkové ložisko' (+ KP08/KFL08/LM8UU/SCS8UU housings); 'MR' no bearing; '683' nebyly nalezeny (s/other/lk_*.html)
+3djake 'ložisko': only 608 ZZ 8x22x7 (10 ks pack) + linear; 'MR105','683' -> 404 (s/other/3dj_*.html)
+www.dratek.cz 301->dratek.cz ; www.rlx.sk 302->rlx.sk ; www.tymoty.com 301->www.tymoty.cz ; botland.store 403 ; www.laskarduino.sk 000 (proxy) ; www.tme.eu 403

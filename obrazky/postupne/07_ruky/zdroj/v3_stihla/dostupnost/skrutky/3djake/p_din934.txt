@@ -1,0 +1,14 @@
+URL: https://www.3djake.sk/cnc-kitchen/sesthranne-matice-din-934-nerezova-ocel-a2-50
+name: Šesťhranná matica (DIN 934), nerezová oceľ A2-50, M2
+sku: CNC-TC-N-M2
+offer: {"price": "3.75", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://www.3djake.sk/cnc-kitchen/sesthranne-matice-din-934-nerezova-ocel-a2-50?sai=30415"}
+stock_texts: ['Na sklade', 'Doručenie: streda, 02. decembra , ak si objednáte do dňa: piatok,23:59 h', 'Na sklade zostáva už len 18 ks tohto produktu. Ďalšie sú na ceste. Ak si objednáte viac kusov, môže to ovplyvniť dátum dodania.', '* Tieto náklady na doručenie sa vzťahujú na štandardnú prepravu. Môžu sa vyskytnúť ďalšie náklady, napr. v dôsledku hmotnosti, veľkosti alebo vlastností výrobkov. Tieto informácie nájdete priamo v popise produktu.']
+na_sklade: ['Na sklade', 'Na sklade zostáva už len 18 ks tohto produktu. Ďalšie sú na ceste. Ak si objednáte viac kusov, môže to ovplyvniť dátum dodania.']
+variants:
+  sai=30415 M2 :: M2 € 3,75 € 4,69 (€ 0,08 / ks)
+  sai=30418 M2,5 :: M2,5 € 4,31 € 5,39 (€ 0,09 / ks)
+  sai=30421 M3 :: M3 € 3,43 € 4,29 (€ 0,07 / ks)
+  sai=30424 M4 :: M4 € 4,23 € 5,29 (€ 0,08 / ks)
+  sai=30427 M5 :: M5 € 4,63 € 5,79 (€ 0,09 / ks)
+  sai=30430 M6 :: M6 € 6,23 € 7,79 (€ 0,12 / ks)
+  sai=30433 M8 :: M8 € 7,03 € 8,79 (€ 0,14 / ks)

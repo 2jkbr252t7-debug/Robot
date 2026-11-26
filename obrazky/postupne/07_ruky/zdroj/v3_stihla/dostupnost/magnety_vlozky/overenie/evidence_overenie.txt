@@ -1,0 +1,205 @@
+# Re-check 2026-11-26 (curl), raw HTML in raw/ and raw_search/
+## HADEX
+raw/hx_m861f.html | Dvousložkové epoxidové lepidlo Epoxy Clear 24ml DEBBEX (M861F) | Skladem | 18  ks | 149,00 Kč | 123,14 Kč bez DPH | branches: Na skladě | tiers []
+raw/hx_m861m.html | Zajišťovač šroubů a matic, DEBBEX (M861M) | Skladem | 10  ks | 69,00 Kč | 57,02 Kč bez DPH | branches: Na skladě | tiers []
+raw/hx_o598f.html | Sada pružin mix 200ks AMIO (O598F) | Skladem | 14  bal | 120,00 Kč | 99,17 Kč bez DPH | branches: Na skladě | tiers []
+raw/hx_p131f.html | Mosazná závitová vložka M2x3x3,2 (pro 3D tisk) (P131F) | Skladem | 836  ks | 3,00 Kč | 2,48 Kč bez DPH | branches: Na skladě | tiers []
+raw/hx_p131g.html | Mosazná závitová vložka M2x4x3,2 (pro 3D tisk) (P131G) | Skladem | 282  ks | 3,00 Kč | 2,48 Kč bez DPH | branches: Na skladě | tiers []
+raw/hx_p131h.html | Mosazná závitová vložka M2x5x3,2 (pro 3D tisk) (P131H) | Skladem | 468  ks | 3,00 Kč | 2,48 Kč bez DPH | branches: Na skladě | tiers []
+raw/hx_p131i.html | Mosazná závitová vložka M2,5x3x3,5 (pro 3D tisk) (P131I) | Skladem | 808  ks | 3,00 Kč | 2,48 Kč bez DPH | branches: Na skladě | tiers []
+raw/hx_p131j.html | Mosazná závitová vložka M2,5x4x3,5 (pro 3D tisk) (P131J) | Skladem | 5  ks | 3,00 Kč | 2,48 Kč bez DPH | branches: Na skladě | tiers []
+raw/hx_p131k.html | Mosazná závitová vložka M2,5x5x3,5 (pro 3D tisk) (P131K) | Skladem | 446  ks | 3,00 Kč | 2,48 Kč bez DPH | branches: Na skladě | tiers []
+raw/hx_p131l.html | Mosazná závitová vložka M3x3x4 (pro 3D tisk) (P131L) | Skladem | 436  ks | 4,00 Kč | 3,31 Kč bez DPH | branches: Na skladě | tiers []
+raw/hx_p131m.html | Mosazná závitová vložka M3x4x4 (pro 3D tisk) (P131M) | Skladem | 7  ks | 4,00 Kč | 3,31 Kč bez DPH | branches: Na skladě | tiers []
+raw/hx_v500.html | Velká sada těsnění o-kroužků 419ks MAR-POL (V500) | Skladem | 3  ks | 275,00 Kč | 227,27 Kč bez DPH | branches: Na skladě | tiers []
+raw/hx_v500b.html | Velká sada těsnění o-kroužků 225ks, gumové, teplota do 100°C (V500B) | Skladem | 40  bal | 140,00 Kč | 115,70 Kč bez DPH | branches: Na skladě | tiers []
+raw/hx_v500c.html | Velká sada těsnění o-kroužků 225ks, silikonové, teplota do 200°C (V500C) | Skladem | 29  bal | 220,00 Kč | 181,82 Kč bez DPH | branches: Na skladě | tiers []
+
+## 3DJAKE
+== raw/3dj_armypainter.html
+ title: The Army Painter Miniature and Model Magnets, 1 sada - 3DJake Slovensko
+ h1: The Army Painter Miniature and Model Magnets
+ variant: Obsah: 1 sada
+ stock: Na sklade | hidden: ('21', 'Na sklade zostáva už len 21 ks tohto produktu. Ďalšie sú na ')
+ ld: The Army Painter Miniature and Model Magnets, 1 sada 12.05 https://schema.org/InStock TAP-TL5038P
+ priceblock: € 12,05 € 13,39 -10% (vr. 23% DPH. - plus náklady na dopravu ) Obsah: 1 sada Na sklade Doručenie: streda, 02. decembra , ak si objednáte do dňa: piatok,23:59 h . Na sklade zostáva už len 21 ks tohto p
+== raw/3dj_capr_tl.html
+ title: Capricorn TL Transparent PTFE Bowden - 3DJake Slovensko
+ h1: Capricorn TL Transparent PTFE Bowden, 1,75 mm / 1 m
+ variant: Druh: 1,75 mm / 1 m
+ stock: Ešte 5 ks na sklade | hidden: ('5', 'Na sklade zostáva už len 5 ks tohto produktu. Ďalšie sú na c')
+ ld: Capricorn TL Transparent PTFE Bowden, 1,75 mm / 1 m 13.85 https://schema.org/InStock CC-TL-175-1
+ priceblock: € 13,85 € 15,39 -10% (vr. 23% DPH. - plus náklady na dopravu ) Druh: 1,75 mm / 1 m 1,75 mm / 1 m € 13,85 € 15,39 1,75 mm / 2 m € 23,39 € 25,99 Ešte 5 ks na sklade Doručenie: streda, 02. decembra , ak 
+== raw/3dj_capr_xs.html
+ title: Capricorn XS Ultra-Low Friction PTFE Bowden - 3DJake Slovensko
+ h1: Capricorn XS Ultra-Low Friction PTFE Bowden, 1,75 mm / 2 m
+ variant: Druh: 1,75 mm / 2 m
+ stock: Na sklade | hidden: ('19', 'Na sklade zostáva už len 19 ks tohto produktu. Ďalšie sú na ')
+ ld: Capricorn XS Ultra-Low Friction PTFE Bowden, 1,75 mm / 2 m 23.39 https://schema.org/InStock CC-XS-175-2
+ priceblock: € 23,39 € 25,99 -10% (vr. 23% DPH. - plus náklady na dopravu ) Druh: 1,75 mm / 2 m 1,75 mm / 1 m € 13,85 € 15,39 1,75 mm / 2 m € 23,39 € 25,99 Na sklade Doručenie: streda, 02. decembra , ak si objedná
+== raw/3dj_n35_6x2.html
+ title: 3DJAKE Magnety N35 (sada, 50 ks) - 3DJake Slovensko
+ h1: 3DJAKE Magnety N35 (sada, 50 ks), 6 x 2 mm
+ variant: Druh: 6 x 2 mm
+ stock: Na sklade | hidden: ('667', 'Na sklade zostáva už len 667 ks tohto produktu. Ďalšie sú na')
+ ld: 3DJAKE Magnety N35 (sada, 50 ks), 6 x 2 mm 4.67 https://schema.org/InStock CB-MAG6X2
+ priceblock: € 4,67 € 5,19 -10% (vr. 23% DPH. - plus náklady na dopravu ) Druh: 6 x 2 mm 5 x 3 mm € 4,67 € 5,19 6 x 2 mm € 4,67 € 5,19 10 x 2 mm € 9,26 € 10,29 Na sklade Doručenie: streda, 02. decembra , ak si obj
+== raw/3dj_n35_base.html
+ title: 3DJAKE Magnety N35 (sada, 50 ks) - 3DJake Slovensko
+ h1: 3DJAKE Magnety N35 (sada, 50 ks), 5 x 3 mm
+ variant: Druh: 5 x 3 mm
+ stock: Na sklade | hidden: ('127', 'Na sklade zostáva už len 127 ks tohto produktu. Ďalšie sú na')
+ ld: 3DJAKE Magnety N35 (sada, 50 ks), 5 x 3 mm 4.67 https://schema.org/InStock CB-MAG5X3
+ priceblock: € 4,67 € 5,19 -10% (vr. 23% DPH. - plus náklady na dopravu ) Druh: 5 x 3 mm 5 x 3 mm € 4,67 € 5,19 6 x 2 mm € 4,67 € 5,19 10 x 2 mm € 9,26 € 10,29 Na sklade Doručenie: streda, 02. decembra , ak si obj
+== raw/3dj_ptfe_8901.html
+ title: 3DJAKE PTFE hadička - 3DJake Slovensko
+ h1: 3DJAKE PTFE hadička, 1,75 mm / 1 m
+ variant: Druh: 1,75 mm / 1 m
+ stock: Na sklade od: 23. decembra | hidden: ('0', 'Na sklade zostáva už len 0 ks tohto produktu. Ďalšie sú na c')
+ ld: 3DJAKE PTFE hadička, 1,75 mm / 1 m 3.63 https://schema.org/PreOrder CB-PTFE175-1M
+ priceblock: € 3,63 € 5,19 -30% (vr. 23% DPH. - plus náklady na dopravu ) Druh: 1,75 mm / 1 m 1,75 mm / 1 m € 3,63 € 5,19 1,75 mm / 2 m € 7,20 € 10,29 Na sklade od: 23. decembra Prečo to trvá dlhšie? Prečo to trvá
+== raw/3dj_ptfe_9167.html
+ title: 410 Gone
+ h1: Ops!
+ variant: None
+ stock: None | hidden: None
+ priceblock: None
+== raw/3dj_ptfe_hadicka.html
+ title: 3DJAKE PTFE hadička - 3DJake Slovensko
+ h1: 3DJAKE PTFE hadička, 1,75 mm / 1 m
+ variant: Druh: 1,75 mm / 1 m
+ stock: Na sklade od: 23. decembra | hidden: ('0', 'Na sklade zostáva už len 0 ks tohto produktu. Ďalšie sú na c')
+ ld: 3DJAKE PTFE hadička, 1,75 mm / 1 m 3.63 https://schema.org/PreOrder CB-PTFE175-1M
+ priceblock: € 3,63 € 5,19 -30% (vr. 23% DPH. - plus náklady na dopravu ) Druh: 1,75 mm / 1 m 1,75 mm / 1 m € 3,63 € 5,19 1,75 mm / 2 m € 7,20 € 10,29 Na sklade od: 23. decembra Prečo to trvá dlhšie? Prečo to trvá
+== raw/3dj_ruthex_m2.html
+ title: ruthex Závitová vložka M2 (70 ks) - 3DJake Slovensko
+ h1: ruthex Závitová vložka M2 (70 ks), M2 x 4
+ variant: Druh: M2 x 4
+ stock: Na sklade | hidden: ('125', 'Na sklade zostáva už len 125 ks tohto produktu. Ďalšie sú na')
+ ld: ruthex Závitová vložka M2 (70 ks), M2 x 4 7.43 https://schema.org/InStock RUT-GE-M2x04-001
+ priceblock: € 7,43 € 9,29 -20% (vr. 23% DPH. - plus náklady na dopravu ) Varianty: Box so závitovými vložkami M2/M3/M4/M5 Závitová vložka M2 (70 ks) Závitová vložka M2,5 (70 ks) Závitová vložka M3 (100 ks) Závito
+== raw/3dj_ruthex_m25.html
+ title: ruthex Závitová vložka M2,5 (70 ks) - 3DJake Slovensko
+ h1: ruthex Závitová vložka M2,5 (70 ks), M2,5 x 5,7
+ variant: Druh: M2,5 x 5,7
+ stock: Na sklade | hidden: ('126', 'Na sklade zostáva už len 126 ks tohto produktu. Ďalšie sú na')
+ ld: ruthex Závitová vložka M2,5 (70 ks), M2,5 x 5,7 7.43 https://schema.org/InStock RUT-GE-M25x57-001
+ priceblock: € 7,43 € 9,29 -20% (vr. 23% DPH. - plus náklady na dopravu ) Varianty: Box so závitovými vložkami M2/M3/M4/M5 Závitová vložka M2 (70 ks) Závitová vložka M2,5 (70 ks) Závitová vložka M3 (100 ks) Závito
+== raw/3dj_ruthex_m3.html
+ title: ruthex Závitová vložka M3 (100 ks) - 3DJake Slovensko
+ h1: ruthex Závitová vložka M3 (100 ks), M3 x 5,7
+ variant: Druh: M3 x 5,7
+ stock: Na sklade | hidden: ('142', 'Na sklade zostáva už len 142 ks tohto produktu. Ďalšie sú na')
+ ld: ruthex Závitová vložka M3 (100 ks), M3 x 5,7 7.43 https://schema.org/InStock RUT-GE-M3x57-001
+ priceblock: € 7,43 € 9,29 -20% (vr. 23% DPH. - plus náklady na dopravu ) Varianty: Box so závitovými vložkami M2/M3/M4/M5 Závitová vložka M2 (70 ks) Závitová vložka M2,5 (70 ks) Závitová vložka M3 (100 ks) Závito
+== raw/3dj_ruthex_m3s.html
+ title: ruthex Závitová vložka M3S (100 ks) - 3DJake Slovensko
+ h1: ruthex Závitová vložka M3S (100 ks), M3S x 4,0
+ variant: Druh: M3S x 4,0
+ stock: Na sklade | hidden: ('128', 'Na sklade zostáva už len 128 ks tohto produktu. Ďalšie sú na')
+ ld: ruthex Závitová vložka M3S (100 ks), M3S x 4,0 7.43 https://schema.org/InStock RUT-GE-M3Sx40-002
+ priceblock: € 7,43 € 9,29 -20% (vr. 23% DPH. - plus náklady na dopravu ) Varianty: Box so závitovými vložkami M2/M3/M4/M5 Závitová vložka M2 (70 ks) Závitová vložka M2,5 (70 ks) Závitová vložka M3 (100 ks) Závito
+== raw/3dj_synco.html
+ title: Synco Lube Syntetické viacúčelové plastické mazivo so Syncolonom (PTFE) - 3DJake
+ h1: Synco Lube Syntetické viacúčelové plastické mazivo so Syncolonom (PTFE), 12 g
+ variant: Obsah: 12 g
+ stock: Na sklade | hidden: ('35', 'Na sklade zostáva už len 35 ks tohto produktu. Ďalšie sú na ')
+ ld: Syntetické viacúčelové plastické mazivo so Syncolonom (PTFE), 12 g 9.26 https://schema.org/InStock ATI-DE21014
+ priceblock: € 9,26 € 10,29 -10% ( € 771,67 / kg , vr. 23% DPH. - plus náklady na dopravu ) Prevedenie: Synco Lube Syntetické viacúčelové plastické mazivo so Syncolonom (PTFE) Pre hladký pohyb € 18,44 € 20,49 (€ 2
+== raw/3dj_synco_32685.html
+ title: 410 Gone
+ h1: Ops!
+ variant: None
+ stock: None | hidden: None
+ priceblock: None
+== raw/3dj_vlozky50.html
+ title: 3DJAKE Závitové vložky (sada 50) - 3DJake Slovensko
+ h1: 3DJAKE Závitové vložky (sada 50), M3 x 5,7 mm (50 ks)
+ variant: Druh: M3 x 5,7 mm
+ stock: Na sklade | hidden: ('230', 'Na sklade zostáva už len 230 ks tohto produktu. Ďalšie sú na')
+ ld: 3DJAKE Závitové vložky (sada 50), M3 x 5,7 mm 3.63 https://schema.org/InStock ISP-GWEM3
+ priceblock: € 3,63 € 5,19 -30% ( € 0,07 / ks , vr. 23% DPH. - plus náklady na dopravu ) Druh: M3 x 5,7 mm M3 x 5,7 mm € 3,63 € 5,19 (€ 0,07 / ks) M4 x 6,35 mm € 6,50 € 9,29 (€ 0,13 / ks) M5 x 9,5 mm € 7,20 € 10,2
+
+## TME
+tme_ec_n800.html | N800 Eclipse Magnetics - Magnet: konštantný | NdFeB; 3N; Ø: 3mm; H: 2mm; nikel; disk; 10ks.; EC-N800 | TME Slovenská Republika | 87 na sklade v TME | seoStock 87 | gross ['1ks:8.43', '5ks:7.55', '10ks:6.71', '50ks:5.87'] | mult 1
+tme_ec_n802.html | N802 Eclipse Magnetics - Magnet: konštantný | NdFeB; 7N; Ø: 4mm; H: 3mm; nikel; disk; 10ks.; EC-N802 | TME Slovenská Republika | 192 na sklade v TME | seoStock 192 | gross ['1ks:9.59', '5ks:8.59', '10ks:7.63', '50ks:6.68'] | mult 1
+tme_ec_n804.html | N804 Eclipse Magnetics - Magnet: konštantný | NdFeB; 5N; Ø: 5mm; H: 2mm; nikel; disk; 10ks.; EC-N804 | TME Slovenská Republika | 91 na sklade v TME | seoStock 91 | gross ['1ks:9.59', '5ks:8.59', '10ks:7.63', '50ks:6.68'] | mult 1
+tme_gn55_10_1.html | GN 55.2-ND-10-1 ELESA+GANTER - Magnet: konštantný | neodymový; 5N; Ø: 10mm; H: 1mm; GN55.2-ND-10-1 | TME Slovenská Republika | 41 na sklade v TME | seoStock 41 | gross ['1ks:1.31', '5ks:1.17', '10ks:1.055'] | mult 1
+tme_gn55_3_2.html | GN 55.2-ND-3-2 ELESA+GANTER - Magnet: konštantný | neodymový; 1,5N; Ø: 3mm; H: 2mm; GN55.2-ND-3-2 | TME Slovenská Republika | 134 na sklade v TME | seoStock 134 | gross ['1ks:1.19', '5ks:1.055', '10ks:0.96'] | mult 1
+tme_gn55_4_3.html | GN 55.2-ND-4-3 ELESA+GANTER - Magnet: konštantný | neodymový; 4N; Ø: 4mm; H: 3mm; GN55.2-ND-4-3 | TME Slovenská Republika | 17 na sklade v TME | seoStock 17 | gross ['1ks:1.67', '5ks:1.49', '20ks:1.27'] | mult 1
+tme_gn55_5_2.html | GN 55.2-ND-5-2 ELESA+GANTER - Magnet: konštantný | neodymový; 4,5N; Ø: 5mm; H: 2mm; GN55.2-ND-5-2 | TME Slovenská Republika | 72 na sklade v TME | seoStock 72 | gross ['1ks:1.45', '5ks:1.29', '10ks:1.17'] | mult 1
+tme_gn55_6_2.html | GN 55.2-ND-6-2 ELESA+GANTER - Magnet: konštantný | neodymový; 5,5N; Ø: 6mm; H: 2mm; GN55.2-ND-6-2 | TME Slovenská Republika | 122 na sklade v TME | seoStock 122 | gross ['1ks:1.25', '5ks:1.12', '10ks:1.0076'] | mult 1
+tme_gn55_8_2.html | GN 55.2-ND-8-2 ELESA+GANTER - Magnet: konštantný | neodymový; 7N; Ø: 8mm; H: 2mm; GN55.2-ND-8-2 | TME Slovenská Republika | 112 na sklade v TME | seoStock 112 | gross ['1ks:1.38', '5ks:1.23', '10ks:1.11'] | mult 1
+tme_smar_tf20.html | ART.AGT-065 AG TERMOPASTY - Mazivo | pasta; Zloženie: PTFE,silikón; plastová nádoba; SMAR TF; SMAR-TF-20 | TME Slovenská Republika | 40 na sklade v TME | seoStock 40 | gross ['1ks:3.14', '5ks:2.76', '6ks:2.39'] | mult 1
+tme_smar_tf35.html | ART.AGT-064 AG TERMOPASTY - Mazivo | pasta; Zloženie: PTFE,silikón; tuba; SMAR TF; 3,5g; SMAR-TF-3.5 | TME Slovenská Republika | 104 na sklade v TME | seoStock 104 | gross ['1ks:1.23', '5ks:1.19', '10ks:1.11'] | mult 1
+tme_ec_n800.html ::  Výrobca = Eclipse Magnetics ; Typ magnetu = konštantný ; Magnetický materiál = NdFeB ; Sila = 3N ; Priemer = 3mm ; Výška = 2mm ; Povrchový materiál = nikel ; Tvar = disk ; Množstvo v sade/balení = 10ks.
+tme_ec_n802.html ::  Výrobca = Eclipse Magnetics ; Typ magnetu = konštantný ; Magnetický materiál = NdFeB ; Sila = 7N ; Priemer = 4mm ; Výška = 3mm ; Povrchový materiál = nikel ; Tvar = disk ; Množstvo v sade/balení = 10ks.
+tme_ec_n804.html ::  Výrobca = Eclipse Magnetics ; Typ magnetu = konštantný ; Magnetický materiál = NdFeB ; Sila = 5N ; Priemer = 5mm ; Výška = 2mm ; Povrchový materiál = nikel ; Tvar = disk ; Množstvo v sade/balení = 10ks.
+tme_gn55_10_1.html ::  Výrobca = ELESA+GANTER ; Typ magnetu = konštantný ; Magnetický materiál = neodymový ; Sila = 5N ; Priemer = 10mm ; Výška = 1mm
+tme_gn55_3_2.html ::  Výrobca = ELESA+GANTER ; Typ magnetu = konštantný ; Magnetický materiál = neodymový ; Sila = 1,5N ; Priemer = 3mm ; Výška = 2mm
+tme_gn55_4_3.html ::  Výrobca = ELESA+GANTER ; Typ magnetu = konštantný ; Magnetický materiál = neodymový ; Sila = 4N ; Priemer = 4mm ; Výška = 3mm
+tme_gn55_5_2.html ::  Výrobca = ELESA+GANTER ; Typ magnetu = konštantný ; Magnetický materiál = neodymový ; Sila = 4,5N ; Priemer = 5mm ; Výška = 2mm
+tme_gn55_6_2.html ::  Výrobca = ELESA+GANTER ; Typ magnetu = konštantný ; Magnetický materiál = neodymový ; Sila = 5,5N ; Priemer = 6mm ; Výška = 2mm
+tme_gn55_8_2.html ::  Výrobca = ELESA+GANTER ; Typ magnetu = konštantný ; Magnetický materiál = neodymový ; Sila = 7N ; Priemer = 8mm ; Výška = 2mm
+tme_smar_tf20.html ::  Výrobca = AG TERMOPASTY ; Typ činidla = mazivo ; Podoba = pasta ; Zloženie preparátu = PTFE, silikón ; Druh balenia = plastová nádoba ; Názov = SMAR TF ; Použitie preparátu = mazanie, údržba ; Vlastnosti preparátu = dobrá odolnosť voči oxidovaniu a pôsobeniu vodných roztokov kyselín ; Hmotnosť netto = 20g
+tme_smar_tf35.html ::  Výrobca = AG TERMOPASTY ; Typ činidla = mazivo ; Podoba = pasta ; Zloženie preparátu = PTFE, silikón ; Druh balenia = tuba ; Názov = SMAR TF ; Použitie preparátu = mazanie, údržba ; Vlastnosti preparátu = dobrá odolnosť voči oxidovaniu a pôsobeniu vodných roztokov kyselín ; Hmotnosť netto = 3,5g
+raw/tme_ec_n800.html prePackUnits\":[]
+raw/tme_ec_n802.html prePackUnits\":[]
+raw/tme_ec_n804.html prePackUnits\":[]
+raw/tme_gn55_10_1.html prePackUnits\":[{\"name\":\"BG1\",\"amount\":10}]
+raw/tme_gn55_3_2.html prePackUnits\":[{\"name\":\"BG1\",\"amount\":10}]
+raw/tme_gn55_4_3.html prePackUnits\":[{\"name\":\"BG2\",\"amount\":10},{\"name\":\"BG1\",\"amount\":20}]
+raw/tme_gn55_5_2.html prePackUnits\":[{\"name\":\"BG1\",\"amount\":10}]
+raw/tme_gn55_6_2.html prePackUnits\":[{\"name\":\"BG1\",\"amount\":10}]
+raw/tme_gn55_8_2.html prePackUnits\":[{\"name\":\"BG1\",\"amount\":10}]
+raw/tme_smar_tf20.html prePackUnits\":[{\"name\":\"BG1\",\"amount\":6},{\"name\":\"CT1\",\"amount\":8},{\"name\":\"BG2\",\"amount\":24}]
+raw/tme_smar_tf35.html prePackUnits\":[{\"name\":\"BG1\",\"amount\":10},{\"name\":\"CT1\",\"amount\":300}]
+
+## LASKAKIT
+lk_7x248 | Neodymový magnet cylindrický 7x2,48mm | Skladem | stid="productCardPrice"> 4,30 Kč 3,60 Kč bez DPH <span class="price-m
+lk_vlozky_sada | LaskaKit závitové vložky, sada M2 M2.5 M3 500ks, mosaz | Skladem | stid="productCardPrice"> 389,80 Kč 322,20 Kč bez DPH <span class="pri
+lk_pruziny | LaskaKit sada tažných a tlačných pružin 200ks | Skladem | stid="productCardPrice"> 182,20 Kč 150,60 Kč bez DPH <span class="pri
+raw/lk_7x248.html | <title>Neodymový magnet cylindrický 7x2,48mm | LaskaKit | title="Dostupnost"> | 
+raw/lk_pruziny.html | <title>LaskaKit sada tažných a tlačných pružin 200ks | LaskaKit | title="Dostupnost"> | 
+raw/lk_vlozky_sada.html | <title>LaskaKit závitové vložky, sada M2 M2.5 M3 500ks, mosaz | LaskaKit | title="Dostupnost"> | 
+
+## OBI
+raw/obi_ea3450.html | Loctite Epoxidové lepidlo EA 3450, tekutý kov 25 ml | 9 EUR* 591,60 € / l 591,60 € / l amountOnlyAvailableInSteps Cena vr.  DPH 23%, plus  Náklady na dopravu Dodávka domov (Balík, 2-3 pracovných dní dodacia lehota ) Čas doručenia bol aktualizovaný Rezervácia & vyzdvihnutie 
+raw/obi_loctite243.html | LOCTITE Zaisťovač skrutiek 243 stredne pevný 5 g | o 11,99 EUR* Množstvo 11,99 EUR* amountOnlyAvailableInSteps Cena vr.  DPH 23%, plus  Náklady na dopravu Dodávka domov (Balík, 2-3 pracovných dní dodacia lehota ) Čas doručenia bol aktualizovaný Rezervácia & vyzdvihnutie 
+raw/obi_okruzky.html | Súprava gumových O krúžkov, 20 ks | tvo 3,59 EUR* Množstvo 3,59 EUR* amountOnlyAvailableInSteps Cena vr.  DPH 23%, plus  Náklady na dopravu Dodávka domov (Balík, 2-3 pracovných dní dodacia lehota ) Čas doručenia bol aktualizovaný Rezervácia & vyzdvihnutie 
+raw/obi_pattex.html | Pattex Dvojzložkové epoxidové lepidlo REPAIR EPOXY 12 ml | 9 EUR* 332,50 € / l 332,50 € / l amountOnlyAvailableInSteps Cena vr.  DPH 23%, plus  Náklady na dopravu Dodávka domov (Balík, 2-3 pracovných dní dodacia lehota ) Čas doručenia bol aktualizovaný Rezervácia & vyzdvihnutie 
+raw/obi_pruziny.html | Súprava ťažných a tlačných pružín, 200dielna | tvo 6,99 EUR* Množstvo 6,99 EUR* amountOnlyAvailableInSteps Cena vr.  DPH 23% Dodávka domov momentálne nie je možná Čas doručenia bol aktualizovaný Rezervácia & vyzdvihnutie v predajni shop.pickup.updated vib.ads.rebrush
+
+## SEARCHES (nenajdene re-check): see raw_search/*.html
+3dj_gsw.html
+3dj_magnet.html
+3dj_magnet_p2.html
+3dj_magnety.html
+3dj_neodym.html
+hx_cat.html
+hx_loctite.html
+hx_magnet.html
+hx_neodym.html
+hx_uhu.html
+lk_magnet.html
+lk_magnet4x2.html
+lk_magnet6x1.html
+lk_magnet8x1.html
+lk_neodym.html
+obi_loctite.html
+obi_magnet.html
+obi_neodym.html
+obi_uhu.html
+other_19b56b.html
+other_35246e.html
+other_721ad7.html
+tme_6x1.html
+tme_loctite.html
+tme_ndfeb.html
+tme_ndfeb_p2.html
+tme_ndfeb_p3.html
+tme_ndfeb_p4.html
+tme_ndfeb_p5.html
+tme_ndfeb_p6.html
+tme_ndfeb_p7.html
+tme_zaist.html

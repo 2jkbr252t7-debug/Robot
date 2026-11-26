@@ -1,0 +1,34 @@
+Re-check 2026-11-26 (independent verifier). Raw HTML saved alongside.
+
+lk_sc09.html  https://www.laskakit.cz/waveshare-sc09-serial-bus-servo-2-3kg/
+  "Waveshare SC09 Serial Bus Servo 2.3kg Kód: LA143101 Black Friday ... 278 Kč –7 % 255,80 Kč 211,40 Kč bez DPH ... Skladem (3 ks)"
+  "Rozměry: 23.2×12.0×25.5mm Součástí dodávky: 1ks Waveshare SC09 Serial Bus Servo 2.3kg"; "Rozlišení snímače polohy: 0.293° (300°/1024)"; "Vstupní napětí VIN: 4.8-8.4V"; "vysoce přesné kovové ozubené kolo"
+lk_st3215.html  https://www.laskakit.cz/waveshare-st3215-serial-bus-servo-30kg/
+  "Waveshare ST3215 Serial Bus Servo 30kg Kód: LA143105 ... 678 Kč 560,30 Kč bez DPH Měrná cena: Objednáno – termín upřesníme Položka byla vyprodána…"; "Rozměry: 45x35x24.7mm"; "6–12,6 V ... 30 kg*cm při 12 V"
+lk_sts3215.html https://www.laskakit.cz/feetech-sts3215-serial-bus-servo-30kg/
+  "Feetech STS3215 Serial Bus Servo 30kg Kód: LA143109 ... 598 Kč 494,20 Kč bez DPH Měrná cena: Objednáno – termín upřesníme Položka byla vyprodána…"; "Model: ST-3215-C018 ... Napájecí napětí: 7.4V až 12.6V"; "Rozměry: 45x35x24.7mm"
+lk_st3215hs.html https://www.laskakit.cz/waveshare-st3215-hs-serial-bus-servo-20kg/
+  "Waveshare ST3215-HS Serial Bus Servo 20kg Kód: LA143104 ... 648 Kč 535,50 Kč bez DPH ... Objednáno – termín upřesníme Položka byla vyprodána…"
+lk_mg90s.html https://www.laskakit.cz/mini-servo-mg90s-s-kovovymi-prevody/
+  "Mini servo MG90S 180° s kovovými převody Kód: LA143001A Black Friday ... 88 Kč –12 % 76,60 Kč 63,30 Kč bez DPH ... Skladem (180 ks)"  (previous agent: 182 ks)
+  "Rozměry: 22.8x12.2x28.5mm Hmotnost: 13.4g Součástí dodávky: 1× MG90S mini servo Sada nástavců (páky) Montážní šroubky"; "Nejedná se o výrobek firmy TowerPro."
+hadex_l761.html https://www.hadex.cz/p/l761-servo-plastove-mg90s-180-13g-kovove-prevody
+  H1 "Servo plastové MG90S 180° 13g, kovové převody (L761)"; "Na cestě 0 ks Na cestě, dodání do 20. 12. 2026 120,00 Kč 99,17 Kč bez DPH ... 3 a více ks (VC) 85,00 Kč / ks (bez DPH)"
+hadex_l761a.html https://www.hadex.cz/p/l761a-servo-plastove-mg90s-360-13g-kovove-prevody
+  H1 "Servo plastové MG90S 360° 13g, kovové převody (L761A)"; "Servo s udávanou výchylkou 360°, tedy servo s rotací." "Skladem 65 ks Na skladě 110,00 Kč 90,91 Kč bez DPH"
+lk_driver_board.html "Waveshare Serial Bus Servo Driver Board ... Kód: LA143108 ... 148 Kč –7 % 136,20 Kč 112,60 Kč bez DPH ... Skladem (7 ks)"
+
+Waveshare live re-open FAILED: curl HTTP 403 Cloudflare "Just a moment..." (ws_sc09.html, ws_st3215.html); WebFetch ENOTFOUND.
+Re-read of previous agent's saved ../waveshare_prod_*.html (saved 2026-11-26 13:42 UTC):
+  SC09: <title>2.3kg Serial Bus Servo, ... 300° Rotation Angle | SC09 Servo</title>; "SKU : 24440 Part No. : SC09 Servo"; price $8.99; tier table qty2 $8.59, qty3 $8.39, 4+ $8.31; JSON-LD "availability": "https://schema.org/InStock"; normal "Add to Cart" button (no waveshare_backorders class).
+  ST3215: static HTML DOES contain price: <span class="price">$16.99</span> - <span class="regular-price"><span class="price">$21.99</span> (range over variants);
+          waveshare_sku_attributes = [{"sku ":"22414","attributes":["30kg.cm@12V"],"unsaleable":false},{"sku ":"33014","attributes":["19.5kg.cm@7.4V"],"unsaleable":false}]
+  Pack photos (../waveshare_*-details-pack.jpg) viewed: SC09 = servo with pigtail, adapter PCB, cross/disc/double/single horns, 3 screws, 1 cable; ST3215 = servo, 2 aluminium discs, ~15 screws, 1 cable. Matches previous description.
+
+Re-searches for "nenájdené":
+  LaskaKit: STS3032 / STS3032-C001 / SCS0009 -> "nebyly nalezeny"; Feetech -> only STS3215; "serial bus servo"/"smart servo" -> only SC09 as micro bus servo (others ST3215, ST3215-HS, STS3215, ST3025); SC15 -> no servo.
+  Digitální servo 17G 6050 5pin (LA143119B, 189,70 Kč, Skladem (15 ks)) = plain RC car servo 34x28x13 mm, not bus; HA-LB5W = central-locking actuator, not servo.
+  Hadex: STS3032, SCS0009, SC09, "sbernicove servo" -> 0 products; Feetech -> only Feeltech generator; Waveshare -> no servos.
+  3DJake: STS3032 -> "Žiadne výsledky"; feetech -> 2 anti-vibration feet (fuzzy match), no servos.
+  GME: search page is JS shell (gme_STS3032.html); product sitemaps 0-3 (30498 URLs) -> only 14 servo URLs (gme_servo_locs_overenie.txt), no Feetech/STS/SCS/MG90.
+  TME, Botland: 403 Cloudflare. laskarduino: CONNECT 502. dratek: 301 -> dratek.cz. rlx: 302 -> rlx.sk. tymoty.com: 301 -> tymoty.cz.

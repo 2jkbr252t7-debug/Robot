@@ -1,0 +1,58 @@
+23676374 | Marinetech Metrická skrutka | DIN 933 | 3,25 € |  | "qty":0
+23662443 | Marinetech Metrická skrutka | DIN 933 | 4,40 € | Dostupné online | "qty":11
+23662452 | Marinetech Metrická skrutka | DIN 933 | 5,65 € |  | "qty":0
+23675195 | polguľatá hlava; M4 × 40 mm; nerezová oceľ; 1 ks | DIN 85 | 0,60 € | Dostupné online | "qty":43
+23675201 | polguľatá hlava; M5 × 10 mm; nerezová oceľ; 1 ks | DIN 85 | 0,40 € | Dostupné online | "qty":111
+23675229 | polguľatá hlava; M5 × 30 mm; nerezová oceľ; 1 ks | DIN 85 | 0,40 € | Dostupné online | "qty":26
+23669648 | polguľatá hlava; M6 × 20 mm; nerezová oceľ; 1 ks | DIN 85 | 0,70 € | Dostupné online | "qty":28
+23676727 | polguľatá hlava; M8 × 40 mm; nerezová oceľ; 1 ks | DIN 85 | 1,75 € | Dostupné online | "qty":21
+23676736 | polguľatá hlava; M8 × 50 mm; nerezová oceľ; 1 ks | DIN 85 | 2,45 € | Dostupné online | "qty":10
+23671290 | pologuľatá hlava; M4 × 10 mm; nerezová oceľ; 1 ks | DIN 85 | 0,30 € | Dostupné online | "qty":118
+23676505 | pologuľatá hlava; M4 × 20 mm; nerezová oceľ; 1 ks | DIN 85 | 0,30 € | Dostupné online | "qty":220
+23676514 | pologuľatá hlava; M4 × 30 mm; nerezová oceľ; 1 ks | DIN 85 | 0,40 € | Dostupné online | "qty":87
+23675210 | pologuľatá hlava; M5 × 20 mm; nerezová oceľ; 1 ks | DIN 85 | 0,40 € | Dostupné online | "qty":178
+23669611 | pologuľatá hlava; M5 × 40 mm; nerezová oceľ; 1 ks | DIN 85 | 0,85 € | Dostupné online | "qty":81
+23669620 | pologuľatá hlava; M5 × 50 mm; nerezová oceľ; 1 ks | DIN 85 |  | Dostupné online | "qty":31
+23669639 | pologuľatá hlava; M6 × 10 mm; nerezová oceľ; 1 ks | DIN 85 | 0,70 € | Dostupné online | "qty":109
+23669657 | pologuľatá hlava; M6 × 30 mm; nerezová oceľ; 1 ks | DIN 85 | 0,85 € | Dostupné online | "qty":18
+23669666 | pologuľatá hlava; M6 × 40 mm; nerezová oceľ; 1 ks | DIN 85 | 1,15 € | Dostupné online | "qty":48
+23669675 | pologuľatá hlava; M6 × 50 mm; nerezová oceľ; 1 ks | DIN 85 | 1,15 € | Dostupné online | "qty":24
+23669684 | pologuľatá hlava; M6 × 60 mm; nerezová oceľ; 1 ks | DIN 85 | 1,35 € | Dostupné online | "qty":456
+23669693 | pologuľatá hlava; M8 × 10 mm; nerezová oceľ; 1 ks | DIN 85 | 1,15 € | Dostupné online | "qty":35
+23676709 | pologuľatá hlava; M8 × 20 mm; nerezová oceľ; 1 ks | DIN 85 | 1,45 € | Dostupné online | "qty":53
+23676718 | pologuľatá hlava; M8 × 30 mm; nerezová oceľ; 1 ks | DIN 85 | 1,65 € | Dostupné online | "qty":33
+23678750 | zápustná hlava; M8 × 30 mm; nerezová oceľ | DIN 7991 | 1,55 € | Dostupné online | "qty":47
+23662416 | šesťhranná hlava; M10 × 25 mm; nerezová oceľ; 1 ks | DIN 933 | 1,45 € | Dostupné online | "qty":27
+23662434 | šesťhranná hlava; M10 × 60 mm; nerezová oceľ; 1 ks | DIN 933 | 2,85 € | Dostupné online | "qty":21
+23673409 | šesťhranná hlava; M5 × 10 mm; nerezová oceľ; 1 ks | DIN 933 | 0,40 € | Dostupné online | "qty":100
+23673427 | šesťhranná hlava; M5 × 25 mm; nerezová oceľ; 1 ks | DIN 933 | 0,15 € | Dostupné online | "qty":30
+23673436 | šesťhranná hlava; M5 × 40 mm; nerezová oceľ; 1 ks | DIN 933 | 0,50 € | Dostupné online | "qty":139
+23673445 | šesťhranná hlava; M5 × 60 mm; nerezová oceľ; 1 ks | DIN 933 | 0,95 € | Dostupné online | "qty":41
+23673454 | šesťhranná hlava; M6 × 16 mm; nerezová oceľ; 1 ks | DIN 933 | 0,40 € | Dostupné online | "qty":33
+23673463 | šesťhranná hlava; M6 × 20 mm; nerezová oceľ; 1 ks | DIN 933 | 0,60 € | Dostupné online | "qty":36
+23673472 | šesťhranná hlava; M6 × 25 mm; nerezová oceľ; 1 ks | DIN 933 | 0,60 € | Dostupné online | "qty":32
+23673481 | šesťhranná hlava; M6 × 30 mm; nerezová oceľ; 1 ks | DIN 933 | 0,70 € | Dostupné online | "qty":52
+23676301 | šesťhranná hlava; M6 × 60 mm; nerezová oceľ; 1 ks | DIN 933 | 0,90 € | Dostupné online | "qty":50
+23676310 | šesťhranná hlava; M6 × 80 mm; nerezová oceľ | DIN 933 | 1,45 € | Dostupné online | "qty":41
+23676329 | šesťhranná hlava; M8 × 25 mm; nerezová oceľ; 1 ks | DIN 933 | 0,90 € | Dostupné online | "qty":95
+23676338 | šesťhranná hlava; M8 × 30 mm; nerezová oceľ; 1 ks | DIN 933 | 1,35 € | Dostupné online | "qty":31
+23676356 | šesťhranná hlava; M8 × 60 mm; nerezová oceľ | DIN 933 | 1,75 € | Dostupné online | "qty":12
+23676365 | šesťhranná hlava; M8 × 80 mm; nerezová oceľ; 1 ks | DIN 933 | 2,35 € |  | "qty":0
+23678538 | šošovková hlava; M10 × 20 mm; nerezová oceľ; 1 ks | ISO 7380-1 | 2,15 € | Dostupné online | "qty":12
+23678547 | šošovková hlava; M10 × 30 mm; nerezová oceľ; 1 ks | ISO 7380-1 | 2,65 € | Dostupné online | "qty":31
+23678556 | šošovková hlava; M10 × 40 mm; nerezová oceľ; 1 ks | ISO 7380-1 | 3,25 € | Dostupné online | "qty":10
+23678565 | šošovková hlava; M10 × 50 mm; nerezová oceľ; 1 ks | ISO 7380-1 | 3,95 € | Dostupné online | "qty":24
+23678398 | šošovková hlava; M4 × 12 mm; nerezová oceľ; 1 ks | ISO 7380-1 | 0,20 € | Dostupné online | "qty":322
+23678404 | šošovková hlava; M4 × 16 mm; nerezová oceľ; 1 ks | ISO 7380-1 | 0,30 € | Dostupné online | "qty":181
+23678413 | šošovková hlava; M4 × 20 mm; nerezová oceľ; 1 ks | ISO 7380-1 | 0,30 € | Dostupné online | "qty":31
+23678422 | šošovková hlava; M4 × 25 mm; nerezová oceľ; 1 ks | ISO 7380-1 | 0,30 € | Dostupné online | "qty":97
+23678431 | šošovková hlava; M5 × 16 mm; nerezová oceľ; 1 ks | ISO 7380-1 | 0,40 € | Dostupné online | "qty":166
+23678440 | šošovková hlava; M5 × 20 mm; nerezová oceľ; 1 ks | ISO 7380-1 | 0,60 € | Dostupné online | "qty":450
+23678459 | šošovková hlava; M5 × 25 mm; nerezová oceľ; 1 ks | ISO 7380-1 | 0,60 € | Dostupné online | "qty":149
+23678468 | šošovková hlava; M6 × 20 mm; nerezová oceľ; 1 ks | ISO 7380-1 | 0,70 € | Dostupné online | "qty":25
+23678477 | šošovková hlava; M6 × 30 mm; nerezová oceľ; 1 ks | ISO 7380-1 | 0,80 € | Dostupné online | "qty":189
+23678486 | šošovková hlava; M6 × 40 mm; nerezová oceľ; 1 ks | ISO 7380-1 |  | Dostupné online | "qty":95
+23678495 | šošovková hlava; M8 × 20 mm; nerezová oceľ; 1 ks | ISO 7380-1 | 1,35 € | Dostupné online | "qty":50
+23678501 | šošovková hlava; M8 × 30 mm; nerezová oceľ | ISO 7380-1 | 1,55 € | Dostupné online | "qty":51
+23678510 | šošovková hlava; M8 × 40 mm; nerezová oceľ; 1 ks | ISO 7380-1 | 2,25 € | Dostupné online | "qty":9
+23678529 | šošovková hlava; M8 × 50 mm; nerezová oceľ; 1 ks | ISO 7380-1 | 2,35 € | Dostupné online | "qty":21

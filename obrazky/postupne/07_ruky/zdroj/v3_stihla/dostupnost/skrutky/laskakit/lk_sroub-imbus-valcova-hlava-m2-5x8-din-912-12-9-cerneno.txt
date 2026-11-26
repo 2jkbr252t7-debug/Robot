@@ -1,0 +1,8 @@
+url: https://www.laskakit.cz/sroub-imbus-valcova-hlava-m2-5x8-din-912-12-9-cerneno/
+h1: Šroub imbus válcová hlava M2,5x8 DIN 912 12.9 Černěno
+availability: ['Skladem']
+amount: ['(153\xa0ks)', '(98\xa0ks)', '(190\xa0ks)']
+price: ['3,50 Kč']
+price_add: ['2,90 Kč bez DPH', '13 Kč\xa0bez DPH 15,70 Kč Vnitřní magnet je vyroben z nejsilnějšího magnetického materiálu na světě NdFeB LA220025A']
+code: ['Kód: LA220036']
+desc: class="tab-pane fade in active" role="tabpanel"> Detailní popis produktu Imbusový šroub s válcovou hlavou M2,5×8 dle normy DIN 912 je vyroben z vysoce pevnostní oceli třídy 12.9 a opatřen černěným povrchem pro zvýšenou odolnost proti korozi. Díky vysoké pevnosti je vhodný pro náročné mechanické aplikace, strojírenství i přesné montáže, kde je vyžadováno spolehlivé a pevné spojení. Specifikace: Typ: šroub s imbusovou hlavou (válcová hlava) Závit: M2,5 Délka: 8 mm Norma: DIN 912 Pevnostní třída: 12.9 Materiál: ocel Povrchová úprava: černění Typ drážky: vnitřní šestihran (imbus) Obsah balení: 1ks Šroub imbus válcová hlava M2,5x8 DIN 912 12.9 Černěno Doplňkové parametry Kategorie : Šroubky, matice, sloupky Záruka : 2 roky Hmotnost : 0.001 kg

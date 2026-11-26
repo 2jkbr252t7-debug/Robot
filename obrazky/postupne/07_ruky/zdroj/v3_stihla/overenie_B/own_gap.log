@@ -1,0 +1,8 @@
+torso samples ana 210807 stl 1034595 STL outer skin - analytic: max 0.001 min -0.017 7s
+0 arm samples 506428
+0 ana {"rest": 3.702, "rest_at": {"torso_pt": [49.26, 1.54, -30.92], "arm_u": 0.394, "arm_side": "inner"}, "min_m45_135": 1.002, "min_angle": 135.0, "min_at": {"torso_pt": [48.98, 6.01, -30.67], "arm_u": 0.038, "arm_side": "inner"}, "at_m45": 3.333, "at_135": 1.002, "at_stop_m51": 3.231, "at_stop_140p5": 0.862} 59s
+0 stl {"rest": 3.702, "rest_at": {"torso_pt": [49.26, 1.47, -30.91], "arm_u": 0.394, "arm_side": "inner"}, "min_m45_135": 1.002, "min_angle": 135.0, "min_at": {"torso_pt": [48.98, 6.0, -30.67], "arm_u": 0.038, "arm_side": "inner"}, "at_m45": 3.333, "at_135": 1.002, "at_stop_m51": 3.231, "at_stop_140p5": 0.862} 174s
+B arm samples 405717
+B ana {"rest": 3.703, "rest_at": {"torso_pt": [49.26, 1.63, -30.93], "arm_u": 0.394, "arm_side": "inner"}, "min_m45_135": 1.125, "min_angle": 135.0, "min_at": {"torso_pt": [48.92, 6.39, -30.58], "arm_u": 0.035, "arm_side": "inner"}, "at_m45": 3.365, "at_135": 1.125, "at_stop_m51": 3.269, "at_stop_140p5": 0.97} 235s
+B stl {"rest": 3.703, "rest_at": {"torso_pt": [49.26, 1.7, -30.94], "arm_u": 0.394, "arm_side": "inner"}, "min_m45_135": 1.125, "min_angle": 135.0, "min_at": {"torso_pt": [48.94, 6.26, -30.61], "arm_u": 0.036, "arm_side": "inner"}, "at_m45": 3.365, "at_135": 1.125, "at_stop_m51": 3.269, "at_stop_140p5": 0.97} 347s
+done 347s

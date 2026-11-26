@@ -1,0 +1,152 @@
+
+=== option M1 (B1+ bez zmeny) in arm C (max thickness 12.55, dx -1.0) ===
+part                     role   wall_out   req  margin |  wall_in   req  margin | ok / governing spot (x, r, az)
+PLG_cap                  static     1.86  1.50    0.36 |     3.50  1.50    2.00 | ok  (x 59.50 r 5.00 az 87)
+PLG_doraz                static     3.50  1.50    2.00 |     3.50  1.50    2.00 | ok  (x 52.50 r 5.00 az 248)
+M4_DIN912_M4x20          drive     -2.23  1.50   -3.73 |    -2.23  1.50   -3.73 | NO  (x 64.00 r 3.50 az 88)  1883 pts outside
+DRV_unasac               drive     -3.50  1.50   -5.00 |    -3.50  1.50   -5.00 | NO  (x 63.76 r 11.00 az 36)  21895 pts outside
+BRG_6700_vnut            static     1.69  1.50    0.19 |     3.50  1.50    2.00 | ok  (x 59.50 r 5.80 az 87)
+BRG_6700_vonk            arm        1.33  1.20    0.13 |     3.50  1.20    2.30 | ok  (x 59.50 r 7.50 az 87)
+ARM_rebro                arm        3.50  1.20    2.30 |     1.55  0.00    1.55 | ok  (x 53.00 r 5.50 az 164)
+ARM_naboj                arm       -3.50  1.20   -4.70 |    -3.50  0.00   -3.50 | NO  (x 63.69 r 11.50 az 26)  31199 pts outside
+ARM_podlozka_M10         arm       -2.25  1.20   -3.44 |    -2.25  1.20   -3.44 | NO  (x 62.60 r 10.00 az 87)  6243 pts outside
+DRV_magnet_5x2_1         drive     -3.50  1.50   -5.00 |    -3.50  1.50   -5.00 | NO  (x 64.65 r 9.98 az 7)  1828 pts outside
+DRV_magnet_5x2_2         drive     -3.50  1.50   -5.00 |    -3.50  1.50   -5.00 | NO  (x 64.05 r 10.06 az 40)  1828 pts outside
+DRV_magnet_5x2_3         drive     -3.50  1.50   -5.00 |    -3.50  1.50   -5.00 | NO  (x 63.85 r 10.19 az 88)  1828 pts outside
+DRV_magnet_5x2_4         drive     -3.50  1.50   -5.00 |    -3.50  1.50   -5.00 | NO  (x 64.05 r 9.79 az 126)  1828 pts outside
+DRV_magnet_5x2_5         drive     -3.50  1.50   -5.00 |    -3.50  1.50   -5.00 | NO  (x 64.85 r 9.21 az 166)  1828 pts outside
+DRV_magnet_5x2_6         drive     -1.96  1.50   -3.46 |    -1.96  1.50   -3.46 | NO  (x 64.85 r 7.45 az 206)  1097 pts outside
+DRV_magnet_5x2_7         drive     -1.27  1.50   -2.77 |    -1.27  1.50   -2.77 | NO  (x 64.85 r 5.20 az 271)  837 pts outside
+DRV_magnet_5x2_8         drive     -2.17  1.50   -3.67 |    -2.17  1.50   -3.67 | NO  (x 64.85 r 7.85 az 334)  1227 pts outside
+sliding clearances (min first, required >= 0.3):
+   PLG_kruzok | ARM_rebro                       0.5  (2D profile)
+   PLG_cap | M4_DIN912_M4x20                    0.5  (2D profile)
+   PLG_cap | DRV_unasac                         0.5  (2D profile)
+   PLG_cap | ARM_rebro                          0.5  (2D profile)
+   PLG_cap | ARM_naboj                          0.5  (2D profile)
+   PLG_doraz | BRG_6700_vonk                    0.5  (2D profile)
+   DRV_unasac | ARM_naboj                       0.5  (2D profile)
+   BRG_6700_vnut | ARM_rebro                    0.5  (2D profile)
+stop: {'gap_at_m45': 0.58, 'gap_at_135': 0.532, 'gap_at_stop_m51': 0.005, 'gap_at_stop_140p5': 0.005, 'ok': True}
+FITS: NO   governing: {'margin': -5.0, 'where': 'DRV_unasac wall_out'}   (7.3 s)
+      outer-surface margin -5.0 (DRV_magnet_5x2_1 at {'x': 64.65, 'r': 9.98, 'az': 6.7, 'local': [3.52, 9.84, -16.25]}), inner -5.0 (DRV_magnet_5x2_1), pairs 0.2 (BRG_6700_vnut | ARM_naboj)
+
+=== option M2 (B1+ naplocho (6700 + podložka M14 okolo ložiska)) in arm C (max thickness 12.55, dx -1.0) ===
+part                     role   wall_out   req  margin |  wall_in   req  margin | ok / governing spot (x, r, az)
+PLG_cap                  static     2.74  1.50    1.24 |     3.50  1.50    2.00 | ok  (x 58.60 r 5.00 az 87)
+PLG_doraz                static     3.50  1.50    2.00 |     3.50  1.50    2.00 | ok  (x 52.50 r 5.00 az 248)
+M4_DIN912_M4x16          drive      0.71  1.50   -0.79 |     3.50  1.50    2.00 | NO  (x 61.00 r 3.50 az 85)
+DRV_unasac               drive     -1.84  1.50   -3.34 |    -1.84  1.50   -3.34 | NO  (x 60.35 r 14.25 az 18)  7514 pts outside
+BRG_6700_vnut            static     2.57  1.50    1.07 |     3.50  1.50    2.00 | ok  (x 58.60 r 5.80 az 87)
+BRG_6700_vonk            arm        2.21  1.20    1.00 |     3.08  1.20    1.88 | ok  (x 58.60 r 7.50 az 87)
+ARM_rebro                arm        3.50  1.20    2.30 |     1.37  0.00    1.37 | ok  (x 52.80 r 5.30 az 164)
+ARM_naboj                arm       -0.19  1.20   -1.39 |    -0.19  0.00   -0.19 | NO  (x 56.40 r 14.30 az 8)  10 pts outside
+ARM_podlozka_M14         arm       -0.63  1.20   -1.83 |    -0.63  1.20   -1.83 | NO  (x 58.90 r 14.00 az 160)  975 pts outside
+DRV_magnet_5x1_1         drive     -0.60  1.50   -2.10 |    -0.60  1.50   -2.10 | NO  (x 60.15 r 12.90 az 4)  148 pts outside
+DRV_magnet_5x1_2         drive     -0.90  1.50   -2.40 |    -0.90  1.50   -2.40 | NO  (x 60.15 r 12.98 az 34)  364 pts outside
+DRV_magnet_5x1_3         drive     -0.56  1.50   -2.06 |    -0.56  1.50   -2.06 | NO  (x 60.15 r 13.00 az 72)  326 pts outside
+DRV_magnet_5x1_4         drive     -0.60  1.50   -2.10 |    -0.60  1.50   -2.10 | NO  (x 60.15 r 12.96 az 110)  330 pts outside
+DRV_magnet_5x1_5         drive     -0.93  1.50   -2.43 |    -0.93  1.50   -2.43 | NO  (x 60.15 r 13.00 az 144)  361 pts outside
+DRV_magnet_5x1_6         drive     -0.39  1.50   -1.89 |    -0.39  1.50   -1.89 | NO  (x 60.15 r 12.84 az 176)  77 pts outside
+DRV_magnet_5x1_7         drive      1.95  1.50    0.45 |     3.50  1.50    2.00 | ok  (x 60.15 r 11.66 az 204)
+DRV_magnet_5x1_8         drive      3.50  1.50    2.00 |     3.50  1.50    2.00 | ok  (x 59.15 r 10.01 az 266)
+DRV_magnet_5x1_9         drive      3.50  1.50    2.00 |     3.50  1.50    2.00 | ok  (x 59.15 r 11.52 az 300)
+DRV_magnet_5x1_10        drive      1.51  1.50    0.01 |     3.08  1.50    1.58 | ok  (x 60.15 r 12.12 az 334)
+sliding clearances (min first, required >= 0.3):
+   PLG_kruzok | ARM_rebro                       0.3  (2D profile)
+   PLG_cap | M4_DIN912_M4x16                    0.3  (2D profile)
+   PLG_cap | DRV_unasac                         0.3  (2D profile)
+   PLG_cap | ARM_rebro                          0.3  (2D profile)
+   PLG_doraz | BRG_6700_vonk                    0.3  (2D profile)
+   DRV_unasac | BRG_6700_vnut                   0.3  (2D profile)
+   DRV_unasac | BRG_6700_vonk                   0.3  (2D profile)
+   BRG_6700_vnut | ARM_rebro                    0.3  (2D profile)
+stop: {'gap_at_m45': 0.559, 'gap_at_135': 0.513, 'gap_at_stop_m51': 0.005, 'gap_at_stop_140p5': 0.005, 'ok': True}
+FITS: NO   governing: {'margin': -3.339, 'where': 'DRV_unasac wall_out'}   (7.2 s)
+      outer-surface margin -3.339 (DRV_unasac at {'x': 60.35, 'r': 14.25, 'az': 18.5, 'local': [0.05, 13.26, -11.9]}), inner -3.339 (DRV_unasac), pairs 0.0 (BRG_6700_vnut | ARM_rebro)
+
+=== option M2b (B1+ naplocho, MR128 + podložka M12) in arm C (max thickness 12.55, dx -1.0) ===
+part                     role   wall_out   req  margin |  wall_in   req  margin | ok / governing spot (x, r, az)
+PLG_cap                  static     3.44  1.50    1.94 |     3.50  1.50    2.00 | ok  (x 58.10 r 4.00 az 89)
+PLG_doraz                static     3.50  1.50    2.00 |     3.50  1.50    2.00 | ok  (x 52.50 r 5.00 az 248)
+M4_DIN7984_M4x20         drive      0.04  1.50   -1.46 |     3.50  1.50    2.00 | NO  (x 61.70 r 3.50 az 75)
+DRV_unasac               drive     -1.40  1.50   -2.90 |    -1.40  1.50   -2.90 | NO  (x 62.90 r 4.70 az 88)  3720 pts outside
+BRG_MR128_vnut           static     3.29  1.50    1.79 |     3.50  1.50    2.00 | ok  (x 58.10 r 4.70 az 88)
+BRG_MR128_vonk           arm        3.02  1.20    1.81 |     3.45  1.20    2.25 | ok  (x 58.10 r 6.00 az 88)
+ARM_rebro                arm        3.50  1.20    2.30 |     1.37  0.00    1.37 | ok  (x 52.80 r 5.30 az 164)
+ARM_naboj                arm        2.53  1.20    1.33 |     0.79  0.00    0.79 | ok  (x 55.90 r 12.30 az 25)
+ARM_podlozka_M12         arm        1.07  1.20   -0.13 |     1.90  1.20    0.70 | NO  (x 58.40 r 12.00 az 23)
+DRV_magnet_5x1_1         drive      0.50  1.50   -1.00 |     2.89  1.50    1.39 | NO  (x 59.65 r 11.65 az 4)
+DRV_magnet_5x1_2         drive      0.10  1.50   -1.40 |     3.50  1.50    2.00 | NO  (x 59.65 r 11.75 az 39)
+DRV_magnet_5x1_3         drive      0.24  1.50   -1.26 |     3.50  1.50    2.00 | NO  (x 59.65 r 11.75 az 81)
+DRV_magnet_5x1_4         drive      0.17  1.50   -1.33 |     3.50  1.50    2.00 | NO  (x 59.65 r 11.74 az 121)
+DRV_magnet_5x1_5         drive      0.20  1.50   -1.30 |     3.33  1.50    1.82 | NO  (x 59.65 r 11.73 az 158)
+DRV_magnet_5x1_6         drive      1.67  1.50    0.17 |     3.34  1.50    1.84 | ok  (x 59.65 r 11.09 az 190)
+DRV_magnet_5x1_7         drive      3.50  1.50    2.00 |     3.50  1.50    2.00 | ok  (x 58.65 r 8.29 az 255)
+DRV_magnet_5x1_8         drive      3.50  1.50    2.00 |     3.50  1.50    2.00 | ok  (x 58.65 r 9.99 az 294)
+DRV_magnet_5x1_9         drive      2.48  1.50    0.98 |     3.50  1.50    2.00 | ok  (x 59.65 r 10.46 az 333)
+sliding clearances (min first, required >= 0.3):
+   PLG_kruzok | ARM_rebro                       0.3  (2D profile)
+   PLG_cap | DRV_unasac                         0.3  (2D profile)
+   PLG_cap | BRG_MR128_vonk                     0.3  (2D profile)
+   PLG_cap | ARM_rebro                          0.3  (2D profile)
+   PLG_doraz | BRG_MR128_vonk                   0.3  (2D profile)
+   PLG_doraz | ARM_naboj                        0.3  (2D profile)
+   DRV_unasac | BRG_MR128_vnut                  0.3  (2D profile)
+   DRV_unasac | BRG_MR128_vonk                  0.3  (2D profile)
+stop: {'gap_at_m45': 0.559, 'gap_at_135': 0.513, 'gap_at_stop_m51': 0.005, 'gap_at_stop_140p5': 0.005, 'ok': True}
+FITS: NO   governing: {'margin': -2.902, 'where': 'DRV_unasac wall_out'}   (6.5 s)
+      outer-surface margin -2.902 (DRV_unasac at {'x': 62.9, 'r': 4.7, 'az': 87.6, 'local': [2.44, -0.05, -12.94]}), inner -2.902 (DRV_unasac), pairs 0.0 (DRV_unasac | BRG_MR128_vnut)
+
+=== option M3 (spojka v trupe (ruka len náboj)) in arm C (max thickness 12.55, dx -1.0) ===
+part                     role   wall_out   req  margin |  wall_in   req  margin | ok / governing spot (x, r, az)
+PLG_cap                  static     2.74  1.50    1.24 |     3.50  1.50    2.00 | ok  (x 58.60 r 5.00 az 87)
+PLG_doraz                static     3.50  1.50    2.00 |     3.50  1.50    2.00 | ok  (x 52.50 r 5.00 az 248)
+M4_DIN912_M4x16          drive      0.71  1.50   -0.79 |     3.50  1.50    2.00 | NO  (x 61.00 r 3.50 az 85)
+BRG_6700_vnut            static     2.57  1.50    1.07 |     3.50  1.50    2.00 | ok  (x 58.60 r 5.80 az 87)
+BRG_6700_vonk            arm        2.21  1.20    1.00 |     3.08  1.20    1.88 | ok  (x 58.60 r 7.50 az 87)
+ARM_rebro                arm        3.50  1.20    2.30 |     1.37  0.00    1.37 | ok  (x 52.80 r 5.30 az 164)
+ARM_naboj                arm       -0.72  1.20   -1.92 |    -0.72  0.00   -0.72 | NO  (x 62.20 r 4.70 az 88)  831 pts outside
+sliding clearances (min first, required >= 0.3):
+   PLG_kruzok | ARM_rebro                       0.3  (2D profile)
+   PLG_cap | M4_DIN912_M4x16                    0.3  (2D profile)
+   PLG_cap | ARM_rebro                          0.3  (2D profile)
+   PLG_cap | ARM_naboj                          0.3  (2D profile)
+   PLG_doraz | BRG_6700_vonk                    0.3  (2D profile)
+   BRG_6700_vnut | ARM_rebro                    0.3  (2D profile)
+   BRG_6700_vnut | ARM_naboj                    0.3  (2D profile)
+   PLG_doraz | ARM_rebro                        0.514  (3D swing)
+stop: {'gap_at_m45': 0.559, 'gap_at_135': 0.513, 'gap_at_stop_m51': 0.005, 'gap_at_stop_140p5': 0.005, 'ok': True}
+FITS: NO   governing: {'margin': -1.92, 'where': 'ARM_naboj wall_out'}   (5.5 s)
+      outer-surface margin -1.92 (ARM_naboj at {'x': 62.2, 'r': 4.7, 'az': 87.6, 'local': [1.75, -0.05, -12.79]}), inner -0.72 (ARM_naboj), pairs 0.0 (BRG_6700_vnut | ARM_naboj)
+
+=== option M4 (ultra-plochý, Hallov snímač namiesto dorazu) in arm C (max thickness 12.55, dx -1.0) ===
+part                     role   wall_out   req  margin |  wall_in   req  margin | ok / governing spot (x, r, az)
+PLG_cap                  static     3.50  1.50    2.00 |     3.50  1.50    2.00 | ok  (x 52.50 r 2.50 az 0)
+M4_DIN912_M4x16          drive      2.57  1.50    1.07 |     3.50  1.50    2.00 | ok  (x 59.10 r 3.50 az 88)
+DRV_unasac               drive     -0.74  1.50   -2.24 |    -0.74  1.50   -2.24 | NO  (x 58.75 r 14.25 az 12)  1313 pts outside
+BRG_6700_vnut            static     3.50  1.50    2.00 |     3.50  1.50    2.00 | ok  (x 53.00 r 5.00 az 0)
+BRG_6700_vonk            arm        3.50  1.20    2.30 |     1.53  1.20    0.33 | ok  (x 53.00 r 5.80 az 0)
+ARM_naboj                arm        1.26  1.20    0.06 |     0.00  0.00    0.00 | ok  (x 54.80 r 14.30 az 157)
+ARM_podlozka_M14         arm       -0.39  1.20   -1.59 |    -0.39  1.20   -1.59 | NO  (x 54.80 r 14.00 az 354)  468 pts outside
+DRV_magnet_5x1_1         drive      0.55  1.50   -0.95 |     1.26  1.50   -0.24 | NO  (x 58.55 r 12.97 az 2)
+DRV_magnet_5x1_2         drive      0.50  1.50   -1.00 |     3.16  1.50    1.66 | NO  (x 58.55 r 12.98 az 34)
+DRV_magnet_5x1_3         drive      0.98  1.50   -0.52 |     3.50  1.50    2.00 | NO  (x 58.55 r 12.98 az 71)
+DRV_magnet_5x1_4         drive      0.93  1.50   -0.57 |     3.50  1.50    2.00 | NO  (x 58.55 r 12.96 az 110)
+DRV_magnet_5x1_5         drive      0.43  1.50   -1.07 |     2.70  1.50    1.20 | NO  (x 58.55 r 12.98 az 146)
+DRV_magnet_5x1_6         drive      0.74  1.50   -0.76 |     1.21  1.50   -0.29 | NO  (x 58.55 r 12.94 az 177)
+DRV_magnet_5x1_7         drive      3.35  1.50    1.85 |     3.26  1.50    1.76 | ok  (x 58.55 r 11.98 az 206)
+DRV_magnet_5x1_8         drive      3.50  1.50    2.00 |     3.50  1.50    2.00 | ok  (x 57.55 r 10.01 az 266)
+DRV_magnet_5x1_9         drive      3.50  1.50    2.00 |     3.50  1.50    2.00 | ok  (x 57.55 r 11.52 az 300)
+DRV_magnet_5x1_10        drive      2.83  1.50    1.33 |     2.83  1.50    1.33 | ok  (x 58.55 r 12.39 az 332)
+sliding clearances (min first, required >= 0.3):
+   PLG_cap | M4_DIN912_M4x16                    0.3  (2D profile)
+   PLG_cap | DRV_unasac                         0.3  (2D profile)
+   PLG_cap | BRG_6700_vonk                      0.3  (2D profile)
+   DRV_unasac | BRG_6700_vnut                   0.3  (2D profile)
+   DRV_unasac | BRG_6700_vonk                   0.3  (2D profile)
+   PLG_kruzok | M4_DIN912_M4x16                 0.5  (2D profile)
+   PLG_kruzok | BRG_6700_vonk                   0.5  (2D profile)
+   PLG_kruzok | ARM_naboj                       1.118  (2D profile)
+FITS: NO   governing: {'margin': -2.239, 'where': 'DRV_unasac wall_out'}   (3.7 s)
+      outer-surface margin -2.239 (DRV_unasac at {'x': 58.75, 'r': 14.25, 'az': 12.1, 'local': [-1.83, 13.76, -13.05]}), inner -2.239 (DRV_unasac), pairs 0.0 (DRV_unasac | BRG_6700_vnut)
