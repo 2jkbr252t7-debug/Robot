@@ -1,0 +1,7 @@
+{'side': 'L', 'variant': 'web', 'n_col': 63854, 'n_fill': 29164, 'n_fill_clipped': 873, 'n_web': 3652, 'web_vol_mm3': 456.5, 'n_solid': 83176, 'dropped_islands': 0}
+merged {('col', 'plug'): 1973}
+assembled: nodes 111303, dofs 333909, nnz 20127866, 9.4 s
+  solve: 80 its, rel res 9.69e-09, 73.0 s
+0.0 {"Fx": -10.0, "My": 537.5, "Mz": -0.0, "its": 80, "umax": 0.3822, "legs_z-49..-26": {"vm_max": 20.08, "vm_p999": 10.14, "vm_p99": 5.09, "at": [38.5, 6.0, -30.0], "s1_max": 15.19, "s3_min": -28.63}, "below_deck_z-74..-49": {"vm_max": 5.4, "vm_p999": 2.32, "vm_p99": 1.38, "at": [34.5, -14.5, -67.0], "s1_max": 7.82, "s3_min": -8.1}, "boss_tongue_z>-26": {"vm_max": 10.0, "vm_p999": 5.8, "vm_p99": 4.36, "at": [34.5, 12.5, -25.5], "s1_max": 11.33, "s3_min": -5.49}, "face_tilt_mrad": [-0.638, 13.735]}
+  solve: 79 its, rel res 8.42e-09, 65.8 s
+90.0 {"Fx": -10.0, "My": 0.0, "Mz": -537.5, "its": 79, "umax": 1.1029, "legs_z-49..-26": {"vm_max": 26.14, "vm_p999": 11.61, "vm_p99": 6.37, "at": [39.0, -5.5, -27.0], "s1_max": 23.82, "s3_min": -30.44}, "below_deck_z-74..-49": {"vm_max": 19.33, "vm_p999": 10.6, "vm_p99": 7.66, "at": [41.5, -17.5, -66.5], "s1_max": 21.21, "s3_min": -26.22}, "boss_tongue_z>-26": {"vm_max": 20.41, "vm_p999": 12.17, "vm_p99": 5.61, "at": [39.0, -9.0, -22.0], "s1_max": 21.39, "s3_min": -31.34}, "face_tilt_mrad": [25.423, -16.926]}

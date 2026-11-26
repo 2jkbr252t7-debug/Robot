@@ -1,0 +1,87 @@
+/tmp/claude-0/gapwf/fin/R2c/img/work/v2b_scene.py:567: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  W_ = bpy.data.worlds.new("w"); sc.world = W_; W_.use_nodes = True
+[   0.1] start diely
+Timer 'STL Import' took 1.99 ms
+/tmp/claude-0/gapwf/fin/R2c/img/work/v2b_scene.py:73: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(key); m.use_nodes = True
+Timer 'STL Import' took 6.39 ms
+Timer 'STL Import' took 1.54 ms
+Timer 'STL Import' took 0.96 ms
+Timer 'STL Import' took 0.43 ms
+00:33.311  io.stl           | WARNING Removed 8 degenerate triangles during import
+Timer 'STL Import' took 2.33 ms
+Timer 'STL Import' took 0.45 ms
+Timer 'STL Import' took 0.70 ms
+Timer 'STL Import' took 0.42 ms
+Timer 'STL Import' took 2.13 ms
+Timer 'STL Import' took 0.51 ms
+Timer 'STL Import' took 0.44 ms
+Timer 'STL Import' took 0.37 ms
+Timer 'STL Import' took 0.88 ms
+Timer 'STL Import' took 1.24 ms
+Timer 'STL Import' took 0.37 ms
+Timer 'STL Import' took 0.63 ms
+Timer 'STL Import' took 0.32 ms
+Timer 'STL Import' took 1.53 ms
+Timer 'STL Import' took 0.58 ms
+Timer 'STL Import' took 0.71 ms
+Timer 'STL Import' took 0.46 ms
+Timer 'STL Import' took 0.68 ms
+Timer 'STL Import' took 0.45 ms
+Timer 'STL Import' took 0.42 ms
+Timer 'STL Import' took 2.55 ms
+Timer 'STL Import' took 1.26 ms
+Timer 'STL Import' took 0.88 ms
+Timer 'STL Import' took 0.40 ms
+Timer 'STL Import' took 0.41 ms
+Timer 'STL Import' took 0.43 ms
+Timer 'STL Import' took 0.88 ms
+Timer 'STL Import' took 0.66 ms
+Timer 'STL Import' took 0.59 ms
+Timer 'STL Import' took 0.94 ms
+Timer 'STL Import' took 0.89 ms
+00:40.039  render           | Saved: 'final_b/ikona_zatka.png'
+[  39.5] icon zatka 4s
+00:44.630  render           | Saved: 'final_b/ikona_spojka.png'
+[  44.1] icon spojka 5s
+00:46.747  render           | Saved: 'final_b/ikona_hriadel_zvisly.png'
+[  46.2] icon hriadel_zvisly 2s
+00:50.459  render           | Saved: 'final_b/ikona_pastorok.png'
+[  49.9] icon pastorok 4s
+00:54.897  render           | Saved: 'final_b/ikona_koleso.png'
+[  54.4] icon koleso 4s
+00:58.515  render           | Saved: 'final_b/ikona_puzdro.png'
+[  58.0] icon puzdro 4s
+01:03.626  render           | Saved: 'final_b/ikona_naboj.png'
+[  63.1] icon naboj 5s
+01:05.684  render           | Saved: 'final_b/ikona_kruzok.png'
+[  65.2] icon kruzok 2s
+01:10.731  render           | Saved: 'final_b/ikona_unasac.png'
+[  70.2] icon unasac 5s
+01:14.980  render           | Saved: 'final_b/ikona_unasac_zdola.png'
+[  74.5] icon unasac_zdola 4s
+01:17.392  render           | Saved: 'final_b/ikona_podlozky.png'
+[  76.9] icon podlozky 2s
+01:20.790  render           | Saved: 'final_b/ikona_servo.png'
+[  80.3] icon servo 3s
+01:25.302  render           | Saved: 'final_b/ikona_MR63.png'
+[  84.8] icon MR63 5s
+01:28.928  render           | Saved: 'final_b/ikona_MR74.png'
+[  88.4] icon MR74 4s
+01:32.135  render           | Saved: 'final_b/ikona_L6800.png'
+[  91.6] icon L6800 3s
+01:34.961  render           | Saved: 'final_b/ikona_M4.png'
+[  94.4] icon M4 3s
+01:38.046  render           | Saved: 'final_b/ikona_M2_spojka.png'
+[  97.5] icon M2_spojka 3s
+01:40.063  render           | Saved: 'final_b/ikona_M2_zapustne.png'
+[  99.5] icon M2_zapustne 2s
+01:41.953  render           | Saved: 'final_b/ikona_vlozky.png'
+[ 101.4] icon vlozky 2s
+01:45.424  render           | Saved: 'final_b/ikona_M10.png'
+[ 104.9] icon M10 3s
+01:47.394  render           | Saved: 'final_b/ikona_magnety.png'
+[ 106.9] icon magnety 2s
+01:50.781  render           | Saved: 'final_b/ikona_stlp.png'
+[ 110.3] icon stlp 3s
+[ 110.3] done

@@ -1,0 +1,232 @@
+{
+ "dx": -1.0,
+ "stop_deg": -51.0,
+ "lug_az": 270.0,
+ "rib_az_rest": 180.4,
+ "room": {
+  "ARM_6700": {
+   "max_sdf": -3.96,
+   "wall_left": 3.96,
+   "at": [
+    55.5,
+    2.62,
+    -24.49
+   ],
+   "ok": true
+  },
+  "ARM_rib": {
+   "max_sdf": -1.6,
+   "wall_left": 1.6,
+   "at": [
+    53.0,
+    -5.14,
+    -19.45
+   ],
+   "ok": true
+  },
+  "ARM_hub_bore_wall": {
+   "max_sdf": -3.66,
+   "wall_left": 3.66,
+   "at": [
+    55.5,
+    2.4,
+    -25.68
+   ],
+   "ok": true
+  },
+  "ARM_flange": {
+   "max_sdf": -3.75,
+   "wall_left": 3.75,
+   "at": [
+    59.5,
+    15.7,
+    -17.3
+   ],
+   "ok": true
+  },
+  "ARM_washer": {
+   "max_sdf": -6.51,
+   "wall_left": 6.51,
+   "at": [
+    62.6,
+    12.96,
+    -16.1
+   ],
+   "ok": true
+  },
+  "ARM_wall": {
+   "max_sdf": -1.51,
+   "wall_left": 1.51,
+   "at": [
+    67.4,
+    -8.83,
+    -12.38
+   ],
+   "ok": true
+  },
+  "DRV_boss": {
+   "max_sdf": -8.0,
+   "wall_left": 8.0,
+   "at": [
+    60.0,
+    6.6,
+    -17.0
+   ],
+   "ok": true
+  },
+  "DRV_disc": {
+   "max_sdf": -3.76,
+   "wall_left": 3.76,
+   "at": [
+    65.9,
+    13.55,
+    -13.89
+   ],
+   "ok": true
+  },
+  "DRV_screw_head": {
+   "max_sdf": -8.0,
+   "wall_left": 8.0,
+   "at": [
+    60.0,
+    3.0,
+    -17.0
+   ],
+   "ok": true
+  },
+  "DRV_screw_shank": {
+   "max_sdf": -5.38,
+   "wall_left": 5.38,
+   "at": [
+    55.6,
+    2.96,
+    -19.0
+   ],
+   "ok": true
+  },
+  "ARM_lip": {
+   "max_sdf": -1.97,
+   "wall_left": 1.97,
+   "at": [
+    67.4,
+    14.51,
+    -13.59
+   ],
+   "ok": true
+  }
+ },
+ "swing": {
+  "ARM_6700 vs PLG_ring": {
+   "min": ">3",
+   "at_deg": null
+  },
+  "ARM_rib vs PLG_ring": {
+   "min": 0.5,
+   "at_deg": -12.0
+  },
+  "ARM_hub_bore_wall vs PLG_ring": {
+   "min": ">3",
+   "at_deg": null
+  },
+  "ARM_flange vs PLG_ring": {
+   "min": ">3",
+   "at_deg": null
+  },
+  "ARM_washer vs PLG_ring": {
+   "min": ">3",
+   "at_deg": null
+  },
+  "ARM_wall vs PLG_ring": {
+   "min": ">3",
+   "at_deg": null
+  },
+  "ARM_lip vs PLG_ring": {
+   "min": ">3",
+   "at_deg": null
+  },
+  "ARM_rib vs PLG_seat": {
+   "min": 0.5,
+   "at_deg": 60.0
+  },
+  "ARM_hub_bore_wall vs PLG_seat": {
+   "min": 2.5,
+   "at_deg": -45.0
+  },
+  "ARM_flange vs PLG_seat": {
+   "min": 0.5,
+   "at_deg": -45.0
+  },
+  "ARM_washer vs PLG_seat": {
+   "min": 1.13,
+   "at_deg": -45.0
+  },
+  "ARM_wall vs PLG_seat": {
+   "min": ">3",
+   "at_deg": null
+  },
+  "ARM_lip vs PLG_seat": {
+   "min": ">3",
+   "at_deg": null
+  },
+  "ARM_6700 vs PLG_lug": {
+   "min": 0.6,
+   "at_deg": 86.0
+  },
+  "ARM_rib vs PLG_lug": {
+   "min": 0.58,
+   "at_deg": -45.0
+  },
+  "ARM_hub_bore_wall vs PLG_lug": {
+   "min": 1.17,
+   "at_deg": 104.0
+  },
+  "ARM_flange vs PLG_lug": {
+   "min": ">3",
+   "at_deg": null
+  },
+  "ARM_washer vs PLG_lug": {
+   "min": ">3",
+   "at_deg": null
+  },
+  "ARM_wall vs PLG_lug": {
+   "min": ">3",
+   "at_deg": null
+  },
+  "ARM_lip vs PLG_lug": {
+   "min": ">3",
+   "at_deg": null
+  }
+ },
+ "drive": {
+  "DRV_boss vs ARM_6700": 0.71,
+  "DRV_boss vs ARM_flange": 0.5,
+  "DRV_boss vs ARM_washer": 0.75,
+  "DRV_boss vs PLG_seat": 0.5,
+  "DRV_disc vs ARM_hub_bore_wall": 2.0,
+  "DRV_disc vs ARM_flange": 2.0,
+  "DRV_disc vs ARM_wall": 0.5,
+  "DRV_disc vs ARM_lip": 0.3,
+  "DRV_screw_head vs ARM_6700": 1.58,
+  "DRV_screw_head vs ARM_flange": 1.5,
+  "DRV_screw_head vs ARM_washer": 1.75,
+  "DRV_screw_head vs ARM_lip": 2.26,
+  "DRV_screw_head vs PLG_seat": 0.5,
+  "DRV_screw_shank vs PLG_seat": 0.3
+ },
+ "homing": {
+  "gap_at_stop": 0.071,
+  "gap_at_minus45": 0.577,
+  "contact_face": {
+   "r": [
+    5.5,
+    6.6
+   ],
+   "x": [
+    53.0,
+    55.0
+   ],
+   "area_mm2": 2.2,
+   "r_mean": 6.05
+  }
+ }
+}

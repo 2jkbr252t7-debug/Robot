@@ -1,0 +1,9 @@
+sweep model 2117906 4s
+sweep  STAT_colfill     {'min': 1.48, 'at': [32.25, -13.25, -40.75], 'by': 'servo_zdvih'} 7s
+static model 3528623 47s
+static STAT_colfill     {'min': 0.28, 'at': [31.25, -14.25, -48.25], 'nearest': {'T_paluba': 0.28, 'T_spodok': 0.67, 'T_bok_L': 0.85}}
+lower {'STAT_colfill': 0.75}
+s1 {'STAT_colfill': 8.98}
+cap removal {'STAT_colfill': {'margin': 0.85, 'at': [38.25, 7.75, -31.75]}}
+servo insertion {}
+done 52s

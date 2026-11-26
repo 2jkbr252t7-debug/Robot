@@ -1,0 +1,73 @@
+{
+ "side": "L",
+ "y_tip": -50.75,
+ "z_tip": -17.0,
+ "My_shoulder": -0.0,
+ "Mz": 538.0,
+ "max": {
+  "back_guided_MPa": 21.55,
+  "back_free_MPa": 9.93,
+  "back_noTorsion_MPa": 1.87,
+  "front_guided_MPa": 8.32,
+  "front_free_MPa": 9.61,
+  "front_noTorsion_MPa": 1.92
+ },
+ "worst_rows": [
+  {
+   "z": -28.25,
+   "d": 27.4,
+   "V_couple": 19.6,
+   "My": 112.0,
+   "back_guided_MPa": 21.55,
+   "back_free_MPa": 9.93,
+   "back_noTorsion_MPa": 1.07,
+   "back_Z": 32.4,
+   "front_guided_MPa": 6.99,
+   "front_free_MPa": 3.59,
+   "front_noTorsion_MPa": 1.0,
+   "front_Z": 110.9
+  },
+  {
+   "z": -27.75,
+   "d": 27.4,
+   "V_couple": 19.6,
+   "My": 107.0,
+   "back_guided_MPa": 21.51,
+   "back_free_MPa": 9.5,
+   "back_noTorsion_MPa": 1.03,
+   "back_Z": 32.4,
+   "front_guided_MPa": 6.97,
+   "front_free_MPa": 3.45,
+   "front_noTorsion_MPa": 0.96,
+   "front_Z": 110.5
+  },
+  {
+   "z": -28.75,
+   "d": 27.4,
+   "V_couple": 19.6,
+   "My": 117.0,
+   "back_guided_MPa": 18.46,
+   "back_free_MPa": 8.91,
+   "back_noTorsion_MPa": 1.03,
+   "back_Z": 38.0,
+   "front_guided_MPa": 6.83,
+   "front_free_MPa": 3.63,
+   "front_noTorsion_MPa": 1.0,
+   "front_Z": 113.7
+  },
+  {
+   "z": -27.25,
+   "d": 27.3,
+   "V_couple": 19.7,
+   "My": 102.0,
+   "back_guided_MPa": 17.83,
+   "back_free_MPa": 7.47,
+   "back_noTorsion_MPa": 0.74,
+   "back_Z": 38.9,
+   "front_guided_MPa": 7.12,
+   "front_free_MPa": 3.39,
+   "front_noTorsion_MPa": 0.97,
+   "front_Z": 108.1
+  }
+ ]
+}

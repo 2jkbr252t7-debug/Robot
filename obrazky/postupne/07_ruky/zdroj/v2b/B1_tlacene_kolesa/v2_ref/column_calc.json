@@ -1,0 +1,189 @@
+{
+ "judge C-channel z -66.5": {
+  "M_Nmm": 1004,
+  "A": 161.7,
+  "xc": 35.12,
+  "I": 1800.7,
+  "Z": 282.1,
+  "share_resin": 1.0,
+  "sigma_MPa": 4.63,
+  "ok": true
+ },
+ "judge C-channel z -66.5 + 2 rods D3": {
+  "M_Nmm": 1004,
+  "A": 161.7,
+  "xc": 35.12,
+  "I": 1800.7,
+  "Z": 282.1,
+  "share_resin": 0.152,
+  "sigma_MPa": 0.7,
+  "ok": true,
+  "rod_sigma_MPa": 160.6
+ },
+ "judge C-channel z -72": {
+  "M_Nmm": 1059,
+  "A": 161.7,
+  "xc": 35.12,
+  "I": 1800.7,
+  "Z": 282.1,
+  "share_resin": 1.0,
+  "sigma_MPa": 4.88,
+  "ok": true
+ },
+ "judge C-channel z -72 + 2 rods D3": {
+  "M_Nmm": 1059,
+  "A": 161.7,
+  "xc": 35.12,
+  "I": 1800.7,
+  "Z": 282.1,
+  "share_resin": 0.152,
+  "sigma_MPa": 0.74,
+  "ok": true,
+  "rod_sigma_MPa": 169.4
+ },
+ "judge legs z -48": {
+  "M_Nmm": 819,
+  "A": 83.1,
+  "xc": 37.95,
+  "I": 349.0,
+  "Z": 98.3,
+  "share_resin": 1.0,
+  "sigma_MPa": 10.83,
+  "ok": false
+ },
+ "judge legs z -48 + 2 rods D3": {
+  "M_Nmm": 819,
+  "A": 83.1,
+  "xc": 37.95,
+  "I": 349.0,
+  "Z": 98.3,
+  "share_resin": 0.353,
+  "sigma_MPa": 3.82,
+  "ok": true,
+  "rod_sigma_MPa": 100.0
+ },
+ "judge legs z -40": {
+  "M_Nmm": 739,
+  "A": 83.1,
+  "xc": 37.95,
+  "I": 349.0,
+  "Z": 98.3,
+  "share_resin": 1.0,
+  "sigma_MPa": 9.77,
+  "ok": false
+ },
+ "judge legs z -40 + 2 rods D3": {
+  "M_Nmm": 739,
+  "A": 83.1,
+  "xc": 37.95,
+  "I": 349.0,
+  "Z": 98.3,
+  "share_resin": 0.353,
+  "sigma_MPa": 3.45,
+  "ok": true,
+  "rod_sigma_MPa": 90.2
+ },
+ "judge legs z -30": {
+  "M_Nmm": 639,
+  "A": 83.1,
+  "xc": 37.95,
+  "I": 349.0,
+  "Z": 98.3,
+  "share_resin": 1.0,
+  "sigma_MPa": 8.45,
+  "ok": true
+ },
+ "judge legs z -30 + 2 rods D3": {
+  "M_Nmm": 639,
+  "A": 83.1,
+  "xc": 37.95,
+  "I": 349.0,
+  "Z": 98.3,
+  "share_resin": 0.353,
+  "sigma_MPa": 2.98,
+  "ok": true,
+  "rod_sigma_MPa": 78.0
+ },
+ "K3 legs z -48": {
+  "M_Nmm": 819,
+  "A": 94.2,
+  "xc": 38.2,
+  "I": 453.6,
+  "Z": 119.4,
+  "share_resin": 1.0,
+  "sigma_MPa": 8.92,
+  "ok": false
+ },
+ "K3 legs z -48 + 2 rods D3": {
+  "M_Nmm": 819,
+  "A": 94.2,
+  "xc": 38.2,
+  "I": 453.6,
+  "Z": 119.4,
+  "share_resin": 0.4,
+  "sigma_MPa": 3.57,
+  "ok": true,
+  "rod_sigma_MPa": 92.7
+ },
+ "K3 legs z -66.5": {
+  "M_Nmm": 1004,
+  "A": 94.2,
+  "xc": 38.2,
+  "I": 453.6,
+  "Z": 119.4,
+  "share_resin": 1.0,
+  "sigma_MPa": 10.93,
+  "ok": false
+ },
+ "K3 legs z -66.5 + 2 rods D3": {
+  "M_Nmm": 1004,
+  "A": 94.2,
+  "xc": 38.2,
+  "I": 453.6,
+  "Z": 119.4,
+  "share_resin": 0.4,
+  "sigma_MPa": 4.37,
+  "ok": true,
+  "rod_sigma_MPa": 113.6
+ },
+ "FINAL final C z -66.5": {
+  "M": 1004,
+  "Z": 282.2,
+  "sigma": 4.63
+ },
+ "FINAL final C z -66.5 +rods": {
+  "M": 1004,
+  "Z": 282.2,
+  "sigma": 0.73
+ },
+ "FINAL final C z -70.5": {
+  "M": 1044,
+  "Z": 282.2,
+  "sigma": 4.81
+ },
+ "FINAL final C z -70.5 +rods": {
+  "M": 1044,
+  "Z": 282.2,
+  "sigma": 0.76
+ },
+ "FINAL final legs z -48": {
+  "M": 819,
+  "Z": 98.3,
+  "sigma": 10.83
+ },
+ "FINAL final legs z -48 +rods": {
+  "M": 819,
+  "Z": 98.3,
+  "sigma": 3.82
+ },
+ "FINAL final legs z -40": {
+  "M": 739,
+  "Z": 98.3,
+  "sigma": 9.77
+ },
+ "FINAL final legs z -40 +rods": {
+  "M": 739,
+  "Z": 98.3,
+  "sigma": 3.45
+ }
+}

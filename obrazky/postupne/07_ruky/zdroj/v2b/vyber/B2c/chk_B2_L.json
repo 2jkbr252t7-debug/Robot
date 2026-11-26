@@ -1,0 +1,595 @@
+{
+ "variant": "B2",
+ "side": "L",
+ "bevel": {
+  "d1": 33.690067525979785,
+  "d2": 56.309932474020215,
+  "Re": 7.03082498715478,
+  "k": 0.6444229511376737,
+  "r1": 3.9000000000000004,
+  "r2": 5.8500000000000005,
+  "pin": {
+   "toe_z": -20.479436764978804,
+   "toe_r": 2.94890575820181,
+   "crown_z": -22.399306090567002,
+   "crown_r": 4.5760408641494985,
+   "root_z": -23.2105551275464,
+   "root_r": 3.359167308680402
+  },
+  "gear": {
+   "toe_x": 41.251855760177996,
+   "toe_r": 3.9441367636613447,
+   "crown_x": 42.4943754815103,
+   "crown_r": 6.1204163456598,
+   "root_x": 43.711249036979396,
+   "root_r": 5.3091673086804025
+  }
+ },
+ "sweep": {
+  "SERVO": {
+   "min": 3.05,
+   "at": [
+    32.95,
+    -1.7,
+    -45.0
+   ],
+   "by": "lower bound"
+  },
+  "SERVO_cable": {
+   "min": 23.23,
+   "at": [
+    37.0,
+    -14.3,
+    -63.5
+   ],
+   "by": "lower bound"
+  },
+  "ROT_V_coupler": {
+   "min": 2.21,
+   "at": [
+    35.5,
+    3.1,
+    -40.1
+   ],
+   "by": "lower bound"
+  },
+  "ROT_V_shaft": {
+   "min": 3.71,
+   "at": [
+    37.01,
+    3.2,
+    -24.15
+   ],
+   "by": "lower bound"
+  },
+  "ROT_V_collar": {
+   "min": 3.01,
+   "at": [
+    36.31,
+    3.2,
+    -23.21
+   ],
+   "by": "lower bound"
+  },
+  "ROT_V_pinion": {
+   "min": 1.16,
+   "at": [
+    34.43,
+    2.7,
+    -23.21
+   ],
+   "by": "servo_zdvih"
+  },
+  "ROT_A_gear": {
+   "min": 7.86,
+   "at": [
+    41.25,
+    1.73,
+    -18.27
+   ],
+   "by": "lower bound"
+  },
+  "ROT_A_spindle": {
+   "min": 10.81,
+   "at": [
+    44.21,
+    1.73,
+    -18.27
+   ],
+   "by": "lower bound"
+  },
+  "STAT_tongue": {
+   "min": 1.13,
+   "at": [
+    34.42,
+    2.6,
+    -26.55
+   ],
+   "by": "servo_zdvih"
+  },
+  "STAT_insert": {
+   "min": 2.51,
+   "at": [
+    35.81,
+    3.2,
+    -24.15
+   ],
+   "by": "lower bound"
+  },
+  "STAT_keeper": {
+   "min": 8.11,
+   "at": [
+    41.5,
+    1.1,
+    -26.4
+   ],
+   "by": "lower bound"
+  },
+  "STAT_post": {
+   "min": 5.21,
+   "at": [
+    38.6,
+    1.5,
+    -19.38
+   ],
+   "by": "lower bound"
+  },
+  "STAT_boss": {
+   "min": 1.02,
+   "at": [
+    34.4,
+    -0.05,
+    -29.05
+   ],
+   "by": "servo_zdvih"
+  },
+  "STAT_leg_back": {
+   "min": 2.21,
+   "at": [
+    34.4,
+    9.2,
+    -40.2
+   ],
+   "by": "lower bound"
+  },
+  "STAT_leg_back_ext": {
+   "min": 1.81,
+   "at": [
+    34.4,
+    7.5,
+    -40.75
+   ],
+   "by": "lower bound"
+  },
+  "STAT_leg_front": {
+   "min": 5.21,
+   "at": [
+    34.4,
+    -14.6,
+    -44.5
+   ],
+   "by": "lower bound"
+  },
+  "STAT_web": {
+   "min": 4.86,
+   "at": [
+    30.5,
+    -8.3,
+    -48.5
+   ],
+   "by": "lower bound"
+  },
+  "STAT_strut": {
+   "min": 2.16,
+   "at": [
+    34.4,
+    -9.0,
+    -40.9
+   ],
+   "by": "lower bound"
+  },
+  "STAT_pad": {
+   "min": 23.19,
+   "at": [
+    32.65,
+    -1.7,
+    -66.8
+   ],
+   "by": "lower bound"
+  }
+ },
+ "static": {
+  "SERVO": {
+   "min": 1.76,
+   "at": [
+    45.05,
+    -14.3,
+    -45.0
+   ],
+   "nearest": {
+    "T_bok_L": 1.76,
+    "T_paluba": 1.95,
+    "T_spodok": 3.59
+   }
+  },
+  "SERVO_cable": {
+   "min": 5.03,
+   "at": [
+    41.0,
+    -17.3,
+    -66.5
+   ],
+   "nearest": {
+    "T_bok_L": 5.03
+   }
+  },
+  "ROT_V_coupler": {
+   "min": 5.27,
+   "at": [
+    35.5,
+    2.9,
+    -43.5
+   ],
+   "nearest": {
+    "T_paluba": 5.27,
+    "T_bok_L": 5.77
+   }
+  },
+  "ROT_V_shaft": {
+   "min": 0.0,
+   "at": [
+    40.8,
+    3.0,
+    -31.0
+   ],
+   "nearest": {
+    "T_bok_L": 0.0
+   }
+  },
+  "ROT_V_collar": {
+   "min": 3.7,
+   "at": [
+    39.0,
+    5.7,
+    -24.05
+   ],
+   "nearest": {
+    "T_bok_L": 3.7
+   }
+  },
+  "ROT_V_pinion": {
+   "min": 3.54,
+   "at": [
+    39.15,
+    -1.57,
+    -23.21
+   ],
+   "nearest": {
+    "T_bok_L": 3.54
+   }
+  },
+  "ROT_A_gear": {
+   "min": 5.46,
+   "at": [
+    42.49,
+    0.29,
+    -22.49
+   ],
+   "nearest": {
+    "T_bok_L": 5.46
+   }
+  },
+  "ROT_A_spindle": {
+   "min": ">6",
+   "at": [
+    44.21,
+    3.0,
+    -17.0
+   ],
+   "nearest": {}
+  },
+  "STAT_tongue": {
+   "min": 0.38,
+   "at": [
+    39.2,
+    7.6,
+    -26.85
+   ],
+   "nearest": {
+    "T_bok_L": 0.38
+   }
+  },
+  "STAT_insert": {
+   "min": 0.89,
+   "at": [
+    39.2,
+    6.19,
+    -26.85
+   ],
+   "nearest": {
+    "T_bok_L": 0.89
+   }
+  },
+  "STAT_keeper": {
+   "min": 1.72,
+   "at": [
+    41.5,
+    1.1,
+    -26.6
+   ],
+   "nearest": {
+    "T_bok_L": 1.72
+   }
+  },
+  "STAT_post": {
+   "min": 4.58,
+   "at": [
+    39.4,
+    1.5,
+    -10.5
+   ],
+   "nearest": {
+    "T_bok_L": 4.58
+   }
+  },
+  "STAT_boss": {
+   "min": 0.0,
+   "at": [
+    39.1,
+    -8.55,
+    -12.8
+   ],
+   "nearest": {
+    "T_bok_L": 0.0
+   }
+  },
+  "STAT_leg_back": {
+   "min": 0.43,
+   "at": [
+    31.5,
+    12.5,
+    -58.8
+   ],
+   "nearest": {
+    "T_spodok": 0.43,
+    "T_paluba": 0.58,
+    "T_bok_L": 0.7
+   }
+  },
+  "STAT_leg_back_ext": {
+   "min": 0.62,
+   "at": [
+    41.5,
+    7.5,
+    -33.0
+   ],
+   "nearest": {
+    "T_bok_L": 0.62,
+    "T_paluba": 3.82
+   }
+  },
+  "STAT_leg_front": {
+   "min": 1.79,
+   "at": [
+    32.7,
+    -14.6,
+    -48.5
+   ],
+   "nearest": {
+    "T_paluba": 1.79,
+    "T_bok_L": 2.17,
+    "T_stred": 2.34
+   }
+  },
+  "STAT_web": {
+   "min": 0.3,
+   "at": [
+    30.5,
+    -5.0,
+    -48.5
+   ],
+   "nearest": {
+    "T_paluba": 0.3,
+    "T_spodok": 1.53,
+    "T_stred": 3.01
+   }
+  },
+  "STAT_strut": {
+   "min": 0.7,
+   "at": [
+    38.4,
+    -9.8,
+    -25.3
+   ],
+   "nearest": {
+    "T_bok_L": 0.7,
+    "T_paluba": 3.8
+   }
+  },
+  "STAT_pad": {
+   "min": 3.17,
+   "at": [
+    32.65,
+    9.2,
+    -66.9
+   ],
+   "nearest": {
+    "T_spodok": 3.17,
+    "T_bok_L": 3.49,
+    "T_stred": 5.88
+   }
+  }
+ },
+ "paths": {
+  "lower": {
+   "SERVO": 2.25,
+   "SERVO_cable": 4.75,
+   "ROT_V_coupler": 11.26,
+   "ROT_V_shaft": 12.79,
+   "ROT_V_collar": 12.1,
+   "ROT_V_pinion": 10.15,
+   "ROT_A_gear": 10.54,
+   "ROT_A_spindle": 13.58,
+   "STAT_tongue": 10.15,
+   "STAT_insert": 11.68,
+   "STAT_keeper": 15.31,
+   "STAT_post": 7.75,
+   "STAT_boss": 2.25,
+   "STAT_leg_back": 0.46,
+   "STAT_leg_back_ext": 7.13,
+   "STAT_leg_front": 0.25,
+   "STAT_web": 0.75,
+   "STAT_strut": 0.87,
+   "STAT_pad": 1.87
+  },
+  "s1": {
+   "SERVO": 13.72,
+   "SERVO_cable": 39.81,
+   "ROT_V_coupler": 18.06,
+   "ROT_V_shaft": 19.58,
+   "ROT_V_collar": 19.81,
+   "ROT_V_pinion": 18.32,
+   "ROT_A_gear": 24.21,
+   "ROT_A_spindle": 27.0,
+   "STAT_tongue": 17.31,
+   "STAT_insert": 18.8,
+   "STAT_keeper": 23.49,
+   "STAT_post": 23.08,
+   "STAT_boss": 14.26,
+   "STAT_leg_back": 12.53,
+   "STAT_leg_back_ext": 14.52,
+   "STAT_leg_front": 32.71,
+   "STAT_web": 13.1,
+   "STAT_strut": 27.29,
+   "STAT_pad": 28.12
+  },
+  "side_cap_removal": {
+   "SERVO": {
+    "margin": 1.6,
+    "at": [
+     45.05,
+     -14.3,
+     -45.2
+    ]
+   },
+   "SERVO_cable": {
+    "margin": 5.47,
+    "at": [
+     41.0,
+     -17.3,
+     -66.5
+    ]
+   },
+   "ROT_V_coupler": {
+    "margin": 5.71,
+    "at": [
+     42.49,
+     3.2,
+     -40.0
+    ]
+   },
+   "ROT_V_shaft": {
+    "margin": -1.89,
+    "at": [
+     40.99,
+     2.8,
+     -31.77
+    ]
+   },
+   "ROT_V_collar": {
+    "margin": null,
+    "at": null
+   },
+   "ROT_V_pinion": {
+    "margin": null,
+    "at": null
+   },
+   "STAT_tongue": {
+    "margin": -2.86,
+    "at": [
+     41.96,
+     -0.52,
+     -26.85
+    ]
+   },
+   "STAT_insert": {
+    "margin": null,
+    "at": null
+   },
+   "STAT_boss": {
+    "margin": -0.0,
+    "at": [
+     39.1,
+     8.7,
+     -6.55
+    ]
+   },
+   "STAT_leg_back": {
+    "margin": 0.7,
+    "at": [
+     38.4,
+     9.2,
+     -26.1
+    ]
+   },
+   "STAT_leg_back_ext": {
+    "margin": -2.4,
+    "at": [
+     41.5,
+     7.5,
+     -33.0
+    ]
+   },
+   "STAT_leg_front": {
+    "margin": 2.24,
+    "at": [
+     41.5,
+     -20.0,
+     -44.5
+    ]
+   },
+   "STAT_web": {
+    "margin": 14.32,
+    "at": [
+     32.65,
+     -14.6,
+     -48.6
+    ]
+   },
+   "STAT_strut": {
+    "margin": 0.7,
+    "at": [
+     38.4,
+     -9.8,
+     -25.3
+    ]
+   },
+   "STAT_pad": {
+    "margin": 3.52,
+    "at": [
+     44.0,
+     -14.6,
+     -69.0
+    ]
+   }
+  },
+  "servo_insert_side": {
+   "SERVO": {
+    "margin": 1.95,
+    "at": [
+     31.0,
+     -7.2,
+     -46.2
+    ]
+   },
+   "SERVO_cable": {
+    "margin": 11.0,
+    "at": [
+     26.0,
+     -15.05,
+     -63.83
+    ]
+   }
+  }
+ }
+}

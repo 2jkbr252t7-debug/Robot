@@ -7,6 +7,25 @@ platia pre ľavú stranu; pravá je zrkadlová a bola prepočítaná zvlášť.
 
 Pôvodný návrh v1 so servom v ruke je zamietnutý (`NAVRH_ruky_v1_zamietnute.md`).
 
+> **Medzistav 26. 11. 2026: v2b – len bežné diely, žiadna práca s kovom.**
+> Mosadzné kolieska, sústružené hriadele, tanierová pružina a kolíky z tohto textu sú nahradené.
+>
+> * **Tlačia sa:** kolieska 12/18 z, zvislý hriadeľ, spojka serva, unášač, náboj, podložky.
+> * **Hriadeľ ruky:** obyčajná skrutka DIN 912 M4×20.
+> * **Kupuje sa len:** servo, ložiská bežných veľkostí, skrutky, podložka M10, magnety 5×2 a vložky M2.
+>
+> Podrobne to ukazujú obrázky `obrazky/v2b_rez_ramenom.png`, `v2b_rameno_rozlozene.png` a `v2b_diely.png`.
+> Výpočty a výsledky kontrol sú v `zdroj/v2b/`.
+>
+> Otvorené ostáva:
+>
+> * pevnosť stĺpa pri +135° (T_spodok zatiaľ netlačiť);
+> * skutočné rozmery serva;
+> * dostupnosť dielov v SK/CZ obchodoch.
+>
+> Ruka sa ešte zúži, lebo pôsobí príliš široko. Diely kĺbu vo vnútri ruky (ložisko 6800, spojka) sa preto ešte zmenia.
+> Celý text sa prepíše po výbere štíhlejšej ruky.
+
 ## 1. Zhrnutie
 
 * **Servo každej ruky je v trupe.** Ruka je len pasívna biela škrupina bez elektroniky, kábla a serva.

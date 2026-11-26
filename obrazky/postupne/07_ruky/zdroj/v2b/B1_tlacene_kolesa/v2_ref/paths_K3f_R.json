@@ -1,0 +1,124 @@
+{
+ "cap": {
+  "SERVO": {
+   "min": 0.76,
+   "at": [
+    -45.05,
+    -17.85,
+    -49.3
+   ]
+  },
+  "SERVO_cable": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_V_coupler": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_V_shaft": {
+   "min": 0.0,
+   "at": [
+    -40.34,
+    2.6,
+    -32.2
+   ]
+  },
+  "ROT_V_pinion": {
+   "min": 0.8,
+   "at": null
+  },
+  "BRG_B1": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_boss": {
+   "min": 0.0,
+   "at": [
+    -39.1,
+    8.92,
+    -7.02
+   ]
+  },
+  "STAT_tongue": {
+   "min": 0.47,
+   "at": [
+    -39.5,
+    7.37,
+    -26.85
+   ]
+  }
+ },
+ "servo_in": {
+  "SERVO": {
+   "min": 0.56,
+   "at": [
+    -32.39,
+    -14.01,
+    -48.2
+   ]
+  },
+  "SERVO_cable": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_V_coupler": {
+   "min": 0.8,
+   "at": null
+  }
+ },
+ "lower": {
+  "SERVO": {
+   "min": 0.55,
+   "at": [
+    -32.95,
+    -18.85,
+    -49.4
+   ]
+  },
+  "SERVO_cable": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_V_coupler": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_V_shaft": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_V_pinion": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_A_gear": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_A_shaft": {
+   "min": 0.8,
+   "at": null
+  },
+  "BRG_B1": {
+   "min": 0.8,
+   "at": null
+  },
+  "BRG_A1": {
+   "min": 0.8,
+   "at": null
+  },
+  "BRG_A2": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_boss": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_tongue": {
+   "min": 0.8,
+   "at": null
+  }
+ }
+}

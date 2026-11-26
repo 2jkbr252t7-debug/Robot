@@ -1,0 +1,14 @@
+{
+ "datum": "2026-11-26",
+ "siet": "WebFetch blocked for every non-allowlisted host (elegoo.com, files.seeedstudio.com: ENOTFOUND). Only waveshare.com / files.waveshare.com were reachable (curl through the proxy). Everything else comes from WebSearch result summaries/snippets -> verified=false.",
+ "overene_waveshare": {
+   "product_page": "https://www.waveshare.com/sc09-servo.htm (saved dl/sc09_prod.html)",
+   "wiki": "https://www.waveshare.com/wiki/SC09_Servo (saved dl/sc09_wiki.html)",
+   "spec": "Output shaft 20T/OD3.95mm; Bearing type: sliding bearing; Gear: high precision metal gear ('copper and steel gears'); 23.2x12.0x25.5 mm; rated 0.7 kg.cm, locked-rotor 2.3 kg.cm @6V; weight 0.021 kg; Package Content: 'SC09 Servo x1'",
+   "drawing": "dl/SC09-Servo-details-size.jpg: spline 5.7 mm from case end, protrudes 3.2 above top face (2.9 marked), height 25.25 to top face, 28.45 overall, ears 32.5 span, hole Ø2 at 14.25 from axis",
+   "step": "files.waveshare.com/upload/9/9f/SC09.zip -> dl/z2/SC09-SERVO.step: spline 20 teeth OD 3.95 / root 3.45, toothed 2.21 mm + 0.29 chamfer to Ø3.0, plain Ø4.0 collar 0.8 mm under it, centre hole Ø1.6 depth 5.0 (thread not modelled)",
+   "horn_step": "dl/z2/SC09-ARM.step: single arm hub Ø7.4 h4.1 L17.2 from axis; double arm hub Ø6.9 h3.7 L 2x15.7; cross 16.5x33.7 h3.8; arm holes Ø1.0 at ~2 mm pitch; centre hole Ø2.5-2.75, counterbore Ø4.5-5.4; spline modelled 20T Ø4.2/4.8 over 2.35 mm (simplified, does NOT match servo OD 3.95 - do not copy for printing). dl/z1/sc09/SC09_ARM.step (older zip): disc Ø24 x4.1, double arm 34.6.",
+   "photo": "dl/sc09-servo-5.jpg: white plastic horns (cross, disc, double, single), 3 small screws (2 long + 1 short), cable, adapter board"
+ },
+ "calc": "gear_lewis.py / gear_lewis.json (Lewis, bevel, Elegoo Tough UTS 32.1, allowable 8.5 MPa)"
+}

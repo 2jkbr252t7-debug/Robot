@@ -1,0 +1,48 @@
+room ARM_6700           wall left 3.96 at [ 55.5    2.62 -24.49]
+room ARM_rib            wall left 1.60 at [ 53.    -5.14 -19.45]
+room ARM_hub_bore_wall  wall left 3.66 at [ 55.5    2.4  -25.68]
+room ARM_flange         wall left 3.75 at [ 59.5  15.7 -17.3]
+room ARM_washer         wall left 6.51 at [ 62.6   12.96 -16.1 ]
+room ARM_wall           wall left 1.51 at [ 67.4   -8.83 -12.38]
+room DRV_boss           wall left 8.00 at [ 60.    6.6 -17. ]
+room DRV_disc           wall left 3.76 at [ 65.9   13.55 -13.89]
+room DRV_screw_head     wall left 8.00 at [ 60.   3. -17.]
+room DRV_screw_shank    wall left 5.38 at [ 55.6    2.96 -19.  ]
+room ARM_lip            wall left 1.97 at [ 67.4   14.51 -13.59]
+swing ARM_6700 vs PLG_ring         min >3 at None deg
+swing ARM_rib vs PLG_ring          min 0.5 at -12.0 deg
+swing ARM_hub_bore_wall vs PLG_ring min >3 at None deg
+swing ARM_flange vs PLG_ring       min >3 at None deg
+swing ARM_washer vs PLG_ring       min >3 at None deg
+swing ARM_wall vs PLG_ring         min >3 at None deg
+swing ARM_lip vs PLG_ring          min >3 at None deg
+swing ARM_rib vs PLG_seat          min 0.5 at 60.0 deg
+swing ARM_hub_bore_wall vs PLG_seat min 2.5 at -45.0 deg
+swing ARM_flange vs PLG_seat       min 0.5 at -45.0 deg
+swing ARM_washer vs PLG_seat       min 1.13 at -45.0 deg
+swing ARM_wall vs PLG_seat         min >3 at None deg
+swing ARM_lip vs PLG_seat          min >3 at None deg
+swing ARM_6700 vs PLG_lug          min 0.6 at 86.0 deg
+swing ARM_rib vs PLG_lug           min 0.58 at -45.0 deg
+swing ARM_hub_bore_wall vs PLG_lug min 1.17 at 104.0 deg
+swing ARM_flange vs PLG_lug        min >3 at None deg
+swing ARM_washer vs PLG_lug        min >3 at None deg
+swing ARM_wall vs PLG_lug          min >3 at None deg
+swing ARM_lip vs PLG_lug           min >3 at None deg
+homing rib-lug gap at -51 deg: 0.071 ; at -45: 0.577
+stop contact face r (5.5, 6.6) x (53.0, 55.0) area 2.20 mm2
+drive DRV_boss vs ARM_6700         0.71
+drive DRV_boss vs ARM_flange       0.50
+drive DRV_boss vs ARM_washer       0.75
+drive DRV_boss vs PLG_seat         0.50
+drive DRV_disc vs ARM_hub_bore_wall 2.00
+drive DRV_disc vs ARM_flange       2.00
+drive DRV_disc vs ARM_wall         0.50
+drive DRV_disc vs ARM_lip          0.30
+drive DRV_screw_head vs ARM_6700   1.58
+drive DRV_screw_head vs ARM_flange 1.50
+drive DRV_screw_head vs ARM_washer 1.75
+drive DRV_screw_head vs ARM_lip    2.26
+drive DRV_screw_head vs PLG_seat   0.50
+drive DRV_screw_shank vs PLG_seat  0.30
+done 1476s

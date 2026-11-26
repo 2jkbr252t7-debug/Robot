@@ -1,0 +1,36 @@
+=== B1 m 0.6667 z (12, 18) a 25 x1 +0.00 b 2.80 R 7.211 m_mean 0.5373 rm2 4.835 zv 14.42/32.45
+  eps 1.291  rform1 6.590 rsap1 6.632  rform2 15.424 rsap2 15.564 undercut (False, False)  tip land heel 0.408/0.448 toe 0.249/0.274 mm
+  L1 Y(tip dir) 0.3985  Y(raw Ft at tip) 0.3639  t 1.878 l 1.615 gamma 34.2  rF 0.017 Kf 1.996 (Kf with rho 1.436)
+  L2 Y(tip dir) 0.4986  Y(raw Ft at tip) 0.4778  t 2.142 l 1.600 gamma 29.7  rF 0.014 Kf 2.215 (Kf with rho 1.550)
+  env {'pin_crown_r': 4.499, 'pin_crown_z': -22.667, 'pin_heel_root_z': -23.426, 'pin_toe_z': -20.467, 'pin_toe_r': 2.752, 'gear_crown_r': 6.333, 'gear_crown_x': 42.501, 'gear_root_x': 43.638, 'gear_toe_x': 41.142}
+=== B2 m 0.6500 z (12, 18) a 25 x1 +0.25 b 2.50 R 7.031 m_mean 0.5344 rm2 4.810 zv 14.42/32.45
+  eps 1.387  rform1 6.645 rsap1 6.689  rform2 15.195 rsap2 15.387 undercut (False, False)  tip land heel 0.231/0.388 toe 0.149/0.250 mm
+  L1 Y(tip dir) 0.4305  Y(raw Ft at tip) 0.3732  t 2.072 l 1.917 gamma 38.2  rF 0.011 Kf 2.052 (Kf with rho 1.405)
+  L2 Y(tip dir) 0.4114  Y(raw Ft at tip) 0.3972  t 2.035 l 1.738 gamma 29.0  rF 0.011 Kf 2.119 (Kf with rho 1.453)
+  env {'pin_crown_r': 4.576, 'pin_crown_z': -22.399, 'pin_heel_root_z': -23.211, 'pin_toe_z': -20.479, 'pin_toe_r': 2.949, 'gear_crown_r': 6.12, 'gear_crown_x': 42.494, 'gear_root_x': 43.711, 'gear_toe_x': 41.252}
+=== v2printed m 0.5000 z (16, 24) a 20 x1 +0.00 b 2.40 R 7.211 m_mean 0.4168 rm2 5.002 zv 19.23/43.27
+  eps 1.638  rform1 9.042 rsap1 9.065  rform2 20.815 rsap2 20.962 undercut (False, False)  tip land heel 0.345/0.383 toe 0.230/0.256 mm
+  L1 Y(tip dir) 0.3350  Y(raw Ft at tip) 0.3093  t 1.798 l 1.741 gamma 29.8  rF 0.405 Kf 1.460 (Kf with rho 1.473)
+  L2 Y(tip dir) 0.4064  Y(raw Ft at tip) 0.3916  t 2.030 l 1.754 gamma 25.1  rF 0.369 Kf 1.574 (Kf with rho 1.567)
+  env {'pin_crown_r': 4.416, 'pin_crown_z': -22.723, 'pin_heel_root_z': -23.347, 'pin_toe_z': -20.818, 'pin_toe_r': 2.946, 'gear_crown_r': 6.277, 'gear_crown_x': 42.584, 'gear_root_x': 43.52, 'gear_toe_x': 41.391}
+B1 need 4 Nmm                                 T_gear  4.00 Ft 0.83  pin tipdir 1.38 raw 1.51 tipdir*Kf 2.75 | gear tipdir 1.10 raw 1.15 tipdir*Kf 2.44
+B1 running 8                                  T_gear  8.00 Ft 1.65  pin tipdir 2.76 raw 3.02 tipdir*Kf 5.51 | gear tipdir 2.21 raw 2.30 tipdir*Kf 4.88
+B1 slip 16 (coin upper)                       T_gear 16.00 Ft 3.31  pin tipdir 5.52 raw 6.04 tipdir*Kf 11.02 | gear tipdir 4.41 raw 4.60 tipdir*Kf 9.77
+B1 slip 17 (judge window upper)               T_gear 17.00 Ft 3.52  pin tipdir 5.86 raw 6.42 tipdir*Kf 11.70 | gear tipdir 4.69 raw 4.89 tipdir*Kf 10.38
+B1 mu-drift 0.4 after calib (x1.6 of 16)      T_gear 25.60 Ft 5.29  pin tipdir 8.83 raw 9.67 tipdir*Kf 17.63 | gear tipdir 7.06 raw 7.36 tipdir*Kf 15.63
+B2 need 4/(1-0.205)                           T_gear  5.03 Ft 1.05  pin tipdir 1.82 raw 2.10 tipdir*Kf 3.73 | gear tipdir 1.90 raw 1.97 tipdir*Kf 4.03
+B2 slip 13.4 dry mu0.25 -> 20.3 at gear       T_gear 20.33 Ft 4.23  pin tipdir 7.35 raw 8.48 tipdir*Kf 15.08 | gear tipdir 7.69 raw 7.97 tipdir*Kf 16.29
+B2 slip 13.4 mu0.15                           T_gear 16.86 Ft 3.50  pin tipdir 6.09 raw 7.03 tipdir*Kf 12.50 | gear tipdir 6.37 raw 6.60 tipdir*Kf 13.51
+B2 jam 8% limit 27.1                          T_gear 27.10 Ft 5.63  pin tipdir 9.79 raw 11.30 tipdir*Kf 20.10 | gear tipdir 10.25 raw 10.62 tipdir*Kf 21.71
+B1 gear torque at 8.5 MPa, basis tipdir    : 24.6 N.mm
+B1 gear torque at 8.5 MPa, basis tipdir_Kf : 12.3 N.mm
+B1 gear torque at 8.5 MPa, basis raw       : 22.5 N.mm
+B1 gear torque at 8.5 MPa, basis raw_Kf    : 11.3 N.mm
+B2 gear torque at 8.5 MPa, basis tipdir    : 22.5 N.mm
+B2 gear torque at 8.5 MPa, basis tipdir_Kf : 10.6 N.mm
+B2 gear torque at 8.5 MPa, basis raw       : 20.4 N.mm
+B2 gear torque at 8.5 MPa, basis raw_Kf    : 9.9 N.mm
+v2printed gear torque at 8.5 MPa, basis tipdir    : 14.2 N.mm
+v2printed gear torque at 8.5 MPa, basis tipdir_Kf : 9.8 N.mm
+v2printed gear torque at 8.5 MPa, basis raw       : 13.2 N.mm
+v2printed gear torque at 8.5 MPa, basis raw_Kf    : 9.0 N.mm

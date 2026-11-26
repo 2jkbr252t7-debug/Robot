@@ -1,0 +1,56 @@
+parts {'ROT_coupler': 24736, 'ROT_vshaft': 17776, 'ROT_pinion': 13027, 'ROT_pinion_shim0.60': 13027, 'STAT_MR63': 7980, 'STAT_tongue': 13927, 'ROT_gear': 23683, 'ROT_M4': 31026, 'STAT_A1A2spacer': 37044, 'STAT_boss': 103283, 'FILL_corners': 38587} 0s
+sweep samples 936578 tree 1235178 3s
+sweep ROT_coupler          {'min': 1.231, 'at': [34.51, 2.7, -37.77], 'by': 'servo_zdvih'} 3s
+sweep ROT_vshaft           {'min': 9.9, 'at': None, 'by': None} 3s
+sweep ROT_pinion           {'min': 1.232, 'at': [34.51, 2.7, -23.21], 'by': 'servo_zdvih'} 3s
+sweep ROT_pinion_shim0.60  {'min': 1.233, 'at': [34.51, 2.7, -23.03], 'by': 'servo_zdvih'} 3s
+sweep STAT_MR63            {'min': 2.532, 'at': [36.01, 2.82, -24.09], 'by': 'lower bound (azimuth ignored)'} 3s
+sweep STAT_tongue          {'min': 1.331, 'at': [34.61, 2.64, -24.17], 'by': 'servo_zdvih'} 3s
+sweep ROT_gear             {'min': 9.9, 'at': None, 'by': None} 3s
+sweep ROT_M4               {'min': 9.9, 'at': None, 'by': None} 3s
+sweep STAT_A1A2spacer      {'min': 9.9, 'at': None, 'by': None} 3s
+sweep STAT_boss            {'min': 1.016, 'at': [34.4, -0.03, -28.82], 'by': 'servo_zdvih'} 5s
+sweep FILL_corners         {'min': 1.116, 'at': [34.5, 0.0, -29.0], 'by': 'servo_zdvih'} 8s
+static 5425764 77s
+static ROT_coupler          {'min': 2.5, 'at': [43.14, 3.0, -35.5], 'nearest': {'T_bok_L': 2.5, 'T_paluba': 4.443}}
+static ROT_vshaft           {'min': 0.505, 'at': [39.06, 1.5, -32.63], 'nearest': {'T_bok_L': 0.505}}
+static ROT_pinion           {'min': 3.404, 'at': [39.09, -1.5, -23.42], 'nearest': {'T_bok_L': 3.404}}
+static ROT_pinion_shim0.60  {'min': 3.552, 'at': [39.09, 7.5, -23.24], 'nearest': {'T_bok_L': 3.552}}
+static STAT_MR63            {'min': 1.429, 'at': [39.03, 6.0, -26.35], 'nearest': {'T_bok_L': 1.429}}
+static STAT_tongue          {'min': 0.462, 'at': [39.06, 7.4, -26.85], 'nearest': {'T_bok_L': 0.462}}
+static ROT_gear             {'min': 5.268, 'at': [42.5, 8.13, -13.29], 'nearest': {'T_bok_L': 5.268}}
+static ROT_M4               {'min': '>8', 'at': [40.0, 3.0, -17.0], 'nearest': {}}
+static STAT_A1A2spacer      {'min': '>8', 'at': [44.54, 5.0, -17.0], 'nearest': {}}
+static STAT_boss            {'min': 0.0, 'at': [39.1, -0.09, -5.48], 'nearest': {'T_bok_L': 0.0}}
+static FILL_corners         {'min': 0.3, 'at': [28.5, -15.0, -48.5], 'nearest': {'T_paluba': 0.3, 'T_spodok': 0.476, 'T_bok_L': 0.6}}
+{
+ "coupler_corridor_min": 0.5,
+ "coupler_corridor_at": [
+  34.5,
+  3.0,
+  -35.0
+ ],
+ "coupler_rot_min": 0.5,
+ "servo_slide_min": 0.45,
+ "servo_slide_at": [
+  32.5,
+  -14.0,
+  -49.0
+ ],
+ "servo_boss_slide_min": 1.0,
+ "lifted_hex_min": 0.613,
+ "T_stred_lowering_min": 0.6,
+ "T_stred_lowering_at": [
+  33.0,
+  -19.0,
+  -49.0
+ ],
+ "cap_removal_min": 0.6,
+ "cap_removal_at": [
+  38.5,
+  10.5,
+  -29.5
+ ],
+ "n_corners": 38587
+}
+done 157s

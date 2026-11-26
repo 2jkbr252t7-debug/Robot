@@ -1,0 +1,175 @@
+pinion_virtual_m1 {'z_virtual': 14.422, 'rp': 7.2111, 'rb': 6.5355, 'ra': 8.1111, 'root_r': 6.0611, 'form_r': 6.5751, 's_pitch': 1.5668, 'top_land': 0.6101, 'load_angle_deg': 34.16, 'h_load': np.float64(7.8984), 'crit_r': 6.3511, 'crit_s': 1.8779, 'crit_h': 1.617, 'Y_tipdir': 0.3981, 'Y_plain': 0.3635, 'rf_fit': 0.6341, 'rf_min': 0.4366, 'Kf_fit': 1.354, 'Kf_rmin': 1.405, 'undercut': False}
+gear_virtual_m1 {'z_virtual': 32.45, 'rp': 16.225, 'rb': 14.7048, 'ra': 17.025, 'root_r': 15.075, 'form_r': 15.419, 's_pitch': 1.5693, 'top_land': 0.7852, 'load_angle_deg': 28.94, 'h_load': np.float64(16.8033), 'crit_r': 15.355, 'crit_s': 2.1497, 'crit_h': 1.486, 'Y_tipdir': 0.5368, 'Y_plain': 0.5183, 'rf_fit': 0.6614, 'rf_min': 0.3493, 'Kf_fit': 1.508, 'Kf_rmin': 1.607, 'undercut': False}
+{
+ "cone": {
+  "delta1": 33.69,
+  "delta2": 56.31,
+  "Re": 7.2115,
+  "b_over_R": 0.388,
+  "m_toe": 0.4078,
+  "m_mean": 0.5373
+ },
+ "pinion_env": {
+  "crown_z": -22.667,
+  "crown_r": 4.499,
+  "heel_root_z": -23.426,
+  "heel_root_r": 3.362,
+  "toe_z": -20.467,
+  "toe_r": 2.752,
+  "toe_root_z": -20.931,
+  "toe_root_r": 2.057
+ },
+ "gear_env": {
+  "toe_x": 41.176,
+  "toe_r": 3.852,
+  "crown_x": 42.556,
+  "crown_r": 6.296,
+  "heel_root_x": 43.638,
+  "heel_root_r": 5.575,
+  "toe_root_x": 41.837,
+  "toe_root_r": 3.41
+ },
+ "sap_margin_mm": {
+  "heel": {
+   "module": 0.6667,
+   "margin_radial_mm": 0.0622,
+   "normal_approach_to_consume_mm": 0.1658,
+   "backlash_equiv_mm": 0.1546
+  },
+  "mean": {
+   "module": 0.5373,
+   "margin_radial_mm": 0.0501,
+   "normal_approach_to_consume_mm": 0.1336,
+   "backlash_equiv_mm": 0.1246
+  },
+  "toe": {
+   "module": 0.4078,
+   "margin_radial_mm": 0.038,
+   "normal_approach_to_consume_mm": 0.1014,
+   "backlash_equiv_mm": 0.0946
+  }
+ },
+ "lands_mm": {
+  "heel": {
+   "pinion_top_land": 0.4068,
+   "gear_top_land": 0.5235,
+   "pinion_s_pitch": 1.0446,
+   "tooth_height": 1.3667,
+   "clearance": 0.1667
+  },
+  "mean": {
+   "pinion_top_land": 0.3278,
+   "gear_top_land": 0.4219,
+   "pinion_s_pitch": 0.8418,
+   "tooth_height": 1.1014,
+   "clearance": 0.1343
+  },
+  "toe": {
+   "pinion_top_land": 0.2488,
+   "gear_top_land": 0.3202,
+   "pinion_s_pitch": 0.639,
+   "tooth_height": 0.8361,
+   "clearance": 0.102
+  }
+ },
+ "stress": {
+  "T_arm 0.002": {
+   "Ft_N": 0.414,
+   "pinion_lewis": 0.69,
+   "pinion_xKf": 0.97,
+   "pinion_xKf_xKm1p25": 1.21,
+   "gear_lewis": 0.51,
+   "gear_xKf": 0.82
+  },
+  "T_arm 0.004": {
+   "Ft_N": 0.827,
+   "pinion_lewis": 1.38,
+   "pinion_xKf": 1.94,
+   "pinion_xKf_xKm1p25": 2.43,
+   "gear_lewis": 1.02,
+   "gear_xKf": 1.65
+  },
+  "T_arm 0.008": {
+   "Ft_N": 1.654,
+   "pinion_lewis": 2.76,
+   "pinion_xKf": 3.88,
+   "pinion_xKf_xKm1p25": 4.85,
+   "gear_lewis": 2.05,
+   "gear_xKf": 3.29
+  },
+  "T_arm 0.009": {
+   "Ft_N": 1.861,
+   "pinion_lewis": 3.11,
+   "pinion_xKf": 4.37,
+   "pinion_xKf_xKm1p25": 5.46,
+   "gear_lewis": 2.3,
+   "gear_xKf": 3.7
+  },
+  "T_arm 0.0105": {
+   "Ft_N": 2.171,
+   "pinion_lewis": 3.63,
+   "pinion_xKf": 5.09,
+   "pinion_xKf_xKm1p25": 6.37,
+   "gear_lewis": 2.69,
+   "gear_xKf": 4.32
+  },
+  "T_arm 0.0115": {
+   "Ft_N": 2.378,
+   "pinion_lewis": 3.97,
+   "pinion_xKf": 5.58,
+   "pinion_xKf_xKm1p25": 6.97,
+   "gear_lewis": 2.95,
+   "gear_xKf": 4.73
+  },
+  "T_arm 0.0124": {
+   "Ft_N": 2.564,
+   "pinion_lewis": 4.28,
+   "pinion_xKf": 6.02,
+   "pinion_xKf_xKm1p25": 7.52,
+   "gear_lewis": 3.18,
+   "gear_xKf": 5.1
+  },
+  "T_arm 0.017": {
+   "Ft_N": 3.516,
+   "pinion_lewis": 5.87,
+   "pinion_xKf": 8.25,
+   "pinion_xKf_xKm1p25": 10.31,
+   "gear_lewis": 4.35,
+   "gear_xKf": 7.0
+  }
+ },
+ "T_arm_at_8p5": {
+  "lewis_xKf": 0.0175,
+  "lewis_xKf_Km1p25": 0.014,
+  "lewis_xKf_Km1p5": 0.0117
+ },
+ "pinion_forces_at_0.017": {
+  "Ft": 3.516,
+  "axial_down": 0.909,
+  "radial": 1.364,
+  "gear_axial_outboard": 1.364,
+  "gear_radial": 0.909
+ },
+ "backlash_per_mm": {
+  "pinion_axial": 0.5173,
+  "gear_axial": 0.776,
+  "note": "j_t change per mm axial move away from the apex"
+ },
+ "backlash_stack": {
+  "j_nominal": 0.088,
+  "mean_shift_j": 0.124,
+  "rss_j": 0.132,
+  "worstcase_j": 0.429,
+  "print_thickness_j": 0.088,
+  "shim_correction_j": [
+   -0.093,
+   0.062
+  ],
+  "needed_correction_j_3sigma": [
+   -0.344,
+   0.096
+  ],
+  "note": "shim set 0.30..0.60 corrects only -0.093..+0.062 of transverse backlash"
+ }
+}
+done

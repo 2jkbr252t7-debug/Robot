@@ -1,0 +1,50 @@
+{
+ "L": {
+  "hw 6.0": {
+   "r_max": 33.38,
+   "by": "servo_zdvih",
+   "x_in": 34.38,
+   "free_to_surface": 12.37,
+   "free_to_inner_wall": 10.14,
+   "without_lift_module": {
+    "r_max": 26.5,
+    "free": 19.26
+   }
+  },
+  "hw 7.5": {
+   "r_max": 33.38,
+   "by": "servo_zdvih",
+   "x_in": 34.38,
+   "free_to_surface": 12.37,
+   "free_to_inner_wall": 10.14,
+   "without_lift_module": {
+    "r_max": 26.5,
+    "free": 19.26
+   }
+  }
+ },
+ "R": {
+  "hw 6.0": {
+   "r_max": 33.01,
+   "by": "P_drziak_serva",
+   "x_in": 34.01,
+   "free_to_surface": 12.74,
+   "free_to_inner_wall": 10.51,
+   "without_lift_module": {
+    "r_max": 31.72,
+    "free": 14.03
+   }
+  },
+  "hw 7.5": {
+   "r_max": 33.01,
+   "by": "P_drziak_serva",
+   "x_in": 34.01,
+   "free_to_surface": 12.74,
+   "free_to_inner_wall": 10.51,
+   "without_lift_module": {
+    "r_max": 31.72,
+    "free": 14.03
+   }
+  }
+ }
+}

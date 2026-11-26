@@ -1,0 +1,238 @@
+{
+ "cap": {
+  "SERVO": {
+   "min": 0.8,
+   "at": null
+  },
+  "SERVO_cable": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_V_coupler": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_V_shaft": {
+   "min": 0.0,
+   "at": [
+    -40.17,
+    1.9,
+    -31.4
+   ]
+  },
+  "ROT_V_collar": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_V_pinion": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_tongue": {
+   "min": 0.4,
+   "at": [
+    -39.6,
+    7.56,
+    -26.85
+   ]
+  },
+  "STAT_insert": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_boss": {
+   "min": 0.0,
+   "at": [
+    -39.1,
+    14.95,
+    -16.55
+   ]
+  },
+  "STAT_leg_back": {
+   "min": 0.7,
+   "at": [
+    -38.4,
+    13.1,
+    -29.4
+   ]
+  },
+  "STAT_leg_back_ext": {
+   "min": 0.63,
+   "at": [
+    -41.5,
+    7.5,
+    -33.0
+   ]
+  },
+  "STAT_leg_front": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_web": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_strut": {
+   "min": 0.7,
+   "at": [
+    -38.4,
+    -9.0,
+    -27.4
+   ]
+  },
+  "STAT_pad": {
+   "min": 0.8,
+   "at": null
+  }
+ },
+ "servo_in": {
+  "SERVO": {
+   "min": 0.3,
+   "at": [
+    -34.4,
+    -14.6,
+    -48.5
+   ]
+  },
+  "SERVO_cable": {
+   "min": 0.0,
+   "at": [
+    -41.5,
+    -17.3,
+    -66.0
+   ]
+  }
+ },
+ "pinion_shaft_in": {
+  "ROT_V_coupler": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_V_coupler_vertical": {
+   "min": 0.0,
+   "at": [
+    -40.75,
+    2.6,
+    -40.4
+   ]
+  },
+  "ROT_V_shaft": {
+   "min": 0.57,
+   "at": [
+    -39.1,
+    0.45,
+    -29.3
+   ]
+  },
+  "ROT_V_shaft_vertical": {
+   "min": 0.55,
+   "at": [
+    -39.1,
+    0.45,
+    -28.55
+   ]
+  },
+  "ROT_V_collar": {
+   "min": ">2 (no static part near the path)",
+   "at": null
+  },
+  "ROT_V_pinion": {
+   "min": 0.66,
+   "at": [
+    -38.4,
+    8.2,
+    -18.3
+   ]
+  },
+  "ROT_V_pinion_vertical": {
+   "min": 0.66,
+   "at": [
+    -38.4,
+    8.2,
+    -14.3
+   ]
+  }
+ },
+ "lower": {
+  "SERVO": {
+   "min": 0.8,
+   "at": null
+  },
+  "SERVO_cable": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_V_coupler": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_V_shaft": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_V_collar": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_V_pinion": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_A_gear": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_A_spindle": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_tongue": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_insert": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_keeper": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_post": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_boss": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_leg_back": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_leg_back_ext": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_leg_front": {
+   "min": 0.25,
+   "at": [
+    -33.0,
+    -20.0,
+    -48.6
+   ]
+  },
+  "STAT_web": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_strut": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_pad": {
+   "min": 0.8,
+   "at": null
+  }
+ }
+}

@@ -1,0 +1,378 @@
+{
+ "variant": "K3h",
+ "side": "R",
+ "bevel": {
+  "d1": 33.690067525979785,
+  "d2": 56.309932474020215,
+  "Re": 7.211102550927978,
+  "r1": 4.0,
+  "r2": 6.0,
+  "pin": {
+   "toe_z": -20.818036887784253,
+   "toe_r": 2.9462831377668337,
+   "crown_z": -22.722649901887387,
+   "crown_r": 4.416025147168922,
+   "root_z": -23.34668762264077,
+   "root_r": 3.4799685660388477
+  },
+  "gear": {
+   "toe_x": 41.39115592035207,
+   "toe_r": 4.188121699394098,
+   "crown_x": 42.583974852831076,
+   "crown_r": 6.277350098112614,
+   "root_x": 43.52003143396115,
+   "root_r": 5.6533123773592315
+  }
+ },
+ "sweep": {
+  "SERVO": {
+   "min": 1.35,
+   "at": [
+    -32.95,
+    0.1,
+    -46.25
+   ],
+   "by": "P_drziak_serva"
+  },
+  "SERVO_cable": {
+   "min": 21.52,
+   "at": [
+    -37.0,
+    -14.3,
+    -67.25
+   ],
+   "by": "lower bound"
+  },
+  "ROT_V_coupler": {
+   "min": 2.06,
+   "at": [
+    -35.0,
+    3.1,
+    -40.0
+   ],
+   "by": "lower bound"
+  },
+  "ROT_V_shaft": {
+   "min": 4.56,
+   "at": [
+    -37.5,
+    3.1,
+    -28.75
+   ],
+   "by": "lower bound"
+  },
+  "ROT_V_pinion": {
+   "min": 1.66,
+   "at": [
+    -34.6,
+    2.6,
+    -22.83
+   ],
+   "by": "lower bound"
+  },
+  "ROT_A_gear": {
+   "min": 8.31,
+   "at": [
+    -41.39,
+    0.83,
+    -18.77
+   ],
+   "by": "lower bound"
+  },
+  "ROT_A_shaft": {
+   "min": 8.36,
+   "at": [
+    -41.39,
+    1.4,
+    -17.0
+   ],
+   "by": "lower bound"
+  },
+  "BRG_B1": {
+   "min": 3.06,
+   "at": [
+    -36.01,
+    3.2,
+    -24.95
+   ],
+   "by": "lower bound"
+  },
+  "BRG_A1": {
+   "min": 11.46,
+   "at": [
+    -44.55,
+    0.0,
+    -17.0
+   ],
+   "by": "lower bound"
+  },
+  "BRG_A2": {
+   "min": ">4",
+   "at": null,
+   "by": null
+  },
+  "STAT_boss": {
+   "min": 1.4,
+   "at": [
+    -34.4,
+    -0.07,
+    -28.39
+   ],
+   "by": "P_drziak_serva"
+  },
+  "STAT_tongue": {
+   "min": 1.66,
+   "at": [
+    -34.6,
+    3.0,
+    -24.95
+   ],
+   "by": "lower bound"
+  }
+ },
+ "static": {
+  "SERVO": {
+   "min": 0.58,
+   "at": [
+    -32.95,
+    -14.0,
+    -48.35
+   ],
+   "nearest": {
+    "T_spodok": 0.58,
+    "T_bok_P": 0.77
+   }
+  },
+  "SERVO_cable": {
+   "min": 4.59,
+   "at": [
+    -41.0,
+    -17.3,
+    -70.25
+   ],
+   "nearest": {
+    "T_bok_P": 4.59,
+    "T_spodok": 4.65
+   }
+  },
+  "ROT_V_coupler": {
+   "min": 4.0,
+   "at": [
+    -43.0,
+    3.0,
+    -37.0
+   ],
+   "nearest": {
+    "T_bok_P": 4.0,
+    "T_spodok": 5.05
+   }
+  },
+  "ROT_V_shaft": {
+   "min": 0.0,
+   "at": [
+    -40.0,
+    3.0,
+    -31.0
+   ],
+   "nearest": {
+    "T_bok_P": 0.0
+   }
+  },
+  "ROT_V_pinion": {
+   "min": 3.52,
+   "at": [
+    -39.1,
+    7.41,
+    -23.35
+   ],
+   "nearest": {
+    "T_bok_P": 3.52
+   }
+  },
+  "ROT_A_gear": {
+   "min": 5.35,
+   "at": [
+    -42.58,
+    5.76,
+    -22.64
+   ],
+   "nearest": {
+    "T_bok_P": 5.35
+   }
+  },
+  "ROT_A_shaft": {
+   "min": ">6",
+   "at": [
+    -41.39,
+    3.0,
+    -17.0
+   ],
+   "nearest": {}
+  },
+  "BRG_B1": {
+   "min": 1.43,
+   "at": [
+    -39.1,
+    0.0,
+    -26.35
+   ],
+   "nearest": {
+    "T_bok_P": 1.43
+   }
+  },
+  "BRG_A1": {
+   "min": ">6",
+   "at": [
+    -44.55,
+    5.0,
+    -17.0
+   ],
+   "nearest": {}
+  },
+  "BRG_A2": {
+   "min": ">6",
+   "at": [
+    -48.55,
+    5.0,
+    -17.0
+   ],
+   "nearest": {}
+  },
+  "STAT_boss": {
+   "min": 0.0,
+   "at": [
+    -39.1,
+    7.68,
+    -5.84
+   ],
+   "nearest": {
+    "T_bok_P": 0.0
+   }
+  },
+  "STAT_tongue": {
+   "min": 0.46,
+   "at": [
+    -39.1,
+    7.4,
+    -26.85
+   ],
+   "nearest": {
+    "T_bok_P": 0.46
+   }
+  }
+ },
+ "paths": {
+  "lower": {
+   "SERVO": 0.25,
+   "SERVO_cable": 4.25,
+   "ROT_V_coupler": 10.73,
+   "ROT_V_shaft": 12.37,
+   "ROT_V_pinion": 10.3,
+   "ROT_A_gear": 10.54,
+   "ROT_A_shaft": 11.38,
+   "BRG_B1": 11.68,
+   "BRG_A1": 14.18,
+   "BRG_A2": 18.09,
+   "STAT_boss": 2.25,
+   "STAT_tongue": 10.3
+  },
+  "s1": {
+   "SERVO": 14.2,
+   "SERVO_cable": 40.63,
+   "ROT_V_coupler": 16.68,
+   "ROT_V_shaft": 19.2,
+   "ROT_V_pinion": 18.26,
+   "ROT_A_gear": 24.74,
+   "ROT_A_shaft": 26.0,
+   "BRG_B1": 18.44,
+   "BRG_A1": 28.26,
+   "BRG_A2": 31.89,
+   "STAT_boss": 15.12,
+   "STAT_tongue": 16.94
+  },
+  "side_cap_removal": {
+   "SERVO": {
+    "margin": 0.53,
+    "at": [
+     -45.05,
+     -17.85,
+     -49.55
+    ]
+   },
+   "SERVO_cable": {
+    "margin": 4.98,
+    "at": [
+     -41.0,
+     -17.3,
+     -70.25
+    ]
+   },
+   "ROT_V_coupler": {
+    "margin": 4.78,
+    "at": [
+     -42.98,
+     3.4,
+     -37.0
+    ]
+   },
+   "ROT_V_shaft": {
+    "margin": -1.4,
+    "at": [
+     -40.5,
+     3.0,
+     -32.16
+    ]
+   },
+   "ROT_V_pinion": {
+    "margin": null,
+    "at": null
+   },
+   "BRG_B1": {
+    "margin": null,
+    "at": null
+   },
+   "STAT_boss": {
+    "margin": -0.0,
+    "at": [
+     -39.1,
+     14.54,
+     -15.8
+    ]
+   },
+   "STAT_tongue": {
+    "margin": -2.3,
+    "at": [
+     -41.4,
+     -0.56,
+     -26.85
+    ]
+   }
+  },
+  "servo_insert_side": {
+   "SERVO": {
+    "margin": 0.56,
+    "at": [
+     -32.39,
+     -14.01,
+     -48.2
+    ]
+   },
+   "SERVO_cable": {
+    "margin": 4.65,
+    "at": [
+     -32.35,
+     -15.05,
+     -68.13
+    ]
+   },
+   "ROT_V_coupler": {
+    "margin": 11.91,
+    "at": [
+     -24.24,
+     6.5,
+     -43.28
+    ]
+   }
+  }
+ }
+}

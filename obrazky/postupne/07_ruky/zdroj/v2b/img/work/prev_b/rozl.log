@@ -1,0 +1,72 @@
+/tmp/claude-0/gapwf/fin/R2c/img/work/v2b_scene.py:567: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  W_ = bpy.data.worlds.new("w"); sc.world = W_; W_.use_nodes = True
+[   0.1] start rozlozene
+Timer 'STL Import' took 3.03 ms
+/tmp/claude-0/gapwf/fin/R2c/img/work/v2b_scene.py:73: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(key); m.use_nodes = True
+Timer 'STL Import' took 11.18 ms
+Timer 'STL Import' took 1.64 ms
+Timer 'STL Import' took 1.05 ms
+Timer 'STL Import' took 0.58 ms
+00:34.590  io.stl           | WARNING Removed 8 degenerate triangles during import
+Timer 'STL Import' took 2.72 ms
+Timer 'STL Import' took 0.52 ms
+Timer 'STL Import' took 0.79 ms
+Timer 'STL Import' took 0.47 ms
+Timer 'STL Import' took 2.44 ms
+Timer 'STL Import' took 0.42 ms
+Timer 'STL Import' took 0.41 ms
+Timer 'STL Import' took 0.43 ms
+Timer 'STL Import' took 0.95 ms
+Timer 'STL Import' took 1.33 ms
+Timer 'STL Import' took 0.44 ms
+Timer 'STL Import' took 0.62 ms
+Timer 'STL Import' took 0.33 ms
+Timer 'STL Import' took 1.58 ms
+Timer 'STL Import' took 0.67 ms
+Timer 'STL Import' took 0.74 ms
+Timer 'STL Import' took 0.44 ms
+Timer 'STL Import' took 0.66 ms
+Timer 'STL Import' took 0.48 ms
+Timer 'STL Import' took 0.44 ms
+Timer 'STL Import' took 2.29 ms
+Timer 'STL Import' took 1.21 ms
+Timer 'STL Import' took 0.80 ms
+Timer 'STL Import' took 0.52 ms
+Timer 'STL Import' took 0.63 ms
+Timer 'STL Import' took 0.59 ms
+Timer 'STL Import' took 1.49 ms
+Timer 'STL Import' took 0.64 ms
+Timer 'STL Import' took 0.66 ms
+Timer 'STL Import' took 1.16 ms
+Timer 'STL Import' took 0.98 ms
+[  36.7] anchor stlp_L [ 41.5 -17.6 -63.2] [270.72, 358.1]
+[  36.7] anchor vypln_priecka_L [ 38.5  -8.  -27.9] [275.29, 161.53]
+[  36.8] anchor B1_L [ 41.5   3.  -23.9] [316.84, 128.55]
+[  36.8] anchor vlozky_L [ 38.4   9.9 -21.5] [318.76, 106.76]
+[  36.8] anchor pastorok_L [ 10.8   0.3 -10.5] [166.22, 47.3]
+[  36.8] anchor podlozka_pastorka_L [ 12.9   3.  -17.4] [184.77, 81.05]
+[  36.8] anchor hriadel_zvisly_L [ 11.    1.5 -39.5] [178.17, 192.2]
+[  36.8] anchor skrutka_spojky_L [ 12.4   1.7 -56.6] [188.71, 275.21]
+[  36.8] anchor spojka_L [ 12.1  -1.4 -74.7] [184.44, 364.29]
+[  36.8] anchor servo_telo_L [  17.   -13.7 -109.2] [182.11, 546.29]
+[  36.8] anchor koleso_L [ 51.    3.5 -11. ] [361.39, 65.2]
+[  36.8] anchor podlozka_kolesa_L [ 55.5   3.  -14.1] [382.62, 84.59]
+[  36.8] anchor A1_L [ 61.    3.1 -13.5] [409.51, 84.15]
+[  36.8] anchor puzdro_L [ 69.6   3.1 -13.5] [452.02, 88.53]
+[  36.8] anchor A2_L [ 75.1   2.6 -13.5] [478.81, 91.97]
+[  36.8] anchor zatka_L [85.  -5.8 -6.7] [511.77, 68.96]
+[  36.8] anchor zatka_skrutky_L [99.7  3.2 -8.1] [608.63, 74.42]
+[  36.8] anchor c_podlozka_L [112.    3.1 -21.4] [672.18, 155.52]
+[  36.8] anchor skrutka_M4_L [128.7   3.1 -13.5] [767.54, 121.04]
+[  36.8] anchor L6800_L [ 45.3  -3.6 -85.1] [325.92, 441.87]
+[  36.8] anchor A_vnut [  59.3  -11.2 -114.4] [374.45, 603.84]
+[  36.9] anchor podlozka_M10_L [ 80.2  -0.4 -82.6] [494.99, 453.01]
+[  36.9] anchor unasac_L [ 91.2   3.2 -81. ] [555.61, 448.12]
+[  36.9] anchor magnety_spojky_L [ 98.5   3.4 -86.8] [590.7, 481.67]
+[  36.9] anchor kruzok_L [105.6  -4.9 -83.7] [611.25, 489.76]
+[  36.9] anchor A_mag_von [112.7 -10.3 -86.2] [637.53, 520.36]
+[  36.9] anchor A_vonk [ 136.3  -12.8 -114.9] [750.39, 690.86]
+00:47.674  render           | Saved: 'prev_b/rozlozene.png'
+[  47.0] SHOT rozlozene 10 s
+[  47.0] done

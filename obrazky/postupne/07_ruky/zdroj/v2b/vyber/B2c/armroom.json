@@ -1,0 +1,260 @@
+{
+ "dx": -1.0,
+ "rows": [
+  {
+   "r": 0.0,
+   "inset0.0": {
+    "x_in_min": 49.66,
+    "x_in_max": 49.66,
+    "x_out_min": 73.08,
+    "x_out_max": 73.08,
+    "n_miss": 0
+   },
+   "inset1.2": {
+    "x_in_min": 50.88,
+    "x_in_max": 50.88,
+    "x_out_min": 71.86,
+    "x_out_max": 71.86,
+    "n_miss": 0
+   }
+  },
+  {
+   "r": 2.0,
+   "inset0.0": {
+    "x_in_min": 49.26,
+    "x_in_max": 50.1,
+    "x_out_min": 72.72,
+    "x_out_max": 73.44,
+    "n_miss": 0
+   },
+   "inset1.2": {
+    "x_in_min": 50.48,
+    "x_in_max": 51.32,
+    "x_out_min": 71.5,
+    "x_out_max": 72.22,
+    "n_miss": 0
+   }
+  },
+  {
+   "r": 4.0,
+   "inset0.0": {
+    "x_in_min": 48.92,
+    "x_in_max": 50.56,
+    "x_out_min": 72.32,
+    "x_out_max": 73.78,
+    "n_miss": 0
+   },
+   "inset1.2": {
+    "x_in_min": 50.12,
+    "x_in_max": 51.8,
+    "x_out_min": 71.08,
+    "x_out_max": 72.56,
+    "n_miss": 0
+   }
+  },
+  {
+   "r": 5.0,
+   "inset0.0": {
+    "x_in_min": 48.78,
+    "x_in_max": 50.8,
+    "x_out_min": 72.1,
+    "x_out_max": 73.96,
+    "n_miss": 0
+   },
+   "inset1.2": {
+    "x_in_min": 49.98,
+    "x_in_max": 52.04,
+    "x_out_min": 70.88,
+    "x_out_max": 72.74,
+    "n_miss": 0
+   }
+  },
+  {
+   "r": 6.0,
+   "inset0.0": {
+    "x_in_min": 48.66,
+    "x_in_max": 51.06,
+    "x_out_min": 71.88,
+    "x_out_max": 74.12,
+    "n_miss": 0
+   },
+   "inset1.2": {
+    "x_in_min": 49.86,
+    "x_in_max": 52.28,
+    "x_out_min": 70.64,
+    "x_out_max": 72.9,
+    "n_miss": 0
+   }
+  },
+  {
+   "r": 6.5,
+   "inset0.0": {
+    "x_in_min": 48.6,
+    "x_in_max": 51.18,
+    "x_out_min": 71.76,
+    "x_out_max": 74.2,
+    "n_miss": 0
+   },
+   "inset1.2": {
+    "x_in_min": 49.8,
+    "x_in_max": 52.42,
+    "x_out_min": 70.54,
+    "x_out_max": 73.0,
+    "n_miss": 0
+   }
+  },
+  {
+   "r": 7.0,
+   "inset0.0": {
+    "x_in_min": 48.56,
+    "x_in_max": 51.3,
+    "x_out_min": 71.64,
+    "x_out_max": 74.3,
+    "n_miss": 0
+   },
+   "inset1.2": {
+    "x_in_min": 49.76,
+    "x_in_max": 52.54,
+    "x_out_min": 70.42,
+    "x_out_max": 73.08,
+    "n_miss": 0
+   }
+  },
+  {
+   "r": 7.5,
+   "inset0.0": {
+    "x_in_min": 48.54,
+    "x_in_max": 51.42,
+    "x_out_min": 71.52,
+    "x_out_max": 74.38,
+    "n_miss": 0
+   },
+   "inset1.2": {
+    "x_in_min": 49.72,
+    "x_in_max": 52.66,
+    "x_out_min": 70.28,
+    "x_out_max": 73.16,
+    "n_miss": 0
+   }
+  },
+  {
+   "r": 8.0,
+   "inset0.0": {
+    "x_in_min": 48.52,
+    "x_in_max": 51.56,
+    "x_out_min": 71.4,
+    "x_out_max": 74.46,
+    "n_miss": 0
+   },
+   "inset1.2": {
+    "x_in_min": 49.7,
+    "x_in_max": 52.8,
+    "x_out_min": 70.16,
+    "x_out_max": 73.24,
+    "n_miss": 0
+   }
+  },
+  {
+   "r": 9.0,
+   "inset0.0": {
+    "x_in_min": 48.52,
+    "x_in_max": 51.82,
+    "x_out_min": 71.12,
+    "x_out_max": 74.62,
+    "n_miss": 0
+   },
+   "inset1.2": {
+    "x_in_min": 49.68,
+    "x_in_max": 53.04,
+    "x_out_min": 69.88,
+    "x_out_max": 73.4,
+    "n_miss": 0
+   }
+  },
+  {
+   "r": 10.0,
+   "inset0.0": {
+    "x_in_min": 48.56,
+    "x_in_max": 52.06,
+    "x_out_min": 70.82,
+    "x_out_max": 74.78,
+    "n_miss": 0
+   },
+   "inset1.2": {
+    "x_in_min": 49.72,
+    "x_in_max": 53.34,
+    "x_out_min": 69.5,
+    "x_out_max": 73.58,
+    "n_miss": 0
+   }
+  },
+  {
+   "r": 11.0,
+   "inset0.0": {
+    "x_in_min": 48.7,
+    "x_in_max": 52.44,
+    "x_out_min": 70.36,
+    "x_out_max": 74.94,
+    "n_miss": 0
+   },
+   "inset1.2": {
+    "x_in_min": 49.84,
+    "x_in_max": 53.8,
+    "x_out_min": 68.98,
+    "x_out_max": 73.74,
+    "n_miss": 0
+   }
+  },
+  {
+   "r": 12.0,
+   "inset0.0": {
+    "x_in_min": 48.96,
+    "x_in_max": 52.96,
+    "x_out_min": 69.82,
+    "x_out_max": 74.98,
+    "n_miss": 0
+   },
+   "inset1.2": {
+    "x_in_min": 50.06,
+    "x_in_max": 54.4,
+    "x_out_min": 68.32,
+    "x_out_max": 73.88,
+    "n_miss": 0
+   }
+  },
+  {
+   "r": 13.0,
+   "inset0.0": {
+    "x_in_min": 49.36,
+    "x_in_max": 53.6,
+    "x_out_min": 69.12,
+    "x_out_max": 74.98,
+    "n_miss": 0
+   },
+   "inset1.2": {
+    "x_in_min": 50.42,
+    "x_in_max": 55.22,
+    "x_out_min": 67.48,
+    "x_out_max": 74.04,
+    "n_miss": 0
+   }
+  },
+  {
+   "r": 14.0,
+   "inset0.0": {
+    "x_in_min": 49.98,
+    "x_in_max": 54.46,
+    "x_out_min": 68.22,
+    "x_out_max": 74.98,
+    "n_miss": 0
+   },
+   "inset1.2": {
+    "x_in_min": 51.02,
+    "x_in_max": 56.34,
+    "x_out_min": 66.3,
+    "x_out_max": 74.2,
+    "n_miss": 0
+   }
+  }
+ ]
+}

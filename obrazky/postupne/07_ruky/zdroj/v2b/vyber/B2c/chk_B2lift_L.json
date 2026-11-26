@@ -1,0 +1,149 @@
+{
+ "variant": "B2lift",
+ "side": "L",
+ "bevel": {
+  "d1": 33.690067525979785,
+  "d2": 56.309932474020215,
+  "Re": 7.03082498715478,
+  "k": 0.6444229511376737,
+  "r1": 3.9000000000000004,
+  "r2": 5.8500000000000005,
+  "pin": {
+   "toe_z": -20.479436764978804,
+   "toe_r": 2.94890575820181,
+   "crown_z": -22.399306090567002,
+   "crown_r": 4.5760408641494985,
+   "root_z": -23.2105551275464,
+   "root_r": 3.359167308680402
+  },
+  "gear": {
+   "toe_x": 41.251855760177996,
+   "toe_r": 3.9441367636613447,
+   "crown_x": 42.4943754815103,
+   "crown_r": 6.1204163456598,
+   "root_x": 43.711249036979396,
+   "root_r": 5.3091673086804025
+  }
+ },
+ "sweep": {
+  "ROT_V_coupler_lift": {
+   "min": 2.21,
+   "at": [
+    35.5,
+    3.1,
+    -35.9
+   ],
+   "by": "lower bound"
+  },
+  "ROT_V_shaft_lift": {
+   "min": 3.71,
+   "at": [
+    37.01,
+    3.2,
+    -20.05
+   ],
+   "by": "lower bound"
+  },
+  "ROT_V_collar_lift": {
+   "min": 2.71,
+   "at": [
+    36.01,
+    3.2,
+    -19.01
+   ],
+   "by": "lower bound"
+  },
+  "ROT_V_pinion_lift": {
+   "min": 1.16,
+   "at": [
+    34.43,
+    2.7,
+    -18.3
+   ],
+   "by": "servo_zdvih"
+  }
+ },
+ "static": {
+  "ROT_V_coupler_lift": {
+   "min": 2.8,
+   "at": [
+    42.4,
+    3.0,
+    -35.8
+   ],
+   "nearest": {
+    "T_bok_L": 2.8
+   }
+  },
+  "ROT_V_shaft_lift": {
+   "min": 0.0,
+   "at": [
+    40.8,
+    3.0,
+    -31.0
+   ],
+   "nearest": {
+    "T_bok_L": 0.0
+   }
+  },
+  "ROT_V_collar_lift": {
+   "min": ">6",
+   "at": [
+    39.0,
+    3.0,
+    -19.85
+   ],
+   "nearest": {}
+  },
+  "ROT_V_pinion_lift": {
+   "min": ">6",
+   "at": [
+    39.0,
+    3.0,
+    -19.01
+   ],
+   "nearest": {}
+  }
+ },
+ "paths": {
+  "lower": {
+   "ROT_V_coupler_lift": 11.26,
+   "ROT_V_shaft_lift": 11.26,
+   "ROT_V_collar_lift": 10.3,
+   "ROT_V_pinion_lift": 7.56
+  },
+  "s1": {
+   "ROT_V_coupler_lift": 18.06,
+   "ROT_V_shaft_lift": 19.58,
+   "ROT_V_collar_lift": 21.22,
+   "ROT_V_pinion_lift": 19.91
+  },
+  "side_cap_removal": {
+   "ROT_V_coupler_lift": {
+    "margin": 5.13,
+    "at": [
+     42.5,
+     3.0,
+     -35.9
+    ]
+   },
+   "ROT_V_shaft_lift": {
+    "margin": -1.89,
+    "at": [
+     40.99,
+     2.8,
+     -31.79
+    ]
+   },
+   "ROT_V_collar_lift": {
+    "margin": null,
+    "at": null
+   },
+   "ROT_V_pinion_lift": {
+    "margin": null,
+    "at": null
+   }
+  },
+  "servo_insert_side": {}
+ }
+}

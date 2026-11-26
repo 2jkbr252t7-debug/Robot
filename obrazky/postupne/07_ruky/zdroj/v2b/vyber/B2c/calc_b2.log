@@ -1,0 +1,313 @@
+== gear
+{
+ "m": 0.65,
+ "z1": 12,
+ "z2": 18,
+ "b": 2.5,
+ "alpha": 25.0,
+ "x1": 0.25,
+ "x2": -0.25,
+ "ratio": 1.5,
+ "delta1": 33.69,
+ "delta2": 56.31,
+ "d1": 7.8,
+ "d2": 11.7,
+ "Re": 7.031,
+ "b_over_R": 0.356,
+ "m_mean": 0.5344,
+ "rm2": 4.81,
+ "zv1": 14.42,
+ "zv2": 32.45,
+ "crown1": 4.576,
+ "crown2": 6.12,
+ "eps": 1.387,
+ "T_arm_at_allow": 0.0203,
+ "Y1": {
+  "Y": 0.372,
+  "t_crit": 2.07,
+  "l": 1.919,
+  "Kf": 1.403,
+  "s_tip_over_m": 0.366,
+  "undercut": false,
+  "zv_min_no_undercut": 8.4
+ },
+ "Y2": {
+  "Y": 0.395,
+  "t_crit": 2.039,
+  "l": 1.755,
+  "Kf": 1.448,
+  "s_tip_over_m": 0.592,
+  "undercut": false,
+  "zv_min_no_undercut": 14.0
+ },
+ "T_gear_at_8.5MPa_Nmm": 20.3,
+ "note": "Lewis form factor from a rack-generated tooth (gears.py); about 8 % below Shigley's table for alpha 20 (conservative). Kf = Dolan-Broghamer fillet factor reported separately."
+}
+== spindle_friction
+{
+ "mu 0.1": 0.136,
+ "mu 0.15": 0.205,
+ "mu 0.2": 0.273,
+ "mu 0.25": 0.341
+}
+== clutch
+{
+ "teeth": "3 V-teeth on the disc at r 12.4..14.0 (r_m 13.2), angles 0/100/220 deg -> engage in ONE relative position",
+ "beta_deg": 30.0,
+ "engagement_mm": 0.3,
+ "gap_seated_mm": 1.2,
+ "magnets": "3 (pockets for 4) x D4x2 N35 axial in the hub",
+ "washer": "DIN 9021 M8 (8.4x24x2) zinc-plated steel, bonded in the disc",
+ "F1_model_N": 0.491,
+ "F1_after_climb_N": 0.331,
+ "dF_dgap_N_per_mm": -0.671,
+ "T_slip_Nmm_by_magnets": {
+  "2": {
+   "T_slip_min": 5.43,
+   "T_slip_nom": 8.21,
+   "T_slip_max": 12.04
+  },
+  "3": {
+   "T_slip_min": 8.14,
+   "T_slip_nom": 12.32,
+   "T_slip_max": 18.06
+  },
+  "4": {
+   "T_slip_min": 10.85,
+   "T_slip_nom": 16.42,
+   "T_slip_max": 24.09
+  }
+ },
+ "coin_test": {
+  "must_hold": "1 EUR coin (7.5 g) at the tip: 9.3 N.mm incl. arm",
+  "must_slip": "1 EUR + 20 c (13.2 g) at the tip: 13.4 N.mm incl. arm",
+  "window_Nmm": [
+   9.3,
+   13.4
+  ],
+  "tuning": "slips with 1 EUR -> add a magnet or use the steeper disc; holds with 1 EUR + 20 c -> remove a magnet or use the flatter disc"
+ },
+ "tuning_matrix_Tslip_nom_Nmm": {
+  "2 magnets, beta 25": 6.9,
+  "2 magnets, beta 30": 8.2,
+  "2 magnets, beta 35": 9.8,
+  "3 magnets, beta 25": 10.3,
+  "3 magnets, beta 30": 12.3,
+  "3 magnets, beta 35": 14.7,
+  "4 magnets, beta 25": 13.7,
+  "4 magnets, beta 30": 16.4,
+  "4 magnets, beta 35": 19.6
+ },
+ "drag_while_slipping_Nmm": 1.77,
+ "free_arm_stays_if_abs_angle_below_deg": 29.5,
+ "windup_below_slip": "none (magnet-preloaded V-teeth, no compliance except resin elasticity)"
+}
+== tooth_stress_MPa
+{
+ "normal: arm gravity 4.0, mu 0.15": {
+  "T_gear_Nmm": 5.03,
+  "lewis_pinion": 2.1,
+  "lewis_gear": 1.98,
+  "with_Kf_max": 2.95
+ },
+ "slip nominal 12.0, mu 0.15": {
+  "T_gear_Nmm": 15.09,
+  "lewis_pinion": 6.31,
+  "lewis_gear": 5.94,
+  "with_Kf_max": 8.85
+ },
+ "slip at the coin-test upper limit 13.4, mu 0.25": {
+  "T_gear_Nmm": 20.26,
+  "lewis_pinion": 8.48,
+  "lewis_gear": 7.98,
+  "with_Kf_max": 11.89
+ },
+ "clutch stuck, servo at the 8 % torque limit (27.1 at the gear)": {
+  "T_gear_Nmm": 27.12,
+  "lewis_pinion": 11.34,
+  "lewis_gear": 10.68,
+  "with_Kf_max": 15.92
+ },
+ "clutch stuck AND no torque limit (full stall 339 at the gear)": {
+  "T_gear_Nmm": 339.0,
+  "lewis_pinion": 141.81,
+  "lewis_gear": 133.55,
+  "with_Kf_max": 198.96
+ }
+}
+== torque_order_Nmm
+{
+ "arm_need": 4.0,
+ "homing_sync_sweep": 6.07,
+ "clutch_slip_window": [
+  9.3,
+  13.4
+ ],
+ "gear_at_8p5MPa": 20.3,
+ "servo_limit_8pct_at_gear": 27.1,
+ "servo_limit_8pct_at_gear_min_needed": 20.3,
+ "note": "homing = sync sweep at normal torque: the arm load never exceeds arm need + friction; the gear is capped by the clutch; the 8 % limit (EEPROM) is only the back-up if the clutch jams. Short-term allowable for that fault case taken as UTS/2.5 = 12.8 MPa (engineering judgement, usual polymer practice: short-term load SF 2-3 on strength; not verified for Elegoo Tough)"
+}
+== contact_MPa
+{
+ "normal": 12.3,
+ "slip max": 24.8
+}
+== bearings
+{
+ "spindle inner land D6x3.4": {
+  "load_avg_N": 0.97,
+  "p_MPa": 0.047,
+  "sliding_m_per_year": 3440,
+  "area_mm2": 16.0,
+  "depth_mm_per_year_k1e-05": 0.0021,
+  "depth_mm_per_year_k0.0001": 0.0209,
+  "depth_mm_per_year_k0.001": 0.2085
+ },
+ "U-insert D4.1x2.8": {
+  "load_avg_N": 0.96,
+  "p_MPa": 0.086,
+  "sliding_m_per_year": 3440,
+  "area_mm2": 8.8,
+  "depth_mm_per_year_k1e-05": 0.0038,
+  "depth_mm_per_year_k0.0001": 0.0375,
+  "depth_mm_per_year_k0.001": 0.3753
+ },
+ "collar thrust r2.05..2.7": {
+  "load_avg_N": 0.41,
+  "p_MPa": 0.042,
+  "sliding_m_per_year": 4128,
+  "area_mm2": 9.7,
+  "depth_mm_per_year_k1e-05": 0.0017,
+  "depth_mm_per_year_k0.0001": 0.0174,
+  "depth_mm_per_year_k0.001": 0.1745
+ },
+ "arm hub D12.5x8.4": {
+  "load_avg_N": 0.19,
+  "p_MPa": 0.0018,
+  "sliding_m_per_year": 7167,
+  "area_mm2": 164.9,
+  "depth_mm_per_year_k1e-05": 0.0001,
+  "depth_mm_per_year_k0.0001": 0.0008,
+  "depth_mm_per_year_k0.001": 0.0083
+ }
+}
+== backlash_growth
+{
+ "k 1e-05": {
+  "backlash_mm_per_year": 0.006,
+  "arm_deg_per_year": 0.06
+ },
+ "k 0.0001": {
+  "backlash_mm_per_year": 0.057,
+  "arm_deg_per_year": 0.56
+ },
+ "k 0.001": {
+  "backlash_mm_per_year": 0.571,
+  "arm_deg_per_year": 5.59
+ }
+}
+== life_note
+"replace the U-insert / pinion-shaft / gear-spindle when the arm free play at hanging exceeds about 2 deg; with k 1e-4 that is several years, with k 1e-3 about one year (k unknown -> endurance test)"
+== arm_play_X
+{
+ "hub clearance 0.05, axial play 0.1": {
+  "tilt_rad": 0.006,
+  "tip_X_total_mm": 0.53,
+  "gap_point_r14_total_mm": 0.18,
+  "min_gap_at_135_if_pushed_in": 0.91
+ },
+ "hub clearance 0.06, axial play 0.15": {
+  "tilt_rad": 0.0071,
+  "tip_X_total_mm": 0.66,
+  "gap_point_r14_total_mm": 0.25,
+  "min_gap_at_135_if_pushed_in": 0.88
+ },
+ "hub clearance 0.08, axial play 0.2": {
+  "tilt_rad": 0.0095,
+  "tip_X_total_mm": 0.89,
+  "gap_point_r14_total_mm": 0.33,
+  "min_gap_at_135_if_pushed_in": 0.83
+ }
+}
+== arm_play_tangential_at_hanging
+{
+ "gear backlash 0.05 + servo 0.3 deg": {
+  "arm_deg": 0.69,
+  "tip_mm": 0.87
+ },
+ "gear backlash 0.05 + servo 1.0 deg": {
+  "arm_deg": 1.16,
+  "tip_mm": 1.45
+ },
+ "gear backlash 0.08 + servo 0.3 deg": {
+  "arm_deg": 0.98,
+  "tip_mm": 1.24
+ },
+ "gear backlash 0.08 + servo 1.0 deg": {
+  "arm_deg": 1.45,
+  "tip_mm": 1.82
+ }
+}
+== strength
+{
+ "ring root D13/6.1": {
+  "Z": 205.2,
+  "sigma_MPa": 3.51,
+  "sigma_Kt1p5": 5.26
+ },
+ "ring at the journal D12.5/6.1": {
+  "Z": 180.9,
+  "sigma_MPa": 3.98,
+  "sigma_Kt1p5": 5.97
+ },
+ "hub journal edge load under L5": {
+  "F_N": 85.7,
+  "p_MPa": 4.57,
+  "note": "rare load"
+ },
+ "pinion-shaft torsion D4 at the 8 % limit": {
+  "T_Nmm": 18.1,
+  "tau_MPa": 1.44
+ },
+ "pinion-shaft bending at the insert, slip max": {
+  "M_Nmm": 16.45,
+  "sigma_MPa": 2.62
+ },
+ "printed spline coupler (20 teeth x 0.25 x 2.2 bearing) at the 8 % limit": {
+  "p_MPa": 0.89
+ },
+ "printed spline coupler at full stall (fault)": {
+  "p_MPa": 11.1
+ },
+ "clutch V-tooth bending (per tooth)": {
+  "F_N": 0.34,
+  "sigma_MPa": 0.09
+ },
+ "spindle inner land at slip max": {
+  "R_N": 5.56,
+  "p_MPa": 0.272
+ },
+ "tongue (solid back) bearing at slip max": {
+  "R_N": 5.5,
+  "p_MPa": 0.491
+ },
+ "M2 insert in the spindle (glued, OD 3.5 x 4) at 0.10 N.m tightening": {
+  "F_N": 250.0,
+  "tau_bond_MPa": 5.68,
+  "note": "borderline vs epoxy-on-resin 5..10 MPa -> tighten gently (torque not needed: the hex carries the torque), Loctite 222"
+ },
+ "magnet bond (D4x2 in a pocket, epoxy on the side)": {
+  "F_N": 0.49,
+  "tau_MPa": 0.02
+ }
+}
+== unverified
+[
+ "Elegoo Tough strength 32 MPa / E ~2.0-2.5 GPa (no official TDS reached)",
+ "friction resin-on-resin mu 0.10-0.25 (greased / dry), no data for Elegoo Tough",
+ "wear coefficient k 1e-5..1e-3 mm3/(N.m) for Tough on Tough (no data)",
+ "magnet pull on a 2 mm DIN 9021 washer: ideal-steel model x k_sat 0.6..0.9",
+ "SCS0009 internal backlash (not published) taken 0.3..1.0 deg at the output",
+ "SCS0009 torque-limit register behaviour at 10 % (EEPROM 'max torque')"
+]

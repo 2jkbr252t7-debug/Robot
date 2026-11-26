@@ -1,0 +1,25 @@
+{
+ "date": "2026-11-26",
+ "network": "WebFetch: ENOTFOUND for www.hornbach.cz, www.laskakit.cz, www.waveshare.com. curl through the proxy: HTTP 000 (blocked) for hornbach.sk/.cz, tymoty.com, gme.sk, laskakit.cz, laskarduino.sk, dratek.cz, hadex.cz, tme.eu, botland.store, store.bambulab.com, eu.store.bambulab.com, umagnets.com, loziska-policka.cz, 3djake.sk, prusa3d.com, merkury.sk, bauhaus.sk, obi.sk; only www.waveshare.com answered (200). WebSearch: refused, the per-turn budget of 200 searches (shared by all agents) was already used up. => no shop page could be opened; every shop claim stays verified=false.",
+ "verified": [
+  {"what": "Waveshare SC09 package content", "url": "https://www.waveshare.com/sc09-servo.htm", "seen": "Package Content / Quick Overview: 'SC09 Servo x1' (no horn, no screw listed); 'images here are for reference ONLY'; product photo sc09-servo-5.jpg shows 4 white horns + 3 screws + adapter board", "saved": "dl/sc09_prod_now.html", "verified": true},
+  {"what": "Waveshare SC09 price", "url": "https://www.waveshare.com/sc09-servo.htm", "seen": "USD 8.99 (1 pc 8.59, 4+ 8.31), SKU 24440", "verified": true},
+  {"what": "SC09 spec", "url": "https://www.waveshare.com/wiki/SC09_Servo", "seen": "Output shaft 20T/OD3.95mm; Mechanism limit angle: no limit; Rotation angle 300 deg (0~1023); sliding bearing; 23.2x12.0x25.5", "saved": "dl/sc09_wiki_now.html", "verified": true}
+ ],
+ "prior_snippets_reused (verified=false)": {
+  "MR63ZZ/6700ZZ": "loziska-policka.cz: MR63ZZ EUR 3.28, 6700ZZ EUR 4.68 ex VAT, 'on request' (../audit_dostupnost/evidence_web.json)",
+  "MR74ZZ": "'no CZ/SK shop surfaced' (../audit_dostupnost/evidence_web.json)",
+  "magnets 5x2": "umagnets.com/sk 5x2 N38/N50 pack 50 (../prieskum_zelezarstvo/notes.md)",
+  "M2 inserts": "Prusa CNC Kitchen M2 short; 3DJake ruthex M2x4 70 pcs; LaskaKit LA180015 set, M2 OD 3.5 (notes.md, evidence_web.json)",
+  "Loctite 638 kit": "umakov.sk EUR 19.00 incl VAT with activator (notes.md)",
+  "DIN 912 M4": "no M4x20 listing in any saved snippet; Hornbach CZ DIN 912 8.8 zinc only M3 sizes seen (notes.md)"
+ },
+ "calc_M2_plug_screws": {
+  "source": "v2 geometry (g2.PLUG screw_r 9.0, recess 1.0; BOSS x 34.4..38.4; face x = t4_common.x_surface(y,z) - 1.0), B1+ keeps the v2 plug outside and boss",
+  "12 o'clock (y 3.0, z -8.0)": {"face_x": 43.69, "M2x10_tip_x": 33.69, "engagement_in_boss": 4.71, "note": "tip 0.71 behind the boss back face x 34.4"},
+  "4 o'clock (y 10.79, z -21.5)": {"face_x": 45.54, "M2x10_tip_x": 35.54, "engagement_in_boss": 2.86},
+  "8 o'clock (y -4.79, z -21.5)": {"face_x": 46.49, "M2x10_tip_x": 36.49, "engagement_in_boss": 1.91},
+  "proposal": "M2x8 at 12 o'clock (2.7 engaged), M2x10 at 4 o'clock (2.9), M2x12 at 8 o'clock (3.9, tip 34.49 inside the boss); right side identical by (y,z)"
+ },
+ "coin_check": "coins alone at 60 mm: 2E+20c 0.0084 N.m, 2E+50c+20c 0.0130 N.m; the window 0.0124/0.0170 adds T_arm 0.004 (judge_calc.py line 9) -> consistent"
+}

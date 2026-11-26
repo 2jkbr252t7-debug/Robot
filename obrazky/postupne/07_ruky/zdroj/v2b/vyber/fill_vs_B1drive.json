@@ -1,0 +1,28 @@
+{
+ "L": {
+  "coupler_min_centre": 0.756,
+  "coupler_min_surface": 0.323,
+  "corridor_min_centre": 0.75,
+  "corridor_min_surface": 0.317,
+  "lifted_hex_min_surface": 2.014,
+  "n": 30037,
+  "corridor_at": [
+   34.75,
+   8.25,
+   -43.25
+  ]
+ },
+ "R": {
+  "coupler_min_centre": 0.756,
+  "coupler_min_surface": 0.323,
+  "corridor_min_centre": 0.75,
+  "corridor_min_surface": 0.317,
+  "lifted_hex_min_surface": 2.014,
+  "n": 29107,
+  "corridor_at": [
+   34.75,
+   8.25,
+   -43.25
+  ]
+ }
+}

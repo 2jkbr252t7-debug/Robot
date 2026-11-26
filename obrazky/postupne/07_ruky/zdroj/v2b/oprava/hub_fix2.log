@@ -1,0 +1,9 @@
+ringA {'wall_left': 1.19, 'at': [53.0, 2.69, -25.89], 'ok': False}
+ringB {'wall_left': 1.99, 'at': [54.5, 12.31, -22.28], 'ok': True}
+bore_wall {'wall_left': 2.69, 'at': [55.3, -7.05, -20.69], 'ok': True}
+flange {'wall_left': 3.88, 'at': [60.4, -9.63, -15.63], 'ok': True}
+washer {'wall_left': 6.29, 'at': [63.2, 12.89, -15.5], 'ok': True}
+disc {'wall_left': 3.49, 'at': [66.25, -7.09, -12.62], 'ok': True}
+lip {'wall_left': 1.4, 'at': [67.55, -8.77, -12.24], 'ok': True}
+wall {'wall_left': 1.4, 'at': [67.55, -8.77, -12.24], 'ok': True}
+rib_tip {'wall_left': 1.53, 'at': [53.0, 2.75, -24.5], 'ok': True}

@@ -1,0 +1,185 @@
+{
+ "D4x2 N35": [
+  {
+   "gap": 0.05,
+   "magnet_magnet_N": 7.852,
+   "magnet_thick_steel_N": 4.319
+  },
+  {
+   "gap": 0.2,
+   "magnet_magnet_N": 3.217,
+   "magnet_thick_steel_N": 2.51
+  },
+  {
+   "gap": 0.3,
+   "magnet_magnet_N": 2.811,
+   "magnet_thick_steel_N": 2.046
+  },
+  {
+   "gap": 0.4,
+   "magnet_magnet_N": 2.51,
+   "magnet_thick_steel_N": 1.696
+  },
+  {
+   "gap": 0.5,
+   "magnet_magnet_N": 2.26,
+   "magnet_thick_steel_N": 1.421
+  },
+  {
+   "gap": 0.6,
+   "magnet_magnet_N": 2.046,
+   "magnet_thick_steel_N": 1.201
+  },
+  {
+   "gap": 0.8,
+   "magnet_magnet_N": 1.696,
+   "magnet_thick_steel_N": 0.875
+  },
+  {
+   "gap": 1.0,
+   "magnet_magnet_N": 1.421,
+   "magnet_thick_steel_N": 0.65
+  },
+  {
+   "gap": 1.2,
+   "magnet_magnet_N": 1.201,
+   "magnet_thick_steel_N": 0.491
+  },
+  {
+   "gap": 1.5,
+   "magnet_magnet_N": 0.945,
+   "magnet_thick_steel_N": 0.331
+  }
+ ],
+ "D5x2 N38": [
+  {
+   "gap": 0.05,
+   "magnet_magnet_N": 16.388,
+   "magnet_thick_steel_N": 7.52
+  },
+  {
+   "gap": 0.2,
+   "magnet_magnet_N": 4.976,
+   "magnet_thick_steel_N": 3.865
+  },
+  {
+   "gap": 0.3,
+   "magnet_magnet_N": 4.297,
+   "magnet_thick_steel_N": 3.217
+  },
+  {
+   "gap": 0.4,
+   "magnet_magnet_N": 3.865,
+   "magnet_thick_steel_N": 2.725
+  },
+  {
+   "gap": 0.5,
+   "magnet_magnet_N": 3.515,
+   "magnet_thick_steel_N": 2.333
+  },
+  {
+   "gap": 0.6,
+   "magnet_magnet_N": 3.217,
+   "magnet_thick_steel_N": 2.013
+  },
+  {
+   "gap": 0.8,
+   "magnet_magnet_N": 2.725,
+   "magnet_thick_steel_N": 1.526
+  },
+  {
+   "gap": 1.0,
+   "magnet_magnet_N": 2.333,
+   "magnet_thick_steel_N": 1.176
+  },
+  {
+   "gap": 1.2,
+   "magnet_magnet_N": 2.013,
+   "magnet_thick_steel_N": 0.919
+  },
+  {
+   "gap": 1.5,
+   "magnet_magnet_N": 1.632,
+   "magnet_thick_steel_N": 0.648
+  }
+ ],
+ "D3x2 N35": [
+  {
+   "gap": 0.05,
+   "magnet_magnet_N": 3.659,
+   "magnet_thick_steel_N": 2.447
+  },
+  {
+   "gap": 0.2,
+   "magnet_magnet_N": 1.964,
+   "magnet_thick_steel_N": 1.491
+  },
+  {
+   "gap": 0.3,
+   "magnet_magnet_N": 1.7,
+   "magnet_thick_steel_N": 1.172
+  },
+  {
+   "gap": 0.4,
+   "magnet_magnet_N": 1.491,
+   "magnet_thick_steel_N": 0.937
+  },
+  {
+   "gap": 0.5,
+   "magnet_magnet_N": 1.318,
+   "magnet_thick_steel_N": 0.76
+  },
+  {
+   "gap": 0.6,
+   "magnet_magnet_N": 1.172,
+   "magnet_thick_steel_N": 0.622
+  },
+  {
+   "gap": 0.8,
+   "magnet_magnet_N": 0.937,
+   "magnet_thick_steel_N": 0.427
+  },
+  {
+   "gap": 1.0,
+   "magnet_magnet_N": 0.76,
+   "magnet_thick_steel_N": 0.301
+  },
+  {
+   "gap": 1.2,
+   "magnet_magnet_N": 0.622,
+   "magnet_thick_steel_N": 0.217
+  },
+  {
+   "gap": 1.5,
+   "magnet_magnet_N": 0.468,
+   "magnet_thick_steel_N": 0.138
+  }
+ ],
+ "check_D4x2_N45_contact_N": 1535500.221,
+ "D4x2_N35_pair_gap0.6_offset": [
+  {
+   "s": 0,
+   "F": 2.046
+  },
+  {
+   "s": 1,
+   "F": 1.544
+  },
+  {
+   "s": 2,
+   "F": 0.744
+  },
+  {
+   "s": 3,
+   "F": 0.093
+  },
+  {
+   "s": 4,
+   "F": -0.208
+  },
+  {
+   "s": 6,
+   "F": -0.096
+  }
+ ]
+}

@@ -1,0 +1,219 @@
+[
+ {
+  "pair": "K3 m0.5 16/24 b2.4",
+  "d1": 8.0,
+  "d2": 12.0,
+  "cone_R": 7.21,
+  "b_over_R": 0.33,
+  "m_mean": 0.417,
+  "zv1": 19.2,
+  "zv2": 43.3,
+  "Y1": 0.316,
+  "Y2": 0.397,
+  "toe_module": 0.334,
+  "tooth_height_px_19um": 59.0,
+  "arm need 0.004": {
+   "Ft_N": 0.8,
+   "sigma_pinion_MPa": 2.5,
+   "sigma_gear_MPa": 2.0
+  },
+  "homing limit 15 % (0.043 at arm)": {
+   "Ft_N": 8.6,
+   "sigma_pinion_MPa": 27.2,
+   "sigma_gear_MPa": 21.6
+  },
+  "clutch 0.06": {
+   "Ft_N": 12.0,
+   "sigma_pinion_MPa": 38.0,
+   "sigma_gear_MPa": 30.2
+  },
+  "T_arm_at_8.5MPa_Nm": 0.0134,
+  "T_arm_at_UTS32_Nm": 0.0507
+ },
+ {
+  "pair": "m0.6 13/20 b2.4",
+  "d1": 7.8,
+  "d2": 12.0,
+  "cone_R": 7.16,
+  "b_over_R": 0.34,
+  "m_mean": 0.499,
+  "zv1": 15.5,
+  "zv2": 36.7,
+  "Y1": 0.293,
+  "Y2": 0.38,
+  "toe_module": 0.399,
+  "tooth_height_px_19um": 71.0,
+  "arm need 0.004": {
+   "Ft_N": 0.8,
+   "sigma_pinion_MPa": 2.3,
+   "sigma_gear_MPa": 1.8
+  },
+  "homing limit 15 % (0.043 at arm)": {
+   "Ft_N": 8.61,
+   "sigma_pinion_MPa": 24.5,
+   "sigma_gear_MPa": 18.9
+  },
+  "clutch 0.06": {
+   "Ft_N": 12.01,
+   "sigma_pinion_MPa": 34.2,
+   "sigma_gear_MPa": 26.4
+  },
+  "T_arm_at_8.5MPa_Nm": 0.0149,
+  "T_arm_at_UTS32_Nm": 0.0563
+ },
+ {
+  "pair": "m0.75 11/16 b2.4",
+  "d1": 8.25,
+  "d2": 12.0,
+  "cone_R": 7.28,
+  "b_over_R": 0.33,
+  "m_mean": 0.626,
+  "zv1": 13.3,
+  "zv2": 28.2,
+  "Y1": 0.267,
+  "Y2": 0.354,
+  "toe_module": 0.503,
+  "tooth_height_px_19um": 89.0,
+  "arm need 0.004": {
+   "Ft_N": 0.8,
+   "sigma_pinion_MPa": 2.0,
+   "sigma_gear_MPa": 1.5
+  },
+  "homing limit 15 % (0.043 at arm)": {
+   "Ft_N": 8.58,
+   "sigma_pinion_MPa": 21.4,
+   "sigma_gear_MPa": 16.1
+  },
+  "clutch 0.06": {
+   "Ft_N": 11.97,
+   "sigma_pinion_MPa": 29.9,
+   "sigma_gear_MPa": 22.5
+  },
+  "T_arm_at_8.5MPa_Nm": 0.0171,
+  "T_arm_at_UTS32_Nm": 0.0645
+ },
+ {
+  "pair": "m0.8 10/15 b2.4",
+  "d1": 8.0,
+  "d2": 12.0,
+  "cone_R": 7.21,
+  "b_over_R": 0.33,
+  "m_mean": 0.667,
+  "zv1": 12.0,
+  "zv2": 27.0,
+  "Y1": 0.245,
+  "Y2": 0.35,
+  "toe_module": 0.534,
+  "tooth_height_px_19um": 95.0,
+  "arm need 0.004": {
+   "Ft_N": 0.8,
+   "sigma_pinion_MPa": 2.0,
+   "sigma_gear_MPa": 1.4
+  },
+  "homing limit 15 % (0.043 at arm)": {
+   "Ft_N": 8.6,
+   "sigma_pinion_MPa": 21.9,
+   "sigma_gear_MPa": 15.4
+  },
+  "clutch 0.06": {
+   "Ft_N": 12.0,
+   "sigma_pinion_MPa": 30.6,
+   "sigma_gear_MPa": 21.4
+  },
+  "T_arm_at_8.5MPa_Nm": 0.0167,
+  "T_arm_at_UTS32_Nm": 0.063
+ },
+ {
+  "pair": "m0.5 16/24 b3.0",
+  "d1": 8.0,
+  "d2": 12.0,
+  "cone_R": 7.21,
+  "b_over_R": 0.42,
+  "m_mean": 0.396,
+  "zv1": 19.2,
+  "zv2": 43.3,
+  "Y1": 0.316,
+  "Y2": 0.397,
+  "toe_module": 0.292,
+  "tooth_height_px_19um": 59.0,
+  "arm need 0.004": {
+   "Ft_N": 0.84,
+   "sigma_pinion_MPa": 2.2,
+   "sigma_gear_MPa": 1.8
+  },
+  "homing limit 15 % (0.043 at arm)": {
+   "Ft_N": 9.05,
+   "sigma_pinion_MPa": 24.1,
+   "sigma_gear_MPa": 19.2
+  },
+  "clutch 0.06": {
+   "Ft_N": 12.63,
+   "sigma_pinion_MPa": 33.7,
+   "sigma_gear_MPa": 26.7
+  },
+  "T_arm_at_8.5MPa_Nm": 0.0152,
+  "T_arm_at_UTS32_Nm": 0.0572
+ },
+ {
+  "pair": "m0.6 16/24 b2.9 (d 9.6/14.4, bigger)",
+  "d1": 9.6,
+  "d2": 14.399999999999999,
+  "cone_R": 8.65,
+  "b_over_R": 0.34,
+  "m_mean": 0.499,
+  "zv1": 19.2,
+  "zv2": 43.3,
+  "Y1": 0.316,
+  "Y2": 0.397,
+  "toe_module": 0.399,
+  "tooth_height_px_19um": 71.0,
+  "arm need 0.004": {
+   "Ft_N": 0.67,
+   "sigma_pinion_MPa": 1.5,
+   "sigma_gear_MPa": 1.2
+  },
+  "homing limit 15 % (0.043 at arm)": {
+   "Ft_N": 7.17,
+   "sigma_pinion_MPa": 15.7,
+   "sigma_gear_MPa": 12.5
+  },
+  "clutch 0.06": {
+   "Ft_N": 10.01,
+   "sigma_pinion_MPa": 21.9,
+   "sigma_gear_MPa": 17.4
+  },
+  "T_arm_at_8.5MPa_Nm": 0.0233,
+  "T_arm_at_UTS32_Nm": 0.088
+ },
+ {
+  "pair": "miter m0.5 16/16 b2.4",
+  "d1": 8.0,
+  "d2": 8.0,
+  "cone_R": 5.66,
+  "b_over_R": 0.42,
+  "m_mean": 0.394,
+  "zv1": 22.6,
+  "zv2": 22.6,
+  "Y1": 0.333,
+  "Y2": 0.333,
+  "toe_module": 0.288,
+  "tooth_height_px_19um": 59.0,
+  "arm need 0.004": {
+   "Ft_N": 1.27,
+   "sigma_pinion_MPa": 4.0,
+   "sigma_gear_MPa": 4.0
+  },
+  "homing limit 15 % (0.043 at arm)": {
+   "Ft_N": 13.64,
+   "sigma_pinion_MPa": 43.4,
+   "sigma_gear_MPa": 43.4
+  },
+  "clutch 0.06": {
+   "Ft_N": 19.04,
+   "sigma_pinion_MPa": 60.5,
+   "sigma_gear_MPa": 60.5
+  },
+  "T_arm_at_8.5MPa_Nm": 0.0084,
+  "T_arm_at_UTS32_Nm": 0.0318
+ }
+]

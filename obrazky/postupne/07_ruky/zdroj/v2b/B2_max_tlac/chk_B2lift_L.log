@@ -1,0 +1,15 @@
+sweep model 2117906 2s
+sweep  ROT_V_coupler_lift {'min': 2.21, 'at': [35.5, 3.1, -35.9], 'by': 'lower bound'} 2s
+sweep  ROT_V_shaft_lift {'min': 3.71, 'at': [37.01, 3.2, -20.05], 'by': 'lower bound'} 3s
+sweep  ROT_V_collar_lift {'min': 2.71, 'at': [36.01, 3.2, -19.01], 'by': 'lower bound'} 3s
+sweep  ROT_V_pinion_lift {'min': 1.16, 'at': [34.43, 2.7, -18.3], 'by': 'servo_zdvih'} 3s
+static model 3528623 36s
+static ROT_V_coupler_lift {'min': 2.8, 'at': [42.4, 3.0, -35.8], 'nearest': {'T_bok_L': 2.8}}
+static ROT_V_shaft_lift {'min': 0.0, 'at': [40.8, 3.0, -31.0], 'nearest': {'T_bok_L': 0.0}}
+static ROT_V_collar_lift {'min': '>6', 'at': [39.0, 3.0, -19.85], 'nearest': {}}
+static ROT_V_pinion_lift {'min': '>6', 'at': [39.0, 3.0, -19.01], 'nearest': {}}
+lower {'ROT_V_coupler_lift': 11.26, 'ROT_V_shaft_lift': 11.26, 'ROT_V_collar_lift': 10.3, 'ROT_V_pinion_lift': 7.56}
+s1 {'ROT_V_coupler_lift': 18.06, 'ROT_V_shaft_lift': 19.58, 'ROT_V_collar_lift': 21.22, 'ROT_V_pinion_lift': 19.91}
+cap removal {'ROT_V_coupler_lift': {'margin': 5.13, 'at': [42.5, 3.0, -35.9]}, 'ROT_V_shaft_lift': {'margin': -1.89, 'at': [40.99, 2.8, -31.79]}, 'ROT_V_collar_lift': {'margin': None, 'at': None}, 'ROT_V_pinion_lift': {'margin': None, 'at': None}}
+servo insertion {}
+done 44s

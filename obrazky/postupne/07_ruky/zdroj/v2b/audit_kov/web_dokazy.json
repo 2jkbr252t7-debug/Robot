@@ -1,0 +1,17 @@
+{
+  "poznamka": "Audit A (kovovyroba) 26. 11. 2026. WebFetch bol blokovany sietou (eshop.ameco.cz, www.tymoty.com: ENOTFOUND) - vsetko nizsie je LEN z vysledkov WebSearch, stranky neboli otvorene => verified=false pre vsetko.",
+  "zaznamy": [
+    {"vec": "cervik DIN 913 M3x12 (pozinkovany)", "zdroj": "https://www.tymoty.com/flat-set-screw-hex-din-913-m3x12-galvanized", "udaj": "kod 832205, 0,03 EUR/ks bez DPH, sklad ~6600 ks (snippet, datum 2025)", "verified": false},
+    {"vec": "male cerviky M2 (DIN 916 M2x5, M2x2 A2) v CZ obchodoch", "zdroj": "https://www.zbozi.cz/srouby/?zavit=m2", "udaj": "od ~1,58 Kc, viac obchodov (snippet)", "verified": false},
+    {"vec": "kalene kolíky DIN 6325 / ISO 8734", "zdroj": "https://eshop.ameco.cz/products/en/czk/3/g1640/61840210/", "udaj": "2 m6 x 10 = 3,77 Kc/ks (snippet); 2x6 a 3x12 nepotvrdene; stranka nedostupna", "verified": false},
+    {"vec": "kalene kolíky DIN 6325 2x6 a 3x12", "zdroj": "https://www.sfs.ch/CH/en/dl/p/129962 ; https://www.sfs.ch/CH/en/dl/p/129995", "udaj": "2x6: CHF 10,30 / 100 ks (snippet) - priemyselny predajca (CH)", "verified": false},
+    {"vec": "kolíky DIN 7A m6 (nekalene)", "zdroj": "https://www.tymoty.com/cylindrical-pin-din-7a-m6-2x8 ; https://www.tymoty.com/cylindrical-pin-din-7a-m6-3x6", "udaj": "2x8 a 3x6 existuju v ponuke (snippet); 2x6 nepotvrdene", "verified": false},
+    {"vec": "PTFE trubicka 4x2 (bowden)", "zdroj": "https://botland.store/18952-ptfe-tube-4mm-blue.html", "udaj": "2,50 EUR s DPH, ID 2 / OD 4 (snippet, dlzka neuvedena)", "verified": false},
+    {"vec": "hlinikovy kotuc Feetech FK-RP-001 25T O20", "zdroj": "https://botland.com.pl/en/servo-horns/9198-round-aluminum-servo-horn-feetech-fk-rp-001-20mm-6mm.html", "udaj": "hlinik, 25T, skrutky v baleni, O20 mm (snippet); kompatibilita so STS3215 a cena NEOVERENE", "verified": false},
+    {"vec": "STS3215 - prislusenstvo v baleni", "zdroj": "https://core-electronics.com.au/feetech-sts3215-smart-servo.html", "udaj": "'compatible servo horn pack with fasteners' (snippet), material nezisteny", "verified": false},
+    {"vec": "MG90S - ramena v baleni", "zdroj": "https://www.laskakit.cz/mini-servo-mg90s-plastove-prevody/", "udaj": "v baleni sada packy + skrutky (snippet)", "verified": false},
+    {"vec": "JLCCNC sheet metal", "zdroj": "https://jlccnc.com/capabilities/sheet-metal-fabrication ; https://jlccnc.com/blog/sheet-metel-online", "udaj": "min. otvor >= 1 mm a >= 1/2 hrubky; min. cena 0,40 USD/objednavka (snippet); doprava do SK nezistena", "verified": false},
+    {"vec": "Xometry EU laser", "zdroj": "https://xometry.eu/en/laser-cutting/", "udaj": "nerez 304 v hrubke 1,5 mm, okamzita kalkulacia (snippet), cena nezistena", "verified": false},
+    {"vec": "slovenska laserova sluzba s online cennikom", "zdroj": "-", "udaj": "nenajdena", "verified": false}
+  ]
+}

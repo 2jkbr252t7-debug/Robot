@@ -1,0 +1,410 @@
+{
+ "name": "NOVA mini arm drive B1+ FIXER revision (R2c/oprava): judge B1+ with the verifier fixes",
+ "frame": "B: mm, Z up, front -Y, robot left +X. LEFT side values; RIGHT = mirror x -> -x (all checks both sides).",
+ "apex_O": [
+  39.0,
+  3.0,
+  -17.0
+ ],
+ "shoulder_axis": "parallel to X through (y 3.0, z -17.0)",
+ "vertical_axis": "(x 39.0, y 3.0)",
+ "arm_dx": -1.0,
+ "servo": {
+  "model": "Feetech SCS0009 / Waveshare SC09, ears cut off",
+  "case_x": [
+   32.95,
+   45.05
+  ],
+  "case_y": [
+   -14.3,
+   8.9
+  ],
+  "top_face_z": -45.0,
+  "note": "official drawing: 25.25 to the top face (bottom z -70.25), body shoulder 21.45; v2 model used 21.5 -> measure, see open items"
+ },
+ "coupler": {
+  "r": 4.5,
+  "z_top": -35.5,
+  "path_A_horn": {
+   "z_bottom": -43.5,
+   "horn_pocket": "hub D7.4 x 4.1 with flats AF 6.2, bonded 2K epoxy, shoulder above the hub",
+   "screw_recess_D": 4.1,
+   "ledge_z": "horn hub top + screw head height + 0.2 (nominal -38.4 with DIN 912 M2, hub top -40.6)"
+  },
+  "path_B_printed_spline": {
+   "z_bottom": "0.3 above the highest point of the servo top (nominal -44.7)",
+   "spline": "20T internal, OD 3.95 / root 3.45, to z -41.6, coupons on diameter +0/+0.02/+0.04/+0.06",
+   "floor_z": [
+    -41.6,
+    -40.6
+   ],
+   "screw_hole_D": 2.4,
+   "screw_recess_D": 4.1,
+   "recess_z": [
+    -40.6,
+    -38.4
+   ],
+   "ledge_z": -38.4
+  },
+  "hex_socket_AF": 5.0,
+  "hex_socket_z": [
+   -38.4,
+   -35.5
+  ],
+  "screw": "DIN 912 / ISO 4762 M2 (head D3.8 x 2.0), length so that >= 3 mm engages the servo spline thread (path B nominal M2x5; check the thread on arrival)"
+ },
+ "vertical_shaft": {
+  "printed": true,
+  "hex_AF5_z": [
+   -38.4,
+   -35.5
+  ],
+  "journal_D3_z": [
+   -35.5,
+   -24.5
+  ],
+  "Dkey_D2p5_z": [
+   -24.5,
+   -20.47
+  ],
+  "length": 17.93,
+  "note": "hex bottoms on the coupler ledge; the D3->D2.5 step is >= 0.85 below the pinion for every shim; service lift 3.5 needed, 4.5 max"
+ },
+ "MR63ZZ_B1": {
+  "z": [
+   -26.35,
+   -23.85
+  ],
+  "seat": "v2 tongue ring r 3.0..4.4, epoxied outer race"
+ },
+ "pinion_shim": {
+  "r": [
+   1.55,
+   1.9
+  ],
+  "z_bottom": -23.85,
+  "set": [
+   0.22,
+   0.27,
+   0.32,
+   0.37,
+   0.42,
+   0.47,
+   0.52,
+   0.57
+  ],
+  "nominal": 0.42,
+  "rule": "never above 0.57 (depth margin); if the backlash is still too large at 0.57 print the tooth-thickness coupon with thicker flanks"
+ },
+ "pinion_12T": {
+  "m_heel": 0.6667,
+  "alpha": 25,
+  "ha": 0.9,
+  "hf": 1.15,
+  "rho": 0.38,
+  "b": 2.8,
+  "toe_z": -20.467,
+  "toe_r": 2.752,
+  "crown_z": -22.667,
+  "crown_r": 4.499,
+  "heel_root_z": -23.425,
+  "heel_root_r": 3.362,
+  "back_relief": "0.2 deep over r 1.95..3.6",
+  "bore": "D2.5 D-key",
+  "tips": "rounded r 0.1"
+ },
+ "gear_18T": {
+  "toe_x": 41.176,
+  "toe_r": 3.852,
+  "crown_x": 42.556,
+  "crown_r": 6.296,
+  "root_x": 43.638,
+  "root_r": 5.575,
+  "back_x": 44.238,
+  "back_relief_x_for_r_gt_3": 44.038,
+  "bore": "printed M4x0.7 internal thread (+0.1 radial clearance), screwed on the M4 and epoxied (JUDGE FIX, was plain D4.1)",
+  "ha": 0.8,
+  "toe_face_x": 41.84,
+  "tips": "rounded r 0.1 on both members",
+  "contact_ratio": 1.222,
+  "SAP_margin_toe_mm": 0.038,
+  "SAP_margin_backlash_equiv_toe_mm": 0.095
+ },
+ "gear_shim": {
+  "r": [
+   2.05,
+   2.9
+  ],
+  "x_back": 44.238,
+  "set": [
+   0.2,
+   0.3,
+   0.4
+  ],
+  "pick": "dry fit before bonding: caliper depth from the plug neck face (x 38.6) to the gear toe face (x 41.84) = 3.24 +- 0.03"
+ },
+ "MR74_A1": {
+  "x": [
+   44.54,
+   47.04
+  ],
+  "outer": "slip in D7 bore",
+  "inner": "2K epoxy on the thread (Loctite 638 optional, then activator 7649 needed on zinc)"
+ },
+ "spacer_sleeve": {
+  "D": [
+   5.0,
+   7.0
+  ],
+  "x": [
+   47.04,
+   52.6
+  ]
+ },
+ "MR74_A2": {
+  "x": [
+   52.6,
+   55.1
+  ],
+  "outer": "EPOXIED against the outboard shoulder at x 55.10 (JUDGE FIX: inward axial stop)",
+  "inner": "2K epoxy on the thread (Loctite 638 optional, then activator 7649 needed on zinc)"
+ },
+ "arm_shaft_M4x20": {
+  "std": "DIN 912 / ISO 4762 M4x20 8.8 zinc, fully threaded, major dia >= 3.93 by calipers",
+  "shank_x": [
+   40.0,
+   60.0
+  ],
+  "head_x": [
+   60.0,
+   64.0
+  ],
+  "head_r": 3.5,
+  "bond": "2K epoxy on the A1/A2 zones, head set 0.5 off the seat end with a printed gauge fork while curing; then clip in the C-shim",
+  "select": "major diameter >= 3.93 preferred, >= 3.90 accepted; measure the head diameter (plain or knurl crest) for the drive-hub coupons"
+ },
+ "plug_zatka": {
+  "neck_r": 11.0,
+  "neck_x": [
+   38.6,
+   40.6
+  ],
+  "body_r": 13.5,
+  "face": "approved surface - 1.0",
+  "cavity_r": 6.9,
+  "cavity_end_x": 44.54,
+  "slot_6oclock": "|y-3| <= 5.1 for x < 44.0, open to -X (JUDGE: 5.1 instead of B1 5.3; 0.60 to the pinion crown, 0.89 wall to the M2 inserts)",
+  "D7_bore_x": [
+   44.54,
+   55.1
+  ],
+  "ring_r": 6.5,
+  "ring_to_x": 52.5,
+  "seat_r": 5.0,
+  "seat_x": [
+   52.5,
+   59.5
+  ],
+  "seat_bore_D_outboard_of_55.1": 5.0,
+  "stop_lug": {
+   "x": [
+    52.5,
+    54.8
+   ],
+   "r": [
+    5.0,
+    7.0
+   ],
+   "azimuth_deg": [
+    276.0,
+    359.5
+   ],
+   "width_deg": 83.5,
+   "azimuth_convention": "0 = +Y, 90 = +Z about the shoulder axis",
+   "contacts": "rib meets it at arm -51.0 and +135.5 deg; gap 0.576 at -45, 0.528 at +130"
+  },
+  "screws": {
+   "12 o'clock": "DIN 965 / ISO 7046-1 M2x8 (tip x 35.69, engaged 2.71)",
+   "4 o'clock": "M2x10 (tip 35.54, engaged 2.86)",
+   "8 o'clock": "M2x10 with the countersink sunk 1.3 deeper (tip 35.19, engaged 3.21; insert hole floor x 34.9)"
+  },
+  "pegs": "2 printed D2.4 at r 9.0, 10 and 2 o'clock"
+ },
+ "boss_slot": "|y-3| <= 5.1 from z -24.55 up to -15.5, open to +X (v2 5.0)",
+ "arm_hub": {
+  "bearing": "6800ZZ or 6800-2RS (61800), 10x19x5, x 55.3..60.3, outer race epoxied in the hub bore D19, inner race slip on the D10 seat (4.2 of 5.0 supported)",
+  "ring_A_rib_root": {
+   "r": [
+    7.5,
+    8.8
+   ],
+   "x": [
+    53.0,
+    55.0
+   ]
+  },
+  "ring_B_bearing_back": {
+   "r": [
+    7.5,
+    10.7
+   ],
+   "x": [
+    54.5,
+    55.3
+   ]
+  },
+  "bore_wall": {
+   "r": [
+    9.5,
+    10.7
+   ],
+   "x": [
+    55.3,
+    61.2
+   ]
+  },
+  "rib": {
+   "x": [
+    53.0,
+    55.0
+   ],
+   "r": [
+    5.5,
+    7.5
+   ],
+   "width_deg": 90.0,
+   "azimuth_at_rest_deg": [
+    135.0,
+    225.0
+   ],
+   "contact_area_mm2": 2.7
+  },
+  "flange_x": [
+   60.4,
+   61.2
+  ],
+  "washer_DIN125_M10": {
+   "r": [
+    5.25,
+    10.0
+   ],
+   "x": [
+    61.2,
+    63.2
+   ],
+   "bond": "smooth (burr-free) face = friction face, flush to the reference; burr side into the recess"
+  },
+  "cavity_r": 11.5,
+  "wall_r": [
+   11.5,
+   12.7
+  ],
+  "wall_x": [
+   61.2,
+   67.55
+  ],
+  "lip_ring": {
+   "x": [
+    66.75,
+    67.55
+   ],
+   "r_inner": 10.4
+  },
+  "room_wall_left_min": "1.29 (ring A at r 8.8) .. 1.40 (wall end), criterion 1.2 (hub_fix2.json)",
+  "fallback": "B1+ 6700ZZ hub (bore D15, x 55.5..59.5, judge numbers) is a drop-in alternative print if only a 6700 can be bought"
+ },
+ "drive_hub": {
+  "pocket_on_M4_head_x": [
+   60.0,
+   64.0
+  ],
+  "pocket_D": "measured head D - 0.01 / 0.02 / 0.03 (coupons)",
+  "hex_key_AF": 3.0,
+  "boss_r": [
+   3.5,
+   4.5
+  ],
+  "boss_x": [
+   60.0,
+   63.2
+  ],
+  "disc_r": 11.0,
+  "disc_x": [
+   63.2,
+   66.25
+  ],
+  "skin": 0.25,
+  "magnet_pockets": "8x D5.1 at r 7.7, open outboard, depth 2.8 (magnet 2.0 + printed spacer up to 0.8)"
+ },
+ "clutch": {
+  "magnets": "NdFeB 5x2 axial N38, symmetric patterns 2/4/6/8, spacers 0/0.2/0.4/0.6/0.8 (force x 1/0.72/0.54/0.41/0.33)",
+  "window_Nm_at_arm": [
+   0.0082,
+   0.0113
+  ],
+  "coin_test": {
+   "pose": "arm horizontal forward (+90), servo holding",
+   "hook": "printed tip clip, thread hole on the arm axis R 55.0 from the shoulder axis",
+   "must_hold": "2 EUR + 2 c (11.56 g)",
+   "must_slip": "2 EUR + 50 c (16.30 g)",
+   "arm_torque_assumed": "0.0016-0.0022 N.m (11-15 g shell, CG lever 14.75)",
+   "clip": "0.6 g estimate, 0.0003 N.m"
+  }
+ },
+ "homing": "two slow sweeps at the running torque limit: to the servo low end (arm stops at -51, clutch slips), then to the high end (arm stops at +135.5). Servo travel needed >= 284 deg (span 186.5 x 1.5 + margin).",
+ "firmware": {
+  "running_torque_limit_pct": 15,
+  "temp_C": 65,
+  "range_deg": [
+   -45,
+   130
+  ],
+  "stops_deg": [
+   -51.0,
+   135.5
+  ]
+ },
+ "column": {
+  "base": "v2 pocket column",
+  "rods_or_screws": "none",
+  "upper_fill": "judge colfill_B1merge clipped: x >= 31.3 for anything above z -48.5 (deck path), outside x >= 32.65 & y -14.6..9.2 below z -44.5 (servo corridor)",
+  "torsion_web": "new: between the legs z -35.0..-27.0, x 33.5..41.5 within the free map, y -9.0..7.5, keep-out r 3.4 about (39, 3) (lifted 5 AF hex), x <= 38.8 inside r 16.3 of the shoulder axis",
+  "voxels": "/tmp/claude-0/gapwf/fin/R2c/oprava/colfill_fix_L.npz / _R.npz (P = centres; R in real x < 0; key 'web' = web voxels)",
+  "exact_cutters_for_CAD": [
+   "deck: x >= 31.3 above z -48.5",
+   "servo: y >= 9.2 or y <= -14.6 where x >= 32.65 and z < -44.5",
+   "coupler: cylinder r 5.0 about (39,3) z -44..-35 and slab y -1.8..7.8, x >= 34.2, z -44..-35",
+   "shaft: r 3.4 about (39,3) above z -35",
+   "T_stred path 0.5, cap path 0.3, sweep 1.0 (free map)"
+  ],
+  "fillets": "R >= 1.0 at the pocket inner corners (front leg / pad / web), at the leg-boss junction and around the cable slot",
+  "FE": "column alone still above 8.5 MPa at +135 (fe_col_summary.json) - T_spodok must not be printed before the CAD FE with the deck tie passes"
+ },
+ "T_bok_notch": "x 39.0..41.2, |y-3| <= 2.0, z -33.5..-27.5 (v2)",
+ "tooth_thickness_coupons": "pairs with flank offsets -0.02 (design) / 0.00 / -0.04 per flank; pick the pair giving the target backlash at the nominal shim 0.42",
+ "thrust_C_shim": {
+  "printed": true,
+  "t": [
+   0.45,
+   0.47
+  ],
+  "r": [
+   2.1,
+   4.4
+  ],
+  "x": [
+   59.5,
+   60.0
+  ],
+  "open_width": 4.2,
+  "function": "inward stop between the seat end and the M4 head / drive-hub boss, gap 0.03-0.05 (engages before the 0.113 mm axial move that would jam the mesh)"
+ },
+ "checks": {
+  "fill": "v_clear_fix_L/R.json: sweep 1.116 L / 1.242 R, servo slide 0.45, coupler corridor 0.50, lifted 5AF hex 0.613, T_stred 0.60, cap 0.60; v_deck_fix.json: deck static 0.30, removal path 0.30",
+  "stop": "lug3_135.5.json",
+  "gear": "gear_fix_ha0.80.json",
+  "clutch": "clutch_win.json",
+  "screws": "m2screws.json",
+  "hub": "hub_fix.json, hub_fix2.json"
+ }
+}

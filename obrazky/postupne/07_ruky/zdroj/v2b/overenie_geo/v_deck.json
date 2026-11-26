@@ -1,0 +1,20 @@
+{
+ "static_min": 0.126,
+ "at": [
+  31.0,
+  14.5,
+  -48.0
+ ],
+ "deck_pt": [
+  30.89,
+  14.45,
+  -47.99
+ ],
+ "n_corners_below_0p3": 33,
+ "deck_removal_path_min": 0.003,
+ "deck_removal_path_at": [
+  28.0,
+  -11.5,
+  -43.5
+ ]
+}

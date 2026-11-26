@@ -1,0 +1,168 @@
+{
+ "coin_window_Nm": {
+  "B1 hold 2E+50c": 0.0136,
+  "B1 slip 2E+50c+10c": 0.016,
+  "JUDGE hold 2E+20c": 0.0124,
+  "JUDGE slip 2E+50c+20c": 0.017
+ },
+ "B1_pinion_MPa_at_judge_slip": 8.41,
+ "B1_T_at_8p5_tipdirKf_Nm": 0.0172,
+ "magnet_steps": {
+  "F 0.93 N mu 0.25": {
+   "per_magnet_Nm": 0.0018,
+   "n_window": [
+    7,
+    9
+   ],
+   "fits_integer": true,
+   "n_le_8": true
+  },
+  "F 0.93 N mu 0.4": {
+   "per_magnet_Nm": 0.0029,
+   "n_window": [
+    5,
+    5
+   ],
+   "fits_integer": true,
+   "n_le_8": true
+  },
+  "F 1.32 N mu 0.25": {
+   "per_magnet_Nm": 0.0025,
+   "n_window": [
+    5,
+    6
+   ],
+   "fits_integer": true,
+   "n_le_8": true
+  },
+  "F 1.32 N mu 0.4": {
+   "per_magnet_Nm": 0.0041,
+   "n_window": [
+    4,
+    4
+   ],
+   "fits_integer": true,
+   "n_le_8": true
+  },
+  "F 2.56 N mu 0.25": {
+   "per_magnet_Nm": 0.0049,
+   "n_window": [
+    3,
+    3
+   ],
+   "fits_integer": true,
+   "n_le_8": true
+  },
+  "F 2.56 N mu 0.4": {
+   "per_magnet_Nm": 0.0079,
+   "n_window": [
+    2,
+    2
+   ],
+   "fits_integer": true,
+   "n_le_8": true
+  }
+ },
+ "spacer_factor": {
+  "0.2": 0.72,
+  "0.4": 0.54,
+  "0.6": 0.41
+ },
+ "press_force_N": {
+  "interf 0.01 mu 0.2": 7.2,
+  "interf 0.01 mu 0.3": 10.8,
+  "interf 0.02 mu 0.2": 14.4,
+  "interf 0.02 mu 0.3": 21.5,
+  "interf 0.03 mu 0.2": 21.5,
+  "interf 0.03 mu 0.3": 32.3,
+  "interf 0.05 mu 0.2": 35.9,
+  "interf 0.05 mu 0.3": 53.9
+ },
+ "MR74_axial_limits_N": {
+  "C0": 107.0,
+  "continuous_0p25C0": 26.75,
+  "static_event_C0": 107.0
+ },
+ "wedge_Fa_6N": {
+  "Wn_per_flank_N": 8.5,
+  "Wt_equiv_N": 7.7,
+  "x_design_max_Wt": 2.2,
+  "pinion_MPa_tipdirKf": 18.5
+ },
+ "wedge_Fa_9N": {
+  "Wn_per_flank_N": 12.8,
+  "Wt_equiv_N": 11.6,
+  "x_design_max_Wt": 3.3,
+  "pinion_MPa_tipdirKf": 27.8
+ },
+ "wedge_Fa_30N": {
+  "Wn_per_flank_N": 42.7,
+  "Wt_equiv_N": 38.7,
+  "x_design_max_Wt": 11.0,
+  "pinion_MPa_tipdirKf": 92.6
+ },
+ "runout_e0.035": {
+  "backlash_swing_mm": 0.033,
+  "j_design": 0.08,
+  "j_min": 0.047,
+  "arm_deg_max": 1.19
+ },
+ "runout_e0.065": {
+  "backlash_swing_mm": 0.061,
+  "j_design": 0.08,
+  "j_min": 0.019,
+  "arm_deg_max": 1.48
+ },
+ "runout_e0.1": {
+  "backlash_swing_mm": 0.093,
+  "j_design": 0.08,
+  "j_min": -0.013,
+  "arm_deg_max": 1.83
+ },
+ "B1_tilt_threshold_tip_N": [
+  0.83,
+  1.25
+ ],
+ "B1_tilt_after_threshold_tip_mm": 0.73,
+ "B2_tilt_threshold_tip_N": [
+  0.2,
+  0.27
+ ],
+ "B2_tilt_tip_mm": [
+  0.53,
+  0.89
+ ],
+ "B1_swing_play_deg": {
+  "gear": 0.84,
+  "servo_0p5to1deg_at_arm": [
+   0.33,
+   0.67
+  ],
+  "total": [
+   1.17,
+   1.51
+  ]
+ },
+ "lug_for_top_139.0": {
+  "rib_deg": 32.7,
+  "lug_deg": 137.3,
+  "span_deg": 190.0,
+  "drive_spare_deg": 10.0,
+  "rib_lug_gap_at_135_mm": 0.38,
+  "rib_lug_gap_at_m45_mm": 0.58,
+  "servo_range_needed_deg": 285.0
+ },
+ "lug_for_top_140.5": {
+  "rib_deg": 32.7,
+  "lug_deg": 135.8,
+  "span_deg": 191.5,
+  "drive_spare_deg": 8.5,
+  "rib_lug_gap_at_135_mm": 0.53,
+  "rib_lug_gap_at_m45_mm": 0.58,
+  "servo_range_needed_deg": 287.0
+ },
+ "B2_gear_torque_at_slip_13p4": {
+  "mu0.15": 16.9,
+  "mu0.25": 20.3
+ }
+}

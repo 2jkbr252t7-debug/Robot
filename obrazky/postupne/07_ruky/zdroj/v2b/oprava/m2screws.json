@@ -1,0 +1,92 @@
+{
+ "12 o'clock": {
+  "y": 3.0,
+  "z": -8.0,
+  "face_x": 43.69,
+  "M2x6": {
+   "tip_x": 37.69,
+   "engaged": 0.71,
+   "tip_inside_boss": true
+  },
+  "M2x8": {
+   "tip_x": 35.69,
+   "engaged": 2.71,
+   "tip_inside_boss": true
+  },
+  "M2x10": {
+   "tip_x": 33.69,
+   "engaged": 4.0,
+   "tip_inside_boss": false
+  },
+  "M2x12": {
+   "tip_x": 31.69,
+   "engaged": 4.0,
+   "tip_inside_boss": false
+  },
+  "M2x16": {
+   "tip_x": 27.69,
+   "engaged": 4.0,
+   "tip_inside_boss": false
+  }
+ },
+ "4 o'clock": {
+  "y": 10.79,
+  "z": -21.5,
+  "face_x": 45.54,
+  "M2x6": {
+   "tip_x": 39.54,
+   "engaged": -1.14,
+   "tip_inside_boss": true
+  },
+  "M2x8": {
+   "tip_x": 37.54,
+   "engaged": 0.86,
+   "tip_inside_boss": true
+  },
+  "M2x10": {
+   "tip_x": 35.54,
+   "engaged": 2.86,
+   "tip_inside_boss": true
+  },
+  "M2x12": {
+   "tip_x": 33.54,
+   "engaged": 4.0,
+   "tip_inside_boss": false
+  },
+  "M2x16": {
+   "tip_x": 29.54,
+   "engaged": 4.0,
+   "tip_inside_boss": false
+  }
+ },
+ "8 o'clock": {
+  "y": -4.79,
+  "z": -21.5,
+  "face_x": 46.49,
+  "M2x6": {
+   "tip_x": 40.49,
+   "engaged": -2.09,
+   "tip_inside_boss": true
+  },
+  "M2x8": {
+   "tip_x": 38.49,
+   "engaged": -0.09,
+   "tip_inside_boss": true
+  },
+  "M2x10": {
+   "tip_x": 36.49,
+   "engaged": 1.91,
+   "tip_inside_boss": true
+  },
+  "M2x12": {
+   "tip_x": 34.49,
+   "engaged": 3.91,
+   "tip_inside_boss": false
+  },
+  "M2x16": {
+   "tip_x": 30.49,
+   "engaged": 4.0,
+   "tip_inside_boss": false
+  }
+ }
+}

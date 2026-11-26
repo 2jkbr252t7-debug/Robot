@@ -1,0 +1,55 @@
+{
+ "top": 135.5,
+ "bot": -51.0,
+ "working_range": [
+  -45.0,
+  130.0
+ ],
+ "rib_rest_az": [
+  135.0,
+  225.0
+ ],
+ "rib_width_deg": 90.0,
+ "lug_edges_deg": [
+  276.0,
+  359.5
+ ],
+ "lug_width_deg": 83.5,
+ "contact_face": {
+  "r": [
+   5.5,
+   7.0
+  ],
+  "x": [
+   53.0,
+   54.8
+  ],
+  "area_mm2": 2.7,
+  "r_centroid": 6.25
+ },
+ "gap_at_-52.0": 0.001,
+ "gap_at_-51.0": 0.0,
+ "gap_at_-45.0": 0.576,
+ "gap_at_+0.0": 4.543,
+ "gap_at_+60.0": 6.44,
+ "gap_at_+120.0": 1.47,
+ "gap_at_+130.0": 0.528,
+ "gap_at_+132.0": 0.336,
+ "gap_at_+134.0": 0.144,
+ "gap_at_+135.5": 0.0,
+ "gap_at_+136.5": 0.001,
+ "min_gap_working_range": 0.528,
+ "stop_bearing_MPa": {
+  "tip 1 N": 3.2,
+  "tip 3 N": 9.6,
+  "tip 5 N": 15.9,
+  "tip 7 N": 22.3,
+  "tip 10 N": 31.9,
+  "homing at clutch 0.0115 N.m": 0.67
+ },
+ "rib_root_bending_MPa": {
+  "tip 3 N": 1.17,
+  "tip 7 N": 2.74,
+  "tip 10 N": 3.91
+ }
+}

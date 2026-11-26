@@ -1,0 +1,172 @@
+{
+ "cap": {
+  "SERVO": {
+   "min": 0.8,
+   "at": null
+  },
+  "SERVO_cable": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_V_coupler": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_V_shaft": {
+   "min": 0.0,
+   "at": [
+    40.34,
+    2.6,
+    -32.2
+   ]
+  },
+  "ROT_V_pinion": {
+   "min": 0.8,
+   "at": null
+  },
+  "BRG_B1": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_boss": {
+   "min": 0.0,
+   "at": [
+    39.1,
+    8.92,
+    -7.02
+   ]
+  },
+  "STAT_tongue": {
+   "min": 0.47,
+   "at": [
+    39.5,
+    7.37,
+    -26.85
+   ]
+  },
+  "STAT_leg_back": {
+   "min": 0.0,
+   "at": [
+    41.5,
+    15.5,
+    -26.0
+   ]
+  },
+  "STAT_leg_front": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_web": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_strut": {
+   "min": 0.7,
+   "at": [
+    38.4,
+    -9.5,
+    -26.8
+   ]
+  },
+  "STAT_pad": {
+   "min": 0.8,
+   "at": null
+  }
+ },
+ "servo_in": {
+  "SERVO": {
+   "min": 0.3,
+   "at": [
+    34.4,
+    -14.6,
+    -48.5
+   ]
+  },
+  "SERVO_cable": {
+   "min": 0.0,
+   "at": [
+    41.5,
+    -17.3,
+    -66.0
+   ]
+  },
+  "ROT_V_coupler": {
+   "min": 0.8,
+   "at": null
+  }
+ },
+ "lower": {
+  "SERVO": {
+   "min": 0.8,
+   "at": null
+  },
+  "SERVO_cable": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_V_coupler": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_V_shaft": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_V_pinion": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_A_gear": {
+   "min": 0.8,
+   "at": null
+  },
+  "ROT_A_shaft": {
+   "min": 0.8,
+   "at": null
+  },
+  "BRG_B1": {
+   "min": 0.8,
+   "at": null
+  },
+  "BRG_A1": {
+   "min": 0.8,
+   "at": null
+  },
+  "BRG_A2": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_boss": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_tongue": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_leg_back": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_leg_front": {
+   "min": 0.25,
+   "at": [
+    33.0,
+    -20.0,
+    -48.6
+   ]
+  },
+  "STAT_web": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_strut": {
+   "min": 0.8,
+   "at": null
+  },
+  "STAT_pad": {
+   "min": 0.8,
+   "at": null
+  }
+ }
+}

@@ -1,0 +1,52 @@
+pinion 12T root (Lewis)            need             1.380 MPa   (limit 6.0) OK  
+pinion 12T root (Lewis x Kf)       need             1.930 MPa   (limit 6.0) OK  Kf 1.40 (AGMA 908, fillet 0.24)
+gear 18T root (Lewis x Kf)         need             1.680 MPa   (limit 6.0) OK  
+pinion 12T root (Lewis)            run              2.760 MPa   (limit 6.0) OK  
+pinion 12T root (Lewis x Kf)       run              3.870 MPa   (limit 6.0) OK  Kf 1.40 (AGMA 908, fillet 0.24)
+gear 18T root (Lewis x Kf)         run              3.370 MPa   (limit 6.0) OK  
+pinion 12T root (Lewis)            slip_lo          4.700 MPa   (limit 8.5) OK  
+pinion 12T root (Lewis x Kf)       slip_lo          6.570 MPa   (limit 8.5) OK  Kf 1.40 (AGMA 908, fillet 0.24)
+gear 18T root (Lewis x Kf)         slip_lo          5.720 MPa   (limit 8.5) OK  
+pinion 12T root (Lewis)            slip_hi          5.520 MPa   (limit 8.5) OK  
+pinion 12T root (Lewis x Kf)       slip_hi          7.730 MPa   (limit 8.5) OK  Kf 1.40 (AGMA 908, fillet 0.24)
+gear 18T root (Lewis x Kf)         slip_hi          6.730 MPa   (limit 8.5) OK  
+pinion 12T root (Lewis)            slipmax          5.700 MPa   (limit 8.5) OK  
+pinion 12T root (Lewis x Kf)       slipmax          7.980 MPa   (limit 8.5) OK  Kf 1.40 (AGMA 908, fillet 0.24)
+gear 18T root (Lewis x Kf)         slipmax          6.940 MPa   (limit 8.5) OK  
+tooth contact (Hertz, E 2 GPa)     run             14.446 MPa   (limit 40.0) OK  polymer-gear range 20-60 (POM); no resin data
+tooth contact (Hertz, E 2 GPa)     slip_hi         20.430 MPa   (limit 40.0) OK  polymer-gear range 20-60 (POM); no resin data
+pinion D-key bearing               slipmax          2.490 MPa   (limit 8.5) OK  
+vertical shaft D2.5 torsion        slipmax          4.482 MPa   (limit 8.5) OK  x1.25 for the D-flat
+vertical shaft D3 torsion          slipmax          2.075 MPa   (limit 8.5) OK  
+vertical shaft bending at MR63     slipmax          4.175 MPa   (limit 8.5) OK  M 11.1 N.mm
+coupler hex 4AF bearing            slipmax          0.409 MPa   (limit 8.5) OK  3 flats carry, lever 1.6
+horn flats in the cup (bearing)    slipmax          0.353 MPa   (limit 8.5) OK  plastic horn, 2 flats
+horn epoxy bond (shear, torque only) slipmax          0.037 MPa   (limit 2.0) OK  epoxy-PA/PP bond weak: flats carry
+M4 shaft torsion (steel)           slipmax          2.712 MPa   (limit 300.0) OK  8.8: yield 640
+M4 shaft bending, face tilt couple side push       35.352 MPa   (limit 300.0) OK  M 108 N.mm; a printed D4 tube would see 18.5 MPa
+gear epoxy bond on the M4 thread   slipmax          0.212 MPa   (limit 2.0) OK  torque only; thrust is contact
+MR74 inner races, Loctite 638 on thread radial           0.374 MPa   (limit 5.0) OK  radial force of the tilt couple over the A1-A2 span, as bond shear (conservative)
+drive hub hex key 3AF in the head socket slipmax          1.128 MPa   (limit 8.5) OK  3 flats carry
+drive hub pocket on the head (tilt couple) side push        5.062 MPa   (limit 8.5) OK  couple as edge pressure on the pocket bore (D7 x 4.0 = full head length, linear distribution)
+drive hub press-off force (fresh)  interf 0.03: 45 N  (long-term ~13-22 N)
+drive hub press-off force (fresh)  interf 0.05: 74 N  (long-term ~22-37 N)
+drive hub press-off force (fresh)  interf 0.08: 119 N  (long-term ~36-60 N)
+arm pull vs long-term press fit    lift robot      11.000 N     (limit 15.0) OK  magnets 6-9 N + press fit; above that the arm pops off (breakaway)
+arm pull vs long-term press fit    yank 30 N       30.000 N     (limit 15.0) !!  magnets 6-9 N + press fit; above that the arm pops off (breakaway)
+clutch face pressure               8 magnets        0.049 MPa   (limit 1.0) OK  
+homing stop contact (rib/lug)      homing slip      1.240 MPa   (limit 8.5) OK  short-term bearing ~20 MPa assumed for pushes
+homing stop contact (rib/lug)      push 3 N tip    16.228 MPa   (limit 20.0) OK  short-term bearing ~20 MPa assumed for pushes
+homing stop contact (rib/lug)      push 10 N tip    54.095 MPa   (limit 20.0) !!  short-term bearing ~20 MPa assumed for pushes
+homing lug root shear              push 3 N tip     3.174 MPa   (limit 8.5) OK  
+plug seat D10/D5.0 (x 55.1..55.5)  L5 0.72Nm        7.823 MPa   (limit 8.5) OK  Kt~1.2 at the A2 end -> x1.2 = 9.4
+plug ring D13/D7 root              L5 0.72Nm        4.738 MPa   (limit 8.5) OK  Kt 1.3
+column z -66.5 (C-channel below de) L5               2.630 MPa   (limit 8.5) OK  B1 M3x40 @39.0 back only
+column z -72.0 (C-channel below de) L5               2.780 MPa   (limit 8.5) OK  B1 M3x40 @39.0 back only
+column z -48.0 (legs beside servo ) L5               8.540 MPa   (limit 8.5) !!  B1 M3x40 @39.0 back only
+column z -44.0 (back leg + strut)  L5               6.490 MPa   (limit 8.5) OK  B1 M3x40 @39.0 back only
+column z -40.0 (back leg + strut)  L5               6.160 MPa   (limit 8.5) OK  B1 M3x40 @39.0 back only
+column z -36.0 (back leg + strut)  L5               6.090 MPa   (limit 8.5) OK  B1 M3x40 @39.0 back only
+column z -33.0 (narrow back leg + ) L5              22.050 MPa   (limit 8.5) !!  resin only
+column z -33.0 (narrow back leg + ) L5              22.050 MPa   (limit 8.5) !!  B1 M3x40 @39.0 back only
+column z -30.0 (narrow back leg + ) L5              23.430 MPa   (limit 8.5) !!  resin only
+column z -30.0 (narrow back leg + ) L5              23.430 MPa   (limit 8.5) !!  B1 M3x40 @39.0 back only

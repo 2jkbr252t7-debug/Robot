@@ -1,0 +1,479 @@
+{
+ "levels": {
+  "need": 0.004,
+  "run": 0.008,
+  "slip_lo": 0.0136,
+  "slip_hi": 0.016,
+  "slipmax": 0.0165
+ },
+ "rows": [
+  {
+   "part": "pinion 12T root (Lewis)",
+   "case": "need",
+   "value": 1.38,
+   "unit": "MPa",
+   "limit": 6.0,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "part": "pinion 12T root (Lewis x Kf)",
+   "case": "need",
+   "value": 1.93,
+   "unit": "MPa",
+   "limit": 6.0,
+   "ok": true,
+   "note": "Kf 1.40 (AGMA 908, fillet 0.24)"
+  },
+  {
+   "part": "gear 18T root (Lewis x Kf)",
+   "case": "need",
+   "value": 1.68,
+   "unit": "MPa",
+   "limit": 6.0,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "part": "pinion 12T root (Lewis)",
+   "case": "run",
+   "value": 2.76,
+   "unit": "MPa",
+   "limit": 6.0,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "part": "pinion 12T root (Lewis x Kf)",
+   "case": "run",
+   "value": 3.87,
+   "unit": "MPa",
+   "limit": 6.0,
+   "ok": true,
+   "note": "Kf 1.40 (AGMA 908, fillet 0.24)"
+  },
+  {
+   "part": "gear 18T root (Lewis x Kf)",
+   "case": "run",
+   "value": 3.37,
+   "unit": "MPa",
+   "limit": 6.0,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "part": "pinion 12T root (Lewis)",
+   "case": "slip_lo",
+   "value": 4.7,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "part": "pinion 12T root (Lewis x Kf)",
+   "case": "slip_lo",
+   "value": 6.57,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": "Kf 1.40 (AGMA 908, fillet 0.24)"
+  },
+  {
+   "part": "gear 18T root (Lewis x Kf)",
+   "case": "slip_lo",
+   "value": 5.72,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "part": "pinion 12T root (Lewis)",
+   "case": "slip_hi",
+   "value": 5.52,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "part": "pinion 12T root (Lewis x Kf)",
+   "case": "slip_hi",
+   "value": 7.73,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": "Kf 1.40 (AGMA 908, fillet 0.24)"
+  },
+  {
+   "part": "gear 18T root (Lewis x Kf)",
+   "case": "slip_hi",
+   "value": 6.73,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "part": "pinion 12T root (Lewis)",
+   "case": "slipmax",
+   "value": 5.7,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "part": "pinion 12T root (Lewis x Kf)",
+   "case": "slipmax",
+   "value": 7.98,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": "Kf 1.40 (AGMA 908, fillet 0.24)"
+  },
+  {
+   "part": "gear 18T root (Lewis x Kf)",
+   "case": "slipmax",
+   "value": 6.94,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "part": "tooth contact (Hertz, E 2 GPa)",
+   "case": "run",
+   "value": 14.446,
+   "unit": "MPa",
+   "limit": 40.0,
+   "ok": true,
+   "note": "polymer-gear range 20-60 (POM); no resin data"
+  },
+  {
+   "part": "tooth contact (Hertz, E 2 GPa)",
+   "case": "slip_hi",
+   "value": 20.43,
+   "unit": "MPa",
+   "limit": 40.0,
+   "ok": true,
+   "note": "polymer-gear range 20-60 (POM); no resin data"
+  },
+  {
+   "part": "pinion D-key bearing",
+   "case": "slipmax",
+   "value": 2.49,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "part": "vertical shaft D2.5 torsion",
+   "case": "slipmax",
+   "value": 4.482,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": "x1.25 for the D-flat"
+  },
+  {
+   "part": "vertical shaft D3 torsion",
+   "case": "slipmax",
+   "value": 2.075,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "part": "vertical shaft bending at MR63",
+   "case": "slipmax",
+   "value": 4.175,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": "M 11.1 N.mm"
+  },
+  {
+   "part": "coupler hex 4AF bearing",
+   "case": "slipmax",
+   "value": 0.409,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": "3 flats carry, lever 1.6"
+  },
+  {
+   "part": "horn flats in the cup (bearing)",
+   "case": "slipmax",
+   "value": 0.353,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": "plastic horn, 2 flats"
+  },
+  {
+   "part": "horn epoxy bond (shear, torque only)",
+   "case": "slipmax",
+   "value": 0.037,
+   "unit": "MPa",
+   "limit": 2.0,
+   "ok": true,
+   "note": "epoxy-PA/PP bond weak: flats carry"
+  },
+  {
+   "part": "M4 shaft torsion (steel)",
+   "case": "slipmax",
+   "value": 2.712,
+   "unit": "MPa",
+   "limit": 300.0,
+   "ok": true,
+   "note": "8.8: yield 640"
+  },
+  {
+   "part": "M4 shaft bending, face tilt couple",
+   "case": "side push",
+   "value": 35.352,
+   "unit": "MPa",
+   "limit": 300.0,
+   "ok": true,
+   "note": "M 108 N.mm; a printed D4 tube would see 18.5 MPa"
+  },
+  {
+   "part": "gear epoxy bond on the M4 thread",
+   "case": "slipmax",
+   "value": 0.212,
+   "unit": "MPa",
+   "limit": 2.0,
+   "ok": true,
+   "note": "torque only; thrust is contact"
+  },
+  {
+   "part": "MR74 inner races, Loctite 638 on thread",
+   "case": "radial",
+   "value": 0.374,
+   "unit": "MPa",
+   "limit": 5.0,
+   "ok": true,
+   "note": "radial force of the tilt couple over the A1-A2 span, as bond shear (conservative)"
+  },
+  {
+   "part": "drive hub hex key 3AF in the head socket",
+   "case": "slipmax",
+   "value": 1.128,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": "3 flats carry"
+  },
+  {
+   "part": "drive hub pocket on the head (tilt couple)",
+   "case": "side push",
+   "value": 5.062,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": "couple as edge pressure on the pocket bore (D7 x 4.0 = full head length, linear distribution)"
+  },
+  {
+   "part": "drive hub press-off force (fresh)",
+   "case": "interference 0.03",
+   "value": 44.7,
+   "unit": "N",
+   "limit": null,
+   "ok": null,
+   "note": "relaxes to ~30-50 % over months (resin, estimate)"
+  },
+  {
+   "part": "drive hub press-off force (fresh)",
+   "case": "interference 0.05",
+   "value": 74.5,
+   "unit": "N",
+   "limit": null,
+   "ok": null,
+   "note": "relaxes to ~30-50 % over months (resin, estimate)"
+  },
+  {
+   "part": "drive hub press-off force (fresh)",
+   "case": "interference 0.08",
+   "value": 119.1,
+   "unit": "N",
+   "limit": null,
+   "ok": null,
+   "note": "relaxes to ~30-50 % over months (resin, estimate)"
+  },
+  {
+   "part": "arm pull vs long-term press fit",
+   "case": "lift robot",
+   "value": 11.0,
+   "unit": "N",
+   "limit": 15.0,
+   "ok": true,
+   "note": "magnets 6-9 N + press fit; above that the arm pops off (breakaway)"
+  },
+  {
+   "part": "arm pull vs long-term press fit",
+   "case": "yank 30 N",
+   "value": 30.0,
+   "unit": "N",
+   "limit": 15.0,
+   "ok": false,
+   "note": "magnets 6-9 N + press fit; above that the arm pops off (breakaway)"
+  },
+  {
+   "part": "clutch face pressure",
+   "case": "8 magnets",
+   "value": 0.049,
+   "unit": "MPa",
+   "limit": 1.0,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "part": "homing stop contact (rib/lug)",
+   "case": "homing slip",
+   "value": 1.24,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": "short-term bearing ~20 MPa assumed for pushes"
+  },
+  {
+   "part": "homing stop contact (rib/lug)",
+   "case": "push 3 N tip",
+   "value": 16.228,
+   "unit": "MPa",
+   "limit": 20.0,
+   "ok": true,
+   "note": "short-term bearing ~20 MPa assumed for pushes"
+  },
+  {
+   "part": "homing stop contact (rib/lug)",
+   "case": "push 10 N tip",
+   "value": 54.095,
+   "unit": "MPa",
+   "limit": 20.0,
+   "ok": false,
+   "note": "short-term bearing ~20 MPa assumed for pushes"
+  },
+  {
+   "part": "homing lug root shear",
+   "case": "push 3 N tip",
+   "value": 3.174,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": ""
+  },
+  {
+   "part": "plug seat D10/D5.0 (x 55.1..55.5)",
+   "case": "L5 0.72Nm",
+   "value": 7.823,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": "Kt~1.2 at the A2 end -> x1.2 = 9.4"
+  },
+  {
+   "part": "plug ring D13/D7 root",
+   "case": "L5 0.72Nm",
+   "value": 4.738,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": "Kt 1.3"
+  },
+  {
+   "part": "column z -66.5 (C-channel below de)",
+   "case": "L5",
+   "value": 2.63,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": "B1 M3x40 @39.0 back only"
+  },
+  {
+   "part": "column z -72.0 (C-channel below de)",
+   "case": "L5",
+   "value": 2.78,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": "B1 M3x40 @39.0 back only"
+  },
+  {
+   "part": "column z -48.0 (legs beside servo )",
+   "case": "L5",
+   "value": 8.54,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": false,
+   "note": "B1 M3x40 @39.0 back only"
+  },
+  {
+   "part": "column z -44.0 (back leg + strut)",
+   "case": "L5",
+   "value": 6.49,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": "B1 M3x40 @39.0 back only"
+  },
+  {
+   "part": "column z -40.0 (back leg + strut)",
+   "case": "L5",
+   "value": 6.16,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": "B1 M3x40 @39.0 back only"
+  },
+  {
+   "part": "column z -36.0 (back leg + strut)",
+   "case": "L5",
+   "value": 6.09,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": true,
+   "note": "B1 M3x40 @39.0 back only"
+  },
+  {
+   "part": "column z -33.0 (narrow back leg + )",
+   "case": "L5",
+   "value": 22.05,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": false,
+   "note": "resin only"
+  },
+  {
+   "part": "column z -33.0 (narrow back leg + )",
+   "case": "L5",
+   "value": 22.05,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": false,
+   "note": "B1 M3x40 @39.0 back only"
+  },
+  {
+   "part": "column z -30.0 (narrow back leg + )",
+   "case": "L5",
+   "value": 23.43,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": false,
+   "note": "resin only"
+  },
+  {
+   "part": "column z -30.0 (narrow back leg + )",
+   "case": "L5",
+   "value": 23.43,
+   "unit": "MPa",
+   "limit": 8.5,
+   "ok": false,
+   "note": "B1 M3x40 @39.0 back only"
+  }
+ ]
+}

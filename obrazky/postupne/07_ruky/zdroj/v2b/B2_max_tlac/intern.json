@@ -1,0 +1,323 @@
+{
+ "final": {
+  "ROT_V_coupler | SERVO": {
+   "min": 0.0,
+   "at": [
+    39.0,
+    3.0,
+    -43.4
+   ],
+   "fit": "printed spline on the servo spline (fit)"
+  },
+  "ROT_V_coupler | STAT_leg_back": {
+   "min": 2.7,
+   "at": [
+    38.85,
+    6.5,
+    -40.2
+   ],
+   "fit": null
+  },
+  "ROT_V_coupler | STAT_leg_back_ext": {
+   "min": 1.0,
+   "at": [
+    38.85,
+    6.5,
+    -40.0
+   ],
+   "fit": null
+  },
+  "ROT_V_shaft | SERVO": {
+   "min": 0.25,
+   "at": [
+    39.0,
+    3.0,
+    -40.0
+   ],
+   "fit": null
+  },
+  "ROT_V_shaft | STAT_tongue": {
+   "min": 1.2,
+   "at": [
+    37.0,
+    3.0,
+    -24.05
+   ],
+   "fit": null
+  },
+  "ROT_V_shaft | STAT_insert": {
+   "min": 0.05,
+   "at": [
+    37.0,
+    3.0,
+    -24.05
+   ],
+   "fit": "journal D4.0 in D4.1 (fit)"
+  },
+  "ROT_V_shaft | STAT_keeper": {
+   "min": 0.51,
+   "at": [
+    41.0,
+    3.0,
+    -26.56
+   ],
+   "fit": null
+  },
+  "ROT_V_shaft | STAT_boss": {
+   "min": 0.55,
+   "at": [
+    39.1,
+    1.0,
+    -28.56
+   ],
+   "fit": null
+  },
+  "ROT_V_shaft | STAT_leg_back_ext": {
+   "min": 2.5,
+   "at": [
+    38.9,
+    5.0,
+    -40.0
+   ],
+   "fit": null
+  },
+  "ROT_V_collar | STAT_tongue": {
+   "min": 0.5,
+   "at": [
+    39.0,
+    5.7,
+    -24.05
+   ],
+   "fit": null
+  },
+  "ROT_V_collar | STAT_insert": {
+   "min": 0.0,
+   "at": [
+    39.64,
+    5.1,
+    -24.05
+   ],
+   "fit": "thrust face (fit)"
+  },
+  "ROT_V_collar | STAT_keeper": {
+   "min": 0.56,
+   "at": [
+    41.51,
+    2.01,
+    -24.05
+   ],
+   "fit": null
+  },
+  "ROT_V_collar | STAT_boss": {
+   "min": 0.75,
+   "at": [
+    36.42,
+    2.7,
+    -24.05
+   ],
+   "fit": null
+  },
+  "ROT_V_collar | STAT_leg_back_ext": {
+   "min": 2.68,
+   "at": [
+    38.6,
+    5.67,
+    -24.05
+   ],
+   "fit": null
+  },
+  "ROT_V_collar | PLUG_cavity": {
+   "min": 2.3,
+   "at": [
+    41.7,
+    3.0,
+    -23.84
+   ],
+   "fit": null
+  },
+  "ROT_V_pinion | STAT_tongue": {
+   "min": 0.84,
+   "at": [
+    39.0,
+    6.2,
+    -23.21
+   ],
+   "fit": null
+  },
+  "ROT_V_pinion | STAT_insert": {
+   "min": 0.84,
+   "at": [
+    41.33,
+    5.19,
+    -23.21
+   ],
+   "fit": null
+  },
+  "ROT_V_pinion | STAT_keeper": {
+   "min": 1.39,
+   "at": [
+    41.89,
+    4.9,
+    -23.21
+   ],
+   "fit": null
+  },
+  "ROT_V_pinion | STAT_post": {
+   "min": 0.5,
+   "at": [
+    39.2,
+    3.89,
+    -20.48
+   ],
+   "fit": null
+  },
+  "ROT_V_pinion | STAT_boss": {
+   "min": 0.66,
+   "at": [
+    38.55,
+    7.55,
+    -22.8
+   ],
+   "fit": null
+  },
+  "ROT_V_pinion | STAT_leg_back_ext": {
+   "min": 2.79,
+   "at": [
+    38.15,
+    7.5,
+    -23.21
+   ],
+   "fit": null
+  },
+  "ROT_V_pinion | PLUG_cavity": {
+   "min": 0.73,
+   "at": [
+    43.58,
+    3.0,
+    -23.21
+   ],
+   "fit": null
+  },
+  "ROT_A_gear | STAT_tongue": {
+   "min": 1.66,
+   "at": [
+    42.49,
+    0.47,
+    -22.57
+   ],
+   "fit": null
+  },
+  "ROT_A_gear | STAT_insert": {
+   "min": 1.72,
+   "at": [
+    42.49,
+    1.22,
+    -22.86
+   ],
+   "fit": null
+  },
+  "ROT_A_gear | STAT_keeper": {
+   "min": 1.48,
+   "at": [
+    42.9,
+    3.0,
+    -23.12
+   ],
+   "fit": null
+  },
+  "ROT_A_gear | STAT_post": {
+   "min": 1.25,
+   "at": [
+    41.25,
+    3.9,
+    -15.78
+   ],
+   "fit": null
+  },
+  "ROT_A_gear | PLUG_cavity": {
+   "min": 0.11,
+   "at": [
+    44.21,
+    8.31,
+    -17.0
+   ],
+   "fit": "gear back on the cavity end wall (thrust, fit)"
+  },
+  "ROT_A_spindle | PLUG_cavity": {
+   "min": 0.05,
+   "at": [
+    44.31,
+    4.24,
+    -13.2
+   ],
+   "fit": "journal / thrust (fit)"
+  },
+  "ROT_V_coupler | ROT_A_gear": {
+   "min": 16.88
+  },
+  "ROT_V_shaft | ROT_A_gear": {
+   "min": 1.76
+  },
+  "ROT_V_collar | ROT_A_gear": {
+   "min": 0.73
+  }
+ },
+ "lifted": {
+  "ROT_V_coupler | STAT_leg_back_ext": {
+   "min": 1.0,
+   "at": [
+    38.85,
+    6.5,
+    -36.0
+   ]
+  },
+  "ROT_V_coupler | SERVO": {
+   "min": 0.95,
+   "at": [
+    39.0,
+    3.0,
+    -39.3
+   ]
+  },
+  "ROT_V_shaft | STAT_boss": {
+   "min": 0.55,
+   "at": [
+    39.1,
+    1.0,
+    -29.28
+   ]
+  },
+  "ROT_V_shaft | STAT_tongue": {
+   "min": 1.2,
+   "at": [
+    37.0,
+    3.0,
+    -24.06
+   ]
+  },
+  "ROT_V_shaft | STAT_leg_back_ext": {
+   "min": 2.5,
+   "at": [
+    38.9,
+    5.0,
+    -35.5
+   ]
+  },
+  "ROT_V_collar | STAT_boss": {
+   "min": 2.54,
+   "at": [
+    38.6,
+    5.67,
+    -19.54
+   ]
+  },
+  "ROT_V_pinion | STAT_boss": {
+   "min": 0.66,
+   "at": [
+    38.55,
+    7.55,
+    -18.3
+   ]
+  }
+ }
+}

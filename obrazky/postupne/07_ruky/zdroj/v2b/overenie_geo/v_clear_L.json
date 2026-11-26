@@ -1,0 +1,240 @@
+{
+ "side": "L",
+ "sweep": {
+  "ROT_coupler": {
+   "min": 1.231,
+   "at": [
+    34.51,
+    2.7,
+    -37.77
+   ],
+   "by": "servo_zdvih"
+  },
+  "ROT_vshaft": {
+   "min": 9.9,
+   "at": null,
+   "by": null
+  },
+  "ROT_pinion": {
+   "min": 1.232,
+   "at": [
+    34.51,
+    2.7,
+    -23.21
+   ],
+   "by": "servo_zdvih"
+  },
+  "ROT_pinion_shim0.60": {
+   "min": 1.233,
+   "at": [
+    34.51,
+    2.7,
+    -23.03
+   ],
+   "by": "servo_zdvih"
+  },
+  "STAT_MR63": {
+   "min": 2.532,
+   "at": [
+    36.01,
+    2.82,
+    -24.09
+   ],
+   "by": "lower bound (azimuth ignored)"
+  },
+  "STAT_tongue": {
+   "min": 1.331,
+   "at": [
+    34.61,
+    2.64,
+    -24.17
+   ],
+   "by": "servo_zdvih"
+  },
+  "ROT_gear": {
+   "min": 9.9,
+   "at": null,
+   "by": null
+  },
+  "ROT_M4": {
+   "min": 9.9,
+   "at": null,
+   "by": null
+  },
+  "STAT_A1A2spacer": {
+   "min": 9.9,
+   "at": null,
+   "by": null
+  },
+  "STAT_boss": {
+   "min": 1.016,
+   "at": [
+    34.4,
+    -0.03,
+    -28.82
+   ],
+   "by": "servo_zdvih"
+  },
+  "FILL_corners": {
+   "min": 1.156,
+   "at": [
+    32.0,
+    -13.0,
+    -29.0
+   ],
+   "by": "servo_zdvih"
+  }
+ },
+ "static": {
+  "ROT_coupler": {
+   "min": 2.5,
+   "at": [
+    43.14,
+    3.0,
+    -35.5
+   ],
+   "nearest": {
+    "T_bok_L": 2.5,
+    "T_paluba": 4.443
+   }
+  },
+  "ROT_vshaft": {
+   "min": 0.505,
+   "at": [
+    39.06,
+    1.5,
+    -32.63
+   ],
+   "nearest": {
+    "T_bok_L": 0.505
+   }
+  },
+  "ROT_pinion": {
+   "min": 3.404,
+   "at": [
+    39.09,
+    -1.5,
+    -23.42
+   ],
+   "nearest": {
+    "T_bok_L": 3.404
+   }
+  },
+  "ROT_pinion_shim0.60": {
+   "min": 3.552,
+   "at": [
+    39.09,
+    7.5,
+    -23.24
+   ],
+   "nearest": {
+    "T_bok_L": 3.552
+   }
+  },
+  "STAT_MR63": {
+   "min": 1.429,
+   "at": [
+    39.03,
+    6.0,
+    -26.35
+   ],
+   "nearest": {
+    "T_bok_L": 1.429
+   }
+  },
+  "STAT_tongue": {
+   "min": 0.462,
+   "at": [
+    39.06,
+    7.4,
+    -26.85
+   ],
+   "nearest": {
+    "T_bok_L": 0.462
+   }
+  },
+  "ROT_gear": {
+   "min": 5.268,
+   "at": [
+    42.5,
+    8.13,
+    -13.29
+   ],
+   "nearest": {
+    "T_bok_L": 5.268
+   }
+  },
+  "ROT_M4": {
+   "min": ">8",
+   "at": [
+    40.0,
+    3.0,
+    -17.0
+   ],
+   "nearest": {}
+  },
+  "STAT_A1A2spacer": {
+   "min": ">8",
+   "at": [
+    44.54,
+    5.0,
+    -17.0
+   ],
+   "nearest": {}
+  },
+  "STAT_boss": {
+   "min": 0.0,
+   "at": [
+    39.1,
+    -0.09,
+    -5.48
+   ],
+   "nearest": {
+    "T_bok_L": 0.0
+   }
+  },
+  "FILL_corners": {
+   "min": 0.129,
+   "at": [
+    31.0,
+    14.5,
+    -48.0
+   ],
+   "nearest": {
+    "T_paluba": 0.129,
+    "T_spodok": 0.476,
+    "T_bok_L": 0.6
+   }
+  }
+ },
+ "fill": {
+  "coupler_corridor_min": 0.5,
+  "coupler_corridor_at": [
+   39.0,
+   7.5,
+   -35.0
+  ],
+  "coupler_rot_min": 0.5,
+  "servo_slide_min": 0.1,
+  "servo_slide_at": [
+   33.0,
+   9.0,
+   -49.0
+  ],
+  "servo_boss_slide_min": 1.0,
+  "lifted_hex_min": 2.19,
+  "T_stred_lowering_min": 0.6,
+  "T_stred_lowering_at": [
+   33.0,
+   -19.0,
+   -49.0
+  ],
+  "cap_removal_min": 0.6,
+  "cap_removal_at": [
+   38.5,
+   10.5,
+   -29.5
+  ],
+  "n_corners": 35011
+ }
+}

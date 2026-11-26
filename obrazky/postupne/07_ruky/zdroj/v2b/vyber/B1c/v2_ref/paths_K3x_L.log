@@ -1,0 +1,34 @@
+cap SERVO {'min': 0.76, 'at': [45.05, -17.85, -49.3]}
+cap SERVO_cable {'min': 0.8, 'at': None}
+cap ROT_V_coupler {'min': 0.8, 'at': None}
+cap ROT_V_shaft {'min': 0.0, 'at': [40.34, 2.6, -32.2]}
+cap ROT_V_pinion {'min': 0.8, 'at': None}
+cap BRG_B1 {'min': 0.8, 'at': None}
+cap STAT_boss {'min': 0.0, 'at': [39.1, 8.92, -7.02]}
+cap STAT_tongue {'min': 0.47, 'at': [39.5, 7.37, -26.85]}
+cap STAT_leg_back {'min': 0.0, 'at': [43.5, 19.5, -80.8]}
+cap STAT_leg_front {'min': 0.0, 'at': [43.0, -23.7, -68.5]}
+cap STAT_shelf_back {'min': 0.8, 'at': None}
+cap STAT_shelf_front {'min': 0.8, 'at': None}
+cap STAT_strut {'min': 0.7, 'at': [38.4, -9.9, -25.0]}
+servo_in SERVO {'min': 0.0, 'at': [43.5, 9.2, -51.8]}
+servo_in SERVO_cable {'min': 0.8, 'at': None}
+servo_in ROT_V_coupler {'min': 0.8, 'at': None}
+lower SERVO {'min': 0.55, 'at': [32.95, -18.85, -49.4]}
+lower SERVO_cable {'min': 0.8, 'at': None}
+lower ROT_V_coupler {'min': 0.8, 'at': None}
+lower ROT_V_shaft {'min': 0.8, 'at': None}
+lower ROT_V_pinion {'min': 0.8, 'at': None}
+lower ROT_A_gear {'min': 0.8, 'at': None}
+lower ROT_A_shaft {'min': 0.8, 'at': None}
+lower BRG_B1 {'min': 0.8, 'at': None}
+lower BRG_A1 {'min': 0.8, 'at': None}
+lower BRG_A2 {'min': 0.8, 'at': None}
+lower STAT_boss {'min': 0.8, 'at': None}
+lower STAT_tongue {'min': 0.8, 'at': None}
+lower STAT_leg_back {'min': 0.01, 'at': [32.4, 18.9, -48.1]}
+lower STAT_leg_front {'min': 0.01, 'at': [33.0, -21.6, -48.0]}
+lower STAT_shelf_back {'min': 0.8, 'at': None}
+lower STAT_shelf_front {'min': 0.8, 'at': None}
+lower STAT_strut {'min': 0.8, 'at': None}
+done

@@ -1,0 +1,9 @@
+=== B1 m 0.6667 z (12, 18) a 25 x1 +0.00 b 2.80 R 7.211 m_mean 0.5373 rm2 4.835 zv 14.42/32.45
+  L1 Y(tip dir) 0.3985  Y(raw Ft at tip) 0.3639  t 1.878 l 1.615 gamma 34.2  rF 0.671 Kf 1.353 (Kf with rho 1.436)
+  L2 Y(tip dir) 0.4986  Y(raw Ft at tip) 0.4778  t 2.142 l 1.600 gamma 29.7  rF 0.690 Kf 1.456 (Kf with rho 1.550)
+=== B2 m 0.6500 z (12, 18) a 25 x1 +0.25 b 2.50 R 7.031 m_mean 0.5344 rm2 4.810 zv 14.42/32.45
+  L1 Y(tip dir) 0.4305  Y(raw Ft at tip) 0.3732  t 2.072 l 1.917 gamma 38.2  rF 0.603 Kf 1.339 (Kf with rho 1.405)
+  L2 Y(tip dir) 0.4114  Y(raw Ft at tip) 0.3972  t 2.035 l 1.738 gamma 29.0  rF 0.906 Kf 1.327 (Kf with rho 1.453)
+=== v2printed m 0.5000 z (16, 24) a 20 x1 +0.00 b 2.40 R 7.211 m_mean 0.4168 rm2 5.002 zv 19.23/43.27
+  L1 Y(tip dir) 0.3350  Y(raw Ft at tip) 0.3093  t 1.798 l 1.741 gamma 29.8  rF 0.780 Kf 1.336 (Kf with rho 1.473)
+  L2 Y(tip dir) 0.4064  Y(raw Ft at tip) 0.3916  t 2.030 l 1.754 gamma 25.1  rF 0.751 Kf 1.427 (Kf with rho 1.567)

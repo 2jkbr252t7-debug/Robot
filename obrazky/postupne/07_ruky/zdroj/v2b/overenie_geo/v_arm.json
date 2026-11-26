@@ -1,0 +1,25 @@
+{
+ "L": 72.0,
+ "tip_dist_max": 53.75,
+ "tip_at": [
+  71.46,
+  0.23,
+  -70.68
+ ],
+ "x_range": [
+  48.5,
+  77.67
+ ],
+ "z_min": -70.71,
+ "shell_area_mm2": 6015.9,
+ "shell_cg": [
+  64.54,
+  2.23,
+  -31.73
+ ],
+ "cg_lever_mm": 14.75,
+ "gravity_torque_horizontal_11g": 0.00159,
+ "gravity_torque_horizontal_13g": 0.00188,
+ "gravity_torque_horizontal_15g": 0.00217,
+ "coins_60mm_on_arm": false
+}

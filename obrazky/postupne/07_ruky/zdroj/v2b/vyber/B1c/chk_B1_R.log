@@ -1,0 +1,45 @@
+sweep model 2117906 3s
+sweep  SERVO            {'min': 1.35, 'at': [-32.95, 0.1, -47.0], 'by': 'P_drziak_serva'} 5s
+sweep  SERVO_cable      {'min': 18.1, 'at': [-37.0, -14.3, -63.5], 'by': 'lower bound'} 6s
+sweep  ROT_V_coupler    {'min': 1.6, 'at': [-34.51, 2.7, -41.9], 'by': 'P_drziak_serva'} 7s
+sweep  ROT_V_shaft      {'min': 3.76, 'at': [-36.7, 3.2, -39.6], 'by': 'lower bound'} 7s
+sweep  ROT_V_pinion     {'min': 1.61, 'at': [-34.5, 3.1, -22.78], 'by': 'lower bound'} 7s
+sweep  ROT_A_gear       {'min': 8.06, 'at': [-41.14, 0.83, -18.77], 'by': 'lower bound'} 7s
+sweep  ROT_A_shaft      {'min': 6.96, 'at': [-40.0, 1.4, -17.0], 'by': 'lower bound'} 8s
+sweep  BRG_B1           {'min': 3.06, 'at': [-36.01, 3.2, -24.95], 'by': 'lower bound'} 8s
+sweep  BRG_A1           {'min': 11.46, 'at': [-44.54, 0.83, -18.77], 'by': 'lower bound'} 8s
+sweep  BRG_A2           {'min': '>4', 'at': None, 'by': None} 8s
+sweep  STAT_boss        {'min': 1.4, 'at': [-34.4, -0.07, -28.39], 'by': 'P_drziak_serva'} 9s
+sweep  STAT_tongue      {'min': 1.66, 'at': [-34.6, 3.0, -24.95], 'by': 'lower bound'} 9s
+sweep  STAT_leg_back    {'min': 1.7, 'at': [-31.5, 9.2, -48.5], 'by': 'lower bound'} 10s
+sweep  STAT_leg_front   {'min': 4.35, 'at': [-32.7, -14.6, -48.5], 'by': 'lower bound'} 10s
+sweep  STAT_web         {'min': 1.3, 'at': [-30.5, 3.1, -48.5], 'by': 'P_drziak_serva'} 11s
+sweep  STAT_strut       {'min': 2.51, 'at': [-34.4, -9.0, -41.5], 'by': 'lower bound'} 12s
+sweep  STAT_pad         {'min': 19.54, 'at': [-32.65, -1.7, -66.8], 'by': 'lower bound'} 12s
+sweep  ROT_V_shim       {'min': 4.21, 'at': [-37.1, 3.1, -23.42], 'by': 'lower bound'} 12s
+sweep  ROT_A_shim       {'min': 11.16, 'at': [-44.24, 0.94, -18.59], 'by': 'lower bound'} 12s
+static model 4094216 57s
+static SERVO            {'min': 0.56, 'at': [-32.95, -14.0, -48.2], 'nearest': {'T_spodok': 0.56}}
+static SERVO_cable      {'min': 4.65, 'at': [-37.0, -15.05, -64.75], 'nearest': {'T_spodok': 4.65, 'T_bok_P': 5.03}}
+static ROT_V_coupler    {'min': 2.5, 'at': [-43.0, 3.0, -35.5], 'nearest': {'T_bok_P': 2.5}}
+static ROT_V_shaft      {'min': 0.0, 'at': [-39.1, 3.17, -32.5], 'nearest': {'T_bok_P': 0.0}}
+static ROT_V_pinion     {'min': 3.4, 'at': [-39.05, 7.5, -23.42], 'nearest': {'T_bok_P': 3.4}}
+static ROT_A_gear       {'min': 5.27, 'at': [-42.5, 7.3, -12.35], 'nearest': {'T_bok_P': 5.27}}
+static ROT_A_shaft      {'min': '>6', 'at': [-40.0, 3.0, -17.0], 'nearest': {}}
+static BRG_B1           {'min': 1.43, 'at': [-39.1, 0.0, -26.35], 'nearest': {'T_bok_P': 1.43}}
+static BRG_A1           {'min': '>6', 'at': [-44.54, 5.0, -17.0], 'nearest': {}}
+static BRG_A2           {'min': '>6', 'at': [-52.6, 5.0, -17.0], 'nearest': {}}
+static STAT_boss        {'min': 0.0, 'at': [-39.1, 7.68, -5.84], 'nearest': {'T_bok_P': 0.0}}
+static STAT_tongue      {'min': 0.46, 'at': [-39.1, 7.4, -26.85], 'nearest': {'T_bok_P': 0.46}}
+static STAT_leg_back    {'min': 0.01, 'at': [-41.5, 12.8, -27.0], 'nearest': {'T_bok_P': 0.01, 'T_spodok': 0.06}}
+static STAT_leg_front   {'min': 0.38, 'at': [-32.7, -15.2, -48.5], 'nearest': {'T_spodok': 0.38, 'T_bok_P': 2.17, 'T_stred': 2.34}}
+static STAT_web         {'min': 0.05, 'at': [-32.3, -12.5, -58.8], 'nearest': {'T_spodok': 0.05}}
+static STAT_strut       {'min': 0.7, 'at': [-38.4, -9.2, -25.9], 'nearest': {'T_bok_P': 0.7, 'T_spodok': 2.0}}
+static STAT_pad         {'min': 0.34, 'at': [-32.65, -12.5, -66.9], 'nearest': {'T_spodok': 0.34, 'T_bok_P': 3.49}}
+static ROT_V_shim       {'min': 4.14, 'at': [-39.15, 1.11, -23.85], 'nearest': {'T_bok_P': 4.14}}
+static ROT_A_shim       {'min': '>6', 'at': [-44.24, 5.2, -17.0], 'nearest': {}}
+lower {'SERVO': 2.25, 'SERVO_cable': 4.25, 'ROT_V_coupler': 10.3, 'ROT_V_shaft': 11.96, 'ROT_V_pinion': 10.3, 'ROT_A_gear': 10.54, 'ROT_A_shaft': 10.05, 'BRG_B1': 11.68, 'BRG_A1': 14.18, 'BRG_A2': 22.03, 'STAT_boss': 2.25, 'STAT_tongue': 10.3, 'STAT_leg_back': 0.25, 'STAT_leg_front': 0.25, 'STAT_web': 0.75, 'STAT_strut': 0.87, 'STAT_pad': 1.87, 'ROT_V_shim': 12.79, 'ROT_A_shim': 13.83}
+s1 {'SERVO': 14.2, 'SERVO_cable': 38.11, 'ROT_V_coupler': 16.04, 'ROT_V_shaft': 18.25, 'ROT_V_pinion': 18.12, 'ROT_A_gear': 24.74, 'ROT_A_shaft': 24.75, 'BRG_B1': 18.44, 'BRG_A1': 28.26, 'BRG_A2': 35.59, 'STAT_boss': 15.12, 'STAT_tongue': 16.94, 'STAT_leg_back': 11.73, 'STAT_leg_front': 29.51, 'STAT_web': 13.5, 'STAT_strut': 23.96, 'STAT_pad': 25.43, 'ROT_V_shim': 20.34, 'ROT_A_shim': 28.12}
+cap removal {'SERVO': {'margin': 1.6, 'at': [-45.05, -14.3, -45.2]}, 'SERVO_cable': {'margin': 5.47, 'at': [-41.0, -17.3, -66.5]}, 'ROT_V_coupler': {'margin': 4.05, 'at': [-43.5, 3.0, -35.5]}, 'ROT_V_shaft': {'margin': -1.4, 'at': [-40.5, 3.0, -32.18]}, 'ROT_V_pinion': {'margin': None, 'at': None}, 'BRG_B1': {'margin': None, 'at': None}, 'STAT_boss': {'margin': -0.0, 'at': [-39.1, 14.54, -15.8]}, 'STAT_tongue': {'margin': -2.3, 'at': [-41.4, -0.56, -26.85]}, 'STAT_leg_back': {'margin': -2.4, 'at': [-41.5, 9.5, -26.1]}, 'STAT_leg_front': {'margin': 2.24, 'at': [-41.5, -20.0, -44.5]}, 'STAT_web': {'margin': 14.32, 'at': [-32.65, -14.6, -48.6]}, 'STAT_strut': {'margin': 0.7, 'at': [-38.4, -9.8, -25.3]}, 'STAT_pad': {'margin': 3.52, 'at': [-44.0, -14.6, -69.0]}, 'ROT_V_shim': {'margin': None, 'at': None}}
+servo insertion {'SERVO': {'margin': 0.56, 'at': [-32.39, -14.01, -48.2]}, 'SERVO_cable': {'margin': 4.65, 'at': [-32.35, -15.05, -64.76]}, 'ROT_V_coupler': {'margin': 11.29, 'at': [-24.24, 6.5, -43.28]}}
+done 100s

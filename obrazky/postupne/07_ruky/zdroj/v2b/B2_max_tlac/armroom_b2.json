@@ -1,0 +1,27 @@
+{
+ "hub tube r 8.0 x 52.6..58.5 (arm body, inset 0)": {
+  "all_inside": true,
+  "frac_inside": 1.0,
+  "extra_margin_mm": 1.0
+ },
+ "hub flange r 14.2 x 58.5..61.0 (arm body, inset 0)": {
+  "all_inside": true,
+  "frac_inside": 1.0,
+  "extra_margin_mm": 2.0
+ },
+ "clutch disc r 14.2 x 61.1..64.5 (inset 1.7)": {
+  "all_inside": true,
+  "frac_inside": 1.0,
+  "extra_margin_mm": 0.15
+ },
+ "M2 screw head r 1.9 x 64.5..66.5 (inset 1.7)": {
+  "all_inside": true,
+  "frac_inside": 1.0,
+  "extra_margin_mm": 3.0
+ },
+ "hub inner face / counterbore start r 7.0 at x 52.6 (inset 0)": {
+  "all_inside": true,
+  "frac_inside": 1.0,
+  "extra_margin_mm": 1.25
+ }
+}

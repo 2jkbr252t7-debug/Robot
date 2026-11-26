@@ -1,0 +1,44 @@
+{
+ "tip 1.0 N": {
+  "stop_force_N": 8.9,
+  "bearing_MPa": 4.0,
+  "rib_bending_MPa": 3.2,
+  "rib_shear_MPa": 1.3
+ },
+ "tip 3.0 N": {
+  "stop_force_N": 26.7,
+  "bearing_MPa": 12.1,
+  "rib_bending_MPa": 9.5,
+  "rib_shear_MPa": 3.8
+ },
+ "tip 5.0 N": {
+  "stop_force_N": 44.4,
+  "bearing_MPa": 20.2,
+  "rib_bending_MPa": 15.8,
+  "rib_shear_MPa": 6.3
+ },
+ "tip 7.0 N": {
+  "stop_force_N": 62.2,
+  "bearing_MPa": 28.3,
+  "rib_bending_MPa": 22.1,
+  "rib_shear_MPa": 8.9
+ },
+ "tip 10.0 N": {
+  "stop_force_N": 88.8,
+  "bearing_MPa": 40.4,
+  "rib_bending_MPa": 31.5,
+  "rib_shear_MPa": 12.7
+ },
+ "homing at clutch 0.017": {
+  "stop_force_N": 2.81,
+  "bearing_MPa": 1.28
+ },
+ "wide rib, tip 7.0 N": {
+  "bearing_MPa": 17.1,
+  "rib_bending_MPa": 2.9
+ },
+ "wide rib, tip 10.0 N": {
+  "bearing_MPa": 24.5,
+  "rib_bending_MPa": 4.1
+ }
+}

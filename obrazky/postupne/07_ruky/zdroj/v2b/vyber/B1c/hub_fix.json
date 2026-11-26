@@ -1,0 +1,8 @@
+{
+ "DRV_disc vs ARM_lip": 0.5,
+ "DRV_screw_shank vs PLG_seat": 0.5,
+ "DRV_boss vs PLG_seat": 0.5,
+ "DRV_disc vs ARM_wall": 0.5,
+ "room ARM_lip wall left": 1.82,
+ "room ARM_wall wall left": 1.36
+}

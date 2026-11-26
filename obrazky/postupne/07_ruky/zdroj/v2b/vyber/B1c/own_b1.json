@@ -1,0 +1,38 @@
+{
+ "pairs": {
+  "pinion vs boss_face": 0.84,
+  "pinion vs boss_slot_walls": 0.85,
+  "pinion vs plug_cavity": 0.81,
+  "pinion vs plug_cavity_end": 1.04,
+  "pinion vs plug_slot_walls": 0.8,
+  "pinion vs tongue": 0.62,
+  "pinion vs MR63_outer_race": 0.62,
+  "pinion vs STAT_leg_back": 3.09,
+  "vertical_shaft vs boss_face": 0.51,
+  "vertical_shaft vs boss_slot_walls": 3.85,
+  "vertical_shaft vs plug_cavity": 3.65,
+  "vertical_shaft vs plug_slot_walls": 3.8,
+  "vertical_shaft vs tongue": 1.5,
+  "vertical_shaft vs MR63_outer_race": 0.9,
+  "vertical_shaft vs STAT_leg_back": 3.89,
+  "coupler vs STAT_leg_back": 1.7,
+  "coupler vs servo_case": 1.5,
+  "coupler vs servo_boss": 0.5,
+  "gear vs boss_face": 2.74,
+  "gear vs boss_slot_walls": 2.84,
+  "gear vs plug_cavity": 0.57,
+  "gear vs plug_cavity_end": 0.5,
+  "gear vs plug_slot_walls": 0.62,
+  "gear vs tongue": 0.72,
+  "gear vs MR63_outer_race": 0.72,
+  "M4_shank vs boss_face": 1.6,
+  "M4_shank vs boss_slot_walls": 1.7,
+  "M4_shank vs plug_cavity_end": 1.5
+ },
+ "own_pairs": {
+  "pinion vs M4_shank": 1.47,
+  "gear vs vertical_shaft": 0.89,
+  "coupler vs pinion": Infinity
+ },
+ "shaft_in_tongue_hole_radial": 0.5
+}
