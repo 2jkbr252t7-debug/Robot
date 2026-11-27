@@ -1,0 +1,26 @@
+NOVA mini – trup rev. 3 – ZATIAĽ NETLAČIŤ (na prezeranie a kontrolu)
+====================================================================
+
+Prečo zatiaľ netlačiť:
+1. Vnútro trupu rev. 3 potrebuje kovové diely na mieru:
+   – nerezové ucho L_ucho;
+   – hliníkovú pätku L_pata so závitom;
+   – hliníkový mostík T_most;
+   – mosadzné ozubené kolesá z katalógov;
+   – prevŕtanú hliníkovú páku serva.
+   Podľa pravidla „žiadna práca s kovom“ sa otáčanie hlavy a zdvih krku prerobia na tlačené diely
+   s väčšími zubami. Vonkajšie kryty ostanú.
+2. Ruky (servá v trupe) menia:
+   – T_spodok (stĺpy s kapsou pre servo);
+   – T_paluba;
+   – T_bok_L a T_bok_P (malý zárez vnútri, zvonka bez zmeny);
+   – T_klb_L a T_klb_P (nahradí ich čierna zátka).
+
+Pravdepodobne bez zmeny, ale tlač ich až s ostatnými:
+  T_stred, T_dvere, T_svetlovod, T_mriezka, T_drziak_led, T_drziak_repro.
+
+Obsah:
+  STL_zatial_netlacit/ – 16 tlačených dielov rev. 3 v montážnej polohe;
+  NOVA_trup.glb        – celý trup na prezeranie;
+  trup_STEP.zip        – všetky diely ako STEP (pre CAD);
+  STAV.md, zmeny_rev3.txt, montaz_trup.txt – stav, zmeny a postup rev. 3 (len na informáciu).

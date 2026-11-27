@@ -1,0 +1,37 @@
+NOVA mini – hlava a výsuvný krk B (revízia E2f) – HOTOVÉ, dá sa tlačiť
+======================================================================
+
+na_tlac/ – diely, ktoré tlačíš z Elegoo Tough
+  11 pôvodných dielov:
+    hlava_skrupina, ram_displeja, drziak_displeja, usi, led_kruzky, krk_predna_polovica,
+    krk_zadna_polovica, usko_kryt, usko_lozisko, golier_kotuc, golier_prstenec.
+  Farby, povrch a orientáciu pri tlači opisuje montaz.txt, časť B.
+
+  NOVÉ (pravidlo „žiadna práca s kovom“): tieto diely nahrádzajú kalený čap a oceľové kolíky.
+  cap_duty_D4.94 / D4.96 / D4.98 x5.1_skusobny.stl
+      Dutý čap pre ložisko MR85 na ľavom uchu; cez neho idú vodiče do hlavy.
+      Vytlač všetky tri priemery. Použi ten, ktorý ide do ložiska rukou, posuvne a bez viditeľnej vôle.
+      Vlepuje sa epoxidom ako v montaz.txt.
+      Tlačený čap je podľa ručného odhadu na hranici pevnosti živice; skúškou to ešte nie je overené.
+      Je lacný, vytlač si rezervný.
+  kolik_D1.96 / D1.98 / D2.00 x6_skusobny.stl
+      2 kolíky, ktoré vystreďujú polovice krku. Vytlač po 2–3 kusy z každého priemeru.
+      Použi tie, ktoré idú do otvorov s ľahkým odporom, a vlep ich epoxidom.
+
+kupovane_diely_len_na_kontrolu/ – NETLAČIŤ
+  Displej, servo, páka, ložisko, skrutky, magnety, peny, kábel, LED dosky, oči a ilustračný trup.
+  Sú len na kontrolu, že sa všetko zmestí.
+
+CELOK_pokoj.glb – celá hlava s krkom na prezeranie, hladká a vyfarbená.
+
+montaz.txt – nákup, tlač a montáž krok za krokom. POZOR, v ňom už NEPLATÍ:
+  – „dutý čap … kalená tyč Ø5 h6 … prevŕtaná … zlapovať“ – nahrádza ho tlačený čap vyššie;
+  – „oceľový kolík Ø2 × 6 (m6), 2 ks“ – nahrádzajú ich tlačené kolíky vyššie.
+
+Dostupnosť dielov (kontrola 26. 11. 2026 v SK/CZ obchodoch, ktoré sa dali otvoriť:
+LaskaKit, Hadex, Ložiská Polička, Bauhaus, OBI, 3DJake, TME):
+  – Ložisko MR85ZZ (5×8×2,5) sa NENAŠLO. Skladom je MR95 (5×9×3) a MR105 (5×10×4).
+    Skús obchod s ložiskami alebo RC modelárstvo. Ak ho nezoženieš, upravím kapsu ložiska v usko_lozisko na MR95.
+  – Magnety Ø4×2 sa nenašli, len Ø4×3 (TME).
+  – Mosadzné vložky M2 Ø3,2×3 sú skladom v Hadexe.
+  – Servo MG90S je skladom v LaskaKite.
