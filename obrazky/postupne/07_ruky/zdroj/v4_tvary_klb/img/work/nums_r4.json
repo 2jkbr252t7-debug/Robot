@@ -1,0 +1,258 @@
+{
+ "shape": {
+  "B0": {
+   "t_max": 15.54,
+   "t_joint": 15.53,
+   "cover_joint": 6.33,
+   "inner_joint": 9.21,
+   "w_max": 30.2,
+   "robot_width": 144.42,
+   "out_x": 72.211,
+   "out_z": -63.79,
+   "gap_rest": 3.703,
+   "gap_min": 1.124,
+   "gap_stop": 0.97,
+   "wall": 1.585,
+   "reserve": 0.085,
+   "post_cover": 0.854,
+   "post_inner": 1.416,
+   "post37_cover": 0.987,
+   "post37_inner": 1.596,
+   "r_min_cover": 1.912,
+   "tip_vol": 861.0
+  },
+  "B1": {
+   "t_max": 16.11,
+   "t_joint": 16.05,
+   "cover_joint": 6.87,
+   "inner_joint": 9.18,
+   "w_max": 30.9,
+   "robot_width": 143.61,
+   "out_x": 71.803,
+   "out_z": -61.73,
+   "gap_rest": 3.724,
+   "gap_min": 1.345,
+   "gap_stop": 1.316,
+   "wall": 2.203,
+   "reserve": 0.703,
+   "post_cover": 1.789,
+   "post_inner": 1.666,
+   "post37_cover": 1.982,
+   "post37_inner": 1.857,
+   "r_min_cover": 1.6,
+   "tip_vol": 689.0
+  },
+  "B2": {
+   "t_max": 16.18,
+   "t_joint": 16.09,
+   "cover_joint": 6.89,
+   "inner_joint": 9.21,
+   "w_max": 31.2,
+   "robot_width": 143.23,
+   "out_x": 71.617,
+   "out_z": -64.58,
+   "gap_rest": 3.703,
+   "gap_min": 1.57,
+   "gap_stop": 1.471,
+   "wall": 2.12,
+   "reserve": 0.62,
+   "post_cover": 1.222,
+   "post_inner": 1.729,
+   "post37_cover": 1.372,
+   "post37_inner": 1.907,
+   "r_min_cover": 2.026,
+   "tip_vol": 664.0
+  },
+  "B3": {
+   "t_max": 16.03,
+   "t_joint": 15.98,
+   "cover_joint": 6.78,
+   "inner_joint": 9.21,
+   "w_max": 31.0,
+   "robot_width": 144.75,
+   "out_x": 72.373,
+   "out_z": -61.1,
+   "gap_rest": 3.703,
+   "gap_min": 1.575,
+   "gap_stop": 1.462,
+   "wall": 2.084,
+   "reserve": 0.584,
+   "post_cover": 1.913,
+   "post_inner": 1.426,
+   "post37_cover": 2.111,
+   "post37_inner": 1.607,
+   "r_min_cover": 1.554,
+   "tip_vol": 638.0
+  }
+ },
+ "joint": {
+  "K0": {
+   "visible_d": 13.0,
+   "band": 12.8,
+   "band_area": 62.0,
+   "gap": {
+    "rest": 3.703,
+    "min_m45_135": 1.124,
+    "at_135": 1.124,
+    "at_140_5": 0.969
+   },
+   "width": 144.42,
+   "black": {
+    "hore": 4.19,
+    "vpredu": 4.71,
+    "dole": 4.22,
+    "vzadu": 5.37
+   }
+  },
+  "K1": {
+   "visible_d": 22.0,
+   "band": 21.7,
+   "band_area": 111.0,
+   "gap": {
+    "rest": 3.703,
+    "min_m45_135": 1.124,
+    "at_135": 1.124,
+    "at_140_5": 0.969
+   },
+   "width": 144.42,
+   "black": {
+    "hore": 2.4,
+    "vpredu": 6.1,
+    "dole": 3.08,
+    "vzadu": 5.88
+   }
+  },
+  "K2": {
+   "visible_d": 26.4,
+   "band": 19.4,
+   "band_area": 88.0,
+   "gap": {
+    "rest": 3.703,
+    "min_m45_135": 1.124,
+    "at_135": 1.124,
+    "at_140_5": 0.969
+   },
+   "width": 144.42,
+   "black": {
+    "hore": 7.37,
+    "vpredu": 8.71,
+    "dole": 3.66,
+    "vzadu": 10.77
+   }
+  },
+  "K3": {
+   "visible_d": 26.4,
+   "band": 26.0,
+   "band_area": 164.0,
+   "gap": {
+    "rest": 3.703,
+    "min_m45_135": 1.124,
+    "at_135": 1.124,
+    "at_140_5": 0.969
+   },
+   "width": 144.42,
+   "black": {
+    "hore": 7.37,
+    "vpredu": 8.71,
+    "dole": 3.66,
+    "vzadu": 10.77
+   }
+  },
+  "K3v": {
+   "visible_d": 26.4,
+   "band": 26.0,
+   "band_area": 196.0,
+   "gap": {
+    "rest": 5.155,
+    "min_m45_135": 2.465,
+    "at_135": 2.465,
+    "at_140_5": 2.306
+   },
+   "width": 147.42,
+   "black": {
+    "hore": 8.87,
+    "vpredu": 10.21,
+    "dole": 5.16,
+    "vzadu": 12.27
+   }
+  }
+ },
+ "combo": {
+  "B0": {
+   "white_arm_to_cover": 2.162,
+   "white_arm_to_cover_at": {
+    "x": 49.47,
+    "r": 13.2,
+    "az": 80.0
+   },
+   "band_min": 1.72,
+   "band_min_az": 1,
+   "band_front": 1.72,
+   "band_back": 1.72,
+   "band_top": 3.09,
+   "band_bottom": 21.29,
+   "ring_r_max": 13.1,
+   "part_min_below_seam": 0.783,
+   "part_inside_n": 1016,
+   "part_to_cover_surface_min": 3.414,
+   "part_outside_arm_x_max": 48.9
+  },
+  "B1": {
+   "white_arm_to_cover": 2.982,
+   "white_arm_to_cover_at": {
+    "x": 50.31,
+    "r": 13.2,
+    "az": 50.6
+   },
+   "band_min": 2.23,
+   "band_min_az": 177,
+   "band_front": 2.23,
+   "band_back": 2.23,
+   "band_top": 3.21,
+   "band_bottom": 21.57,
+   "ring_r_max": 13.1,
+   "part_min_below_seam": 0.783,
+   "part_inside_n": 1016,
+   "part_to_cover_surface_min": 3.478,
+   "part_outside_arm_x_max": 48.9
+  },
+  "B2": {
+   "white_arm_to_cover": 3.261,
+   "white_arm_to_cover_at": {
+    "x": 50.6,
+    "r": 13.2,
+    "az": 55.3
+   },
+   "band_min": 2.29,
+   "band_min_az": 353,
+   "band_front": 2.29,
+   "band_back": 2.29,
+   "band_top": 3.21,
+   "band_bottom": 17.92,
+   "ring_r_max": 13.1,
+   "part_min_below_seam": 0.783,
+   "part_inside_n": 1016,
+   "part_to_cover_surface_min": 3.465,
+   "part_outside_arm_x_max": 48.9
+  },
+  "B3": {
+   "white_arm_to_cover": 3.211,
+   "white_arm_to_cover_at": {
+    "x": 50.55,
+    "r": 13.2,
+    "az": 64.7
+   },
+   "band_min": 1.92,
+   "band_min_az": 355,
+   "band_front": 1.92,
+   "band_back": 1.92,
+   "band_top": 3.18,
+   "band_bottom": 18.72,
+   "ring_r_max": 13.1,
+   "part_min_below_seam": 0.783,
+   "part_inside_n": 1016,
+   "part_to_cover_surface_min": 3.478,
+   "part_outside_arm_x_max": 48.9
+  }
+ }
+}

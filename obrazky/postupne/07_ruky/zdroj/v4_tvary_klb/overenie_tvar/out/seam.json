@@ -1,0 +1,114 @@
+{
+ "B0": {
+  "cover_solid_u": [
+   0.0
+  ],
+  "cover_thinner_than_1p45_u": [
+   null,
+   0.991
+  ],
+  "inner_thinner_than_1p85_u": [
+   null,
+   0.994
+  ],
+  "seam_step_mm": [
+   0.0,
+   0.0
+  ],
+  "seam_step_at_u0_22": 0.0,
+  "half_rows_vonk_vs_skin_max": 0.056,
+  "half_rows_vonk_u_range": [
+   0.0001,
+   0.9997
+  ],
+  "half_rows_vnut_vs_skin_max": 0.056,
+  "half_rows_vnut_u_range": [
+   0.0001,
+   0.9999
+  ]
+ },
+ "B1": {
+  "cover_solid_u": [
+   0.999
+  ],
+  "cover_thinner_than_1p45_u": [
+   0.002,
+   0.978
+  ],
+  "inner_thinner_than_1p85_u": [
+   0.002,
+   0.98
+  ],
+  "seam_step_mm": [
+   0.0,
+   0.0
+  ],
+  "seam_step_at_u0_22": 0.0,
+  "half_rows_vonk_vs_skin_max": 0.056,
+  "half_rows_vonk_u_range": [
+   0.0003,
+   0.9992
+  ],
+  "half_rows_vnut_vs_skin_max": 0.056,
+  "half_rows_vnut_u_range": [
+   0.0001,
+   0.9992
+  ]
+ },
+ "B2": {
+  "cover_solid_u": [
+   0.999
+  ],
+  "cover_thinner_than_1p45_u": [
+   0.002,
+   0.981
+  ],
+  "inner_thinner_than_1p85_u": [
+   0.002,
+   0.983
+  ],
+  "seam_step_mm": [
+   0.325,
+   0.35
+  ],
+  "seam_step_at_u0_22": 0.35,
+  "half_rows_vonk_vs_skin_max": 0.055,
+  "half_rows_vonk_u_range": [
+   0.0003,
+   0.9997
+  ],
+  "half_rows_vnut_vs_skin_max": 0.055,
+  "half_rows_vnut_u_range": [
+   0.0001,
+   0.9997
+  ]
+ },
+ "B3": {
+  "cover_solid_u": [
+   0.999
+  ],
+  "cover_thinner_than_1p45_u": [
+   0.002,
+   0.986
+  ],
+  "inner_thinner_than_1p85_u": [
+   0.002,
+   0.988
+  ],
+  "seam_step_mm": [
+   -0.35,
+   -0.282
+  ],
+  "seam_step_at_u0_22": -0.35,
+  "half_rows_vonk_vs_skin_max": 0.056,
+  "half_rows_vonk_u_range": [
+   0.0001,
+   0.9992
+  ],
+  "half_rows_vnut_vs_skin_max": 0.056,
+  "half_rows_vnut_u_range": [
+   0.0001,
+   0.9997
+  ]
+ }
+}

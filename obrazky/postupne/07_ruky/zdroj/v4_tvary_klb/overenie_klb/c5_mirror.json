@@ -1,0 +1,62 @@
+{
+ "T_bok_P": {
+  "n": [
+   410147,
+   410174
+  ],
+  "max_dev_R_to_L": 0.205,
+  "p99": 0.123,
+  "max_dev_L_to_R": 0.206,
+  "worst_R_pt": [
+   -48.76,
+   -8.94,
+   -31.88
+  ]
+ },
+ "T_klb_P": {
+  "n": [
+   485120,
+   485110
+  ],
+  "max_dev_R_to_L": 0.219,
+  "p99": 0.121,
+  "max_dev_L_to_R": 0.235,
+  "worst_R_pt": [
+   -49.23,
+   16.05,
+   -20.44
+  ]
+ },
+ "T_stred_near": [
+  0,
+  0
+ ],
+ "T_dvere_near": [
+  0,
+  0
+ ],
+ "T_spodok_near": [
+  0,
+  0
+ ],
+ "T_paluba_near": [
+  0,
+  0
+ ],
+ "T_most_near": [
+  0,
+  0
+ ],
+ "T_mriezka_near": [
+  0,
+  0
+ ],
+ "T_svetlovod_near": [
+  0,
+  0
+ ],
+ "T_cap_near": [
+  0,
+  0
+ ]
+}

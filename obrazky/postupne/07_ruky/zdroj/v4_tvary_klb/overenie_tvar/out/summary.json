@@ -1,0 +1,1034 @@
+{
+ "module_md5_checked": "ed8d2161be8749d394b2160e54b02986 (variants_b.py unchanged by the verifier)",
+ "repro": {
+  "section_maxdev": 0.0,
+  "half_widths_vs_w": 0.0,
+  "inside_mismatch_2M": 0,
+  "inside_mismatch_inset0.0": 0,
+  "inside_mismatch_inset1.2": 0,
+  "inside_mismatch_inset1.6": 0,
+  "rows_dev": 0.0,
+  "half_rows_vonk_dev": 0.0,
+  "half_rows_vnut_dev": 0.0,
+  "tip_plane_dev": 0.0,
+  "to_world_dev": 0.0,
+  "to_world_right_dev": 0.0,
+  "swing_dev": 0.0,
+  "thickness_dev": 0.0,
+  "faces_dev": 0.0,
+  "R3B_Tmax": 15.539,
+  "R3B_Wmax": 30.202,
+  "R3B_cover_inner_joint": [
+   6.329,
+   9.206
+  ],
+  "R3B_params": {
+   "ki": 0.8,
+   "ko": 0.55,
+   "kw": 0.9,
+   "ni": 2.2,
+   "no": 2.3,
+   "u1": 0.03,
+   "u2": 0.5,
+   "hb": 1.25,
+   "utip": 0.85,
+   "name": "B \u2013 \u0161t\u00edhla"
+  }
+ },
+ "dims": {
+  "B0": {
+   "T_max": 15.54,
+   "T_max_u": 0.208,
+   "T_joint": 15.53,
+   "cover_joint": 6.33,
+   "inner_joint": 9.21,
+   "W_max": 30.2,
+   "W_max_u": 0.31,
+   "W_joint": 29.8,
+   "innermost_world_x": 48.498,
+   "outermost_world_x": 72.211,
+   "robot_width_over_arms": 144.42
+  },
+  "B1": {
+   "T_max": 16.11,
+   "T_max_u": 0.182,
+   "T_joint": 16.05,
+   "cover_joint": 6.87,
+   "inner_joint": 9.18,
+   "W_max": 30.9,
+   "W_max_u": 0.215,
+   "W_joint": 30.9,
+   "inner_face_vs_B0_u0.0-0.12": [
+    0.026,
+    2.538
+   ],
+   "inner_face_vs_B0_u0.12-0.42": [
+    0.026,
+    0.028
+   ],
+   "inner_face_vs_B0_u0.42-0.5": [
+    0.026,
+    0.026
+   ],
+   "inner_face_vs_B0_u0.5-0.9": [
+    0.025,
+    0.976
+   ],
+   "inner_face_vs_B0_u0.9-1.0": [
+    0.602,
+    1.01
+   ],
+   "innermost_world_x": 48.546,
+   "outermost_world_x": 71.803,
+   "robot_width_over_arms": 143.61
+  },
+  "B2": {
+   "T_max": 16.18,
+   "T_max_u": 0.178,
+   "T_joint": 16.09,
+   "cover_joint": 6.89,
+   "inner_joint": 9.21,
+   "W_max": 31.2,
+   "W_max_u": 0.203,
+   "W_joint": 31.14,
+   "inner_face_vs_B0_u0.0-0.12": [
+    -0.0,
+    2.58
+   ],
+   "inner_face_vs_B0_u0.12-0.42": [
+    0.0,
+    0.0
+   ],
+   "inner_face_vs_B0_u0.42-0.5": [
+    0.0,
+    0.023
+   ],
+   "inner_face_vs_B0_u0.5-0.9": [
+    0.023,
+    1.265
+   ],
+   "inner_face_vs_B0_u0.9-1.0": [
+    0.417,
+    1.24
+   ],
+   "innermost_world_x": 48.527,
+   "outermost_world_x": 71.617,
+   "robot_width_over_arms": 143.23
+  },
+  "B3": {
+   "T_max": 16.03,
+   "T_max_u": 0.183,
+   "T_joint": 15.98,
+   "cover_joint": 6.78,
+   "inner_joint": 9.21,
+   "W_max": 31.0,
+   "W_max_u": 0.212,
+   "W_joint": 30.99,
+   "inner_face_vs_B0_u0.0-0.12": [
+    -0.004,
+    2.438
+   ],
+   "inner_face_vs_B0_u0.12-0.42": [
+    0.0,
+    0.0
+   ],
+   "inner_face_vs_B0_u0.42-0.5": [
+    0.0,
+    0.0
+   ],
+   "inner_face_vs_B0_u0.5-0.9": [
+    -0.028,
+    0.151
+   ],
+   "inner_face_vs_B0_u0.9-1.0": [
+    0.152,
+    0.519
+   ],
+   "innermost_world_x": 48.506,
+   "outermost_world_x": 72.374,
+   "robot_width_over_arms": 144.75
+  }
+ },
+ "fit_py_rerun": {
+  "B0": {
+   "fits": true,
+   "DRV": [
+    1.585,
+    1.905
+   ]
+  },
+  "B1": {
+   "fits": true,
+   "DRV": [
+    2.203,
+    2.427
+   ]
+  },
+  "B2": {
+   "fits": true,
+   "DRV": [
+    2.12,
+    2.15
+   ]
+  },
+  "B3": {
+   "fits": true,
+   "DRV": [
+    2.108,
+    2.084
+   ]
+  }
+ },
+ "own_fit": {
+  "B0": {
+   "role": "drive",
+   "kind": "printed",
+   "req_out": 1.5,
+   "req_in": 1.5,
+   "wall_min": 1.585,
+   "nearest_half": "out",
+   "at": {
+    "x": 62.9,
+    "r": 4.7,
+    "az": 86.9,
+    "local": [
+     2.44,
+     0.01,
+     -12.94
+    ],
+    "u": 0.18
+   },
+   "wall_to_cover": 1.585,
+   "wall_to_inner": 1.904,
+   "n_outside": 0
+  },
+  "B1": {
+   "role": "drive",
+   "kind": "printed",
+   "req_out": 1.5,
+   "req_in": 1.5,
+   "wall_min": 2.202,
+   "nearest_half": "out",
+   "at": {
+    "x": 59.85,
+    "r": 13.0,
+    "az": 87.0,
+    "local": [
+     1.18,
+     0.01,
+     -4.18
+    ],
+    "u": 0.058
+   },
+   "wall_to_cover": 2.202,
+   "wall_to_inner": 2.427,
+   "n_outside": 0
+  },
+  "B2": {
+   "role": "drive",
+   "kind": "printed",
+   "req_out": 1.5,
+   "req_in": 1.5,
+   "wall_min": 2.12,
+   "nearest_half": "out",
+   "at": {
+    "x": 59.85,
+    "r": 13.0,
+    "az": 179.5,
+    "local": [
+     -1.64,
+     -12.99,
+     -17.45
+    ],
+    "u": 0.242
+   },
+   "wall_to_cover": 2.12,
+   "wall_to_inner": 2.143,
+   "n_outside": 0
+  },
+  "B3": {
+   "role": "drive",
+   "kind": "printed",
+   "req_out": 1.5,
+   "req_in": 1.5,
+   "wall_min": 2.083,
+   "nearest_half": "in",
+   "at": {
+    "x": 58.4,
+    "r": 13.0,
+    "az": 353.9,
+    "local": [
+     -3.09,
+     12.98,
+     -17.28
+    ],
+    "u": 0.24
+   },
+   "wall_to_cover": 2.109,
+   "wall_to_inner": 2.083,
+   "n_outside": 0
+  }
+ },
+ "gap_own": {
+  "B0 mesh": {
+   "rest": 3.703,
+   "min_m45_135": 1.124,
+   "at_140p5": 0.969
+  },
+  "B0 ana": {
+   "rest": 3.703,
+   "min_m45_135": 1.124,
+   "at_140p5": 0.97
+  },
+  "B1 mesh": {
+   "rest": 3.724,
+   "min_m45_135": 1.345,
+   "at_140p5": 1.315
+  },
+  "B1 ana": {
+   "rest": 3.724,
+   "min_m45_135": 1.345,
+   "at_140p5": 1.316
+  },
+  "B2": {
+   "parts": [
+    [
+     "T_bok_L",
+     "/tmp/claude-0/gapwf/fin/R1/img_v2/work/stl_mod/T_bok_L.stl"
+    ],
+    [
+     "T_spodok",
+     "/tmp/claude-0/gapwf/fin/R1/img_v2/work/stl_mod/T_spodok.stl"
+    ],
+    [
+     "zatka",
+     "R1/img_v2/work/stl/zatka.stl"
+    ]
+   ],
+   "mesh_minus_analytic": [
+    -0.03,
+    0.003
+   ],
+   "B2 mesh": {
+    "rest": 3.704,
+    "rest_at": {
+     "torso": [
+      49.26,
+      1.7,
+      -30.94
+     ],
+     "arm_u": 0.392,
+     "arm_half": "inner",
+     "n_inside": 0
+    },
+    "min_m45_135": 1.61,
+    "min_angle": 135.0,
+    "min_at": {
+     "torso": [
+      47.32,
+      5.01,
+      -26.46
+     ],
+     "arm_u": 0.091,
+     "arm_half": "inner",
+     "n_inside": 0
+    },
+    "at_m45": 3.463,
+    "at_135": 1.61,
+    "at_m51": 3.325,
+    "at_140p5": 1.505,
+    "at_142": 1.479,
+    "per_15deg": {
+     "-45": 3.463,
+     "-30": 3.784,
+     "-15": 3.754,
+     "0": 3.704,
+     "15": 3.722,
+     "30": 3.828,
+     "45": 3.884,
+     "60": 3.558,
+     "75": 3.166,
+     "90": 2.774,
+     "105": 2.349,
+     "120": 1.922,
+     "135": 1.61
+    }
+   },
+   "B2 ana": {
+    "rest": 3.703,
+    "rest_at": {
+     "torso": [
+      49.26,
+      1.61,
+      -30.93
+     ],
+     "arm_u": 0.392,
+     "arm_half": "inner",
+     "n_inside": 0
+    },
+    "min_m45_135": 1.57,
+    "min_angle": 135.0,
+    "min_at": {
+     "torso": [
+      47.37,
+      4.95,
+      -26.45
+     ],
+     "arm_u": 0.092,
+     "arm_half": "inner",
+     "n_inside": 0
+    },
+    "at_m45": 3.45,
+    "at_135": 1.57,
+    "at_m51": 3.31,
+    "at_140p5": 1.471,
+    "at_142": 1.447,
+    "per_15deg": {
+     "-45": 3.45,
+     "-30": 3.759,
+     "-15": 3.753,
+     "0": 3.703,
+     "15": 3.722,
+     "30": 3.828,
+     "45": 3.878,
+     "60": 3.558,
+     "75": 3.164,
+     "90": 2.771,
+     "105": 2.347,
+     "120": 1.917,
+     "135": 1.57
+    }
+   }
+  },
+  "B3": {
+   "parts": [
+    [
+     "T_bok_L",
+     "/tmp/claude-0/gapwf/fin/R1/img_v2/work/stl_mod/T_bok_L.stl"
+    ],
+    [
+     "T_spodok",
+     "/tmp/claude-0/gapwf/fin/R1/img_v2/work/stl_mod/T_spodok.stl"
+    ],
+    [
+     "zatka",
+     "R1/img_v2/work/stl/zatka.stl"
+    ]
+   ],
+   "mesh_minus_analytic": [
+    -0.03,
+    0.003
+   ],
+   "B3 mesh": {
+    "rest": 3.703,
+    "rest_at": {
+     "torso": [
+      49.26,
+      1.67,
+      -30.94
+     ],
+     "arm_u": 0.391,
+     "arm_half": "inner",
+     "n_inside": 0
+    },
+    "min_m45_135": 1.615,
+    "min_angle": 135.0,
+    "min_at": {
+     "torso": [
+      47.28,
+      5.5,
+      -26.46
+     ],
+     "arm_u": 0.087,
+     "arm_half": "inner",
+     "n_inside": 0
+    },
+    "at_m45": 3.488,
+    "at_135": 1.615,
+    "at_m51": 3.355,
+    "at_140p5": 1.502,
+    "at_142": 1.472,
+    "per_15deg": {
+     "-45": 3.488,
+     "-30": 3.801,
+     "-15": 3.754,
+     "0": 3.703,
+     "15": 3.722,
+     "30": 3.829,
+     "45": 3.905,
+     "60": 3.6,
+     "75": 3.208,
+     "90": 2.812,
+     "105": 2.398,
+     "120": 1.969,
+     "135": 1.615
+    }
+   },
+   "B3 ana": {
+    "rest": 3.703,
+    "rest_at": {
+     "torso": [
+      49.26,
+      1.68,
+      -30.94
+     ],
+     "arm_u": 0.391,
+     "arm_half": "inner",
+     "n_inside": 0
+    },
+    "min_m45_135": 1.575,
+    "min_angle": 135.0,
+    "min_at": {
+     "torso": [
+      47.33,
+      5.4,
+      -26.45
+     ],
+     "arm_u": 0.087,
+     "arm_half": "inner",
+     "n_inside": 0
+    },
+    "at_m45": 3.473,
+    "at_135": 1.575,
+    "at_m51": 3.342,
+    "at_140p5": 1.462,
+    "at_142": 1.434,
+    "per_15deg": {
+     "-45": 3.473,
+     "-30": 3.779,
+     "-15": 3.753,
+     "0": 3.703,
+     "15": 3.722,
+     "30": 3.829,
+     "45": 3.901,
+     "60": 3.601,
+     "75": 3.204,
+     "90": 2.809,
+     "105": 2.396,
+     "120": 1.957,
+     "135": 1.575
+    }
+   }
+  }
+ },
+ "tip": {
+  "B0": {
+   "utip": 0.85,
+   "tip_vol_inner_half": 861.0,
+   "vol_whole_arm_beyond_plane": 1262.0,
+   "cut_edge_points": 956,
+   "tip_wedge_min_deg": 43.9,
+   "body_wedge_min_deg": 91.5,
+   "worst_edge_at_local": [
+    -6.25,
+    -10.71,
+    -54.04
+   ],
+   "worst_edge_u": 0.751,
+   "cut_u_range_on_skin": [
+    0.75,
+    0.906
+   ],
+   "seam_face_wedge_deg": 59.9,
+   "cover_skin_beyond_plane_u_from": 0.776,
+   "seam_step_in_tip_zone_mm": [
+    0.0,
+    0.0
+   ]
+  },
+  "B1": {
+   "utip": 0.85,
+   "tip_vol_inner_half": 689.0,
+   "vol_whole_arm_beyond_plane": 1048.0,
+   "cut_edge_points": 981,
+   "tip_wedge_min_deg": 41.4,
+   "body_wedge_min_deg": 94.2,
+   "worst_edge_at_local": [
+    -6.28,
+    -11.06,
+    -53.88
+   ],
+   "worst_edge_u": 0.748,
+   "cut_u_range_on_skin": [
+    0.747,
+    0.903
+   ],
+   "seam_face_wedge_deg": 59.9,
+   "cover_skin_beyond_plane_u_from": 0.776,
+   "seam_step_in_tip_zone_mm": [
+    0.0,
+    0.0
+   ]
+  },
+  "B2": {
+   "utip": 0.82,
+   "tip_vol_inner_half": 664.0,
+   "vol_whole_arm_beyond_plane": 1013.0,
+   "cut_edge_points": 840,
+   "tip_wedge_min_deg": 41.6,
+   "body_wedge_min_deg": 85.9,
+   "worst_edge_at_local": [
+    -6.11,
+    -8.79,
+    -52.79
+   ],
+   "worst_edge_u": 0.733,
+   "cut_u_range_on_skin": [
+    0.732,
+    0.869
+   ],
+   "seam_face_wedge_deg": 59.9,
+   "cover_skin_beyond_plane_u_from": 0.76,
+   "seam_step_in_tip_zone_mm": [
+    0.325,
+    0.35
+   ]
+  },
+  "B3": {
+   "utip": 0.85,
+   "tip_vol_inner_half": 638.0,
+   "vol_whole_arm_beyond_plane": 987.0,
+   "cut_edge_points": 880,
+   "tip_wedge_min_deg": 42.0,
+   "body_wedge_min_deg": 91.2,
+   "worst_edge_at_local": [
+    -6.29,
+    -9.02,
+    -54.78
+   ],
+   "worst_edge_u": 0.761,
+   "cut_u_range_on_skin": [
+    0.759,
+    0.895
+   ],
+   "seam_face_wedge_deg": 59.9,
+   "cover_skin_beyond_plane_u_from": 0.786,
+   "seam_step_in_tip_zone_mm": [
+    -0.35,
+    -0.282
+   ]
+  }
+ },
+ "seam": {
+  "B0": {
+   "cover_solid_u": [
+    0.0
+   ],
+   "cover_thinner_than_1p45_u": [
+    null,
+    0.991
+   ],
+   "inner_thinner_than_1p85_u": [
+    null,
+    0.994
+   ],
+   "seam_step_mm": [
+    0.0,
+    0.0
+   ],
+   "seam_step_at_u0_22": 0.0,
+   "half_rows_vonk_vs_skin_max": 0.056,
+   "half_rows_vonk_u_range": [
+    0.0001,
+    0.9997
+   ],
+   "half_rows_vnut_vs_skin_max": 0.056,
+   "half_rows_vnut_u_range": [
+    0.0001,
+    0.9999
+   ]
+  },
+  "B1": {
+   "cover_solid_u": [
+    0.999
+   ],
+   "cover_thinner_than_1p45_u": [
+    0.002,
+    0.978
+   ],
+   "inner_thinner_than_1p85_u": [
+    0.002,
+    0.98
+   ],
+   "seam_step_mm": [
+    0.0,
+    0.0
+   ],
+   "seam_step_at_u0_22": 0.0,
+   "half_rows_vonk_vs_skin_max": 0.056,
+   "half_rows_vonk_u_range": [
+    0.0003,
+    0.9992
+   ],
+   "half_rows_vnut_vs_skin_max": 0.056,
+   "half_rows_vnut_u_range": [
+    0.0001,
+    0.9992
+   ]
+  },
+  "B2": {
+   "cover_solid_u": [
+    0.999
+   ],
+   "cover_thinner_than_1p45_u": [
+    0.002,
+    0.981
+   ],
+   "inner_thinner_than_1p85_u": [
+    0.002,
+    0.983
+   ],
+   "seam_step_mm": [
+    0.325,
+    0.35
+   ],
+   "seam_step_at_u0_22": 0.35,
+   "half_rows_vonk_vs_skin_max": 0.055,
+   "half_rows_vonk_u_range": [
+    0.0003,
+    0.9997
+   ],
+   "half_rows_vnut_vs_skin_max": 0.055,
+   "half_rows_vnut_u_range": [
+    0.0001,
+    0.9997
+   ]
+  },
+  "B3": {
+   "cover_solid_u": [
+    0.999
+   ],
+   "cover_thinner_than_1p45_u": [
+    0.002,
+    0.986
+   ],
+   "inner_thinner_than_1p85_u": [
+    0.002,
+    0.988
+   ],
+   "seam_step_mm": [
+    -0.35,
+    -0.282
+   ],
+   "seam_step_at_u0_22": -0.35,
+   "half_rows_vonk_vs_skin_max": 0.056,
+   "half_rows_vonk_u_range": [
+    0.0001,
+    0.9992
+   ],
+   "half_rows_vnut_vs_skin_max": 0.056,
+   "half_rows_vnut_u_range": [
+    0.0001,
+    0.9997
+   ]
+  }
+ },
+ "curv3d": {
+  "B0": {
+   "inner": {
+    "min_convex_radius": 3.575,
+    "at_u": 0.897,
+    "at_local": [
+     -3.55,
+     9.37,
+     -64.56
+    ],
+    "r_p999": 3.74,
+    "area_frac_radius_below_1p9": 0.0,
+    "concave": -0.0,
+    "min_r_u0-0.1": 3.692,
+    "min_r_u0.1-0.5": 5.912,
+    "min_r_u0.5-0.8": 4.361,
+    "min_r_u0.8-1.0": 3.575
+   },
+   "outer": {
+    "min_convex_radius": 1.902,
+    "at_u": 0.91,
+    "at_local": [
+     -1.8,
+     8.93,
+     -65.51
+    ],
+    "r_p999": 2.133,
+    "area_frac_radius_below_1p9": 0.0,
+    "concave": -0.0,
+    "min_r_u0-0.1": 2.202,
+    "min_r_u0.1-0.5": 3.22,
+    "min_r_u0.5-0.8": 2.395,
+    "min_r_u0.8-1.0": 1.902
+   }
+  },
+  "B1": {
+   "inner": {
+    "min_convex_radius": 2.807,
+    "at_u": 0.892,
+    "at_local": [
+     -3.97,
+     9.06,
+     -64.21
+    ],
+    "r_p999": 3.117,
+    "area_frac_radius_below_1p9": 0.0,
+    "concave": -0.0,
+    "min_r_u0-0.1": 5.51,
+    "min_r_u0.1-0.5": 5.719,
+    "min_r_u0.5-0.8": 3.698,
+    "min_r_u0.8-1.0": 2.807
+   },
+   "outer": {
+    "min_convex_radius": 1.664,
+    "at_u": 0.908,
+    "at_local": [
+     -1.07,
+     8.41,
+     -65.4
+    ],
+    "r_p999": 1.813,
+    "area_frac_radius_below_1p9": 0.0017,
+    "concave": -0.0018,
+    "min_r_u0-0.1": 3.27,
+    "min_r_u0.1-0.5": 2.904,
+    "min_r_u0.5-0.8": 2.042,
+    "min_r_u0.8-1.0": 1.664
+   }
+  },
+  "B2": {
+   "inner": {
+    "min_convex_radius": 2.961,
+    "at_u": 0.861,
+    "at_local": [
+     -3.32,
+     8.22,
+     -61.98
+    ],
+    "r_p999": 3.276,
+    "area_frac_radius_below_1p9": 0.0,
+    "concave": -0.0003,
+    "min_r_u0-0.1": 5.643,
+    "min_r_u0.1-0.5": 6.232,
+    "min_r_u0.5-0.8": 3.625,
+    "min_r_u0.8-1.0": 2.961
+   },
+   "outer": {
+    "min_convex_radius": 1.938,
+    "at_u": 0.873,
+    "at_local": [
+     -1.42,
+     7.53,
+     -62.83
+    ],
+    "r_p999": 2.161,
+    "area_frac_radius_below_1p9": 0.0,
+    "concave": -0.0004,
+    "min_r_u0-0.1": 4.017,
+    "min_r_u0.1-0.5": 3.481,
+    "min_r_u0.5-0.8": 2.32,
+    "min_r_u0.8-1.0": 1.938
+   }
+  },
+  "B3": {
+   "inner": {
+    "min_convex_radius": 4.271,
+    "at_u": 0.883,
+    "at_local": [
+     -3.96,
+     7.55,
+     -63.55
+    ],
+    "r_p999": 4.529,
+    "area_frac_radius_below_1p9": 0.0,
+    "concave": -0.0,
+    "min_r_u0-0.1": 5.771,
+    "min_r_u0.1-0.5": 6.159,
+    "min_r_u0.5-0.8": 4.984,
+    "min_r_u0.8-1.0": 4.271
+   },
+   "outer": {
+    "min_convex_radius": 1.699,
+    "at_u": 0.879,
+    "at_local": [
+     0.31,
+     7.84,
+     -63.27
+    ],
+    "r_p999": 1.798,
+    "area_frac_radius_below_1p9": 0.0021,
+    "concave": -0.0016,
+    "min_r_u0-0.1": 2.586,
+    "min_r_u0.1-0.5": 2.436,
+    "min_r_u0.5-0.8": 1.937,
+    "min_r_u0.8-1.0": 1.699
+   }
+  }
+ },
+ "section_radius": {
+  "B0": {
+   "min_out": {
+    "u": 0.88,
+    "r_in": 3.504,
+    "r_out": 1.912,
+    "at_deg_out": 85.9,
+    "inner_face_in_tip": true,
+    "outer_face_in_tip": false
+   },
+   "min_in": {
+    "u": 0.79,
+    "r_in": 4.323,
+    "r_out": 2.358,
+    "at_deg_out": 85.8,
+    "inner_face_in_tip": false,
+    "outer_face_in_tip": false
+   },
+   "u_out_below_1p9": []
+  },
+  "B1": {
+   "min_out": {
+    "u": 0.87,
+    "r_in": 2.812,
+    "r_out": 1.6,
+    "at_deg_out": 79.0,
+    "inner_face_in_tip": true,
+    "outer_face_in_tip": false
+   },
+   "min_in": {
+    "u": 0.8,
+    "r_in": 3.564,
+    "r_out": 1.958,
+    "at_deg_out": 78.4,
+    "inner_face_in_tip": false,
+    "outer_face_in_tip": false
+   },
+   "u_out_below_1p9": [
+    0.82,
+    0.83,
+    0.84,
+    0.85,
+    0.86,
+    0.87
+   ]
+  },
+  "B2": {
+   "min_out": {
+    "u": 0.84,
+    "r_in": 3.06,
+    "r_out": 2.026,
+    "at_deg_out": 81.9,
+    "inner_face_in_tip": true,
+    "outer_face_in_tip": false
+   },
+   "min_in": {
+    "u": 0.77,
+    "r_in": 3.856,
+    "r_out": 2.39,
+    "at_deg_out": 81.7,
+    "inner_face_in_tip": false,
+    "outer_face_in_tip": false
+   },
+   "u_out_below_1p9": []
+  },
+  "B3": {
+   "min_out": {
+    "u": 0.88,
+    "r_in": 4.023,
+    "r_out": 1.554,
+    "at_deg_out": 70.6,
+    "inner_face_in_tip": true,
+    "outer_face_in_tip": false
+   },
+   "min_in": {
+    "u": 0.79,
+    "r_in": 4.899,
+    "r_out": 1.89,
+    "at_deg_out": 71.0,
+    "inner_face_in_tip": false,
+    "outer_face_in_tip": false
+   },
+   "u_out_below_1p9": [
+    0.79,
+    0.8,
+    0.81,
+    0.82,
+    0.83,
+    0.84,
+    0.85,
+    0.86,
+    0.87,
+    0.88
+   ]
+  }
+ },
+ "posts": {
+  "B0 inset 3.5": {
+   "u": 0.38,
+   "clear": 0.5,
+   "back_cover": 0.854,
+   "back_inner": 1.416
+  },
+  "B0 inset 3.7": {
+   "u": 0.38,
+   "clear": 0.355,
+   "back_cover": 0.987,
+   "back_inner": 1.596
+  },
+  "B0 inset 3.9": {
+   "u": 0.385,
+   "clear": 0.464,
+   "back_cover": 1.113,
+   "back_inner": 1.773
+  },
+  "B1 inset 3.5": {
+   "u": 0.375,
+   "clear": 0.427,
+   "back_cover": 1.789,
+   "back_inner": 1.666
+  },
+  "B1 inset 3.7": {
+   "u": 0.38,
+   "clear": 0.508,
+   "back_cover": 1.982,
+   "back_inner": 1.857
+  },
+  "B1 inset 3.9": {
+   "u": 0.38,
+   "clear": 0.362,
+   "back_cover": 2.177,
+   "back_inner": 2.049
+  },
+  "B2 inset 3.5": {
+   "u": 0.39,
+   "clear": 0.483,
+   "back_cover": 1.222,
+   "back_inner": 1.729
+  },
+  "B2 inset 3.7": {
+   "u": 0.39,
+   "clear": 0.347,
+   "back_cover": 1.372,
+   "back_inner": 1.907
+  },
+  "B2 inset 3.9": {
+   "u": 0.395,
+   "clear": 0.461,
+   "back_cover": 1.51,
+   "back_inner": 2.081
+  },
+  "B3 inset 3.5": {
+   "u": 0.385,
+   "clear": 0.488,
+   "back_cover": 1.913,
+   "back_inner": 1.426
+  },
+  "B3 inset 3.7": {
+   "u": 0.385,
+   "clear": 0.355,
+   "back_cover": 2.111,
+   "back_inner": 1.607
+  },
+  "B3 inset 3.9": {
+   "u": 0.39,
+   "clear": 0.455,
+   "back_cover": 2.309,
+   "back_inner": 1.784
+  }
+ }
+}

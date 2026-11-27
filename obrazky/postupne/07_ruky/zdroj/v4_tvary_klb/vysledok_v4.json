@@ -1,0 +1,440 @@
+{
+  "summary": "NOVA mini arm B: modern rounding variants + visible shoulder-joint variants, verified, comparison images with torso and head (Slovak)",
+  "agentCount": 6,
+  "logs": [
+    "tvary: B0 15.54/1.585, B1 16.11/2.203, B2 16.18/2.12, B3 16.03/2.084; kĺby: K0 D13, K1 D22, K2 D26.4, K3 D26.4, K3v D26.4"
+  ],
+  "result": {
+    "tvar": {
+      "module": "/tmp/claude-0/gapwf/fin/R4/tvar/variants_b.py",
+      "variants": [
+        {
+          "id": "B0",
+          "name_sk": "B0 – dnešná B",
+          "idea_sk": "Dnešná B na porovnanie: mydlový kamienok so zrezaným, takmer rovným vrchom a švom na rovníku.",
+          "thickness_max": 15.54,
+          "thickness_at_joint": 15.53,
+          "width_max": 30.2,
+          "joint_wall_M2b": 1.585,
+          "gap_rest": 3.703,
+          "gap_min_swing": 1.125,
+          "params": "R3 variants.py 'B' exactly (ki 0.80, ko 0.55, kw 0.90, ni 2.2, no 2.3, u1 0.03, u2 0.50, hb 1.25, utip 0.85); delegates to R3 module, asserted identical (section dev 0.0, inside/rows/half_rows identical). Cover/inner at joint 6.33/9.21. M2b: DRV_unasac wall out 1.585 / in 1.905 (fits, reserve 0.085). Gap at 140.5: 0.97. Robot width 144.4. Cover posts from u 0.38."
+        },
+        {
+          "id": "B1",
+          "name_sk": "B1 – squircle",
+          "idea_sk": "Mäkký hranol (squircle): plochší vonkajší kryt aj vnútro, tesná, ale plynulá hrana ako pri moderných zariadeniach, obrys ako kapsula a vrch je oblúk okolo osi kĺbu.",
+          "thickness_max": 16.11,
+          "thickness_at_joint": 16.05,
+          "width_max": 30.9,
+          "joint_wall_M2b": 2.203,
+          "gap_rest": 3.724,
+          "gap_min_swing": 1.345,
+          "params": "W=(uc 0.225, m_top 2.4, p_top 2.0, m_bot 3.4, p_bot 2.0, taper 0.07, width 30.9); T=(0.21, 2.9, 2.0, 2.8, 2.0, 0.30); TO 6.95; TI 9.3; TIK 0.997 (inner face 0.03 further from torso to pay for the flatter inner section); E=(0.03,0.12,0.50,0.90); NI=(2.6 body, 2.4 tips); NO=(3.8 body, 2.4 tips); seam 0.5 as B; UTIP 0.85. Cover/inner at joint 6.87/9.18. M2b fits: DRV wall out 2.203 (governing: drive-hub disc top edge r13 az90, local u 0.06) / in 2.427. Gap at 140.5: 1.317. Robot width 143.6. Cover posts from u 0.38."
+        },
+        {
+          "id": "B2",
+          "name_sk": "B2 – kvapka",
+          "idea_sk": "Kvapka: plná a okrúhla hore pri kĺbe, pokojne sa zužuje k menšej špičke; šev s tieňovou škárou 0,35 mm, kryt sedí tesne pod hranou vnútornej časti.",
+          "thickness_max": 16.18,
+          "thickness_at_joint": 16.09,
+          "width_max": 31.2,
+          "joint_wall_M2b": 2.12,
+          "gap_rest": 3.703,
+          "gap_min_swing": 1.57,
+          "params": "W=(0.225, 2.3, 2.0, 2.0, 2.5, taper 0.24, width 31.2); T=(0.20, 2.6, 2.0, 2.0, 2.5, 0.36); TO 7.0; TI 9.3; E=(0.03,0.12,0.42,0.95); NI=(2.2, 2.3); NO=(2.6, 2.3); REV 0.35 (cover 0.35 narrower than inner half, fades at tips); UTIP 0.82 (tip vol 664 mm3 vs 860 in B). Cover/inner at joint 6.89/9.21. M2b fits: DRV wall out 2.120 (disc rim r13 at the front/back seam) / in 2.150. Gap at 140.5: 1.472. Robot width 143.2. Cover posts from u 0.39."
+        },
+        {
+          "id": "B3",
+          "name_sk": "B3 – plochý kryt s mäkkým lemom",
+          "idea_sk": "Plochý kryt s mäkkým lemom (ako R11): vonkajší kryt má takmer rovnú tvár a zreteľný zaoblený lem a presahuje vnútornú vaničku o 0,35 mm, takže pôsobí ako čisté veko.",
+          "thickness_max": 16.03,
+          "thickness_at_joint": 15.98,
+          "width_max": 31,
+          "joint_wall_M2b": 2.084,
+          "gap_rest": 3.703,
+          "gap_min_swing": 1.575,
+          "params": "W=(0.225, 2.3, 2.0, 2.4, 2.0, taper 0.12, width 31.0); T=(0.22, 3.4, 2.0, 4.0, 2.0, 0.26) (flat crown along the length); TO 6.85; TI 9.3; E=(0.03,0.12,0.50,0.90); NI=(2.2, 2.3); NO=(4.8 body, 2.5 tips) -> D-shaped section, flat outer face, rim radius >= 1.9; LIP 0.35 (inner tray 0.35 narrower, cover overhangs); UTIP 0.85. Cover/inner at joint 6.78/9.21. M2b fits: DRV wall out 2.108 (cap edge above axis) / in 2.084 (governing). Gap at 140.5: 1.462. Robot width 144.8 (flat-cover corners). Cover posts from u 0.39."
+        }
+      ],
+      "notes": "I built three more modern versions of arm B: B1 squircle, B2 teardrop and B3 flat cover with a soft rim. B0 is today's B, kept for comparison. All three pass the hard rules. The joint wall is at least 2.0 (B0 has 1.585). The gap to the torso is no worse: 3.703 at rest (B1 3.724). The smallest gap over the -45..+135 swing is 1.35 to 1.58, against 1.125 for B0.\n\nThe joint sets the top of the arm. The M2b drive hub is a disc of radius 13 around the shoulder axis, and with a 2.0 wall it needs a circle of radius 15 inside the side outline at the seam. So in all three new variants the top of the arm is an arc around the shoulder axis (R about 15.5), instead of B0's flat, squared-off top.\n- Design point: this round top lines up with a bigger round black joint cover, if the joint is redesigned wider (\"kĺb mi príde úzky\").\n- Width: it cannot go below about 30.4 at the axis. An early B1 at 29 mm failed (disc rim wall 1.29). Widths are now 30.9 to 31.2 (B0 30.2).\n- Thickness: the outer cover is about 0.55 fuller over the joint (6.8 to 6.9 against 6.33 at u 0.22). Max thickness is 16.0 to 16.2 (B0 15.5); that is the cost of the stronger joint wall.\n\n**Inner face and gap**\n- In the zone near the torso (u 0.12 to 0.50) the inner face is exactly B's. In B1 it sits 0.03 mm further from the torso; this pays for B1's flatter inner section, which with no offset gave a rest gap of 3.695.\n- At the top (u under 0.12) the inner face follows the rounder dome, so the gap improves when the arm is raised. At the hidden stop (+140.5): B0 0.97, new variants 1.32 to 1.47.\n- An early run with the inner exponent at 2.4 gave a rest gap of 3.701. So B2 and B3 use B's inner exponent 2.2 over the arm body.\n\n**Seam details**\n- B2 has a 0.35 mm reveal: the inner half's edge shows all around the cover. At the bottom that edge belongs to the black tip, so a thin black edge is visible from outside near the bottom (side view). It reads as an accent; if unwanted, use REV only above u 0.75.\n- B3's cover overhangs the inner tray by 0.35 mm.\n- The locating lip the verifier asked for (centring rim so both halves carry load) is still needed inside, in every variant. It is not part of the outer shape.\n\n**Black tip and magnet posts**\n- The black tip keeps the R3 cut-plane normal. B2 uses UTIP 0.82 so its tip is a similar size: tip volume 637 to 688 mm3 (B0 860).\n- The cover magnet posts must still sit at u ≥ 0.38 to 0.39 in all variants, same as B (computed with post_move_b.py). The disc reaches down to about u 0.40.\n\n**Smaller numbers**\n- Width over both arms: B1 143.6, B2 143.2, B3 144.8 (B0 144.4).\n- The smallest section rounding radius is 1.9 mm, bigger than the 1.2 wall, so shells can be offset inward without trouble.\n\n**Dropped**\n- B4 \"oblý kameň\" (soft pebble) is still in VARIANTS but not in VIDS. It was only a rounder B0, and its round top is now in all three.\n\n**Module and checks**\n- variants_b.py imports placement, swing and frames from the R3 module unchanged. It adds half_widths(vid, u) and reveal(vid) to the R3 API (+ means the cover is inset, − means the cover overhangs).\n- B0 delegates to R3 'B', and an assert checks it at import. Section deviation is 0.0; inside, rows and half_rows are identical; the bump2 family reproduces B's profiles to 4e-15.\n- Fit numbers come from R3/mech/fit.py, option M2b, run through R4/tvar/fitall.sh (out/fit_<v>.json). Every part and stop passes. The lowest outer margin over the 1.5 requirement is 0.61 to 0.70.\n- Gaps come from R4/tvar/chk_b.py, a copy of chk_variants.py with the same rec1 method. Results are in out/chk_B0.json and out/chk_B1_B2_B3_B4.json.\n- All numbers are in /tmp/claude-0/gapwf/fin/R4/tvar/out/nums_b.json (made by nums_b.py).\n\n**Render pipeline** (all in /tmp/claude-0/gapwf/fin/R4/img)\n- scene_v4.py is a copy of scene_v3.py that imports variants_b. It adds a shot `armlook` (arm alone; views bok, spredu, tri, zhora, vnutro). The front, heroarm, armfront and zoom shots work unchanged with --vids B0,B1,B2,B3.\n- Sheets: sheet_b.py (main preview sheet, Slovak) and plotprof2.py (line-drawing comparison against B0 with the disc and its 2 mm wall circle); contact.py makes quick contact sheets.\n- Previews are 500 px with 16 samples (preview quality). The black joint ring in them is still the v2 plug. No files outside R4 were edited.",
+      "previews": [
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/nahlad_zaoblenia.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/nahlad_tvary_cisla.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/front_B0.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/front_B1.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/front_B2.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/front_B3.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/heroarm_B0.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/heroarm_B1.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/heroarm_B2.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/heroarm_B3.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/armfront_B0.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/armfront_B1.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/armfront_B2.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/armfront_B3.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/look_bok_B1.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/look_tri_B1.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/look_bok_B2.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/look_tri_B2.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/look_bok_B3.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/look_tri_B3.png",
+        "/tmp/claude-0/gapwf/fin/R4/img/prev/c_zoom1.png"
+      ]
+    },
+    "klb": {
+      "module": "/tmp/claude-0/gapwf/fin/R4/klb/klb.py",
+      "meshes_dir": "/tmp/claude-0/gapwf/fin/R4/klb/stl",
+      "variants": [
+        {
+          "id": "K0",
+          "name_sk": "K0 – dnes: tenký krúžok D13",
+          "idea_sk": "Medzi trupom a rukou je vidieť len tenký čierny krúžok D13 zo zátky (3,7 mm medzera). Referencia, nič sa nemení.",
+          "visible_diameter": 13,
+          "rotates_with": "torso (static plug ring)",
+          "clearance_to_torso": 1.12,
+          "clearance_to_arm": 0.5,
+          "arm_gap_change": "Bez zmeny: biela medzera ruka–trup je 3,70 v pokoji, najmenej 1,12 pri −45…+135° (pri 135°) a 0,97 pri skrytom doraze +140,5°. Krúžok D13 prechádza otvorom D14 v ruke s radiálnou vôľou 0,50 (je to tak navrhnuté).",
+          "robot_width_change": 0,
+          "parts_changed": "nič (referencia); STL pôvodnej zátky prerobené z receptu v2 kvôli porovnaniu: stl/K0/PLG_zatka_K0.stl, PLG_skrutky.stl, A_vnut_otvor_K0.stl (otvor D14)",
+          "mechanical_consequences": "Žiadne. Na pohľade spredu je čierny pás 12,8 mm vysoký (z −23,4…−10,6); viditeľná dĺžka krúžku 4,2 hore / 4,7 vpredu / 4,2 dole / 5,4 vzadu."
+        },
+        {
+          "id": "K1",
+          "name_sk": "K1 – golier D22 na ruke",
+          "idea_sk": "Čierny golier D22 je súčasťou ruky (točí sa s ňou) a zasúva sa do plochého vybrania v zátke, takže od trupu do ruky ide hrubý čierny krk. Koniec golieru má mäkké zaoblenie R1,5 (ako pneumatika na R01).",
+          "visible_diameter": 22,
+          "rotates_with": "arm",
+          "clearance_to_torso": 0.9,
+          "clearance_to_arm": 0.4,
+          "arm_gap_change": "Biela medzera ruka–trup sa nemení (3,70 / 1,12 / 0,97). Golier je 0,90 od dna aj steny vybrania v zátke a 3,0 od jamky v T_bok_L, a to v každej polohe ruky (je rotačne súmerný). Skryté vnútri: vŕtanie golieru je 0,40 od hrdla krúžku zátky (klzná vôľa, platí pravidlo ≥0,3) a 0,97 od skrutiek zátky.",
+          "robot_width_change": 0,
+          "parts_changed": "Zátka sa dotlačí: ploché medzikružné vybranie r 7,2–11,9 s dnom na x 45,4; skrutky pri 4 a 8 hodinách sú zapustené na 45,4. Vnútorná polovica ruky A_vnut: otvor D14 → D22,2. Náboj ruky (ARM_naboj + doraz M2b) sa tlačí z čiernej živice spolu s golierom D22 ako jeden diel ARM_naboj_golier_K1 a lepí sa do A_vnut. Súbory STL: PLG_zatka_K1, PLG_skrutky, ARM_golier_K1 (viditeľný diel), ARM_naboj_golier_K1 (diel na tlač), A_vnut_otvor_K1.",
+          "mechanical_consequences": "Náboj sa stáva samostatným čiernym dielom: je tuhší, lebo namiesto steny 1,2 má rúru r 7,6–11. V jeho koreni pri trupe je miesto na ložisko 6700ZZ (OD 15), ktoré je na sklade; MR128 by potom nebolo treba (overí sa pri prerobení kĺbu). Pribudne jeden lepený spoj náboj–A_vnut; prenáša len malý moment spojky. Dno vybrania v zátke je 1,4 nad vnútornou dutinou (≥1,2 OK). Ruka sa nasadzuje osovo ako dnes, golier sa zasunie do vybrania. Vonkajší kryt A_vonk sa skladá bez zmeny, káble nie sú. Vôľa k M2b: doraz zátky 0,91, ostatné ≥1,1; zmestenie M2b sa nemení. Čierny pás spredu má výšku 21,7 mm (dnes 12,8). Viditeľná dĺžka golieru je 2,4 hore, 6,1 vpredu, 3,1 dole a 5,9 vzadu. Hore zostáva medzi golierom a zapustenou zátkou čierna škára asi 2,5 mm."
+        },
+        {
+          "id": "K2",
+          "name_sk": "K2 – kryt kĺbu D26 v trupe",
+          "idea_sk": "Zátka vyrastie z jamky trupu ako pevný čierny valec D26,4 (ako kryt 04 na R08). Má hranu R0,7 a čelné vybranie D21,6. Ruka sa nemení, v medzere ostáva tenký krúžok D13.",
+          "visible_diameter": 26.4,
+          "rotates_with": "torso (static)",
+          "clearance_to_torso": 1.12,
+          "clearance_to_arm": 1.29,
+          "arm_gap_change": "Biela medzera ruka–biely trup sa nemení (3,70 / 1,12 / 0,97). NOVÉ: ruka je od pevného čierneho krytu 1,29 v každej polohe, keďže kryt je rotačne súmerný. Najbližšie miesto je horná vnútorná plocha ruky (r 10,9 nad osou). V pokoji je teda ruka od 'trupu' (krytu) 1,29 namiesto 3,70; pravidlo ≥1,0 platí.",
+          "robot_width_change": 0,
+          "parts_changed": "Mení sa len zátka (dotlač). Telo zátky D26,4 (o 0,8 menšie ako jamka D28) vyrastie z jamky po x 47,4 s hranou R0,7, má čelné vybranie D21,6 hlboké 1,0 a 3 otvory D4,6 k zapusteným skrutkám zátky. Starý šikmý čelný povrch zátky nad x 44,5 je odrezaný. Ruka ani A_vnut sa nemenia. Súbory STL: PLG_zatka_K2, PLG_skrutky.",
+          "mechanical_consequences": "Najlacnejšia zmena: nový je len jeden tlačený diel a mechanika ruky ostáva. Kryt je pevný a s rukou sa nedotýka (1,29). Ku skrutkám zátky sa ide cez otvory D4,6 v čele krytu; zo šikmého pohľadu ich v medzere vidno (čierne skrutky alebo krytky). Okolo krytu v jamke je škára 0,8 namiesto 0,5. Hore kryt vyčnieva z trupu 5,3, vzadu 4,1, vpredu 1,8; dole je skrytý v jamke, takže spodná polovica kĺbu zostáva úzka (krúžok D13). Čierny pás spredu má výšku 19,4 mm. Najlepšie vyzerá šikmo zozadu a zhora, kde je vidieť lesklý čierny valec."
+        },
+        {
+          "id": "K3",
+          "name_sk": "K3 – jeden čierny valec D26",
+          "idea_sk": "Pevný kryt D26,4 z trupu (ako K2) a čierny prstenec D26,2 na ruke. Medzi nimi je škára 0,9 s labyrintom, ktorý ju zvnútra zakryje. Spolu pôsobia ako jeden veľký čierny valec medzi trupom a rukou (R01, R08 04+05).",
+          "visible_diameter": 26.4,
+          "rotates_with": "both",
+          "clearance_to_torso": 0.88,
+          "clearance_to_arm": 2.16,
+          "arm_gap_change": "Biela medzera ruka–trup sa nemení (3,70 / 1,12 / 0,97). Čierne vôle platia v každej polohe: prstenec–kryt 0,89 (škára + labyrint), prstenec–stena jamky T_bok_L 0,90, prstenec–skrutky zátky 0,88. Biela ruka je od krytu mimo prstenca 2,16. Skryté vnútri: prstenec–krúžok zátky 0,50 a čierny náboj–doraz zátky 0,30 (= pravidlo).",
+          "robot_width_change": 0,
+          "parts_changed": "Zátka je rovnaká ako v K2. Vnútorná polovica ruky A_vnut: otvor D14 → D26,4. Náboj ruky + doraz + prstenec D26,2 (koniec x 48,3, R0,6, nákružok r 7–10 siaha 1,0 dopredu do vybrania krytu) = jeden čierny tlačený diel ARM_naboj_prstenec_K3, ktorý sa lepí do A_vnut. Súbory STL: PLG_zatka_K3, PLG_skrutky, ARM_prstenec_K3 (viditeľný), ARM_naboj_prstenec_K3 (na tlač), A_vnut_otvor_K3.",
+          "mechanical_consequences": "Náboj s prstencom je hrubý čierny diel (r 7–13,1, dĺžka 8,6), oveľa tuhší ako dnešná stena náboja. Do prstenca pri trupe sa zmestí 6700ZZ (vŕtanie D15, stena 5,6), ktoré je na sklade: ložisko by bolo bližšie k trupu a MR128 by nebolo treba; overí sa pri prerobení kĺbu. Labyrint zakrýva škáru a krúžok D13 a drží von prach. Skrutky zátky sú schované pod prstencom. Ruka sa nasadzuje osovo ako dnes: nákružok vojde do vybrania krytu. Kryt A_vonk sa skladá bez zmeny. Pribudne jeden lepený spoj náboj–A_vnut (radšej s 3 vodiacimi rebrami). Vôle 0,88–0,90 vyžadujú presnosť tlače čela ±0,1. Vôľa k M2b: krúžok zátky 0,5, podložka M12 0,5, unášač 2,8; rezerva M2b na vonkajší kryt (0,085) sa nemení. Čierny pás spredu má výšku 26,0 mm a plochu asi 2,6× väčšiu ako dnes. Čierna dĺžka je 7,4 hore, 8,7 vpredu, 3,7 dole a 10,8 vzadu. Odporúčaný variant."
+        },
+        {
+          "id": "K3v",
+          "name_sk": "K3v – ako K3, ruka o 1,5 mm ďalej",
+          "idea_sk": "Ako K3, ale ruka je o 1,5 mm ďalej od trupu: kĺb je o 1,5 mm dlhší a výraznejší, robot je o 3 mm širší.",
+          "visible_diameter": 26.4,
+          "rotates_with": "both",
+          "clearance_to_torso": 0.89,
+          "clearance_to_arm": 2.16,
+          "arm_gap_change": "Biela medzera ruka–trup sa zväčší o 1,5: 5,16 v pokoji, 2,47 pri 135° a 2,31 pri +140,5°. Čierne vôle: prstenec–kryt 0,89, prstenec–jamka 1,28, ruka–kryt 2,16.",
+          "robot_width_change": 3,
+          "parts_changed": "Ako K3, plus ruka sa posunie z dx −1,0 na +0,5. Krúžok a sedlo zátky sa predĺžia o 1,5 a kryt končí na x 48,9. Celý balík M2b na strane ruky (náboj, MR128, podložka, unášač, magnety) sa posunie o +1,5. Skrutka pohonu M4×20 sa zmení na dlhšiu: DIN 7984 M4×22 sa bežne nepredáva, takže M4×25 alebo podložka. Súbory STL: PLG_zatka_K3v, ARM_prstenec_K3v, ARM_naboj_prstenec_K3v, A_vnut_otvor_K3v.",
+          "mechanical_consequences": "Robot je 147,4 široký namiesto 144,4, teda o 1,4 širší ako podstavec 146; ruky sú opäť najširšie miesto. Krúžok zátky je konzola o 1,5 dlhšia, čo dáva asi +10 % ohybového momentu pri koreni od váhy ruky. Treba dlhšiu skrutku pohonu (overiť záber v unášači a kolese). Čierna dĺžka je 8,9 hore, 10,2 vpredu, 5,2 dole a 12,3 vzadu; čierna plocha spredu je asi 3,2× väčšia ako dnes. Ruka pôsobí menej 'prilepená' k trupu. Je to voliteľný doplnok ku K3, ak by K3 bolo stále málo."
+        }
+      ],
+      "previews": [
+        "/tmp/claude-0/gapwf/fin/R4/klb/prev500/nahlad_klb.png",
+        "/tmp/claude-0/gapwf/fin/R4/klb/prev500/m_front.png",
+        "/tmp/claude-0/gapwf/fin/R4/klb/prev500/m_frontw.png",
+        "/tmp/claude-0/gapwf/fin/R4/klb/prev500/m_p34f.png",
+        "/tmp/claude-0/gapwf/fin/R4/klb/prev500/m_p34fr.png",
+        "/tmp/claude-0/gapwf/fin/R4/klb/prev500/m_p34b.png",
+        "/tmp/claude-0/gapwf/fin/R4/klb/prev500/m_p34br.png",
+        "/tmp/claude-0/gapwf/fin/R4/klb/prev500/m_hero.png",
+        "/tmp/claude-0/gapwf/fin/R4/klb/prev500/rez_klb.png"
+      ],
+      "notes": "Recommendation: K3. It reads like R01/R08: one black D26 cylinder with a fine seam between the torso and the arm. The arm does not move, the white arm–torso gap stays exactly as today (3.70 at rest / 1.12 at 135° / 0.97 at +140.5°), and every black clearance is at least 0.88. K3v is the \"even chunkier\" option and costs 3 mm of robot width. K1 is the medium option. K2 is the cheapest (only the plug is reprinted) but the lower half of the joint stays narrow.\n\nHow I iterated:\n- v1 was a D27 cover + D25 ring. The 1 mm step and a see-through 0.9 seam made the joint look like two separate pieces, and the D13 ring showed through the seam.\n- v2 (final) uses a cover D26.4 + ring D26.2, so they are practically flush. The ring has a spigot r 7–10 that fills the seam (labyrinth), so the seam now reads as a dark line.\n- The old sloped plug face is trimmed above x 44.5. Otherwise it stuck out past the cover end at the bottom of the socket and came within 0.3 of the ring.\n- The socket hole in T_bok_L was measured as r 14.0, not 13.75. That sets the ring to r ≤ 13.2 (0.8 to the socket wall).\n\nKey geometry facts (arm B):\n- The torso surface around the socket is strongly sloped: rim x 42.1 at the top, 45.6 at the front, 49.2 at the bottom.\n- The arm's inner face is closest above the axis (x 48.52 at r 8–9). This is why a static cover cannot end beyond about x 47.7, and why the cover shows 5.3 mm at the top but is buried at the bottom.\n- All new joint parts are solids of revolution about the swing axis, so their clearances are pose-independent. They are exact 2-D (x, r) profile distances against the meshes.\n- The arm sweep (−51…142°, refined) reproduces R3 for the white gap exactly (3.703 / 1.124 / 0.969).\n\nFiles in /tmp/claude-0/gapwf/fin/R4/klb:\n- klb.py (importable in both venvs): VARIANTS, variant(vid) → parts with id / name_sk / role (static | rotating) / mat (cierna, ocel_cierna) / stl (+ print_stl for the black hub+ring part) / replaces; hide = ['zatka', 'zatka_skrutky']; arm_dx(vid); swing_matrix(deg); mirror_matrix(M); profiles.\n- Rotating parts get the same world matrix as the arm. The right side is mirror_copy.\n- scene_klb.py shows the exact loading: it execs scene_v3.py without its dispatch, loads the variant parts, and adds a dark filler in the collar/ring bore, because the closed arm render solid would otherwise show white there.\n- build_klb.py (build123d) writes stl/<vid>/*.stl and step/<vid>/*.step. All solids are valid; the printable hub parts are one solid each. exp_avnut.py (Blender) writes A_vnut_otvor_<vid>.stl, the inner half shell with the new opening (0 non-manifold edges).\n- chk_klb.py → chk_klb.json; chk_merged.json (printed hub part vs M2b); nums_klb.py → klb_summary.json (all numbers for the sheets, including the front-view band from the renders).\n- sec_klb.py → prev500/rez_*.png (check sections at y = 3). sheet_klb.py → prev500/nahlad_klb.png (preview sheet in Slovak).\n- prev500/<shot>_<vid>.png are single renders at 500 px / 16 samples. Shots: front, frontw, p34f, p34fr, p34b, p34br, hero; each has a *_cam.json.\n\nCamera advice for the image agent:\n- The joint reads best in the front ortho close-up, the frontal 3/4 (dv 0.42,−1,0.26, R01-like) and the back 3/4 (dv 0.85,0.95,0.40), with the arm hanging and raised 90°.\n- The R3 hero direction (0.95,−0.80,0.30) hides the joint behind the arm; all variants look nearly the same there.\n- The small cyan dot under the joint in the back views is the head's LED ring reflected in the glossy black plug, not a part.\n\nLimits and honesty:\n- The joint internals stay the M2b envelope. The printed hub parts are merged with the M2b ARM_naboj + ARM_rebro, so they will be redone when the joint is redesigned around 6700ZZ. K1/K3 have room for a 6700ZZ inside the collar/ring near the torso, but that is not verified.\n- The plug is rebuilt from the v2 zatka recipe (seat r 5 to 57.5). Its hidden internals differ slightly from M2b's PLG_cap; the visible exterior is identical.\n- The front-view black-band numbers come from the renders. Their absolute widths include about 1–2 mm of edge shading; heights and ratios are reliable.\n- The K3/K3v sweep value 1.43 to the plug is a conservative lower bound from the closed-arm model; the exact pose-independent arm–cover value is 2.16.\n- The cover-to-arm gap in K2 (1.29) is a real change at rest versus 3.70 today (to a black static part). That is stated in arm_gap_change.\n- I did not edit any file outside /tmp/claude-0/gapwf/fin/R4."
+    },
+    "verT": {
+      "checked": [
+        {
+          "id": "B0",
+          "ok": false,
+          "numbers": "Matches R3 'B' exactly: section, inside test (2M points, insets 0, 1.2 and 1.6), pebble/half rows, tip plane, to_world (left and right) and swing all show 0.0 deviation. T max 15.54 @u0.208, W max 30.20, cover/inner @0.22 6.33/9.21. M2b DRV_unasac wall 1.585 out / 1.905 in (fit.py rerun = designer) and 1.585 / 1.904 with own sampling. Gap, own computation with the real meshes (stl_mod/T_bok_L, zatka, T_spodok) and with an analytic rec1-type model: rest 3.703, min over -45..+135 1.124 @135, +140.5 0.969 (mesh) / 0.970 (analytic). Robot width 144.42. Black tip (inner half) 861 mm3. Smallest convex radius on the shelled part (above the tip plane): cover 1.90, inner 3.58. Posts clear the moving parts (>= 0.3) from u 0.38, but the magnet-pocket back wall on the cover side is 0.85.",
+          "problems": "This is the comparison baseline. All its numbers reproduce exactly, but it fails two of the requested criteria: joint wall 1.585 < 2.0, and cover-magnet pocket back wall 0.85 < 1.2 (post axis 3.5 inside the outline, D3x2 pocket r1.6, 0.25..2.35 from the seam). Even with the axis 3.9 inside the outline the back wall is only 1.11. Its flat cover cannot hold the standard post."
+        },
+        {
+          "id": "B1",
+          "ok": true,
+          "numbers": "T max 16.11 @0.182, T@0.22 16.05, W 30.90; cover/inner @0.22 6.87/9.18 (inside-test bisection agrees). DRV wall 2.203 out / 2.427 in (fit.py) and 2.202 / 2.427 own; governing spot is the top edge of the r13 disc, local u 0.058. All M2b parts pass. Gap, own computation: rest 3.724, min 1.345 @135, +140.5 1.315 (mesh) / 1.316 (analytic). Inner face 0.026..0.028 further from the torso than B0 in u 0.12..0.50. Robot width 143.61. Tip 689 mm3, cut-edge wedges >= 41 deg. Posts clear from u 0.38 (0.66); back walls cover 1.79 / inner 1.67. Section radius on the cover above the tip is 1.60 @u0.87 (3D principal 1.66), inner >= 2.8. Surface C1 everywhere; only C2 break is at u 0.5, from B's seam smoothstep, curvature jump 0.0025/mm.",
+          "problems": "Only a claim error. 'Smallest section rounding radius 1.9' is false: the cover reaches 1.60 (section) / 1.66 (3D) at u 0.82..0.87, just above the black tip. It is still > 1.2 cover wall, so the shell can be offset and printed. Every hard rule passes."
+        },
+        {
+          "id": "B2",
+          "ok": true,
+          "numbers": "T max 16.18 @0.178, T@0.22 16.09, W 31.20; cover/inner 6.89/9.21. DRV wall 2.120 out (disc rim at the seam) / 2.150 in (fit.py); own 2.120 / 2.143. fit.py does not sample the 0.35 reveal step face, so it is about 0.007 optimistic. Gap: rest 3.703 (analytic) / 3.704 (mesh); min over -45..+135 1.570 (analytic) / 1.610 (mesh) @135; +140.5 1.471 / 1.505. Robot width 143.23. Tip (UTIP 0.82) 664 mm3, wedges >= 41 deg. Reveal step 0.325..0.35 in the tip zone (black edge visible, as the designer says). Section radius min 2.03 (3D 1.94). Posts clear from u 0.39 (0.73). Back wall cover 1.222 at u 0.39, 1.200 at u 0.41, 1.15 at u 0.45; inner 1.42 (own axis) / 1.73 (coaxial at the narrower cover).",
+          "problems": "Passes, with small issues: (1) Cover-post back wall is marginal: >= 1.2 only for u 0.39..0.41 with the post axis 3.5 inside the outline. Moving the coaxial magnet axis to 3.7 inside gives 1.37 cover / 1.91 inner at u 0.39 (clearance 0.35). (2) The claim 'inner face exactly B's in u 0.12..0.50' is wrong for B2: its plateau ends at 0.42. In 0.42..0.50 the face sits 0..0.023 further from the torso, which is harmless. (3) W and T use m_bot = 2.0, so the crest is only C1, against the module docstring's 'm > 2 keeps C2'. The curvature jump is about 0.004/mm (R ~250 mm), invisible."
+        },
+        {
+          "id": "B3",
+          "ok": true,
+          "numbers": "T max 16.03 @0.183, T@0.22 15.98, W 31.0; cover/inner 6.78/9.21. DRV wall 2.108 out / 2.084 in (fit.py); own 2.109 / 2.083 (disc rim r13, u 0.24). Steel washer ARM_podlozka_M12 inner wall 1.95 (required 1.2). Gap: rest 3.703, min 1.575 (analytic) / 1.615 (mesh) @135, +140.5 1.462 / 1.502. Robot width 144.75. Tip 638 mm3, wedges >= 42 deg. Lip: cover overhangs by 0.28..0.35. Posts clear from u 0.39 (0.73). Back walls with the axis on each half's own outline: cover 1.57 / inner 1.43. Coaxial at the narrower inner half: cover 1.91 / inner 1.43. With the axis 3.7 inside: 2.11 / 1.61. Cover section radius 2.4..2.7 in the body; below 1.9 from u 0.79, minimum 1.55 @0.88 (3D 1.70). Inner >= 4.3.",
+          "problems": "Passes the hard rules. Notes: (1) Claim error: 'rim radius >= 1.9' holds only for u <= 0.78; the minimum is 1.55 (section) / 1.70 (3D) at u ~0.88 above the tip. It is still > 1.2. (2) The inner-post pocket back wall is 1.43: >= 1.2 for the back-wall rule but < 1.6 if the inner-shell rule is applied there. A magnet axis 3.7 inside the outline fixes it (1.61). (3) Because of the 0.35 lip, the cover wall (1.2) and the tray wall (1.6) overlap only 0.85 mm on the seam face. The planned locating lip should carry the load. (4) The 'joint wall >= 2.0' claim covers the drive hub only; the steel washer has 1.95 (required 1.2)."
+        }
+      ],
+      "fixes_applied": [],
+      "summary": "B1, B2 and B3 pass every hard rule, and the designer's numbers reproduce within 0.01 mm. B0 (today's B, the baseline) fails the 2.0 joint wall and the 1.2 post back wall. The problems in B1–B3 are claim errors and a post-placement margin; the shape module needed no fix, so variants_b.py is unchanged. All my scripts and results are in /tmp/claude-0/gapwf/fin/R4/overenie_tvar/ (results under out/, combined in out/summary.json).\n\nHow each item was checked:\n- **B0 vs variants.py 'B':** identical (0.0 deviation) in section, inside test on 2M points (insets 0, 1.2, 1.6), rows, half rows, tip plane, placement and swing.\n- **Thickness / width:** measured again by bisection on the inside test. They match the claims: B1 16.11/30.9, B2 16.18/31.2, B3 16.03/31.0, B0 15.54/30.2.\n- **M2b joint wall:** fit.py rerun gives the same values as the designer. My own dense sampling gives drive-hub walls of 2.202 (B1), 2.120 (B2), 2.083 (B3), all >= 2.0; B0 is 1.585. fit.py misses B2's reveal step face, so it is about 0.007 optimistic.\n- **Arm–torso gap:** computed two ways, with the real meshes (stl_mod/T_bok_L, zatka, T_spodok; plug ring inside r 7 excluded) and with an analytic rec1-type model.\n  - Rest: B0 3.703, B1 3.724, B2 3.703, B3 3.703.\n  - Minimum over -45..+135: 1.124 / 1.345 / 1.570 / 1.575 (analytic model, B0/B1/B2/B3); the mesh model gives about 0.04 more for B2/B3.\n  - At +140.5: 0.97 / 1.32 / 1.47 / 1.46.\n- **Smoothness:** no kinks; every outline is C1. The only C2 break is at u 0.5 and comes from B's seam smoothstep; it is invisible (about 0.0025/mm). B2's crest exponent m = 2.0 also gives a tiny C2 jump, which contradicts the module docstring.\n- **Seam and black tip:** well defined. Tip volumes are 861 / 689 / 664 / 638 mm3, the cut edges meet the skin at 41° or more (no feather edges), and the half-solid rows match the skin.\n- **Printable walls:** the smallest convex radius on the shelled part is 1.66 (B1), 1.94 (B2), 1.70 (B3) on the cover and 2.8 or more on the inner half, so 1.2 / 1.6 shells offset cleanly.\n\nWhat is wrong or needs attention:\n1. **Rounding-radius claim:** \"smallest section rounding radius 1.9\" is false for B1 (1.60) and B3 (1.55). Both minimums sit at u 0.82–0.88, just above the black tip, and are still above the 1.2 cover wall.\n2. **B2 inner-face claim:** the inner face equals B's only from u 0.12 to 0.42, not to 0.50. Between 0.42 and 0.50 it sits up to 0.023 further from the torso, which is harmless.\n3. **Magnet posts:** the start positions are right (from u 0.38 for B1, 0.39 for B2 and B3), but the back wall behind the magnet pocket was never checked.\n   - B0's cover wall is only 0.85.\n   - B2's cover wall reaches 1.2 only for u 0.39–0.41.\n   - The inner wall in B2 and B3 is 1.42–1.43 with each magnet set 3.5 from its own half's outline: enough for the 1.2 back-wall rule, below the 1.6 inner-shell rule.\n   - Putting both magnets on one axis 3.7 mm inside the narrower half's outline, at u 0.385–0.39, gives at least 1.37 on the cover and 1.6 inside for B1–B3, with 0.35 or more clearance to the moving parts.\n4. **B3 seam overlap:** because of the 0.35 lip, the cover and tray walls overlap only 0.85 mm on the seam face, so the planned locating lip has to carry the load.\n5. **\"Joint wall ≥ 2.0\" wording:** it applies to the drive hub only. In B3 the steel washer's wall is 1.95, which is fine against its 1.2 requirement.\n\nThe fit.py governing pair (plug ring vs stop rib, exactly 0.30) is the same in every variant and belongs to the joint design, not the arm shape."
+    },
+    "verK": {
+      "checked": [
+        {
+          "id": "K0",
+          "ok": true,
+          "numbers": "Own 1-degree sweep from -51 to +142.5 deg of the A_vnut_otvor_K0 mesh against T_bok_L: white arm-torso gap 3.703 at rest, 1.126 min over -45..135 (at 135), 0.971 at +140.5 (designer 3.703 / 1.124 / 0.969). The 0.934 at 142 deg is beyond the stop and does not count. D13 plug ring in the D14 arm hole: 0.496 radial, by design. Plug screws are at least 3.28 from the arm. T_bok_P matches mirrored T_bok_L within sampling noise (p99 0.12 mm), and T_klb_P matches T_klb_L, so the right side is a true mirror. Width over the arms is 144.4 (base 146.0). All new STLs are watertight (0 open edges). The collar/ring STLs match the klb.py profiles exactly (0.000 deviation).",
+          "problems": "PLG_zatka_K0 (and every other variant's plug) is the v2 recipe rebuilt. Its hidden internals do NOT match M2b, which the designer understated as 'slightly'. The seat is r 5.0 out to x 57.5, filling the space of the MR128 inner ring (r 4.0-4.7, x 54.6-57.5). The MR74 A2 overlaps it at x 51.9-52.1. The M2b stop lug is missing. So the plug STL/STEP files are render-only; printed as-is, the MR128 would not fit. This existed before the variants: there is a near-zero web (~0.001) at the top where the sloped plug face meets the inner cavity (x 44.2, r 7.6, az ~100). The D14 opening in A_vnut also has knife edges."
+        },
+        {
+          "id": "K1",
+          "ok": true,
+          "numbers": "Exact (x, r) check against the meshes (pose-independent, and also seen in the swept poses): collar to pocket wall/floor 0.90 (visible), collar bore to plug neck 0.398 (hidden, sliding rule >= 0.3 met), collar to screws 0.970, collar to T_bok_L 2.996, visible collar to M2b stop lug 0.903. Printed hub part ARM_naboj_golier_K1: min wall 1.20 (the M2b disc), at least 3.2 mm from the outer arm surface, no point on the cover side of the seam (min 0.78 below the seam), M2b relations unchanged (hub to lug 0.30; rib/lug contact at -51 / +140.5, gaps 0.56 / 0.51 at -45 / 135). Axial on/off path of the arm is clear: min 0.30, at the seated position. The white gap is unchanged, since only the opening grows. Glue land between hub and A_vnut is 126 mm2, ample for strength (rough estimate about 3 N.m in bending at 3 MPa). White band around the D22.2 opening is >= 3.8 mm radially.",
+          "problems": "(1) Nothing locates the glued black hub part axially in A_vnut: it is a straight cylinder in a straight hole. The bearing fixes the hub, but the white shell's position then depends on the gluing jig. A 0.2 mm error can push the 1.126 at 135 deg below 1.0 and the 0.97 at the stop below 0.9. Today (M2b) the hub is printed as one with A_vnut, so this tolerance is new. Needs a shoulder, or 3 ribs with axial stops. (2) Where the flat pocket floor (x 45.4) meets the sloped plug face at the front and back, it leaves slivers 0.03-0.16 mm thick. The bottom rim knife edge is now 0.40 (K0: 0.84). The top web from K0 (0.004) is still there. (3) The 4 and 8 o'clock screws sit 0.1 / 1.1 mm deeper, so screw lengths need re-checking (the screw stubs are schematic). (4) Plug internals have the same problem as K0."
+        },
+        {
+          "id": "K2",
+          "ok": true,
+          "numbers": "White arm (D14 A_vnut) to the static cover: 1.289 at every pose (claim 1.29), nearest point r 10.84 above the axis. White gap to T_bok_L 3.703 / 1.126 / 0.971 (sweep), unchanged. D13 ring to hole 0.496. Cover to T_bok_L socket 0.80 radial (r 13.2 vs 14.0). The cover sticks out of the torso 5.3 at the top, 4.1 at the back, 1.8 at the front, and is buried at the bottom (arithmetic checked against the socket rim x 42.11 / 43.33 / 45.59 / 49.24). Cover exterior in the STL matches the klb profile.",
+          "problems": "(1) At rest the arm is now 1.29 from a torso-side part instead of 3.70. The designer declared this, and it meets >= 1.0 and >= 0.8, but it relaxes the literal 'not worse at rest' rule, so the user must accept it. (2) In the cover, the D4.6 screw-access bores clip the D21.6 recess rim (0.14 mm sliver) and the recess floor (0.31). At 12 o'clock the bore starts at x 43.4 and reaches r 6.7, cutting into the plug cavity (r 6.8) and leaving a ~0.05 edge. There is a 0.02 feather on the r 13.2/13.5 step at x 44.5 inside the socket. (3) Claim text 'D26,4 (o 0,8 menšie ako jamka D28)' is wrong: it is 1.6 smaller in diameter (0.8 per side). (4) The screws are visible through the bores (declared). (5) Plug internals have the same problem as K0."
+        },
+        {
+          "id": "K3",
+          "ok": true,
+          "numbers": "From the meshes: ring to cover 0.885 (claim 0.89), ring to T_bok_L socket 0.896, ring to screws 0.884, ring to D13 plug ring 0.498, printed hub part to M2b stop lug 0.298 (= the 0.3 rule, by construction r 7.0 vs 6.7). Visible ring to lug 0.314. Sweep at 1-degree steps: white arm to cover 2.157 at every pose (claim 2.16). White arm to T_bok_L 3.706 / 1.126 / 0.971, unchanged. Printed hub part ARM_naboj_prstenec_K3: min wall 1.30, at least 3.23 to the outer arm surface (rule 1.2), no point on the cover side of the seam (min 0.78 below it), 2.8 to the drive hub. Axial on/off path min 0.30. Cover A_vonk still comes off. Glue land 162 mm2. Width 144.4. Visible black lengths (7.4 top / 8.7 front / 3.7 bottom / 10.8 back) re-derived from the socket rim and arm-face x values.",
+          "problems": "(1) No axial locator for the glued hub/ring part (same as K1). (2) The spigot (r 7-10) stands 1.0 proud of the ring face, but its front (x 47.3) is only 0.1 past the cover end (x 47.4), not 1.0 'into the recess' as claimed. A radial view through the seam is still blocked, but the labyrinth is shallow (I corrected the klb.py comment). (3) The white inner half left around the D26.4 opening is only 1.7 mm wide radially at the front and back, with a ~40 deg knife edge at the hole. It also leaves a small knife-edged lip at x 56.0, 0.2-0.4 behind the hub (no clash). That edge is fragile and needs a 0.3-0.5 edge break, and the black ring takes about 88 % of the arm width there. (4) The plug has the same bore slivers as K2, hidden under the ring. (5) Fitting the 6700ZZ in the ring would need the static journal reduced from D13 to D10 at the bearing; that is unverified. (6) The joint reads as a short D26 puck (length/diameter about 0.3), shorter than the R08 cylinder. It is still the closest variant to R01. (7) Plug internals have the same problem as K0."
+        },
+        {
+          "id": "K3v",
+          "ok": true,
+          "numbers": "White gap 2.477 at 135 deg and 2.315 at +140.5 deg (claims 2.47 / 2.31). At rest it is >= 5.0, the cap of my search; the claim is 5.16 = 3.70 + 1.5 offset. Ring to cover 0.885, ring to T_bok_L 1.282, ring to screws 2.384, ring to plug ring 0.498, hub to lug 0.298. White arm to cover 2.157 at every pose. Width: the arm's outer surface reaches x 73.71, so 147.4 over the arms vs base 146.0 (base read from shape.BASE_W and the base sections). Printed part checks are the same as K3.",
+          "problems": "Everything from K3, plus: the arms become the widest point of the robot (0.7 mm per side beyond the base). The drive screw needs about M4x21.5. M4x25 is 3.5 too long, so it must be cut or spaced, and its tip clearance near the bevel apex at x about 39 is not verified. The plug ring cantilever grows by 1.5 (declared)."
+        }
+      ],
+      "fixes_applied": [
+        "/tmp/claude-0/gapwf/fin/R4/klb/klb.py (backup klb.py.bak): corrected the misleading K3 spigot comment. Old: 'reaching 1.0 into the cover recess'. New: 1.0 proud of the ring face, front x 47.3 only 0.1 past the cover end x 47.4, 0.9 to the recess floor, 0.8 radial. Comment only, geometry unchanged; the module re-imports and the profile is identical. No meshes changed. The other findings (plug internals, axial locator, slivers) need design decisions, so I reported them rather than fixing them."
+      ],
+      "summary": "I found no blocking geometric problem in K0-K3v. I re-measured every claimed clearance with my own scripts and they match to within 0.005 mm: white arm-torso gap 3.703 / 1.126 / 0.971 for K0-K3 and 2.477 / 2.315 for K3v. Ring/collar clearances: 0.885 to the cover, 0.896 to the socket (K3v 1.28), 0.884 to the screws (K3v 2.38), 0.40 hidden in K1, 0.90 to the K1 pocket. White arm to cover: 1.289 in K2, 2.157 in K3/K3v. Printed hub parts: walls >= 1.2, >= 3.2 to the outer arm surface, never past the seam, M2b relations kept. Axial on/off path >= 0.30. The right side is a true mirror. The renders are consistent with the geometry. K3 remains the best match to R01/R08.\\n\\nThree things to fix before printing:\\n(a) The plug STLs/STEPs for every variant, including K0, keep the v2 internals. They block the M2b MR128 and MR74 bearings and have no stop lug, so they are render-only.\\n(b) K1, K3 and K3v need an axial locator for the glued black hub. Otherwise the white gap depends on how accurately it is glued.\\n(c) There are sub-1.2 mm slivers in the plug meshes (screw-access bores against the recess and cavity in K2/K3, the pocket rim in K1), and a 40 deg knife edge with only 1.7 mm of white shell around the D26.4 opening in K3.\\n\\nWording corrections: in K3 the spigot overlaps the cover rim by 0.1 mm, not 1.0. In K2 the cover is 1.6 smaller in diameter than the socket (0.8 per side). K2 lowers the arm's rest gap to a torso-side part from 3.70 to 1.29 (declared). K3v is wider than the base (confirmed).\\n\\nThe only fix I applied is a comment correction in klb.py (backup kept as klb.py.bak).\\n\\nMy scripts and results are in /tmp/claude-0/gapwf/fin/R4/overenie_klb/. The main result files are c1_mesh.json, c2b_K0..K3v.json (swing sweeps), c3_fit.json, c3b_fit.json, c4_walls.json, c4.log, c4b.log, c5_mirror.json, c8_xr.json, c8.log, c9_assembly.json, and the sections sl*_*.png and slz_K3.png."
+    },
+    "img": {
+      "images": [
+        {
+          "path": "/tmp/claude-0/gapwf/fin/R4/img/final/v4_ruka_B_zaoblenia.png",
+          "title_sk": "NOVA mini · ruka B: varianty zaoblení",
+          "content": "Štyri stĺpce: B0 (dnešná B), B1 squircle, B2 kvapka a B3 plochý kryt. Všade je dnešný kĺb K0, teda pôvodná zátka v2 ako na listoch v3. Každý riadok je v rovnakej mierke. Riadok 1: robot spredu bez podstavca, s kótou šírky cez ruky (144,4 / 143,6 / 143,2 / 144,8). Riadok 2: hero pohľad ako v3 (ľavá ruka hore 90°, hlava otočená o 20°, s podstavcom a tieňom). Riadok 3: samotná ľavá ruka zvonka, spredu a zhora v rovnakej mierke. Tabuľka pod obrázkami: hrúbka max / pri kĺbe, kryt / vnútro, šírka, šírka cez ruky, medzera k trupu v pokoji a najmenšia pri pohybe (3,70/1,12 · 3,72/1,35 · 3,70/1,57 · 3,70/1,58), stena nad kĺbom M2b (1,59 · 2,20 · 2,12 · 2,08), steny za magnetmi, šev a najmenší polomer krytu. Hodnoty B0, ktoré nevyhovujú, sú červené. Pás so zmestením kĺbu: B0 oranžový (len tesne, rezerva 0,085), B1–B3 zelené (rezerva +0,70 / +0,62 / +0,58). Päta: medzera pri doraze +140,5°, posun magnetov pre B2 a B3, presah krytu pri B3 a definícia steny nad kĺbom."
+        },
+        {
+          "path": "/tmp/claude-0/gapwf/fin/R4/img/final/v4_klb_ramena.png",
+          "title_sk": "NOVA mini · kĺb ramena: varianty",
+          "content": "Štyri stĺpce, všetky s rukou B0: K0 (dnes, krúžok D13), K1 (golier D22), K2 (kryt D26 v trupe) a K3 (jeden valec D26). Riadky: detail ľavého ramena spredu, šikmo spredu s visiacou rukou, šikmo spredu s rukou hore 90° a malý celý robot spredu (obe strany s daným kĺbom). Každý riadok má rovnakú kameru aj mierku. Tabuľka: viditeľný priemer (13 / 22 / 26,4 / 26,4), výška čierneho pásu spredu (12,8 / 21,7 / 19,4 / 26,0), s čím sa diel točí, biela medzera ruka–trup 3,70 / 1,12 (všade rovnaká), vôle konkrétneho variantu z overenia a šírka 144,4. Ďalej text „Čo sa mení“ a farebný verdikt: K0 oranžový (funguje, ale pôsobí úzko), K1 zelený (treba osový doraz náboja), K2 oranžový (ruka je 1,29 od krytu namiesto 3,70), K3 zelený, odporúčaný (treba doraz náboja a zraziť hranu otvoru). Päta: pravidlá, lepený náboj, lem 1,7 mm pri K3, zátky sú zatiaľ len na vizualizáciu a voliteľné K3v (147,4 mm)."
+        },
+        {
+          "path": "/tmp/claude-0/gapwf/fin/R4/img/final/v4_odporucanie.png",
+          "title_sk": "NOVA mini · odporúčanie: ruka B1 + kĺb K3",
+          "content": "Veľký obrázok B1 + K3 šikmo spredu ako zadanie R01: obe ruky visia, hlava otočená o 15°, s podstavcom a tieňom. Vpravo celý robot spredu (šírka cez ruky 143,6 mm, podstavec 146 mm). Pod ním dva páry rovnakými kamerami, „dnes: B0 + krúžok D13“ a „nové: B1 + K3“: kĺb šikmo spredu s visiacou rukou a s rukou hore 90°. Dole dve karty. „Prečo práve táto kombinácia“: stena 2,20, magnety 1,79/1,67, medzera 3,72/1,35, čierny pás 26,0 namiesto 12,8, vôle 0,89/0,90, lem okolo otvoru 2,2 mm namiesto 1,7, biela ruka – kryt 2,98. „Na čo si dať pozor“: kombináciu som overil len vlastným prepočtom, treba osový doraz lepeného náboja, zraziť hranu otvoru a prerobiť vnútro zátky na 6700ZZ; ako alternatíva je uvedené B2 + K3."
+        }
+      ],
+      "recommendation_sk": "Odporúčam ruku B1 (squircle) s kĺbom K3 (jeden čierny valec D26). B1 je najčistejší moderný tvar a jediný z nových, pri ktorom netreba posúvať magnety ani zosilňovať šev. Stena nad kĺbom má 2,20 mm (dnes 1,59), steny za magnetmi 1,79 / 1,67 a medzera k trupu je 3,72 mm v pokoji a 1,35 mm pri pohybe (dnes 1,12). K3 rieši „úzky“ kĺb: čierny pás spredu má 26 mm namiesto 12,8 mm a vyzerá ako na zadaní R01, pričom biela medzera ruka–trup sa nemení a vôle čiernych dielov sú 0,89–0,90 mm. Daň za to: čierny náboj s prstencom sa lepí do ruky a potrebuje osový doraz, hranu otvoru D26,4 treba zraziť o 0,3–0,5 mm a zátku treba ešte prerobiť spolu s kĺbom na ložisko 6700ZZ. Kombináciu B1 + K3 som overil len vlastným prepočtom miest, ktoré závisia od tvaru ruky. Ak by sa ti viac páčila štíhlejšia špička, rovnocenná alternatíva je B2 + K3 (pri pohybe ešte väčšia medzera 1,57 mm), len treba posunúť magnety.",
+      "scripts_dir": "/tmp/claude-0/gapwf/fin/R4/img/work",
+      "notes": "The three sheets are finished (1400 px wide, 48 samples, 3 threads), all text in Slovak with diacritics. I recommend B1 + K3. I checked that combination only with my own pre-check, not with an independent verification.\n\n**Pipeline** (everything is in /tmp/claude-0/gapwf/fin/R4/img/work; nothing outside R4 was edited):\n- `scene_v3_r4.py` is a copy of R3 `scene_v3.py`. Only three things changed: the shape module is now R4/tvar/variants_b.py, it uses `parse_known_args`, and the default vids are B0..B3. Materials, lights and cameras are the v3 ones.\n- `scene_r4.py` runs that copy without its dispatch. Shots:\n  - `front`: `--base 0` is the upper robot, `--tag` names the output.\n  - `hero`: the v3 hero camera.\n  - `armlook`: the arm alone, seen from outside, front and top.\n  - `kfront`, `kp34`, `kp34r`: shoulder close-ups for any arm.\n  - `r01`: a new view like R01, front-left.\n- Joint parts are loaded on both sides (right side = mirror). Rotating parts get the arm's swing matrix; I checked that it equals g2.V.swing_matrix.\n- `render_final.sh` makes the sheet 1 and 2 renders and `render_combo.sh` the sheet 3 renders; all go to `r/`.\n- `nums_r4.py` collects the numbers from the verifiers' and designers' JSONs, asserts them and writes `nums_r4.json`. `combo_chk.py` writes `combo_chk.json`.\n- `sheets_r4.py` (plus `sheet3_r4.py`) builds the sheets: `/opt/venv/cad/bin/python sheets_r4.py r ../final [zaoblenia klb odporucanie]`. Called with no names it builds sheets 1 and 2; `odporucanie` must be named.\n\n**Decisions:**\n- Sheet 1 uses the original v2 plug, the same as the v3 sheets. Its row 1 has no base, cropped at the base top (z −86.2), because the task asked for the upper robot.\n- Sheet 2 uses the klb.py parts for all four variants, including PLG_zatka_K0.\n- Gap numbers come from the shape verifier's analytic model, so B0 at 135° shows 1,12.\n- Verdict colours:\n  - B0 is orange: M2b fits with only 0.085 to spare, and the cover magnet back wall of 0.85 fails (shown in red).\n  - B1–B3 are green.\n  - K0 is orange: it works but looks narrow.\n  - K1 is green.\n  - K2 is orange: the arm is 1.29 from the cover instead of 3.70 at rest.\n  - K3 is green and recommended.\n- K3v appears only in the sheet 2 footer.\n- The hero camera on sheet 1 hides the joint (as noted in the klb docs). Sheets 2 and 3 show it from the frontal 3/4 view.\n\n**Combination pre-check for K3 on B1–B3** (`combo_chk.json`; my own, not independent). The B0 baseline is computed the same way and roughly reproduces the verifier: 2.162 vs 2.157 and 1.72 vs 1.7, but 3.41 vs 3.23 for the hub distance (a different measuring method).\n- White band around the D26.4 opening, front and back: B0 1.72, B1 2.23, B2 2.29, B3 1.92.\n- White arm to the static cover: 2.16 / 2.98 / 3.26 / 3.21.\n- The printed hub/ring part stays 0.78 below the seam. It is at least 3.41–3.48 from the outer cover surface.\n- The ring (r 13.1) stays inside the arm outline.\n- The arm–torso gap per shape is unchanged from the shape verification, because only the opening grows.\n\n**Open items, also written on the sheets:**\n- Every plug STL keeps the v2 internals, so they are render-only.\n- K1 and K3 need an axial locator for the glued hub.\n- The K3 opening edge needs a 0.3–0.5 edge break.\n- The joint still has to be redesigned around the 6700ZZ bearing.\n- B2 and B3 should move the magnet axis to 3.7 mm from the outline.\n- B3's 0.85 mm seam overlap needs the locating lip.\n\n**Housekeeping:** `r/frontw_cam.json` belongs to the 700 px B0 renders (sheet 2 row 4). The B1 + K3 front at 800 px for sheet 3 is `frontx_*`. `r/r01_cam.json` was regenerated with `--noren` so it matches the 1100 px render. Previews and scratch files are in `work/prev`."
+    },
+    "rev": {
+      "ok": true,
+      "fixed": [
+        "Sheet 1 (v4_ruka_B_zaoblenia.png): in B0's 'za magnetom kryt / vnútro' row the whole '0,85 / 1,42' was red. Now only the failing 0,85 is red; 1,42 is not, which matches B3's 1,43 that is also not red. Done by extending rows_table in sheets_r4.py so it can colour single values.",
+        "Sheet 1 footer contradicted the table: it said the joint wall 'treba ≥ 1,5' while 1,59 is shown red. It now says the joint fits from 1,5 (wall 1,2 + clearance 0,3), the target is ≥ 2,0 (reserve at least 0,5), and B0 misses it (red value).",
+        "Sheet 1 footer on magnets now matches sheet 3 and the recommendation text. Before, it said B2 and B3 'sú v poriadku, ale lepšie je posunúť'. Now: B2 cover only a tight 1,22 and B3 inner 1,43 (the inner half otherwise has 1,6), so for both the magnet axis has to move to 3,7 mm from the edge (B2 1,37/1,91, B3 2,11/1,61); B1 needs nothing.",
+        "Sheet 1 intro: 'šev ... ostávajú' changed to 'poloha švu ... ostávajú', because B2 has a 0,35 reveal and B3 a 0,35 overhang, so only the seam position stays the same.",
+        "Sheet 1 row 2 caption: 'zboku spredu' changed to 'šikmo spredu', the same wording as sheets 2 and 3.",
+        "Sheet 2 (v4_klb_ramena.png): the K3 'točí sa s' value 'kryt trup · prstenec ruka' (wrong Slovak case) is now 'kryt trupom, prstenec rukou'. In the intro, 'Ruka aj biela medzera' is now 'Tvar ruky aj biela medzera', since K1 and K3 enlarge the hole in the arm.",
+        "Sheet 3 (v4_odporucanie.png): the label 'nové: B1 + K3' rendered as 'B1+ K3' because Inter kerns '1' against the space. Kerning is now turned off for that label (features=['-kern']).",
+        "Sheet 3, B2 + K3 alternative bullet: now says exactly what changes: 'os magnetov treba posunúť na 3,7 mm od okraja (stena krytu za magnetom má len 1,22)'.",
+        "All three sheets recomposed from the existing renders into /tmp/claude-0/gapwf/fin/R4/img/final/ and read again: text fits, no overflow, nothing covers the robot. Backups: /tmp/claude-0/gapwf/fin/R4/img/work/sheets_r4.py.bak_review, /tmp/claude-0/gapwf/fin/R4/img/work/sheet3_r4.py.bak_review, previous PNGs in /tmp/claude-0/gapwf/fin/R4/img/final_pred_review/. Review crops are in /tmp/claude-0/gapwf/fin/R4/img/review/."
+      ],
+      "remaining": [
+        "Checked and found correct: every number on the three sheets matches nums_r4.json and the two verification reports. Sheet 1: thickness, cover/inner, widths 144,4/143,6/143,2/144,8, gaps 3,70/1,12, 3,72/1,35, 3,70/1,57, 3,70/1,58, walls 1,59/2,20/2,12/2,08, reserves +0,085/+0,70/+0,62/+0,58, gaps at the stop 0,97/1,32/1,47/1,46, radii 1,9/1,6/2,0/1,6. Sheet 2: diameters 13/22/26,4/26,4, black band 12,8/21,7/19,4/26,0 and all clearances. Sheet 3: 2,20, 1,79/1,67, 3,72/1,35, 26,0 vs 12,8, 0,89/0,90, rim 2,2 vs 1,7, 2,98 vs 2,16, 3,5.",
+        "Checked and found correct: verdict colours match the verification. B0 orange with red failing values; B1–B3 green; K0 orange, K1 green, K2 orange, K3 green and recommended.",
+        "Checked and found correct: within each row the scale is identical (same camera and crop). Measured head pixel boxes are equal in every column: sheet 1 row 1 212x151 and row 2 209x145; sheet 2 row 1 199x295 and row 4 172x156. The arm-only row uses one shared scale, and the sheet 3 pairs use the same camera. Head and torso are visible and identical in every column.",
+        "Checked and found correct: no render artefacts (holes, black faces, z-fighting). The thin black edge on B2's 'zvonka' view is the declared 0,35 reveal over the black tip, and the faint cyan glint on the black tip in the raised-arm views is a reflection.",
+        "Visibility: B1 and B3 look very similar in the front and hero views and in the 'zvonka' outline. Their real difference (squircle vs D-shaped section with a flat outer face) shows clearly only in the small 'zhora' view and slightly in 'spredu'. B0 (flat top) and B2 (droplet) are clearly different. Not re-rendered; a larger section or top view would make B3's flat cover readable.",
+        "'squircle' is an English design term kept as the B1 variant name (it comes from the data and the recommendation text). The card explains it in Slovak ('Mäkký hranol'), so it was left as is.",
+        "Recommendation text: it says the black-part clearances are '0,89–0,90 mm'. The hidden ring-to-plug-screw clearance is 0,88 (verification 0.884), so '0,88–0,90' would be exact. The sheets only show 0,89 / 0,90 (ring to cover / ring to socket), which are correct.",
+        "Recommendation text: it calls B2 + K3 an 'equal alternative' that needs the magnets moved. That is consistent with the sheets as they are now; the B2 cover back wall is 1,22, only just over 1,2.",
+        "Design open points shown on the sheets and still unsolved: an axial stop for the glued black hub (K1, K3), a 0,3–0,5 edge break on the D26,4 hole (1,7 mm white rim with B0, 2,2 with B1), plug internals still v2 (render-only, they block MR128/MR74), and slivers in the plug meshes. B1 + K3 was checked only by the designer's own recalculation, not by an independent verifier.",
+        "Sheet 1 intro now wraps to 3 lines instead of 2. Cosmetic only."
+      ]
+    }
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Návrhy"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Overenie"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Obrázky"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 4,
+      "title": "Kontrola"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "návrh: zaoblenia ruky B",
+      "phaseIndex": 1,
+      "phaseTitle": "Návrhy",
+      "agentId": "a2010e12e435bb593",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795772160627,
+      "queuedAt": 1795772160610,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "/tmp/claude-0/gapwf/fin/R4/tvar/variants_b.py",
+      "promptPreview": "PROJECT: NOVA mini desktop robot. User language Slovak; all image text in Slovak WITH diacritics. The user is a hobbyist who cares a lot about a clean, modern, beautiful look; be visual and honest.\nFrame B: mm, Z up, FRONT = -Y, robot LEFT = +X. Shoulder axis parallel to X through (y 3.0, z -17.0). Torso surface on the shoulder axis at x 46.756. Left side values; right = mirror x -> -x.\nTHE USER J…",
+      "promptFramed": true,
+      "lastProgressAt": 1795774173890,
+      "tokens": 362515,
+      "toolCalls": 98,
+      "durationMs": 2013262,
+      "resultPreview": "{\"module\":\"/tmp/claude-0/gapwf/fin/R4/tvar/variants_b.py\",\"variants\":[{\"id\":\"B0\",\"name_sk\":\"B0 – dnešná B\",\"idea_sk\":\"Dnešná B na porovnanie: mydlový kamienok so zrezaným, takmer rovným vrchom a švom na rovníku.\",\"thickness_max\":15.54,\"thickness_at_joint\":15.53,\"width_max\":30.2,\"joint_wall_M2b\":1.585,\"gap_rest\":3.703,\"gap_min_swing\":1.125,\"params\":\"R3 variants.py 'B' exactly (ki 0.80, ko 0.55, kw …"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "návrh: kĺb ramena",
+      "phaseIndex": 1,
+      "phaseTitle": "Návrhy",
+      "agentId": "a40b8e3ee8e45c120",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795772160627,
+      "queuedAt": 1795772160610,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "/tmp/claude-0/gapwf/fin/R4/klb/klb.py",
+      "promptPreview": "PROJECT: NOVA mini desktop robot. User language Slovak; all image text in Slovak WITH diacritics. The user is a hobbyist who cares a lot about a clean, modern, beautiful look; be visual and honest.\nFrame B: mm, Z up, FRONT = -Y, robot LEFT = +X. Shoulder axis parallel to X through (y 3.0, z -17.0). Torso surface on the shoulder axis at x 46.756. Left side values; right = mirror x -> -x.\nTHE USER J…",
+      "promptFramed": true,
+      "lastProgressAt": 1795775295026,
+      "tokens": 461810,
+      "toolCalls": 132,
+      "durationMs": 3134389,
+      "resultPreview": "{\"module\":\"/tmp/claude-0/gapwf/fin/R4/klb/klb.py\",\"meshes_dir\":\"/tmp/claude-0/gapwf/fin/R4/klb/stl\",\"variants\":[{\"id\":\"K0\",\"name_sk\":\"K0 – dnes: tenký krúžok D13\",\"idea_sk\":\"Medzi trupom a rukou je vidieť len tenký čierny krúžok D13 zo zátky (3,7 mm medzera). Referencia, nič sa nemení.\",\"visible_diameter\":13,\"rotates_with\":\"torso (static plug ring)\",\"clearance_to_torso\":1.12,\"clearance_to_arm\":0.5…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "overenie: tvary",
+      "phaseIndex": 2,
+      "phaseTitle": "Overenie",
+      "agentId": "a8fa686908e356f8d",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795775295044,
+      "queuedAt": 1795775295035,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "B1, B2 and B3 pass every hard rule, and the designer's numb…",
+      "promptPreview": "PROJECT: NOVA mini desktop robot. User language Slovak; all image text in Slovak WITH diacritics. The user is a hobbyist who cares a lot about a clean, modern, beautiful look; be visual and honest.\nFrame B: mm, Z up, FRONT = -Y, robot LEFT = +X. Shoulder axis parallel to X through (y 3.0, z -17.0). Torso surface on the shoulder axis at x 46.756. Left side values; right = mirror x -> -x.\nTHE USER J…",
+      "promptFramed": true,
+      "lastProgressAt": 1795781034203,
+      "tokens": 313859,
+      "toolCalls": 73,
+      "durationMs": 5739158,
+      "resultPreview": "{\"checked\":[{\"id\":\"B0\",\"ok\":false,\"numbers\":\"Matches R3 'B' exactly: section, inside test (2M points, insets 0, 1.2 and 1.6), pebble/half rows, tip plane, to_world (left and right) and swing all show 0.0 deviation. T max 15.54 @u0.208, W max 30.20, cover/inner @0.22 6.33/9.21. M2b DRV_unasac wall 1.585 out / 1.905 in (fit.py rerun = designer) and 1.585 / 1.904 with own sampling. Gap, own computati…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "overenie: kĺby",
+      "phaseIndex": 2,
+      "phaseTitle": "Overenie",
+      "agentId": "a6cfb5379144e9430",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795775295044,
+      "queuedAt": 1795775295035,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "I found no blocking geometric problem in K0-K3v. I re-measu…",
+      "promptPreview": "PROJECT: NOVA mini desktop robot. User language Slovak; all image text in Slovak WITH diacritics. The user is a hobbyist who cares a lot about a clean, modern, beautiful look; be visual and honest.\nFrame B: mm, Z up, FRONT = -Y, robot LEFT = +X. Shoulder axis parallel to X through (y 3.0, z -17.0). Torso surface on the shoulder axis at x 46.756. Left side values; right = mirror x -> -x.\nTHE USER J…",
+      "promptFramed": true,
+      "lastProgressAt": 1795782182718,
+      "tokens": 398880,
+      "toolCalls": 112,
+      "durationMs": 6885387,
+      "resultPreview": "{\"checked\":[{\"id\":\"K0\",\"ok\":true,\"numbers\":\"Own 1-degree sweep from -51 to +142.5 deg of the A_vnut_otvor_K0 mesh against T_bok_L: white arm-torso gap 3.703 at rest, 1.126 min over -45..135 (at 135), 0.971 at +140.5 (designer 3.703 / 1.124 / 0.969). The 0.934 at 142 deg is beyond the stop and does not count. D13 plug ring in the D14 arm hole: 0.496 radial, by design. Plug screws are at least 3.28 …"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "obrázky: tvary a kĺby",
+      "phaseIndex": 3,
+      "phaseTitle": "Obrázky",
+      "agentId": "a682a55797227de48",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795782182734,
+      "queuedAt": 1795782182726,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "Odporúčam ruku B1 (squircle) s kĺbom K3 (jeden čierny valec…",
+      "promptPreview": "PROJECT: NOVA mini desktop robot. User language Slovak; all image text in Slovak WITH diacritics. The user is a hobbyist who cares a lot about a clean, modern, beautiful look; be visual and honest.\nFrame B: mm, Z up, FRONT = -Y, robot LEFT = +X. Shoulder axis parallel to X through (y 3.0, z -17.0). Torso surface on the shoulder axis at x 46.756. Left side values; right = mirror x -> -x.\nTHE USER J…",
+      "promptFramed": true,
+      "lastProgressAt": 1795784119096,
+      "tokens": 400831,
+      "toolCalls": 115,
+      "durationMs": 1936361,
+      "resultPreview": "{\"images\":[{\"path\":\"/tmp/claude-0/gapwf/fin/R4/img/final/v4_ruka_B_zaoblenia.png\",\"title_sk\":\"NOVA mini · ruka B: varianty zaoblení\",\"content\":\"Štyri stĺpce: B0 (dnešná B), B1 squircle, B2 kvapka a B3 plochý kryt. Všade je dnešný kĺb K0, teda pôvodná zátka v2 ako na listoch v3. Každý riadok je v rovnakej mierke. Riadok 1: robot spredu bez podstavca, s kótou šírky cez ruky (144,4 / 143,6 / 143,2 / …"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "kontrola obrázkov",
+      "phaseIndex": 4,
+      "phaseTitle": "Kontrola",
+      "agentId": "a17c90ad87ff05eb9",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1795784119114,
+      "queuedAt": 1795784119108,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "promptPreview": "PROJECT: NOVA mini desktop robot. User language Slovak; all image text in Slovak WITH diacritics. The user is a hobbyist who cares a lot about a clean, modern, beautiful look; be visual and honest.\nFrame B: mm, Z up, FRONT = -Y, robot LEFT = +X. Shoulder axis parallel to X through (y 3.0, z -17.0). Torso surface on the shoulder axis at x 46.756. Left side values; right = mirror x -> -x.\nTHE USER J…",
+      "promptFramed": true,
+      "lastProgressAt": 1795784517908,
+      "tokens": 209566,
+      "toolCalls": 59,
+      "durationMs": 398794,
+      "resultPreview": "{\"ok\":true,\"fixed\":[\"Sheet 1 (v4_ruka_B_zaoblenia.png): in B0's 'za magnetom kryt / vnútro' row the whole '0,85 / 1,42' was red. Now only the failing 0,85 is red; 1,42 is not, which matches B3's 1,43 that is also not red. Done by extending rows_table in sheets_r4.py so it can colour single values.\",\"Sheet 1 footer contradicted the table: it said the joint wall 'treba ≥ 1,5' while 1,59 is shown red…"
+    }
+  ],
+  "totalTokens": 2147461,
+  "totalToolCalls": 589
+}

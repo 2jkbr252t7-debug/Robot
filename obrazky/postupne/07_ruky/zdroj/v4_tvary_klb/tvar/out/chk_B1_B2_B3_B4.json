@@ -1,0 +1,646 @@
+{
+ "B1": {
+  "thickness_max": 16.11,
+  "thickness_max_at_u": 0.182,
+  "width_max": 30.9,
+  "width_max_at_u": 0.214,
+  "thickness_at_joint_u022": 16.05,
+  "inner_half_at_joint": 9.18,
+  "outer_half_at_joint": 6.87,
+  "seam_x_local_at_joint": -2.3,
+  "inner_face_x_local_at_joint": -11.48,
+  "B0_inner_face_x_local": -11.507,
+  "table": [
+   {
+    "u": 0.05,
+    "thick": 12.57,
+    "width": 21.05,
+    "seam_x": -2.01,
+    "inner_face_x": -9.24
+   },
+   {
+    "u": 0.1,
+    "thick": 15.37,
+    "width": 27.09,
+    "seam_x": -2.21,
+    "inner_face_x": -11.01
+   },
+   {
+    "u": 0.22,
+    "thick": 16.05,
+    "width": 30.9,
+    "seam_x": -2.3,
+    "inner_face_x": -11.48
+   },
+   {
+    "u": 0.3,
+    "thick": 15.75,
+    "width": 30.72,
+    "seam_x": -2.27,
+    "inner_face_x": -11.34
+   },
+   {
+    "u": 0.4,
+    "thick": 15.24,
+    "width": 30.41,
+    "seam_x": -2.21,
+    "inner_face_x": -11.04
+   },
+   {
+    "u": 0.5,
+    "thick": 14.55,
+    "width": 29.83,
+    "seam_x": -2.13,
+    "inner_face_x": -10.62
+   },
+   {
+    "u": 0.6,
+    "thick": 13.56,
+    "width": 28.76,
+    "seam_x": -2.08,
+    "inner_face_x": -10.04
+   },
+   {
+    "u": 0.7,
+    "thick": 12.0,
+    "width": 26.87,
+    "seam_x": -2.13,
+    "inner_face_x": -9.14
+   },
+   {
+    "u": 0.8,
+    "thick": 9.85,
+    "width": 23.65,
+    "seam_x": -2.29,
+    "inner_face_x": -7.96
+   },
+   {
+    "u": 0.9,
+    "thick": 7.05,
+    "width": 18.0,
+    "seam_x": -2.52,
+    "inner_face_x": -6.55
+   },
+   {
+    "u": 0.95,
+    "thick": 5.03,
+    "width": 13.19,
+    "seam_x": -2.61,
+    "inner_face_x": -5.49
+   }
+  ],
+  "innermost_world_x": 48.546,
+  "innermost_at_local": [
+   -10.93,
+   0.0,
+   -6.77
+  ],
+  "innermost_u": 0.094,
+  "outermost_world_x": 71.803,
+  "robot_width_over_arms": 143.61,
+  "max_outside_approved_mm": 1.923,
+  "outside_u_range": [
+   0.0,
+   1.0
+  ],
+  "outside_world_x_min": 48.59,
+  "max_outside_u0.0-0.04": 0.0,
+  "max_outside_u0.04-0.5": 1.923,
+  "max_outside_u0.5-1.0": 1.323,
+  "front_view_gap_at_axis": 2.8,
+  "axis_skin_x": [
+   49.67,
+   66.01
+  ],
+  "axis_inside_wall1.2_x": [
+   50.9,
+   64.79
+  ],
+  "axis_inside_wall1.6_x": [
+   51.31,
+   64.38
+  ],
+  "gap_rest": 3.724,
+  "gap_rest_at": [
+   49.26,
+   0.95,
+   -30.85
+  ],
+  "gap_min_-45_135": 1.345,
+  "gap_min_angle": 135.0,
+  "gap_min_at": [
+   49.24,
+   3.0,
+   -31.0
+  ],
+  "gap_at_135": 1.345,
+  "gap_at_140.5": 1.317,
+  "gap_min_-51_142": 1.31,
+  "gap_min_-51_142_angle": 142.0,
+  "gap_per_10deg": {
+   "-50": 3.16,
+   "-40": 3.35,
+   "-30": 3.51,
+   "-20": 3.64,
+   "-10": 3.69,
+   "0": 3.72,
+   "10": 3.71,
+   "20": 3.68,
+   "30": 3.67,
+   "40": 3.64,
+   "50": 3.5,
+   "60": 3.32,
+   "70": 3.1,
+   "80": 2.85,
+   "90": 2.57,
+   "100": 2.26,
+   "110": 1.87,
+   "120": 1.58,
+   "130": 1.4,
+   "140": 1.32
+  }
+ },
+ "B2": {
+  "thickness_max": 16.18,
+  "thickness_max_at_u": 0.178,
+  "width_max": 31.2,
+  "width_max_at_u": 0.203,
+  "thickness_at_joint_u022": 16.09,
+  "inner_half_at_joint": 9.21,
+  "outer_half_at_joint": 6.89,
+  "seam_x_local_at_joint": -2.3,
+  "inner_face_x_local_at_joint": -11.507,
+  "B0_inner_face_x_local": -11.507,
+  "table": [
+   {
+    "u": 0.05,
+    "thick": 12.49,
+    "width": 21.52,
+    "seam_x": -2.01,
+    "inner_face_x": -9.17
+   },
+   {
+    "u": 0.1,
+    "thick": 15.42,
+    "width": 27.63,
+    "seam_x": -2.21,
+    "inner_face_x": -11.03
+   },
+   {
+    "u": 0.22,
+    "thick": 16.09,
+    "width": 31.14,
+    "seam_x": -2.3,
+    "inner_face_x": -11.51
+   },
+   {
+    "u": 0.3,
+    "thick": 15.72,
+    "width": 30.39,
+    "seam_x": -2.27,
+    "inner_face_x": -11.36
+   },
+   {
+    "u": 0.4,
+    "thick": 15.09,
+    "width": 29.1,
+    "seam_x": -2.21,
+    "inner_face_x": -11.06
+   },
+   {
+    "u": 0.5,
+    "thick": 14.27,
+    "width": 27.41,
+    "seam_x": -2.13,
+    "inner_face_x": -10.63
+   },
+   {
+    "u": 0.6,
+    "thick": 13.03,
+    "width": 25.29,
+    "seam_x": -2.08,
+    "inner_face_x": -9.87
+   },
+   {
+    "u": 0.7,
+    "thick": 11.25,
+    "width": 22.66,
+    "seam_x": -2.13,
+    "inner_face_x": -8.79
+   },
+   {
+    "u": 0.8,
+    "thick": 9.1,
+    "width": 19.29,
+    "seam_x": -2.29,
+    "inner_face_x": -7.56
+   },
+   {
+    "u": 0.9,
+    "thick": 6.6,
+    "width": 14.6,
+    "seam_x": -2.52,
+    "inner_face_x": -6.29
+   },
+   {
+    "u": 0.95,
+    "thick": 4.93,
+    "width": 11.04,
+    "seam_x": -2.61,
+    "inner_face_x": -5.43
+   }
+  ],
+  "innermost_world_x": 48.527,
+  "innermost_at_local": [
+   -10.98,
+   0.0,
+   -6.9
+  ],
+  "innermost_u": 0.096,
+  "outermost_world_x": 71.617,
+  "robot_width_over_arms": 143.23,
+  "max_outside_approved_mm": 0.987,
+  "outside_u_range": [
+   0.0,
+   1.0
+  ],
+  "outside_world_x_min": 48.87,
+  "max_outside_u0.0-0.04": 0.0,
+  "max_outside_u0.04-0.5": 0.987,
+  "max_outside_u0.5-1.0": 0.0,
+  "front_view_gap_at_axis": 2.78,
+  "axis_skin_x": [
+   49.65,
+   66.0
+  ],
+  "axis_inside_wall1.2_x": [
+   50.87,
+   64.78
+  ],
+  "axis_inside_wall1.6_x": [
+   51.28,
+   64.38
+  ],
+  "gap_rest": 3.703,
+  "gap_rest_at": [
+   49.26,
+   1.68,
+   -30.94
+  ],
+  "gap_min_-45_135": 1.57,
+  "gap_min_angle": 135.0,
+  "gap_min_at": [
+   47.36,
+   5.0,
+   -26.4
+  ],
+  "gap_at_135": 1.57,
+  "gap_at_140.5": 1.472,
+  "gap_min_-51_142": 1.448,
+  "gap_min_-51_142_angle": 142.0,
+  "gap_per_10deg": {
+   "-50": 3.26,
+   "-40": 3.42,
+   "-30": 3.55,
+   "-20": 3.66,
+   "-10": 3.73,
+   "0": 3.7,
+   "10": 3.71,
+   "20": 3.75,
+   "30": 3.75,
+   "40": 3.67,
+   "50": 3.56,
+   "60": 3.42,
+   "70": 3.24,
+   "80": 3.02,
+   "90": 2.77,
+   "100": 2.49,
+   "110": 2.2,
+   "120": 1.92,
+   "130": 1.67,
+   "140": 1.48
+  }
+ },
+ "B3": {
+  "thickness_max": 16.03,
+  "thickness_max_at_u": 0.183,
+  "width_max": 31.0,
+  "width_max_at_u": 0.212,
+  "thickness_at_joint_u022": 15.98,
+  "inner_half_at_joint": 9.21,
+  "outer_half_at_joint": 6.78,
+  "seam_x_local_at_joint": -2.3,
+  "inner_face_x_local_at_joint": -11.507,
+  "B0_inner_face_x_local": -11.507,
+  "table": [
+   {
+    "u": 0.05,
+    "thick": 12.83,
+    "width": 20.96,
+    "seam_x": -2.01,
+    "inner_face_x": -9.42
+   },
+   {
+    "u": 0.1,
+    "thick": 15.38,
+    "width": 27.08,
+    "seam_x": -2.21,
+    "inner_face_x": -11.04
+   },
+   {
+    "u": 0.22,
+    "thick": 15.98,
+    "width": 30.99,
+    "seam_x": -2.3,
+    "inner_face_x": -11.51
+   },
+   {
+    "u": 0.3,
+    "thick": 15.72,
+    "width": 30.63,
+    "seam_x": -2.27,
+    "inner_face_x": -11.36
+   },
+   {
+    "u": 0.4,
+    "thick": 15.28,
+    "width": 29.87,
+    "seam_x": -2.21,
+    "inner_face_x": -11.06
+   },
+   {
+    "u": 0.5,
+    "thick": 14.72,
+    "width": 28.65,
+    "seam_x": -2.13,
+    "inner_face_x": -10.65
+   },
+   {
+    "u": 0.6,
+    "thick": 13.93,
+    "width": 26.83,
+    "seam_x": -2.08,
+    "inner_face_x": -10.11
+   },
+   {
+    "u": 0.7,
+    "thick": 12.82,
+    "width": 24.24,
+    "seam_x": -2.13,
+    "inner_face_x": -9.51
+   },
+   {
+    "u": 0.8,
+    "thick": 11.18,
+    "width": 20.58,
+    "seam_x": -2.29,
+    "inner_face_x": -8.73
+   },
+   {
+    "u": 0.9,
+    "thick": 8.44,
+    "width": 15.08,
+    "seam_x": -2.52,
+    "inner_face_x": -7.37
+   },
+   {
+    "u": 0.95,
+    "thick": 6.16,
+    "width": 10.85,
+    "seam_x": -2.61,
+    "inner_face_x": -6.16
+   }
+  ],
+  "innermost_world_x": 48.506,
+  "innermost_at_local": [
+   -10.94,
+   0.0,
+   -6.64
+  ],
+  "innermost_u": 0.092,
+  "outermost_world_x": 72.374,
+  "robot_width_over_arms": 144.75,
+  "max_outside_approved_mm": 2.325,
+  "outside_u_range": [
+   0.0,
+   1.0
+  ],
+  "outside_world_x_min": 49.43,
+  "max_outside_u0.0-0.04": 0.0,
+  "max_outside_u0.04-0.5": 2.325,
+  "max_outside_u0.5-1.0": 1.557,
+  "front_view_gap_at_axis": 2.78,
+  "axis_skin_x": [
+   49.65,
+   65.93
+  ],
+  "axis_inside_wall1.2_x": [
+   50.87,
+   64.7
+  ],
+  "axis_inside_wall1.6_x": [
+   51.28,
+   64.3
+  ],
+  "gap_rest": 3.703,
+  "gap_rest_at": [
+   49.26,
+   1.68,
+   -30.94
+  ],
+  "gap_min_-45_135": 1.575,
+  "gap_min_angle": 135.0,
+  "gap_min_at": [
+   47.32,
+   5.4,
+   -26.4
+  ],
+  "gap_at_135": 1.575,
+  "gap_at_140.5": 1.462,
+  "gap_min_-51_142": 1.435,
+  "gap_min_-51_142_angle": 142.0,
+  "gap_per_10deg": {
+   "-50": 3.28,
+   "-40": 3.43,
+   "-30": 3.56,
+   "-20": 3.66,
+   "-10": 3.73,
+   "0": 3.7,
+   "10": 3.71,
+   "20": 3.75,
+   "30": 3.75,
+   "40": 3.68,
+   "50": 3.57,
+   "60": 3.44,
+   "70": 3.26,
+   "80": 3.05,
+   "90": 2.81,
+   "100": 2.54,
+   "110": 2.25,
+   "120": 1.96,
+   "130": 1.69,
+   "140": 1.47
+  }
+ },
+ "B4": {
+  "thickness_max": 16.14,
+  "thickness_max_at_u": 0.183,
+  "width_max": 30.7,
+  "width_max_at_u": 0.214,
+  "thickness_at_joint_u022": 16.08,
+  "inner_half_at_joint": 9.21,
+  "outer_half_at_joint": 6.88,
+  "seam_x_local_at_joint": -2.3,
+  "inner_face_x_local_at_joint": -11.507,
+  "B0_inner_face_x_local": -11.507,
+  "table": [
+   {
+    "u": 0.05,
+    "thick": 12.55,
+    "width": 20.69,
+    "seam_x": -2.01,
+    "inner_face_x": -9.22
+   },
+   {
+    "u": 0.1,
+    "thick": 15.38,
+    "width": 26.75,
+    "seam_x": -2.21,
+    "inner_face_x": -11.03
+   },
+   {
+    "u": 0.22,
+    "thick": 16.08,
+    "width": 30.69,
+    "seam_x": -2.3,
+    "inner_face_x": -11.51
+   },
+   {
+    "u": 0.3,
+    "thick": 15.78,
+    "width": 30.39,
+    "seam_x": -2.27,
+    "inner_face_x": -11.36
+   },
+   {
+    "u": 0.4,
+    "thick": 15.25,
+    "width": 29.7,
+    "seam_x": -2.21,
+    "inner_face_x": -11.06
+   },
+   {
+    "u": 0.5,
+    "thick": 14.53,
+    "width": 28.55,
+    "seam_x": -2.13,
+    "inner_face_x": -10.65
+   },
+   {
+    "u": 0.6,
+    "thick": 13.48,
+    "width": 26.8,
+    "seam_x": -2.08,
+    "inner_face_x": -10.05
+   },
+   {
+    "u": 0.7,
+    "thick": 11.8,
+    "width": 24.27,
+    "seam_x": -2.13,
+    "inner_face_x": -9.07
+   },
+   {
+    "u": 0.8,
+    "thick": 9.54,
+    "width": 20.65,
+    "seam_x": -2.29,
+    "inner_face_x": -7.8
+   },
+   {
+    "u": 0.9,
+    "thick": 6.75,
+    "width": 15.17,
+    "seam_x": -2.52,
+    "inner_face_x": -6.38
+   },
+   {
+    "u": 0.95,
+    "thick": 4.79,
+    "width": 10.92,
+    "seam_x": -2.61,
+    "inner_face_x": -5.36
+   }
+  ],
+  "innermost_world_x": 48.525,
+  "innermost_at_local": [
+   -10.98,
+   0.0,
+   -6.9
+  ],
+  "innermost_u": 0.096,
+  "outermost_world_x": 71.672,
+  "robot_width_over_arms": 143.34,
+  "max_outside_approved_mm": 0.792,
+  "outside_u_range": [
+   0.0,
+   1.0
+  ],
+  "outside_world_x_min": 49.19,
+  "max_outside_u0.0-0.04": 0.0,
+  "max_outside_u0.04-0.5": 0.792,
+  "max_outside_u0.5-1.0": 0.195,
+  "front_view_gap_at_axis": 2.78,
+  "axis_skin_x": [
+   49.65,
+   66.02
+  ],
+  "axis_inside_wall1.2_x": [
+   50.87,
+   64.8
+  ],
+  "axis_inside_wall1.6_x": [
+   51.28,
+   64.39
+  ],
+  "gap_rest": 3.703,
+  "gap_rest_at": [
+   49.26,
+   1.54,
+   -30.92
+  ],
+  "gap_min_-45_135": 1.592,
+  "gap_min_angle": 135.0,
+  "gap_min_at": [
+   47.3,
+   5.2,
+   -26.2
+  ],
+  "gap_at_135": 1.592,
+  "gap_at_140.5": 1.489,
+  "gap_min_-51_142": 1.463,
+  "gap_min_-51_142_angle": 142.0,
+  "gap_per_10deg": {
+   "-50": 3.27,
+   "-40": 3.43,
+   "-30": 3.56,
+   "-20": 3.66,
+   "-10": 3.72,
+   "0": 3.7,
+   "10": 3.71,
+   "20": 3.74,
+   "30": 3.75,
+   "40": 3.68,
+   "50": 3.57,
+   "60": 3.43,
+   "70": 3.26,
+   "80": 3.04,
+   "90": 2.8,
+   "100": 2.52,
+   "110": 2.24,
+   "120": 1.95,
+   "130": 1.7,
+   "140": 1.5
+  }
+ }
+}

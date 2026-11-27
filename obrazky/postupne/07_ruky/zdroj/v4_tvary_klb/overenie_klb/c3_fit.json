@@ -1,0 +1,479 @@
+{
+ "K1": {
+  "n": 408231,
+  "pts_cover_side": 0,
+  "pts_outside_through_outer": 59170,
+  "min_dist_to_outer_surface": 3.5,
+  "at": {
+   "xyz": [
+    52.8,
+    10.59,
+    -16.62
+   ],
+   "xr": [
+    52.8,
+    7.6
+   ],
+   "az": 2.8
+  },
+  "min_local_x_to_seam": 0.783,
+  "at_seam": {
+   "xyz": [
+    55.9,
+    3.92,
+    -4.73
+   ],
+   "xr": [
+    55.9,
+    12.3
+   ],
+   "az": 85.7
+  },
+  "vs_M2b": [
+   {
+    "part": "PLG_kruzok",
+    "role": "static",
+    "dist": 0.3,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "PLG_cap",
+    "role": "static",
+    "dist": 0.299,
+    "need": 0.3,
+    "ok": false
+   },
+   {
+    "part": "PLG_doraz",
+    "role": "static",
+    "dist": -0.846,
+    "need": 0.3,
+    "ok": false
+   },
+   {
+    "part": "BRG_A2_MR74",
+    "role": "torso",
+    "dist": 1.93,
+    "need": 0.0,
+    "ok": true
+   },
+   {
+    "part": "M4_DIN7984_M4x20",
+    "role": "drive",
+    "dist": 3.299,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_unasac",
+    "role": "drive",
+    "dist": 2.5,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "BRG_MR128_vnut",
+    "role": "static",
+    "dist": 0.599,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "BRG_MR128_vonk",
+    "role": "arm",
+    "dist": -0.002,
+    "need": 0.0,
+    "ok": false
+   },
+   {
+    "part": "ARM_podlozka_M12",
+    "role": "arm",
+    "dist": -0.0,
+    "need": 0.0,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_1",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_2",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_3",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_4",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_5",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_6",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_7",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_8",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_9",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   }
+  ]
+ },
+ "K3": {
+  "n": 448939,
+  "pts_cover_side": 0,
+  "pts_outside_through_outer": 70132,
+  "min_dist_to_outer_surface": 3.232,
+  "at": {
+   "xyz": [
+    55.6,
+    15.52,
+    -13.14
+   ],
+   "xr": [
+    55.6,
+    13.1
+   ],
+   "az": 17.1
+  },
+  "min_local_x_to_seam": 0.783,
+  "at_seam": {
+   "xyz": [
+    55.9,
+    3.92,
+    -4.73
+   ],
+   "xr": [
+    55.9,
+    12.3
+   ],
+   "az": 85.7
+  },
+  "vs_M2b": [
+   {
+    "part": "PLG_kruzok",
+    "role": "static",
+    "dist": 0.3,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "PLG_cap",
+    "role": "static",
+    "dist": 0.299,
+    "need": 0.3,
+    "ok": false
+   },
+   {
+    "part": "PLG_doraz",
+    "role": "static",
+    "dist": -0.83,
+    "need": 0.3,
+    "ok": false
+   },
+   {
+    "part": "BRG_A2_MR74",
+    "role": "torso",
+    "dist": 1.931,
+    "need": 0.0,
+    "ok": true
+   },
+   {
+    "part": "M4_DIN7984_M4x20",
+    "role": "drive",
+    "dist": 3.299,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_unasac",
+    "role": "drive",
+    "dist": 2.5,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "BRG_MR128_vnut",
+    "role": "static",
+    "dist": 0.599,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "BRG_MR128_vonk",
+    "role": "arm",
+    "dist": -0.002,
+    "need": 0.0,
+    "ok": false
+   },
+   {
+    "part": "ARM_podlozka_M12",
+    "role": "arm",
+    "dist": -0.0,
+    "need": 0.0,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_1",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_2",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_3",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_4",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_5",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_6",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_7",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_8",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_9",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   }
+  ]
+ },
+ "K3v": {
+  "n": 448939,
+  "pts_cover_side": 0,
+  "pts_outside_through_outer": 70132,
+  "min_dist_to_outer_surface": 3.232,
+  "at": {
+   "xyz": [
+    57.1,
+    15.52,
+    -13.14
+   ],
+   "xr": [
+    57.1,
+    13.1
+   ],
+   "az": 17.1
+  },
+  "min_local_x_to_seam": 0.783,
+  "at_seam": {
+   "xyz": [
+    57.4,
+    3.92,
+    -4.73
+   ],
+   "xr": [
+    57.4,
+    12.3
+   ],
+   "az": 85.7
+  },
+  "vs_M2b": [
+   {
+    "part": "PLG_kruzok",
+    "role": "static",
+    "dist": 0.3,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "PLG_cap",
+    "role": "static",
+    "dist": 0.299,
+    "need": 0.3,
+    "ok": false
+   },
+   {
+    "part": "PLG_doraz",
+    "role": "static",
+    "dist": -0.83,
+    "need": 0.3,
+    "ok": false
+   },
+   {
+    "part": "BRG_A2_MR74",
+    "role": "torso",
+    "dist": 1.931,
+    "need": 0.0,
+    "ok": true
+   },
+   {
+    "part": "M4_DIN7984_M4x20",
+    "role": "drive",
+    "dist": 3.299,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_unasac",
+    "role": "drive",
+    "dist": 2.5,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "BRG_MR128_vnut",
+    "role": "static",
+    "dist": 0.599,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "BRG_MR128_vonk",
+    "role": "arm",
+    "dist": -0.002,
+    "need": 0.0,
+    "ok": false
+   },
+   {
+    "part": "ARM_podlozka_M12",
+    "role": "arm",
+    "dist": -0.0,
+    "need": 0.0,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_1",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_2",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_3",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_4",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_5",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_6",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_7",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_8",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   },
+   {
+    "part": "DRV_magnet_5x1_9",
+    "role": "drive",
+    "dist": 2.75,
+    "need": 0.3,
+    "ok": true
+   }
+  ]
+ }
+}

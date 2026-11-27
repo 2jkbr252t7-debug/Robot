@@ -1,0 +1,480 @@
+{
+ "K1": {
+  "visible | T_bok_L": {
+   "min": 2.996,
+   "at_xr": [
+    49.26,
+    14.0
+   ],
+   "az": 266.0
+  },
+  "visible | PLG_zatka_K1": {
+   "min": 0.398,
+   "at_xr": [
+    46.98,
+    7.2
+   ],
+   "az": 281.9
+  },
+  "visible | PLG_skrutky": {
+   "min": 0.97,
+   "at_xr": [
+    45.33,
+    8.47
+   ],
+   "az": 200.6
+  },
+  "visible | M2b_PLG_kruzok": {
+   "min": 1.098,
+   "at_xr": [
+    50.65,
+    6.5
+   ],
+   "az": 314.3
+  },
+  "visible | M2b_PLG_cap": {
+   "min": 2.6,
+   "at_xr": [
+    52.5,
+    5.0
+   ],
+   "az": 262.9
+  },
+  "visible | M2b_PLG_doraz": {
+   "min": 0.903,
+   "at_xr": [
+    52.5,
+    6.7
+   ],
+   "az": 293.0
+  },
+  "visible | M2b_BRG_A2_MR74": {
+   "min": 4.098,
+   "at_xr": [
+    52.1,
+    3.5
+   ],
+   "az": 257.1
+  },
+  "visible | M2b_M4_DIN7984_M4x20": {
+   "min": 5.599,
+   "at_xr": [
+    52.5,
+    2.0
+   ],
+   "az": 285.7
+  },
+  "visible | M2b_BRG_MR128_vnut": {
+   "min": 3.638,
+   "at_xr": [
+    54.6,
+    4.7
+   ],
+   "az": 280.0
+  },
+  "print | T_bok_L": {
+   "min": 2.996,
+   "at_xr": [
+    49.25,
+    14.0
+   ],
+   "az": 266.0
+  },
+  "print | PLG_zatka_K1": {
+   "min": 0.398,
+   "at_xr": [
+    46.82,
+    7.2
+   ],
+   "az": 291.6
+  },
+  "print | PLG_skrutky": {
+   "min": 0.97,
+   "at_xr": [
+    45.33,
+    8.92
+   ],
+   "az": 205.7
+  },
+  "print | M2b_PLG_kruzok": {
+   "min": 1.098,
+   "at_xr": [
+    49.22,
+    6.5
+   ],
+   "az": 114.3
+  },
+  "print | M2b_PLG_cap": {
+   "min": 1.042,
+   "at_xr": [
+    54.3,
+    5.0
+   ],
+   "az": 262.9
+  },
+  "print | M2b_PLG_doraz": {
+   "min": 0.3,
+   "at_xr": [
+    54.3,
+    6.62
+   ],
+   "az": 325.5
+  },
+  "print | M2b_BRG_A2_MR74": {
+   "min": 3.534,
+   "at_xr": [
+    52.1,
+    3.5
+   ],
+   "az": 257.1
+  },
+  "print | M2b_M4_DIN7984_M4x20": {
+   "min": 3.998,
+   "at_xr": [
+    54.61,
+    2.0
+   ],
+   "az": 137.1
+  },
+  "print | M2b_BRG_MR128_vnut": {
+   "min": 1.298,
+   "at_xr": [
+    54.6,
+    4.7
+   ],
+   "az": 280.0
+  },
+  "print | M2b_DRV_unasac": {
+   "min": 2.5,
+   "at_xr": [
+    58.4,
+    10.78
+   ],
+   "az": 315.5
+  }
+ },
+ "K3": {
+  "visible | T_bok_L": {
+   "min": 0.896,
+   "at_xr": [
+    49.25,
+    14.0
+   ],
+   "az": 266.0
+  },
+  "visible | PLG_zatka_K3": {
+   "min": 0.498,
+   "at_xr": [
+    51.11,
+    6.5
+   ],
+   "az": 31.4
+  },
+  "visible | PLG_skrutky": {
+   "min": 0.884,
+   "at_xr": [
+    46.42,
+    9.66
+   ],
+   "az": 219.4
+  },
+  "visible | M2b_PLG_kruzok": {
+   "min": 0.498,
+   "at_xr": [
+    47.94,
+    6.5
+   ],
+   "az": 240.0
+  },
+  "visible | M2b_PLG_cap": {
+   "min": 2.0,
+   "at_xr": [
+    52.5,
+    5.0
+   ],
+   "az": 262.9
+  },
+  "visible | M2b_PLG_doraz": {
+   "min": 0.314,
+   "at_xr": [
+    52.5,
+    6.7
+   ],
+   "az": 293.0
+  },
+  "visible | M2b_BRG_A2_MR74": {
+   "min": 3.498,
+   "at_xr": [
+    49.6,
+    3.5
+   ],
+   "az": 257.1
+  },
+  "visible | M2b_M4_DIN7984_M4x20": {
+   "min": 4.999,
+   "at_xr": [
+    52.5,
+    2.0
+   ],
+   "az": 285.7
+  },
+  "visible | M2b_BRG_MR128_vnut": {
+   "min": 3.181,
+   "at_xr": [
+    54.6,
+    4.7
+   ],
+   "az": 280.0
+  },
+  "visible | M2b_DRV_unasac": {
+   "min": 2.8,
+   "at_xr": [
+    58.4,
+    12.83
+   ],
+   "az": 318.6
+  },
+  "print | T_bok_L": {
+   "min": 0.896,
+   "at_xr": [
+    49.23,
+    14.0
+   ],
+   "az": 260.6
+  },
+  "print | PLG_zatka_K3": {
+   "min": 0.498,
+   "at_xr": [
+    52.14,
+    6.5
+   ],
+   "az": 65.7
+  },
+  "print | PLG_skrutky": {
+   "min": 0.884,
+   "at_xr": [
+    46.42,
+    9.69
+   ],
+   "az": 209.7
+  },
+  "print | M2b_PLG_kruzok": {
+   "min": 0.498,
+   "at_xr": [
+    52.43,
+    6.5
+   ],
+   "az": 297.1
+  },
+  "print | M2b_PLG_cap": {
+   "min": 1.042,
+   "at_xr": [
+    54.3,
+    5.0
+   ],
+   "az": 262.9
+  },
+  "print | M2b_PLG_doraz": {
+   "min": 0.298,
+   "at_xr": [
+    52.5,
+    6.7
+   ],
+   "az": 293.0
+  },
+  "print | M2b_BRG_A2_MR74": {
+   "min": 3.498,
+   "at_xr": [
+    52.1,
+    3.5
+   ],
+   "az": 257.1
+  },
+  "print | M2b_M4_DIN7984_M4x20": {
+   "min": 3.998,
+   "at_xr": [
+    54.61,
+    2.0
+   ],
+   "az": 137.1
+  },
+  "print | M2b_BRG_MR128_vnut": {
+   "min": 1.298,
+   "at_xr": [
+    54.6,
+    4.7
+   ],
+   "az": 280.0
+  },
+  "print | M2b_DRV_unasac": {
+   "min": 2.5,
+   "at_xr": [
+    58.4,
+    11.16
+   ],
+   "az": 317.4
+  }
+ },
+ "K3v": {
+  "visible | T_bok_L": {
+   "min": 1.282,
+   "at_xr": [
+    49.26,
+    14.0
+   ],
+   "az": 264.7
+  },
+  "visible | PLG_zatka_K3v": {
+   "min": 0.498,
+   "at_xr": [
+    50.07,
+    6.5
+   ],
+   "az": 300.0
+  },
+  "visible | PLG_skrutky": {
+   "min": 2.384,
+   "at_xr": [
+    46.42,
+    9.66
+   ],
+   "az": 219.4
+  },
+  "visible | M2b_PLG_kruzok": {
+   "min": 0.498,
+   "at_xr": [
+    49.44,
+    6.5
+   ],
+   "az": 240.0
+  },
+  "visible | M2b_PLG_cap": {
+   "min": 2.0,
+   "at_xr": [
+    54.0,
+    5.0
+   ],
+   "az": 262.9
+  },
+  "visible | M2b_PLG_doraz": {
+   "min": 0.314,
+   "at_xr": [
+    54.0,
+    6.7
+   ],
+   "az": 293.0
+  },
+  "visible | M2b_BRG_A2_MR74": {
+   "min": 3.498,
+   "at_xr": [
+    51.1,
+    3.5
+   ],
+   "az": 257.1
+  },
+  "visible | M2b_M4_DIN7984_M4x20": {
+   "min": 4.999,
+   "at_xr": [
+    54.0,
+    2.0
+   ],
+   "az": 285.7
+  },
+  "visible | M2b_BRG_MR128_vnut": {
+   "min": 3.181,
+   "at_xr": [
+    56.1,
+    4.7
+   ],
+   "az": 280.0
+  },
+  "visible | M2b_DRV_unasac": {
+   "min": 2.8,
+   "at_xr": [
+    59.9,
+    12.83
+   ],
+   "az": 318.6
+  },
+  "print | T_bok_L": {
+   "min": 1.282,
+   "at_xr": [
+    49.26,
+    14.0
+   ],
+   "az": 264.7
+  },
+  "print | PLG_zatka_K3v": {
+   "min": 0.498,
+   "at_xr": [
+    53.57,
+    6.5
+   ],
+   "az": 140.0
+  },
+  "print | PLG_skrutky": {
+   "min": 2.384,
+   "at_xr": [
+    46.42,
+    9.23
+   ],
+   "az": 214.6
+  },
+  "print | M2b_PLG_kruzok": {
+   "min": 0.498,
+   "at_xr": [
+    53.93,
+    6.5
+   ],
+   "az": 297.1
+  },
+  "print | M2b_PLG_cap": {
+   "min": 1.042,
+   "at_xr": [
+    55.8,
+    5.0
+   ],
+   "az": 262.9
+  },
+  "print | M2b_PLG_doraz": {
+   "min": 0.298,
+   "at_xr": [
+    54.0,
+    6.7
+   ],
+   "az": 293.0
+  },
+  "print | M2b_BRG_A2_MR74": {
+   "min": 3.498,
+   "at_xr": [
+    53.6,
+    3.5
+   ],
+   "az": 257.1
+  },
+  "print | M2b_M4_DIN7984_M4x20": {
+   "min": 3.998,
+   "at_xr": [
+    56.11,
+    2.0
+   ],
+   "az": 137.1
+  },
+  "print | M2b_BRG_MR128_vnut": {
+   "min": 1.298,
+   "at_xr": [
+    56.1,
+    4.7
+   ],
+   "az": 280.0
+  },
+  "print | M2b_DRV_unasac": {
+   "min": 2.5,
+   "at_xr": [
+    59.9,
+    11.16
+   ],
+   "az": 317.4
+  }
+ }
+}

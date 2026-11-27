@@ -1,0 +1,78 @@
+{
+ "B0": {
+  "white_arm_to_cover": 2.162,
+  "white_arm_to_cover_at": {
+   "x": 49.47,
+   "r": 13.2,
+   "az": 80.0
+  },
+  "band_min": 1.72,
+  "band_min_az": 1,
+  "band_front": 1.72,
+  "band_back": 1.72,
+  "band_top": 3.09,
+  "band_bottom": 21.29,
+  "ring_r_max": 13.1,
+  "part_min_below_seam": 0.783,
+  "part_inside_n": 1016,
+  "part_to_cover_surface_min": 3.414,
+  "part_outside_arm_x_max": 48.9
+ },
+ "B1": {
+  "white_arm_to_cover": 2.982,
+  "white_arm_to_cover_at": {
+   "x": 50.31,
+   "r": 13.2,
+   "az": 50.6
+  },
+  "band_min": 2.23,
+  "band_min_az": 177,
+  "band_front": 2.23,
+  "band_back": 2.23,
+  "band_top": 3.21,
+  "band_bottom": 21.57,
+  "ring_r_max": 13.1,
+  "part_min_below_seam": 0.783,
+  "part_inside_n": 1016,
+  "part_to_cover_surface_min": 3.478,
+  "part_outside_arm_x_max": 48.9
+ },
+ "B2": {
+  "white_arm_to_cover": 3.261,
+  "white_arm_to_cover_at": {
+   "x": 50.6,
+   "r": 13.2,
+   "az": 55.3
+  },
+  "band_min": 2.29,
+  "band_min_az": 353,
+  "band_front": 2.29,
+  "band_back": 2.29,
+  "band_top": 3.21,
+  "band_bottom": 17.92,
+  "ring_r_max": 13.1,
+  "part_min_below_seam": 0.783,
+  "part_inside_n": 1016,
+  "part_to_cover_surface_min": 3.465,
+  "part_outside_arm_x_max": 48.9
+ },
+ "B3": {
+  "white_arm_to_cover": 3.211,
+  "white_arm_to_cover_at": {
+   "x": 50.55,
+   "r": 13.2,
+   "az": 64.7
+  },
+  "band_min": 1.92,
+  "band_min_az": 355,
+  "band_front": 1.92,
+  "band_back": 1.92,
+  "band_top": 3.18,
+  "band_bottom": 18.72,
+  "ring_r_max": 13.1,
+  "part_min_below_seam": 0.783,
+  "part_inside_n": 1016,
+  "part_to_cover_surface_min": 3.478,
+  "part_outside_arm_x_max": 48.9
+ }
+}

@@ -1,0 +1,114 @@
+{
+ "B0": {
+  "T_max": 15.54,
+  "T_max_u": 0.208,
+  "T_joint": 15.53,
+  "cover_joint": 6.33,
+  "inner_joint": 9.21,
+  "W_max": 30.2,
+  "W_max_u": 0.31,
+  "W_joint": 29.8,
+  "innermost_world_x": 48.498,
+  "outermost_world_x": 72.211,
+  "robot_width_over_arms": 144.42
+ },
+ "B1": {
+  "T_max": 16.11,
+  "T_max_u": 0.182,
+  "T_joint": 16.05,
+  "cover_joint": 6.87,
+  "inner_joint": 9.18,
+  "W_max": 30.9,
+  "W_max_u": 0.215,
+  "W_joint": 30.9,
+  "inner_face_vs_B0_u0.0-0.12": [
+   0.026,
+   2.538
+  ],
+  "inner_face_vs_B0_u0.12-0.42": [
+   0.026,
+   0.028
+  ],
+  "inner_face_vs_B0_u0.42-0.5": [
+   0.026,
+   0.026
+  ],
+  "inner_face_vs_B0_u0.5-0.9": [
+   0.025,
+   0.976
+  ],
+  "inner_face_vs_B0_u0.9-1.0": [
+   0.602,
+   1.01
+  ],
+  "innermost_world_x": 48.546,
+  "outermost_world_x": 71.803,
+  "robot_width_over_arms": 143.61
+ },
+ "B2": {
+  "T_max": 16.18,
+  "T_max_u": 0.178,
+  "T_joint": 16.09,
+  "cover_joint": 6.89,
+  "inner_joint": 9.21,
+  "W_max": 31.2,
+  "W_max_u": 0.203,
+  "W_joint": 31.14,
+  "inner_face_vs_B0_u0.0-0.12": [
+   -0.0,
+   2.58
+  ],
+  "inner_face_vs_B0_u0.12-0.42": [
+   0.0,
+   0.0
+  ],
+  "inner_face_vs_B0_u0.42-0.5": [
+   0.0,
+   0.023
+  ],
+  "inner_face_vs_B0_u0.5-0.9": [
+   0.023,
+   1.265
+  ],
+  "inner_face_vs_B0_u0.9-1.0": [
+   0.417,
+   1.24
+  ],
+  "innermost_world_x": 48.527,
+  "outermost_world_x": 71.617,
+  "robot_width_over_arms": 143.23
+ },
+ "B3": {
+  "T_max": 16.03,
+  "T_max_u": 0.183,
+  "T_joint": 15.98,
+  "cover_joint": 6.78,
+  "inner_joint": 9.21,
+  "W_max": 31.0,
+  "W_max_u": 0.212,
+  "W_joint": 30.99,
+  "inner_face_vs_B0_u0.0-0.12": [
+   -0.004,
+   2.438
+  ],
+  "inner_face_vs_B0_u0.12-0.42": [
+   0.0,
+   0.0
+  ],
+  "inner_face_vs_B0_u0.42-0.5": [
+   0.0,
+   0.0
+  ],
+  "inner_face_vs_B0_u0.5-0.9": [
+   -0.028,
+   0.151
+  ],
+  "inner_face_vs_B0_u0.9-1.0": [
+   0.152,
+   0.519
+  ],
+  "innermost_world_x": 48.506,
+  "outermost_world_x": 72.374,
+  "robot_width_over_arms": 144.75
+ }
+}

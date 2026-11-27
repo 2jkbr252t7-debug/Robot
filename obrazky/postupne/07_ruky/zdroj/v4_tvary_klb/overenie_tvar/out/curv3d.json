@@ -1,0 +1,138 @@
+{
+ "B0": {
+  "inner": {
+   "min_convex_radius": 3.575,
+   "at_u": 0.897,
+   "at_local": [
+    -3.55,
+    9.37,
+    -64.56
+   ],
+   "r_p999": 3.74,
+   "area_frac_radius_below_1p9": 0.0,
+   "concave": -0.0,
+   "min_r_u0-0.1": 3.692,
+   "min_r_u0.1-0.5": 5.912,
+   "min_r_u0.5-0.8": 4.361,
+   "min_r_u0.8-1.0": 3.575
+  },
+  "outer": {
+   "min_convex_radius": 1.902,
+   "at_u": 0.91,
+   "at_local": [
+    -1.8,
+    8.93,
+    -65.51
+   ],
+   "r_p999": 2.133,
+   "area_frac_radius_below_1p9": 0.0,
+   "concave": -0.0,
+   "min_r_u0-0.1": 2.202,
+   "min_r_u0.1-0.5": 3.22,
+   "min_r_u0.5-0.8": 2.395,
+   "min_r_u0.8-1.0": 1.902
+  }
+ },
+ "B1": {
+  "inner": {
+   "min_convex_radius": 2.807,
+   "at_u": 0.892,
+   "at_local": [
+    -3.97,
+    9.06,
+    -64.21
+   ],
+   "r_p999": 3.117,
+   "area_frac_radius_below_1p9": 0.0,
+   "concave": -0.0,
+   "min_r_u0-0.1": 5.51,
+   "min_r_u0.1-0.5": 5.719,
+   "min_r_u0.5-0.8": 3.698,
+   "min_r_u0.8-1.0": 2.807
+  },
+  "outer": {
+   "min_convex_radius": 1.664,
+   "at_u": 0.908,
+   "at_local": [
+    -1.07,
+    8.41,
+    -65.4
+   ],
+   "r_p999": 1.813,
+   "area_frac_radius_below_1p9": 0.0017,
+   "concave": -0.0018,
+   "min_r_u0-0.1": 3.27,
+   "min_r_u0.1-0.5": 2.904,
+   "min_r_u0.5-0.8": 2.042,
+   "min_r_u0.8-1.0": 1.664
+  }
+ },
+ "B2": {
+  "inner": {
+   "min_convex_radius": 2.961,
+   "at_u": 0.861,
+   "at_local": [
+    -3.32,
+    8.22,
+    -61.98
+   ],
+   "r_p999": 3.276,
+   "area_frac_radius_below_1p9": 0.0,
+   "concave": -0.0003,
+   "min_r_u0-0.1": 5.643,
+   "min_r_u0.1-0.5": 6.232,
+   "min_r_u0.5-0.8": 3.625,
+   "min_r_u0.8-1.0": 2.961
+  },
+  "outer": {
+   "min_convex_radius": 1.938,
+   "at_u": 0.873,
+   "at_local": [
+    -1.42,
+    7.53,
+    -62.83
+   ],
+   "r_p999": 2.161,
+   "area_frac_radius_below_1p9": 0.0,
+   "concave": -0.0004,
+   "min_r_u0-0.1": 4.017,
+   "min_r_u0.1-0.5": 3.481,
+   "min_r_u0.5-0.8": 2.32,
+   "min_r_u0.8-1.0": 1.938
+  }
+ },
+ "B3": {
+  "inner": {
+   "min_convex_radius": 4.271,
+   "at_u": 0.883,
+   "at_local": [
+    -3.96,
+    7.55,
+    -63.55
+   ],
+   "r_p999": 4.529,
+   "area_frac_radius_below_1p9": 0.0,
+   "concave": -0.0,
+   "min_r_u0-0.1": 5.771,
+   "min_r_u0.1-0.5": 6.159,
+   "min_r_u0.5-0.8": 4.984,
+   "min_r_u0.8-1.0": 4.271
+  },
+  "outer": {
+   "min_convex_radius": 1.699,
+   "at_u": 0.879,
+   "at_local": [
+    0.31,
+    7.84,
+    -63.27
+   ],
+   "r_p999": 1.798,
+   "area_frac_radius_below_1p9": 0.0021,
+   "concave": -0.0016,
+   "min_r_u0-0.1": 2.586,
+   "min_r_u0.1-0.5": 2.436,
+   "min_r_u0.5-0.8": 1.937,
+   "min_r_u0.8-1.0": 1.699
+  }
+ }
+}

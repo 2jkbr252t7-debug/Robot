@@ -1,0 +1,98 @@
+{
+ "B0": {
+  "utip": 0.85,
+  "tip_vol_inner_half": 861.0,
+  "vol_whole_arm_beyond_plane": 1262.0,
+  "cut_edge_points": 956,
+  "tip_wedge_min_deg": 43.9,
+  "body_wedge_min_deg": 91.5,
+  "worst_edge_at_local": [
+   -6.25,
+   -10.71,
+   -54.04
+  ],
+  "worst_edge_u": 0.751,
+  "cut_u_range_on_skin": [
+   0.75,
+   0.906
+  ],
+  "seam_face_wedge_deg": 59.9,
+  "cover_skin_beyond_plane_u_from": 0.776,
+  "seam_step_in_tip_zone_mm": [
+   0.0,
+   0.0
+  ]
+ },
+ "B1": {
+  "utip": 0.85,
+  "tip_vol_inner_half": 689.0,
+  "vol_whole_arm_beyond_plane": 1048.0,
+  "cut_edge_points": 981,
+  "tip_wedge_min_deg": 41.4,
+  "body_wedge_min_deg": 94.2,
+  "worst_edge_at_local": [
+   -6.28,
+   -11.06,
+   -53.88
+  ],
+  "worst_edge_u": 0.748,
+  "cut_u_range_on_skin": [
+   0.747,
+   0.903
+  ],
+  "seam_face_wedge_deg": 59.9,
+  "cover_skin_beyond_plane_u_from": 0.776,
+  "seam_step_in_tip_zone_mm": [
+   0.0,
+   0.0
+  ]
+ },
+ "B2": {
+  "utip": 0.82,
+  "tip_vol_inner_half": 664.0,
+  "vol_whole_arm_beyond_plane": 1013.0,
+  "cut_edge_points": 840,
+  "tip_wedge_min_deg": 41.6,
+  "body_wedge_min_deg": 85.9,
+  "worst_edge_at_local": [
+   -6.11,
+   -8.79,
+   -52.79
+  ],
+  "worst_edge_u": 0.733,
+  "cut_u_range_on_skin": [
+   0.732,
+   0.869
+  ],
+  "seam_face_wedge_deg": 59.9,
+  "cover_skin_beyond_plane_u_from": 0.76,
+  "seam_step_in_tip_zone_mm": [
+   0.325,
+   0.35
+  ]
+ },
+ "B3": {
+  "utip": 0.85,
+  "tip_vol_inner_half": 638.0,
+  "vol_whole_arm_beyond_plane": 987.0,
+  "cut_edge_points": 880,
+  "tip_wedge_min_deg": 42.0,
+  "body_wedge_min_deg": 91.2,
+  "worst_edge_at_local": [
+   -6.29,
+   -9.02,
+   -54.78
+  ],
+  "worst_edge_u": 0.761,
+  "cut_u_range_on_skin": [
+   0.759,
+   0.895
+  ],
+  "seam_face_wedge_deg": 59.9,
+  "cover_skin_beyond_plane_u_from": 0.786,
+  "seam_step_in_tip_zone_mm": [
+   -0.35,
+   -0.282
+  ]
+ }
+}

@@ -1,0 +1,74 @@
+{
+ "B0 inset 3.5": {
+  "u": 0.38,
+  "clear": 0.5,
+  "back_cover": 0.854,
+  "back_inner": 1.416
+ },
+ "B0 inset 3.7": {
+  "u": 0.38,
+  "clear": 0.355,
+  "back_cover": 0.987,
+  "back_inner": 1.596
+ },
+ "B0 inset 3.9": {
+  "u": 0.385,
+  "clear": 0.464,
+  "back_cover": 1.113,
+  "back_inner": 1.773
+ },
+ "B1 inset 3.5": {
+  "u": 0.375,
+  "clear": 0.427,
+  "back_cover": 1.789,
+  "back_inner": 1.666
+ },
+ "B1 inset 3.7": {
+  "u": 0.38,
+  "clear": 0.508,
+  "back_cover": 1.982,
+  "back_inner": 1.857
+ },
+ "B1 inset 3.9": {
+  "u": 0.38,
+  "clear": 0.362,
+  "back_cover": 2.177,
+  "back_inner": 2.049
+ },
+ "B2 inset 3.5": {
+  "u": 0.39,
+  "clear": 0.483,
+  "back_cover": 1.222,
+  "back_inner": 1.729
+ },
+ "B2 inset 3.7": {
+  "u": 0.39,
+  "clear": 0.347,
+  "back_cover": 1.372,
+  "back_inner": 1.907
+ },
+ "B2 inset 3.9": {
+  "u": 0.395,
+  "clear": 0.461,
+  "back_cover": 1.51,
+  "back_inner": 2.081
+ },
+ "B3 inset 3.5": {
+  "u": 0.385,
+  "clear": 0.488,
+  "back_cover": 1.913,
+  "back_inner": 1.426
+ },
+ "B3 inset 3.7": {
+  "u": 0.385,
+  "clear": 0.355,
+  "back_cover": 2.111,
+  "back_inner": 1.607
+ },
+ "B3 inset 3.9": {
+  "u": 0.39,
+  "clear": 0.455,
+  "back_cover": 2.309,
+  "back_inner": 1.784
+ }
+}

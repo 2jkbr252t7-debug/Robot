@@ -1,0 +1,283 @@
+{
+ "K0/A_vnut_otvor_K0.stl": {
+  "tris": 53890,
+  "bad_edges": 0,
+  "volume": 2906.4,
+  "bbox": [
+   48.5,
+   -12.7,
+   -64.55,
+   68.6,
+   17.93,
+   -0.47
+  ]
+ },
+ "K0/PLG_skrutky.stl": {
+  "tris": 3438,
+  "bad_edges": 0,
+  "volume": 112.0,
+  "bbox": [
+   34.0,
+   -6.64,
+   -23.35,
+   46.42,
+   12.64,
+   -6.15
+  ]
+ },
+ "K0/PLG_zatka_K0.stl": {
+  "tris": 10472,
+  "bad_edges": 0,
+  "volume": 3036.0,
+  "bbox": [
+   38.6,
+   -10.5,
+   -30.5,
+   57.5,
+   16.5,
+   -3.5
+  ]
+ },
+ "K1/ARM_golier_K1.stl": {
+  "tris": 7560,
+  "bad_edges": 0,
+  "volume": 1348.6,
+  "bbox": [
+   46.3,
+   -8.0,
+   -28.0,
+   54.6,
+   14.0,
+   -6.0
+  ]
+ },
+ "K1/ARM_naboj_golier_K1.stl": {
+  "tris": 8584,
+  "bad_edges": 0,
+  "volume": 2014.9,
+  "bbox": [
+   46.3,
+   -9.3,
+   -29.3,
+   55.9,
+   15.3,
+   -4.7
+  ]
+ },
+ "K1/A_vnut_otvor_K1.stl": {
+  "tris": 46910,
+  "bad_edges": 0,
+  "volume": 2507.9,
+  "bbox": [
+   48.71,
+   -12.7,
+   -64.55,
+   68.6,
+   17.93,
+   -0.47
+  ]
+ },
+ "K1/PLG_skrutky.stl": {
+  "tris": 3438,
+  "bad_edges": 0,
+  "volume": 108.2,
+  "bbox": [
+   34.0,
+   -6.64,
+   -23.35,
+   45.33,
+   12.64,
+   -6.15
+  ]
+ },
+ "K1/PLG_zatka_K1.stl": {
+  "tris": 10904,
+  "bad_edges": 0,
+  "volume": 2884.4,
+  "bbox": [
+   38.6,
+   -10.5,
+   -30.5,
+   57.5,
+   16.5,
+   -3.5
+  ]
+ },
+ "K2/PLG_skrutky.stl": {
+  "tris": 3438,
+  "bad_edges": 0,
+  "volume": 112.0,
+  "bbox": [
+   34.0,
+   -6.64,
+   -23.35,
+   46.42,
+   12.64,
+   -6.15
+  ]
+ },
+ "K2/PLG_zatka_K2.stl": {
+  "tris": 20490,
+  "bad_edges": 0,
+  "volume": 3699.8,
+  "bbox": [
+   38.6,
+   -10.5,
+   -30.5,
+   57.5,
+   16.5,
+   -3.5
+  ]
+ },
+ "K3/ARM_naboj_prstenec_K3.stl": {
+  "tris": 12112,
+  "bad_edges": 0,
+  "volume": 3003.1,
+  "bbox": [
+   47.3,
+   -10.1,
+   -30.1,
+   55.9,
+   16.1,
+   -3.9
+  ]
+ },
+ "K3/ARM_prstenec_K3.stl": {
+  "tris": 11592,
+  "bad_edges": 0,
+  "volume": 2308.5,
+  "bbox": [
+   47.3,
+   -10.1,
+   -30.1,
+   55.6,
+   16.1,
+   -3.9
+  ]
+ },
+ "K3/A_vnut_otvor_K3.stl": {
+  "tris": 41202,
+  "bad_edges": 0,
+  "volume": 2204.7,
+  "bbox": [
+   49.47,
+   -12.7,
+   -64.55,
+   68.6,
+   17.93,
+   -0.47
+  ]
+ },
+ "K3/PLG_skrutky.stl": {
+  "tris": 3438,
+  "bad_edges": 0,
+  "volume": 112.0,
+  "bbox": [
+   34.0,
+   -6.64,
+   -23.35,
+   46.42,
+   12.64,
+   -6.15
+  ]
+ },
+ "K3/PLG_zatka_K3.stl": {
+  "tris": 20490,
+  "bad_edges": 0,
+  "volume": 3699.8,
+  "bbox": [
+   38.6,
+   -10.5,
+   -30.5,
+   57.5,
+   16.5,
+   -3.5
+  ]
+ },
+ "K3v/ARM_naboj_prstenec_K3v.stl": {
+  "tris": 12112,
+  "bad_edges": 0,
+  "volume": 3003.1,
+  "bbox": [
+   48.8,
+   -10.1,
+   -30.1,
+   57.4,
+   16.1,
+   -3.9
+  ]
+ },
+ "K3v/ARM_prstenec_K3v.stl": {
+  "tris": 11592,
+  "bad_edges": 0,
+  "volume": 2308.5,
+  "bbox": [
+   48.8,
+   -10.1,
+   -30.1,
+   57.1,
+   16.1,
+   -3.9
+  ]
+ },
+ "K3v/A_vnut_otvor_K3v.stl": {
+  "tris": 41202,
+  "bad_edges": 0,
+  "volume": 2204.7,
+  "bbox": [
+   50.97,
+   -12.7,
+   -64.55,
+   70.1,
+   17.93,
+   -0.47
+  ]
+ },
+ "K3v/PLG_skrutky.stl": {
+  "tris": 3438,
+  "bad_edges": 0,
+  "volume": 112.0,
+  "bbox": [
+   34.0,
+   -6.64,
+   -23.35,
+   46.42,
+   12.64,
+   -6.15
+  ]
+ },
+ "K3v/PLG_zatka_K3v.stl": {
+  "tris": 20964,
+  "bad_edges": 0,
+  "volume": 4420.4,
+  "bbox": [
+   38.6,
+   -10.5,
+   -30.5,
+   59.0,
+   16.5,
+   -3.5
+  ]
+ },
+ "K1/ARM_golier_K1_vs_profile": {
+  "max_dev": 0.0
+ },
+ "K3/ARM_prstenec_K3_vs_profile": {
+  "max_dev": 0.0
+ },
+ "K3v/ARM_prstenec_K3v_vs_profile": {
+  "max_dev": 0.0
+ },
+ "K2/cover_vs_profile": {
+  "max_dev": 0.8568,
+  "n": 20647
+ },
+ "K3/cover_vs_profile": {
+  "max_dev": 0.8568,
+  "n": 20647
+ },
+ "K3v/cover_vs_profile": {
+  "max_dev": 1.987,
+  "n": 21341
+ }
+}

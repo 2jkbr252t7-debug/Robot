@@ -1,0 +1,467 @@
+{
+ "K1": {
+  "vs_M2b_without_rib": {
+   "PLG_kruzok": {
+    "role": "static",
+    "dist": 1.098,
+    "at_xr": [
+     52.09,
+     7.6
+    ]
+   },
+   "PLG_cap": {
+    "role": "static",
+    "dist": 1.042,
+    "at_xr": [
+     54.6,
+     6.0
+    ]
+   },
+   "PLG_doraz": {
+    "role": "static",
+    "dist": 0.3,
+    "at_xr": [
+     54.6,
+     6.0
+    ]
+   },
+   "BRG_A2_MR74": {
+    "role": "torso",
+    "dist": 3.534,
+    "at_xr": [
+     54.6,
+     6.0
+    ]
+   },
+   "M4_DIN7984_M4x20": {
+    "role": "drive",
+    "dist": 3.904,
+    "at_xr": [
+     55.9,
+     6.0
+    ]
+   },
+   "DRV_unasac": {
+    "role": "drive",
+    "dist": 2.5,
+    "at_xr": [
+     55.9,
+     6.0
+    ]
+   },
+   "BRG_MR128_vnut": {
+    "role": "static",
+    "dist": 1.298,
+    "at_xr": [
+     54.6,
+     6.0
+    ]
+   },
+   "BRG_MR128_vonk": {
+    "role": "arm",
+    "dist": -0.002,
+    "at_xr": [
+     54.6,
+     6.0
+    ]
+   },
+   "ARM_podlozka_M12": {
+    "role": "arm",
+    "dist": -0.0,
+    "at_xr": [
+     55.9,
+     7.38
+    ]
+   },
+   "DRV_magnet_5x1_1": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     55.9,
+     7.38
+    ]
+   },
+   "DRV_magnet_5x1_2": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     55.9,
+     7.38
+    ]
+   },
+   "DRV_magnet_5x1_3": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     55.9,
+     7.38
+    ]
+   },
+   "DRV_magnet_5x1_4": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     55.9,
+     7.38
+    ]
+   },
+   "DRV_magnet_5x1_5": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     55.9,
+     7.38
+    ]
+   },
+   "DRV_magnet_5x1_6": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     55.9,
+     7.38
+    ]
+   },
+   "DRV_magnet_5x1_7": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     55.9,
+     7.38
+    ]
+   },
+   "DRV_magnet_5x1_8": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     55.9,
+     7.38
+    ]
+   },
+   "DRV_magnet_5x1_9": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     55.9,
+     7.38
+    ]
+   }
+  },
+  "rib_vs_lug": {
+   "-51.0": 0.005,
+   "-45.0": 0.559,
+   "0.0": 4.447,
+   "135.0": 0.513,
+   "140.5": 0.005
+  }
+ },
+ "K3": {
+  "vs_M2b_without_rib": {
+   "PLG_kruzok": {
+    "role": "static",
+    "dist": 0.498,
+    "at_xr": [
+     52.43,
+     7.0
+    ]
+   },
+   "PLG_cap": {
+    "role": "static",
+    "dist": 1.042,
+    "at_xr": [
+     54.6,
+     6.0
+    ]
+   },
+   "PLG_doraz": {
+    "role": "static",
+    "dist": 0.298,
+    "at_xr": [
+     52.8,
+     7.0
+    ]
+   },
+   "BRG_A2_MR74": {
+    "role": "torso",
+    "dist": 3.498,
+    "at_xr": [
+     51.86,
+     7.0
+    ]
+   },
+   "M4_DIN7984_M4x20": {
+    "role": "drive",
+    "dist": 3.904,
+    "at_xr": [
+     55.9,
+     6.0
+    ]
+   },
+   "DRV_unasac": {
+    "role": "drive",
+    "dist": 2.5,
+    "at_xr": [
+     55.9,
+     6.0
+    ]
+   },
+   "BRG_MR128_vnut": {
+    "role": "static",
+    "dist": 1.298,
+    "at_xr": [
+     54.6,
+     6.0
+    ]
+   },
+   "BRG_MR128_vonk": {
+    "role": "arm",
+    "dist": -0.002,
+    "at_xr": [
+     54.61,
+     6.0
+    ]
+   },
+   "ARM_podlozka_M12": {
+    "role": "arm",
+    "dist": -0.0,
+    "at_xr": [
+     55.9,
+     9.24
+    ]
+   },
+   "DRV_magnet_5x1_1": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     55.9,
+     9.24
+    ]
+   },
+   "DRV_magnet_5x1_2": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     55.9,
+     9.24
+    ]
+   },
+   "DRV_magnet_5x1_3": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     55.9,
+     9.24
+    ]
+   },
+   "DRV_magnet_5x1_4": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     55.9,
+     9.24
+    ]
+   },
+   "DRV_magnet_5x1_5": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     55.9,
+     9.24
+    ]
+   },
+   "DRV_magnet_5x1_6": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     55.9,
+     9.24
+    ]
+   },
+   "DRV_magnet_5x1_7": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     55.9,
+     9.24
+    ]
+   },
+   "DRV_magnet_5x1_8": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     55.9,
+     9.24
+    ]
+   },
+   "DRV_magnet_5x1_9": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     55.9,
+     9.24
+    ]
+   }
+  },
+  "rib_vs_lug": {
+   "-51.0": 0.005,
+   "-45.0": 0.559,
+   "0.0": 4.447,
+   "135.0": 0.513,
+   "140.5": 0.005
+  }
+ },
+ "K3v": {
+  "vs_M2b_without_rib": {
+   "PLG_kruzok": {
+    "role": "static",
+    "dist": 0.498,
+    "at_xr": [
+     53.93,
+     7.0
+    ]
+   },
+   "PLG_cap": {
+    "role": "static",
+    "dist": 1.042,
+    "at_xr": [
+     56.1,
+     6.0
+    ]
+   },
+   "PLG_doraz": {
+    "role": "static",
+    "dist": 0.298,
+    "at_xr": [
+     54.3,
+     7.0
+    ]
+   },
+   "BRG_A2_MR74": {
+    "role": "torso",
+    "dist": 3.498,
+    "at_xr": [
+     53.36,
+     7.0
+    ]
+   },
+   "M4_DIN7984_M4x20": {
+    "role": "drive",
+    "dist": 3.904,
+    "at_xr": [
+     57.4,
+     6.0
+    ]
+   },
+   "DRV_unasac": {
+    "role": "drive",
+    "dist": 2.5,
+    "at_xr": [
+     57.4,
+     6.0
+    ]
+   },
+   "BRG_MR128_vnut": {
+    "role": "static",
+    "dist": 1.298,
+    "at_xr": [
+     56.1,
+     6.0
+    ]
+   },
+   "BRG_MR128_vonk": {
+    "role": "arm",
+    "dist": -0.002,
+    "at_xr": [
+     56.11,
+     6.0
+    ]
+   },
+   "ARM_podlozka_M12": {
+    "role": "arm",
+    "dist": -0.0,
+    "at_xr": [
+     57.4,
+     9.24
+    ]
+   },
+   "DRV_magnet_5x1_1": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     57.4,
+     9.24
+    ]
+   },
+   "DRV_magnet_5x1_2": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     57.4,
+     9.24
+    ]
+   },
+   "DRV_magnet_5x1_3": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     57.4,
+     9.24
+    ]
+   },
+   "DRV_magnet_5x1_4": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     57.4,
+     9.24
+    ]
+   },
+   "DRV_magnet_5x1_5": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     57.4,
+     9.24
+    ]
+   },
+   "DRV_magnet_5x1_6": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     57.4,
+     9.24
+    ]
+   },
+   "DRV_magnet_5x1_7": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     57.4,
+     9.24
+    ]
+   },
+   "DRV_magnet_5x1_8": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     57.4,
+     9.24
+    ]
+   },
+   "DRV_magnet_5x1_9": {
+    "role": "drive",
+    "dist": 2.75,
+    "at_xr": [
+     57.4,
+     9.24
+    ]
+   }
+  },
+  "rib_vs_lug": {
+   "-51.0": 0.005,
+   "-45.0": 0.559,
+   "0.0": 4.447,
+   "135.0": 0.513,
+   "140.5": 0.005
+  }
+ }
+}

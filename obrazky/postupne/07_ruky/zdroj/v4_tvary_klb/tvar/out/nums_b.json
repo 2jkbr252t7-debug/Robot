@@ -1,0 +1,422 @@
+{
+ "B0": {
+  "name": "B0 – dnešná B",
+  "thickness_max": 15.54,
+  "thickness_max_u": 0.208,
+  "thickness_joint": 15.53,
+  "cover_joint": 6.33,
+  "inner_joint": 9.21,
+  "width_max": 30.2,
+  "width_max_u": 0.31,
+  "width_joint": 29.8,
+  "seam_step": 0.0,
+  "fit_M2b": true,
+  "drv_wall_out": 1.585,
+  "drv_wall_in": 1.905,
+  "joint_wall_min": 1.585,
+  "joint_wall_at": {
+   "x": 62.9,
+   "r": 4.7,
+   "az": 87.6,
+   "local": [
+    2.44,
+    -0.05,
+    -12.94
+   ]
+  },
+  "outer_margin_min": {
+   "margin": 0.085,
+   "part": "DRV_unasac",
+   "at": {
+    "x": 62.9,
+    "r": 4.7,
+    "az": 87.6,
+    "local": [
+     2.44,
+     -0.05,
+     -12.94
+    ]
+   }
+  },
+  "inner_margin_min": {
+   "margin": 0.405,
+   "part": "DRV_unasac"
+  },
+  "gap_rest": 3.703,
+  "gap_min_m45_135": 1.125,
+  "gap_min_angle": 135.0,
+  "gap_at_140p5": 0.97,
+  "robot_width_over_arms": 144.42,
+  "innermost_world_x": 48.498,
+  "outermost_world_x": 72.211,
+  "posts_from_u": 0.38,
+  "params": {
+   "base": true
+  }
+ },
+ "B1": {
+  "name": "B1 – squircle",
+  "thickness_max": 16.11,
+  "thickness_max_u": 0.182,
+  "thickness_joint": 16.05,
+  "cover_joint": 6.87,
+  "inner_joint": 9.18,
+  "width_max": 30.9,
+  "width_max_u": 0.215,
+  "width_joint": 30.9,
+  "seam_step": 0.0,
+  "fit_M2b": true,
+  "drv_wall_out": 2.203,
+  "drv_wall_in": 2.427,
+  "joint_wall_min": 2.203,
+  "joint_wall_at": {
+   "x": 59.85,
+   "r": 13.0,
+   "az": 87.1,
+   "local": [
+    1.18,
+    -0.03,
+    -4.18
+   ]
+  },
+  "outer_margin_min": {
+   "margin": 0.703,
+   "part": "DRV_unasac",
+   "at": {
+    "x": 59.85,
+    "r": 13.0,
+    "az": 87.1,
+    "local": [
+     1.18,
+     -0.03,
+     -4.18
+    ]
+   }
+  },
+  "inner_margin_min": {
+   "margin": 0.768,
+   "part": "ARM_naboj"
+  },
+  "gap_rest": 3.724,
+  "gap_min_m45_135": 1.345,
+  "gap_min_angle": 135.0,
+  "gap_at_140p5": 1.317,
+  "robot_width_over_arms": 143.61,
+  "innermost_world_x": 48.546,
+  "outermost_world_x": 71.803,
+  "posts_from_u": 0.38,
+  "params": {
+   "W": [
+    0.225,
+    2.4,
+    2.0,
+    3.4,
+    2.0,
+    0.07,
+    30.9
+   ],
+   "T": [
+    0.21,
+    2.9,
+    2.0,
+    2.8,
+    2.0,
+    0.3
+   ],
+   "TO": 6.95,
+   "TI": 9.3,
+   "TIK": 0.997,
+   "E": [
+    0.03,
+    0.12,
+    0.5,
+    0.9
+   ],
+   "NI": [
+    2.6,
+    2.4,
+    0.1,
+    0.85
+   ],
+   "NO": [
+    3.8,
+    2.4,
+    0.1,
+    0.85
+   ],
+   "UTIP": 0.85
+  }
+ },
+ "B2": {
+  "name": "B2 – kvapka",
+  "thickness_max": 16.18,
+  "thickness_max_u": 0.178,
+  "thickness_joint": 16.09,
+  "cover_joint": 6.89,
+  "inner_joint": 9.21,
+  "width_max": 31.2,
+  "width_max_u": 0.203,
+  "width_joint": 31.14,
+  "seam_step": 0.35,
+  "fit_M2b": true,
+  "drv_wall_out": 2.12,
+  "drv_wall_in": 2.15,
+  "joint_wall_min": 2.12,
+  "joint_wall_at": {
+   "x": 59.85,
+   "r": 13.0,
+   "az": 354.7,
+   "local": [
+    -1.63,
+    12.99,
+    -17.41
+   ]
+  },
+  "outer_margin_min": {
+   "margin": 0.62,
+   "part": "DRV_unasac",
+   "at": {
+    "x": 59.85,
+    "r": 13.0,
+    "az": 354.7,
+    "local": [
+     -1.63,
+     12.99,
+     -17.41
+    ]
+   }
+  },
+  "inner_margin_min": {
+   "margin": 0.65,
+   "part": "DRV_unasac"
+  },
+  "gap_rest": 3.703,
+  "gap_min_m45_135": 1.57,
+  "gap_min_angle": 135.0,
+  "gap_at_140p5": 1.472,
+  "robot_width_over_arms": 143.23,
+  "innermost_world_x": 48.527,
+  "outermost_world_x": 71.617,
+  "posts_from_u": 0.39,
+  "params": {
+   "W": [
+    0.225,
+    2.3,
+    2.0,
+    2.0,
+    2.5,
+    0.24,
+    31.2
+   ],
+   "T": [
+    0.2,
+    2.6,
+    2.0,
+    2.0,
+    2.5,
+    0.36
+   ],
+   "TO": 7.0,
+   "TI": 9.3,
+   "E": [
+    0.03,
+    0.12,
+    0.42,
+    0.95
+   ],
+   "NI": [
+    2.2,
+    2.3,
+    0.1,
+    0.85
+   ],
+   "NO": [
+    2.6,
+    2.3,
+    0.1,
+    0.85
+   ],
+   "REV": 0.35,
+   "UTIP": 0.82
+  }
+ },
+ "B3": {
+  "name": "B3 – plochý kryt",
+  "thickness_max": 16.03,
+  "thickness_max_u": 0.183,
+  "thickness_joint": 15.98,
+  "cover_joint": 6.78,
+  "inner_joint": 9.21,
+  "width_max": 31.0,
+  "width_max_u": 0.212,
+  "width_joint": 30.99,
+  "seam_step": -0.35,
+  "fit_M2b": true,
+  "drv_wall_out": 2.108,
+  "drv_wall_in": 2.084,
+  "joint_wall_min": 2.084,
+  "joint_wall_at": {
+   "x": 58.4,
+   "r": 13.0
+  },
+  "outer_margin_min": {
+   "margin": 0.608,
+   "part": "DRV_unasac",
+   "at": {
+    "x": 62.9,
+    "r": 4.7,
+    "az": 87.6,
+    "local": [
+     2.44,
+     -0.05,
+     -12.94
+    ]
+   }
+  },
+  "inner_margin_min": {
+   "margin": 0.584,
+   "part": "DRV_unasac"
+  },
+  "gap_rest": 3.703,
+  "gap_min_m45_135": 1.575,
+  "gap_min_angle": 135.0,
+  "gap_at_140p5": 1.462,
+  "robot_width_over_arms": 144.75,
+  "innermost_world_x": 48.506,
+  "outermost_world_x": 72.374,
+  "posts_from_u": 0.39,
+  "params": {
+   "W": [
+    0.225,
+    2.3,
+    2.0,
+    2.4,
+    2.0,
+    0.12,
+    31.0
+   ],
+   "T": [
+    0.22,
+    3.4,
+    2.0,
+    4.0,
+    2.0,
+    0.26
+   ],
+   "TO": 6.85,
+   "TI": 9.3,
+   "E": [
+    0.03,
+    0.12,
+    0.5,
+    0.9
+   ],
+   "NI": [
+    2.2,
+    2.3,
+    0.1,
+    0.85
+   ],
+   "NO": [
+    4.8,
+    2.5,
+    0.1,
+    0.85
+   ],
+   "LIP": 0.35,
+   "UTIP": 0.85
+  }
+ },
+ "B4": {
+  "name": "B4 – oblý kameň (vyradený: len zaoblenejšia B0)",
+  "thickness_max": 16.14,
+  "thickness_max_u": 0.183,
+  "thickness_joint": 16.08,
+  "cover_joint": 6.88,
+  "inner_joint": 9.21,
+  "width_max": 30.7,
+  "width_max_u": 0.214,
+  "width_joint": 30.69,
+  "seam_step": 0.0,
+  "fit_M2b": true,
+  "drv_wall_out": 2.191,
+  "drv_wall_in": 2.29,
+  "joint_wall_min": 2.191,
+  "joint_wall_at": {
+   "x": 59.85,
+   "r": 13.0,
+   "az": 87.1,
+   "local": [
+    1.18,
+    -0.03,
+    -4.18
+   ]
+  },
+  "outer_margin_min": {
+   "margin": 0.691,
+   "part": "DRV_unasac",
+   "at": {
+    "x": 59.85,
+    "r": 13.0,
+    "az": 87.1,
+    "local": [
+     1.18,
+     -0.03,
+     -4.18
+    ]
+   }
+  },
+  "inner_margin_min": {
+   "margin": 0.708,
+   "part": "ARM_naboj"
+  },
+  "gap_rest": 3.703,
+  "gap_min_m45_135": 1.592,
+  "gap_min_angle": 135.0,
+  "gap_at_140p5": 1.489,
+  "robot_width_over_arms": 143.34,
+  "innermost_world_x": 48.525,
+  "outermost_world_x": 71.672,
+  "posts_from_u": null,
+  "params": {
+   "W": [
+    0.225,
+    2.3,
+    2.0,
+    2.4,
+    2.0,
+    0.1,
+    30.7
+   ],
+   "T": [
+    0.21,
+    2.9,
+    2.0,
+    2.4,
+    2.0,
+    0.28
+   ],
+   "TO": 6.95,
+   "TI": 9.3,
+   "E": [
+    0.03,
+    0.12,
+    0.5,
+    0.9
+   ],
+   "NI": [
+    2.2,
+    2.3,
+    0.1,
+    0.85
+   ],
+   "NO": [
+    2.45,
+    2.3,
+    0.1,
+    0.85
+   ],
+   "UTIP": 0.85
+  }
+ }
+}

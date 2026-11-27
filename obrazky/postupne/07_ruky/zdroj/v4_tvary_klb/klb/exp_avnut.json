@@ -1,0 +1,26 @@
+{
+ "K0": {
+  "hole_d": 14.0,
+  "nonmanifold_edges": 0,
+  "volume": 2906.3,
+  "stl": "/tmp/claude-0/gapwf/fin/R4/klb/stl/K0/A_vnut_otvor_K0.stl"
+ },
+ "K1": {
+  "hole_d": 22.2,
+  "nonmanifold_edges": 0,
+  "volume": 2507.9,
+  "stl": "/tmp/claude-0/gapwf/fin/R4/klb/stl/K1/A_vnut_otvor_K1.stl"
+ },
+ "K3": {
+  "hole_d": 26.4,
+  "nonmanifold_edges": 0,
+  "volume": 2204.6,
+  "stl": "/tmp/claude-0/gapwf/fin/R4/klb/stl/K3/A_vnut_otvor_K3.stl"
+ },
+ "K3v": {
+  "hole_d": 26.4,
+  "nonmanifold_edges": 0,
+  "volume": 2204.6,
+  "stl": "/tmp/claude-0/gapwf/fin/R4/klb/stl/K3v/A_vnut_otvor_K3v.stl"
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "section_maxdev": 0.0,
+ "half_widths_vs_w": 0.0,
+ "inside_mismatch_2M": 0,
+ "inside_mismatch_inset0.0": 0,
+ "inside_mismatch_inset1.2": 0,
+ "inside_mismatch_inset1.6": 0,
+ "rows_dev": 0.0,
+ "half_rows_vonk_dev": 0.0,
+ "half_rows_vnut_dev": 0.0,
+ "tip_plane_dev": 0.0,
+ "to_world_dev": 0.0,
+ "to_world_right_dev": 0.0,
+ "swing_dev": 0.0,
+ "thickness_dev": 0.0,
+ "faces_dev": 0.0,
+ "R3B_Tmax": 15.539,
+ "R3B_Wmax": 30.202,
+ "R3B_cover_inner_joint": [
+  6.329,
+  9.206
+ ],
+ "R3B_params": {
+  "ki": 0.8,
+  "ko": 0.55,
+  "kw": 0.9,
+  "ni": 2.2,
+  "no": 2.3,
+  "u1": 0.03,
+  "u2": 0.5,
+  "hb": 1.25,
+  "utip": 0.85,
+  "name": "B \u2013 \u0161t\u00edhla"
+ }
+}

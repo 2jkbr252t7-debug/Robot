@@ -1,0 +1,466 @@
+{
+ "B0": {
+  "A": {
+   "outer": {
+    "max_abs_kappa": 0.4545,
+    "at_u": 0.0174,
+    "min_radius_mm": 2.2,
+    "u": 0.02,
+    "d2_jump_fine": 0.02898,
+    "d2_jump_coarse": 0.11626,
+    "slope_jump_fine": 1.1122,
+    "slope_jump_at_u": 0.02
+   },
+   "inner": {
+    "max_abs_kappa": 0.2982,
+    "at_u": 0.99,
+    "min_radius_mm": 3.35,
+    "u": 0.02,
+    "d2_jump_fine": 0.01723,
+    "d2_jump_coarse": 0.0697,
+    "slope_jump_fine": 2.0532,
+    "slope_jump_at_u": 0.02
+   },
+   "side_in": {
+    "max_abs_kappa": 0.144,
+    "at_u": 0.99,
+    "min_radius_mm": 6.95,
+    "u": 0.02,
+    "d2_jump_fine": 0.04071,
+    "d2_jump_coarse": 0.16381,
+    "slope_jump_fine": 3.36027,
+    "slope_jump_at_u": 0.02
+   },
+   "side_out": {
+    "max_abs_kappa": 0.144,
+    "at_u": 0.99,
+    "min_radius_mm": 6.95,
+    "u": 0.02,
+    "d2_jump_fine": 0.04071,
+    "d2_jump_coarse": 0.16381,
+    "slope_jump_fine": 3.36027,
+    "slope_jump_at_u": 0.02
+   },
+   "seam": {
+    "max_abs_kappa": 0.2976,
+    "at_u": 0.0144,
+    "min_radius_mm": 3.36,
+    "u": 0.0296,
+    "d2_jump_fine": 0.01931,
+    "d2_jump_coarse": 0.07352,
+    "slope_jump_fine": 0.32535,
+    "slope_jump_at_u": 0.028
+   },
+   "exponents": {
+    "n_in": [
+     2.2,
+     2.2
+    ],
+    "n_out": [
+     2.3,
+     2.3
+    ]
+   }
+  },
+  "B": {
+   "min_section_radius_inner": [
+    1.411,
+    {
+     "u": 0.99,
+     "t": 2.14,
+     "w": 3.98,
+     "n": 2.2
+    }
+   ],
+   "min_section_radius_outer": [
+    0.77,
+    {
+     "u": 0.99,
+     "t": 1.47,
+     "w": 3.98,
+     "n": 2.3
+    }
+   ]
+  },
+  "C": {
+   "inner": {
+    "max_convex_kappa": 0.4114,
+    "min_convex_radius": 2.431,
+    "at_local": [
+     -4.05,
+     -0.13,
+     -71.78
+    ],
+    "at_u": 0.9969,
+    "radius_p01": 2.554,
+    "concave_min_kappa": -0.0,
+    "min_radius_u0-0.05": 3.691,
+    "min_radius_u0.05-0.95": 3.05,
+    "min_radius_u0.95-1.0": 2.431
+   },
+   "outer": {
+    "max_convex_kappa": 0.7396,
+    "min_convex_radius": 1.352,
+    "at_local": [
+     -1.89,
+     -0.0,
+     -71.87
+    ],
+    "at_u": 0.9982,
+    "radius_p01": 1.431,
+    "concave_min_kappa": -0.0,
+    "min_radius_u0-0.05": 2.2,
+    "min_radius_u0.05-0.95": 1.688,
+    "min_radius_u0.95-1.0": 1.352
+   }
+  }
+ },
+ "B1": {
+  "A": {
+   "outer": {
+    "max_abs_kappa": 0.2622,
+    "at_u": 0.99,
+    "min_radius_mm": 3.81,
+    "u": 0.02,
+    "d2_jump_fine": 0.02858,
+    "d2_jump_coarse": 0.11459,
+    "slope_jump_fine": 2.10119,
+    "slope_jump_at_u": 0.02
+   },
+   "inner": {
+    "max_abs_kappa": 0.2652,
+    "at_u": 0.99,
+    "min_radius_mm": 3.77,
+    "u": 0.0304,
+    "d2_jump_fine": 0.02194,
+    "d2_jump_coarse": 0.07551,
+    "slope_jump_fine": 3.22646,
+    "slope_jump_at_u": 0.02
+   },
+   "side_in": {
+    "max_abs_kappa": 0.1227,
+    "at_u": 0.99,
+    "min_radius_mm": 8.15,
+    "u": 0.02,
+    "d2_jump_fine": 0.03383,
+    "d2_jump_coarse": 0.13602,
+    "slope_jump_fine": 4.53993,
+    "slope_jump_at_u": 0.02
+   },
+   "side_out": {
+    "max_abs_kappa": 0.1227,
+    "at_u": 0.99,
+    "min_radius_mm": 8.15,
+    "u": 0.02,
+    "d2_jump_fine": 0.03383,
+    "d2_jump_coarse": 0.13602,
+    "slope_jump_fine": 4.53993,
+    "slope_jump_at_u": 0.02
+   },
+   "seam": {
+    "max_abs_kappa": 0.2976,
+    "at_u": 0.0144,
+    "min_radius_mm": 3.36,
+    "u": 0.0296,
+    "d2_jump_fine": 0.01931,
+    "d2_jump_coarse": 0.07352,
+    "slope_jump_fine": 0.32535,
+    "slope_jump_at_u": 0.028
+   },
+   "exponents": {
+    "n_in": [
+     2.4,
+     2.6
+    ],
+    "n_out": [
+     2.4,
+     3.8
+    ]
+   }
+  },
+  "B": {
+   "min_section_radius_inner": [
+    0.764,
+    {
+     "u": 0.99,
+     "t": 1.29,
+     "w": 3.04,
+     "n": 2.4
+    }
+   ],
+   "min_section_radius_outer": [
+    0.475,
+    {
+     "u": 0.99,
+     "t": 0.97,
+     "w": 3.04,
+     "n": 2.4
+    }
+   ]
+  },
+  "C": {
+   "inner": {
+    "max_convex_kappa": 0.8767,
+    "min_convex_radius": 1.141,
+    "at_local": [
+     -2.87,
+     -0.63,
+     -71.96
+    ],
+    "at_u": 0.9994,
+    "radius_p01": 1.396,
+    "concave_min_kappa": -0.0,
+    "min_radius_u0-0.05": 7.48,
+    "min_radius_u0.05-0.95": 2.145,
+    "min_radius_u0.95-1.0": 1.141
+   },
+   "outer": {
+    "max_convex_kappa": 1.5419,
+    "min_convex_radius": 0.649,
+    "at_local": [
+     -2.55,
+     -0.41,
+     -71.98
+    ],
+    "at_u": 0.9997,
+    "radius_p01": 0.883,
+    "concave_min_kappa": -0.0018,
+    "min_radius_u0-0.05": 3.964,
+    "min_radius_u0.05-0.95": 1.44,
+    "min_radius_u0.95-1.0": 0.649
+   }
+  }
+ },
+ "B2": {
+  "A": {
+   "outer": {
+    "max_abs_kappa": 0.3035,
+    "at_u": 0.99,
+    "min_radius_mm": 3.29,
+    "u": 0.02,
+    "d2_jump_fine": 0.02825,
+    "d2_jump_coarse": 0.11326,
+    "slope_jump_fine": 2.10078,
+    "slope_jump_at_u": 0.02
+   },
+   "inner": {
+    "max_abs_kappa": 0.3174,
+    "at_u": 0.99,
+    "min_radius_mm": 3.15,
+    "u": 0.0304,
+    "d2_jump_fine": 0.02249,
+    "d2_jump_coarse": 0.07751,
+    "slope_jump_fine": 3.20414,
+    "slope_jump_at_u": 0.02
+   },
+   "side_in": {
+    "max_abs_kappa": 0.1964,
+    "at_u": 0.99,
+    "min_radius_mm": 5.09,
+    "u": 0.02,
+    "d2_jump_fine": 0.03474,
+    "d2_jump_coarse": 0.13968,
+    "slope_jump_fine": 4.6391,
+    "slope_jump_at_u": 0.02
+   },
+   "side_out": {
+    "max_abs_kappa": 0.196,
+    "at_u": 0.99,
+    "min_radius_mm": 5.1,
+    "u": 0.02,
+    "d2_jump_fine": 0.03474,
+    "d2_jump_coarse": 0.13968,
+    "slope_jump_fine": 4.6391,
+    "slope_jump_at_u": 0.02
+   },
+   "seam": {
+    "max_abs_kappa": 0.2976,
+    "at_u": 0.0144,
+    "min_radius_mm": 3.36,
+    "u": 0.0296,
+    "d2_jump_fine": 0.01931,
+    "d2_jump_coarse": 0.07352,
+    "slope_jump_fine": 0.32535,
+    "slope_jump_at_u": 0.028
+   },
+   "exponents": {
+    "n_in": [
+     2.2,
+     2.3
+    ],
+    "n_out": [
+     2.3,
+     2.6
+    ]
+   }
+  },
+  "B": {
+   "min_section_radius_inner": [
+    0.941,
+    {
+     "u": 0.99,
+     "t": 1.46,
+     "w": 2.89,
+     "n": 2.3
+    }
+   ],
+   "min_section_radius_outer": [
+    0.638,
+    {
+     "u": 0.99,
+     "t": 1.1,
+     "w": 2.54,
+     "n": 2.3
+    }
+   ]
+  },
+  "C": {
+   "inner": {
+    "max_convex_kappa": 0.7008,
+    "min_convex_radius": 1.427,
+    "at_local": [
+     -3.3,
+     0.0,
+     -71.91
+    ],
+    "at_u": 0.9987,
+    "radius_p01": 1.552,
+    "concave_min_kappa": -0.0004,
+    "min_radius_u0-0.05": 7.424,
+    "min_radius_u0.05-0.95": 2.072,
+    "min_radius_u0.95-1.0": 1.427
+   },
+   "outer": {
+    "max_convex_kappa": 1.1465,
+    "min_convex_radius": 0.872,
+    "at_local": [
+     -2.21,
+     -0.39,
+     -71.91
+    ],
+    "at_u": 0.9987,
+    "radius_p01": 1.022,
+    "concave_min_kappa": -0.0003,
+    "min_radius_u0-0.05": 4.017,
+    "min_radius_u0.05-0.95": 1.41,
+    "min_radius_u0.95-1.0": 0.872
+   }
+  }
+ },
+ "B3": {
+  "A": {
+   "outer": {
+    "max_abs_kappa": 0.2667,
+    "at_u": 0.99,
+    "min_radius_mm": 3.75,
+    "u": 0.02,
+    "d2_jump_fine": 0.02942,
+    "d2_jump_coarse": 0.11797,
+    "slope_jump_fine": 2.11646,
+    "slope_jump_at_u": 0.02
+   },
+   "inner": {
+    "max_abs_kappa": 0.2438,
+    "at_u": 0.99,
+    "min_radius_mm": 4.1,
+    "u": 0.0304,
+    "d2_jump_fine": 0.02108,
+    "d2_jump_coarse": 0.07238,
+    "slope_jump_fine": 3.29171,
+    "slope_jump_at_u": 0.02
+   },
+   "side_in": {
+    "max_abs_kappa": 0.1558,
+    "at_u": 0.99,
+    "min_radius_mm": 6.42,
+    "u": 0.02,
+    "d2_jump_fine": 0.03355,
+    "d2_jump_coarse": 0.13488,
+    "slope_jump_fine": 4.52596,
+    "slope_jump_at_u": 0.02
+   },
+   "side_out": {
+    "max_abs_kappa": 0.1574,
+    "at_u": 0.99,
+    "min_radius_mm": 6.35,
+    "u": 0.02,
+    "d2_jump_fine": 0.03355,
+    "d2_jump_coarse": 0.13488,
+    "slope_jump_fine": 4.52596,
+    "slope_jump_at_u": 0.02
+   },
+   "seam": {
+    "max_abs_kappa": 0.2976,
+    "at_u": 0.0144,
+    "min_radius_mm": 3.36,
+    "u": 0.0296,
+    "d2_jump_fine": 0.01931,
+    "d2_jump_coarse": 0.07352,
+    "slope_jump_fine": 0.32535,
+    "slope_jump_at_u": 0.028
+   },
+   "exponents": {
+    "n_in": [
+     2.2,
+     2.3
+    ],
+    "n_out": [
+     2.5,
+     4.8
+    ]
+   }
+  },
+  "B": {
+   "min_section_radius_inner": [
+    1.315,
+    {
+     "u": 0.99,
+     "t": 1.63,
+     "w": 2.11,
+     "n": 2.3
+    }
+   ],
+   "min_section_radius_outer": [
+    0.764,
+    {
+     "u": 0.99,
+     "t": 1.2,
+     "w": 2.46,
+     "n": 2.51
+    }
+   ]
+  },
+  "C": {
+   "inner": {
+    "max_convex_kappa": 0.6785,
+    "min_convex_radius": 1.474,
+    "at_local": [
+     -2.93,
+     -0.2,
+     -71.97
+    ],
+    "at_u": 0.9996,
+    "radius_p01": 2.135,
+    "concave_min_kappa": -0.0,
+    "min_radius_u0-0.05": 7.837,
+    "min_radius_u0.05-0.95": 3.265,
+    "min_radius_u0.95-1.0": 1.474
+   },
+   "outer": {
+    "max_convex_kappa": 1.0354,
+    "min_convex_radius": 0.966,
+    "at_local": [
+     -2.5,
+     -0.44,
+     -71.97
+    ],
+    "at_u": 0.9996,
+    "radius_p01": 1.295,
+    "concave_min_kappa": -0.0016,
+    "min_radius_u0-0.05": 3.866,
+    "min_radius_u0.05-0.95": 1.703,
+    "min_radius_u0.95-1.0": 0.966
+   }
+  }
+ }
+}

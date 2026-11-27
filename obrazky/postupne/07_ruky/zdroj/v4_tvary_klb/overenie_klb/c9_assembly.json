@@ -1,0 +1,14 @@
+{
+ "K1": {
+  "min_clearance_along_path": 0.3,
+  "at_offset": 0.0
+ },
+ "K3": {
+  "min_clearance_along_path": 0.3,
+  "at_offset": 0.0
+ },
+ "K3v": {
+  "min_clearance_along_path": 0.3,
+  "at_offset": 0.0
+ }
+}
